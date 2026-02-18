@@ -7,6 +7,7 @@ x-i18n:
   source_hash: fc8babf7885ef91d526795051376d928599c4cf8aff75400138a0d7d9fa3b75f
   source_path: index.md
   workflow: 15
+sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞

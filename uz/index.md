@@ -1,6 +1,7 @@
 ---
 title: "OpenClaw"
 description: "OpenClaw — AI agentlari uchun har qanday OS’da ishlaydigan ko‘p kanalli gateway."
+sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞

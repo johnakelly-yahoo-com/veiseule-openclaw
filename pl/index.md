@@ -1,5 +1,6 @@
 ---
 title: "OpenClaw"
+sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞

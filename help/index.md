@@ -1,5 +1,6 @@
 ---
 title: "Help"
+sidebarTitle: "OpenClaw"
 ---
 
 # Help

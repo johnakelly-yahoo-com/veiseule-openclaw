@@ -1,5 +1,6 @@
 ---
 title: "Tools"
+sidebarTitle: "OpenClaw"
 ---
 
 # Tools (OpenClaw)

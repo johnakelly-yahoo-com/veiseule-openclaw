@@ -1,5 +1,6 @@
 ---
 title: "Web"
+sidebarTitle: "OpenClaw"
 ---
 
 # Web (Gateway)

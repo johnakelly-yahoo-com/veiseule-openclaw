@@ -1,5 +1,6 @@
 ---
 title: "Nodes"
+sidebarTitle: "OpenClaw"
 ---
 
 # Nodes

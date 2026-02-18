@@ -1,5 +1,6 @@
 ---
 title: "CLI Reference"
+sidebarTitle: "OpenClaw"
 ---
 
 # CLI reference

@@ -1,5 +1,6 @@
 ---
 title: "OpenClaw"
+sidebarTitle: "OpenClaw"
 description: "OpenClaw is a multi-channel gateway for AI agents that runs on any OS."
 ---
 
