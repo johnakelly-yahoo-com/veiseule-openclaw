@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw node` အတွက် CLI ရည်ညွှန်းချက် (headless node host)"
-read_when:
-  - headless node host ကို လည်ပတ်နေစဉ်
-  - system.run အတွက် macOS မဟုတ်သော node ကို တွဲချိတ်နေစဉ်
 title: "node"
 ---
 

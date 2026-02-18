@@ -1,6 +1,4 @@
 ---
-summary: "إصلاح مشكلات بدء تشغيل CDP في Chrome/Brave/Edge/Chromium للتحكم بالمتصفح في OpenClaw على Linux"
-read_when: "يفشل التحكم بالمتصفح على Linux، خصوصًا مع Chromium بنظام snap"
 title: "استكشاف أخطاء المتصفح وإصلاحها"
 ---
 

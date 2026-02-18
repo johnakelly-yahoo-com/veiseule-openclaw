@@ -1,9 +1,4 @@
 ---
-summary: "„Gateway-Laufzeitumgebung unter macOS (externer launchd‑Dienst)“"
-read_when:
-  - „OpenClaw.app paketieren“
-  - „Den macOS‑Gateway‑launchd‑Dienst debuggen“
-  - „Die Gateway‑CLI für macOS installieren“
 title: "„Gateway unter macOS“"
 ---
 

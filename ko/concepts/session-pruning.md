@@ -1,9 +1,4 @@
----
-summary: "세션 프루닝: 컨텍스트 비대를 줄이기 위한 도구 결과 트리밍"
-read_when:
-  - 도구 출력으로 인한 LLM 컨텍스트 증가를 줄이고자 할 때
-  - agents.defaults.contextPruning 을 튜닝할 때
----
+------
 
 # Session Pruning
 

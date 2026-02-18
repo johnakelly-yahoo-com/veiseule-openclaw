@@ -1,8 +1,4 @@
 ---
-summary: "Referência da CLI para `openclaw reset` (redefine o estado/configuração local)"
-read_when:
-  - Você quer apagar o estado local mantendo a CLI instalada
-  - Você quer um dry-run do que seria removido
 title: "reset"
 ---
 

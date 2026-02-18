@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw üzerinden cihaz akışını kullanarak GitHub Copilot'a giriş yapın"
-read_when:
-  - GitHub Copilot'ı bir model sağlayıcı olarak kullanmak istiyorsunuz
-  - "`openclaw models auth login-github-copilot` akışına ihtiyacınız var"
 title: "GitHub Copilot"
 ---
 

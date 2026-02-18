@@ -1,5 +1,4 @@
 ---
-summary: Onboarding 向导参考：完整步骤、参数与配置字段
 title: 向导参考
 sidebarTitle: 向导参考
 ---

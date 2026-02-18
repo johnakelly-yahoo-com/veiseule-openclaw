@@ -1,7 +1,4 @@
 ---
-summary: "Công cụ phiên tác tử để liệt kê phiên, lấy lịch sử và gửi tin nhắn giữa các phiên"
-read_when:
-  - Thêm hoặc chỉnh sửa công cụ phiên
 title: "Công cụ Phiên"
 ---
 

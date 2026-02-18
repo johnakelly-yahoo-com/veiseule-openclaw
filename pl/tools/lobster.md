@@ -1,11 +1,6 @@
 ---
 title: Lobster
-summary: "„Typowany runtime przepływów pracy dla OpenClaw z wznawialnymi bramkami zatwierdzeń.”"
-description: "Silnik uruchomieniowy workflowów typowanych dla OpenClaw — kompozycyjne potoki z bramkami zatwierdzania."
-read_when:
-  - Chcesz deterministycznych, wieloetapowych przepływów pracy z jawnymi zatwierdzeniami
-  - Musisz wznowić przepływ pracy bez ponownego uruchamiania wcześniejszych kroków
----
+description: "Silnik uruchomieniowy workflowów typowanych dla OpenClaw — kompozycyjne potoki z bramkami zatwierdzania."---
 
 # Lobster
 

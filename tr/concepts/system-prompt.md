@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw sistem isteminin neleri içerdiği ve nasıl birleştirildiği"
-read_when:
-  - Sistem istemi metnini, araçlar listesini veya zaman/heartbeat bölümlerini düzenlerken
-  - Çalışma alanı önyüklemesi veya skills enjeksiyonu davranışını değiştirirken
 title: "Sistem İstemi"
 ---
 

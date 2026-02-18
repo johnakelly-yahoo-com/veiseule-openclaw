@@ -1,8 +1,4 @@
 ---
-summary: "โหมดTalk: การสนทนาด้วยเสียงอย่างต่อเนื่องพร้อม ElevenLabs TTS"
-read_when:
-  - การนำโหมดTalkไปใช้งานบน macOS/iOS/Android
-  - การเปลี่ยนพฤติกรรมเสียง/TTS/การขัดจังหวะ
 title: "โหมดTalk"
 ---
 

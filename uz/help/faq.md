@@ -1,5 +1,4 @@
 ---
-summary: "OpenClaw sozlash, konfiguratsiya va foydalanish bo‘yicha tez-tez beriladigan savollar"
 title: "FAQ"
 ---
 

@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 实现或更改 Bonjour 发现/广播
-  - 调整远程连接模式（直连 vs SSH）
-  - 设计远程节点的节点发现 + 配对
-summary: 用于发现 Gateway 网关的节点发现和传输协议（Bonjour、Tailscale、SSH）
 title: 设备发现 + 传输协议
 x-i18n:
   generated_at: "2026-02-03T10:06:11Z"

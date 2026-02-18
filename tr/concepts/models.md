@@ -1,9 +1,4 @@
 ---
-summary: "Models CLI: listele, ayarla, takma adlar, yedekler, tara, durum"
-read_when:
-  - Models CLI’yi eklerken veya değiştirirken (models list/set/scan/aliases/fallbacks)
-  - Model yedekleme davranışını veya seçim UX’ini değiştirirken
-  - Model tarama yoklamalarını güncellerken (araçlar/görseller)
 title: "Modeller CLI"
 ---
 

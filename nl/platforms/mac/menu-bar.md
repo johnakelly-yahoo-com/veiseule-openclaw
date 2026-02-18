@@ -1,7 +1,4 @@
 ---
-summary: "Statuslogica van de menubalk en wat aan gebruikers wordt getoond"
-read_when:
-  - Afstellen van de mac-menubalk-UI of statuslogica
 title: "Menubalk"
 ---
 

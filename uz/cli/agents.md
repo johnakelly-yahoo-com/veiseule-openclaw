@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw agents` uchun CLI ma’lumotnomasi (ro‘yxatlash/qo‘shish/o‘chirish/shaxsiyatni sozlash)"
-read_when:
-  - Sizga bir nechta izolyatsiyalangan agentlar kerak (ishchi muhitlar + marshrutlash + autentifikatsiya)
 title: "agents"
 ---
 

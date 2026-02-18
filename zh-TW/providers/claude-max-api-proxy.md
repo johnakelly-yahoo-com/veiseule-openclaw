@@ -1,9 +1,4 @@
 ---
-summary: "將 Claude Max/Pro 訂閱作為 OpenAI 相容的 API 端點使用"
-read_when:
-  - 你想要將 Claude Max 訂閱與 OpenAI 相容的工具一起使用
-  - 你想要一個包裝 Claude Code CLI 的本機 API 伺服器
-  - 你想要透過訂閱而非 API 金鑰來節省成本
 title: "Claude Max API Proxy"
 ---
 

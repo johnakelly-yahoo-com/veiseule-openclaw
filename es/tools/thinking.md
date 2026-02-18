@@ -1,7 +1,4 @@
 ---
-summary: "Sintaxis de directivas para /think + /verbose y cómo afectan el razonamiento del modelo"
-read_when:
-  - Ajustar el análisis de directivas de thinking o verbose o sus valores predeterminados
 title: "Niveles de Thinking"
 ---
 

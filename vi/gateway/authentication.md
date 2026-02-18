@@ -1,8 +1,4 @@
 ---
-summary: "Xác thực mô hình: OAuth, khóa API và setup-token"
-read_when:
-  - Gỡ lỗi xác thực mô hình hoặc hết hạn OAuth
-  - Tài liệu hóa xác thực hoặc lưu trữ thông tin xác thực
 title: "Xác thực"
 ---
 

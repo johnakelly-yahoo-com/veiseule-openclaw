@@ -1,7 +1,4 @@
 ---
-summary: "Cykl życia pętli agenta, strumienie i semantyka oczekiwania"
-read_when:
-  - Potrzebujesz dokładnego przejścia przez pętlę agenta lub zdarzenia cyklu życia
 title: "Pętla agenta"
 ---
 

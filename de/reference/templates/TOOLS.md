@@ -1,8 +1,4 @@
----
-summary: "„Workspace-Vorlage für TOOLS.md“"
-read_when:
-  - Manuelles Bootstrapping eines Workspace
----
+------
 
 # TOOLS.md – Lokale Notizen
 

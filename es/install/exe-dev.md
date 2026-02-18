@@ -1,8 +1,4 @@
 ---
-summary: "Ejecute OpenClaw Gateway en exe.dev (VM + proxy HTTPS) para acceso remoto"
-read_when:
-  - Desea un host Linux económico y siempre activo para el Gateway
-  - Desea acceso remoto a la Control UI sin ejecutar su propio VPS
 title: "exe.dev"
 ---
 

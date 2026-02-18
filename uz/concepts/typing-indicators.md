@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw typing indikatorlarini qachon ko‘rsatadi va ularni qanday sozlash mumkin"
-read_when:
-  - Typing indikatorlari xatti-harakatini yoki sukut bo‘yicha sozlamalarni o‘zgartirish
 title: "Typing indikatorlari"
 ---
 

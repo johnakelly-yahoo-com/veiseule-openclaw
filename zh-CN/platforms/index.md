@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 查找操作系统支持或安装路径时
-  - 决定在哪里运行 Gateway 网关时
-summary: 平台支持概述（Gateway 网关 + 配套应用）
 title: 平台
 x-i18n:
   generated_at: "2026-02-03T07:52:07Z"

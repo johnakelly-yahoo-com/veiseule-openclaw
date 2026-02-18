@@ -1,9 +1,4 @@
 ---
-summary: "Patakbuhin ang OpenClaw sa mga lokal na LLM (LM Studio, vLLM, LiteLLM, custom OpenAI endpoints)"
-read_when:
-  - Gusto mong mag-serve ng mga model mula sa sarili mong GPU box
-  - Ikino-konekta mo ang LM Studio o isang OpenAI-compatible proxy
-  - Kailangan mo ng pinakaligtas na gabay para sa lokal na model
 title: "Mga Lokal na Model"
 ---
 

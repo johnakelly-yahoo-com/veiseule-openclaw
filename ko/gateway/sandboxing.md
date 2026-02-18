@@ -1,7 +1,5 @@
 ---
-summary: "OpenClaw 샌드박스화가 작동하는 방식: 모드, 범위, 워크스페이스 접근, 이미지"
 title: "샌드박싱"
-read_when: "샌드박스화에 대한 전용 설명이 필요하거나 agents.defaults.sandbox 를 튜닝해야 할 때."
 status: active
 ---
 

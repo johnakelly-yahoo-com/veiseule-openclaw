@@ -1,8 +1,4 @@
 ---
-summary: "Uwierzytelnianie modeli: OAuth, klucze API i setup-token"
-read_when:
-  - Debugowanie uwierzytelniania modelu lub wygaśnięcia OAuth
-  - Dokumentowanie uwierzytelniania lub przechowywania poświadczeń
 title: "Uwierzytelnianie"
 ---
 

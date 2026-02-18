@@ -1,8 +1,4 @@
 ---
-summary: "Skills konfiguratsiyasi sxemasi va misollar"
-read_when:
-  - Skills konfiguratsiyasini qo‘shishda yoki o‘zgartirganda
-  - Bundled allowlist yoki o‘rnatish xatti-harakatini sozlaganda
 title: "Skills Konfiguratsiyasi"
 ---
 

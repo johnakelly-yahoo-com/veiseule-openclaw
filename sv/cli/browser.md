@@ -1,9 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw browser` (profiler, flikar, åtgärder, tilläggsrelä)"
-read_when:
-  - Du använder `openclaw browser` och vill ha exempel på vanliga uppgifter
-  - Du vill styra en webbläsare som körs på en annan maskin via en node host
-  - Du vill använda Chrome-tilläggsreläet (anslut/koppla från via verktygsfältsknappen)
 title: "browser"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Đăng nhập thủ công cho tự động hóa trình duyệt + đăng bài lên X/Twitter"
-read_when:
-  - Bạn cần đăng nhập vào các trang cho tự động hóa trình duyệt
-  - Bạn muốn đăng cập nhật lên X/Twitter
 title: "Đăng nhập trình duyệt"
 ---
 

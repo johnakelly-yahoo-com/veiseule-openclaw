@@ -1,9 +1,4 @@
 ---
-summary: "တည်တံ့ခိုင်မြဲသော state ဖြင့် GCP Compute Engine VM (Docker) ပေါ်တွင် OpenClaw Gateway ကို ၂၄/၇ လည်ပတ်စေခြင်း"
-read_when:
-  - GCP ပေါ်တွင် OpenClaw ကို ၂၄/၇ လည်ပတ်စေလိုပါက
-  - သင့်ကိုယ်ပိုင် VM ပေါ်တွင် production-grade၊ အမြဲတမ်းလည်ပတ်နေသော Gateway တစ်ခုလိုအပ်ပါက
-  - persistence၊ binaries နှင့် restart အပြုအမူများကို အပြည့်အဝ ထိန်းချုပ်လိုပါက
 title: "GCP"
 ---
 

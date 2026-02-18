@@ -1,9 +1,4 @@
 ---
-summary: "Cron jobs + cơ chế đánh thức cho bộ lập lịch Gateway"
-read_when:
-  - Lập lịch các tác vụ nền hoặc wakeup
-  - Kết nối tự động hóa cần chạy cùng hoặc song song với heartbeat
-  - Quyết định giữa heartbeat và cron cho các tác vụ theo lịch
 title: "Tác vụ Cron"
 ---
 

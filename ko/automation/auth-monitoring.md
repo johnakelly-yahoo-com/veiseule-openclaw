@@ -1,8 +1,4 @@
 ---
-summary: "모델 프로바이더의 OAuth 만료를 모니터링합니다"
-read_when:
-  - 인증 만료 모니터링 또는 알림을 설정할 때
-  - Claude Code / Codex OAuth 갱신 확인을 자동화할 때
 title: "인증 모니터링"
 ---
 

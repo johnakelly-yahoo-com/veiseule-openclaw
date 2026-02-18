@@ -1,7 +1,4 @@
 ---
-summary: "Ondersteuningsstatus, mogelijkheden en configuratie van Microsoft Teams-bots"
-read_when:
-  - Werken aan MS Teams-kanaalfuncties
 title: "Microsoft Teams"
 ---
 

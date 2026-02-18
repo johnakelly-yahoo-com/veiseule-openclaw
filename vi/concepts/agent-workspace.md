@@ -1,8 +1,4 @@
 ---
-summary: "Workspace của tác tử: vị trí, bố cục và chiến lược sao lưu"
-read_when:
-  - Bạn cần giải thích workspace của tác tử hoặc bố cục tệp của nó
-  - Bạn muốn sao lưu hoặc di chuyển workspace của tác tử
 title: "Workspace của tác tử"
 ---
 

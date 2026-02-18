@@ -1,5 +1,4 @@
 ---
-summary: "План: добавить эндпоинт OpenResponses /v1/responses и корректно вывести из эксплуатации chat completions"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"

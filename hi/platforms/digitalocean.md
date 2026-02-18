@@ -1,8 +1,4 @@
 ---
-summary: "DigitalOcean पर OpenClaw (सरल सशुल्क VPS विकल्प)"
-read_when:
-  - DigitalOcean पर OpenClaw सेटअप कर रहे हों
-  - OpenClaw के लिए सस्ता VPS होस्टिंग ढूँढ रहे हों
 title: "DigitalOcean"
 ---
 

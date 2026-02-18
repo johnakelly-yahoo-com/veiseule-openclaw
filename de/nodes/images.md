@@ -1,7 +1,4 @@
 ---
-summary: "„Regeln zur Bild- und Medienverarbeitung für Sendungen, Gateway- und Agent-Antworten“"
-read_when:
-  - Änderung der Medien-Pipeline oder von Anhängen
 title: "„Bild- und Medienunterstützung“"
 ---
 

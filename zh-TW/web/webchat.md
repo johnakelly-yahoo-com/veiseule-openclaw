@@ -1,7 +1,4 @@
 ---
-summary: "用於聊天 UI 的 Loopback WebChat 靜態主機與 Gateway WebSocket 使用方式"
-read_when:
-  - 偵錯或設定 WebChat 存取時
 title: "WebChat"
 ---
 

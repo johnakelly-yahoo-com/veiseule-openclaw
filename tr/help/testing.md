@@ -1,9 +1,4 @@
 ---
-summary: "Test kiti: unit/e2e/canlı paketler, Docker çalıştırıcıları ve her testin neleri kapsadığı"
-read_when:
-  - Testleri yerelde veya CI’da çalıştırırken
-  - Model/sağlayıcı hataları için regresyon eklerken
-  - 50. Gateway + ajan davranışını hata ayıklama
 title: "Testler"
 ---
 

@@ -1,8 +1,6 @@
 ---
 title: "3. Vitrin"
-description: "Topluluktan gerçek dünyada OpenClaw projeleri"
-summary: "OpenClaw tarafından desteklenen, topluluk tarafından geliştirilen projeler ve entegrasyonlar"
----
+description: "Topluluktan gerçek dünyada OpenClaw projeleri"---
 
 # 4. Vitrin
 

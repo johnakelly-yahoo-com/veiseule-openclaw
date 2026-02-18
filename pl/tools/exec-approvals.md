@@ -1,9 +1,4 @@
 ---
-summary: "Zatwierdzanie wykonania (exec), listy dozwolonych i monity wyjścia z sandboxa"
-read_when:
-  - Konfigurowanie zatwierdzania wykonania (exec) lub list dozwolonych
-  - Implementowanie UX zatwierdzania exec w aplikacji na macOS
-  - Przeglądanie monitów wyjścia z sandboxa i ich konsekwencji
 title: "Zatwierdzanie wykonania (Exec)"
 ---
 

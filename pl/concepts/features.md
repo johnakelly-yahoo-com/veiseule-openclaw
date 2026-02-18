@@ -1,7 +1,4 @@
 ---
-summary: "Możliwości OpenClaw w kanałach, routingu, mediach i UX."
-read_when:
-  - Chcesz uzyskać pełną listę obsługiwanych funkcji OpenClaw
 title: "Funkcje"
 ---
 

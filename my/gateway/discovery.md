@@ -1,9 +1,4 @@
 ---
-summary: "Gateway ကို ရှာဖွေရန် node discovery နှင့် transports (Bonjour, Tailscale, SSH)"
-read_when:
-  - Bonjour discovery/advertising ကို အကောင်အထည်ဖော်ခြင်း သို့မဟုတ် ပြောင်းလဲခြင်း
-  - အဝေးမှ ချိတ်ဆက်မှု မုဒ်များ (direct vs SSH) ကို ချိန်ညှိခြင်း
-  - အဝေးမှ node များအတွက် node discovery + pairing ကို ဒီဇိုင်းဆွဲခြင်း
 title: "Discovery နှင့် Transports"
 ---
 

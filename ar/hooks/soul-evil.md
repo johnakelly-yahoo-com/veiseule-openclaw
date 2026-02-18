@@ -1,8 +1,4 @@
 ---
-summary: "خطاف SOUL Evil (استبدال SOUL.md بـ SOUL_EVIL.md)"
-read_when:
-  - تريد تمكين خطاف SOUL Evil أو ضبطه
-  - تريد نافذة تطهير أو تبديل شخصية باحتمال عشوائي
 title: "خطاف SOUL Evil"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Plan : un SDK de plugins propre et un runtime pour tous les connecteurs de messagerie"
-read_when:
-  - Definition ou refactorisation de l’architecture des plugins
-  - Migration des connecteurs de canal vers le SDK/runtime de plugins
 title: "Refactorisation du SDK de plugins"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw health` için CLI başvurusu (RPC üzerinden Gateway sağlık uç noktası)"
-read_when:
-  - Çalışan Gateway’in sağlığını hızlıca kontrol etmek istediğinizde
 title: "sağlık"
 ---
 

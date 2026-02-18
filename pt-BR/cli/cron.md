@@ -1,8 +1,4 @@
 ---
-summary: "Referência da CLI para `openclaw cron` (agendar e executar jobs em segundo plano)"
-read_when:
-  - Você quer jobs e ativações agendadas
-  - Você está depurando a execução e os logs do cron
 title: "cron"
 ---
 

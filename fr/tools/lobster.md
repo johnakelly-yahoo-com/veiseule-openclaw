@@ -1,11 +1,6 @@
 ---
 title: Lobster
-summary: "Runtime de workflow typé pour OpenClaw avec des portes d’approbation reprenables."
-description: "Moteur d’exécution de workflows typé pour OpenClaw — pipelines composables avec des points d’approbation."
-read_when:
-  - Vous souhaitez des workflows déterministes en plusieurs étapes avec des approbations explicites
-  - Vous devez reprendre un workflow sans relancer les étapes précédentes
----
+description: "Moteur d’exécution de workflows typé pour OpenClaw — pipelines composables avec des points d’approbation."---
 
 # Lobster
 

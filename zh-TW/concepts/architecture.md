@@ -1,7 +1,4 @@
 ---
-summary: "WebSocket Gateway 閘道器架構、元件與客戶端流程"
-read_when:
-  - 在處理 Gateway 閘道器協定、客戶端或傳輸時
 title: "Gateway 閘道器架構"
 ---
 

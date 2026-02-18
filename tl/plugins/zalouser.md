@@ -1,8 +1,4 @@
 ---
-summary: "Zalo Personal plugin: QR login + pagmemensahe sa pamamagitan ng zca-cli (pag-install ng plugin + config ng channel + CLI + tool)"
-read_when:
-  - Gusto mo ng Zalo Personal (unofficial) na suporta sa OpenClaw
-  - Kinokonpigure o dine-develop mo ang zalouser plugin
 title: "Zalo Personal Plugin"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Lifecycle ng voice overlay kapag nagsasapawan ang wake-word at push-to-talk"
-read_when:
-  - Inaayos ang gawi ng voice overlay
 title: "Voice Overlay"
 ---
 

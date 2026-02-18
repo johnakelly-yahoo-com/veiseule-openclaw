@@ -1,9 +1,4 @@
 ---
-summary: "CLI de modelos: listar, establecer, alias, alternativas, escanear, estado"
-read_when:
-  - Agregar o modificar la CLI de modelos (models list/set/scan/aliases/fallbacks)
-  - Cambiar el comportamiento de alternativas de modelos o la UX de selección
-  - Actualizar sondeos de escaneo de modelos (herramientas/imágenes)
 title: "CLI de modelos"
 ---
 

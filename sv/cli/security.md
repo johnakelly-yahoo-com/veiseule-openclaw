@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw security` (granska och åtgärda vanliga säkerhetsfallgropar)"
-read_when:
-  - Du vill köra en snabb säkerhetsgranskning av konfig/tillstånd
-  - Du vill tillämpa säkra ”fix”-förslag (chmod, skärpa standardinställningar)
 title: "säkerhet"
 ---
 

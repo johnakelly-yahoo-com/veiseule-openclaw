@@ -1,7 +1,4 @@
 ---
-summary: "Projektets oprindelse, bidragydere og licens."
-read_when:
-  - Du vil kende projektets baggrund eller bidragyder-kreditter
 title: "Anerkendelser"
 ---
 

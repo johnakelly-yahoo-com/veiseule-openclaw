@@ -1,8 +1,4 @@
 ---
-summary: "Context window + compaction: paano pinananatili ng OpenClaw ang mga session sa loob ng limitasyon ng model"
-read_when:
-  - Gusto mong maunawaan ang auto-compaction at /compact
-  - Nagde-debug ka ng mahahabang session na tumatama sa mga limitasyon ng context
 title: "Kompaksiyon"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Referencia de la CLI para `openclaw pairing` (aprobar/listar solicitudes de emparejamiento)"
-read_when:
-  - Está usando mensajes directos en modo de emparejamiento y necesita aprobar remitentes
 title: "emparejamiento"
 ---
 

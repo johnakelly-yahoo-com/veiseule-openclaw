@@ -1,7 +1,4 @@
 ---
-summary: "การผสานรวม Telegram Bot API ผ่าน grammY พร้อมหมายเหตุการตั้งค่า"
-read_when:
-  - กำลังทำงานกับเส้นทาง Telegram หรือ grammY
 title: grammY
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Overzicht van modelproviders met voorbeeldconfiguraties + CLI-flows"
-read_when:
-  - Je hebt een provider-voor-provider referentie voor modelinstallatie nodig
-  - Je wilt voorbeeldconfiguraties of CLI-onboardingopdrachten voor modelproviders
 title: "Modelproviders"
 ---
 

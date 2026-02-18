@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw（macOS アプリ）の初回オンボーディングフロー"
-read_when:
-  - macOS オンボーディングアシスタントの設計時
-  - 認証または ID セットアップの実装時
 title: "オンボーディング（macOS アプリ）"
 sidebarTitle: "オンボーディング：macOSアプリ"
 ---

@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw logs` için CLI referansı (Gateway loglarını RPC üzerinden izleme)"
-read_when:
-  - SSH olmadan Gateway loglarını uzaktan izlemek istediğinizde
-  - Araçlar için JSON log satırlarına ihtiyaç duyduğunuzda
 title: "loglar"
 ---
 

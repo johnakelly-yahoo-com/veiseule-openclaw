@@ -1,7 +1,4 @@
 ---
-summary: "Sintaks ng directive para sa /think + /verbose at kung paano nila naaapektuhan ang pangangatwiran ng model"
-read_when:
-  - Ina-adjust ang pag-parse o mga default ng thinking o verbose directive
 title: "Mga Antas ng Pag-iisip"
 ---
 

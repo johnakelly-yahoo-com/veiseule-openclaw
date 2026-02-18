@@ -1,7 +1,4 @@
 ---
-summary: "Sådan kører du tests lokalt (vitest), og hvornår du skal bruge force-/coverage-tilstande"
-read_when:
-  - Kørsel eller rettelse af tests
 title: "Tests"
 ---
 

@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 编辑系统提示词文本、工具列表或时间/心跳部分
-  - 更改工作区引导或 Skills 注入行为
-summary: OpenClaw 系统提示词包含的内容及其组装方式
 title: 系统提示词
 x-i18n:
   generated_at: "2026-02-03T07:46:58Z"

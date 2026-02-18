@@ -1,8 +1,4 @@
 ---
-summary: "Nostr DM channel via NIP-04 encrypted messages"
-read_when:
-  - You want OpenClaw to receive DMs via Nostr
-  - You're setting up decentralized messaging
 title: "Nostr"
 ---
 

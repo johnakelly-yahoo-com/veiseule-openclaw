@@ -1,8 +1,4 @@
 ---
-summary: "Gateway, kanallar, avtomatlashtirish, tugunlar va brauzer uchun chuqur nosozliklarni bartaraf etish qoʻllanmasi"
-read_when:
-  - The troubleshooting hub pointed you here for deeper diagnosis
-  - 15. Sizga aniq buyruqlar bilan barqaror, simptomga asoslangan runbook bo‘limlari kerak
 title: "Nosozliklarni bartaraf etish"
 ---
 

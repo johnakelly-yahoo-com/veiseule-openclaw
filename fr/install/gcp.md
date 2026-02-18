@@ -1,9 +1,4 @@
 ---
-summary: "Exécutez OpenClaw Gateway 24/7 sur une VM GCP Compute Engine (Docker) avec un état persistant"
-read_when:
-  - Vous souhaitez qu’OpenClaw fonctionne 24/7 sur GCP
-  - Vous voulez une Gateway (passerelle) toujours active, de niveau production, sur votre propre VM
-  - Vous voulez un contrôle total sur la persistance, les binaires et le comportement au redémarrage
 title: "GCP"
 ---
 

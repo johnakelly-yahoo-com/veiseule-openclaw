@@ -1,9 +1,4 @@
 ---
-summary: "Guidance for choosing between heartbeat and cron jobs for automation"
-read_when:
-  - Deciding how to schedule recurring tasks
-  - Setting up background monitoring or notifications
-  - Optimizing token usage for periodic checks
 title: "Cron vs Heartbeat"
 ---
 

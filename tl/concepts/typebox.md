@@ -1,7 +1,4 @@
 ---
-summary: "Mga TypeBox schema bilang iisang pinanggagalingan ng katotohanan para sa Gateway protocol"
-read_when:
-  - Pag-a-update ng mga protocol schema o codegen
 title: "TypeBox"
 ---
 

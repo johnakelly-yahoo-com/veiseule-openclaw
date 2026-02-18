@@ -1,8 +1,4 @@
 ---
-summary: "Hooki: automatyzacja sterowana zdarzeniami dla poleceń i zdarzeń cyklu życia"
-read_when:
-  - Chcesz automatyzacji sterowanej zdarzeniami dla /new, /reset, /stop oraz zdarzeń cyklu życia agenta
-  - Chcesz tworzyć, instalować lub debugować hooki
 title: "Hooki"
 ---
 

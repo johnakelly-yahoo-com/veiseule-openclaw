@@ -1,9 +1,4 @@
 ---
-summary: "web_fetch کے لیے Firecrawl فال بیک (اینٹی بوٹ + کیشڈ استخراج)"
-read_when:
-  - آپ Firecrawl پر مبنی ویب استخراج چاہتے ہیں
-  - آپ کو Firecrawl API کلید درکار ہے
-  - آپ web_fetch کے لیے اینٹی بوٹ استخراج چاہتے ہیں
 title: "Firecrawl"
 ---
 

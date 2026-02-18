@@ -1,7 +1,4 @@
 ---
-summary: "Oturumları listeleme, geçmişi alma ve oturumlar arası mesaj gönderme için ajan oturum araçları"
-read_when:
-  - Oturum araçları eklerken veya değiştirirken
 title: "Oturum Araçları"
 ---
 

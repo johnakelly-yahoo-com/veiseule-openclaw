@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw-logning: rullende diagnostikfillog + privatlivsflag i unified logging"
-read_when:
-  - Indsamling af macOS-logs eller undersøgelse af logning af private data
-  - Fejlfinding af problemer med voice wake/session-livscyklus
 title: "macOS-logning"
 ---
 

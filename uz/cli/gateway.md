@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw Gateway CLI (`openclaw gateway`) — gatewaylarni ishga tushirish, so‘rov yuborish va topish"
-read_when:
-  - Gateway’ni CLI orqali ishga tushirganda (dev yoki serverlarda)
-  - Gateway autentifikatsiyasi, bind rejimlari va ulanishni nosozliklarini tuzatishda
-  - Bonjour orqali gatewaylarni topishda (LAN + tailnet)
 title: "gateway"
 ---
 

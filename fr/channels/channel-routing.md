@@ -1,7 +1,4 @@
 ---
-summary: "Règles de routage par canal (WhatsApp, Telegram, Discord, Slack) et contexte partagé"
-read_when:
-  - Modification du routage des canaux ou du comportement des boîtes de réception
 title: "Routage des canaux"
 ---
 

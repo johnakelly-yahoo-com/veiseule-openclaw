@@ -1,8 +1,4 @@
 ---
-summary: "Hur OpenClaw bygger promptkontext och rapporterar tokenanvändning + kostnader"
-read_when:
-  - När du förklarar tokenanvändning, kostnader eller kontextfönster
-  - Vid felsökning av kontexttillväxt eller kompakteringsbeteende
 title: "Tokenanvändning och kostnader"
 ---
 

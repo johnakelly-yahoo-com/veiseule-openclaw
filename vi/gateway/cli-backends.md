@@ -1,9 +1,4 @@
 ---
-summary: "Backend CLI: phương án dự phòng chỉ văn bản qua các CLI AI cục bộ"
-read_when:
-  - Bạn muốn một phương án dự phòng đáng tin cậy khi các nhà cung cấp API gặp sự cố
-  - Bạn đang chạy Claude Code CLI hoặc các CLI AI cục bộ khác và muốn tái sử dụng chúng
-  - Bạn cần một luồng chỉ văn bản, không dùng công cụ nhưng vẫn hỗ trợ phiên và hình ảnh
 title: "Backend CLI"
 ---
 

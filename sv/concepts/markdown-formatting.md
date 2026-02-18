@@ -1,9 +1,4 @@
 ---
-summary: "Markdown-formateringspipeline för utgående kanaler"
-read_when:
-  - Du ändrar Markdown-formatering eller chunking för utgående kanaler
-  - Du lägger till en ny kanalformatterare eller stilmappning
-  - Du felsöker formateringsregressioner mellan kanaler
 title: "Markdown-formatering"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Integración de WhatsApp (canal web): inicio de sesión, bandeja de entrada, respuestas, medios y operaciones"
-read_when:
-  - Al trabajar en el comportamiento del canal WhatsApp/web o el enrutamiento de la bandeja de entrada
 title: "WhatsApp"
 ---
 

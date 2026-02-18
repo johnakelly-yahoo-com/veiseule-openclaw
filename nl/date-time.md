@@ -1,8 +1,4 @@
 ---
-summary: "Datum- en tijdafhandeling over enveloppen, prompts, tools en connectors"
-read_when:
-  - Je wijzigt hoe tijdstempels aan het model of gebruikers worden getoond
-  - Je debugt tijdopmaak in berichten of uitvoer van de systeemprompt
 title: "Datum en tijd"
 ---
 

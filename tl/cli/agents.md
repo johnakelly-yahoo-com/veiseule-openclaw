@@ -1,7 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw agents` (list/add/delete/set identity)"
-read_when:
-  - Gusto mo ng maraming hiwalay na agent (mga workspace + routing + auth)
 title: "agents"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "”PeekabooBridge‑integration för macOS‑UI‑automatisering”"
-read_when:
-  - ”Värd för PeekabooBridge i OpenClaw.app”
-  - ”Integrera Peekaboo via Swift Package Manager”
-  - ”Ändra PeekabooBridge‑protokoll/sökvägar”
 title: "”Peekaboo Bridge”"
 ---
 

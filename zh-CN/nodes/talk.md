@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 在 macOS/iOS/Android 上实现 Talk 模式
-  - 更改语音/TTS/中断行为
-summary: Talk 模式：使用 ElevenLabs TTS 进行连续语音对话
 title: Talk 模式
 x-i18n:
   generated_at: "2026-02-03T10:07:59Z"

@@ -1,8 +1,4 @@
 ---
-summary: "웨이크 및 격리된 에이전트 실행을 위한 Webhook 인그레스"
-read_when:
-  - Webhook 엔드포인트 추가 또는 변경 시
-  - 외부 시스템을 OpenClaw 에 연결할 때
 title: "Webhooks"
 ---
 

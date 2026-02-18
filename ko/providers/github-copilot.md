@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw 에서 디바이스 플로우를 사용해 GitHub Copilot 에 로그인합니다"
-read_when:
-  - GitHub Copilot 을 모델 프로바이더로 사용하려는 경우
-  - "`openclaw models auth login-github-copilot` 플로우가 필요한 경우"
 title: "GitHub Copilot"
 ---
 

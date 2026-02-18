@@ -1,8 +1,4 @@
 ---
-summary: "Uruchamianie wielu Gateway OpenClaw na jednym hoście (izolacja, porty i profile)"
-read_when:
-  - Uruchamianie więcej niż jednego Gateway na tej samej maszynie
-  - Potrzebujesz izolowanych konfiguracji/stanu/portów dla każdego Gateway
 title: "Wiele Gateway"
 ---
 

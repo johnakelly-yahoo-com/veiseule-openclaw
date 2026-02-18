@@ -1,9 +1,4 @@
 ---
-summary: "Plan de refactorización: enrutamiento del host de exec, aprobaciones de nodos y runner sin interfaz"
-read_when:
-  - Al diseñar el enrutamiento del host de exec o aprobaciones de exec
-  - Al implementar el runner de nodos + IPC de la UI
-  - Al agregar modos de seguridad del host de exec y comandos slash
 title: "Refactorización del Host de Exec"
 ---
 

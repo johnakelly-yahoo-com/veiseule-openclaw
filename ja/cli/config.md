@@ -1,7 +1,4 @@
 ---
-summary: "CLI 参照: `openclaw config` による設定値の取得／設定／解除"
-read_when:
-  - 設定を非対話的に読み取りまたは編集したい場合
 title: "設定"
 ---
 

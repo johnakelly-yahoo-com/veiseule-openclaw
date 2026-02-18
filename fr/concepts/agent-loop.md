@@ -1,7 +1,4 @@
 ---
-summary: "Cycle de vie de la boucle d’agent, flux et semantique d’attente"
-read_when:
-  - Vous avez besoin d’un parcours exact de la boucle d’agent ou des evenements de cycle de vie
 title: "Boucle d’agent"
 ---
 

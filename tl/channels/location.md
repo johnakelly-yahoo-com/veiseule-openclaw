@@ -1,8 +1,4 @@
 ---
-summary: "Pag-parse ng lokasyon ng inbound channel (Telegram + WhatsApp) at mga field ng konteksto"
-read_when:
-  - Pagdaragdag o pagbabago ng pag-parse ng lokasyon ng channel
-  - Paggamit ng mga field ng konteksto ng lokasyon sa mga prompt o tool ng agent
 title: "Pag-parse ng Lokasyon ng Channel"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "一般的な OpenClaw セットアップ向けのスキーマに準拠した設定例"
-read_when:
-  - OpenClaw の設定方法を学ぶとき
-  - 設定例を探しているとき
-  - OpenClaw を初めてセットアップするとき
 title: "設定例"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Dépannage rapide du niveau du canal avec les signatures d'échec par canal et corrections"
-read_when:
-  - Un canal se connecte mais les messages ne circulent pas
-  - Vous avez besoin de vérifications spécifiques au canal avant la documentation du fournisseur profond
 title: "Depannage des canaux"
 ---
 

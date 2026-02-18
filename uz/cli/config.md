@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw config` uchun CLI ma’lumotnomasi (config qiymatlarini olish/o‘rnatish/o‘chirish)"
-read_when:
-  - Konfiguratsiyani interaktiv bo‘lmagan usulda o‘qish yoki tahrirlashni xohlaysiz
 title: "config"
 ---
 

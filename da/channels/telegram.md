@@ -1,7 +1,4 @@
 ---
-summary: "Status for Telegram-bot, funktioner og konfiguration"
-read_when:
-  - Arbejder med Telegram-funktioner eller webhooks
 title: "Telegram"
 ---
 

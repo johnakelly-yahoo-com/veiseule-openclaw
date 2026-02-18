@@ -1,8 +1,4 @@
 ---
-summary: "Справка CLI для `openclaw nodes` (list/status/approve/invoke, camera/canvas/screen)"
-read_when:
-  - Вы управляете сопряжёнными узлами (камерами, экраном, холстом)
-  - Вам нужно одобрять запросы или вызывать команды узлов
 title: "узлы"
 ---
 

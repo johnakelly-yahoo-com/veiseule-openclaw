@@ -1,7 +1,5 @@
 ---
 title: CLI de la sandbox
-summary: "Gérer les conteneurs de sandbox et inspecter la politique de sandbox effective"
-read_when: "Vous gérez des conteneurs de sandbox ou déboguez le comportement de la sandbox ou des politiques d’outils."
 status: active
 ---
 

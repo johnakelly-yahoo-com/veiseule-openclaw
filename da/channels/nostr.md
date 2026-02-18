@@ -1,8 +1,4 @@
 ---
-summary: "Nostr DM-kanal via NIP-04-krypterede beskeder"
-read_when:
-  - Du vil have OpenClaw til at modtage DM'er via Nostr
-  - Du er ved at opsætte decentraliseret messaging
 title: "Nostr"
 ---
 

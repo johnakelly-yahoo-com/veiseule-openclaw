@@ -1,7 +1,4 @@
 ---
-summary: "Acesso remoto usando túneis SSH (Gateway WS) e tailnets"
-read_when:
-  - Ao executar ou solucionar problemas de configurações remotas do gateway
 title: "Acesso remoto"
 ---
 

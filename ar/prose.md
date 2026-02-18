@@ -1,9 +1,4 @@
 ---
-summary: "OpenProse: سير عمل ‎.prose‎، أوامر الشرطة المائلة، والحالة في OpenClaw"
-read_when:
-  - تريد تشغيل أو كتابة سير عمل ‎.prose‎
-  - تريد تمكين إضافة OpenProse
-  - تحتاج إلى فهم تخزين الحالة
 title: "OpenProse"
 ---
 

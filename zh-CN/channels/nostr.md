@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你希望 OpenClaw 通过 Nostr 接收私信
-  - 你正在设置去中心化消息
-summary: 通过 NIP-04 加密消息的 Nostr 私信渠道
 title: Nostr
 x-i18n:
   generated_at: "2026-02-03T07:44:13Z"

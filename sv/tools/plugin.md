@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw‑plugins/tillägg: upptäckt, konfiguration och säkerhet"
-read_when:
-  - När du lägger till eller ändrar plugins/tillägg
-  - När du dokumenterar regler för plugin‑installation eller inläsning
 title: "Pluginer"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Hoe de mac-app de Gateway WebChat insluit en hoe je deze kunt debuggen"
-read_when:
-  - Debuggen van de mac WebChat-weergave of local loopback-poort
 title: "WebChat"
 ---
 

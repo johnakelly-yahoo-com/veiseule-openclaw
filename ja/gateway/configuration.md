@@ -1,7 +1,4 @@
 ---
-summary: "〜/.openclaw/openclaw.json のすべての設定オプションを例付きで説明します"
-read_when:
-  - 設定フィールドを追加または変更する場合
 title: "設定"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "CLI 参照：`openclaw approvals`（ゲートウェイまたはノード ホスト向けの実行承認）"
-read_when:
-  - CLI から実行承認を編集したい場合
-  - ゲートウェイまたはノード ホスト上の許可リストを管理する必要がある場合
 title: "approvals"
 ---
 

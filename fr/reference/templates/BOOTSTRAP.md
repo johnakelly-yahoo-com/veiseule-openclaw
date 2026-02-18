@@ -1,8 +1,4 @@
----
-summary: "Rituel de premier lancement pour les nouveaux agents"
-read_when:
-  - Démarrage manuel d’un espace de travail
----
+------
 
 # BOOTSTRAP.md - Bonjour, le monde
 

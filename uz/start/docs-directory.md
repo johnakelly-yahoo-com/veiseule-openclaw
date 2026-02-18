@@ -1,7 +1,4 @@
 ---
-summary: "18. Eng ko‘p ishlatiladigan OpenClaw hujjatlariga tanlab olingan havolalar."
-read_when:
-  - 19. Asosiy hujjat sahifalariga tezkor kirishni xohlaysiz
 title: "20. Hujjatlar katalogi"
 ---
 

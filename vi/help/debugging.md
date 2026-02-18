@@ -1,9 +1,4 @@
 ---
-summary: "Công cụ gỡ lỗi: chế độ theo dõi, luồng mô hình thô và truy vết rò rỉ lập luận"
-read_when:
-  - Bạn cần kiểm tra đầu ra mô hình thô để phát hiện rò rỉ lập luận
-  - Bạn muốn chạy Gateway ở chế độ theo dõi khi lặp lại chỉnh sửa
-  - Bạn cần một quy trình gỡ lỗi có thể lặp lại
 title: "Gỡ lỗi"
 ---
 

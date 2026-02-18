@@ -1,8 +1,4 @@
 ---
-summary: "gateway, kanallar, otomasyon, düğümler ve tarayıcı için derinlemesine sorun giderme runbook'u"
-read_when:
-  - Sorun giderme merkezi sizi daha derin teşhis için buraya yönlendirdiyse
-  - Kesin komutlarla kararlı, belirtiye dayalı runbook bölümlerine ihtiyacınız varsa
 title: "Sorun Giderme"
 ---
 

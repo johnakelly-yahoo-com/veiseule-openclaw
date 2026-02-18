@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw 를 위한 선택적 Docker 기반 설정 및 온보딩"
-read_when:
-  - 로컬 설치 대신 컨테이너화된 게이트웨이를 원할 때
-  - Docker 플로우를 검증하고 있을 때
 title: "Docker"
 ---
 

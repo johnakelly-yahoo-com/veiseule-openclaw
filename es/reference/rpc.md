@@ -1,8 +1,4 @@
 ---
-summary: "Adaptadores RPC para CLIs externas (signal-cli, imsg legado) y patrones de Gateway"
-read_when:
-  - Al agregar o cambiar integraciones de CLI externas
-  - Al depurar adaptadores RPC (signal-cli, imsg)
 title: "Adaptadores RPC"
 ---
 

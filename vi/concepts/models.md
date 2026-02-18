@@ -1,9 +1,4 @@
 ---
-summary: "Models CLI: liệt kê, đặt, bí danh, dự phòng, quét, trạng thái"
-read_when:
-  - Thêm hoặc chỉnh sửa Models CLI (models list/set/scan/aliases/fallbacks)
-  - Thay đổi hành vi dự phòng mô hình hoặc UX chọn mô hình
-  - Cập nhật các probe quét mô hình (tools/images)
 title: "CLI cho mô hình"
 ---
 

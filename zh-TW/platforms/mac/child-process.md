@@ -1,7 +1,4 @@
 ---
-summary: "macOS 上的 Gateway 生命週期（launchd）"
-read_when:
-  - 整合 mac 應用程式與 Gateway 生命週期
 title: "Gateway 生命週期"
 ---
 

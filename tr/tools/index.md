@@ -1,8 +1,4 @@
 ---
-summary: "Eski `openclaw-*` skills’lerin yerini alan OpenClaw için ajan araç yüzeyi (tarayıcı, canvas, düğümler, mesaj, cron)"
-read_when:
-  - Ajan araçlarını eklerken veya değiştirirken
-  - "`openclaw-*` skills’leri emekliye ayırırken veya değiştirirken"
 title: "Araçlar"
 ---
 

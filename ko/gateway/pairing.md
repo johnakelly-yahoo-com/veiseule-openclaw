@@ -1,9 +1,4 @@
 ---
-summary: "iOS 및 기타 원격 노드를 위한 Gateway 소유 노드 페어링 (옵션 B)"
-read_when:
-  - macOS UI 없이 노드 페어링 승인 구현
-  - 원격 노드 승인용 CLI 흐름 추가
-  - 노드 관리를 포함하도록 게이트웨이 프로토콜 확장
 title: "Gateway 소유 페어링"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Statuslogik for menulinjen og hvad der vises for brugere"
-read_when:
-  - Justering af mac-menulinjens UI eller statuslogik
 title: "Menulinje"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw 可連接的即時通訊平台"
-read_when:
-  - 你想為 OpenClaw 選擇一個聊天頻道
-  - 你需要快速概覽支援的即時通訊平台
 title: "聊天頻道"
 ---
 

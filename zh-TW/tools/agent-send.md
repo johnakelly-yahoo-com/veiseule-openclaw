@@ -1,7 +1,4 @@
 ---
-summary: "直接執行 `openclaw agent` CLI（可選擇是否傳送）"
-read_when:
-  - 新增或修改 agent CLI 進入點
 title: "Agent 傳送"
 ---
 

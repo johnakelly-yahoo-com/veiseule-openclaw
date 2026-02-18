@@ -1,8 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw tui` (interface utilisateur terminale connectee a la Gateway (passerelle))"
-read_when:
-  - Vous souhaitez une interface utilisateur terminale pour la Gateway (passerelle) (adaptée a l'acces a distance)
-  - Vous souhaitez transmettre url/token/session depuis des scripts
 title: "tui"
 ---
 

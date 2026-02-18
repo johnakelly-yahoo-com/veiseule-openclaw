@@ -1,8 +1,4 @@
 ---
-summary: "在 OpenClaw 中透過 API 金鑰或 setup-token 使用 Anthropic Claude"
-read_when:
-  - 你想在 OpenClaw 中使用 Anthropic 模型
-  - 你想使用 setup-token 而非 API 金鑰
 title: "Anthropic"
 ---
 

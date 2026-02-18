@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想从浏览器操作 Gateway 网关
-  - 你想要无需 SSH 隧道的 Tailnet 访问
-summary: Gateway 网关的浏览器控制 UI（聊天、节点、配置）
 title: 控制 UI
 x-i18n:
   generated_at: "2026-02-03T10:13:20Z"

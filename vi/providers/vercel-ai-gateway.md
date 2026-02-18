@@ -1,10 +1,5 @@
 ---
-title: "Vercel AI Gateway"
-summary: "Thiết lập Vercel AI Gateway (xác thực + chọn mô hình)"
-read_when:
-  - Bạn muốn dùng Vercel AI Gateway với OpenClaw
-  - Bạn cần biến môi trường khóa API hoặc lựa chọn xác thực bằng CLI
----
+title: "Vercel AI Gateway"---
 
 # Vercel AI Gateway
 

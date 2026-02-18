@@ -1,8 +1,4 @@
 ---
-summary: "Tổng quan hỗ trợ nền tảng (Gateway + ứng dụng đồng hành)"
-read_when:
-  - Tìm hỗ trợ hệ điều hành hoặc đường dẫn cài đặt
-  - Quyết định nơi chạy Gateway
 title: "Nền tảng"
 ---
 

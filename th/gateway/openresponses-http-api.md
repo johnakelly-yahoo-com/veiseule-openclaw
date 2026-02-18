@@ -1,8 +1,4 @@
 ---
-summary: "เปิดเผยเอ็นด์พอยต์ HTTP /v1/responses ที่เข้ากันได้กับ OpenResponses จาก Gateway"
-read_when:
-  - ผสานรวมไคลเอนต์ที่ใช้ OpenResponses API
-  - คุณต้องการอินพุตแบบอิงไอเท็ม การเรียกเครื่องมือฝั่งไคลเอนต์ หรืออีเวนต์ SSE
 title: "OpenResponses API"
 ---
 

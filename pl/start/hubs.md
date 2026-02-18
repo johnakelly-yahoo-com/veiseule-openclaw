@@ -1,7 +1,4 @@
 ---
-summary: "Huby prowadzące do każdej dokumentacji OpenClaw"
-read_when:
-  - Chcesz uzyskać kompletną mapę dokumentacji
 title: "Huby dokumentacji"
 ---
 

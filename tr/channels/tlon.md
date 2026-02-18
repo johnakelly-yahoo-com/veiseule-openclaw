@@ -1,7 +1,4 @@
 ---
-summary: "Tlon/Urbit destek durumu, yetenekler ve yapılandırma"
-read_when:
-  - Tlon/Urbit kanal özellikleri üzerinde çalışırken
 title: "Tlon"
 ---
 

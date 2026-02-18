@@ -1,8 +1,4 @@
----
-summary: "Modelo de workspace para HEARTBEAT.md"
-read_when:
-  - Inicialização manual de um workspace
----
+------
 
 # HEARTBEAT.md
 

@@ -1,5 +1,4 @@
 ---
-summary: "Issues en bugrapporten met hoge signaalwaarde indienen"
 title: "Een issue indienen"
 ---
 

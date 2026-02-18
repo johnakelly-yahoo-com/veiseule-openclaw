@@ -1,8 +1,4 @@
 ---
-summary: "Konfiguracja bota Mattermost i konfiguracja OpenClaw"
-read_when:
-  - Konfiguracja Mattermost
-  - Debugowanie routingu Mattermost
 title: "Mattermost"
 ---
 

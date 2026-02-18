@@ -1,8 +1,4 @@
 ---
-summary: "Mag-apply ng mga multi-file patch gamit ang apply_patch tool"
-read_when:
-  - Kailangan mo ng structured na pag-edit ng file sa maraming file
-  - Gusto mong idokumento o i-debug ang mga edit na nakabatay sa patch
 title: "apply_patch Tool"
 ---
 

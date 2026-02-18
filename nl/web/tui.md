@@ -1,8 +1,4 @@
 ---
-summary: "Terminal-UI (TUI): maak verbinding met de Gateway vanaf elke machine"
-read_when:
-  - Je wilt een beginnersvriendelijke walkthrough van de TUI
-  - Je hebt de volledige lijst met TUI-functies, -opdrachten en -sneltoetsen nodig
 title: "TUI"
 ---
 

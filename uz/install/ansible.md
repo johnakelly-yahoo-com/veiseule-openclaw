@@ -1,9 +1,4 @@
 ---
-summary: "Ansible, Tailscale VPN va firewall izolyatsiyasi bilan avtomatlashtirilgan, mustahkamlangan OpenClaw o‘rnatilishi"
-read_when:
-  - Siz xavfsizlikni kuchaytirgan holda serverni avtomatik joylashtirmoqchisiz
-  - Sizga VPN orqali kirish imkoniga ega, firewall bilan izolyatsiyalangan sozlama kerak
-  - Siz masofaviy Debian/Ubuntu serverlariga joylashtiryapsiz
 title: "Ansible"
 ---
 

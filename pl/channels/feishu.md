@@ -1,8 +1,4 @@
 ---
-summary: "Przegląd bota Feishu, funkcje i konfiguracja"
-read_when:
-  - Chcesz podłączyć bota Feishu/Lark
-  - Konfigurujesz kanał Feishu
 title: Feishu
 ---
 

@@ -1,5 +1,4 @@
 ---
-summary: "Cách gửi một PR có tín hiệu cao"
 title: "Gửi PR"
 ---
 

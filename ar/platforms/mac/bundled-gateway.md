@@ -1,9 +1,4 @@
 ---
-summary: "بيئة تشغيل Gateway على macOS (خدمة launchd خارجية)"
-read_when:
-  - حزم OpenClaw.app
-  - تصحيح أخطاء خدمة launchd الخاصة بـ Gateway على macOS
-  - تثبيت CLI الخاص بـ Gateway لنظام macOS
 title: "Gateway على macOS"
 ---
 

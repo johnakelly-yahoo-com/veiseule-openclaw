@@ -1,8 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw plugins` (liste, installation, activation/desactivation, diagnostic)"
-read_when:
-  - Vous souhaitez installer ou gerer des plugins Gateway (passerelle) en processus
-  - Vous souhaitez depanner des echecs de chargement de plugins
 title: "plugins"
 ---
 

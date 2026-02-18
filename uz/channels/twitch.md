@@ -1,7 +1,4 @@
 ---
-summary: "46. Twitch chat-bot konfiguratsiyasi va sozlash"
-read_when:
-  - 47. OpenClaw uchun Twitch chat integratsiyasini sozlash
 title: "48. Twitch"
 ---
 

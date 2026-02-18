@@ -1,8 +1,4 @@
 ---
-summary: "Valfri Docker-baserad konfiguration och introduktion för OpenClaw"
-read_when:
-  - Du vill ha en containeriserad gateway i stället för lokala installationer
-  - Du validerar Docker-flödet
 title: "Docker"
 ---
 

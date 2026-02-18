@@ -1,8 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw plugins` (listahan, install, enable/disable, doctor)"
-read_when:
-  - Gusto mong mag-install o mag-manage ng mga in-process na plugin ng Gateway
-  - Gusto mong mag-debug ng mga failure sa pag-load ng plugin
 title: "mga plugin"
 ---
 

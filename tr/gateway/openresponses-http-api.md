@@ -1,8 +1,4 @@
 ---
-summary: "Gateway üzerinden OpenResponses uyumlu bir /v1/responses HTTP uç noktası sunar"
-read_when:
-  - OpenResponses API’sini konuşan istemcileri entegre ederken
-  - Öğe tabanlı girdiler, istemci araç çağrıları veya SSE olayları istediğinizde
 title: "OpenResponses API"
 ---
 

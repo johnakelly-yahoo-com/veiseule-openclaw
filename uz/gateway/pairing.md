@@ -1,9 +1,4 @@
 ---
-summary: "iOS va boshqa masofaviy tugunlar uchun shlyuzga tegishli tugun juftlashuvi (Variant B)"
-read_when:
-  - macOS UI bo‘lmasdan tugun juftlashuvini tasdiqlashni amalga oshirish
-  - Masofaviy tugunlarni tasdiqlash uchun CLI oqimlarini qo‘shish
-  - Tugunlarni boshqarish bilan shlyuz protokolini kengaytirish
 title: "Shlyuzga tegishli juftlashuv"
 ---
 

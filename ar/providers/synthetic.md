@@ -1,8 +1,4 @@
 ---
-summary: "استخدم واجهة برمجة التطبيقات المتوافقة مع Anthropic من Synthetic في OpenClaw"
-read_when:
-  - تريد استخدام Synthetic كمزوّد نماذج
-  - تحتاج إلى إعداد مفتاح واجهة برمجة التطبيقات لـ Synthetic أو عنوان URL الأساسي
 title: "Synthetic"
 ---
 

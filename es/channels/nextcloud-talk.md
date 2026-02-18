@@ -1,7 +1,4 @@
 ---
-summary: "Estado de soporte, capacidades y configuración de Nextcloud Talk"
-read_when:
-  - Trabajando en funciones del canal Nextcloud Talk
 title: "Nextcloud Talk"
 ---
 

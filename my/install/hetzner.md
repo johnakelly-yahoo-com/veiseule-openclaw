@@ -1,10 +1,4 @@
 ---
-summary: "စျေးသက်သာသော Hetzner VPS (Docker) ပေါ်တွင် အမြဲလည်ပတ်နေစေရန် OpenClaw Gateway ကို တည်ငြိမ်သော state နှင့် binary များပါဝင်အောင် တပ်ဆင်လုပ်ဆောင်ခြင်း"
-read_when:
-  - သင် OpenClaw ကို cloud VPS ပေါ်တွင် (သင့်လက်ပ်တော့မဟုတ်ဘဲ) ၂၄/၇ လည်ပတ်စေချင်သောအခါ
-  - သင့်ကိုယ်ပိုင် VPS ပေါ်တွင် production အဆင့်၊ အမြဲဖွင့်ထားသော Gateway ကိုလိုအပ်သောအခါ
-  - persistence၊ binaries နှင့် restart အပြုအမူများကို အပြည့်အဝ ထိန်းချုပ်လိုသောအခါ
-  - Hetzner သို့မဟုတ် ဆင်တူသော provider ပေါ်တွင် Docker ဖြင့် OpenClaw ကို လည်ပတ်နေသောအခါ
 title: "Hetzner"
 ---
 

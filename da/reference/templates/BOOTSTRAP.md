@@ -1,8 +1,4 @@
----
-summary: "Førstegangsritual for nye agenter"
-read_when:
-  - Manuel bootstrap af et workspace
----
+------
 
 # BOOTSTRAP.md - Hej, verden
 

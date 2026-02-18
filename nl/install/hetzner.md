@@ -1,10 +1,4 @@
 ---
-summary: "Draai OpenClaw Gateway 24/7 op een goedkope Hetzner VPS (Docker) met duurzame status en ingebakken binaries"
-read_when:
-  - Je wilt OpenClaw 24/7 draaien op een cloud-VPS (niet op je laptop)
-  - Je wilt een productieklare, altijd actieve Gateway op je eigen VPS
-  - Je wilt volledige controle over persistentie, binaries en herstartgedrag
-  - Je draait OpenClaw in Docker op Hetzner of een vergelijkbare provider
 title: "Hetzner"
 ---
 

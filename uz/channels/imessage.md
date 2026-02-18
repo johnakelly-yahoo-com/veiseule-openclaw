@@ -1,8 +1,4 @@
 ---
-summary: "imsg orqali legacy iMessage qo‘llab-quvvatlovi (stdio orqali JSON-RPC). Yangi sozlamalar BlueBubbles dan foydalanishi kerak."
-read_when:
-  - iMessage qo‘llab-quvvatlovini sozlash
-  - Debugging iMessage send/receive
 title: iMessage
 ---
 

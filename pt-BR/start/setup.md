@@ -1,8 +1,4 @@
 ---
-summary: "Configuração avançada e fluxos de trabalho de desenvolvimento para o OpenClaw"
-read_when:
-  - Configurando uma nova máquina
-  - Você quer o “último e melhor” sem quebrar sua configuração pessoal
 title: "Configuração"
 ---
 

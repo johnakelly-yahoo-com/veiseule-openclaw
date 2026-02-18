@@ -1,9 +1,4 @@
 ---
-summary: "Chiquvchi kanallar uchun Markdown formatlash quvuri"
-read_when:
-  - Siz chiquvchi kanallar uchun markdown formatlash yoki bo‘laklashni o‘zgartirayotgan bo‘lsangiz
-  - Siz yangi kanal formatteri yoki uslub moslashini qo‘shayotgan bo‘lsangiz
-  - Siz kanallar bo‘ylab formatlashdagi regressiyalarni nosozlikdan chiqarayotgan bo‘lsangiz
 title: "Markdown formatlash"
 ---
 

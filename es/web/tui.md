@@ -1,8 +1,4 @@
 ---
-summary: "Interfaz de Usuario de Terminal (TUI): conéctese al Gateway desde cualquier máquina"
-read_when:
-  - Quiere una guía paso a paso para principiantes del TUI
-  - Necesita la lista completa de funciones, comandos y atajos del TUI
 title: "TUI"
 ---
 

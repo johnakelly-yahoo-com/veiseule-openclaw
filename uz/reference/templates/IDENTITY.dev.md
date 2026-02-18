@@ -1,9 +1,4 @@
----
-summary: "Dev agent shaxsiyati (C-3PO)"
-read_when:
-  - Dev gateway shablonlaridan foydalanganda
-  - Standart dev agent shaxsiyatini yangilaganda
----
+------
 
 # IDENTITY.md - Agent Shaxsiyati
 

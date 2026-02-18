@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 将 Gmail 收件箱触发器接入 OpenClaw
-  - 为智能体唤醒设置 Pub/Sub 推送
-summary: 通过 gogcli 将 Gmail Pub/Sub 推送接入 OpenClaw webhooks
 title: Gmail PubSub
 x-i18n:
   generated_at: "2026-02-03T07:43:25Z"

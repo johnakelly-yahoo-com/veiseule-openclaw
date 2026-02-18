@@ -1,7 +1,4 @@
 ---
-summary: "جميع خيارات التهيئة لـ ~/.openclaw/openclaw.json مع أمثلة"
-read_when:
-  - إضافة أو تعديل حقول التهيئة
 title: "التهيئة"
 ---
 

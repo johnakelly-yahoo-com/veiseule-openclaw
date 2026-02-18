@@ -1,7 +1,5 @@
 ---
-summary: "Paano gumagana ang sandboxing ng OpenClaw: mga mode, saklaw, access sa workspace, at mga image"
 title: "Pagba-sandbox"
-read_when: "Gusto mo ng dedikadong paliwanag ng sandboxing o kailangan mong i-tune ang agents.defaults.sandbox."
 status: active
 ---
 

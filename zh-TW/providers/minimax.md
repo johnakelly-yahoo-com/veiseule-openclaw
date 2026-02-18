@@ -1,8 +1,4 @@
 ---
-summary: "在 OpenClaw 中使用 MiniMax M2.1"
-read_when:
-  - 你想在 OpenClaw 中使用 MiniMax 模型
-  - 你需要 MiniMax 的設定指引
 title: "MiniMax"
 ---
 

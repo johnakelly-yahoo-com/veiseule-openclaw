@@ -1,8 +1,4 @@
 ---
-summary: "Agentverktygsyta för OpenClaw (browser, canvas, noder, meddelanden, cron) som ersätter äldre `openclaw-*` Skills"
-read_when:
-  - Lägger till eller ändrar agentverktyg
-  - Avvecklar eller ändrar `openclaw-*` Skills
 title: "Verktyg"
 ---
 

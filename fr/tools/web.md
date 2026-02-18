@@ -1,9 +1,4 @@
 ---
-summary: "Outils de recherche et de récupération web (API Brave Search, Perplexity direct/OpenRouter)"
-read_when:
-  - Vous souhaitez activer web_search ou web_fetch
-  - Vous avez besoin de configurer une clé API Brave Search
-  - Vous souhaitez utiliser Perplexity Sonar pour la recherche web
 title: "Outils Web"
 ---
 

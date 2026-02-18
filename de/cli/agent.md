@@ -1,7 +1,4 @@
 ---
-summary: "CLI-Referenz für `openclaw agent` (einen Agent-Zug über das Gateway senden)"
-read_when:
-  - Sie möchten einen Agent-Zug aus Skripten ausführen (optional Antwort zustellen)
 title: "Agent"
 ---
 

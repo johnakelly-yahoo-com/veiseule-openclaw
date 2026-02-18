@@ -1,9 +1,4 @@
 ---
-summary: "Debugging-Werkzeuge: Watch-Modus, rohe Modell-Streams und Nachverfolgung von Reasoning-Leakage"
-read_when:
-  - Sie müssen rohe Modellausgaben auf Reasoning-Leakage prüfen
-  - Sie möchten den Gateway im Watch-Modus während der Iteration ausführen
-  - Sie benötigen einen wiederholbaren Debugging-Workflow
 title: "Fehlerbehebung"
 ---
 

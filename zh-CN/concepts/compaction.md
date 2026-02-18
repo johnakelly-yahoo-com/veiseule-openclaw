@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想了解自动压缩和 /compact
-  - 你正在调试长会话触及上下文限制的问题
-summary: 上下文窗口 + 压缩：OpenClaw 如何将会话保持在模型限制内
 title: 压缩
 x-i18n:
   generated_at: "2026-02-01T20:22:17Z"

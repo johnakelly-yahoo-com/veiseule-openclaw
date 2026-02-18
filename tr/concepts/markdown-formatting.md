@@ -1,9 +1,4 @@
 ---
-summary: "Giden kanallar için Markdown biçimlendirme hattı"
-read_when:
-  - Giden kanallar için Markdown biçimlendirme veya parçalama değiştirildiğinde
-  - Yeni bir kanal biçimlendiricisi veya stil eşlemesi eklendiğinde
-  - Kanallar arasında biçimlendirme regresyonları ayıklandığında
 title: "Markdown Biçimlendirme"
 ---
 

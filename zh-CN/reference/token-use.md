@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 解释 token 使用量、成本或上下文窗口时
-  - 调试上下文增长或压缩行为时
-summary: OpenClaw 如何构建提示上下文并报告 token 使用量 + 成本
 title: Token 使用与成本
 x-i18n:
   generated_at: "2026-02-03T07:54:57Z"

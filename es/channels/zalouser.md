@@ -1,8 +1,4 @@
 ---
-summary: "Compatibilidad con cuentas personales de Zalo mediante zca-cli (inicio de sesión por QR), capacidades y configuración"
-read_when:
-  - Configuración de Zalo Personal para OpenClaw
-  - Depuración del inicio de sesión o del flujo de mensajes de Zalo Personal
 title: "Zalo Personal"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Paano binubuo ng OpenClaw ang prompt context at nag-uulat ng paggamit ng token + mga gastos"
-read_when:
-  - Pagpapaliwanag ng paggamit ng token, mga gastos, o mga context window
-  - Pag-debug ng paglaki ng context o pag-uugali ng compaction
 title: "Paggamit ng Token at Mga Gastos"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Gateway rejalashtirgichi uchun cron vazifalari + uyg‘otishlar"
-read_when:
-  - Fon vazifalari yoki uyg‘otishlarni rejalashtirish
-  - Yurak urishlari bilan birga yoki yonma-yon ishlashi kerak bo‘lgan avtomatlashtirishni ulash
-  - Rejalashtirilgan vazifalar uchun heartbeat va cron o‘rtasida tanlash
 title: "Cron vazifalari"
 ---
 

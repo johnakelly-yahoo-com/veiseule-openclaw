@@ -1,8 +1,4 @@
 ---
-summary: "Webhook-ingang voor wekken en geïsoleerde agentruns"
-read_when:
-  - Webhook-eindpunten toevoegen of wijzigen
-  - Externe systemen koppelen aan OpenClaw
 title: "Webhooks"
 ---
 

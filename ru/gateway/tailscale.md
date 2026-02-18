@@ -1,8 +1,4 @@
 ---
-summary: "Интегрированный Tailscale Serve/Funnel для панели Gateway (шлюз)"
-read_when:
-  - Публикация панели управления Gateway (шлюз) вне localhost
-  - Автоматизация доступа к tailnet или публичной панели
 title: "Tailscale"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Modes de reveil vocal et push-to-talk, ainsi que les details de routage dans l’application mac"
-read_when:
-  - Travail sur les parcours de reveil vocal ou de PTT
 title: "Reveil vocal"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Interface utilisateur en terminal (TUI) : se connecter à la Gateway (passerelle) depuis n’importe quelle machine"
-read_when:
-  - Vous voulez un guide pas à pas pour débutants sur la TUI
-  - Vous avez besoin de la liste complète des fonctionnalités, commandes et raccourcis de la TUI
 title: "TUI"
 ---
 

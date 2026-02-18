@@ -1,8 +1,6 @@
 ---
 title: "Fremvisning"
-description: "Virkelige OpenClaw-projekter fra fællesskabet"
-summary: "Fællesskabsbyggede projekter og integrationer drevet af OpenClaw"
----
+description: "Virkelige OpenClaw-projekter fra fællesskabet"---
 
 # Fremvisning
 

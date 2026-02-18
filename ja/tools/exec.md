@@ -1,8 +1,4 @@
 ---
-summary: "Exec ツールの使用方法、stdin モード、および TTY サポート"
-read_when:
-  - Exec ツールを使用または変更する場合
-  - stdin または TTY の挙動をデバッグする場合
 title: "Exec ツール"
 ---
 

@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 运行或调试 Gateway 网关进程时
-summary: Gateway 网关服务、生命周期和运维的运行手册
 title: Gateway 网关运行手册
 x-i18n:
   generated_at: "2026-02-03T07:50:03Z"

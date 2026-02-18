@@ -1,8 +1,4 @@
 ---
-summary: "使用 Amazon Bedrock（Converse API）模型搭配 OpenClaw"
-read_when:
-  - 你想要使用 Amazon Bedrock 模型搭配 OpenClaw
-  - 你需要為模型呼叫設定 AWS 憑證／區域
 title: "Amazon Bedrock"
 ---
 

@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 添加或修改 Skills 配置
-  - 调整内置白名单或安装行为
-summary: Skills 配置 schema 和示例
 title: Skills 配置
 x-i18n:
   generated_at: "2026-02-03T10:10:59Z"

@@ -1,7 +1,4 @@
 ---
-summary: "Kanal ulanishini tekshirish bosqichlari"
-read_when:
-  - WhatsApp kanali holatini diagnostika qilishda
 title: "Holat tekshiruvlari"
 ---
 

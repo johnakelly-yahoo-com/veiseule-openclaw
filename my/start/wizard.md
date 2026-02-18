@@ -1,8 +1,4 @@
 ---
-summary: "CLI စတင်မိတ်ဆက်ခြင်း wizard — Gateway၊ workspace၊ ချန်နယ်များနှင့် Skills များအတွက် လမ်းညွှန်ထားသော တပ်ဆင်မှု"
-read_when:
-  - onboarding wizard ကို လုပ်ဆောင်နေစဉ် သို့မဟုတ် ဖွဲ့စည်းပြင်ဆင်နေစဉ်
-  - ကွန်ပျူတာအသစ်တစ်လုံးကို တပ်ဆင်နေစဉ်
 title: "Onboarding Wizard (CLI)"
 sidebarTitle: "Onboarding: CLI"
 ---

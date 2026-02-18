@@ -1,5 +1,4 @@
 ---
-summary: "Indsendelse af issues og fejlrapporter med højt signal"
 title: "Indsendelse af en issue"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Raspberry Pi üzerinde OpenClaw (bütçe dostu, kendi kendine barındırılan kurulum)"
-read_when:
-  - Raspberry Pi üzerinde OpenClaw kurulumu
-  - ARM cihazlarda OpenClaw çalıştırma
-  - Ucuz, her zaman açık kişisel bir yapay zekâ oluşturma
 title: "Raspberry Pi"
 ---
 

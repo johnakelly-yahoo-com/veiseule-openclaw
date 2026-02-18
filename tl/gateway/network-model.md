@@ -1,7 +1,4 @@
 ---
-summary: "Kung paano kumokonekta ang Gateway, mga node, at ang canvas host."
-read_when:
-  - Gusto mo ng maikling pananaw sa networking model ng Gateway
 title: "Modelo ng network"
 ---
 

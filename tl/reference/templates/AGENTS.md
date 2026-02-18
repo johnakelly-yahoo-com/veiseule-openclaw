@@ -1,8 +1,4 @@
----
-summary: "Template ng workspace para sa AGENTS.md"
-read_when:
-  - Manu-manong pag-bootstrap ng isang workspace
----
+------
 
 # AGENTS.md - Ang Iyong Workspace
 

@@ -1,8 +1,4 @@
 ---
-summary: "ศูนย์รวมการโฮสต์VPSสำหรับOpenClaw(Oracle/Fly/Hetzner/GCP/exe.dev)"
-read_when:
-  - คุณต้องการรันGatewayบนคลาวด์
-  - คุณต้องการภาพรวมอย่างรวดเร็วของคู่มือVPS/การโฮสต์
 title: "การโฮสต์VPS"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Các liên kết được tuyển chọn đến những tài liệu OpenClaw được dùng nhiều nhất."
-read_when:
-  - Bạn muốn truy cập nhanh các trang tài liệu chính
 title: "Danh mục tài liệu"
 ---
 

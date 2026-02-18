@@ -1,9 +1,4 @@
 ---
-summary: "Installer OpenClaw de manière déclarative avec Nix"
-read_when:
-  - Vous voulez des installations reproductibles et avec retour en arriere
-  - Vous utilisez deja Nix/NixOS/Home Manager
-  - Vous voulez que tout soit fige et gere de maniere declarative
 title: "Nix"
 ---
 

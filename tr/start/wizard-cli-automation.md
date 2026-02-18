@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw CLI için betik tabanlı onboarding ve ajan kurulumu"
-read_when:
-  - Betikler veya CI içinde onboarding’i otomatikleştiriyorsanız
-  - Belirli sağlayıcılar için etkileşimsiz örneklere ihtiyacınız varsa
 title: "CLI Otomasyonu"
 sidebarTitle: "CLI otomasyonu"
 ---

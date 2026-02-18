@@ -1,9 +1,4 @@
 ---
-summary: "Schema-genaue Konfigurationsbeispiele für gängige OpenClaw-Setups"
-read_when:
-  - Beim Erlernen der Konfiguration von OpenClaw
-  - Beim Suchen nach Konfigurationsbeispielen
-  - Beim erstmaligen Einrichten von OpenClaw
 title: "Konfigurationsbeispiele"
 ---
 

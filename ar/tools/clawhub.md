@@ -1,9 +1,4 @@
 ---
-summary: "دليل ClawHub: سجل Skills عام + تدفقات عمل CLI"
-read_when:
-  - تقديم ClawHub للمستخدمين الجدد
-  - تثبيت Skills أو البحث عنها أو نشرها
-  - شرح أعلام CLI في ClawHub وسلوك المزامنة
 title: "ClawHub"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw plugins` için CLI başvurusu (listeleme, yükleme, etkinleştirme/devre dışı bırakma, doctor)"
-read_when:
-  - Süreç içi Gateway eklentilerini yüklemek veya yönetmek istiyorsunuz
-  - Eklenti yükleme hatalarını ayıklamak istiyorsunuz
 title: "plugins"
 ---
 

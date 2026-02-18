@@ -1,8 +1,4 @@
----
-summary: "Fiche de profil utilisateur"
-read_when:
-  - Démarrage manuel d’un espace de travail
----
+------
 
 # USER.md - À propos de votre humain
 

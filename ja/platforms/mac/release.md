@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS リリースのチェックリスト（Sparkle フィード、パッケージング、署名）"
-read_when:
-  - OpenClaw macOS リリースをカットまたは検証する際
-  - Sparkle の appcast またはフィードアセットを更新する際
 title: "macOS リリース"
 ---
 

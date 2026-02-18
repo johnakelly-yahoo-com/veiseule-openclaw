@@ -1,7 +1,4 @@
 ---
-summary: "Tích hợp Telegram Bot API thông qua grammY kèm ghi chú thiết lập"
-read_when:
-  - Khi làm việc với các luồng Telegram hoặc grammY
 title: grammY
 ---
 

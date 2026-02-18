@@ -1,8 +1,4 @@
 ---
-summary: "Tashqi CLI’lar (signal-cli, legacy imsg) uchun RPC adapterlar va gateway naqshlari"
-read_when:
-  - Tashqi CLI integratsiyalarini qo‘shish yoki o‘zgartirish
-  - RPC adapterlarini sozlash (signal-cli, imsg)
 title: "RPC Adapterlar"
 ---
 

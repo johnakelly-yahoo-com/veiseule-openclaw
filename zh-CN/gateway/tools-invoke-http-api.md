@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 不运行完整智能体回合直接调用工具
-  - 构建需要工具策略强制执行的自动化
-summary: 通过 Gateway 网关 HTTP 端点直接调用单个工具
 title: 工具调用 API
 x-i18n:
   generated_at: "2026-02-03T07:48:58Z"

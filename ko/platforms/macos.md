@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS 컴패니언 앱 (메뉴 바 + 게이트웨이 브로커)"
-read_when:
-  - macOS 앱 기능을 구현할 때
-  - macOS 에서 게이트웨이 라이프사이클 또는 노드 브리징을 변경할 때
 title: "macOS 앱"
 ---
 

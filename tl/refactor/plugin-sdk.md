@@ -1,8 +1,4 @@
 ---
-summary: "Plano: isang malinis na plugin SDK + runtime para sa lahat ng messaging connector"
-read_when:
-  - Pagtukoy o pagre-refactor ng plugin architecture
-  - Pag-migrate ng mga channel connector papunta sa plugin SDK/runtime
 title: "Refactor ng Plugin SDK"
 ---
 

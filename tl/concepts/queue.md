@@ -1,7 +1,4 @@
 ---
-summary: "Disenyo ng command queue na nagsi-serialize ng mga inbound auto-reply run"
-read_when:
-  - Binabago ang pagpapatupad o concurrency ng auto-reply
 title: "Pila ng Utos"
 ---
 

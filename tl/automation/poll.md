@@ -1,8 +1,4 @@
 ---
-summary: "Pagpapadala ng poll sa pamamagitan ng Gateway + CLI"
-read_when:
-  - Pagdaragdag o pagbabago ng suporta sa poll
-  - Pag-debug ng pagpapadala ng poll mula sa CLI o Gateway
 title: "Mga Poll"
 ---
 

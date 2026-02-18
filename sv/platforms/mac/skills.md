@@ -1,8 +1,4 @@
 ---
-summary: "macOS-gränssnitt för Skills-inställningar och gateway-baserad status"
-read_when:
-  - Uppdatering av macOS-gränssnittet för Skills-inställningar
-  - Ändring av gating eller installationsbeteende för skills
 title: "Färdigheter"
 ---
 

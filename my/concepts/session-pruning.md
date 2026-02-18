@@ -1,9 +1,4 @@
----
-summary: "Session pruning: context ဖောင်းပွမှုကို လျှော့ချရန် tool ရလဒ်များကို ဖြတ်တောက်ခြင်း"
-read_when:
-  - tool output များကြောင့် LLM context ကြီးထွားမှုကို လျှော့ချချင်ပါက
-  - agents.defaults.contextPruning ကို ချိန်ညှိနေပါက
----
+------
 
 # Session Pruning
 

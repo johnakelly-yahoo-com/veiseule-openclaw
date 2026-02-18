@@ -1,7 +1,4 @@
 ---
-summary: "Kanallar o‘rtasida umumiy reaksiya semantikasi"
-read_when:
-  - Istalgan kanalda reaksiyalar ustida ishlayotganda
 title: "Reaksiyalar"
 ---
 

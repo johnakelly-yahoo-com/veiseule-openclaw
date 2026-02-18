@@ -1,7 +1,4 @@
 ---
-summary: "Toegang en authenticatie voor het Gateway-dashboard (Control UI)"
-read_when:
-  - Het wijzigen van dashboardauthenticatie of blootstellingsmodi
 title: "Dashboard"
 ---
 

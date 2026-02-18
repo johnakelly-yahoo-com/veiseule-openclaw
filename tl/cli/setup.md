@@ -1,8 +1,4 @@
 ---
-summary: "Reference ng CLI para sa `openclaw setup` (i-initialize ang config + workspace)"
-read_when:
-  - Ginagawa mo ang unang beses na setup nang walang buong onboarding wizard
-  - Gusto mong itakda ang default na path ng workspace
 title: "setup"
 ---
 

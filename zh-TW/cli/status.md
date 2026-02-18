@@ -1,8 +1,4 @@
 ---
-summary: "用於 `openclaw status` 的 CLI 參考文件（診斷、探測、使用情況快照）"
-read_when:
-  - 您想要快速診斷頻道健康狀態 + 最近的工作階段收件者
-  - 27. 你想要可貼上的「全部」狀態以利除錯
 title: "cli/status.md"
 ---
 

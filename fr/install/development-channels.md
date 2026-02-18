@@ -1,8 +1,4 @@
 ---
-summary: "Canaux stable, beta et dev : sémantique, bascule et balisage"
-read_when:
-  - Vous souhaitez basculer entre stable/beta/dev
-  - Vous balisez ou publiez des préversions
 title: "Canaux de développement"
 ---
 

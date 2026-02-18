@@ -1,8 +1,4 @@
 ---
-summary: "Patakaran sa retry para sa mga outbound na tawag sa provider"
-read_when:
-  - Ina-update ang retry behavior o mga default ng provider
-  - Nagde-debug ng mga error sa pagpapadala ng provider o mga rate limit
 title: "Patakaran sa Retry"
 ---
 

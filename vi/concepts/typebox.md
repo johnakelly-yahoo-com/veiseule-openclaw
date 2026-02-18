@@ -1,7 +1,4 @@
 ---
-summary: "Schema TypeBox làm nguồn sự thật duy nhất cho giao thức Gateway"
-read_when:
-  - Cập nhật schema giao thức hoặc codegen
 title: "TypeBox"
 ---
 

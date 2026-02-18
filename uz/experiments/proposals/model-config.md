@@ -1,7 +1,4 @@
 ---
-summary: "Tadqiqot: model konfiguratsiyasi, autentifikatsiya profillari va fallback xatti-harakati"
-read_when:
-  - Kelajakdagi model tanlash + autentifikatsiya profili g‘oyalarini o‘rganish
 title: "Model konfiguratsiyasini o‘rganish"
 ---
 

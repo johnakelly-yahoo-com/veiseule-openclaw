@@ -1,9 +1,4 @@
 ---
-summary: "30. Pairing sharhi: kim sizga DM yubora olishini + qaysi tugunlar qo‘shila olishini tasdiqlash"
-read_when:
-  - 31. DM kirish nazoratini sozlash
-  - 32. Yangi iOS/Android tugunini pairing qilish
-  - 33. OpenClaw xavfsizlik holatini ko‘rib chiqish
 title: "34. Pairing"
 ---
 

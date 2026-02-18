@@ -1,8 +1,4 @@
 ---
-summary: "Gateway သို့မဟုတ် နိုဒ် ဟို့စ်များအတွက် exec approvals ကို CLI မှ ကိုးကားအသုံးပြုရန် (`openclaw approvals`)"
-read_when:
-  - CLI မှ exec approvals ကို ပြင်ဆင်လိုသည့်အခါ
-  - Gateway သို့မဟုတ် နိုဒ် ဟို့စ်များပေါ်ရှိ allowlist များကို စီမံခန့်ခွဲရန် လိုအပ်သည့်အခါ
 title: "approvals"
 ---
 

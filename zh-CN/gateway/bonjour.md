@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 在 macOS/iOS 上调试 Bonjour 设备发现问题时
-  - 更改 mDNS 服务类型、TXT 记录或设备发现用户体验时
-summary: Bonjour/mDNS 设备发现 + 调试（Gateway 网关信标、客户端和常见故障模式）
 title: Bonjour 设备发现
 x-i18n:
   generated_at: "2026-02-03T07:47:48Z"

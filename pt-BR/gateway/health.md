@@ -1,7 +1,4 @@
 ---
-summary: "Etapas de verificação de saúde para conectividade de canais"
-read_when:
-  - Diagnosticando a saúde do canal WhatsApp
 title: "Verificações de Saúde"
 ---
 

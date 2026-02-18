@@ -1,7 +1,4 @@
 ---
-summary: "為從事 OpenClaw macOS 應用程式開發的開發者提供的設定指南"
-read_when:
-  - 設定 macOS 開發環境時
 title: "macOS 開發者設定"
 ---
 

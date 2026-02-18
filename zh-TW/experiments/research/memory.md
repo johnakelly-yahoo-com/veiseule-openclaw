@@ -1,9 +1,4 @@
 ---
-summary: "研究筆記：Clawd 工作區的離線記憶系統（Markdown 作為事實來源 + 衍生索引）"
-read_when:
-  - 設計超越每日 Markdown 記錄的工作區記憶（~/.openclaw/workspace）
-  - Deciding: 決定：獨立 CLI 還是深度整合 OpenClaw
-  - 新增離線回憶 + 反思（保留／回憶／反思）
 title: "工作區記憶研究"
 ---
 

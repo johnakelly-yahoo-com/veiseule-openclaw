@@ -1,9 +1,4 @@
 ---
-summary: "Rituel d’amorçage de l’agent qui initialise l’espace de travail et les fichiers d’identité"
-read_when:
-  - Comprendre ce qui se passe lors de la première exécution de l’agent
-  - Expliquer où se trouvent les fichiers d’amorçage
-  - Déboguer la configuration d’identité lors de la prise en main
 title: "Amorçage de l’agent"
 sidebarTitle: "Amorçage"
 ---

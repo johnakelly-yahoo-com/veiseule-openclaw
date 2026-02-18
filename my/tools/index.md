@@ -1,8 +1,4 @@
 ---
-summary: "အမွေဆက်ခံ `openclaw-*` skills များကို အစားထိုးသည့် OpenClaw အတွက် Agent tool surface (browser, canvas, nodes, message, cron)"
-read_when:
-  - Agent tools များကို ထည့်သွင်းခြင်း သို့မဟုတ် ပြင်ဆင်ခြင်း
-  - "`openclaw-*` skills များကို ရပ်နားခြင်း သို့မဟုတ် ပြောင်းလဲခြင်း"
 title: "ကိရိယာများ"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "mac ऐप में Voice Wake और push-to-talk मोड्स तथा रूटिंग विवरण"
-read_when:
-  - Voice wake या PTT पाथवे पर काम करते समय
 title: "वॉइस वेक"
 ---
 

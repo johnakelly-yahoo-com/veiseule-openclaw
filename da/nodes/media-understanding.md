@@ -1,8 +1,4 @@
 ---
-summary: "Indgående billed-/lyd-/videoforståelse (valgfri) med udbyder + CLI-fallbacks"
-read_when:
-  - Design eller refaktorering af medieforståelse
-  - Finjustering af indgående lyd-/video-/billedforbehandling
 title: "Medieforståelse"
 ---
 

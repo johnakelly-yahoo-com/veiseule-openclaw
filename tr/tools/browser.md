@@ -1,9 +1,4 @@
 ---
-summary: "Entegre tarayıcı kontrol hizmeti + eylem komutları"
-read_when:
-  - 13. Ajan kontrollü tarayıcı otomasyonu ekleme
-  - OpenClaw’ın kendi Chrome’unuzla neden etkileşime girdiğini hata ayıklarken
-  - macOS uygulamasında tarayıcı ayarları ve yaşam döngüsünü uygularken
 title: "Tarayıcı (OpenClaw tarafından yönetilen)"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "”OpenClaw-funktioner över kanaler, routing, media och UX.”"
-read_when:
-  - Du vill ha en fullständig lista över vad OpenClaw stöder
 title: "”Funktioner”"
 ---
 

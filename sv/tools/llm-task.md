@@ -1,8 +1,4 @@
 ---
-summary: "Endast JSON-baserade LLM-uppgifter för arbetsflöden (valfritt pluginverktyg)"
-read_when:
-  - Du vill ha ett LLM-steg som endast returnerar JSON i arbetsflöden
-  - Du behöver schemavaliderad LLM-utdata för automatisering
 title: "LLM-uppgift"
 ---
 

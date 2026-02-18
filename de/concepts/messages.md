@@ -1,9 +1,4 @@
 ---
-summary: "Nachrichtenfluss, Sitzungen, Warteschlangen und Sichtbarkeit der Begründung"
-read_when:
-  - Erklären, wie eingehende Nachrichten zu Antworten werden
-  - Klärung von Sitzungen, Warteschlangenmodi oder Streaming-Verhalten
-  - Dokumentation der Sichtbarkeit der Begründung und der Nutzungsauswirkungen
 title: "Nachrichten"
 ---
 

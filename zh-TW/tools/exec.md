@@ -1,8 +1,4 @@
 ---
-summary: "Exec 工具的使用方式、stdin 模式與 TTY 支援"
-read_when:
-  - 使用或修改 exec 工具時
-  - 偵錯 stdin 或 TTY 行為時
 title: "Exec 工具"
 ---
 

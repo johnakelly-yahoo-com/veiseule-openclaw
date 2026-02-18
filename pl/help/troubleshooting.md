@@ -1,8 +1,4 @@
 ---
-summary: "Centrum rozwiązywania problemów OpenClaw z podejściem „objaw najpierw”"
-read_when:
-  - OpenClaw nie działa i potrzebujesz najszybszej drogi do naprawy
-  - Chcesz przejść przez wstępną triage przed zagłębieniem się w szczegółowe runbooki
 title: "Rozwiązywanie problemów"
 ---
 

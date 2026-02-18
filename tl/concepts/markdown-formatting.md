@@ -1,9 +1,4 @@
 ---
-summary: "Pipeline ng pag-format ng Markdown para sa mga outbound channel"
-read_when:
-  - Binabago mo ang pag-format o pag-chunk ng Markdown para sa mga outbound channel
-  - Nagdadagdag ka ng bagong channel formatter o style mapping
-  - Nagde-debug ka ng mga formatting regression sa iba’t ibang channel
 title: "Pag-format ng Markdown"
 ---
 

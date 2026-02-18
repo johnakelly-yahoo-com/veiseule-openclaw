@@ -1,9 +1,4 @@
 ---
-summary: "Tính bền vững của quyền trên macOS (TCC) và yêu cầu ký"
-read_when:
-  - Gỡ lỗi khi lời nhắc quyền macOS bị thiếu hoặc bị treo
-  - Đóng gói hoặc ký ứng dụng macOS
-  - Thay đổi bundle ID hoặc đường dẫn cài đặt ứng dụng
 title: "Quyền trên macOS"
 ---
 

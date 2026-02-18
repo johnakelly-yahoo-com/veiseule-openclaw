@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw is een multi-channel gateway voor AI‑agents die op elk besturingssysteem draait."
-read_when:
-  - OpenClaw introduceren aan nieuwkomers
 title: "OpenClaw"
 ---
 

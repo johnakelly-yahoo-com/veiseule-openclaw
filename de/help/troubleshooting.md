@@ -1,8 +1,4 @@
 ---
-summary: "Symptomorientierter Fehlerbehebungs-Hub für OpenClaw"
-read_when:
-  - OpenClaw funktioniert nicht und Sie benötigen den schnellsten Weg zu einer Lösung
-  - Sie möchten einen Triage-Ablauf, bevor Sie in detaillierte Runbooks eintauchen
 title: "Fehlerbehebung"
 ---
 

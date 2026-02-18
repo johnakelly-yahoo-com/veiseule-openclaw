@@ -1,9 +1,4 @@
 ---
-summary: "Markdown-opmaakpipeline voor uitgaande kanalen"
-read_when:
-  - Je wijzigt markdown-opmaak of chunking voor uitgaande kanalen
-  - Je voegt een nieuwe kanaalformatter of stijlkoppeling toe
-  - Je debugt regressies in opmaak over kanalen heen
 title: "Markdown opmaak"
 ---
 

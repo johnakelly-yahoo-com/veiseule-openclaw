@@ -1,7 +1,4 @@
 ---
-summary: "grammY ကို အသုံးပြုပြီး Telegram Bot API ပေါင်းစည်းမှုနှင့် ဆက်တင်မှတ်စုများ"
-read_when:
-  - Telegram သို့မဟုတ် grammY လမ်းကြောင်းများတွင် အလုပ်လုပ်နေစဉ်
 title: grammY
 ---
 

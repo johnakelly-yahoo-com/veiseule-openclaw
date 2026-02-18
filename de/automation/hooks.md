@@ -1,8 +1,4 @@
 ---
-summary: "Hooks: ereignisgesteuerte Automatisierung für Befehle und Lifecycle-Ereignisse"
-read_when:
-  - Sie möchten ereignisgesteuerte Automatisierung für /new, /reset, /stop und Agent-Lifecycle-Ereignisse
-  - Sie möchten Hooks erstellen, installieren oder debuggen
 title: "Hooks"
 ---
 

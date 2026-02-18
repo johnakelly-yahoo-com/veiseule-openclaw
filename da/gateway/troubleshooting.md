@@ -1,8 +1,4 @@
 ---
-summary: "Dybtgående fejlfinding-runbook for gateway, kanaler, automatisering, noder og browser"
-read_when:
-  - Fejlfindingshubben har henvist dig hertil for dybere diagnose
-  - Du har brug for stabile, symptombaserede runbook-sektioner med præcise kommandoer
 title: "Fejlfinding"
 ---
 

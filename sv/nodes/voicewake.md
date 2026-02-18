@@ -1,8 +1,4 @@
 ---
-summary: "Globala röstväckningsord (Gateway-ägda) och hur de synkroniseras mellan noder"
-read_when:
-  - Ändring av beteende eller standardvärden för röstväckningsord
-  - Tillägg av nya nodplattformar som behöver synk av väckningsord
 title: "Röstväckning"
 ---
 

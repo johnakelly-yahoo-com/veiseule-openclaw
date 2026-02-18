@@ -1,7 +1,4 @@
 ---
-summary: "Gateway（ゲートウェイ）から OpenAI 互換の /v1/chat/completions HTTP エンドポイントを公開します"
-read_when:
-  - OpenAI Chat Completions を想定するツールを統合する場合
 title: "OpenAI Chat Completions"
 ---
 

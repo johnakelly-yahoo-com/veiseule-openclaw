@@ -1,8 +1,4 @@
 ---
-summary: "Aplikacja towarzysząca OpenClaw na macOS (pasek menu + broker gateway)"
-read_when:
-  - Implementowanie funkcji aplikacji macOS
-  - Zmiany cyklu życia gateway lub mostkowania węzłów na macOS
 title: "Aplikacja macOS"
 ---
 

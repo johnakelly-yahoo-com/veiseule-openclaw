@@ -1,8 +1,4 @@
----
-summary: "Kullanıcı profil kaydı"
-read_when:
-  - Bir çalışma alanını manuel olarak başlatırken
----
+------
 
 # USER.md - İnsanınız Hakkında
 

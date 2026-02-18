@@ -1,5 +1,4 @@
 ---
-summary: "Yüksek sinyalli bir PR nasıl gönderilir"
 title: "PR Gönderme"
 ---
 

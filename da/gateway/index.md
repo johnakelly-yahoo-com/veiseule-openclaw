@@ -1,7 +1,4 @@
 ---
-summary: "Runbook for Gateway-tjenesten, livscyklus og drift"
-read_when:
-  - Når du kører eller fejlsøger gateway-processen
 title: "Driftsvejledning for Gateway"
 ---
 

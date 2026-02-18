@@ -1,8 +1,4 @@
 ---
-summary: "Powierzchnie śledzenia użycia oraz wymagania dotyczące poświadczeń"
-read_when:
-  - Podczas podłączania powierzchni użycia/limitów dostawców
-  - Gdy trzeba wyjaśnić zachowanie śledzenia użycia lub wymagania uwierzytelniania
 title: "Śledzenie użycia"
 ---
 

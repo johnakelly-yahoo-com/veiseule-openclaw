@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想要索引或搜索语义记忆
-  - 你正在调试记忆可用性或索引问题
-summary: "`openclaw memory`（status/index/search）的 CLI 参考"
 title: memory
 x-i18n:
   generated_at: "2026-02-01T20:21:11Z"

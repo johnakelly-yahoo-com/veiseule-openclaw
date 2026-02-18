@@ -1,7 +1,4 @@
 ---
-summary: "Sohbetler için oturum yönetimi kuralları, anahtarlar ve kalıcılık"
-read_when:
-  - Oturum işleme veya depolamayı değiştirirken
 title: "Oturum Yönetimi"
 ---
 

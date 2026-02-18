@@ -1,9 +1,4 @@
 ---
-summary: "Dự phòng Firecrawl cho web_fetch (chống bot + trích xuất có bộ nhớ đệm)"
-read_when:
-  - Bạn muốn trích xuất web dựa trên Firecrawl
-  - Bạn cần khóa API Firecrawl
-  - Bạn muốn trích xuất chống bot cho web_fetch
 title: "Firecrawl"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Inicios de sesión manuales para automatización del navegador + publicación en X/Twitter"
-read_when:
-  - Necesita iniciar sesión en sitios para automatización del navegador
-  - Quiere publicar actualizaciones en X/Twitter
 title: "Inicio de sesión del navegador"
 ---
 

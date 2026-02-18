@@ -1,7 +1,4 @@
 ---
-summary: "macOS-appflöde för att styra en fjärransluten OpenClaw-gateway över SSH"
-read_when:
-  - Vid konfigurering eller felsökning av fjärrstyrning av Mac
 title: "Fjärrstyrning"
 ---
 

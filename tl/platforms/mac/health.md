@@ -1,7 +1,4 @@
 ---
-summary: "Paano nag-uulat ang macOS app ng mga estado ng kalusugan ng gateway/Baileys"
-read_when:
-  - Pag-debug ng mga indicator ng kalusugan ng mac app
 title: "Mga Health Check"
 ---
 

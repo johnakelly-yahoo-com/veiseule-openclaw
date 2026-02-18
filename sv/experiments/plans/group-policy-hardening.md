@@ -1,7 +1,4 @@
 ---
-summary: "Härdning av Telegrams tillåtelselista: prefix + normalisering av blanksteg"
-read_when:
-  - Vid granskning av historiska ändringar i Telegrams tillåtelselista
 title: "Härdning av Telegrams tillåtelselista"
 ---
 

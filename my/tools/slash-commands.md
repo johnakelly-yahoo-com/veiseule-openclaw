@@ -1,8 +1,4 @@
 ---
-summary: "Slash command များ — စာသား vs native, config နှင့် ပံ့ပိုးထားသော command များ"
-read_when:
-  - chat command များကို အသုံးပြုခြင်း သို့မဟုတ် ဖွဲ့စည်းပြင်ဆင်ခြင်း
-  - command routing သို့မဟုတ် permission များကို debug လုပ်နေစဉ်
 title: "Slash ကွန်မန်းများ"
 ---
 

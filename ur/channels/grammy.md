@@ -1,7 +1,4 @@
 ---
-summary: "grammY کے ذریعے Telegram Bot API انضمام بمع سیٹ اپ نوٹس"
-read_when:
-  - Telegram یا grammY راستوں پر کام کرتے وقت
 title: grammY
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "إعداد وتهيئة واستخدام إضافة LINE Messaging API"
-read_when:
-  - تريد ربط OpenClaw بـ LINE
-  - تحتاج إلى إعداد webhook وبيانات الاعتماد الخاصة بـ LINE
-  - تريد خيارات رسائل خاصة بـ LINE
 title: LINE
 ---
 

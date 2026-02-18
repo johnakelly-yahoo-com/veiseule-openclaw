@@ -1,8 +1,4 @@
 ---
-summary: "„Clawnet-Refactor: Vereinheitlichung von Netzwerkprotokoll, Rollen, Authentifizierung, Genehmigungen und Identität“"
-read_when:
-  - Planung eines einheitlichen Netzwerkprotokolls für Nodes und Operator-Clients
-  - Überarbeitung von Genehmigungen, Pairing, TLS und Presence über Geräte hinweg
 title: "„Clawnet-Refactor“"
 ---
 

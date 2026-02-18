@@ -1,8 +1,4 @@
 ---
-summary: "Modellleverantörer (LLM:er) som stöds av OpenClaw"
-read_when:
-  - Du vill välja en modellleverantör
-  - Du vill ha snabba exempel för LLM-autentisering + modellval
 title: "Snabbstart för modellleverantörer"
 ---
 

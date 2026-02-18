@@ -1,7 +1,5 @@
 ---
 title: Sandbox CLI
-summary: "จัดการคอนเทนเนอร์sandboxและตรวจสอบนโยบายsandboxที่มีผลจริง"
-read_when: "เมื่อคุณกำลังจัดการคอนเทนเนอร์sandboxหรือแก้ไขปัญหาพฤติกรรมของsandbox/นโยบายเครื่องมือ"
 status: active
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Talk-modus: doorlopende spraakgesprekken met ElevenLabs TTS"
-read_when:
-  - Implementatie van Talk-modus op macOS/iOS/Android
-  - Wijzigen van stem/TTS/onderbrekingsgedrag
 title: "Talk-modus"
 ---
 

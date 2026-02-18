@@ -1,8 +1,4 @@
 ---
-summary: "Skills: gerenciadas vs workspace, regras de gating e conexão de config/env"
-read_when:
-  - Adicionar ou modificar skills
-  - Alterar gating de skills ou regras de carregamento
 title: "Habilidades"
 ---
 

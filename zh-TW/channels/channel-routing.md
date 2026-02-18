@@ -1,7 +1,4 @@
 ---
-summary: "各頻道（WhatsApp、Telegram、Discord、Slack）的路由規則與共用脈絡"
-read_when:
-  - 變更頻道路由或收件匣行為時
 title: "頻道路由"
 ---
 

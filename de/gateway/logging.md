@@ -1,8 +1,4 @@
 ---
-summary: "Logging-Oberflächen, Dateilogs, WS-Log-Stile und Konsolenformatierung"
-read_when:
-  - Ändern der Logging-Ausgabe oder -Formate
-  - Debugging der CLI- oder Gateway-Ausgabe
 title: "Protokollierung"
 ---
 

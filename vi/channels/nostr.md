@@ -1,8 +1,4 @@
 ---
-summary: "Kênh DM Nostr qua tin nhắn mã hóa NIP-04"
-read_when:
-  - Bạn muốn OpenClaw nhận DM qua Nostr
-  - Bạn đang thiết lập nhắn tin phi tập trung
 title: "Nostr"
 ---
 

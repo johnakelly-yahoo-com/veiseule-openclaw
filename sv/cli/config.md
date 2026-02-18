@@ -1,7 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw config` (get/set/unset konfigvärden)"
-read_when:
-  - Du vill läsa eller redigera konfig icke-interaktivt
 title: "konfig"
 ---
 

@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 设置 iMessage 支持
-  - 调试 iMessage 发送/接收
-summary: 通过 imsg（基于 stdio 的 JSON-RPC）实现 iMessage 支持、设置及 chat_id 路由
 title: iMessage
 x-i18n:
   generated_at: "2026-02-03T07:44:18Z"

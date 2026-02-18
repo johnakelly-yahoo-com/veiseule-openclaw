@@ -1,8 +1,4 @@
 ---
-summary: "26. Zalo Personal plagini: QR orqali login + zca-cli orqali xabar almashish (plagin o‘rnatish + kanal sozlamasi + CLI + vosita)"
-read_when:
-  - 27. Siz OpenClaw’da Zalo Personal (rasmiy bo‘lmagan) qo‘llab-quvvatlashni xohlaysiz
-  - Siz zalouser plaginini sozlayapsiz yoki ishlab chiqyapsiz
 title: "29. Zalo Personal Plagini"
 ---
 

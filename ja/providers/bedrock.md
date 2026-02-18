@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw で Amazon Bedrock（Converse API）モデルを使用します"
-read_when:
-  - OpenClaw で Amazon Bedrock モデルを使用したい場合
-  - モデル呼び出しのために AWS の認証情報／リージョン設定が必要な場合
 title: "Amazon Bedrock"
 ---
 

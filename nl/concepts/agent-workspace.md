@@ -1,8 +1,4 @@
 ---
-summary: "Agent-werkruimte: locatie, indeling en back-upstrategie"
-read_when:
-  - Je moet de agent-werkruimte of de bestandsindeling uitleggen
-  - Je wilt een agent-werkruimte back-uppen of migreren
 title: "Agent-werkruimte"
 ---
 

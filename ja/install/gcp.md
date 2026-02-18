@@ -1,9 +1,4 @@
 ---
-summary: "GCP Compute Engine の VM（Docker）で、永続的な状態を保ちながら OpenClaw Gateway を 24/7 で実行します"
-read_when:
-  - GCP 上で OpenClaw を 24/7 で稼働させたい
-  - 自分の VM 上で本番運用レベルの常時稼働 Gateway が必要
-  - 永続化、バイナリ、再起動挙動を完全に制御したい
 title: "GCP"
 ---
 

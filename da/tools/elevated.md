@@ -1,7 +1,4 @@
 ---
-summary: "Forhøjet exec-tilstand og /elevated-direktiver"
-read_when:
-  - Justering af standarder for forhøjet tilstand, tilladelseslister eller slash-kommandoers adfærd
 title: "Forhøjet tilstand"
 ---
 

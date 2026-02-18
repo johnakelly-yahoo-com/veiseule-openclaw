@@ -1,8 +1,4 @@
 ---
-summary: "Beskedplatforme som OpenClaw kan forbinde til"
-read_when:
-  - Du vil vælge en chatkanal til OpenClaw
-  - Du har brug for et hurtigt overblik over understøttede beskedplatforme
 title: "Chatkanaler"
 ---
 

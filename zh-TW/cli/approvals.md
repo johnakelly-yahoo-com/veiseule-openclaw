@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw approvals」的 CLI 參考（用於 Gateway 閘道器或節點主機的 exec 核准）"
-read_when:
-  - You want to edit exec approvals from the CLI
-  - 你需要管理 Gateway 閘道器或節點主機上的允許清單
 title: "cli/approvals.md"
 ---
 

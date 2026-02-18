@@ -1,9 +1,4 @@
 ---
-summary: "„ClawHub-Leitfaden: öffentliches Skills-Register + CLI-Workflows“"
-read_when:
-  - Einführung von ClawHub für neue Benutzer
-  - Installieren, Suchen oder Veröffentlichen von Skills
-  - Erläuterung von ClawHub-CLI-Flags und Synchronisationsverhalten
 title: "ClawHub"
 ---
 

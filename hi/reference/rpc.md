@@ -1,8 +1,4 @@
 ---
-summary: "बाहरी CLI (signal-cli, legacy imsg) के लिए RPC एडेप्टर और Gateway पैटर्न"
-read_when:
-  - बाहरी CLI एकीकरण जोड़ते या बदलते समय
-  - RPC एडेप्टर (signal-cli, imsg) का डिबग करते समय
 title: "RPC एडेप्टर"
 ---
 

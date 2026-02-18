@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 设计或实现配置验证行为
-  - 处理配置迁移或 doctor 工作流
-  - 处理插件配置 schema 或插件加载门控
-summary: 严格配置验证 + 仅通过 doctor 进行迁移
 title: 严格配置验证
 x-i18n:
   generated_at: "2026-02-03T10:08:51Z"

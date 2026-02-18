@@ -1,8 +1,4 @@
 ---
-summary: "signal-cli（JSON-RPC + SSE）による Signal サポート、セットアップ、および番号モデル"
-read_when:
-  - Signal サポートのセットアップ時
-  - Signal の送受信をデバッグする場合
 title: "Signal"
 ---
 

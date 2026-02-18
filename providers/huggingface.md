@@ -1,8 +1,4 @@
 ---
-summary: "Hugging Face Inference setup (auth + model selection)"
-read_when:
-  - You want to use Hugging Face Inference with OpenClaw
-  - You need the HF token env var or CLI auth choice
 title: "Hugging Face (Inference)"
 ---
 

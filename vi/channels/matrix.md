@@ -1,7 +1,4 @@
 ---
-summary: "Trạng thái hỗ trợ Matrix, khả năng và cấu hình"
-read_when:
-  - Làm việc với các tính năng kênh Matrix
 title: "Matrix"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw 的 VPS 託管中樞（Oracle/Fly/Hetzner/GCP/exe.dev）"
-read_when:
-  - 您想在雲端執行 Gateway 閘道器
-  - 您需要一份 VPS／託管指南的快速地圖
 title: "VPS 託管"
 ---
 

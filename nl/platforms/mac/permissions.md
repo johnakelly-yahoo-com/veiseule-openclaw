@@ -1,9 +1,4 @@
 ---
-summary: "Persistente macOS-machtigingen (TCC) en vereisten voor ondertekening"
-read_when:
-  - Foutopsporing bij ontbrekende of vastgelopen macOS-machtigingsprompts
-  - Het verpakken of ondertekenen van de macOS-app
-  - Het wijzigen van bundle-ID's of app-installatiepaden
 title: "macOS-machtigingen"
 ---
 

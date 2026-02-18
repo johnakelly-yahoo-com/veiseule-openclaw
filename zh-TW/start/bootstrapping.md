@@ -1,9 +1,4 @@
 ---
-summary: "為代理建立工作區與身分識別檔案的初始化儀式"
-read_when:
-  - 了解代理程式首次執行時會發生什麼事
-  - Explaining where bootstrapping files live
-  - Debugging onboarding identity setup
 title: "代理程式啟動"
 sidebarTitle: "初始化（Bootstrapping）"
 ---

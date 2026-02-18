@@ -1,8 +1,4 @@
 ---
-summary: "Gateway-singletonbeskyttelse ved brug af WebSocket-lytterbinding"
-read_when:
-  - Kørsel eller fejlsøgning af gateway-processen
-  - Undersøgelse af håndhævelse af enkeltinstans
 title: "Gateway-lås"
 ---
 

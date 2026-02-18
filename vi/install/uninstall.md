@@ -1,8 +1,4 @@
 ---
-summary: "Gỡ cài đặt OpenClaw hoàn toàn (CLI, dịch vụ, trạng thái, workspace)"
-read_when:
-  - Bạn muốn gỡ OpenClaw khỏi một máy
-  - Dịch vụ Gateway vẫn chạy sau khi gỡ cài đặt
 title: "Gỡ cài đặt"
 ---
 

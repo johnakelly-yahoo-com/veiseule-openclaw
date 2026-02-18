@@ -1,7 +1,4 @@
 ---
-summary: "Các khả năng của OpenClaw trên các kênh, định tuyến, media và trải nghiệm người dùng."
-read_when:
-  - Bạn muốn danh sách đầy đủ những gì OpenClaw hỗ trợ
 title: "Tính năng"
 ---
 

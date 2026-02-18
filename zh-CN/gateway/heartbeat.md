@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 调整心跳频率或消息时
-  - 在心跳和 cron 之间选择定时任务方案时
-summary: 心跳轮询消息和通知规则
 title: 心跳
 x-i18n:
   generated_at: "2026-02-03T07:48:57Z"

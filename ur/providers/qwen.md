@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw میں Qwen OAuth (فری ٹئیر) استعمال کریں"
-read_when:
-  - آپ OpenClaw کے ساتھ Qwen استعمال کرنا چاہتے ہیں
-  - آپ Qwen Coder کے لیے فری ٹئیر OAuth رسائی چاہتے ہیں
 title: "Qwen"
 ---
 

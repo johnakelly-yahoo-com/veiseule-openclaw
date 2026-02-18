@@ -1,7 +1,4 @@
 ---
-summary: "Cómo se descargan, transcriben y se inyectan en las respuestas los audios/notas de voz entrantes"
-read_when:
-  - Cambio de la transcripción de audio o del manejo de medios
 title: "Audio y notas de voz"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "CLI-Referenz für `openclaw memory` (Status/Index/Suche)"
-read_when:
-  - Sie möchten semantischen Speicher indizieren oder durchsuchen
-  - Sie debuggen die Speicherverfügbarkeit oder Indizierung
 title: "memory"
 ---
 

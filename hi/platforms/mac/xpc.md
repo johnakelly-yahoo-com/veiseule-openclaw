@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw ऐप, Gateway नोड ट्रांसपोर्ट, और PeekabooBridge के लिए macOS IPC आर्किटेक्चर"
-read_when:
-  - IPC कॉन्ट्रैक्ट्स या मेनू बार ऐप IPC संपादित करते समय
 title: "macOS IPC"
 ---
 

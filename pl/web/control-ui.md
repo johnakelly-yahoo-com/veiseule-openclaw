@@ -1,8 +1,4 @@
 ---
-summary: "Przeglądarkowy interfejs sterowania dla Gateway (czat, węzły, konfiguracja)"
-read_when:
-  - Chcesz obsługiwać Gateway z poziomu przeglądarki
-  - Chcesz mieć dostęp do Tailnet bez tuneli SSH
 title: "Interfejs sterowania"
 ---
 

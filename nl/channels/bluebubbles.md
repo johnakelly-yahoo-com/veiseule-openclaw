@@ -1,9 +1,4 @@
 ---
-summary: "iMessage via BlueBubbles macOS-server (REST verzenden/ontvangen, typen, reacties, koppelen, geavanceerde acties)."
-read_when:
-  - BlueBubbles-kanaal instellen
-  - Problemen oplossen met webhook-koppeling
-  - iMessage configureren op macOS
 title: "BlueBubbles"
 ---
 

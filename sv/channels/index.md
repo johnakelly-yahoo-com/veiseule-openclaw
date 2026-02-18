@@ -1,8 +1,4 @@
 ---
-summary: "Meddelandeplattformar som OpenClaw kan ansluta till"
-read_when:
-  - Du vill välja en chattkanal för OpenClaw
-  - Du behöver en snabb översikt över stödda meddelandeplattformar
 title: "Chattkanaler"
 ---
 

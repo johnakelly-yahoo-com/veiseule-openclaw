@@ -1,7 +1,4 @@
 ---
-summary: "Luồng ứng dụng macOS để điều khiển một gateway OpenClaw từ xa qua SSH"
-read_when:
-  - Khi thiết lập hoặc gỡ lỗi điều khiển mac từ xa
 title: "Điều khiển từ xa"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Richtlijnsyntax voor /think + /verbose en hoe deze de redenering van het model beïnvloeden"
-read_when:
-  - Het aanpassen van parsing of standaardwaarden voor thinking- of verbose-richtlijnen
 title: "Thinking-niveaus"
 ---
 

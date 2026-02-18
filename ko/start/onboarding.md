@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw (macOS 앱)의 최초 실행 온보딩 흐름"
-read_when:
-  - macOS 온보딩 어시스턴트 설계 시
-  - 인증 또는 아이덴티티 설정 구현 시
 title: "온보딩 (macOS 앱)"
 sidebarTitle: "온보딩: macOS 앱"
 ---

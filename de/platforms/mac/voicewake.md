@@ -1,7 +1,4 @@
 ---
-summary: "Sprachaktivierung und Push-to-Talk-Modi sowie Routing-Details in der mac-App"
-read_when:
-  - Arbeit an Sprachaktivierungs- oder PTT-Pfaden
 title: "Sprachaktivierung"
 ---
 

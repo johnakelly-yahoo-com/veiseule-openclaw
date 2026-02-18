@@ -1,7 +1,5 @@
 ---
 title: "Sandbox vs Zasady narzędzi vs Tryb podwyższony"
-summary: "„Dlaczego narzędzie jest zablokowane: środowisko wykonawcze sandbox, polityka dozwalania/blokowania narzędzi oraz bramki elevated exec”"
-read_when: "„Gdy trafisz do „sandbox jail” lub zobaczysz odmowę narzędzia/elevated i chcesz znać dokładny klucz konfiguracji do zmiany.”"
 status: active
 ---
 

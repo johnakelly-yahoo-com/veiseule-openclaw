@@ -1,8 +1,4 @@
 ---
-summary: "Vad OpenClaws systemprompt innehåller och hur den sätts samman"
-read_when:
-  - Redigering av systempromptens text, verktygslista eller avsnitt för tid/hjärtslag
-  - Ändring av beteende för bootstrap av arbetsyta eller injicering av Skills
 title: "Systemprompt"
 ---
 

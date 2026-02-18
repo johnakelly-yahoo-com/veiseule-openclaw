@@ -1,7 +1,5 @@
 ---
-summary: "Sandbox par agent + restrictions d’outils, précédence et exemples"
 title: Sandbox multi-agents et outils
-read_when: "Vous souhaitez un sandboxing par agent ou des politiques d’autorisation/refus d’outils par agent dans une Gateway (passerelle) multi-agents."
 status: active
 ---
 

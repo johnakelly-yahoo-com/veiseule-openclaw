@@ -1,7 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw sessions` (lister les sessions stockees + utilisation)"
-read_when:
-  - Vous souhaitez lister les sessions stockees et voir l'activite recente
 title: "sessions"
 ---
 

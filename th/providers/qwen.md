@@ -1,8 +1,4 @@
 ---
-summary: "ใช้ Qwen OAuth (ระดับฟรี) ใน OpenClaw"
-read_when:
-  - คุณต้องการใช้ Qwen กับ OpenClaw
-  - คุณต้องการการเข้าถึง Qwen Coder แบบ OAuth ระดับฟรี
 title: "Qwen"
 ---
 

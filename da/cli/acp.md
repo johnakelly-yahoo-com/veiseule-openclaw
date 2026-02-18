@@ -1,8 +1,4 @@
 ---
-summary: "Kør ACP-broen til IDE-integrationer"
-read_when:
-  - Opsætning af ACP-baserede IDE-integrationer
-  - Fejlfinding af ACP-sessionrouting til Gateway
 title: "acp"
 ---
 

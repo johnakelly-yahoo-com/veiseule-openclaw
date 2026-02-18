@@ -1,9 +1,4 @@
 ---
-summary: "تحقیقی نوٹس: Clawd ورک اسپیسز کے لیے آف لائن میموری سسٹم (Markdown بطور ماخذِ حقیقت + اخذ کردہ اشاریہ)"
-read_when:
-  - روزانہ Markdown لاگز سے آگے ورک اسپیس میموری (~/.openclaw/workspace) ڈیزائن کرتے وقت
-  - Deciding: standalone CLI بمقابلہ گہرا OpenClaw انٹیگریشن
-  - آف لائن یادداشت + عکاسی شامل کرتے وقت (retain/recall/reflect)
 title: "ورک اسپیس میموری تحقیق"
 ---
 

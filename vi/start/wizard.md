@@ -1,8 +1,4 @@
 ---
-summary: "Trình hướng dẫn onboarding CLI: thiết lập có hướng dẫn cho gateway, workspace, kênh và skills"
-read_when:
-  - Chạy hoặc cấu hình trình hướng dẫn onboarding
-  - Thiết lập một máy mới
 title: "Trình hướng dẫn Onboarding (CLI)"
 sidebarTitle: "Hướng dẫn bắt đầu: CLI"
 ---

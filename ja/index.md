@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw は、あらゆる OS で動作する AI エージェント向けのマルチチャンネル ゲートウェイです。"
-read_when:
-  - OpenClaw を初めて知る人に紹介する場合
 title: "OpenClaw"
 ---
 

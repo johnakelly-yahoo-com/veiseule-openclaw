@@ -1,8 +1,4 @@
 ---
-summary: "Hooks: komutlar ve yaşam döngüsü olayları için olay güdümlü otomasyon"
-read_when:
-  - /new, /reset, /stop ve ajan yaşam döngüsü olayları için olay güdümlü otomasyon istiyorsunuz
-  - Hook’ları oluşturmak, yüklemek veya hata ayıklamak istiyorsunuz
 title: "Kancalar"
 ---
 

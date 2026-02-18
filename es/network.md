@@ -1,9 +1,4 @@
 ---
-summary: "Centro de red: superficies del Gateway, emparejamiento, descubrimiento y seguridad"
-read_when:
-  - Necesita la arquitectura de red y la visión general de seguridad
-  - Está depurando el acceso local vs. tailnet o el emparejamiento
-  - Quiere la lista canónica de documentos de red
 title: "network.md"
 ---
 

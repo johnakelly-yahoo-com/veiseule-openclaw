@@ -1,8 +1,4 @@
 ---
-summary: "Gamitin ang OpenCode Zen (mga piniling model) sa OpenClaw"
-read_when:
-  - Gusto mo ang OpenCode Zen para sa access sa mga model
-  - Gusto mo ng isang piniling listahan ng mga model na angkop sa coding
 title: "OpenCode Zen"
 ---
 

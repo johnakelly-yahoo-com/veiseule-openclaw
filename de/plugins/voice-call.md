@@ -1,8 +1,4 @@
 ---
-summary: "„Voice-Call-Plugin: ausgehende + eingehende Anrufe über Twilio/Telnyx/Plivo (Plugin-Installation + Konfiguration + CLI)“"
-read_when:
-  - Sie möchten einen ausgehenden Sprachanruf aus OpenClaw tätigen
-  - Sie konfigurieren oder entwickeln das Voice-Call-Plugin
 title: "„Voice-Call-Plugin“"
 ---
 

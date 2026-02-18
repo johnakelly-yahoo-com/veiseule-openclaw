@@ -1,8 +1,4 @@
 ---
-summary: "Kör ACP-bryggan för IDE-integrationer"
-read_when:
-  - Konfigurera ACP-baserade IDE-integrationer
-  - Felsökning av ACP-sessionsroutning till Gateway
 title: "acp"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Windows (WSL2) ပံ့ပိုးမှု + companion app အခြေအနေ"
-read_when:
-  - Windows တွင် OpenClaw ကို ထည့်သွင်းတပ်ဆင်နေချိန်
-  - Windows companion app အခြေအနေကို ရှာဖွေနေချိန်
 title: "Windows (WSL2)"
 ---
 

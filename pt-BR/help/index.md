@@ -1,8 +1,4 @@
 ---
-summary: "Central de ajuda: correções comuns, verificação da instalação e onde procurar quando algo dá errado"
-read_when:
-  - Você é novo e quer o guia de “o que eu clico/executo”
-  - Algo quebrou e você quer o caminho mais rápido para a correção
 title: "Ajuda"
 ---
 

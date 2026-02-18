@@ -1,7 +1,4 @@
 ---
-summary: "„Remote-Zugriff über SSH-Tunnel (Gateway WS) und Tailnets“"
-read_when:
-  - Beim Betrieb oder bei der Fehlerbehebung von Remote-Gateway-Setups
 title: "„Remote-Zugriff“"
 ---
 

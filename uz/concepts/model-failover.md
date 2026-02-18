@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw qanday qilib auth profillarini aylantiradi va modellar o‘rtasida fallback qiladi"
-read_when:
-  - Auth profili aylanishi, cooldown’lar yoki model fallback xatti-harakatlarini diagnostika qilayotganda
-  - Auth profillari yoki modellar uchun failover qoidalarini yangilayotganda
 title: "Model Fallback"
 ---
 

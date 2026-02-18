@@ -1,8 +1,4 @@
 ---
-summary: "說明 OpenClaw 如何在 macOS 應用程式中，將 Apple 裝置模型識別碼對應為易讀名稱。"
-read_when:
-  - 更新裝置模型識別碼對應或 NOTICE／授權檔案時
-  - 變更 Instances UI 顯示裝置名稱的方式時
 title: "裝置模型資料庫"
 ---
 

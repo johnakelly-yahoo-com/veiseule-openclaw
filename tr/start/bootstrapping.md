@@ -1,9 +1,4 @@
 ---
-summary: "Çalışma alanını ve kimlik dosyalarını tohumlayan ajan başlatma ritüeli"
-read_when:
-  - İlk ajan çalıştırmasında ne olduğunu anlamak
-  - Başlatma dosyalarının nerede bulunduğunu açıklamak
-  - Katılım kimliği kurulumunda hata ayıklamak
 title: "Ajan Önyüklemesi"
 sidebarTitle: "Önyükleme"
 ---

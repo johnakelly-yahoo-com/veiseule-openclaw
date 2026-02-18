@@ -1,7 +1,4 @@
 ---
-summary: "WhatsApp-Integration (Web-Kanal): Login, Inbox, Antworten, Medien und Betrieb"
-read_when:
-  - Arbeit am Verhalten des WhatsApp/Web-Kanals oder an der Inbox-Routinglogik
 title: "WhatsApp"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw で Synthetic の Anthropic 互換 API を使用します"
-read_when:
-  - Synthetic をモデルプロバイダーとして使用したい場合
-  - Synthetic の API キーまたはベース URL の設定が必要な場合
 title: "Synthetic"
 ---
 

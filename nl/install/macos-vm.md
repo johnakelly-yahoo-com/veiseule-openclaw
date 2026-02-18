@@ -1,10 +1,4 @@
 ---
-summary: "Draai OpenClaw in een gesandboxde macOS-VM (lokaal of gehost) wanneer je isolatie of iMessage nodig hebt"
-read_when:
-  - Je wilt OpenClaw geïsoleerd houden van je primaire macOS-omgeving
-  - Je wilt iMessage-integratie (BlueBubbles) in een sandbox
-  - Je wilt een resetbare macOS-omgeving die je kunt klonen
-  - Je wilt lokale versus gehoste macOS-VM-opties vergelijken
 title: "macOS-VM's"
 ---
 

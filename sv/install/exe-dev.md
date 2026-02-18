@@ -1,8 +1,4 @@
 ---
-summary: "Kör OpenClaw Gateway på exe.dev (VM + HTTPS-proxy) för fjärråtkomst"
-read_when:
-  - Du vill ha en billig Linux-värd som alltid är igång för Gateway
-  - Du vill ha fjärråtkomst till Control UI utan att köra din egen VPS
 title: "exe.dev"
 ---
 

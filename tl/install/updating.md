@@ -1,8 +1,4 @@
 ---
-summary: "Ligtas na pag-update ng OpenClaw (global install o source), kasama ang estratehiya sa rollback"
-read_when:
-  - Pag-update ng OpenClaw
-  - May nasira pagkatapos ng update
 title: "Pag-update"
 ---
 

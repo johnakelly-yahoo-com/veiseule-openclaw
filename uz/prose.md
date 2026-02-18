@@ -1,9 +1,4 @@
 ---
-summary: "OpenProse: OpenClaw ichida .prose ish jarayonlari, slash buyruqlar va holat"
-read_when:
-  - Siz .prose ish jarayonlarini ishga tushirmoqchi yoki yozmoqchisiz
-  - Siz OpenProse plaginini yoqmoqchisiz
-  - Sizga holat saqlash mexanizmini tushunish kerak
 title: "OpenProse"
 ---
 

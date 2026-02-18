@@ -1,8 +1,4 @@
 ---
-summary: "Ejecute el puente ACP para integraciones con IDE"
-read_when:
-  - Configuración de integraciones de IDE basadas en ACP
-  - Depuración del enrutamiento de sesiones ACP hacia el Gateway
 title: "acp"
 ---
 

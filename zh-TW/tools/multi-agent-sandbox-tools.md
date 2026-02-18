@@ -1,7 +1,5 @@
 ---
-summary: "每個代理程式的沙箱與工具限制、優先順序與範例"
 title: 多代理程式沙箱與工具
-read_when: "You want per-agent sandboxing or per-agent tool allow/deny policies in a multi-agent gateway."
 status: active
 ---
 

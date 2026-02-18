@@ -1,8 +1,4 @@
 ---
-summary: "Các script trong kho lưu trữ: mục đích, phạm vi và lưu ý an toàn"
-read_when:
-  - Chạy các script từ kho lưu trữ
-  - Thêm hoặc thay đổi script trong ./scripts
 title: "Tập lệnh"
 ---
 

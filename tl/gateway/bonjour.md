@@ -1,8 +1,4 @@
 ---
-summary: "Bonjour/mDNS discovery + pag-debug (Gateway beacons, clients, at mga karaniwang failure mode)"
-read_when:
-  - Pag-debug ng mga isyu sa Bonjour discovery sa macOS/iOS
-  - Pagbabago ng mga uri ng mDNS service, TXT records, o discovery UX
 title: "Bonjour Pagtuklas"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Schema-accurate configuration examples for common OpenClaw setups"
-read_when:
-  - Learning how to configure OpenClaw
-  - Looking for configuration examples
-  - Setting up OpenClaw for the first time
 title: "Configuration Examples"
 ---
 

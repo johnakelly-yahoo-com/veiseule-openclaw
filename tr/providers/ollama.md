@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw’ı Ollama ile çalıştırın (yerel LLM çalışma zamanı)"
-read_when:
-  - OpenClaw’ı Ollama üzerinden yerel modellerle çalıştırmak istiyorsanız
-  - Ollama kurulumu ve yapılandırma rehberine ihtiyaç duyuyorsanız
 title: "Ollama"
 ---
 

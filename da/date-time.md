@@ -1,8 +1,4 @@
 ---
-summary: "Håndtering af dato og tid på tværs af konvolutter, prompts, værktøjer og connectors"
-read_when:
-  - Du ændrer, hvordan tidsstempler vises for modellen eller brugere
-  - Du fejlsøger tidsformatering i beskeder eller output fra systemprompten
 title: "Dato og tid"
 ---
 

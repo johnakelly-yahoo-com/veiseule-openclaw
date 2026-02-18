@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 实现 macOS 应用功能
-  - 在 macOS 上更改 Gateway 网关生命周期或节点桥接
-summary: OpenClaw macOS 配套应用（菜单栏 + Gateway 网关代理）
 title: macOS 应用
 x-i18n:
   generated_at: "2026-02-03T07:53:14Z"

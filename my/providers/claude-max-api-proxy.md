@@ -1,9 +1,4 @@
 ---
-summary: "Claude Max/Pro စာရင်းသွင်းမှုကို OpenAI နှင့် ကိုက်ညီသော API endpoint အဖြစ် အသုံးပြုရန်"
-read_when:
-  - OpenAI နှင့် ကိုက်ညီသော ကိရိယာများနှင့် Claude Max စာရင်းသွင်းမှုကို အသုံးပြုလိုသောအခါ
-  - Claude Code CLI ကို ခေါက်ပတ်ထားသော local API server တစ်ခုကို အသုံးပြုလိုသောအခါ
-  - API key များအစား စာရင်းသွင်းမှုကို အသုံးပြုပြီး ကုန်ကျစရိတ် ချွေတာလိုသောအခါ
 title: "Claude Max API Proxy"
 ---
 

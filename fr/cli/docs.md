@@ -1,7 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw docs` (rechercher l’index de documentation en direct)"
-read_when:
-  - Vous souhaitez rechercher la documentation OpenClaw en direct depuis le terminal
 title: "docs"
 ---
 

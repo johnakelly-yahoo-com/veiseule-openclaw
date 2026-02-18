@@ -1,10 +1,4 @@
----
-summary: "npm + macOS uygulaması için adım adım sürüm kontrol listesi"
-read_when:
-  - Yeni bir npm sürümü çıkarırken
-  - Yeni bir macOS uygulama sürümü çıkarırken
-  - Yayınlamadan önce meta verileri doğrularken
----
+------
 
 # Sürüm Kontrol Listesi (npm + macOS)
 

@@ -1,8 +1,4 @@
 ---
-summary: "macOS Skills 설정 UI 및 Gateway(게이트웨이) 기반 상태"
-read_when:
-  - macOS Skills 설정 UI 를 업데이트할 때
-  - Skills 게이팅 또는 설치 동작을 변경할 때
 title: "기술"
 ---
 

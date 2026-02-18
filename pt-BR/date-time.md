@@ -1,8 +1,4 @@
 ---
-summary: "Tratamento de data e hora em envelopes, prompts, ferramentas e conectores"
-read_when:
-  - Você está alterando como os timestamps são mostrados ao modelo ou aos usuários
-  - Você está depurando a formatação de horário em mensagens ou na saída do prompt do sistema
 title: "Data e Hora"
 ---
 

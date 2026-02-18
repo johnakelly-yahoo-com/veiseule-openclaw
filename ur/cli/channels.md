@@ -1,8 +1,4 @@
 ---
-summary: "CLI کے لیے `openclaw channels` کا حوالہ (اکاؤنٹس، اسٹیٹس، لاگ اِن/لاگ آؤٹ، لاگز)"
-read_when:
-  - آپ چینل اکاؤنٹس شامل/حذف کرنا چاہتے ہیں (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage)
-  - آپ چینل اسٹیٹس چیک کرنا یا چینل لاگز ٹیل کرنا چاہتے ہیں
 title: "channels"
 ---
 

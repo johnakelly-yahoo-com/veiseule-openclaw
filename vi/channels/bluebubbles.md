@@ -1,9 +1,4 @@
 ---
-summary: "iMessage qua máy chủ BlueBubbles macOS (gửi/nhận REST, trạng thái gõ, phản ứng, ghép cặp, hành động nâng cao)."
-read_when:
-  - Thiết lập kênh BlueBubbles
-  - Xử lý sự cố ghép cặp webhook
-  - Cấu hình iMessage trên macOS
 title: "BlueBubbles"
 ---
 

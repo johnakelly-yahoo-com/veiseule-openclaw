@@ -1,8 +1,4 @@
 ---
-summary: "Wysyłanie ankiet przez gateway + CLI"
-read_when:
-  - Dodawanie lub modyfikowanie obsługi ankiet
-  - Debugowanie wysyłania ankiet z CLI lub gateway
 title: "Ankiety"
 ---
 

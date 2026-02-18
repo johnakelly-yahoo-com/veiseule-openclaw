@@ -1,9 +1,4 @@
 ---
-summary: "„Wo OpenClaw Umgebungsvariablen lädt und die Rangfolge der Priorität“"
-read_when:
-  - Sie müssen wissen, welche Umgebungsvariablen geladen werden und in welcher Reihenfolge
-  - Sie beheben fehlende API-Schlüssel im Gateway
-  - Sie dokumentieren Anbieter-Authentifizierung oder Deployment-Umgebungen
 title: "„Umgebungsvariablen“"
 ---
 

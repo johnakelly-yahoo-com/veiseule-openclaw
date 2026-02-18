@@ -1,9 +1,4 @@
 ---
-summary: "iMessage sa pamamagitan ng BlueBubbles macOS server (REST send/receive, typing, reactions, pairing, advanced actions)."
-read_when:
-  - Pagse-setup ng BlueBubbles channel
-  - Pag-troubleshoot ng webhook pairing
-  - Pag-configure ng iMessage sa macOS
 title: "BlueBubbles"
 ---
 

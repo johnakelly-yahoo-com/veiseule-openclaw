@@ -1,7 +1,4 @@
 ---
-summary: "Statut de prise en charge, capacites et configuration de Nextcloud Talk"
-read_when:
-  - Travail sur les fonctionnalites du canal Nextcloud Talk
 title: "Nextcloud Talk"
 ---
 

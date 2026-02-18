@@ -1,7 +1,4 @@
 ---
-summary: "Gateway မှ OpenAI နှင့် ကိုက်ညီသော /v1/chat/completions HTTP endpoint ကို ထုတ်ဖော်ပေးသည်"
-read_when:
-  - OpenAI Chat Completions ကို မျှော်မှန်းထားသော ကိရိယာများနှင့် ပေါင်းစည်းသည့်အခါ
 title: "OpenAI Chat Completions"
 ---
 

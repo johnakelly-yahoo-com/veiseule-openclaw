@@ -1,8 +1,4 @@
 ---
-summary: "Hvordan OpenClaw leverer Apple-enhedsmodelidentifikatorer med brugervenlige navne i macOS-appen."
-read_when:
-  - Opdatering af tilknytninger for enhedsmodelidentifikatorer eller NOTICE-/licensfiler
-  - Ændring af, hvordan Instances UI viser enhedsnavne
 title: "Enhedsmodel-database"
 ---
 

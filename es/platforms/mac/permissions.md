@@ -1,9 +1,4 @@
 ---
-summary: "persistencia de permisos de macOS (TCC) y requisitos de firma"
-read_when:
-  - Depuración de avisos de permisos de macOS faltantes o bloqueados
-  - Empaquetado o firma de la app de macOS
-  - Cambio de IDs de paquete o rutas de instalación de la app
 title: "Permisos de macOS"
 ---
 

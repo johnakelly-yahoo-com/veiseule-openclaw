@@ -1,6 +1,4 @@
 ---
-summary: "Åtgärda CDP-startproblem för Chrome/Brave/Edge/Chromium för OpenClaw webbläsarkontroll på Linux"
-read_when: "Webbläsarkontroll misslyckas på Linux, särskilt med snap Chromium"
 title: "Felsökning av webbläsare"
 ---
 

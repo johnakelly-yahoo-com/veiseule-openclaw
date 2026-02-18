@@ -1,9 +1,4 @@
 ---
-summary: "Tham chiếu: các quy tắc làm sạch và sửa chữa bản ghi theo từng nhà cung cấp"
-read_when:
-  - Bạn đang gỡ lỗi các trường hợp nhà cung cấp từ chối request liên quan đến hình dạng bản ghi
-  - Bạn đang thay đổi logic làm sạch bản ghi hoặc sửa chữa tool-call
-  - Bạn đang điều tra sự không khớp id tool-call giữa các nhà cung cấp
 title: "Vệ sinh bản ghi"
 ---
 

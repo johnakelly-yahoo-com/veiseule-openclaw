@@ -1,7 +1,4 @@
 ---
-summary: "Hubs, der linker til al OpenClaw-dokumentation"
-read_when:
-  - Du vil have et komplet overblik over dokumentationen
 title: "Dokumentationshubs"
 ---
 

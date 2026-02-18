@@ -1,8 +1,4 @@
 ---
-summary: "Superfícies web do Gateway: UI de Controle, modos de bind e segurança"
-read_when:
-  - Você quer acessar o Gateway via Tailscale
-  - Você quer a UI de Controle no navegador e edição de configuração
 title: "Web"
 ---
 

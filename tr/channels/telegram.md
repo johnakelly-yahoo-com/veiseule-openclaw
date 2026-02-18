@@ -1,7 +1,4 @@
 ---
-summary: "Telegram bot destek durumu, yetenekler ve yapılandırma"
-read_when:
-  - Telegram özellikleri veya webhook’lar üzerinde çalışırken
 title: "Telegram"
 ---
 

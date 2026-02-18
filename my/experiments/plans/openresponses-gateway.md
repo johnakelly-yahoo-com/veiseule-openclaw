@@ -1,5 +1,4 @@
 ---
-summary: "အစီအစဉ်: OpenResponses /v1/responses endpoint ကို ထည့်သွင်းပြီး chat completions ကို သန့်ရှင်းစွာ အဆင့်ချင်း ဖယ်ရှားရန်"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"

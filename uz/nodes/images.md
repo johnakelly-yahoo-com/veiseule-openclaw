@@ -1,7 +1,4 @@
 ---
-summary: "Yuborish, gateway va agent javoblari uchun tasvir va media bilan ishlash qoidalari"
-read_when:
-  - Media pipeline yoki biriktirmalarni o‘zgartirish
 title: "Tasvir va Media qo‘llab-quvvatlashi"
 ---
 

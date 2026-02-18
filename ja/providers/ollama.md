@@ -1,8 +1,4 @@
 ---
-summary: "Ollama（ローカル LLM ランタイム）で OpenClaw を実行します"
-read_when:
-  - Ollama を介してローカルモデルで OpenClaw を実行したい場合
-  - Ollama のセットアップおよび設定ガイダンスが必要な場合
 title: "Ollama"
 ---
 

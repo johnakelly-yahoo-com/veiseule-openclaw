@@ -1,9 +1,4 @@
 ---
-summary: "Android uygulaması (node): bağlantı runbook'u + Canvas/Chat/Kamera"
-read_when:
-  - Android node'u eşleştirirken veya yeniden bağlarken
-  - Android gateway keşfi ya da kimlik doğrulamayı hata ayıklarken
-  - İstemciler arasında sohbet geçmişi eşitliğini doğrularken
 title: "Android Uygulaması"
 ---
 

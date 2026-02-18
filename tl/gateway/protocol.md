@@ -1,9 +1,4 @@
 ---
-summary: "Gateway WebSocket protocol: handshake, mga frame, pagba-version"
-read_when:
-  - Pagpapatupad o pag-update ng mga gateway WS client
-  - Pag-debug ng mga protocol mismatch o pagkabigo sa pagkonekta
-  - Muling pagbuo ng mga schema/model ng protocol
 title: "Gateway Protocol"
 ---
 

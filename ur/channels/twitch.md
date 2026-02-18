@@ -1,7 +1,4 @@
 ---
-summary: "Twitch چیٹ بوٹ کی کنفیگریشن اور سیٹ اپ"
-read_when:
-  - OpenClaw کے لیے Twitch چیٹ انٹیگریشن سیٹ اپ کرتے وقت
 title: "Twitch"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Agent 執行期（內嵌的 pi-mono）、工作區合約，以及工作階段啟動"
-read_when:
-  - 變更 agent 執行期、工作區啟動，或工作階段行為時
 title: "Agent 執行期"
 ---
 

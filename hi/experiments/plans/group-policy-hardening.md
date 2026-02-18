@@ -1,7 +1,4 @@
 ---
-summary: "Telegram allowlist सुदृढ़ीकरण: प्रीफ़िक्स + व्हाइटस्पेस सामान्यीकरण"
-read_when:
-  - ऐतिहासिक Telegram allowlist परिवर्तनों की समीक्षा करते समय
 title: "Telegram Allowlist सुदृढ़ीकरण"
 ---
 

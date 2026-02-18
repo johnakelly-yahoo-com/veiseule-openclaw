@@ -1,8 +1,4 @@
 ---
-summary: "Feishu botuna genel bakış, özellikler ve yapılandırma"
-read_when:
-  - Bir Feishu/Lark botu bağlamak istiyorsunuz
-  - Feishu kanalını yapılandırıyorsunuz
 title: Feishu
 ---
 

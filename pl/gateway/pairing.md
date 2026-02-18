@@ -1,9 +1,4 @@
 ---
-summary: "Parowanie węzłów należących do Gateway (Opcja B) dla iOS i innych węzłów zdalnych"
-read_when:
-  - Implementowanie zatwierdzania parowania węzłów bez interfejsu macOS
-  - Dodawanie przepływów CLI do zatwierdzania węzłów zdalnych
-  - Rozszerzanie protokołu gateway o zarządzanie węzłami
 title: "Parowanie bramy"
 ---
 

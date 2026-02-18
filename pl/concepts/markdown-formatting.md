@@ -1,9 +1,4 @@
 ---
-summary: "Potok formatowania Markdown dla kanałów wychodzących"
-read_when:
-  - Zmieniasz formatowanie Markdown lub chunking dla kanałów wychodzących
-  - Dodajesz nowy formatter kanału lub mapowanie stylów
-  - Debugujesz regresje formatowania między kanałami
 title: "Formatowanie Markdown"
 ---
 

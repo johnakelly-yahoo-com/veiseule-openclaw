@@ -1,7 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw config` (configwaarden ophalen/instellen/verwijderen)"
-read_when:
-  - Je wilt config niet-interactief lezen of bewerken
 title: "config"
 ---
 

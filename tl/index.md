@@ -1,7 +1,4 @@
 ---
-summary: "Ang OpenClaw ay isang multi-channel gateway para sa mga AI agent na tumatakbo sa anumang OS."
-read_when:
-  - Pagpapakilala ng OpenClaw sa mga baguhan
 title: "OpenClaw"
 ---
 

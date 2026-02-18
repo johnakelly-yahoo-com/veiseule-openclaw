@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw ဖြင့် Z.AI (GLM မော်ဒယ်များ) ကို အသုံးပြုပါ"
-read_when:
-  - OpenClaw တွင် Z.AI / GLM မော်ဒယ်များကို အသုံးပြုလိုပါက
-  - ရိုးရှင်းသော ZAI_API_KEY တပ်ဆင်မှု လိုအပ်ပါက
 title: "Z.AI"
 ---
 

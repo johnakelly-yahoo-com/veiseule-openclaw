@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 开发 Matrix 渠道功能
-summary: Matrix 支持状态、功能和配置
 title: Matrix
 x-i18n:
   generated_at: "2026-02-03T07:44:02Z"

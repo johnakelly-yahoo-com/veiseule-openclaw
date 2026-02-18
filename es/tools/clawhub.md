@@ -1,9 +1,4 @@
 ---
-summary: "Guía de ClawHub: registro público de skills + flujos de trabajo de la CLI"
-read_when:
-  - Presentar ClawHub a nuevos usuarios
-  - Instalar, buscar o publicar skills
-  - Explicar las banderas de la CLI de ClawHub y el comportamiento de sincronización
 title: "ClawHub"
 ---
 

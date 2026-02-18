@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw နှင့်အတူ Amazon Bedrock (Converse API) မော်ဒယ်များကို အသုံးပြုပါ"
-read_when:
-  - OpenClaw နှင့်အတူ Amazon Bedrock မော်ဒယ်များကို အသုံးပြုလိုသောအခါ
-  - မော်ဒယ်ခေါ်ယူမှုများအတွက် AWS အထောက်အထား/ဒေသ သတ်မှတ်မှု လိုအပ်သောအခါ
 title: "Amazon Bedrock"
 ---
 

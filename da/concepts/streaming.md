@@ -1,9 +1,4 @@
 ---
-summary: "Streaming- og chunking-adfærd (blokbesvarelser, udkast-streaming, grænser)"
-read_when:
-  - Forklaring af, hvordan streaming eller chunking fungerer på kanaler
-  - Ændring af blokstreaming eller kanal-chunking-adfærd
-  - Fejlfinding af duplikerede/tidlige blokbesvarelser eller udkast-streaming
 title: "Streaming og Chunking"
 ---
 

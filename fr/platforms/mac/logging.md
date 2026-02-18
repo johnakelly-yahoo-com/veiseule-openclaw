@@ -1,8 +1,4 @@
 ---
-summary: "Journalisation OpenClaw : fichier de diagnostics à rotation + indicateurs de confidentialité de la journalisation unifiée"
-read_when:
-  - Capture des journaux macOS ou enquête sur la journalisation de données privées
-  - Débogage des problèmes de cycle de vie de l’activation vocale/de session
 title: "Journalisation macOS"
 ---
 

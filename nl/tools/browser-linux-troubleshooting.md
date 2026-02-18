@@ -1,6 +1,4 @@
 ---
-summary: "Los CDP-opstartproblemen van Chrome/Brave/Edge/Chromium op voor OpenClaw-browserbesturing op Linux"
-read_when: "Browserbesturing faalt op Linux, vooral met snap Chromium"
 title: "Problemen oplossen voor de browser"
 ---
 

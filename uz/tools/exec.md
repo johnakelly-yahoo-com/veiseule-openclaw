@@ -1,8 +1,4 @@
 ---
-summary: "Exec vositasidan foydalanish, stdin rejimlari va TTY qo‘llab-quvvatlashi"
-read_when:
-  - Exec vositasidan foydalanayotganda yoki uni o‘zgartirayotganda
-  - stdin yoki TTY xatti-harakatlarini nosozlikdan chiqarayotganda
 title: "Exec vositasi"
 ---
 

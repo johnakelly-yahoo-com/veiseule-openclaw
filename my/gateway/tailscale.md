@@ -1,8 +1,4 @@
 ---
-summary: "Gateway ဒက်ရှ်ဘုတ်အတွက် Tailscale Serve/Funnel ကို ပေါင်းစည်းအသုံးပြုနိုင်ရန်"
-read_when:
-  - Gateway Control UI ကို localhost ပြင်ပသို့ ဖော်ထုတ်အသုံးပြုရန်
-  - tailnet သို့မဟုတ် အများပြည်သူဆိုင်ရာ ဒက်ရှ်ဘုတ် ဝင်ရောက်မှုကို အလိုအလျောက်လုပ်ဆောင်ရန်
 title: "Tailscale"
 ---
 

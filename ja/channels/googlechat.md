@@ -1,7 +1,4 @@
 ---
-summary: "Google Chat アプリのサポート状況、機能、および設定"
-read_when:
-  - Google Chat チャンネル機能の作業時
 title: "Google Chat"
 ---
 

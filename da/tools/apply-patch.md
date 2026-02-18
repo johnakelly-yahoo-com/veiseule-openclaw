@@ -1,8 +1,4 @@
 ---
-summary: "Anvend patches på tværs af flere filer med værktøjet apply_patch"
-read_when:
-  - Du har brug for strukturerede filredigeringer på tværs af flere filer
-  - Du vil dokumentere eller fejlfinde patch-baserede redigeringer
 title: "apply_patch-værktøj"
 ---
 

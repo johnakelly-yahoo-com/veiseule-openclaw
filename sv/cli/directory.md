@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw directory` (själv, peers, grupper)"
-read_when:
-  - Du vill slå upp kontakt-/grupp-/själv-ID:n för en kanal
-  - Du utvecklar en kanaladapter för katalog
 title: "directory"
 ---
 

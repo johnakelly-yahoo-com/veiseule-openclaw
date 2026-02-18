@@ -1,8 +1,4 @@
 ---
-summary: "VPS-Hosting-Hub für OpenClaw (Oracle/Fly/Hetzner/GCP/exe.dev)"
-read_when:
-  - Sie möchten den Gateway in der Cloud betreiben
-  - Sie benötigen eine schnelle Übersicht über VPS-/Hosting-Anleitungen
 title: "VPS-Hosting"
 ---
 

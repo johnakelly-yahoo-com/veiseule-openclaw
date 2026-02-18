@@ -1,8 +1,4 @@
 ---
-summary: "Singleton guard ng Gateway gamit ang pag-bind ng WebSocket listener"
-read_when:
-  - Kapag nagpapatakbo o nagde-debug ng proseso ng gateway
-  - Kapag iniimbestigahan ang pagpapatupad ng single-instance
 title: "Kandado ng Gateway"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Wskazówki dotyczące wyboru między heartbeat a zadaniami cron do automatyzacji"
-read_when:
-  - Podejmowanie decyzji, jak planować zadania cykliczne
-  - Konfigurowanie monitorowania w tle lub powiadomień
-  - Optymalizacja użycia tokenów dla okresowych sprawdzeń
 title: "Cron vs Heartbeat"
 ---
 

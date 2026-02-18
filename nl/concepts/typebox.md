@@ -1,7 +1,4 @@
 ---
-summary: "TypeBox-schema’s als de enige bron van waarheid voor het gateway-protocol"
-read_when:
-  - Bijwerken van protocols schema’s of codegeneratie
 title: "TypeBox"
 ---
 

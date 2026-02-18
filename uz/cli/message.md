@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw message` uchun CLI ma’lumotnomasi (yuborish + kanal amallari)"
-read_when:
-  - Xabar CLI amallarini qo‘shishda yoki o‘zgartirishda
-  - Chiqish kanali xatti-harakatini o‘zgartirishda
 title: "message"
 ---
 

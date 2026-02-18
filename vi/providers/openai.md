@@ -1,8 +1,4 @@
 ---
-summary: "Sử dụng OpenAI qua khóa API hoặc đăng ký Codex trong OpenClaw"
-read_when:
-  - Bạn muốn dùng các mô hình OpenAI trong OpenClaw
-  - Bạn muốn xác thực bằng đăng ký Codex thay vì khóa API
 title: "OpenAI"
 ---
 

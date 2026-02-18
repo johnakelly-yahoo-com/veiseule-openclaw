@@ -1,9 +1,4 @@
 ---
-summary: "Katı yapılandırma doğrulaması + yalnızca doctor tarafından yapılan geçişler"
-read_when:
-  - Yapılandırma doğrulama davranışını tasarlarken veya uygularken
-  - Yapılandırma geçişleri ya da doctor iş akışları üzerinde çalışırken
-  - Handling plugin config schemas or plugin load gating
 title: "Katı Yapılandırma Doğrulaması"
 ---
 

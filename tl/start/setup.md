@@ -1,8 +1,4 @@
 ---
-summary: "Advanced na setup at mga workflow para sa development ng OpenClaw"
-read_when:
-  - Nagse-setup ng bagong machine
-  - Gusto mo ng “latest + greatest” nang hindi nasisira ang personal mong setup
 title: "Pag-setup"
 ---
 

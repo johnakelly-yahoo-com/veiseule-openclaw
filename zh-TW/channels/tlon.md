@@ -1,7 +1,4 @@
 ---
-summary: "Tlon／Urbit 的支援狀態、功能與設定"
-read_when:
-  - 進行 Tlon／Urbit 頻道功能開發時
 title: "Tlon"
 ---
 

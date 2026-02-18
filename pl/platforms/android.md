@@ -1,9 +1,4 @@
 ---
-summary: "Aplikacja Android (węzeł): runbook połączenia + Canvas/Czat/Kamera"
-read_when:
-  - Parowanie lub ponowne łączenie węzła Android
-  - Debugowanie wykrywania Gateway lub uwierzytelniania na Androidzie
-  - Weryfikacja spójności historii czatu między klientami
 title: "Aplikacja Android"
 ---
 

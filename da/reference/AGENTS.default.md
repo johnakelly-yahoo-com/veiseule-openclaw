@@ -1,9 +1,4 @@
----
-summary: "Standard OpenClaw-agentinstruktioner og Skills-oversigt til opsætning af personlig assistent"
-read_when:
-  - Start af en ny OpenClaw-agent-session
-  - Aktivering eller revision af standard-Skills
----
+------
 
 # AGENTS.md — OpenClaw Personlig Assistent (standard)
 

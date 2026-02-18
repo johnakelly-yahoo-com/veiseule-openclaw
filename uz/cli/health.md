@@ -1,7 +1,4 @@
 ---
-summary: "34. `openclaw health` uchun CLI ma’lumotnomasi (RPC orqali shlyuz salomatligi endpointi)"
-read_when:
-  - 35. Ishlayotgan Gateway’ning salomatligini tezda tekshirmoqchisiz
 title: "36. health"
 ---
 

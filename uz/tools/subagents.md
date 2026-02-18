@@ -1,8 +1,4 @@
 ---
-summary: "Sub-agentlar: natijalarni so‘rovchi chatga e’lon qilib, izolyatsiyalangan agent ishlarini ishga tushirish"
-read_when:
-  - Agent orqali fon/parallel ishni xohlaysiz
-  - Siz sessions_spawn yoki sub-agent tool siyosatini o‘zgartiryapsiz
 title: "Sub-agentlar"
 ---
 

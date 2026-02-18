@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 想要使用当前令牌打开控制界面
-  - 想要打印 URL 而不启动浏览器
-summary: "`openclaw dashboard` 的 CLI 参考（打开控制界面）"
 title: dashboard
 x-i18n:
   generated_at: "2026-02-01T19:58:50Z"

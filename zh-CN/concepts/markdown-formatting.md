@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 你正在更改出站渠道的 Markdown 格式化或分块逻辑
-  - 你正在添加新的渠道格式化器或样式映射
-  - 你正在调试跨渠道的格式化回归问题
-summary: 出站渠道的 Markdown 格式化管道
 title: Markdown 格式化
 x-i18n:
   generated_at: "2026-02-01T20:22:42Z"

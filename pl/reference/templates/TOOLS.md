@@ -1,8 +1,4 @@
----
-summary: "„Szablon obszaru roboczego dla TOOLS.md”"
-read_when:
-  - Ręczne bootstrapowanie obszaru roboczego
----
+------
 
 # TOOLS.md – Notatki lokalne
 

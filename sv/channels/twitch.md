@@ -1,7 +1,4 @@
 ---
-summary: "Konfiguration och konfigurering av Twitch-chattbot"
-read_when:
-  - Konfigurering av Twitch-chattintegration för OpenClaw
 title: "Twitch"
 ---
 

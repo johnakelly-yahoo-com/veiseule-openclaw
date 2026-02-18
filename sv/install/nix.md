@@ -1,9 +1,4 @@
 ---
-summary: "Installera OpenClaw deklarativt med Nix"
-read_when:
-  - Du vill ha reproducerbara installationer med möjlighet till återställning
-  - Du använder redan Nix/NixOS/Home Manager
-  - Du vill att allt ska vara pinnat och hanteras deklarativt
 title: "Nix"
 ---
 

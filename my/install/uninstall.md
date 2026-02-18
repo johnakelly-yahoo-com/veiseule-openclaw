@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw ကို အပြည့်အဝ ဖယ်ရှားခြင်း (CLI၊ service၊ state၊ workspace)"
-read_when:
-  - စက်တစ်လုံးမှ OpenClaw ကို ဖယ်ရှားလိုသောအခါ
-  - uninstall ပြီးနောက် Gateway service ဆက်လက် လည်ပတ်နေသေးသောအခါ
 title: "ဖယ်ရှားခြင်း"
 ---
 

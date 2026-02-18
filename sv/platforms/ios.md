@@ -1,9 +1,4 @@
 ---
-summary: "iOS-nodapp: anslutning till Gateway, parkoppling, canvas och felsökning"
-read_when:
-  - Parkoppling eller återanslutning av iOS-noden
-  - Köra iOS-appen från källkod
-  - Felsökning av gateway-upptäckt eller canvas-kommandon
 title: "iOS-app"
 ---
 

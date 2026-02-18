@@ -1,5 +1,4 @@
 ---
-summary: "Gia cố xử lý đầu vào cron.add, căn chỉnh schema và cải thiện công cụ UI/tác tử cho cron"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"

@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw skills」（list/info/check）の CLI リファレンスと、Skills の実行可否条件について"
-read_when:
-  - 利用可能で実行準備が整っている Skills を確認したいとき
-  - Skills に必要なバイナリ／環境変数／設定の不足をデバッグしたいとき
 title: "skills"
 ---
 

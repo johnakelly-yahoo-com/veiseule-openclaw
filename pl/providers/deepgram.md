@@ -1,8 +1,4 @@
 ---
-summary: "Transkrypcja Deepgram dla przychodzących notatek głosowych"
-read_when:
-  - Chcesz używać rozpoznawania mowy Deepgram dla załączników audio
-  - Potrzebujesz szybkiego przykładu konfiguracji Deepgram
 title: "Deepgram"
 ---
 

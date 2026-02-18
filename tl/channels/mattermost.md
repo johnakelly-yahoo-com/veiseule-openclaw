@@ -1,8 +1,4 @@
 ---
-summary: "Setup ng Mattermost bot at OpenClaw config"
-read_when:
-  - Pagse-setup ng Mattermost
-  - Pag-debug ng Mattermost routing
 title: "Mattermost"
 ---
 

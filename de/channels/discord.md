@@ -1,7 +1,4 @@
 ---
-summary: "„Status der Discord-Bot-Unterstützung, Funktionen und Konfiguration“"
-read_when:
-  - Arbeit an Discord-Kanal-Funktionen
 title: "Discord"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Ansible, Tailscale VPN 및 방화벽 격리를 통한 자동화되고 강화된 OpenClaw 설치"
-read_when:
-  - 보안 강화가 적용된 자동화 서버 배포가 필요할 때
-  - VPN 액세스가 포함된 방화벽 격리 설정이 필요할 때
-  - 원격 Debian/Ubuntu 서버에 배포할 때
 title: "Ansible"
 ---
 

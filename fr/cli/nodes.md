@@ -1,8 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw nodes` (list/status/approve/invoke, camera/canvas/screen)"
-read_when:
-  - Vous gerez des nœuds appaires (cameras, ecran, canevas)
-  - Vous devez approuver des requetes ou invoquer des commandes de nœud
 title: "nœuds"
 ---
 

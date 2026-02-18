@@ -1,8 +1,4 @@
 ---
-summary: "دعم iMessage القديم عبر imsg ‏(JSON-RPC عبر stdio). يُنصَح بالإعدادات الجديدة باستخدام BlueBubbles."
-read_when:
-  - إعداد دعم iMessage
-  - استكشاف أخطاء إرسال/استقبال iMessage
 title: iMessage
 ---
 

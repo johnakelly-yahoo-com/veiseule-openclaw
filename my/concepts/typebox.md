@@ -1,7 +1,4 @@
 ---
-summary: "Gateway ပရိုတိုကောအတွက် အမှန်တရားတစ်ခုတည်းသော အရင်းအမြစ်အဖြစ် TypeBox schema များ"
-read_when:
-  - ပရိုတိုကော schema များ သို့မဟုတ် codegen ကို အပ်ဒိတ်လုပ်နေချိန်
 title: "TypeBox"
 ---
 

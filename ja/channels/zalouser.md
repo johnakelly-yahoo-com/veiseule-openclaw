@@ -1,8 +1,4 @@
 ---
-summary: "zca-cli（QR ログイン）による Zalo 個人アカウントのサポート、機能、および設定"
-read_when:
-  - OpenClaw 用の Zalo Personal をセットアップする場合
-  - Zalo Personal のログインやメッセージフローをデバッグする場合
 title: "Zalo Personal"
 ---
 

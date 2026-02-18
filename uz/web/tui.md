@@ -1,8 +1,4 @@
 ---
-summary: "Terminal UI (TUI): istalgan qurilmadan Gateway’ga ulanish"
-read_when:
-  - Sizga TUI bo‘yicha boshlovchilar uchun qulay qo‘llanma kerak
-  - Sizga TUI funksiyalari, buyruqlari va klavish yorliqlarining to‘liq ro‘yxati kerak
 title: "TUI"
 ---
 

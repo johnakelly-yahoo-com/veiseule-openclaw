@@ -1,7 +1,4 @@
 ---
-summary: "Khám phá: cấu hình mô hình, hồ sơ xác thực và hành vi dự phòng"
-read_when:
-  - Khám phá các ý tưởng tương lai về lựa chọn mô hình + hồ sơ xác thực
 title: "Khám phá cấu hình mô hình"
 ---
 

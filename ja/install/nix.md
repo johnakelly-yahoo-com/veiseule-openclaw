@@ -1,9 +1,4 @@
 ---
-summary: "Nix を使用して OpenClaw を宣言的にインストールします"
-read_when:
-  - 再現可能でロールバック可能なインストールを行いたい場合
-  - すでに Nix / NixOS / Home Manager を使用している場合
-  - すべてをピン留めし、宣言的に管理したい場合
 title: "Nix"
 ---
 

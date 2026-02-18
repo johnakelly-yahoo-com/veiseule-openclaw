@@ -1,7 +1,4 @@
 ---
-summary: "Direkta körningar av `openclaw agent` via CLI (med valfri leverans)"
-read_when:
-  - När du lägger till eller ändrar agentens CLI-ingångspunkt
 title: "Skicka agent"
 ---
 

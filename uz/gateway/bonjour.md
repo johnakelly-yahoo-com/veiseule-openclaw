@@ -1,8 +1,4 @@
 ---
-summary: "31. Bonjour/mDNS aniqlash + nosozliklarni tuzatish (Gateway mayaklari, mijozlar va keng tarqalgan nosozlik holatlari)"
-read_when:
-  - 32. macOS/iOS da Bonjour aniqlash muammolarini tuzatish
-  - 33. mDNS xizmat turlarini, TXT yozuvlarini yoki aniqlash UX’ini o‘zgartirish
 title: "34. Bonjour aniqlash"
 ---
 

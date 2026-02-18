@@ -1,8 +1,4 @@
----
-summary: "Ritual de primera ejecución para nuevos agentes"
-read_when:
-  - Arranque de un espacio de trabajo de forma manual
----
+------
 
 # BOOTSTRAP.md - Hola, Mundo
 

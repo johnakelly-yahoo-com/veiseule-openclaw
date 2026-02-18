@@ -1,9 +1,4 @@
 ---
-summary: "Firecrawl-Fallback für web_fetch (Anti-Bot + zwischengespeicherte Extraktion)"
-read_when:
-  - Sie möchten eine Firecrawl-gestützte Web-Extraktion
-  - Sie benötigen einen Firecrawl-API-Schlüssel
-  - Sie möchten eine Anti-Bot-Extraktion für web_fetch
 title: "Firecrawl"
 ---
 

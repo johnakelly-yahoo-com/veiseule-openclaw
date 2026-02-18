@@ -1,8 +1,4 @@
 ---
-summary: "音声通話プラグイン：Twilio/Telnyx/Plivo による発信・着信通話（プラグインのインストール＋設定＋ CLI）"
-read_when:
-  - OpenClaw から発信の音声通話を行いたい場合
-  - voice-call プラグインを設定または開発している場合
 title: "音声通話プラグイン"
 ---
 

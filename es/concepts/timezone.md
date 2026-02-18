@@ -1,8 +1,4 @@
 ---
-summary: "Manejo de zonas horarias para agentes, sobres y prompts"
-read_when:
-  - Necesita comprender cómo se normalizan las marcas de tiempo para el modelo
-  - Configurar la zona horaria del usuario para los prompts del sistema
 title: "Zonas horarias"
 ---
 

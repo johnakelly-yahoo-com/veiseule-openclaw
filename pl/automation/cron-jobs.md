@@ -1,9 +1,4 @@
 ---
-summary: "Zadania cron + wybudzenia dla harmonogramu Gateway"
-read_when:
-  - Planowanie zadań w tle lub wybudzeń
-  - Łączenie automatyzacji, które powinny działać z heartbeatami lub obok nich
-  - Wybór między heartbeat a cron dla zadań harmonogramowanych
 title: "Zadania Cron"
 ---
 

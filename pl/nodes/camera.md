@@ -1,8 +1,4 @@
 ---
-summary: "„Przechwytywanie obrazu z kamery (węzeł iOS + aplikacja macOS) do użycia przez agenta: zdjęcia (jpg) i krótkie klipy wideo (mp4)”"
-read_when:
-  - Dodawanie lub modyfikowanie przechwytywania z kamery na węzłach iOS lub macOS
-  - Rozszerzanie przepływów pracy tymczasowych plików MEDIA dostępnych dla agenta
 title: "„Przechwytywanie z kamery”"
 ---
 

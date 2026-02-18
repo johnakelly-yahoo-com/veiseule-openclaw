@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 更新协议模式或代码生成
-summary: TypeBox 模式作为 Gateway 网关协议的唯一事实来源
 title: TypeBox
 x-i18n:
   generated_at: "2026-02-03T07:47:23Z"

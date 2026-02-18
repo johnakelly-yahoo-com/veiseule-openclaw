@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw'ın ortam değişkenlerini nereden yüklediği ve öncelik sırası"
-read_when:
-  - Hangi ortam değişkenlerinin yüklendiğini ve hangi sırayla yüklendiğini bilmeniz gerekir
-  - Gateway'de eksik API anahtarlarını hata ayıklarken
-  - Sağlayıcı kimlik doğrulaması veya dağıtım ortamlarını belgelendirirken
 title: "Ortam Değişkenleri"
 ---
 

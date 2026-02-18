@@ -1,7 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw pairing` (godkänn/lista parningsförfrågningar)"
-read_when:
-  - Du använder DM:er i parningsläge och behöver godkänna avsändare
 title: "parning"
 ---
 

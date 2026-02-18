@@ -1,8 +1,4 @@
 ---
-summary: "„Onboarding-Ablauf beim ersten Start für OpenClaw (macOS-App)“"
-read_when:
-  - Entwurf des macOS-Onboarding-Assistenten
-  - Implementierung von Authentifizierung oder Identitätseinrichtung
 title: "„Onboarding (macOS-App)“"
 sidebarTitle: "„Onboarding: macOS-App“"
 ---

@@ -1,9 +1,4 @@
 ---
-summary: "Análisis profundo: almacén de sesiones + transcripciones, ciclo de vida e internos de (auto)compactación"
-read_when:
-  - Necesita depurar IDs de sesión, JSONL de transcripciones o campos de sessions.json
-  - Está cambiando el comportamiento de la auto-compactación o agregando tareas de mantenimiento de “pre-compactación”
-  - Quiere implementar vaciados de memoria o turnos silenciosos del sistema
 title: "Análisis profundo de la gestión de sesiones"
 ---
 

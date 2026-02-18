@@ -1,8 +1,4 @@
 ---
-summary: "Hooks: tự động hóa theo sự kiện cho các lệnh và sự kiện vòng đời"
-read_when:
-  - Bạn muốn tự động hóa theo sự kiện cho /new, /reset, /stop và các sự kiện vòng đời của tác tử
-  - Bạn muốn xây dựng, cài đặt hoặc gỡ lỗi hooks
 title: "Các hook"
 ---
 

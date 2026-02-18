@@ -1,8 +1,4 @@
 ---
-summary: "Mga JSON-only na LLM task para sa workflows (opsyonal na plugin tool)"
-read_when:
-  - Gusto mo ng JSON-only na LLM step sa loob ng workflows
-  - Kailangan mo ng schema-validated na LLM output para sa automation
 title: "LLM Task"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "„OpenClaw macOS‑Release‑Checkliste (Sparkle‑Feed, Packaging, Signierung)“"
-read_when:
-  - Beim Erstellen oder Validieren eines OpenClaw macOS‑Releases
-  - Beim Aktualisieren des Sparkle‑Appcasts oder der Feed‑Assets
 title: "„macOS‑Release“"
 ---
 

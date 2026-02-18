@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw config` के लिए CLI संदर्भ (config मान प्राप्त/सेट/अनसेट करें)"
-read_when:
-  - आप config को गैर‑इंटरैक्टिव रूप से पढ़ना या संपादित करना चाहते हैं
 title: "config"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "mac ایپ میں Voice wake اور push-to-talk موڈز کے ساتھ روٹنگ کی تفصیلات"
-read_when:
-  - Voice wake یا PTT راستوں پر کام کرتے وقت
 title: "آواز کے ذریعے بیداری"
 ---
 

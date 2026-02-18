@@ -1,8 +1,4 @@
 ---
-summary: "Alt ajanlar: sonuçları istekte bulunan sohbet kanalına duyuran, izole ajan çalıştırmaları oluşturma"
-read_when:
-  - Ajan üzerinden arka plan/paralel çalışma istiyorsunuz
-  - sessions_spawn veya alt ajan araç politikasını değiştiriyorsunuz
 title: "50. Alt Ajanlar"
 ---
 

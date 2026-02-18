@@ -1,7 +1,4 @@
 ---
-summary: "Gateway、節點與 canvas 主機如何連線。"
-read_when:
-  - 當你想要快速了解 Gateway 的網路模型
 title: "網路模型"
 ---
 

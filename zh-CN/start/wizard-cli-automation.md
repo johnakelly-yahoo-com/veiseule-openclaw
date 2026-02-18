@@ -1,8 +1,4 @@
 ---
-summary: "为 OpenClaw CLI 提供脚本化入门和代理设置"
-read_when:
-  - You are automating onboarding in scripts or CI
-  - You need non-interactive examples for specific providers
 title: "CLI 自动化"
 sidebarTitle: "CLI 自动化"
 ---

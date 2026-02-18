@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 更新 OpenClaw
-  - 更新后出现问题
-summary: 安全更新 OpenClaw（全局安装或源码），以及回滚策略
 title: 更新
 x-i18n:
   generated_at: "2026-02-03T07:50:25Z"

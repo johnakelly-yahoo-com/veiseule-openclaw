@@ -1,7 +1,4 @@
 ---
-summary: "Dokumentacja referencyjna CLI dla `openclaw health` (punkt końcowy zdrowia Gateway przez RPC)"
-read_when:
-  - Chcesz szybko sprawdzić stan działającej Gateway
 title: "health"
 ---
 

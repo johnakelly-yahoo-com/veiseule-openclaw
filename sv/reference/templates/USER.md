@@ -1,8 +1,4 @@
----
-summary: "Användarprofil"
-read_when:
-  - Manuell uppstart av en arbetsyta
----
+------
 
 # USER.md – Om människan du hjälper
 

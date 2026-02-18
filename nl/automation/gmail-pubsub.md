@@ -1,8 +1,4 @@
 ---
-summary: "Gmail Pub/Sub-push gekoppeld aan OpenClaw-webhooks via gogcli"
-read_when:
-  - Gmail-inboxtriggers koppelen aan OpenClaw
-  - Pub/Sub-push instellen voor het wekken van agents
 title: "Gmail PubSub"
 ---
 

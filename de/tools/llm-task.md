@@ -1,8 +1,4 @@
 ---
-summary: "Ausschließlich-JSON-LLM-Aufgaben für Workflows (optionales Plugin-Werkzeug)"
-read_when:
-  - Sie möchten einen ausschließlich-JSON-LLM-Schritt innerhalb von Workflows
-  - Sie benötigen schema-validierte LLM-Ausgaben für Automatisierung
 title: "LLM-Aufgabe"
 ---
 

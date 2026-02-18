@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw ile OpenCode Zen’i (küratörlü modeller) kullanın"
-read_when:
-  - Model erişimi için OpenCode Zen istiyorsunuz
-  - Kodlamaya uygun modellerden oluşan küratörlü bir liste istiyorsunuz
 title: "OpenCode Zen"
 ---
 

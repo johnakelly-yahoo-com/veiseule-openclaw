@@ -1,7 +1,5 @@
 ---
-read_when: You want per-agent sandboxing or per-agent tool allow/deny policies in a multi-agent gateway.
 status: active
-summary: 按智能体的沙箱 + 工具限制、优先级和示例
 title: 多智能体沙箱与工具
 x-i18n:
   generated_at: "2026-02-03T07:50:39Z"

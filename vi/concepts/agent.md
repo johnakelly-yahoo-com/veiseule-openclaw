@@ -1,7 +1,4 @@
 ---
-summary: "Runtime tác tử (pi-mono nhúng), hợp đồng workspace và khởi tạo phiên"
-read_when:
-  - Khi thay đổi runtime tác tử, khởi tạo workspace hoặc hành vi phiên
 title: "Runtime tác tử"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "インストーラー スクリプト（install.sh、install-cli.sh、install.ps1）の仕組み、フラグ、オートメーションについて"
-read_when:
-  - "`openclaw.ai/install.sh` を理解したい場合"
-  - インストールを自動化（CI / ヘッドレス）したい場合
-  - GitHub のチェックアウトからインストールしたい場合
 title: "インストーラーの内部"
 ---
 

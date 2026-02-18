@@ -1,8 +1,4 @@
 ---
-summary: "Assistant de prise en main CLI : configuration guidee pour la Gateway (passerelle), l’espace de travail, les canaux et les Skills"
-read_when:
-  - Execution ou configuration de l’assistant de prise en main
-  - Mise en place d’une nouvelle machine
 title: "Assistant de prise en main (CLI)"
 sidebarTitle: "Prise en main : CLI"
 ---

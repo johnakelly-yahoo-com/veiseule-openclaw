@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw 에서 Qwen OAuth (무료 티어) 사용"
-read_when:
-  - OpenClaw 와 함께 Qwen 을 사용하려는 경우
-  - Qwen Coder 에 무료 티어 OAuth 액세스를 사용하려는 경우
 title: "Qwen"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Wat de OpenClaw-systeemprompt bevat en hoe deze wordt samengesteld"
-read_when:
-  - Bewerken van systeemprompttekst, toolslijst of tijd-/heartbeat-secties
-  - Wijzigen van werkruimte-bootstrap of gedrag voor Skills-injectie
 title: "Systeemprompt"
 ---
 

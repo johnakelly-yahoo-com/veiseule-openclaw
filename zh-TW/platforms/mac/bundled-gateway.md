@@ -1,9 +1,4 @@
 ---
-summary: "macOS 上的 Gateway 執行環境（外部 launchd 服務）"
-read_when:
-  - 封裝 OpenClaw.app
-  - 偵錯 macOS 的 Gateway launchd 服務
-  - 為 macOS 安裝 Gateway CLI
 title: "macOS 上的 Gateway"
 ---
 

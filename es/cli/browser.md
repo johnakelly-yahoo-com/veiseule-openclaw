@@ -1,9 +1,4 @@
 ---
-summary: "Referencia de la CLI para `openclaw browser` (perfiles, pestañas, acciones, relay de la extensión)"
-read_when:
-  - Usted usa `openclaw browser` y quiere ejemplos para tareas comunes
-  - Usted quiere controlar un navegador que se ejecuta en otra máquina mediante un host de nodo
-  - Usted quiere usar el relay de la extensión de Chrome (adjuntar/desadjuntar mediante el botón de la barra de herramientas)
 title: "navegador"
 ---
 

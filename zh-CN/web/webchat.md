@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 调试或配置 WebChat 访问
-summary: 用于聊天 UI 的 loopback WebChat 静态主机和 Gateway 网关 WS 使用
 title: WebChat
 x-i18n:
   generated_at: "2026-02-03T10:13:28Z"

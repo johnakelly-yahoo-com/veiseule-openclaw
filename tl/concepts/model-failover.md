@@ -1,8 +1,4 @@
 ---
-summary: "Paano nirorotate ng OpenClaw ang mga auth profile at nagba-back fallback sa mga model"
-read_when:
-  - Pag-diagnose ng auth profile rotation, mga cooldown, o gawi ng model fallback
-  - Pag-update ng mga failover rule para sa mga auth profile o mga model
 title: "Paglipat ng Modelo"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Webhook‑indgang til wake og isolerede agentkørsler"
-read_when:
-  - Tilføjelse eller ændring af webhook‑endpoints
-  - Sammenkobling af eksterne systemer med OpenClaw
 title: "Webhooks"
 ---
 

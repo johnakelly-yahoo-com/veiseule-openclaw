@@ -1,7 +1,4 @@
 ---
-summary: "Nextcloud Talk 的支援狀態、功能與設定"
-read_when:
-  - 進行 Nextcloud Talk 頻道功能開發時
 title: "Nextcloud Talk"
 ---
 

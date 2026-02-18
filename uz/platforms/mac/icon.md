@@ -1,7 +1,4 @@
 ---
-summary: "10. macOS’da OpenClaw uchun menyu paneli ikonka holatlari va animatsiyalari"
-read_when:
-  - 11. Meniu paneli ikonka xatti-harakatini o‘zgartirish
 title: "12. Meniu paneli ikonka"
 ---
 

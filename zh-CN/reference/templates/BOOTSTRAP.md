@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 手动引导工作区时
-summary: 新智能体的首次启动流程
 x-i18n:
   generated_at: "2026-02-01T21:37:26Z"
   model: claude-opus-4-5

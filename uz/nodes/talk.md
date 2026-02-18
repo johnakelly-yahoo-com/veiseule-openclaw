@@ -1,8 +1,4 @@
 ---
-summary: "1. Talk rejimi: ElevenLabs TTS bilan uzluksiz nutq suhbatlari"
-read_when:
-  - 2. macOS/iOS/Android’da Talk rejimini joriy etish
-  - 3. Ovoz/TTS/bo‘lish (interrupt) xatti-harakatlarini o‘zgartirish
 title: "4. Talk Rejimi"
 ---
 

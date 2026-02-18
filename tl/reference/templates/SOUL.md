@@ -1,8 +1,4 @@
----
-summary: "Template ng workspace para sa SOUL.md"
-read_when:
-  - Manu-manong pag-bootstrapping ng isang workspace
----
+------
 
 # SOUL.md - Sino Ka
 

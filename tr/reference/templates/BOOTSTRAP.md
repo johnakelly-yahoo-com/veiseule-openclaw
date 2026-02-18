@@ -1,8 +1,4 @@
----
-summary: "Yeni ajanlar için ilk çalıştırma ritüeli"
-read_when:
-  - Bir çalışma alanını manuel olarak başlatma
----
+------
 
 # BOOTSTRAP.md - Merhaba, Dünya
 

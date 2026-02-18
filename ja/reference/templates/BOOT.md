@@ -1,8 +1,4 @@
----
-summary: "BOOT.md のワークスペーステンプレート"
-read_when:
-  - BOOT.md のチェックリストを追加する場合
----
+------
 
 # BOOT.md
 

@@ -1,8 +1,4 @@
 ---
-summary: Notes et solutions de contournement pour le crash Node + tsx « __name is not a function »
-read_when:
-  - Debogage de scripts de dev Node uniquement ou d’echecs en mode watch
-  - Investigation des crashs du chargeur tsx/esbuild dans OpenClaw
 title: "Crash Node + tsx"
 ---
 

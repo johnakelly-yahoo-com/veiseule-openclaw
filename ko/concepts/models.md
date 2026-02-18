@@ -1,9 +1,4 @@
 ---
-summary: "Models CLI: 목록, 설정, 별칭, 폴백, 스캔, 상태"
-read_when:
-  - Models CLI (models list/set/scan/aliases/fallbacks)를 추가하거나 수정할 때
-  - 모델 폴백 동작 또는 선택 UX 를 변경할 때
-  - 모델 스캔 프로브 (도구/이미지)를 업데이트할 때
 title: "Models CLI"
 ---
 

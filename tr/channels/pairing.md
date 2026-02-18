@@ -1,9 +1,4 @@
 ---
-summary: "Eşleştirmeye genel bakış: size DM atabilecekleri ve hangi düğümlerin katılabileceğini onaylayın"
-read_when:
-  - DM erişim denetimini ayarlarken
-  - Yeni bir iOS/Android düğümünü eşleştirirken
-  - OpenClaw güvenlik duruşunu gözden geçirirken
 title: "Eşleştirme"
 ---
 

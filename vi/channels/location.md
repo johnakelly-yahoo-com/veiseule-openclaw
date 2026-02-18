@@ -1,8 +1,4 @@
 ---
-summary: "Phân tích vị trí kênh đến (Telegram + WhatsApp) và các trường ngữ cảnh"
-read_when:
-  - Thêm hoặc chỉnh sửa phân tích vị trí của kênh
-  - Sử dụng các trường ngữ cảnh vị trí trong prompt hoặc công cụ của tác tử
 title: "Phân tích vị trí kênh"
 ---
 

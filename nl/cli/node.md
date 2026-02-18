@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw node` (headless Node-host)"
-read_when:
-  - Het draaien van de headless Node-host
-  - Het koppelen van een niet-macOS-node voor system.run
 title: "node"
 ---
 

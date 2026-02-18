@@ -1,8 +1,4 @@
----
-summary: "Template de workspace para SOUL.md"
-read_when:
-  - Inicializando um workspace manualmente
----
+------
 
 # SOUL.md - Quem Voce E
 

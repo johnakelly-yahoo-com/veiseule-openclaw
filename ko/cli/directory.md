@@ -1,8 +1,4 @@
 ---
-summary: " `openclaw directory` 에 대한 CLI 참조 (self, peers, groups)"
-read_when:
-  - 채널에 사용할 연락처 / 그룹 / self ID 를 조회하려는 경우
-  - 채널 디렉토리 어댑터를 개발하는 경우
 title: "디렉터리"
 ---
 

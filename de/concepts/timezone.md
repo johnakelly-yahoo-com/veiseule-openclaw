@@ -1,8 +1,4 @@
 ---
-summary: "Zeitzonenhandhabung für Agenten, Umschläge und Prompts"
-read_when:
-  - Sie müssen verstehen, wie Zeitstempel für das Modell normalisiert werden
-  - Konfiguration der Benutzerzeitzone für System-Prompts
 title: "Zeitzonen"
 ---
 

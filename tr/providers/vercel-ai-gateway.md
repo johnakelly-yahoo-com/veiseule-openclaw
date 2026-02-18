@@ -1,10 +1,5 @@
 ---
-title: "Vercel AI Gateway"
-summary: "Vercel AI Gateway kurulumu (kimlik doğrulama + model seçimi)"
-read_when:
-  - OpenClaw ile Vercel AI Gateway kullanmak istiyorsunuz
-  - API anahtarı ortam değişkenine veya CLI kimlik doğrulama seçeneğine ihtiyacınız var
----
+title: "Vercel AI Gateway"---
 
 # Vercel AI Gateway
 

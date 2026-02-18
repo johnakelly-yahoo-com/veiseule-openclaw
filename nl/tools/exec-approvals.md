@@ -1,9 +1,4 @@
 ---
-summary: "Uitvoeringsgoedkeuringen, toegestane lijsten en prompts voor sandbox-ontsnapping"
-read_when:
-  - Configureren van uitvoeringsgoedkeuringen of toegestane lijsten
-  - Implementeren van UX voor uitvoeringsgoedkeuringen in de macOS-app
-  - Beoordelen van prompts voor sandbox-ontsnapping en de implicaties
 title: "Uitvoeringsgoedkeuringen"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Tiempo de ejecución del Gateway en macOS (servicio launchd externo)"
-read_when:
-  - Empaquetar OpenClaw.app
-  - Depurar el servicio launchd del Gateway en macOS
-  - Instalar la CLI del Gateway para macOS
 title: "Gateway en macOS"
 ---
 

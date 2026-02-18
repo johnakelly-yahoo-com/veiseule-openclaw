@@ -1,8 +1,4 @@
 ---
-summary: "macOS Skills settings UI and gateway-backed status"
-read_when:
-  - Updating the macOS Skills settings UI
-  - Changing skills gating or install behavior
 title: "Skills"
 ---
 

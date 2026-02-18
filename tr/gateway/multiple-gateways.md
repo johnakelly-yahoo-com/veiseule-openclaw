@@ -1,8 +1,4 @@
 ---
-summary: "Tek bir ana makinede birden fazla OpenClaw Gateway çalıştırma (izolasyon, portlar ve profiller)"
-read_when:
-  - Aynı makinede birden fazla Gateway çalıştırıyorsanız
-  - Her Gateway için yalıtılmış yapılandırma/durum/portlara ihtiyacınız varsa
 title: "Birden Fazla Gateway"
 ---
 

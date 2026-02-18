@@ -1,8 +1,4 @@
----
-summary: "Ritwal sa unang takbo para sa mga bagong agent"
-read_when:
-  - Manu-manong pag-bootstrapping ng isang workspace
----
+------
 
 # BOOTSTRAP.md - Hello, World
 

@@ -1,9 +1,4 @@
 ---
-summary: "BlueBubbles macOS 서버를 통한 iMessage (REST 전송/수신, 타이핑, 반응, 페어링, 고급 작업)."
-read_when:
-  - BlueBubbles 채널 설정
-  - 웹훅 페어링 문제 해결
-  - macOS 에서 iMessage 구성
 title: "BlueBubbles"
 ---
 

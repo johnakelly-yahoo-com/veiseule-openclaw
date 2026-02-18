@@ -1,6 +1,4 @@
 ---
-summary: "Linux 上で OpenClaw のブラウザー制御を使用する際の Chrome/Brave/Edge/Chromium CDP 起動問題を修正します"
-read_when: "特に snap 版 Chromium を使用している場合に、Linux 上でブラウザー制御が失敗するとき"
 title: "ブラウザーのトラブルシューティング"
 ---
 

@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 你查找了 docs/sessions.md；规范文档位于 docs/session.md
-summary: 会话管理文档的别名
 title: 会话
 x-i18n:
   generated_at: "2026-02-01T20:23:55Z"

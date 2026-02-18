@@ -1,9 +1,4 @@
 ---
-summary: "Nœuds : appairage, capacités, autorisations et assistants CLI pour canvas/caméra/écran/système"
-read_when:
-  - Appairage de nœuds iOS/Android à une passerelle
-  - Utilisation du canvas/de la caméra d’un nœud pour le contexte de l’agent
-  - Ajout de nouvelles commandes de nœud ou d’assistants CLI
 title: "Nœuds"
 ---
 

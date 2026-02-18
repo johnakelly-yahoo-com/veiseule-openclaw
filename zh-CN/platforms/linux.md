@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 查找 Linux 配套应用状态时
-  - 规划平台覆盖或贡献时
-summary: Linux 支持 + 配套应用状态
 title: Linux 应用
 x-i18n:
   generated_at: "2026-02-03T07:52:18Z"

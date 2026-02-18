@@ -1,5 +1,4 @@
 ---
-summary: "Zgłaszanie problemów i raportów błędów o wysokiej wartości informacyjnej"
 title: "Zgłaszanie problemu"
 ---
 

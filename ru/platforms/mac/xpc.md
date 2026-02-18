@@ -1,7 +1,4 @@
 ---
-summary: "Архитектура IPC macOS для приложения OpenClaw, транспорта узла Gateway (шлюз) и PeekabooBridge"
-read_when:
-  - Редактирование контрактов IPC или IPC приложения в строке меню
 title: "IPC macOS"
 ---
 

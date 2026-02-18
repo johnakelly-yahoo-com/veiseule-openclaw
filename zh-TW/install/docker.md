@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw 的可選 Docker 型設定與入門引導"
-read_when:
-  - 你想要使用容器化的 Gateway 閘道器，而非本機安裝
-  - 你正在驗證 Docker 流程
 title: "Docker"
 ---
 

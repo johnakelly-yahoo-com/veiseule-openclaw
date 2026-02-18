@@ -1,8 +1,4 @@
 ---
-summary: "Gebruik de Anthropic-compatibele API van Synthetic in OpenClaw"
-read_when:
-  - Je wilt Synthetic gebruiken als modelprovider
-  - Je hebt een Synthetic API-sleutel of basis-URL nodig
 title: "Synthetic"
 ---
 

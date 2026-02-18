@@ -1,8 +1,4 @@
 ---
-summary: "Gateway（ゲートウェイ）の Web サーフェス：コントロール UI、バインドモード、セキュリティ"
-read_when:
-  - Tailscale 経由で Gateway にアクセスしたい場合
-  - ブラウザーのコントロール UI と設定編集を利用したい場合
 title: "Web"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Среда выполнения Gateway (шлюз) на macOS (внешний сервис launchd)"
-read_when:
-  - Упаковка OpenClaw.app
-  - Отладка сервиса launchd Gateway (шлюз) на macOS
-  - Установка CLI Gateway (шлюз) для macOS
 title: "Gateway (шлюз) на macOS"
 ---
 

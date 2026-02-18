@@ -1,7 +1,4 @@
 ---
-summary: "Google Chat ایپ کی سپورٹ اسٹیٹس، صلاحیتیں، اور کنفیگریشن"
-read_when:
-  - Google Chat چینل کی خصوصیات پر کام کرتے وقت
 title: "Google Chat"
 ---
 

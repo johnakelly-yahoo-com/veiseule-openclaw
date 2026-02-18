@@ -1,8 +1,4 @@
 ---
-summary: "Aplicación complementaria de OpenClaw para macOS (barra de menú + broker del Gateway)"
-read_when:
-  - Implementación de funciones de la app para macOS
-  - Cambios en el ciclo de vida del Gateway o el puenteo de nodos en macOS
 title: "App de macOS"
 ---
 

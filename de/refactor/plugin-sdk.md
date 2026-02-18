@@ -1,8 +1,4 @@
 ---
-summary: "„Plan: ein sauberes Plugin-SDK + Runtime für alle Messaging-Connectoren“"
-read_when:
-  - Definieren oder Refaktorieren der Plugin-Architektur
-  - Migrieren von Kanal-Connectoren zum Plugin-SDK/Runtime
 title: "„Plugin-SDK-Refaktor“"
 ---
 

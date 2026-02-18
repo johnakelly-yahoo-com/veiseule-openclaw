@@ -1,8 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw status` (diagnostik, prober, brugssnapshots)"
-read_when:
-  - Du vil have en hurtig diagnose af kanaltilstand + nylige sessionsmodtagere
-  - Du vil have en indsættelig “all”-status til fejlfinding
 title: "status"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Ajan çalışma zamanı (gömülü pi-mono), çalışma alanı sözleşmesi ve oturum önyüklemesi"
-read_when:
-  - Changing agent runtime, workspace bootstrap, or session behavior
 title: "Ajan Çalışma Zamanı"
 ---
 

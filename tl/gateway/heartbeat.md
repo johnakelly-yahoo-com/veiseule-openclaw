@@ -1,8 +1,4 @@
 ---
-summary: "Mga mensahe ng heartbeat polling at mga patakaran sa notification"
-read_when:
-  - Ina-adjust ang cadence o pagmemensahe ng heartbeat
-  - Pagpapasya sa pagitan ng heartbeat at cron para sa mga naka-iskedyul na gawain
 title: "Tibok ng Puso"
 ---
 

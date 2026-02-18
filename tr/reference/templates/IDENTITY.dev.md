@@ -1,9 +1,4 @@
----
-summary: "Geliştirici ajan kimliği (C-3PO)"
-read_when:
-  - Geliştirici gateway şablonlarını kullanırken
-  - Varsayılan geliştirici ajan kimliğini güncellerken
----
+------
 
 # IDENTITY.md - Ajan Kimliği
 

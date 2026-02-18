@@ -1,6 +1,5 @@
 ---
 title: Formal Verification (Security Models)
-summary: Machine-checked security models for OpenClaw’s highest-risk paths.
 permalink: /security/formal-verification/
 ---
 

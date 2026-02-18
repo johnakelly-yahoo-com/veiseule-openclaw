@@ -1,8 +1,4 @@
 ---
-summary: "Feishu bot umumiy ko‘rinishi, imkoniyatlari va sozlanishi"
-read_when:
-  - Siz Feishu/Lark botini ulashni xohlaysiz
-  - Siz Feishu kanalini sozlayapsiz
 title: Feishu
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Locatie-opdracht voor nodes (location.get), permissiemodi en achtergrondgedrag"
-read_when:
-  - Ondersteuning voor locatienodes of permissie-UI toevoegen
-  - Achtergrondlocatie- en pushstromen ontwerpen
 title: "Locatie-opdracht"
 ---
 

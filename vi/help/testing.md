@@ -1,9 +1,4 @@
 ---
-summary: "Bộ công cụ kiểm thử: các bộ unit/e2e/live, runner Docker và phạm vi của từng loại test"
-read_when:
-  - Chạy test cục bộ hoặc trong CI
-  - Thêm hồi quy cho lỗi mô hình/nhà cung cấp
-  - Gỡ lỗi hành vi gateway + tác tử
 title: "Kiểm thử"
 ---
 

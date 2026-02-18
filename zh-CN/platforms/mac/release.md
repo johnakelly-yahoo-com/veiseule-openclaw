@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 制作或验证 OpenClaw macOS 发布版本
-  - 更新 Sparkle appcast 或订阅源资源
-summary: OpenClaw macOS 发布清单（Sparkle 订阅源、打包、签名）
 title: macOS 发布
 x-i18n:
   generated_at: "2026-02-01T21:33:17Z"

@@ -1,8 +1,4 @@
 ---
-summary: "CLI için `openclaw approvals` başvurusu (gateway veya node ana makineleri için exec onayları)"
-read_when:
-  - CLI üzerinden exec onaylarını düzenlemek istediğinizde
-  - Gateway veya node ana makinelerinde izin listelerini yönetmeniz gerektiğinde
 title: "cli/approvals.md"
 ---
 

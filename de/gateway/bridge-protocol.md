@@ -1,9 +1,4 @@
 ---
-summary: "Bridge-Protokoll (Legacy-Nodes): TCP JSONL, Pairing, Scoped RPC"
-read_when:
-  - Erstellen oder Debuggen von Node-Clients (iOS/Android/macOS Node-Modus)
-  - Untersuchung von Pairing- oder Bridge-Authentifizierungsfehlern
-  - Audit der vom Gateway exponierten Node-Oberfläche
 title: "Bridge-Protokoll"
 ---
 

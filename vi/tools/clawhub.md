@@ -1,9 +1,4 @@
 ---
-summary: "Hướng dẫn ClawHub: registry Skills công khai + quy trình làm việc với CLI"
-read_when:
-  - Giới thiệu ClawHub cho người dùng mới
-  - Cài đặt, tìm kiếm hoặc phát hành Skills
-  - Giải thích các cờ CLI của ClawHub và hành vi đồng bộ
 title: "ClawHub"
 ---
 

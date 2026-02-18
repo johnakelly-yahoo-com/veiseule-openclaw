@@ -1,8 +1,4 @@
 ---
-summary: "Model autentifikatsiyasi: OAuth, API kalitlari va setup-token"
-read_when:
-  - Model autentifikatsiyasi yoki OAuth muddati tugashini debug qilish
-  - Autentifikatsiya yoki credential saqlashni hujjatlashtirish
 title: "Autentifikatsiya"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Voice Call plugin: outbound + inbound na mga tawag sa pamamagitan ng Twilio/Telnyx/Plivo (install ng plugin + config + CLI)"
-read_when:
-  - Gusto mong maglagay ng outbound na voice call mula sa OpenClaw
-  - Kino-configure o dine-develop mo ang voice-call plugin
 title: "Plugin ng Tawag na Boses"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Proteção de singleton do Gateway usando o bind do listener WebSocket"
-read_when:
-  - Ao executar ou depurar o processo do gateway
-  - Ao investigar a imposição de instância única
 title: "Bloqueio do Gateway"
 ---
 

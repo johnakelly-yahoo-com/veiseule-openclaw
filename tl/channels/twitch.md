@@ -1,7 +1,4 @@
 ---
-summary: "Konpigurasyon at setup ng Twitch chat bot"
-read_when:
-  - Pagse-set up ng Twitch chat integration para sa OpenClaw
 title: "Twitch"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Xử lý múi giờ cho tác tử, phong bì, và prompt"
-read_when:
-  - Bạn cần hiểu cách dấu thời gian được chuẩn hóa cho mô hình
-  - Cấu hình múi giờ người dùng cho system prompt
 title: "Múi giờ"
 ---
 

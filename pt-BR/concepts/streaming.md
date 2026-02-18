@@ -1,9 +1,4 @@
 ---
-summary: "Comportamento de streaming + chunking (respostas em blocos, streaming de rascunho, limites)"
-read_when:
-  - Explicando como o streaming ou chunking funciona nos canais
-  - Alterando o streaming em blocos ou o comportamento de chunking do canal
-  - Depurando respostas em bloco duplicadas/antecipadas ou streaming de rascunho
 title: "Streaming e Chunking"
 ---
 

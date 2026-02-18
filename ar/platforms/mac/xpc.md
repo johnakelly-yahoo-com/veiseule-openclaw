@@ -1,7 +1,4 @@
 ---
-summary: "معمارية IPC على macOS لتطبيق OpenClaw ونقل عُقدة Gateway وPeekabooBridge"
-read_when:
-  - عند تحرير عقود IPC أو IPC لتطبيق شريط القوائم
 title: "IPC على macOS"
 ---
 

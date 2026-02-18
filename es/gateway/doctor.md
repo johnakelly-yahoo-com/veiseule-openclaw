@@ -1,8 +1,4 @@
 ---
-summary: "Comando Doctor: comprobaciones de estado, migraciones de configuración y pasos de reparación"
-read_when:
-  - Al agregar o modificar migraciones de doctor
-  - Al introducir cambios de configuración incompatibles
 title: "Doctor"
 ---
 

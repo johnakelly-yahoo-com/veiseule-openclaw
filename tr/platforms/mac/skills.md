@@ -1,8 +1,4 @@
 ---
-summary: "macOS Skills ayarları kullanıcı arayüzü ve Gateway destekli durum"
-read_when:
-  - macOS Skills ayarları kullanıcı arayüzünü güncellerken
-  - Skills kısıtlamalarını veya yükleme davranışını değiştirirken
 title: "Beceriler"
 ---
 

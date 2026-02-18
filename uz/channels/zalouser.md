@@ -1,8 +1,4 @@
 ---
-summary: "zca-cli (QR orqali kirish), imkoniyatlar va konfiguratsiya orqali Zalo shaxsiy akkauntini qo‘llab-quvvatlash"
-read_when:
-  - OpenClaw uchun Zalo Personal’ni sozlash
-  - Zalo Personal’ga kirish yoki xabar oqimini nosozliklarni aniqlash
 title: "Zalo Shaxsiy"
 ---
 

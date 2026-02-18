@@ -1,7 +1,4 @@
 ---
-summary: "Gabay sa setup para sa mga developer na nagtatrabaho sa OpenClaw macOS app"
-read_when:
-  - Pagse-set up ng macOS development environment
 title: "Setup ng Development sa macOS"
 ---
 

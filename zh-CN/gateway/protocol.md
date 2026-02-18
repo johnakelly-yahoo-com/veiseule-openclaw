@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 实现或更新 Gateway 网关 WS 客户端
-  - 调试协议不匹配或连接失败
-  - 重新生成协议模式/模型
-summary: Gateway 网关 WebSocket 协议：握手、帧、版本控制
 title: Gateway 网关协议
 x-i18n:
   generated_at: "2026-02-03T07:48:42Z"

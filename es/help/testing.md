@@ -1,9 +1,4 @@
 ---
-summary: "Kit de pruebas: suites unitarias/e2e/live, runners de Docker y qué cubre cada prueba"
-read_when:
-  - Ejecutar pruebas localmente o en CI
-  - Agregar regresiones para errores de modelos/proveedores
-  - Depurar el comportamiento del Gateway + agente
 title: "Pruebas"
 ---
 

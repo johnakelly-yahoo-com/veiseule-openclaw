@@ -1,5 +1,4 @@
 ---
-summary: "Presentar issues y reportes de errores de alta señal"
 title: "Envío de un Issue"
 ---
 

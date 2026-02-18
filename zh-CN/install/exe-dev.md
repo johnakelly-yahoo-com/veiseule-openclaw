@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想要一个便宜的常驻 Linux 主机来运行 Gateway 网关
-  - 你想要远程控制 UI 访问而无需运行自己的 VPS
-summary: 在 exe.dev 上运行 OpenClaw Gateway 网关（VM + HTTPS 代理）以实现远程访问
 title: exe.dev
 x-i18n:
   generated_at: "2026-02-03T07:51:36Z"

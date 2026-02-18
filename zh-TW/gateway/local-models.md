@@ -1,9 +1,4 @@
 ---
-summary: "在本機 LLM（LM Studio、vLLM、LiteLLM、自訂 OpenAI 端點）上執行 OpenClaw"
-read_when:
-  - 您想從自己的 GPU 主機提供模型服務
-  - 您正在串接 LM Studio 或 OpenAI 相容的代理
-  - 您需要最安全的本機模型指引
 title: "本機模型"
 ---
 

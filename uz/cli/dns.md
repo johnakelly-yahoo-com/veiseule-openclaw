@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw dns` uchun CLI ma’lumotnomasi (keng hududli kashfiyot yordamchilari)"
-read_when:
-  - Sizga Tailscale + CoreDNS orqali keng hududli kashfiyot (DNS-SD) kerak bo‘lsa
-  - Maxsus kashfiyot domeni (masalan: openclaw.internal) uchun split DNS sozlayotgan bo‘lsangiz
 title: "dns"
 ---
 

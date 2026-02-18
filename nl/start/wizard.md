@@ -1,8 +1,4 @@
 ---
-summary: "CLI-onboardingwizard: begeleide installatie voor Gateway, werkruimte, kanalen en skills"
-read_when:
-  - Het uitvoeren of configureren van de onboardingwizard
-  - Het instellen van een nieuwe machine
 title: "Onboardingwizard (CLI)"
 sidebarTitle: "Introductie: CLI"
 ---

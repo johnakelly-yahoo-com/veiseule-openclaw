@@ -1,9 +1,4 @@
 ---
-summary: "Trwałość uprawnień macOS (TCC) oraz wymagania dotyczące podpisywania"
-read_when:
-  - Debugowanie brakujących lub zablokowanych monitów uprawnień macOS
-  - Pakietowanie lub podpisywanie aplikacji macOS
-  - Zmiana identyfikatorów pakietu lub ścieżek instalacji aplikacji
 title: "Uprawnienia macOS"
 ---
 

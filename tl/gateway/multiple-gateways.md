@@ -1,8 +1,4 @@
 ---
-summary: "Patakbuhin ang maraming OpenClaw Gateway sa iisang host (isolation, ports, at mga profile)"
-read_when:
-  - Tumatakbo ng higit sa isang Gateway sa parehong makina
-  - Kailangan mo ng hiwalay na config/state/ports bawat Gateway
 title: "Maramihang Gateway"
 ---
 

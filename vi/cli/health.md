@@ -1,7 +1,4 @@
 ---
-summary: "Tham chiếu CLI cho `openclaw health` (điểm cuối tình trạng Gateway qua RPC)"
-read_when:
-  - Bạn muốn nhanh chóng kiểm tra tình trạng của Gateway đang chạy
 title: "health"
 ---
 

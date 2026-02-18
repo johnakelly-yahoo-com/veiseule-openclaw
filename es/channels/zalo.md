@@ -1,7 +1,4 @@
 ---
-summary: "Estado de compatibilidad del bot de Zalo, capacidades y configuración"
-read_when:
-  - Trabajando en funciones o webhooks de Zalo
 title: "Zalo"
 ---
 

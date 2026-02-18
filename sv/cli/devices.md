@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw devices` (enhetsparning + rotation/återkallning av token)"
-read_when:
-  - Du godkänner begäranden om enhetsparning
-  - Du behöver rotera eller återkalla enhetstoken
 title: "enheter"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Exec 核准、允許清單，以及沙箱逃逸提示"
-read_when:
-  - 設定 Exec 核准或允許清單
-  - 在 macOS 應用程式中實作 Exec 核准 UX
-  - 檢視沙箱逃逸提示與其影響
 title: "Exec 核准"
 ---
 

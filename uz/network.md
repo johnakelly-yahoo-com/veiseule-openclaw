@@ -1,9 +1,4 @@
 ---
-summary: "Tarmoq xabi: gateway yuzalari, juftlash, kashfiyot va xavfsizlik"
-read_when:
-  - Sizga tarmoq arxitekturasi + xavfsizlik bo‘yicha umumiy ko‘rinish kerak
-  - Siz lokal va tailnet kirishi yoki juftlashni sozlayapsiz
-  - Siz tarmoq hujjatlarining kanonik ro‘yxatini xohlaysiz
 title: "Tarmoq"
 ---
 

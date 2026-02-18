@@ -1,8 +1,4 @@
 ---
-summary: "Polecenie lokalizacji dla węzłów (location.get), tryby uprawnień i zachowanie w tle"
-read_when:
-  - Dodawanie obsługi węzła lokalizacji lub interfejsu uprawnień
-  - Projektowanie przepływów lokalizacji w tle + powiadomień push
 title: "Polecenie lokalizacji"
 ---
 

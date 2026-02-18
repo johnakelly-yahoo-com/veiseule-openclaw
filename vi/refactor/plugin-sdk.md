@@ -1,8 +1,4 @@
 ---
-summary: "Kế hoạch: một SDK plugin + runtime gọn gàng cho tất cả các connector nhắn tin"
-read_when:
-  - Xác định hoặc tái cấu trúc kiến trúc plugin
-  - Di chuyển các connector kênh sang SDK/runtime plugin
 title: "Tái cấu trúc SDK Plugin"
 ---
 

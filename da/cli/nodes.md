@@ -1,8 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw nodes` (list/status/approve/invoke, camera/canvas/screen)"
-read_when:
-  - Du administrerer parrede noder (kameraer, skærm, lærred)
-  - Du skal godkende anmodninger eller kalde node-kommandoer
 title: "nodes"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Ajanlar, zarflar ve istemler için saat dilimi işleme"
-read_when:
-  - Model için zaman damgalarının nasıl normalize edildiğini anlamanız gerektiğinde
-  - Sistem istemleri için kullanıcı saat dilimini yapılandırırken
 title: "Saat Dilimleri"
 ---
 

@@ -1,8 +1,4 @@
----
-summary: "Plantilla de espacio de trabajo para BOOT.md"
-read_when:
-  - Al agregar una lista de verificación de BOOT.md
----
+------
 
 # BOOT.md
 

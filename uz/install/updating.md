@@ -1,8 +1,4 @@
 ---
-summary: "39. OpenClaw’ni xavfsiz yangilash (global o‘rnatish yoki manbadan), shuningdek qaytish (rollback) strategiyasi"
-read_when:
-  - 40. OpenClaw’ni yangilash
-  - 41. Yangilanishdan keyin nimadir buzildi
 title: "42. Yangilash"
 ---
 

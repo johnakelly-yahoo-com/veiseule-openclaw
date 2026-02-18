@@ -1,8 +1,4 @@
 ---
-summary: "Prise en main scriptée et configuration d’agent pour la CLI OpenClaw"
-read_when:
-  - Vous automatisez la prise en main dans des scripts ou en CI
-  - Vous avez besoin d’exemples non interactifs pour des fournisseurs spécifiques
 title: "Automatisation CLI"
 sidebarTitle: "Automatisation CLI"
 ---

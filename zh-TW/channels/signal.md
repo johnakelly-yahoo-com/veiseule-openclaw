@@ -1,8 +1,4 @@
 ---
-summary: "透過 signal-cli（JSON-RPC + SSE）的 Signal 支援、設定與號碼模型"
-read_when:
-  - 設定 Signal 支援
-  - 偵錯 Signal 傳送／接收
 title: "Signal"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Oorsprong van het project, bijdragers en licentie."
-read_when:
-  - Je wilt de achtergrond van het project of bijdragerscredits
 title: "Dankwoord"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "macOS（launchd）における Gateway（ゲートウェイ）のライフサイクル"
-read_when:
-  - Gateway（ゲートウェイ）のライフサイクルに mac アプリを統合する場合
 title: "Gateway（ゲートウェイ）のライフサイクル"
 ---
 

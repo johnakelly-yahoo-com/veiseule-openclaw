@@ -1,8 +1,4 @@
 ---
-summary: "استخدام Xiaomi MiMo (mimo-v2-flash) مع OpenClaw"
-read_when:
-  - تريد استخدام نماذج Xiaomi MiMo في OpenClaw
-  - تحتاج إلى إعداد XIAOMI_API_KEY
 title: "Xiaomi MiMo"
 ---
 

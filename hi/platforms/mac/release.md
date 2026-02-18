@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS रिलीज़ चेकलिस्ट (Sparkle फ़ीड, पैकेजिंग, साइनिंग)"
-read_when:
-  - OpenClaw macOS रिलीज़ को काटते या सत्यापित करते समय
-  - Sparkle ऐपकास्ट या फ़ीड एसेट्स को अपडेट करते समय
 title: "macOS रिलीज़"
 ---
 

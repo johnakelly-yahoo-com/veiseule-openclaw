@@ -1,8 +1,4 @@
----
-summary: "Talaan ng pagkakakilanlan ng agent"
-read_when:
-  - Manu-manong pag-bootstrapping ng isang workspace
----
+------
 
 # IDENTITY.md - Sino Ako?
 

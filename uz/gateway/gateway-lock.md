@@ -1,8 +1,4 @@
 ---
-summary: "WebSocket tinglovchi bind orqali Gateway singleton himoyasi"
-read_when:
-  - Gateway jarayonini ishga tushirayotganda yoki nosozliklarni tahlil qilayotganda
-  - Yagona instansiya majburiyligini tekshirayotganda
 title: "Gateway qulfi"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Mag-broadcast ng mensahe sa WhatsApp sa maraming agent"
-read_when:
-  - Pagko-configure ng broadcast groups
-  - Pag-debug ng mga sagot ng maraming agent sa WhatsApp
 status: experimental
 title: "Mga Broadcast Group"
 ---

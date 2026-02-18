@@ -1,8 +1,4 @@
 ---
-summary: "Feishu बॉट का अवलोकन, विशेषताएँ और विन्यास"
-read_when:
-  - आप Feishu/Lark बॉट को कनेक्ट करना चाहते हैं
-  - आप Feishu चैनल का विन्यास कर रहे हैं
 title: Feishu
 ---
 

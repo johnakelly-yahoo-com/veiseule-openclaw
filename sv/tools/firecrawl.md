@@ -1,9 +1,4 @@
 ---
-summary: "Firecrawl-reserv för web_fetch (anti-bot + cachad extraktion)"
-read_when:
-  - Du vill ha webextraktion med Firecrawl-stöd
-  - Du behöver en Firecrawl API-nyckel
-  - Du vill ha anti-bot-extraktion för web_fetch
 title: "Firecrawl"
 ---
 

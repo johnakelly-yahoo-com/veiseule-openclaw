@@ -1,8 +1,4 @@
 ---
-summary: "Webhook ingress para sa wake at mga hiwalay na agent run"
-read_when:
-  - Pagdaragdag o pagbabago ng mga webhook endpoint
-  - Pagkonekta ng mga panlabas na system sa OpenClaw
 title: "Mga Webhook"
 ---
 

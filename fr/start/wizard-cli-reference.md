@@ -1,8 +1,4 @@
 ---
-summary: "Reference complete pour le flux de prise en main CLI, la configuration auth/modele, les sorties et les details internes"
-read_when:
-  - Vous avez besoin du comportement detaille pour openclaw onboard
-  - Vous depannez les resultats de la prise en main ou integrez des clients de prise en main
 title: "Reference de la prise en main CLI"
 sidebarTitle: "Reference CLI"
 ---

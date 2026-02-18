@@ -1,9 +1,4 @@
 ---
-summary: "تشغيل OpenClaw على Raspberry Pi (إعداد ذاتي منخفض التكلفة)"
-read_when:
-  - إعداد OpenClaw على Raspberry Pi
-  - تشغيل OpenClaw على أجهزة ARM
-  - بناء ذكاء اصطناعي شخصي دائم التشغيل وبتكلفة منخفضة
 title: "Raspberry Pi"
 ---
 

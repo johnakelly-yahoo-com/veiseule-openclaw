@@ -1,9 +1,4 @@
 ---
-summary: "Outils de débogage : mode watch, flux bruts du modèle et traçage des fuites de raisonnement"
-read_when:
-  - Vous devez inspecter la sortie brute du modèle pour détecter des fuites de raisonnement
-  - Vous souhaitez exécuter la Gateway (passerelle) en mode watch pendant vos itérations
-  - Vous avez besoin d’un workflow de débogage reproductible
 title: "Débogage"
 ---
 

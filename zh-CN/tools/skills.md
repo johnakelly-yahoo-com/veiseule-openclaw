@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 添加或修改 Skills
-  - 更改 Skills 门控或加载规则
-summary: Skills：托管与工作区、门控规则以及配置/环境变量连接
 title: Skills
 x-i18n:
   generated_at: "2026-02-03T10:12:27Z"

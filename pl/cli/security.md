@@ -1,8 +1,4 @@
 ---
-summary: "Referencja CLI dla `openclaw security` (audyt i naprawa typowych pułapek bezpieczeństwa)"
-read_when:
-  - Chcesz uruchomić szybki audyt bezpieczeństwa konfiguracji/stanu
-  - Chcesz zastosować bezpieczne sugestie „napraw” (chmod, zaostrzenie ustawień domyślnych)
 title: "bezpieczeństwo"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Mga plugin/extension ng OpenClaw: discovery, config, at kaligtasan"
-read_when:
-  - Pagdaragdag o pagbabago ng mga plugin/extension
-  - Pagdodokumento ng mga patakaran sa pag-install o pag-load ng plugin
 title: "Mga Plugin"
 ---
 

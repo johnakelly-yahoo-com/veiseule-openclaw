@@ -1,8 +1,4 @@
----
-summary: "Modele d’espace de travail pour AGENTS.md"
-read_when:
-  - Demarrage manuel d’un espace de travail
----
+------
 
 # AGENTS.md - Votre espace de travail
 

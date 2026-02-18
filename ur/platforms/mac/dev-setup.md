@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw macOS ایپ پر کام کرنے والے ڈویلپرز کے لیے سیٹ اپ گائیڈ"
-read_when:
-  - macOS ڈویلپمنٹ ماحول سیٹ اپ کرنا
 title: "macOS ڈیو سیٹ اپ"
 ---
 

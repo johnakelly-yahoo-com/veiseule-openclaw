@@ -1,8 +1,4 @@
 ---
-summary: "Model sağlayıcıları için OAuth süresinin dolmasını izleyin"
-read_when:
-  - Kimlik doğrulama süresi dolma izleme veya uyarıları ayarlarken
-  - Claude Code / Codex OAuth yenileme denetimlerini otomatikleştirirken
 title: "Kimlik Doğrulama İzleme"
 ---
 

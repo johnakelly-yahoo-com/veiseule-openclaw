@@ -1,9 +1,4 @@
 ---
-summary: "Integrasyon ng PeekabooBridge para sa macOS UI automation"
-read_when:
-  - Pagho-host ng PeekabooBridge sa OpenClaw.app
-  - Pag-iintegrate ng Peekaboo sa pamamagitan ng Swift Package Manager
-  - Pagbabago ng protocol/mga path ng PeekabooBridge
 title: "Peekaboo Bridge"
 ---
 

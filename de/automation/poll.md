@@ -1,8 +1,4 @@
 ---
-summary: "„Versand von Umfragen über Gateway + CLI“"
-read_when:
-  - Hinzufügen oder Ändern der Umfrageunterstützung
-  - Debugging von Umfrageversendungen über die CLI oder das Gateway
 title: "„Umfragen“"
 ---
 

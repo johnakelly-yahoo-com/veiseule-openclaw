@@ -1,7 +1,4 @@
 ---
-summary: "WhatsApp (웹 채널) 통합: 로그인, 인박스, 답장, 미디어, 운영"
-read_when:
-  - WhatsApp/웹 채널 동작 또는 인박스 라우팅 작업 시
 title: "WhatsApp"
 ---
 

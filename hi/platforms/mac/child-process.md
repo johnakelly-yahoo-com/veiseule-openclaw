@@ -1,7 +1,4 @@
 ---
-summary: "macOS पर Gateway जीवनचक्र (launchd)"
-read_when:
-  - Gateway जीवनचक्र के साथ mac ऐप का एकीकरण
 title: "Gateway जीवनचक्र"
 ---
 

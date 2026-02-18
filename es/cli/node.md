@@ -1,8 +1,4 @@
 ---
-summary: "Referencia de la CLI para `openclaw node` (host de nodo sin interfaz)"
-read_when:
-  - Ejecución del host de nodo sin interfaz
-  - Emparejamiento de un nodo que no sea macOS para system.run
 title: "node"
 ---
 

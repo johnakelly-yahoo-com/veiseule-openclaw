@@ -1,8 +1,4 @@
 ---
-summary: "Wykrywanie i debugowanie Bonjour/mDNS (beacony Gateway, klienci i typowe tryby awarii)"
-read_when:
-  - Debugowanie problemów z wykrywaniem Bonjour na macOS/iOS
-  - Zmiana typów usług mDNS, rekordów TXT lub UX wykrywania
 title: "Wykrywanie Bonjour"
 ---
 

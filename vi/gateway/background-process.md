@@ -1,8 +1,4 @@
 ---
-summary: "Thực thi exec nền và quản lý tiến trình"
-read_when:
-  - Thêm hoặc chỉnh sửa hành vi exec nền
-  - Gỡ lỗi các tác vụ exec chạy lâu
 title: "Công cụ Exec Nền và Tiến trình"
 ---
 

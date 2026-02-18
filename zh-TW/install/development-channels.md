@@ -1,8 +1,4 @@
 ---
-summary: "npm dist-tag：`dev`（發佈時）。"
-read_when:
-  - 你想在 stable／beta／dev 之間切換
-  - 你正在為 prerelease 進行標記或發佈
 title: "開發通道"
 ---
 

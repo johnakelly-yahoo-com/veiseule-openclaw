@@ -1,9 +1,4 @@
 ---
-summary: "Exec onayları, izin listeleri ve sandbox kaçış istemleri"
-read_when:
-  - Exec onaylarını veya izin listelerini yapılandırırken
-  - macOS uygulamasında exec onay UX’ini uygularken
-  - Sandbox kaçış istemlerini ve etkilerini incelerken
 title: "Exec Onayları"
 ---
 

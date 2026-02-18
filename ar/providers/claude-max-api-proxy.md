@@ -1,9 +1,4 @@
 ---
-summary: "استخدام اشتراك Claude Max/Pro كنقطة نهاية API متوافقة مع OpenAI"
-read_when:
-  - تريد استخدام اشتراك Claude Max مع أدوات متوافقة مع OpenAI
-  - تريد خادم API محليًا يغلّف Claude Code CLI
-  - تريد توفير المال باستخدام الاشتراك بدل مفاتيح API
 title: "وكيل API لـ Claude Max"
 ---
 

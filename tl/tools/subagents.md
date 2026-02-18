@@ -1,8 +1,4 @@
 ---
-summary: "Mga sub-agent: pag-spawn ng mga hiwalay na agent run na nag-aanunsyo ng mga resulta pabalik sa requester chat"
-read_when:
-  - Gusto mo ng background/parallel na trabaho gamit ang agent
-  - Binabago mo ang sessions_spawn o patakaran ng sub-agent tool
 title: "Mga Sub-Agent"
 ---
 

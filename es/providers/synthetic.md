@@ -1,8 +1,4 @@
 ---
-summary: "Use la API compatible con Anthropic de Synthetic en OpenClaw"
-read_when:
-  - Quiere usar Synthetic como proveedor de modelos
-  - Necesita una clave de API de Synthetic o configurar la URL base
 title: "Synthetic"
 ---
 

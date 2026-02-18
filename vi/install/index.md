@@ -1,9 +1,4 @@
 ---
-summary: "Cài đặt OpenClaw — script cài đặt, npm/pnpm, từ mã nguồn, Docker, và hơn thế nữa"
-read_when:
-  - Bạn cần một phương thức cài đặt khác ngoài quickstart Bắt đầu
-  - Bạn muốn triển khai lên nền tảng đám mây
-  - Bạn cần cập nhật, di chuyển hoặc gỡ cài đặt
 title: "Cài đặt"
 ---
 

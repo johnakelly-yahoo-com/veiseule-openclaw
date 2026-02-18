@@ -1,8 +1,4 @@
 ---
-summary: "การรองรับ Windows (WSL2) + สถานะแอปคู่หู"
-read_when:
-  - การติดตั้ง OpenClaw บน Windows
-  - การตรวจสอบสถานะแอปคู่หูบน Windows
 title: "Windows (WSL2)"
 ---
 

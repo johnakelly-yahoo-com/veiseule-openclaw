@@ -1,10 +1,4 @@
 ---
-summary: "Ejecute OpenClaw en una VM de macOS en sandbox (local u hospedada) cuando necesite aislamiento o iMessage"
-read_when:
-  - Desea OpenClaw aislado de su entorno principal de macOS
-  - Desea integración con iMessage (BlueBubbles) en un sandbox
-  - Desea un entorno de macOS reiniciable que pueda clonar
-  - Desea comparar opciones de VM de macOS locales vs hospedadas
 title: "VMs de macOS"
 ---
 

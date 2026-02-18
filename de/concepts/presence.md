@@ -1,9 +1,4 @@
 ---
-summary: "„Wie OpenClaw-Presence-Einträge erzeugt, zusammengeführt und angezeigt werden“"
-read_when:
-  - Debugging der Registerkarte „Instances“
-  - Untersuchung doppelter oder veralteter Instanzzeilen
-  - Änderung der Gateway-WS-Verbindung oder von System-Event-Beacons
 title: "Präsenz"
 ---
 

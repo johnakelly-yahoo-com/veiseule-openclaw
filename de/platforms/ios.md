@@ -1,9 +1,4 @@
 ---
-summary: "iOS-Node-App: Verbindung zum Gateway, Pairing, Canvas und Fehlerbehebung"
-read_when:
-  - Pairing oder erneutes Verbinden des iOS-Nodes
-  - Ausführen der iOS-App aus dem Quellcode
-  - Debugging der Gateway-Discovery oder von Canvas-Befehlen
 title: "iOS-App"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Brug af Exec-værktøjet, stdin-tilstande og TTY-understøttelse"
-read_when:
-  - Brug eller ændring af exec-værktøjet
-  - Fejlfinding af stdin- eller TTY-adfærd
 title: "Exec-værktøj"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "macOS UI آٹومیشن کے لیے PeekabooBridge کا انضمام"
-read_when:
-  - OpenClaw.app میں PeekabooBridge کی میزبانی
-  - Swift Package Manager کے ذریعے Peekaboo کا انضمام
-  - PeekabooBridge کے پروٹوکول/راستوں میں تبدیلی
 title: "Peekaboo Bridge"
 ---
 

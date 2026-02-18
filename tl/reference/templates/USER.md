@@ -1,8 +1,4 @@
----
-summary: "Talaan ng profile ng user"
-read_when:
-  - Manu-manong pag-bootstrapping ng isang workspace
----
+------
 
 # USER.md - Tungkol sa Iyong Tao
 

@@ -1,8 +1,4 @@
 ---
-summary: "Heartbeat 폴링 메시지 및 알림 규칙"
-read_when:
-  - Heartbeat 주기 또는 메시지를 조정할 때
-  - 예약 작업에 Heartbeat 와 cron 중 무엇을 사용할지 결정할 때
 title: "하트비트"
 ---
 

@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 调整提升模式默认值、允许列表或斜杠命令行为
-summary: 提升的 exec 模式和 /elevated 指令
 title: 提升模式
 x-i18n:
   generated_at: "2026-02-03T07:55:23Z"

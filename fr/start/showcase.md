@@ -1,8 +1,6 @@
 ---
 title: "Démonstration"
-description: "Projets OpenClaw concrets issus de la communaute"
-summary: "Projets et integrations crees par la communaute et propulses par OpenClaw"
----
+description: "Projets OpenClaw concrets issus de la communaute"---
 
 # Démonstration
 

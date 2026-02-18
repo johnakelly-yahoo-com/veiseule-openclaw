@@ -1,8 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw devices` (appairage des appareils + rotation/révocation des jetons)"
-read_when:
-  - Vous approuvez des demandes d’appairage d’appareils
-  - Vous devez faire tourner ou révoquer des jetons d’appareil
 title: "appareils"
 ---
 

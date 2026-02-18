@@ -1,8 +1,4 @@
----
-summary: "Bản ghi danh tính tác tử"
-read_when:
-  - Khởi tạo workspace thủ công
----
+------
 
 # IDENTITY.md - Tôi là ai?
 

@@ -1,7 +1,4 @@
 ---
-summary: "Estado de soporte de Matrix, capacidades y configuración"
-read_when:
-  - Al trabajar en funciones del canal Matrix
 title: "Matrix"
 ---
 

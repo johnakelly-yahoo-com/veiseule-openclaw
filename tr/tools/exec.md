@@ -1,8 +1,4 @@
 ---
-summary: "Exec aracının kullanımı, stdin modları ve TTY desteği"
-read_when:
-  - Exec aracını kullanırken veya değiştirirken
-  - Stdin veya TTY davranışını hata ayıklarken
 title: "Exec Aracı"
 ---
 

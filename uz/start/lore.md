@@ -1,7 +1,4 @@
 ---
-summary: "Kontekst va ohang uchun OpenClawning fon hikoyasi va afsonalari"
-read_when:
-  - Afsonalarga ishora qiladigan hujjatlar yoki UX matnlarini yozish
 title: "OpenClaw Afsonalari"
 ---
 

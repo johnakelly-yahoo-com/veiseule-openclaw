@@ -1,9 +1,4 @@
 ---
-summary: "Gateway WebSocket protokolü: el sıkışma, çerçeveler, sürümleme"
-read_when:
-  - Gateway WS istemcilerini uygularken veya güncellerken
-  - Protokol uyuşmazlıklarını veya bağlantı hatalarını ayıklarken
-  - Protokol şemasını/modellerini yeniden üretirken
 title: "Gateway Protokolü"
 ---
 

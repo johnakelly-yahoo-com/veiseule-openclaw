@@ -1,7 +1,4 @@
 ---
-summary: "Przewodnik konfiguracji dla deweloperów pracujących nad aplikacją OpenClaw na macOS"
-read_when:
-  - Konfigurowanie środowiska deweloperskiego macOS
 title: "Konfiguracja deweloperska macOS"
 ---
 

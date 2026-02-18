@@ -1,8 +1,4 @@
 ---
-summary: "用於 `openclaw message` 的 CLI 參考（傳送與頻道動作）"
-read_when:
-  - 新增或修改訊息 CLI 動作時
-  - Changing outbound channel behavior
 title: "message"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Logic trạng thái menu bar và những gì hiển thị cho người dùng"
-read_when:
-  - Điều chỉnh UI menu mac hoặc logic trạng thái
 title: "Thanh menu"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Descripción general de la familia de modelos GLM + cómo usarla en OpenClaw"
-read_when:
-  - Quiere modelos GLM en OpenClaw
-  - Necesita la convención de nombres de modelos y la configuración
 title: "Modelos GLM"
 ---
 

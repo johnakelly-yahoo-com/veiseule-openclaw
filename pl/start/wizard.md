@@ -1,8 +1,4 @@
 ---
-summary: "Kreator wdrażania CLI: prowadzona konfiguracja gateway, obszaru roboczego, kanałów i Skills"
-read_when:
-  - Uruchamianie lub konfigurowanie kreatora wdrażania
-  - Konfiguracja nowej maszyny
 title: "Kreator wdrażania (CLI)"
 sidebarTitle: "Wdrożenie: CLI"
 ---

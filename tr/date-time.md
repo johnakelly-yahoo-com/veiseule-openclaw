@@ -1,8 +1,4 @@
 ---
-summary: "Zarflar, istemler, araçlar ve bağlayıcılar genelinde tarih ve saat işlemleri"
-read_when:
-  - Model veya kullanıcılara zaman damgalarının nasıl gösterildiğini değiştiriyorsanız
-  - Mesajlarda veya sistem istemi çıktısında zaman biçimlendirmesini hata ayıklıyorsanız
 title: "Tarih ve Saat"
 ---
 

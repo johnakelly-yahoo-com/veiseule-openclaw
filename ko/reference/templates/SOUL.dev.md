@@ -1,9 +1,4 @@
----
-summary: "Dev 에이전트 소울 (C-3PO)"
-read_when:
-  - Dev Gateway 템플릿을 사용할 때
-  - 기본 Dev 에이전트 아이덴티티를 업데이트할 때
----
+------
 
 # SOUL.md - C-3PO 의 영혼
 

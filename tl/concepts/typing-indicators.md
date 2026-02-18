@@ -1,7 +1,4 @@
 ---
-summary: "Kailan nagpapakita ang OpenClaw ng mga indikator ng pagta-type at kung paano i-tune ang mga ito"
-read_when:
-  - Binabago ang behavior o mga default ng typing indicator
 title: "Mga Indikador ng Pagta-type"
 ---
 

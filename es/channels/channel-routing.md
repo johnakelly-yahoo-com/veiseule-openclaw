@@ -1,7 +1,4 @@
 ---
-summary: "Reglas de enrutamiento por canal (WhatsApp, Telegram, Discord, Slack) y contexto compartido"
-read_when:
-  - Al cambiar el enrutamiento de canales o el comportamiento de la bandeja de entrada
 title: "Enrutamiento de canales"
 ---
 

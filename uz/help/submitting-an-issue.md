@@ -1,5 +1,4 @@
 ---
-summary: "Yuqori signalga ega muammo va xatolik hisobotlarini yuborish"
 title: "Muammo yuborish"
 ---
 

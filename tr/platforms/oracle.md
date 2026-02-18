@@ -1,9 +1,4 @@
 ---
-summary: "Oracle Cloud (Always Free ARM) üzerinde OpenClaw"
-read_when:
-  - Oracle Cloud üzerinde OpenClaw kurulumu yaparken
-  - OpenClaw için düşük maliyetli VPS barındırma ararken
-  - Küçük bir sunucuda 7/24 OpenClaw istemek
 title: "Oracle Cloud"
 ---
 

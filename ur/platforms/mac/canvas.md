@@ -1,9 +1,4 @@
 ---
-summary: "WKWebView + کسٹم URL اسکیم کے ذریعے ایمبیڈ کیا گیا ایجنٹ کے زیرِ کنٹرول Canvas پینل"
-read_when:
-  - macOS Canvas پینل نافذ کرتے وقت
-  - بصری ورک اسپیس کے لیے ایجنٹ کنٹرولز شامل کرتے وقت
-  - WKWebView میں Canvas لوڈز کی ڈیبگنگ کرتے وقت
 title: "Canvas"
 ---
 

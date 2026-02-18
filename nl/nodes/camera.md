@@ -1,8 +1,4 @@
 ---
-summary: "Cameravastlegging (iOS-node + macOS-app) voor agentgebruik: foto’s (jpg) en korte videoclips (mp4)"
-read_when:
-  - Bij het toevoegen of wijzigen van cameravastlegging op iOS-nodes of macOS
-  - Bij het uitbreiden van door agenten toegankelijke MEDIA-tempbestandworkflows
 title: "Cameravastlegging"
 ---
 

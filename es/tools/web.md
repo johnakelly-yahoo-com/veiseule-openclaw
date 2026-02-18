@@ -1,9 +1,4 @@
 ---
-summary: "Herramientas de búsqueda y obtención web (Brave Search API, Perplexity directo/OpenRouter)"
-read_when:
-  - Quiere habilitar web_search o web_fetch
-  - Necesita configurar la clave de la API de Brave Search
-  - Quiere usar Perplexity Sonar para búsqueda web
 title: "Herramientas web"
 ---
 

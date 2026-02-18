@@ -1,7 +1,4 @@
 ---
-summary: "Reaktionssemantik delt på tværs af kanaler"
-read_when:
-  - Arbejder med reaktioner i enhver kanal
 title: "Reaktioner"
 ---
 

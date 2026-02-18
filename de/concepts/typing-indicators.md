@@ -1,7 +1,4 @@
 ---
-summary: "„Wann OpenClaw Tippindikatoren anzeigt und wie Sie sie anpassen“"
-read_when:
-  - „Ändern des Verhaltens oder der Standardwerte von Tippindikatoren“
 title: "„Tippindikatoren“"
 ---
 

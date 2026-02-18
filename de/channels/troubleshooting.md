@@ -1,8 +1,4 @@
 ---
-summary: "„Schnelle kanalbezogene Fehlerbehebung mit kanalspezifischen Fehlersignaturen und Korrekturen“"
-read_when:
-  - Der Kanal-Transport meldet verbunden, aber Antworten schlagen fehl
-  - Sie benötigen kanalspezifische Prüfungen vor dem Einstieg in tiefe Anbieter-Dokumentation
 title: "„Kanal-Fehlerbehebung“"
 ---
 

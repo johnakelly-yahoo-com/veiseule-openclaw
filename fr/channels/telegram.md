@@ -1,7 +1,4 @@
 ---
-summary: "Statut du support du bot Telegram, capacites et configuration"
-read_when:
-  - Travail sur les fonctionnalites Telegram ou les webhooks
 title: "Telegram"
 ---
 

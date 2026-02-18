@@ -1,7 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw configure` (invites de configuration interactives)"
-read_when:
-  - Vous souhaitez ajuster interactivement les identifiants, les appareils ou les valeurs par defaut de l’agent
 title: "configurer"
 ---
 

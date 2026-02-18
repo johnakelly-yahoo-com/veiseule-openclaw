@@ -1,7 +1,4 @@
 ---
-summary: "معمارية Gateway عبر WebSocket، المكوّنات، وتدفّقات العملاء"
-read_when:
-  - عند العمل على بروتوكول Gateway أو العملاء أو وسائل النقل
 title: "معمارية Gateway"
 ---
 

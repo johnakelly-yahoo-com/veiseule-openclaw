@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想使用 Brave Search 进行 web_search
-  - 你需要 BRAVE_API_KEY 或套餐详情
-summary: 用于 web_search 的 Brave Search API 设置
 title: Brave Search
 x-i18n:
   generated_at: "2026-02-03T07:43:09Z"

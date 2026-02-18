@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想使用 Synthetic 作为模型提供商
-  - 你需要配置 Synthetic API 密钥或 base URL
-summary: 在 OpenClaw 中使用 Synthetic 的 Anthropic 兼容 API
 title: Synthetic
 x-i18n:
   generated_at: "2026-02-01T21:35:34Z"

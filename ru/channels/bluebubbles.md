@@ -1,9 +1,4 @@
 ---
-summary: "iMessage через сервер BlueBubbles для macOS (REST-отправка/приём, набор текста, реакции, сопряжение, расширенные действия)."
-read_when:
-  - Настройка канала BlueBubbles
-  - Устранение неполадок сопряжения вебхуков
-  - Настройка iMessage на macOS
 title: "BlueBubbles"
 ---
 

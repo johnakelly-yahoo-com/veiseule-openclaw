@@ -1,9 +1,4 @@
 ---
-summary: "Streaming- und Chunking-Verhalten (Blockantworten, Entwurfs-Streaming, Limits)"
-read_when:
-  - Erklärung, wie Streaming oder Chunking auf Kanälen funktioniert
-  - Ändern des Block-Streamings oder des Kanal-Chunking-Verhaltens
-  - Debugging von doppelten/frühen Blockantworten oder Entwurfs-Streaming
 title: "Streaming und Chunking"
 ---
 

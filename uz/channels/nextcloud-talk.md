@@ -1,7 +1,4 @@
 ---
-summary: "Nextcloud Talk qo‘llab-quvvatlash holati, imkoniyatlari va sozlamalari"
-read_when:
-  - Nextcloud Talk kanal funksiyalari ustida ishlash
 title: "Nextcloud Talk"
 ---
 

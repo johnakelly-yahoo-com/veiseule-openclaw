@@ -1,9 +1,4 @@
 ---
-summary: "Referens: leverantörsspecifika regler för sanering och reparation av transkript"
-read_when:
-  - Du felsöker avvisningar av leverantörsförfrågningar kopplade till transkriptets form
-  - Du ändrar logik för sanering av transkript eller reparation av verktygsanrop
-  - Du utreder mismatch av verktygsanrops-id mellan leverantörer
 title: "Transkripthygien"
 ---
 

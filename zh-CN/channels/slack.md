@@ -1,6 +1,4 @@
 ---
-read_when: Setting up Slack or debugging Slack socket/HTTP mode
-summary: Slack 的 socket 或 HTTP webhook 模式设置
 title: Slack
 x-i18n:
   generated_at: "2026-02-03T07:45:49Z"

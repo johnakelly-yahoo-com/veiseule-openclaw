@@ -1,8 +1,4 @@
----
-summary: "Werkruimtesjabloon voor TOOLS.md"
-read_when:
-  - Een werkruimte handmatig opstarten
----
+------
 
 # TOOLS.md - Lokale notities
 

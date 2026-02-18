@@ -1,9 +1,4 @@
 ---
-summary: "App Android (nó): runbook de conexão + Canvas/Chat/Câmera"
-read_when:
-  - Pareamento ou reconexão do nó Android
-  - Depuração de descoberta ou autenticação do gateway Android
-  - Verificação de paridade do histórico de chat entre clientes
 title: "App Android"
 ---
 

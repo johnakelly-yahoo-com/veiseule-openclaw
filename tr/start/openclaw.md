@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw’ı güvenlik uyarılarıyla birlikte kişisel asistan olarak çalıştırmak için uçtan uca rehber"
-read_when:
-  - Yeni bir asistan örneğinin sisteme alınması
-  - Güvenlik/izin etkileri gözden geçirilirken
 title: "Kişisel Asistan Kurulumu"
 ---
 

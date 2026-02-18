@@ -1,8 +1,4 @@
 ---
-summary: "قائمة التحقق لإصدار OpenClaw على macOS (خلاصة Sparkle، التغليف، التوقيع)"
-read_when:
-  - عند قطع أو التحقق من إصدار OpenClaw على macOS
-  - عند تحديث خلاصة أو أصول تطبيق Sparkle
 title: "إصدار macOS"
 ---
 

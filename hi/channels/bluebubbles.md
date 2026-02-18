@@ -1,9 +1,4 @@
 ---
-summary: "BlueBubbles macOS सर्वर के माध्यम से iMessage (REST भेजना/प्राप्त करना, टाइपिंग, रिएक्शन, पेयरिंग, उन्नत क्रियाएँ)।"
-read_when:
-  - BlueBubbles चैनल सेटअप करना
-  - वेबहुक पेयरिंग का समस्या-निवारण
-  - macOS पर iMessage का विन्यास
 title: "BlueBubbles"
 ---
 

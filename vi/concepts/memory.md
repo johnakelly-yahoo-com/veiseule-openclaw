@@ -1,9 +1,4 @@
----
-summary: "Cách bộ nhớ OpenClaw hoạt động (tệp workspace + xả bộ nhớ tự động)"
-read_when:
-  - Bạn muốn biết bố cục tệp bộ nhớ và quy trình làm việc
-  - Bạn muốn tinh chỉnh cơ chế xả bộ nhớ tự động trước khi nén
----
+------
 
 # Memory
 

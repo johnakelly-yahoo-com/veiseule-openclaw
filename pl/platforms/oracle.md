@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw na Oracle Cloud (Always Free ARM)"
-read_when:
-  - Konfiguracja OpenClaw na Oracle Cloud
-  - Poszukiwanie taniego hostingu VPS dla OpenClaw
-  - Chęć uruchomienia OpenClaw 24/7 na małym serwerze
 title: "Oracle Cloud"
 ---
 

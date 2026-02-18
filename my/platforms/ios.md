@@ -1,9 +1,4 @@
 ---
-summary: "iOS နိုဒ် အက်ပ်—Gateway သို့ ချိတ်ဆက်ခြင်း၊ pairing၊ canvas နှင့် ပြဿနာဖြေရှင်းခြင်း"
-read_when:
-  - iOS နိုဒ်ကို pairing ပြန်လုပ်ရန် သို့မဟုတ် ပြန်လည်ချိတ်ဆက်ရန်
-  - iOS အက်ပ်ကို source မှ chạy/run လုပ်ရန်
-  - gateway discovery သို့မဟုတ် canvas commands များကို debug လုပ်ရန်
 title: "iOS အက်ပ်"
 ---
 

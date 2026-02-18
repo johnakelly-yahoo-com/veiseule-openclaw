@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw logs` uchun CLI ma'lumotnomasi (Gateway loglarini RPC orqali real vaqtda kuzatish)"
-read_when:
-  - You need to tail Gateway logs remotely (without SSH)
-  - You want JSON log lines for tooling
 title: "logs"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "BlueBubbles macOS sunucusu üzerinden iMessage (REST gönderme/alma, yazıyor göstergeleri, tepkiler, eşleştirme, gelişmiş eylemler)."
-read_when:
-  - BlueBubbles kanalını kurma
-  - Webhook eşleştirme sorunlarını giderme
-  - macOS üzerinde iMessage yapılandırma
 title: "BlueBubbles"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Bakgrundskörning av exec och processhantering"
-read_when:
-  - Lägga till eller ändra beteende för bakgrundsexekvering
-  - Felsökning av långvariga exec-uppgifter
 title: "Bakgrunds-Exec och Processverktyg"
 ---
 

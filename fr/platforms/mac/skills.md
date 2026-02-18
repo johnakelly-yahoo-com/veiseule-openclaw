@@ -1,8 +1,4 @@
 ---
-summary: "Interface des parametres des Skills macOS et etat base sur la Gateway (passerelle)"
-read_when:
-  - Mise a jour de l'interface des parametres des Skills macOS
-  - Modification des regles de controle ou du comportement d'installation des Skills
 title: "Compétences"
 ---
 

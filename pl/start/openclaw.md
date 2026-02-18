@@ -1,8 +1,4 @@
 ---
-summary: "Kompleksowy przewodnik uruchamiania OpenClaw jako osobistego asystenta z zachowaniem zasad bezpieczeństwa"
-read_when:
-  - Wdrażanie nowej instancji asystenta
-  - Przegląd implikacji bezpieczeństwa i uprawnień
 title: "Konfiguracja osobistego asystenta"
 ---
 

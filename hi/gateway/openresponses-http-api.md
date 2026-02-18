@@ -1,8 +1,4 @@
 ---
-summary: "Gateway से OpenResponses-संगत /v1/responses HTTP एंडपॉइंट को उजागर करें"
-read_when:
-  - OpenResponses API बोलने वाले क्लाइंट्स का एकीकरण करते समय
-  - जब आपको आइटम-आधारित इनपुट, क्लाइंट टूल कॉल्स, या SSE इवेंट्स चाहिए हों
 title: "OpenResponses API"
 ---
 

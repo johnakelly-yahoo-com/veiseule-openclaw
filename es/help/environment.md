@@ -1,9 +1,4 @@
 ---
-summary: "Dónde OpenClaw carga las variables de entorno y el orden de precedencia"
-read_when:
-  - Necesitas saber qué vars env están cargados, y en qué orden
-  - Está depurando claves de API faltantes en el Gateway
-  - Está documentando la autenticación de proveedores o los entornos de despliegue
 title: "Variables de entorno"
 ---
 

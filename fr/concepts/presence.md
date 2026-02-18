@@ -1,9 +1,4 @@
 ---
-summary: "Comment les entrées de présence OpenClaw sont produites, fusionnées et affichées"
-read_when:
-  - Débogage de l’onglet Instances
-  - Investigation de lignes d’instance en double ou obsolètes
-  - Modification de la connexion WS de la Gateway ou des balises d’événements système
 title: "Présence"
 ---
 

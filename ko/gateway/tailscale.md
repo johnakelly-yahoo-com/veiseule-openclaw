@@ -1,8 +1,4 @@
 ---
-summary: "Gateway 대시보드를 위한 통합 Tailscale Serve/Funnel"
-read_when:
-  - localhost 외부로 Gateway Control UI 노출
-  - tailnet 또는 공개 대시보드 접근 자동화
 title: "Tailscale"
 ---
 

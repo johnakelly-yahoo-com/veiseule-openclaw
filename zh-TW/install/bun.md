@@ -1,8 +1,4 @@
 ---
-summary: "Bun 工作流程（實驗性）：安裝方式與相較 pnpm 的注意事項"
-read_when:
-  - 你想要最快的本地開發迴圈（bun + watch）
-  - 生產環境請使用 Node。
 title: "Bun（實驗性）"
 ---
 

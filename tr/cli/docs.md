@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw docs` için CLI başvurusu (canlı OpenClaw doküman dizininde arama)"
-read_when:
-  - Terminalden canlı OpenClaw dokümanlarında arama yapmak istiyorsanız
 title: "dokümanlar"
 ---
 

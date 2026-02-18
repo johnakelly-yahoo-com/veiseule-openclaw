@@ -1,5 +1,4 @@
 ---
-summary: "高信号な issue およびバグ報告の提出方法"
 title: "Issue の提出"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "在 OpenClaw 中使用注重隱私的 Venice AI 模型"
-read_when:
-  - 你希望在 OpenClaw 中進行注重隱私的推論
-  - 你需要 Venice AI 的設定指引
 title: "Venice AI"
 ---
 

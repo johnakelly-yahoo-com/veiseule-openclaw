@@ -1,9 +1,4 @@
 ---
-summary: "Ağ merkezi: gateway yüzeyleri, eşleştirme, keşif ve güvenlik"
-read_when:
-  - Ağ mimarisi ve güvenliğe genel bakışa ihtiyacınız var
-  - Yerel ile tailnet erişimi veya eşleştirmeyi hata ayıklıyorsunuz
-  - Ağ dokümanlarının kanonik listesini istiyorsunuz
 title: "Ağ"
 ---
 

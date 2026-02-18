@@ -1,9 +1,4 @@
 ---
-summary: "Var OpenClaw laddar miljövariabler och i vilken prioritetsordning"
-read_when:
-  - Du behöver veta vilka miljövariabler som laddas och i vilken ordning
-  - Du felsöker saknade API-nycklar i Gateway (nätverksgateway)
-  - Du dokumenterar leverantörsautentisering eller driftsmiljöer
 title: "Miljövariabler"
 ---
 

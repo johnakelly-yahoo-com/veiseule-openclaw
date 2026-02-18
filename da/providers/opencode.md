@@ -1,8 +1,4 @@
 ---
-summary: "Brug OpenCode Zen (kuraterede modeller) med OpenClaw"
-read_when:
-  - Du vil have OpenCode Zen til modeladgang
-  - Du vil have en kurateret liste over kodevenlige modeller
 title: "OpenCode Zen"
 ---
 

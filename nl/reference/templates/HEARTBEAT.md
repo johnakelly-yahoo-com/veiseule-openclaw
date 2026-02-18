@@ -1,8 +1,4 @@
----
-summary: "Werkruimtesjabloon voor HEARTBEAT.md"
-read_when:
-  - Handmatig een werkruimte opstarten
----
+------
 
 # HEARTBEAT.md
 

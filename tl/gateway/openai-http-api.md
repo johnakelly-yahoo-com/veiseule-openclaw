@@ -1,7 +1,4 @@
 ---
-summary: "Ilantad ang OpenAI-compatible na /v1/chat/completions HTTP endpoint mula sa Gateway"
-read_when:
-  - Pagsasama ng mga tool na umaasa sa OpenAI Chat Completions
 title: "OpenAI Chat Completions"
 ---
 

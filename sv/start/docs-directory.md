@@ -1,7 +1,4 @@
 ---
-summary: "Kurerade länkar till de mest använda OpenClaw-dokumenten."
-read_when:
-  - Du vill ha snabb åtkomst till centrala dokumentsidor
 title: "Dokumentkatalog"
 ---
 

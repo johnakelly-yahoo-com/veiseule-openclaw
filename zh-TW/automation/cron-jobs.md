@@ -1,9 +1,4 @@
 ---
-summary: "Gateway 排程器的 Cron 工作 + 喚醒"
-read_when:
-  - 排程背景工作或喚醒
-  - 串接應與心跳一起或並行執行的自動化
-  - 在排程任務中決定使用心跳或 Cron
 title: "Cron 工作"
 ---
 

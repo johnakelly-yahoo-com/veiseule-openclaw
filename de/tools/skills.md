@@ -1,8 +1,4 @@
 ---
-summary: "Skills: verwaltet vs. Workspace, Gating-Regeln und Konfiguration/Env-Verkabelung"
-read_when:
-  - Hinzufügen oder Ändern von Skills
-  - Ändern von Skill-Gating oder Ladevorschriften
 title: "Fähigkeiten"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Gedrag van groepschats over verschillende platforms (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
-read_when:
-  - Wijzigen van gedrag van groepschats of mention-gating
 title: "Groepen"
 ---
 

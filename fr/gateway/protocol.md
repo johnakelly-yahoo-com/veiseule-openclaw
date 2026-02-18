@@ -1,9 +1,4 @@
 ---
-summary: "Protocole WebSocket de la Gateway (passerelle) : handshake, trames, versionnage"
-read_when:
-  - Implémentation ou mise à jour des clients WS de la Gateway (passerelle)
-  - Débogage des incompatibilités de protocole ou des échecs de connexion
-  - Régénération du schéma/des modèles du protocole
 title: "Protocole de la Gateway (passerelle)"
 ---
 

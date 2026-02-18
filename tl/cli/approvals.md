@@ -1,8 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw approvals` (mga exec approval para sa gateway o mga node host)"
-read_when:
-  - Gusto mong mag-edit ng mga exec approval mula sa CLI
-  - Kailangan mong pamahalaan ang mga allowlist sa gateway o mga node host
 title: "mga pag-apruba"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Integração do WhatsApp (canal web): login, inbox, respostas, mídia e operações"
-read_when:
-  - Trabalhando no comportamento do canal WhatsApp/web ou no roteamento do inbox
 title: "WhatsApp"
 ---
 

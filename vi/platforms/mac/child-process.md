@@ -1,7 +1,4 @@
 ---
-summary: "Vòng đời Gateway trên macOS (launchd)"
-read_when:
-  - Tích hợp ứng dụng mac với vòng đời của gateway
 title: "Vòng đời Gateway"
 ---
 

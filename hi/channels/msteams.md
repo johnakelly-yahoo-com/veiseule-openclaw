@@ -1,7 +1,4 @@
 ---
-summary: "Microsoft Teams बॉट समर्थन की स्थिति, क्षमताएँ और विन्यास"
-read_when:
-  - MS Teams चैनल फीचर्स पर काम करते समय
 title: "Microsoft Teams"
 ---
 

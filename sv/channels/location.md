@@ -1,8 +1,4 @@
 ---
-summary: "Parsning av inkommande kanalplatser (Telegram + WhatsApp) och kontextfält"
-read_when:
-  - Lägga till eller ändra parsning av kanalplatser
-  - Använda platskontextfält i agentprompter eller verktyg
 title: "Kanalplatsparsning"
 ---
 

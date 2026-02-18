@@ -1,8 +1,4 @@
 ---
-summary: "ภาพรวมบอตFeishuฟีเจอร์และการกำหนดค่า"
-read_when:
-  - คุณต้องการเชื่อมต่อบอตFeishu/Lark
-  - คุณกำลังกำหนดค่าช่องทางFeishu
 title: Feishu
 ---
 

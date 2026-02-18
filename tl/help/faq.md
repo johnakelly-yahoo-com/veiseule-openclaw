@@ -1,5 +1,4 @@
 ---
-summary: "Mga madalas itanong tungkol sa setup, configuration, at paggamit ng OpenClaw"
 title: "FAQ"
 ---
 

@@ -1,8 +1,4 @@
----
-summary: "Modèle d’espace de travail pour BOOT.md"
-read_when:
-  - Ajout d’une liste de contrôle BOOT.md
----
+------
 
 # BOOT.md
 

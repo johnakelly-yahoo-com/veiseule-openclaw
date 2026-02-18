@@ -1,8 +1,4 @@
 ---
-summary: "Brauzer avtomatlashtirish + X/Twitter joylash uchun qo‘lda kirishlar"
-read_when:
-  - You need to log into sites for browser automation
-  - You want to post updates to X/Twitter
 title: "Brauzerga kirish"
 ---
 

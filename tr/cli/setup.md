@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw setup` için CLI başvurusu (yapılandırmayı + çalışma alanını başlatma)"
-read_when:
-  - Tam onboarding sihirbazını kullanmadan ilk kurulum yapıyorsanız
-  - Varsayılan çalışma alanı yolunu ayarlamak istiyorsanız
 title: "kurulum"
 ---
 

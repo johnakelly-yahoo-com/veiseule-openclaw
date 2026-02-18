@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw models` için CLI referansı (durum/listele/ayarla/tara, takma adlar, yedekler, kimlik doğrulama)"
-read_when:
-  - Varsayılan modelleri değiştirmek veya sağlayıcı kimlik doğrulama durumunu görüntülemek istediğinizde
-  - Mevcut modelleri/sağlayıcıları taramak ve kimlik doğrulama profillerini hata ayıklamak istediğinizde
 title: "modeller"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Fournisseurs de modèles (LLM) pris en charge par OpenClaw"
-read_when:
-  - Vous souhaitez choisir un fournisseur de modèles
-  - Vous souhaitez des exemples de configuration rapide pour l’authentification LLM et la sélection de modèles
 title: "Démarrage rapide des fournisseurs de modèles"
 ---
 

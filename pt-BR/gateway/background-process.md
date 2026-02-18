@@ -1,8 +1,4 @@
 ---
-summary: "Execução em segundo plano e gerenciamento de processos"
-read_when:
-  - Ao adicionar ou modificar o comportamento de exec em segundo plano
-  - Ao depurar tarefas de exec de longa duração
 title: "Exec em Segundo Plano e Ferramenta de Processo"
 ---
 

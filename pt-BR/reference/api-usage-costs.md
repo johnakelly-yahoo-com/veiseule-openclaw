@@ -1,9 +1,4 @@
 ---
-summary: "Audite o que pode gastar dinheiro, quais chaves são usadas e como visualizar o uso"
-read_when:
-  - Você quer entender quais recursos podem chamar APIs pagas
-  - Você precisa auditar chaves, custos e visibilidade de uso
-  - Você está explicando relatórios de custo via /status ou /usage
 title: "Uso e custos de API"
 ---
 

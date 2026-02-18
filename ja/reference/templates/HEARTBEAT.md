@@ -1,8 +1,4 @@
----
-summary: "HEARTBEAT.md 用のワークスペーステンプレート"
-read_when:
-  - ワークスペースを手動でブートストラップする場合
----
+------
 
 # HEARTBEAT.md
 

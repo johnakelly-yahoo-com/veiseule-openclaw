@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 在 Raspberry Pi 上设置 OpenClaw 时
-  - 在 ARM 设备上运行 OpenClaw 时
-  - 构建低成本常驻个人 AI 时
-summary: 在 Raspberry Pi 上运行 OpenClaw（低成本自托管设置）
 title: Raspberry Pi
 x-i18n:
   generated_at: "2026-02-03T07:53:30Z"

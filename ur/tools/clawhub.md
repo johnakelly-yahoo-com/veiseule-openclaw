@@ -1,9 +1,4 @@
 ---
-summary: "ClawHub گائیڈ: عوامی Skills رجسٹری + CLI ورک فلو"
-read_when:
-  - نئے صارفین کو ClawHub متعارف کراتے وقت
-  - Skills انسٹال کرنے، تلاش کرنے، یا شائع کرنے کے لیے
-  - ClawHub CLI فلیگز اور سنک رویّے کی وضاحت کے لیے
 title: "ClawHub"
 ---
 

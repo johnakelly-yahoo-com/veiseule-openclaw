@@ -1,8 +1,4 @@
 ---
-summary: Node + tsx میں "__name is not a function" کریش کے نوٹس اور عارضی حل
-read_when:
-  - صرف Node پر مبنی ڈویلپمنٹ اسکرپٹس یا واچ موڈ کی ناکامیوں کی ڈی بگنگ
-  - OpenClaw میں tsx/esbuild لوڈر کریشز کی تفتیش
 title: "Node + tsx کریش"
 ---
 

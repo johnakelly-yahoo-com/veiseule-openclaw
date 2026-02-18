@@ -1,8 +1,4 @@
 ---
-summary: "Clawnet 重構：統一網路協定、角色、驗證、核准與身分識別"
-read_when:
-  - Planning a unified network protocol for nodes + operator clients
-  - 重新設計跨裝置的核准流程、配對、TLS 與線上狀態
 title: "Clawnet 重構"
 ---
 

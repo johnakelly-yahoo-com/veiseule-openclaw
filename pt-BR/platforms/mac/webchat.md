@@ -1,7 +1,4 @@
 ---
-summary: "Como o app para mac incorpora o WebChat do gateway e como depurá-lo"
-read_when:
-  - Depuração da visualização WebChat no mac ou da porta de loopback
 title: "WebChat"
 ---
 

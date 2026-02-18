@@ -1,8 +1,4 @@
 ---
-summary: "モデル認証：OAuth、API キー、および setup-token"
-read_when:
-  - モデル認証や OAuth の有効期限切れをデバッグする場合
-  - 認証や資格情報の保存を文書化する場合
 title: "認証"
 ---
 

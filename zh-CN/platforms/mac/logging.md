@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 捕获 macOS 日志或调查隐私数据日志记录
-  - 调试语音唤醒/会话生命周期问题
-summary: OpenClaw 日志：滚动诊断文件日志 + 统一日志隐私标志
 title: macOS 日志
 x-i18n:
   generated_at: "2026-02-01T21:32:54Z"

@@ -1,8 +1,4 @@
 ---
-summary: "Stabile, beta- og dev-kanaler: semantik, skift og tagging"
-read_when:
-  - Du vil skifte mellem stable/beta/dev
-  - Du tagger eller udgiver prereleases
 title: "Udviklingskanaler"
 ---
 

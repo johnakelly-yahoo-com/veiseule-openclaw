@@ -1,7 +1,4 @@
 ---
-summary: "Telegram 機器人支援狀態、功能與設定"
-read_when:
-  - 進行 Telegram 功能或 webhook 相關工作時
 title: "Telegram"
 ---
 

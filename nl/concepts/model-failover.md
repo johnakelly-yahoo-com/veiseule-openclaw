@@ -1,8 +1,4 @@
 ---
-summary: "Hoe OpenClaw auth-profielen roteert en terugvalt over modellen"
-read_when:
-  - Het diagnosticeren van rotatie van auth-profielen, cooldowns of gedrag van model-fallback
-  - Het bijwerken van failoverregels voor auth-profielen of modellen
 title: "Model-failover"
 ---
 

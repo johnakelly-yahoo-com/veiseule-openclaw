@@ -1,7 +1,4 @@
 ---
-summary: "Agent-sessietools voor het weergeven van sessies, het ophalen van geschiedenis en het verzenden van berichten tussen sessies"
-read_when:
-  - Sessietools toevoegen of wijzigen
 title: "Sessietools"
 ---
 

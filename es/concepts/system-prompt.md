@@ -1,8 +1,4 @@
 ---
-summary: "Qué contiene el system prompt de OpenClaw y cómo se ensambla"
-read_when:
-  - Edición del texto del system prompt, la lista de herramientas o las secciones de tiempo/latidos
-  - Cambio del bootstrap del espacio de trabajo o del comportamiento de inyección de Skills
 title: "Mensaje del sistema"
 ---
 

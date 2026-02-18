@@ -1,9 +1,4 @@
 ---
-summary: "Mga CLI backend: text-only fallback sa pamamagitan ng lokal na AI CLIs"
-read_when:
-  - Gusto mo ng maaasahang fallback kapag pumapalya ang mga API provider
-  - Nagpapatakbo ka ng Claude Code CLI o iba pang lokal na AI CLIs at gusto mo silang muling gamitin
-  - Kailangan mo ng text-only, walang tool na ruta na patuloy na sumusuporta sa sessions at images
 title: "Mga CLI Backend"
 ---
 

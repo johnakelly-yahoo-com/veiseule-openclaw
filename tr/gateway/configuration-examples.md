@@ -1,9 +1,4 @@
 ---
-summary: "Yaygın OpenClaw kurulumları için şema ile birebir uyumlu yapılandırma örnekleri"
-read_when:
-  - OpenClaw’ın nasıl yapılandırılacağını öğrenirken
-  - Yapılandırma örnekleri ararken
-  - OpenClaw’ı ilk kez kurarken
 title: "Yapılandırma Örnekleri"
 ---
 

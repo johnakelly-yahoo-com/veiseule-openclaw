@@ -1,9 +1,4 @@
 ---
-summary: "Pangkalahatang-ideya ng logging: mga file log, console output, pag-tail sa CLI, at ang Control UI"
-read_when:
-  - Kailangan mo ng beginner-friendly na pangkalahatang-ideya ng logging
-  - Gusto mong i-configure ang mga log level o format
-  - Nagpa‑pag-troubleshoot ka at kailangan mong mabilis na mahanap ang mga log
 title: "Pagla-log"
 ---
 

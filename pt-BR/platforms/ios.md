@@ -1,9 +1,4 @@
 ---
-summary: "App de nó iOS: conexão com o Gateway, pareamento, canvas e solução de problemas"
-read_when:
-  - Pareamento ou reconexão do nó iOS
-  - Executar o app iOS a partir do código-fonte
-  - Depurar descoberta do gateway ou comandos de canvas
 title: "App iOS"
 ---
 

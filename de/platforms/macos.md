@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS‑Companion‑App (Menüleiste + Gateway‑Broker)"
-read_when:
-  - Implementierung von macOS‑App‑Funktionen
-  - Änderung des Gateway‑Lebenszyklus oder der Node‑Bridging‑Logik unter macOS
 title: "macOS‑App"
 ---
 

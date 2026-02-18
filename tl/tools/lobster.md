@@ -1,11 +1,6 @@
 ---
 title: Lobster
-summary: "Typed na workflow runtime para sa OpenClaw na may resumable approval gates."
-description: Typed na workflow runtime para sa OpenClaw — composable na mga pipeline na may approval gates.
-read_when:
-  - Gusto mo ng deterministic na multi-step workflows na may malinaw na mga approval
-  - Kailangan mong i-resume ang isang workflow nang hindi muling pinapatakbo ang mga naunang hakbang
----
+description: Typed na workflow runtime para sa OpenClaw — composable na mga pipeline na may approval gates.---
 
 # Lobster
 

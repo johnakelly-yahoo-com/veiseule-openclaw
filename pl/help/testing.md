@@ -1,9 +1,4 @@
 ---
-summary: "Zestaw testów: pakiety unit/e2e/live, runner’y Docker oraz zakres każdego testu"
-read_when:
-  - Uruchamianie testów lokalnie lub w CI
-  - Dodawanie regresji dla błędów modeli/dostawców
-  - Debugowanie zachowania gateway + agenta
 title: "Testowanie"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Surveiller l’expiration OAuth pour les fournisseurs de modèles"
-read_when:
-  - Mise en place de la surveillance ou d’alertes d’expiration d’authentification
-  - Automatisation des vérifications de rafraîchissement OAuth de Claude Code / Codex
 title: "Surveillance de l’authentification"
 ---
 

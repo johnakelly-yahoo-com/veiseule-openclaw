@@ -1,9 +1,4 @@
 ---
-summary: "Gateway WebSocket-protocol: handshake, frames, versiebeheer"
-read_when:
-  - Implementeren of bijwerken van Gateway WS-clients
-  - Debuggen van protocol-mismatches of verbindingsfouten
-  - Opnieuw genereren van protocolschema’s/modellen
 title: "Gateway-protocol"
 ---
 

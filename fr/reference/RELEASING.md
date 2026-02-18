@@ -1,10 +1,4 @@
----
-summary: "Liste de controle pas a pas pour la publication npm + application macOS"
-read_when:
-  - Publication d'une nouvelle version npm
-  - Publication d'une nouvelle version de l'application macOS
-  - Verification des metadonnees avant publication
----
+------
 
 # Liste de controle de publication (npm + macOS)
 

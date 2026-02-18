@@ -1,9 +1,4 @@
 ---
-summary: "Solucione problemas de agendamento e entrega de cron e heartbeat"
-read_when:
-  - Cron não foi executado
-  - Cron foi executado, mas nenhuma mensagem foi entregue
-  - Heartbeat parece silencioso ou ignorado
 title: "Solução de problemas de automação"
 ---
 

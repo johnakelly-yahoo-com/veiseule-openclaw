@@ -1,8 +1,4 @@
 ---
-summary: "Snelle probleemoplossing op kanaalniveau met per kanaal faalsignaturen en oplossingen"
-read_when:
-  - Het kanaaltransport zegt verbonden, maar antwoorden falen
-  - Je hebt kanaalspecifieke controles nodig vóór diepe provider-documentatie
 title: "Problemen oplossen per kanaal"
 ---
 

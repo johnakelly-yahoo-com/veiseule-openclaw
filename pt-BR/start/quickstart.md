@@ -1,8 +1,4 @@
 ---
-summary: "O Início rápido foi movido para Primeiros passos."
-read_when:
-  - Você está procurando os passos de configuração mais rápidos
-  - Você foi enviado para cá a partir de um link antigo
 title: "Início rápido"
 ---
 

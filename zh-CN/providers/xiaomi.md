@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想在 OpenClaw 中使用 Xiaomi MiMo 模型
-  - 你需要设置 XIAOMI_API_KEY
-summary: 在 OpenClaw 中使用 Xiaomi MiMo (mimo-v2-flash)
 title: Xiaomi MiMo
 x-i18n:
   generated_at: "2026-02-01T21:36:15Z"

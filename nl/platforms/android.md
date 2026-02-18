@@ -1,9 +1,4 @@
 ---
-summary: "Android-app (node): verbindingsrunbook + Canvas/Chat/Camera"
-read_when:
-  - Het koppelen of opnieuw verbinden van de Android-node
-  - Het debuggen van Android Gateway-discovery of -authenticatie
-  - Het verifiëren van chatgeschiedenis-pariteit tussen clients
 title: "Android-app"
 ---
 

@@ -1,7 +1,5 @@
 ---
-read_when: You want a dedicated explanation of sandboxing or need to tune agents.defaults.sandbox.
 status: active
-summary: OpenClaw 沙箱隔离的工作原理：模式、作用域、工作区访问和镜像
 title: 沙箱隔离
 x-i18n:
   generated_at: "2026-02-03T07:49:29Z"

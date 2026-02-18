@@ -1,8 +1,4 @@
 ---
-summary: "Scripts del repositorio: propósito, alcance y notas de seguridad"
-read_when:
-  - Al ejecutar scripts del repositorio
-  - Al agregar o cambiar scripts bajo ./scripts
 title: "Secuencias de comandos"
 ---
 

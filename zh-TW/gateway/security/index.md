@@ -1,7 +1,4 @@
 ---
-summary: "執行具備 Shell 存取權的 AI Gateway 閘道器時的安全性考量與威脅模型"
-read_when:
-  - 新增會擴大存取或自動化的功能時
 title: "安全性"
 ---
 

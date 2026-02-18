@@ -1,7 +1,4 @@
 ---
-summary: "Logika stanu paska menu i to, co jest prezentowane użytkownikom"
-read_when:
-  - Dostosowywanie interfejsu menu na macOS lub logiki stanu
 title: "Pasek menu"
 ---
 

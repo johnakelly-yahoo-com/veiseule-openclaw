@@ -1,8 +1,4 @@
 ---
-summary: "Referencia de la CLI para `openclaw directory` (self, peers, groups)"
-read_when:
-  - Desea buscar IDs de contactos/grupos/self para un canal
-  - Está desarrollando un adaptador de directorio de canal
 title: "directory"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "提供 OpenClaw 的背景故事與世界觀，用於脈絡與語氣"
-read_when:
-  - Writing docs or UX copy that reference lore
 title: "OpenClaw 世界觀"
 ---
 

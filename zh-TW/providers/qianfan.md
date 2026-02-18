@@ -1,8 +1,4 @@
 ---
-summary: "使用 Qianfan 的統一 API，在 OpenClaw 中存取多種模型"
-read_when:
-  - 你想要使用單一 API 金鑰存取多個 LLM
-  - 你需要百度 Qianfan 的設定指引
 title: "Qianfan"
 ---
 

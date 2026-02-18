@@ -1,8 +1,4 @@
 ---
-summary: "Contextvenster + compaction: hoe OpenClaw sessies binnen modelgrenzen houdt"
-read_when:
-  - Je wilt auto-compaction en /compact begrijpen
-  - Je debugt lange sessies die contextlimieten bereiken
 title: "Compactie"
 ---
 

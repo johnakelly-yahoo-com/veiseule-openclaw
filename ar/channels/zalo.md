@@ -1,7 +1,4 @@
 ---
-summary: "حالة دعم بوت Zalo، والقدرات، والتهيئة"
-read_when:
-  - العمل على ميزات Zalo أو webhooks
 title: "Zalo"
 ---
 

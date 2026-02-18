@@ -1,8 +1,4 @@
 ---
-summary: "Helpoverzicht: veelvoorkomende oplossingen, installatiesanity en waar je kijkt als iets stukgaat"
-read_when:
-  - Je bent nieuw en wilt de gids “wat moet ik aanklikken/uitvoeren”
-  - Er is iets stukgegaan en je wilt de snelste weg naar een oplossing
 title: "Help"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Tarayıcı otomasyonu + X/Twitter gönderimi için manuel girişler"
-read_when:
-  - Tarayıcı otomasyonu için sitelere giriş yapmanız gerektiğinde
-  - X/Twitter’a güncelleme göndermek istediğinizde
 title: "Tarayıcı Girişi"
 ---
 

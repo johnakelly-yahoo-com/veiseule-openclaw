@@ -1,7 +1,4 @@
 ---
-summary: "Como áudios/notas de voz de entrada são baixados, transcritos e injetados nas respostas"
-read_when:
-  - Ao alterar a transcrição de áudio ou o tratamento de mídia
 title: "Áudio e Notas de Voz"
 ---
 

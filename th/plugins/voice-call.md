@@ -1,8 +1,4 @@
 ---
-summary: "ปลั๊กอิน Voice Call: โทรออกและรับสายผ่าน Twilio/Telnyx/Plivo (ติดตั้งปลั๊กอิน + คอนฟิก + CLI)"
-read_when:
-  - คุณต้องการโทรออกด้วยเสียงจาก OpenClaw
-  - คุณกำลังกำหนดค่าหรือพัฒนาปลั๊กอิน voice-call
 title: "ปลั๊กอิน Voice Call"
 ---
 

@@ -1,7 +1,5 @@
 ---
-summary: "„Routing wieloagentowy: izolowane agenty, konta kanałów i powiązania”"
 title: Routing wieloagentowy
-read_when: "„Gdy chcesz mieć wiele izolowanych agentów (obszary robocze + uwierzytelnianie) w jednym procesie Gateway.”"
 status: active
 ---
 

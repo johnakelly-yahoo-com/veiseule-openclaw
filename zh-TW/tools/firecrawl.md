@@ -1,9 +1,4 @@
 ---
-summary: "用於 web_fetch 的 Firecrawl 備援（反機器人＋快取擷取）"
-read_when:
-  - 你想要以 Firecrawl 為後端的網頁擷取
-  - 你需要一把 Firecrawl API 金鑰
-  - 你想要為 web_fetch 進行反機器人擷取
 title: "Firecrawl"
 ---
 

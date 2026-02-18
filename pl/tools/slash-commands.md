@@ -1,8 +1,4 @@
 ---
-summary: "Polecenia slash: tekstowe vs natywne, konfiguracja i obsługiwane polecenia"
-read_when:
-  - Korzystanie z poleceń czatu lub ich konfiguracja
-  - Debugowanie routingu poleceń lub uprawnień
 title: "Polecenia slash"
 ---
 

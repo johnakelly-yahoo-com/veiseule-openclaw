@@ -1,8 +1,4 @@
----
-summary: "SOUL.md uchun ish maydoni shabloni"
-read_when:
-  - Ish maydonini qo‘lda ishga tushirish
----
+------
 
 # SOUL.md - Siz kimsiz
 

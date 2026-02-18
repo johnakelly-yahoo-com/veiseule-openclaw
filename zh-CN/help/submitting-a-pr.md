@@ -1,5 +1,4 @@
 ---
-summary: "如何提交高质量的 PR"
 title: "提交 PR"
 ---
 

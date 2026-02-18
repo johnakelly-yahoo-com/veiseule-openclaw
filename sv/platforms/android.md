@@ -1,9 +1,4 @@
 ---
-summary: "Android-app (nod): anslutningsrunbook + Canvas/Chat/Kamera"
-read_when:
-  - Parkoppling eller återanslutning av Android-noden
-  - Felsökning av Android-gatewayupptäckt eller autentisering
-  - Verifiering av chathistorikparitet mellan klienter
 title: "Android-app"
 ---
 

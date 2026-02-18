@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 启动新的 OpenClaw 智能体会话
-  - 启用或审计默认 Skills
-summary: 个人助手设置的默认 OpenClaw 智能体指令和 Skills 列表
 x-i18n:
   generated_at: "2026-02-03T10:09:19Z"
   model: claude-opus-4-5

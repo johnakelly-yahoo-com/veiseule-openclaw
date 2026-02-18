@@ -1,9 +1,4 @@
 ---
-summary: "Xử lý sự cố lập lịch và gửi cron và heartbeat"
-read_when:
-  - Cron không chạy
-  - Cron đã chạy nhưng không có thông báo nào được gửi
-  - Heartbeat có vẻ im lặng hoặc bị bỏ qua
 title: "Xử lý sự cố Tự động hóa"
 ---
 

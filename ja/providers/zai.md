@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw で Z.AI（GLM モデル）を使用します"
-read_when:
-  - OpenClaw で Z.AI / GLM モデルを使用したい場合
-  - シンプルな ZAI_API_KEY のセットアップが必要な場合
 title: "Z.AI"
 ---
 

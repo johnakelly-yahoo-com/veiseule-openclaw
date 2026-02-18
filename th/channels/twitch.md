@@ -1,7 +1,4 @@
 ---
-summary: "การกำหนดค่าและการตั้งค่าบอตแชท Twitch"
-read_when:
-  - การตั้งค่าการผสานรวมแชท Twitch สำหรับ OpenClaw
 title: "Twitch"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw på Raspberry Pi (budgetvänlig självhostad setup)"
-read_when:
-  - Konfigurera OpenClaw på en Raspberry Pi
-  - Köra OpenClaw på ARM-enheter
-  - Bygga en billig, alltid-på personlig AI
 title: "Raspberry Pi"
 ---
 

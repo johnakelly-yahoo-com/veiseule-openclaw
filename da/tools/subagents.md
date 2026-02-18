@@ -1,8 +1,4 @@
 ---
-summary: "Sub-agenter: opstart af isolerede agentkørsler, der annoncerer resultater tilbage til anmoderens chat"
-read_when:
-  - Du ønsker baggrunds-/parallelarbejde via agenten
-  - Du ændrer sessions_spawn eller politik for sub-agent-værktøjer
 title: "Sub-agenter"
 ---
 

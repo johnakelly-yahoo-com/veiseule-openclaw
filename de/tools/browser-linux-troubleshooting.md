@@ -1,6 +1,4 @@
 ---
-summary: "„Beheben von Chrome/Brave/Edge/Chromium-CDP-Startproblemen für die OpenClaw-Browsersteuerung unter Linux“"
-read_when: "„Die Browsersteuerung schlägt unter Linux fehl, insbesondere mit Snap-Chromium“"
 title: "„Browser-Fehlerbehebung“"
 ---
 

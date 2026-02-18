@@ -1,9 +1,4 @@
 ---
-summary: "iOS düğüm uygulaması: Gateway’e bağlanma, eşleştirme, canvas ve sorun giderme"
-read_when:
-  - iOS düğümünü eşleştirirken veya yeniden bağlarken
-  - iOS uygulamasını kaynaktan çalıştırırken
-  - Gateway keşfi veya canvas komutlarını hata ayıklarken
 title: "iOS Uygulaması"
 ---
 

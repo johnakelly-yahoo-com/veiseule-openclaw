@@ -1,9 +1,4 @@
 ---
-summary: "Jak wpisy obecności OpenClaw są tworzone, scalane i wyświetlane"
-read_when:
-  - Debugowanie karty Instances
-  - Badanie zduplikowanych lub nieaktualnych wierszy instancji
-  - Zmienianie połączeń WS Gateway lub sygnałów systemowych
 title: "Obecność"
 ---
 

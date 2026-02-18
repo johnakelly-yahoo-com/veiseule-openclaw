@@ -1,7 +1,4 @@
 ---
-summary: "Capacidades do OpenClaw em canais, roteamento, mídia e UX."
-read_when:
-  - Voce quer uma lista completa do que o OpenClaw oferece
 title: "Funcionalidades"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Status, Funktionen und Konfiguration der Telegram-Bot-Unterstützung"
-read_when:
-  - Arbeiten an Telegram-Funktionen oder Webhooks
 title: "Telegram"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Inbound na pag‑unawa sa image/audio/video (opsyonal) gamit ang provider + CLI fallbacks"
-read_when:
-  - Pagdidisenyo o pagre‑refactor ng media understanding
-  - Pag‑tune ng inbound audio/video/image preprocessing
 title: "Pag-unawa sa Media"
 ---
 

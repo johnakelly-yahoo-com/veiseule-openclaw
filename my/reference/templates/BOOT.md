@@ -1,8 +1,4 @@
----
-summary: "BOOT.md အတွက် Workspace တမ်းပလိတ်"
-read_when:
-  - BOOT.md စစ်ဆေးစာရင်းကို ထည့်သွင်းသည့်အခါ
----
+------
 
 # BOOT.md
 

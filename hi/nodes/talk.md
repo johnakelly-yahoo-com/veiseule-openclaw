@@ -1,8 +1,4 @@
 ---
-summary: "Talk मोड: ElevenLabs TTS के साथ सतत भाषण वार्तालाप"
-read_when:
-  - macOS/iOS/Android पर Talk मोड लागू करते समय
-  - वॉइस/TTS/इंटरप्ट व्यवहार बदलते समय
 title: "Talk मोड"
 ---
 

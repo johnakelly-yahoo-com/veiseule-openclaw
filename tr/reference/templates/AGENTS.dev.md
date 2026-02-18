@@ -1,9 +1,4 @@
----
-summary: "Geliştirici ajan AGENTS.md (C-3PO)"
-read_when:
-  - Geliştirici gateway şablonlarını kullanırken
-  - Varsayılan geliştirici ajan kimliğini güncellerken
----
+------
 
 # AGENTS.md - OpenClaw Çalışma Alanı
 

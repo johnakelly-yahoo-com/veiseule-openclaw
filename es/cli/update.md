@@ -1,8 +1,4 @@
 ---
-summary: "Referencia de la CLI para `openclaw update` (actualización de código segura + reinicio automático del Gateway)"
-read_when:
-  - Quiere actualizar un checkout de código de forma segura
-  - Necesita entender el comportamiento del atajo `--update`
 title: "actualizar"
 ---
 

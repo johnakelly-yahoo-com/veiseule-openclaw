@@ -1,9 +1,4 @@
 ---
-summary: "OpenProse: .prose-workflows, slash-commando's en status in OpenClaw"
-read_when:
-  - Je wilt .prose-workflows uitvoeren of schrijven
-  - Je wilt de OpenProse-plugin inschakelen
-  - Je moet opslag van status begrijpen
 title: "OpenProse"
 ---
 

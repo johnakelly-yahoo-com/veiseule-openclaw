@@ -1,7 +1,4 @@
 ---
-summary: "Mga estado at animasyon ng icon sa menu bar para sa OpenClaw sa macOS"
-read_when:
-  - Pagbabago ng gawi ng icon sa menu bar
 title: "Icon sa Menu Bar"
 ---
 

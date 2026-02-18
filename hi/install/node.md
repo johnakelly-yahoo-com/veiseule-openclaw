@@ -1,11 +1,5 @@
 ---
-title: "Node.js"
-summary: "OpenClaw के लिए Node.js स्थापित और विन्यस्त करें — संस्करण आवश्यकताएँ, इंस्टॉल विकल्प, और PATH समस्या-निवारण"
-read_when:
-  - "OpenClaw स्थापित करने से पहले आपको Node.js स्थापित करना है"
-  - "आपने OpenClaw स्थापित किया है लेकिन `openclaw` कमांड नहीं मिला"
-  - "`npm install -g` अनुमतियों या PATH संबंधी समस्याओं के साथ विफल हो रहा है"
----
+title: "Node.js"---
 
 # Node.js
 

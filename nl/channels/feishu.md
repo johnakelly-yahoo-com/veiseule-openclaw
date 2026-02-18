@@ -1,8 +1,4 @@
 ---
-summary: "Overzicht van de Feishu-bot, functies en configuratie"
-read_when:
-  - Je wilt een Feishu/Lark-bot verbinden
-  - Je de Feishu-channel configureert
 title: Feishu
 ---
 

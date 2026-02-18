@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw tarafından desteklenen model sağlayıcıları (LLM'ler)"
-read_when:
-  - Bir model sağlayıcısı seçmek istiyorsanız
-  - LLM kimlik doğrulaması + model seçimi için hızlı kurulum örnekleri istiyorsanız
 title: "Model Sağlayıcısı Hızlı Başlangıç"
 ---
 

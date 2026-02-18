@@ -1,8 +1,4 @@
 ---
-summary: "Sử dụng API tương thích Anthropic của Synthetic trong OpenClaw"
-read_when:
-  - Bạn muốn sử dụng Synthetic làm nhà cung cấp mô hình
-  - Bạn cần thiết lập khóa API hoặc base URL của Synthetic
 title: "Synthetic"
 ---
 

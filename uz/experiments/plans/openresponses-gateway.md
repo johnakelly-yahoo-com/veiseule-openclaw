@@ -1,5 +1,4 @@
 ---
-summary: "Reja: OpenResponses /v1/responses endpointini qo‘shish va chat completions’ni toza tarzda eskirtirish"
 owner: "openclaw"
 status: "qoralama"
 last_updated: "2026-01-19"

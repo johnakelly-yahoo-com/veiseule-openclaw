@@ -1,7 +1,4 @@
 ---
-summary: "표면 전반에서의 그룹 채팅 동작 (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
-read_when:
-  - 그룹 채팅 동작 또는 멘션 게이팅을 변경할 때
 title: "그룹"
 ---
 

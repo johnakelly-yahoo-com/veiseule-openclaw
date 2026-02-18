@@ -1,8 +1,4 @@
 ---
-summary: "Chạy nhiều OpenClaw Gateway trên một máy chủ (cách ly, cổng và hồ sơ)"
-read_when:
-  - Chạy nhiều hơn một Gateway trên cùng một máy
-  - Bạn cần cấu hình/trạng thái/cổng được cách ly cho từng Gateway
 title: "Nhiều Gateway"
 ---
 

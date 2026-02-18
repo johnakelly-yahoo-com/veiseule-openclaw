@@ -1,7 +1,4 @@
 ---
-summary: "Zalo 機器人支援狀態、功能與設定"
-read_when:
-  - 進行 Zalo 功能或 webhook 相關工作時
 title: "Zalo"
 ---
 

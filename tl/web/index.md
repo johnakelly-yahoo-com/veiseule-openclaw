@@ -1,8 +1,4 @@
 ---
-summary: "Mga web surface ng Gateway: Control UI, mga bind mode, at seguridad"
-read_when:
-  - Gusto mong i-access ang Gateway sa pamamagitan ng Tailscale
-  - Gusto mo ang Control UI sa browser at pag-edit ng config
 title: "Web"
 ---
 

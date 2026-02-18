@@ -1,9 +1,4 @@
 ---
-summary: "Använd Claude Max/Pro-prenumeration som en OpenAI-kompatibel API-ändpunkt"
-read_when:
-  - Du vill använda Claude Max-prenumeration med OpenAI-kompatibla verktyg
-  - Du vill ha en lokal API-server som omsluter Claude Code CLI
-  - Du vill spara pengar genom att använda en prenumeration i stället för API-nycklar
 title: "Claude Max API-proxy"
 ---
 

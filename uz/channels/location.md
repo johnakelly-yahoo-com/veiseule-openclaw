@@ -1,8 +1,4 @@
 ---
-summary: "35. Kiruvchi kanal joylashuvini tahlil qilish (Telegram + WhatsApp) va kontekst maydonlari"
-read_when:
-  - 36. Kanal joylashuvini tahlil qilishni qo‘shish yoki o‘zgartirish
-  - 37. Agent promptlari yoki vositalarida joylashuv kontekst maydonlaridan foydalanish
 title: "38. Kanal joylashuvini tahlil qilish"
 ---
 

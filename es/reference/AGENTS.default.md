@@ -1,9 +1,4 @@
----
-summary: "Instrucciones predeterminadas del agente OpenClaw y lista de Skills para la configuración del asistente personal"
-read_when:
-  - Al iniciar una nueva sesión de agente de OpenClaw
-  - Al habilitar o auditar Skills predeterminadas
----
+------
 
 # AGENTS.md — Asistente Personal de OpenClaw (predeterminado)
 

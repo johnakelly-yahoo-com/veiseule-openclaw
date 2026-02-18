@@ -1,9 +1,4 @@
 ---
-summary: "웹 검색 + 가져오기 도구 (Brave Search API, Perplexity 직접/OpenRouter)"
-read_when:
-  - web_search 또는 web_fetch 를 활성화하려는 경우
-  - Brave Search API 키 설정이 필요한 경우
-  - 웹 검색에 Perplexity Sonar 를 사용하려는 경우
 title: "웹 도구"
 ---
 

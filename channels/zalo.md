@@ -1,7 +1,4 @@
 ---
-summary: "Zalo bot support status, capabilities, and configuration"
-read_when:
-  - Working on Zalo features or webhooks
 title: "Zalo"
 ---
 

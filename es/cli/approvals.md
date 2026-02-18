@@ -1,8 +1,4 @@
 ---
-summary: "Referencia de la CLI para `openclaw approvals` (aprobaciones de ejecución para hosts del Gateway o de nodo)"
-read_when:
-  - Quiere editar aprobaciones de ejecución desde la CLI
-  - Necesita administrar listas de permitidos en hosts del Gateway o de nodo
 title: "aprobaciones"
 ---
 

@@ -1,7 +1,5 @@
 ---
-summary: "Har bir agent uchun sandbox + vosita cheklovlari, ustuvorlik va misollar"
 title: Ko‘p agentli sandbox va vositalar
-read_when: "Siz ko‘p agentli shlyuzda har bir agent uchun alohida sandbox yoki har bir agent uchun vositalarni ruxsat berish/taqiqlash siyosatini xohlaysiz."
 status: faol
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Uruchom OpenClaw z Ollama (lokalne środowisko uruchomieniowe LLM)"
-read_when:
-  - Chcesz uruchomić OpenClaw z lokalnymi modelami przez Ollama
-  - Potrzebujesz wskazówek dotyczących konfiguracji i ustawień Ollama
 title: "Ollama"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Her OpenClaw dokümanına bağlantı veren merkezler"
-read_when:
-  - Belgelerin tamamının bir haritasını istiyorsun
 title: "Dokümantasyon Merkezleri"
 ---
 

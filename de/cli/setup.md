@@ -1,8 +1,4 @@
 ---
-summary: "CLI-Referenz für `openclaw setup` (Initialisierung von Konfiguration + Arbeitsbereich)"
-read_when:
-  - Sie führen die Ersteinrichtung ohne den vollständigen Onboarding-Assistenten durch
-  - Sie möchten den Standardpfad für den Arbeitsbereich festlegen
 title: "setup"
 ---
 

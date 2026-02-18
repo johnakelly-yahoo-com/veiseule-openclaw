@@ -1,9 +1,4 @@
 ---
-summary: "Gabay sa pagpili sa pagitan ng heartbeat at mga cron job para sa automation"
-read_when:
-  - Nagpapasya kung paano mag-iskedyul ng mga paulit-ulit na gawain
-  - Nagse-setup ng background monitoring o mga notification
-  - Pag-o-optimize ng paggamit ng token para sa mga pana-panahong check
 title: "Cron vs Heartbeat"
 ---
 

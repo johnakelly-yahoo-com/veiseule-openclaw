@@ -1,9 +1,4 @@
 ---
-summary: "macOS 權限持久化（TCC）與簽署需求"
-read_when:
-  - 偵錯 macOS 權限提示遺失或卡住
-  - 封裝或簽署 macOS 應用程式
-  - 變更套件識別碼或應用程式安裝路徑
 title: "macOS 權限"
 ---
 

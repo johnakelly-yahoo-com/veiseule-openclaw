@@ -1,5 +1,4 @@
 ---
-summary: "cron.add इनपुट हैंडलिंग को सख़्त बनाना, स्कीमा को संरेखित करना, और cron UI/agent टूलिंग में सुधार"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"

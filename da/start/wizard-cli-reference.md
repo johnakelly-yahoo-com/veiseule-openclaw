@@ -1,8 +1,4 @@
 ---
-summary: "Komplet reference for CLI-introduktionsflow, opsætning af auth/model, output og interne detaljer"
-read_when:
-  - Du har brug for detaljeret adfærd for openclaw onboard
-  - Du fejlsøger introduktionsresultater eller integrerer introduktionsklienter
 title: "CLI Onboarding-reference"
 sidebarTitle: "CLI-reference"
 ---

@@ -1,8 +1,4 @@
 ---
-summary: "Camera capture (iOS node + macOS app) for agent use: photos (jpg) and short video clips (mp4)"
-read_when:
-  - Adding or modifying camera capture on iOS nodes or macOS
-  - Extending agent-accessible MEDIA temp-file workflows
 title: "Camera Capture"
 ---
 

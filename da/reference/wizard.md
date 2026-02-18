@@ -1,9 +1,4 @@
 ---
-summary: "Fuld reference for CLI-onboardingguiden: hvert trin, flag og konfigurationsfelt"
-read_when:
-  - Når du slår et specifikt trin eller flag i guiden op
-  - Når du automatiserer onboarding med ikke-interaktiv tilstand
-  - Når du fejlsøger guidens adfærd
 title: "Reference for onboardingguide"
 sidebarTitle: "Guide-reference"
 ---

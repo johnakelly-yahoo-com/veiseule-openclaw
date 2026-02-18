@@ -1,7 +1,4 @@
 ---
-summary: "Cú pháp chỉ thị cho /think + /verbose và cách chúng ảnh hưởng đến suy luận của mô hình"
-read_when:
-  - Điều chỉnh việc phân tích hoặc giá trị mặc định của chỉ thị thinking hoặc verbose
 title: "Các mức Thinking"
 ---
 

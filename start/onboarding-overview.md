@@ -1,8 +1,4 @@
 ---
-summary: "Overview of OpenClaw onboarding options and flows"
-read_when:
-  - Choosing an onboarding path
-  - Setting up a new environment
 title: "Onboarding Overview"
 sidebarTitle: "Onboarding Overview"
 ---

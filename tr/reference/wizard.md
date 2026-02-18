@@ -1,9 +1,4 @@
 ---
-summary: "CLI onboarding sihirbazı için tam başvuru: her adım, bayrak ve yapılandırma alanı"
-read_when:
-  - Belirli bir sihirbaz adımını veya bayrağını ararken
-  - Etkileşimsiz modla onboarding’i otomatikleştirirken
-  - Sihirbaz davranışında hata ayıklarken
 title: "Onboarding Sihirbazı Başvurusu"
 sidebarTitle: "reference/wizard.md"
 ---

@@ -1,8 +1,4 @@
 ---
-summary: "CLI-introduktionsguide: guidet opsætning af gateway, workspace, kanaler og skills"
-read_when:
-  - Kørsel eller konfiguration af introduktionsguiden
-  - Opsætning af en ny maskine
 title: "Introduktionsguide (CLI)"
 sidebarTitle: "Introduktion: CLI"
 ---

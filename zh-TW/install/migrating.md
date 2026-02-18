@@ -1,8 +1,4 @@
 ---
-summary: "將 OpenClaw 的安裝從一台機器移動（遷移）到另一台"
-read_when:
-  - 您正在將 OpenClaw 移到新的筆電／伺服器
-  - 您希望保留工作階段、身分驗證與頻道登入（WhatsApp 等）
 title: "遷移指南"
 ---
 

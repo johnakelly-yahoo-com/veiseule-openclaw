@@ -1,8 +1,4 @@
 ---
-summary: "„Polecenie Doctor: kontrole zdrowia, migracje konfiguracji i kroki naprawcze”"
-read_when:
-  - Dodawanie lub modyfikowanie migracji Doctor
-  - Wprowadzanie niekompatybilnych zmian konfiguracji
 title: "Doktor"
 ---
 

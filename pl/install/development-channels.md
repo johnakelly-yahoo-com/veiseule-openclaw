@@ -1,8 +1,4 @@
 ---
-summary: "Kanały stable, beta i dev: semantyka, przełączanie i tagowanie"
-read_when:
-  - Chcesz przełączać się między stable/beta/dev
-  - Tagujesz lub publikujesz wydania prerelease
 title: "Kanały rozwojowe"
 ---
 

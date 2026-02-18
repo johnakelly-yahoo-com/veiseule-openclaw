@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw tui` uchun CLI ma’lumotnomasi (Gateway’ga ulangan terminal UI)"
-read_when:
-  - Siz Gateway uchun terminal UI xohlaysiz (masofadan foydalanishga qulay)
-  - Siz skriptlardan url/token/session uzatmoqchisiz
 title: "tui"
 ---
 

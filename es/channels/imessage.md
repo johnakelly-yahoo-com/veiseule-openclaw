@@ -1,8 +1,4 @@
 ---
-summary: "Compatibilidad heredada de iMessage mediante imsg (JSON-RPC sobre stdio). Las nuevas configuraciones deben usar BlueBubbles."
-read_when:
-  - Configurar compatibilidad con iMessage
-  - Depurar envío/recepción de iMessage
 title: iMessage
 ---
 

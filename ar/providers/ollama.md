@@ -1,8 +1,4 @@
 ---
-summary: "تشغيل OpenClaw باستخدام Ollama (بيئة تشغيل LLM محلية)"
-read_when:
-  - تريد تشغيل OpenClaw مع نماذج محلية عبر Ollama
-  - تحتاج إلى إرشادات إعداد وتهيئة Ollama
 title: "Ollama"
 ---
 

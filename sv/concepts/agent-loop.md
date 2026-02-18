@@ -1,7 +1,4 @@
 ---
-summary: "Agentloopens livscykel, strömmar och väntesemantik"
-read_when:
-  - Du behöver en exakt genomgång av agentloopen eller livscykelhändelser
 title: "Agentloop"
 ---
 

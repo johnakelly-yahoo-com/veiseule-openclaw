@@ -1,9 +1,4 @@
 ---
-summary: "Integreret browserkontroltjeneste + handlingskommandoer"
-read_when:
-  - Tilføjelse af agentstyret browserautomatisering
-  - Fejlsøgning af hvorfor openclaw interfererer med din egen Chrome
-  - Implementering af browserindstillinger + livscyklus i macOS-appen
 title: "Browser (OpenClaw-administreret)"
 ---
 

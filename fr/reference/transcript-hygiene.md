@@ -1,9 +1,4 @@
 ---
-summary: "Référence : règles de nettoyage et de réparation des transcriptions spécifiques aux fournisseurs"
-read_when:
-  - Vous déboguez des rejets de requêtes côté fournisseur liés à la forme de la transcription
-  - Vous modifiez la logique de nettoyage des transcriptions ou de réparation des appels d’outils
-  - Vous enquêtez sur des incohérences d’identifiants d’appels d’outils entre fournisseurs
 title: "Hygiène des transcriptions"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Agent-værktøjsflade for OpenClaw (browser, canvas, nodes, message, cron), der erstatter de ældre `openclaw-*` Skills"
-read_when:
-  - Tilføjelse eller ændring af agent-værktøjer
-  - Udfasning eller ændring af `openclaw-*` Skills
 title: "Værktøjer"
 ---
 

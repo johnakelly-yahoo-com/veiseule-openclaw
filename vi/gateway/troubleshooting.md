@@ -1,8 +1,4 @@
 ---
-summary: "Sổ tay xử lý sự cố chuyên sâu cho gateway, kênh, tự động hóa, node và trình duyệt"
-read_when:
-  - Trung tâm xử lý sự cố đã điều hướng bạn tới đây để chẩn đoán sâu hơn
-  - Bạn cần các mục sổ tay dựa trên triệu chứng ổn định với lệnh chính xác
 title: "Xử lý sự cố"
 ---
 

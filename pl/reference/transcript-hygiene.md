@@ -1,9 +1,4 @@
 ---
-summary: "Referencja: specyficzne dla dostawców zasady sanityzacji i naprawy transkryptów"
-read_when:
-  - Debugujesz odrzucenia żądań przez dostawców powiązane z kształtem transkryptu
-  - Zmieniasz logikę sanityzacji transkryptów lub naprawy wywołań narzędzi
-  - Badasz niezgodności identyfikatorów wywołań narzędzi między dostawcami
 title: "Higiena transkryptu"
 ---
 

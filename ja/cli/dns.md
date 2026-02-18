@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw dns」の CLI リファレンス（広域ディスカバリー向けヘルパー）"
-read_when:
-  - Tailscale + CoreDNS による広域ディスカバリー（DNS-SD）を利用したい場合
-  - You’re setting up split DNS for a custom discovery domain (example: openclaw.internal)
 title: "dns"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Testlarni lokal ishga tushirish (vitest) va qachon force/coverage rejimlaridan foydalanish kerak"
-read_when:
-  - Running or fixing tests
 title: "Testlar"
 ---
 

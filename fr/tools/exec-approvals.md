@@ -1,9 +1,4 @@
 ---
-summary: "Approbations d’exécution, listes d’autorisation et invites d’échappement du sandbox"
-read_when:
-  - Configuration des approbations d’exécution ou des listes d’autorisation
-  - Implémentation de l’UX d’approbation d’exécution dans l’application macOS
-  - Revue des invites d’échappement du sandbox et de leurs implications
 title: "Approbations d’exécution"
 ---
 

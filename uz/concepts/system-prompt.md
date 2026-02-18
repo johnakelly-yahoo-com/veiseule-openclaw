@@ -1,8 +1,4 @@
 ---
-summary: "3. OpenClaw tizim prompti nimalarni o‘z ichiga oladi va u qanday yig‘iladi"
-read_when:
-  - 4. Tizim prompti matnini, asboblar ro‘yxatini yoki vaqt/heartbeat bo‘limlarini tahrirlash
-  - 5. Workspace bootstrap yoki ko‘nikmalarni kiritish (skills injection) xatti-harakatini o‘zgartirish
 title: "6. System Prompt"
 ---
 

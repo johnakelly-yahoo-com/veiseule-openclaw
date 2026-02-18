@@ -1,9 +1,4 @@
 ---
-summary: "OpenProse: przepływy pracy .prose, polecenia ukośne i stan w OpenClaw"
-read_when:
-  - Chcesz uruchamiać lub pisać przepływy pracy .prose
-  - Chcesz włączyć wtyczkę OpenProse
-  - Musisz zrozumieć przechowywanie stanu
 title: "OpenProse"
 ---
 

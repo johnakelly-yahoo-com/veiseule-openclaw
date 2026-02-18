@@ -1,8 +1,4 @@
 ---
-summary: "Những nội dung có trong system prompt của OpenClaw và cách nó được lắp ghép"
-read_when:
-  - Chỉnh sửa văn bản system prompt, danh sách công cụ, hoặc các phần thời gian/heartbeat
-  - Thay đổi hành vi bootstrap workspace hoặc cơ chế chèn Skills
 title: "Lời nhắc hệ thống"
 ---
 

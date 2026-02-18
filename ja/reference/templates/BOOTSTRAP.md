@@ -1,8 +1,4 @@
----
-summary: "新しいエージェント向けの初回起動の儀式"
-read_when:
-  - ワークスペースを手動でブートストラップする場合
----
+------
 
 # BOOTSTRAP.md - Hello, World
 

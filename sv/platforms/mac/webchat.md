@@ -1,7 +1,4 @@
 ---
-summary: "Hur macOS-appen bäddar in Gateway WebChat och hur du felsöker den"
-read_when:
-  - Felsökning av macOS WebChat-vy eller loopback-port
 title: "Webbchatt"
 ---
 

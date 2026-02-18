@@ -1,7 +1,4 @@
 ---
-summary: "Spraakactivering en push-to-talk-modi plus routeringsdetails in de mac-app"
-read_when:
-  - Werken aan spraakactivering- of PTT-paden
 title: "Voice Wake"
 ---
 

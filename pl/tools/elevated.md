@@ -1,7 +1,4 @@
 ---
-summary: "Tryb podwyższonego wykonania i dyrektywy /elevated"
-read_when:
-  - Dostosowywanie domyślnych ustawień trybu podwyższonego, list dozwolonych lub zachowania poleceń ukośnych
 title: "Tryb podwyższony"
 ---
 

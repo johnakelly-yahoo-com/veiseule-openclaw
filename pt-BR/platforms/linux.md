@@ -1,8 +1,4 @@
 ---
-summary: "Suporte a Linux + status do aplicativo complementar"
-read_when:
-  - Procurando o status do aplicativo complementar para Linux
-  - Planejando cobertura de plataformas ou contribuições
 title: "Aplicativo Linux"
 ---
 

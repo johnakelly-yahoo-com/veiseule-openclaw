@@ -1,7 +1,4 @@
 ---
-summary: "Gateway(게이트웨이) 대시보드(Control UI) 접근 및 인증"
-read_when:
-  - 대시보드 인증 또는 노출 모드를 변경할 때
 title: "대시보드"
 ---
 

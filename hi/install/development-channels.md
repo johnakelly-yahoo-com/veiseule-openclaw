@@ -1,8 +1,4 @@
 ---
-summary: "Stable, beta, और dev चैनल: अर्थवत्ता, स्विचिंग, और टैगिंग"
-read_when:
-  - आप stable/beta/dev के बीच स्विच करना चाहते हैं
-  - आप prereleases को टैग या प्रकाशित कर रहे हैं
 title: "विकास चैनल्स"
 ---
 

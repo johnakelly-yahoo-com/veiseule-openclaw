@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw approvals` uchun CLI ma’lumotnomasi (gateway yoki node xostlari uchun exec tasdiqlari)"
-read_when:
-  - CLI orqali exec tasdiqlarini tahrirlashni xohlaysiz
-  - Gateway yoki node xostlarida ruxsat etilgan ro‘yxatlarni boshqarishingiz kerak
 title: "approvals"
 ---
 

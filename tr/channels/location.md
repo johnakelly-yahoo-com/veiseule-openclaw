@@ -1,8 +1,4 @@
 ---
-summary: "Gelen kanal konum ayrıştırması (Telegram + WhatsApp) ve bağlam alanları"
-read_when:
-  - Kanal konum ayrıştırması eklerken veya değiştirirken
-  - Ajan istemlerinde veya araçlarda konum bağlamı alanlarını kullanırken
 title: "Kanal Konum Ayrıştırması"
 ---
 

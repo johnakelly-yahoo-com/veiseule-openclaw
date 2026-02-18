@@ -1,9 +1,4 @@
 ---
-summary: "Nodes — pairing, စွမ်းဆောင်ရည်များ, ခွင့်ပြုချက်များ နှင့် canvas/camera/screen/system အတွက် CLI အကူအညီများ"
-read_when:
-  - iOS/Android node များကို Gateway နှင့် pairing လုပ်သောအခါ
-  - agent context အတွက် node canvas/camera ကို အသုံးပြုသောအခါ
-  - node command အသစ်များ သို့မဟုတ် CLI helper များ ထည့်သွင်းသောအခါ
 title: "နိုဒ်များ"
 ---
 

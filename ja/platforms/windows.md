@@ -1,8 +1,4 @@
 ---
-summary: "Windows（WSL2）サポートおよびコンパニオンアプリの状況"
-read_when:
-  - Windows への OpenClaw のインストール時
-  - Windows コンパニオンアプリの状況を探している場合
 title: "Windows（WSL2）"
 ---
 

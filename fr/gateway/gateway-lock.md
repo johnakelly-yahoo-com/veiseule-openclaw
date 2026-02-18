@@ -1,8 +1,4 @@
 ---
-summary: "Garde de singleton de la Gateway utilisant la liaison de l’écouteur WebSocket"
-read_when:
-  - Exécution ou débogage du processus de la Gateway
-  - Investigation de l’application d’une instance unique
 title: "Verrou de la Gateway"
 ---
 

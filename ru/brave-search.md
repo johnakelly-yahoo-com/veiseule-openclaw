@@ -1,8 +1,4 @@
 ---
-summary: "Настройка API Brave Search для web_search"
-read_when:
-  - Вы хотите использовать Brave Search для web_search
-  - Вам нужен BRAVE_API_KEY или сведения о тарифном плане
 title: "Brave Search"
 ---
 

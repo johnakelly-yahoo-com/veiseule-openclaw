@@ -1,5 +1,4 @@
 ---
-summary: "Plan: OpenResponses /v1/responses-endpoint toevoegen en chatcompleties netjes uitfaseren"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"

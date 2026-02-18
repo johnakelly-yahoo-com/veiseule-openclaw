@@ -1,7 +1,4 @@
 ---
-summary: "Kanallar arasında paylaşılan tepki semantiği"
-read_when:
-  - Herhangi bir kanalda tepkiler üzerinde çalışırken
 title: "Tepkiler"
 ---
 

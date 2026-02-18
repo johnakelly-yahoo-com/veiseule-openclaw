@@ -1,8 +1,4 @@
 ---
-summary: "46. Legacy na suporta sa iMessage sa pamamagitan ng imsg (JSON-RPC sa stdio). 47. Ang mga bagong setup ay dapat gumamit ng BlueBubbles."
-read_when:
-  - Pagse-setup ng suporta sa iMessage
-  - Pag-debug ng pagpapadala/pagtanggap ng iMessage
 title: iMessage
 ---
 

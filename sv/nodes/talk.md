@@ -1,8 +1,4 @@
 ---
-summary: "Talk-läge: kontinuerliga röstkonversationer med ElevenLabs TTS"
-read_when:
-  - Implementerar Talk-läge på macOS/iOS/Android
-  - Ändrar röst/TTS/avbrottsbeteende
 title: "Talk-läge"
 ---
 

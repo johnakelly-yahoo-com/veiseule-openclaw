@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw plugins` (lijst, installeren, in-/uitschakelen, diagnose)"
-read_when:
-  - Je wilt in-process Gateway-plugins installeren of beheren
-  - Je wilt fouten bij het laden van plugins debuggen
 title: "plugins"
 ---
 

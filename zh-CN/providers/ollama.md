@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想通过 Ollama 使用本地模型运行 OpenClaw
-  - 你需要 Ollama 的安装和配置指导
-summary: 通过 Ollama（本地 LLM 运行时）运行 OpenClaw
 title: Ollama
 x-i18n:
   generated_at: "2026-02-01T21:35:22Z"

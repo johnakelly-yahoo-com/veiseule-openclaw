@@ -1,8 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw setup` (initialisation de la configuration + de l’espace de travail)"
-read_when:
-  - Vous effectuez une configuration de premier lancement sans l’assistant de prise en main complet
-  - Vous souhaitez definir le chemin par defaut de l’espace de travail
 title: "setup"
 ---
 

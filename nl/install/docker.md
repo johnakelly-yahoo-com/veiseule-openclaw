@@ -1,8 +1,4 @@
 ---
-summary: "Optionele Docker-gebaseerde installatie en onboarding voor OpenClaw"
-read_when:
-  - Je wilt een gecontaineriseerde gateway in plaats van lokale installaties
-  - Je valideert de Docker-flow
 title: "Docker"
 ---
 

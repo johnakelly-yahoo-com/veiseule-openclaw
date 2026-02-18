@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw sur Raspberry Pi (installation auto-hébergée à petit budget)"
-read_when:
-  - Mise en place d'OpenClaw sur un Raspberry Pi
-  - Exécution d'OpenClaw sur des appareils ARM
-  - Construction d'une IA personnelle toujours active et peu coûteuse
 title: "Raspberry Pi"
 ---
 

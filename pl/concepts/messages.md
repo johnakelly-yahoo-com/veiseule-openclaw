@@ -1,9 +1,4 @@
 ---
-summary: "„Przepływ wiadomości, sesje, kolejkowanie i widoczność rozumowania”"
-read_when:
-  - Wyjaśnianie, jak wiadomości przychodzące stają się odpowiedziami
-  - Doprecyzowanie sesji, trybów kolejkowania lub zachowania strumieniowania
-  - Dokumentowanie widoczności rozumowania i implikacji użytkowych
 title: "Wiadomości"
 ---
 

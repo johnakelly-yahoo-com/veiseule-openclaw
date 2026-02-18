@@ -1,9 +1,4 @@
 ---
-summary: "Schemaexakta konfigurationsexempel för vanliga OpenClaw-upplägg"
-read_when:
-  - Lär dig hur du konfigurerar OpenClaw
-  - Letar efter konfigurationsexempel
-  - Konfigurerar OpenClaw för första gången
 title: "Konfigurationsexempel"
 ---
 

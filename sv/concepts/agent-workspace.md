@@ -1,8 +1,4 @@
 ---
-summary: "Agentens arbetsyta: plats, layout och säkerhetskopieringsstrategi"
-read_when:
-  - Du behöver förklara agentens arbetsyta eller dess fillayout
-  - Du vill säkerhetskopiera eller migrera en agents arbetsyta
 title: "Agentens arbetsyta"
 ---
 

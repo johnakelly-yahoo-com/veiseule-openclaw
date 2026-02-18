@@ -1,7 +1,5 @@
 ---
 title: Sandbox CLI
-summary: "Beheer sandboxcontainers en inspecteer het effectieve sandboxbeleid"
-read_when: "Je beheert sandboxcontainers of debugt sandbox-/toolbeleidsgedrag."
 status: active
 ---
 

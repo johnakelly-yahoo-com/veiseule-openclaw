@@ -1,7 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw configure` (mga interactive na prompt sa configuration)"
-read_when:
-  - Gusto mong ayusin ang mga kredensyal, device, o mga default ng agent nang interactive
 title: "configure"
 ---
 

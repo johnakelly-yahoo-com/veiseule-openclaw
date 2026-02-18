@@ -1,9 +1,4 @@
 ---
-summary: "研究メモ: Clawd ワークスペース向けオフライン メモリ システム（Markdown を唯一の正とし、派生インデックスを生成）"
-read_when:
-  - 日次 Markdown ログを超えたワークスペース メモリ（~/.openclaw/workspace）の設計時
-  - Deciding: スタンドアロン CLI と OpenClaw への深い統合の判断時
-  - オフラインの想起 + 省察（retain/recall/reflect）の追加時
 title: "ワークスペース メモリ 研究"
 ---
 

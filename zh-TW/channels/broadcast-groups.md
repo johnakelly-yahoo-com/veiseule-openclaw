@@ -1,8 +1,4 @@
 ---
-summary: "將 WhatsApp 訊息廣播給多個代理程式"
-read_when:
-  - 設定廣播群組
-  - 在 WhatsApp 中偵錯多代理程式回覆
 status: experimental
 title: "廣播群組"
 ---

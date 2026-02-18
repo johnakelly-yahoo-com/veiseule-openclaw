@@ -1,9 +1,4 @@
 ---
-summary: "ClawHub 指南：公開 Skills 登錄庫 + CLI 工作流程"
-read_when:
-  - 向新使用者介紹 ClawHub
-  - Installing, searching, or publishing skills
-  - 說明 ClawHub CLI 旗標與同步行為
 title: "ClawHub"
 ---
 

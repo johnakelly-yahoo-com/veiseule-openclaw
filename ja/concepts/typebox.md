@@ -1,7 +1,4 @@
 ---
-summary: "Gateway プロトコルの単一の信頼できる情報源としての TypeBox スキーマ"
-read_when:
-  - プロトコルスキーマやコード生成を更新する場合
 title: "TypeBox"
 ---
 

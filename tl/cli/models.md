@@ -1,8 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw models` (status/list/set/scan, mga alias, mga fallback, auth)"
-read_when:
-  - Gusto mong baguhin ang mga default na model o tingnan ang status ng auth ng provider
-  - Gusto mong i-scan ang mga available na model/provider at i-debug ang mga auth profile
 title: "mga model"
 ---
 

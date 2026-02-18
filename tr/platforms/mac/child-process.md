@@ -1,7 +1,4 @@
 ---
-summary: "macOS’te Gateway yaşam döngüsü (launchd)"
-read_when:
-  - mac uygulamasını Gateway yaşam döngüsüyle entegre ederken
 title: "Gateway Yaşam Döngüsü"
 ---
 

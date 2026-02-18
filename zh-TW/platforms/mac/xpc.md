@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw macOS 應用程式、Gateway 閘道器節點傳輸與 PeekabooBridge 的 macOS IPC 架構"
-read_when:
-  - 編輯 IPC 合約或選單列應用程式 IPC
 title: "macOS IPC"
 ---
 

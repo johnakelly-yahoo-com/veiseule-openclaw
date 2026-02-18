@@ -1,7 +1,4 @@
 ---
-summary: "Справочник CLI для `openclaw agents` (list/add/delete/set identity)"
-read_when:
-  - Вам нужны несколько изолированных агентов (рабочие пространства + маршрутизация + аутентификация)
 title: "agents"
 ---
 

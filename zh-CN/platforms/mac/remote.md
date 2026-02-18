@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 设置或调试远程 mac 控制时
-summary: macOS 应用通过 SSH 控制远程 OpenClaw Gateway 网关的流程
 title: 远程控制
 x-i18n:
   generated_at: "2026-02-03T07:52:53Z"

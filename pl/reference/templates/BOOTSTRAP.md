@@ -1,8 +1,4 @@
----
-summary: "Rytuał pierwszego uruchomienia dla nowych agentów"
-read_when:
-  - Ręczne bootstrapowanie obszaru roboczego
----
+------
 
 # BOOTSTRAP.md – Witaj, świecie
 

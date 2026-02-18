@@ -1,8 +1,4 @@
 ---
-summary: "Gateway에서 OpenResponses 호환 /v1/responses HTTP 엔드포인트를 노출합니다"
-read_when:
-  - OpenResponses API를 사용하는 클라이언트를 통합할 때
-  - 아이템 기반 입력, 클라이언트 도구 호출 또는 SSE 이벤트가 필요할 때
 title: "OpenResponses API"
 ---
 

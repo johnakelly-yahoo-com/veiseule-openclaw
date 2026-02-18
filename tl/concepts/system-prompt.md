@@ -1,8 +1,4 @@
 ---
-summary: "Kung ano ang nilalaman ng OpenClaw system prompt at kung paano ito binubuo"
-read_when:
-  - Pag-eedit ng text ng system prompt, listahan ng tools, o mga seksyon ng oras/heartbeat
-  - Pagbabago ng workspace bootstrap o behavior ng skills injection
 title: "Prompt ng Sistema"
 ---
 

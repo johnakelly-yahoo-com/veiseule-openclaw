@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想在 OpenClaw 中使用 Qwen
-  - 你想要免费层 OAuth 访问 Qwen Coder
-summary: 在 OpenClaw 中使用 Qwen OAuth（免费层）
 title: Qwen
 x-i18n:
   generated_at: "2026-02-03T07:53:34Z"

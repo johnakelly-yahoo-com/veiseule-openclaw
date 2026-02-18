@@ -1,6 +1,4 @@
 ---
-summary: "RPC-protocolnotities voor onboardingwizard en config-schema"
-read_when: "Wijzigen van stappen in de onboardingwizard of config-schema-eindpunten"
 title: "Onboarding- en Config-protocol"
 ---
 

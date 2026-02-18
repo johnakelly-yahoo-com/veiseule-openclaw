@@ -1,8 +1,4 @@
 ---
-summary: "Starsza obsługa iMessage przez imsg (JSON-RPC przez stdio). Dla nowych konfiguracji należy używać BlueBubbles."
-read_when:
-  - Konfigurowanie obsługi iMessage
-  - Debugowanie wysyłania/odbierania iMessage
 title: iMessage
 ---
 

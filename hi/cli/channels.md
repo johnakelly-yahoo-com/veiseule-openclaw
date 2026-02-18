@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw channels` के लिए CLI संदर्भ (accounts, status, login/logout, logs)"
-read_when:
-  - आप चैनल खातों को जोड़ना/हटाना चाहते हैं (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage)
-  - आप चैनल की स्थिति जाँचना या चैनल लॉग्स को टेल करना चाहते हैं
 title: "channels"
 ---
 

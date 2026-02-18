@@ -1,9 +1,4 @@
----
-summary: "Session pruning: trimning af værktøjsresultater for at reducere kontekstoppustning"
-read_when:
-  - Du vil reducere væksten i LLM-kontekst fra værktøjsoutput
-  - Du finjusterer agents.defaults.contextPruning
----
+------
 
 # Session pruning
 

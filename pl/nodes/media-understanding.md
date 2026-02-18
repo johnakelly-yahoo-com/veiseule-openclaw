@@ -1,8 +1,4 @@
 ---
-summary: "Rozumienie przychodzących obrazów/dźwięku/wideo (opcjonalne) z użyciem dostawcy oraz mechanizmów awaryjnych CLI"
-read_when:
-  - Projektowanie lub refaktoryzacja rozumienia mediów
-  - Strojenie przetwarzania wstępnego przychodzących nagrań audio/wideo/obrazów
 title: "Rozumienie mediów"
 ---
 

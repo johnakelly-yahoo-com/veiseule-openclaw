@@ -1,7 +1,4 @@
 ---
-summary: "Reglas de manejo de imágenes y medios para envíos, el Gateway y respuestas del agente"
-read_when:
-  - Modificando la canalización de medios o adjuntos
 title: "Soporte de Imágenes y Medios"
 ---
 

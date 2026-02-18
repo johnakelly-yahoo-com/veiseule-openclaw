@@ -1,9 +1,4 @@
 ---
-summary: "Zainstaluj OpenClaw — skrypt instalatora, npm/pnpm, ze źródeł, Docker i inne"
-read_when:
-  - Potrzebujesz metody instalacji innej niż Szybki start w Pierwszych krokach
-  - Chcesz wdrożyć na platformie chmurowej
-  - Musisz zaktualizować, zmigrować lub odinstalować
 title: "Instalacja"
 ---
 

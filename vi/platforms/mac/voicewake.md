@@ -1,7 +1,4 @@
 ---
-summary: "Các chế độ kích hoạt bằng giọng nói và nhấn-để-nói cùng chi tiết định tuyến trong ứng dụng mac"
-read_when:
-  - Làm việc trên các luồng Voice Wake hoặc PTT
 title: "Kích hoạt bằng giọng nói"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Ansible、Tailscale VPN、ファイアウォール分離を用いた、自動化され強化された OpenClaw のインストール"
-read_when:
-  - セキュリティ強化を伴う自動化されたサーバー展開を行いたい場合
-  - VPN アクセス付きのファイアウォール分離セットアップが必要な場合
-  - リモートの Debian/Ubuntu サーバーにデプロイする場合
 title: "Ansible"
 ---
 

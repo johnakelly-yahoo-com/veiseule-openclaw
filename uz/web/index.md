@@ -1,8 +1,4 @@
 ---
-summary: "Gateway veb yuzalari: Boshqaruv UI, ulanish rejimlari va xavfsizlik"
-read_when:
-  - Gateway’ga Tailscale orqali kirishni xohlaysiz
-  - Brauzer Boshqaruv UI va konfiguratsiyani tahrirlash kerak
 title: "Veb"
 ---
 

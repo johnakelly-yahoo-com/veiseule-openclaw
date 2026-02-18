@@ -1,7 +1,4 @@
 ---
-summary: "Matrix 支援狀態、功能與設定"
-read_when:
-  - 進行 Matrix 頻道功能相關工作時
 title: "Matrix"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Phát sóng một tin nhắn WhatsApp tới nhiều tác tử"
-read_when:
-  - Cấu hình broadcast groups
-  - Gỡ lỗi phản hồi đa tác tử trong WhatsApp
 status: experimental
 title: "Nhóm Phát Sóng"
 ---

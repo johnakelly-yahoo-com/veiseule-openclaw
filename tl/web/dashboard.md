@@ -1,7 +1,4 @@
 ---
-summary: "Access at auth ng Gateway dashboard (Control UI)"
-read_when:
-  - Pagbabago ng authentication o exposure modes ng dashboard
 title: "Dashboard"
 ---
 

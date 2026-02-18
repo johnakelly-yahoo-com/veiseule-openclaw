@@ -1,8 +1,4 @@
 ---
-summary: "CLI-Referenz für `openclaw security` (Audit und Behebung gängiger Sicherheits-Footguns)"
-read_when:
-  - Sie möchten ein schnelles Sicherheits-Audit von Konfiguration/Zustand durchführen
-  - Sie möchten sichere „Fix“-Vorschläge anwenden (chmod, Standardwerte verschärfen)
 title: "Sicherheit"
 ---
 

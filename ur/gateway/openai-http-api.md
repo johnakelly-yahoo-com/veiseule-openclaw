@@ -1,7 +1,4 @@
 ---
-summary: "Gateway سے OpenAI-مطابقت رکھنے والا /v1/chat/completions HTTP اینڈپوائنٹ فراہم کریں"
-read_when:
-  - ایسے ٹولز کے انضمام کے وقت جو OpenAI Chat Completions کی توقع رکھتے ہوں
 title: "OpenAI Chat Completions"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw cron` (planifier et executer des taches en arriere-plan)"
-read_when:
-  - Vous voulez des taches planifiees et des reveils
-  - Vous depannez l'execution de cron et les journaux
 title: "cron"
 ---
 

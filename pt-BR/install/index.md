@@ -1,9 +1,4 @@
 ---
-summary: "Instale o OpenClaw — script de instalação, npm/pnpm, a partir do código-fonte, Docker e mais"
-read_when:
-  - Você precisa de um método de instalação diferente do Início rápido de Primeiros passos
-  - Você quer implantar em uma plataforma de nuvem
-  - Você precisa atualizar, migrar ou desinstalar
 title: "Instalação"
 ---
 

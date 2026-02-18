@@ -1,8 +1,4 @@
 ---
-summary: "دعم حساب Zalo الشخصي عبر zca-cli (تسجيل دخول QR)، الإمكانات، والتهيئة"
-read_when:
-  - إعداد Zalo Personal لـ OpenClaw
-  - تصحيح أخطاء تسجيل دخول Zalo Personal أو تدفّق الرسائل
 title: "Zalo Personal"
 ---
 

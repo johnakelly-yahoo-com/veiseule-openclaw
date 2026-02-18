@@ -1,8 +1,4 @@
 ---
-summary: "Superficies de seguimiento de uso y requisitos de credenciales"
-read_when:
-  - Está conectando superficies de uso/cuotas del proveedor
-  - Necesita explicar el comportamiento del seguimiento de uso o los requisitos de autenticación
 title: "Seguimiento de uso"
 ---
 

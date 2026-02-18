@@ -1,9 +1,4 @@
 ---
-summary: "Nodupptäckt och transporter (Bonjour, Tailscale, SSH) för att hitta gatewayn"
-read_when:
-  - Implementerar eller ändrar Bonjour-upptäckt/annonsering
-  - Justerar fjärranslutningslägen (direkt vs SSH)
-  - Utformar nodupptäckt + parning för fjärrnoder
 title: "Discovery och transporter"
 ---
 

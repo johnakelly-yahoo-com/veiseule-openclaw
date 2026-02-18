@@ -1,8 +1,4 @@
 ---
-summary: "Powierzchnie logowania, logi plikowe, style logów WS i formatowanie konsoli"
-read_when:
-  - Zmiana wyjścia lub formatów logowania
-  - Debugowanie wyjścia CLI lub gateway
 title: "Logowanie"
 ---
 

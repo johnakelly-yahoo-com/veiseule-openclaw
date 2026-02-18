@@ -1,8 +1,4 @@
 ---
-summary: "Canal de mensajes directos de Nostr mediante mensajes cifrados NIP-04"
-read_when:
-  - Quiere que OpenClaw reciba mensajes directos mediante Nostr
-  - Está configurando mensajería descentralizada
 title: "Nostr"
 ---
 

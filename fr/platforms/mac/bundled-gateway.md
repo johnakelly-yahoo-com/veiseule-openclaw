@@ -1,9 +1,4 @@
 ---
-summary: "Runtime de la Gateway sur macOS (service launchd externe)"
-read_when:
-  - Packaging de OpenClaw.app
-  - Debogage du service launchd de la Gateway sur macOS
-  - Installation de la CLI de la Gateway pour macOS
 title: "Gateway sur macOS"
 ---
 

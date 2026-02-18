@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 调整语音浮层行为
-summary: 唤醒词与按键说话重叠时的语音浮层生命周期
 title: 语音浮层
 x-i18n:
   generated_at: "2026-02-01T21:33:26Z"

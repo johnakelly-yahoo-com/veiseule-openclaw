@@ -1,8 +1,4 @@
 ---
-summary: "Sous-agents : lancement d’exécutions d’agents isolées qui annoncent les résultats au chat demandeur"
-read_when:
-  - Vous souhaitez un travail en arrière-plan/parallèle via l’agent
-  - Vous modifiez la politique sessions_spawn ou l’outil de sous-agent
 title: "Sous-agents"
 ---
 

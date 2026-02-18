@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw security` (audit en het verhelpen van veelvoorkomende beveiligingsvalkuilen)"
-read_when:
-  - Je wilt een snelle beveiligingsaudit uitvoeren op config/status
-  - Je wilt veilige “fix”-suggesties toepassen (chmod, strakkere standaardwaarden)
 title: "beveiliging"
 ---
 

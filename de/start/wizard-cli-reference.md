@@ -1,8 +1,4 @@
 ---
-summary: "„Vollständige Referenz für den CLI-Onboarding-Ablauf, die Authentifizierungs-/Modell-Einrichtung, Ausgaben und Interna“"
-read_when:
-  - Sie benötigen detailliertes Verhalten für openclaw onboard
-  - Sie debuggen Onboarding-Ergebnisse oder integrieren Onboarding-Clients
 title: "„CLI-Onboarding-Referenz“"
 sidebarTitle: "„CLI-Referenz“"
 ---

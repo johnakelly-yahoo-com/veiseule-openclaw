@@ -1,7 +1,4 @@
 ---
-summary: "Alias dokumentacji zarządzania sesjami"
-read_when:
-  - Szukałeś dokumentacji docs/sessions.md; kanoniczny dokument znajduje się w docs/session.md
 title: "Sesje"
 ---
 

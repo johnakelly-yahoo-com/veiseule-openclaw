@@ -1,8 +1,4 @@
 ---
-summary: "Protección de singleton del Gateway mediante el enlace del listener WebSocket"
-read_when:
-  - Al ejecutar o depurar el proceso del gateway
-  - Al investigar la aplicación de instancia única
 title: "Bloqueo del Gateway"
 ---
 

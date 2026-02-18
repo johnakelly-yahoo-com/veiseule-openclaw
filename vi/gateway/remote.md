@@ -1,7 +1,4 @@
 ---
-summary: "Truy cập từ xa bằng đường hầm SSH (Gateway WS) và tailnet"
-read_when:
-  - Chạy hoặc xử lý sự cố các thiết lập gateway từ xa
 title: "Truy cập từ xa"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Serve/Funnel Tailscale intégré pour le tableau de bord de la Gateway (passerelle)"
-read_when:
-  - Exposer l’interface de contrôle de la Gateway (passerelle) en dehors de localhost
-  - Automatiser l’accès au tableau de bord via le tailnet ou en public
 title: "Tailscale"
 ---
 

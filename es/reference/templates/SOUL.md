@@ -1,8 +1,4 @@
----
-summary: "Plantilla de espacio de trabajo para SOUL.md"
-read_when:
-  - Arranque de un espacio de trabajo manualmente
----
+------
 
 # SOUL.md - Quién es usted
 

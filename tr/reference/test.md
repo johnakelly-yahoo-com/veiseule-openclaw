@@ -1,7 +1,4 @@
 ---
-summary: "Testlerin yerel olarak (vitest) nasıl çalıştırılacağı ve force/coverage modlarının ne zaman kullanılacağı"
-read_when:
-  - Testleri çalıştırırken veya düzeltirken
 title: "Testler"
 ---
 

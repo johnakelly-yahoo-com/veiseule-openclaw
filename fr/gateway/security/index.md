@@ -1,7 +1,4 @@
 ---
-summary: "Considérations de sécurité et modèle de menace pour l’exécution d’une passerelle d’IA avec accès au shell"
-read_when:
-  - Ajout de fonctionnalités qui élargissent l’accès ou l’automatisation
 title: "Sécurité"
 ---
 

@@ -1,5 +1,4 @@
 ---
-summary: "Härda indatahanteringen för cron.add, anpassa scheman och förbättra cron-UI/agentverktyg"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"

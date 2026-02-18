@@ -1,9 +1,4 @@
 ---
-summary: "iMessage vía el servidor macOS de BlueBubbles (envío/recepción REST, escritura, reacciones, emparejamiento, acciones avanzadas)."
-read_when:
-  - Configuración del canal BlueBubbles
-  - Solución de problemas de emparejamiento de webhooks
-  - Configuración de iMessage en macOS
 title: "BlueBubbles"
 ---
 

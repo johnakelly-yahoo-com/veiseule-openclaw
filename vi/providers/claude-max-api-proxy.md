@@ -1,9 +1,4 @@
 ---
-summary: "Dùng gói đăng ký Claude Max/Pro như một endpoint API tương thích OpenAI"
-read_when:
-  - Bạn muốn dùng gói Claude Max với các công cụ tương thích OpenAI
-  - Bạn muốn một máy chủ API cục bộ bọc quanh Claude Code CLI
-  - Bạn muốn tiết kiệm chi phí bằng cách dùng gói đăng ký thay vì khóa API
 title: "Claude Max API Proxy"
 ---
 

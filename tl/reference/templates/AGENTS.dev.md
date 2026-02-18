@@ -1,9 +1,4 @@
----
-summary: "Ahenteng Dev AGENTS.md (C-3PO)"
-read_when:
-  - Kapag ginagamit ang mga dev gateway template
-  - Kapag ina-update ang default na identidad ng dev agent
----
+------
 
 # AGENTS.md - Workspace ng OpenClaw
 

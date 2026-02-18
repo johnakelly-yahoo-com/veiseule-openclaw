@@ -1,8 +1,4 @@
 ---
-summary: "Référence CLI pour `openclaw logs` (suivre en continu les journaux de la Gateway via RPC)"
-read_when:
-  - Vous devez suivre à distance les journaux de la Gateway (passerelle) (sans SSH)
-  - Vous voulez des lignes de journaux JSON pour l’outillage
 title: "journaux"
 ---
 

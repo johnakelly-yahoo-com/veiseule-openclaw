@@ -1,8 +1,4 @@
 ---
-summary: "Skills 설정 스키마 및 예제"
-read_when:
-  - Skills 설정을 추가하거나 수정할 때
-  - 번들된 allowlist 또는 설치 동작을 조정할 때
 title: "Skills 설정"
 ---
 

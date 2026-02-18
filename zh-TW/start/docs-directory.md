@@ -1,7 +1,4 @@
 ---
-summary: "精選連結，指向最常使用的 OpenClaw 文件。"
-read_when:
-  - You want quick access to key docs pages
 title: "文件目錄"
 ---
 

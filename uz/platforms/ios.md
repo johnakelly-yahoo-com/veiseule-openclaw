@@ -1,9 +1,4 @@
 ---
-summary: "iOS node ilovasi: Gateway’ga ulanish, pairing, canvas va muammolarni bartaraf etish"
-read_when:
-  - iOS node’ni pairing qilish yoki qayta ulash
-  - iOS ilovasini manbadan ishga tushirish
-  - Gateway’ni aniqlash yoki canvas buyruqlarini disk raskadrovka qilish
 title: "iOS ilova"
 ---
 

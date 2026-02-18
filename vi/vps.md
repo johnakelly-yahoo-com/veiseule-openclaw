@@ -1,8 +1,4 @@
 ---
-summary: "Trung tâm lưu trữ VPS cho OpenClaw (Oracle/Fly/Hetzner/GCP/exe.dev)"
-read_when:
-  - Bạn muốn chạy Gateway trên đám mây
-  - Bạn cần bản đồ nhanh các hướng dẫn VPS/lưu trữ
 title: "Lưu trữ VPS"
 ---
 

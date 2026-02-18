@@ -1,8 +1,4 @@
 ---
-summary: "OAuth-verval bewaken voor modelproviders"
-read_when:
-  - Auth-vervalbewaking of waarschuwingen instellen
-  - Automatiseren van controles voor OAuth-vernieuwing van Claude Code / Codex
 title: "Auth-bewaking"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Węzły: parowanie, możliwości, uprawnienia oraz pomocniki CLI dla canvas/kamery/ekranu/systemu"
-read_when:
-  - Parowanie węzłów iOS/Android z gatewayem
-  - Używanie canvas/kamery węzła jako kontekstu agenta
-  - Dodawanie nowych poleceń węzła lub pomocników CLI
 title: "Węzły"
 ---
 

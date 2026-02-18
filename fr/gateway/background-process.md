@@ -1,8 +1,4 @@
 ---
-summary: "Exécution en arrière-plan et gestion des processus"
-read_when:
-  - Ajout ou modification du comportement d’exécution en arrière-plan
-  - Débogage de tâches d’exécution de longue durée
 title: "Outil d’exécution en arrière-plan et de processus"
 ---
 

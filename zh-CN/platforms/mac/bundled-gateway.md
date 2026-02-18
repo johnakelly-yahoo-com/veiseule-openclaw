@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 打包 OpenClaw.app
-  - 调试 macOS Gateway 网关 launchd 服务
-  - 为 macOS 安装 Gateway 网关 CLI
-summary: macOS 上的 Gateway 网关运行时（外部 launchd 服务）
 title: macOS 上的 Gateway 网关
 x-i18n:
   generated_at: "2026-02-03T07:52:30Z"

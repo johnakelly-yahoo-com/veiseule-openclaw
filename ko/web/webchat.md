@@ -1,7 +1,4 @@
 ---
-summary: "Loopback WebChat 정적 호스트 및 채팅 UI 를 위한 Gateway(게이트웨이) WS 사용"
-read_when:
-  - WebChat 접근을 디버깅하거나 구성할 때
 title: "WebChat"
 ---
 

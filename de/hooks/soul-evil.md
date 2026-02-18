@@ -1,8 +1,4 @@
 ---
-summary: "„SOUL-Evil-Hook (tauscht SOUL.md gegen SOUL_EVIL.md aus)“"
-read_when:
-  - Sie möchten den SOUL-Evil-Hook aktivieren oder abstimmen
-  - Sie möchten ein Bereinigungsfenster oder einen zufallsbasierten Persona-Wechsel
 title: "SOUL-Evil-Hook"
 ---
 

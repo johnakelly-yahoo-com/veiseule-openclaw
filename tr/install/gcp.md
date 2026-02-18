@@ -1,9 +1,4 @@
 ---
-summary: "Dayanıklı durumla GCP Compute Engine VM (Docker) üzerinde OpenClaw Gateway’i 7/24 çalıştırın"
-read_when:
-  - GCP üzerinde OpenClaw’ı 7/24 çalıştırmak istiyorsanız
-  - Kendi VM’inizde üretim seviyesinde, her zaman açık bir Gateway istiyorsanız
-  - Kalıcılık, ikililer ve yeniden başlatma davranışı üzerinde tam denetim istiyorsanız
 title: "GCP"
 ---
 

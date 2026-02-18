@@ -1,8 +1,4 @@
 ---
-summary: "รัน OpenClaw Gateway บน exe.dev (VM + พร็อกซีHTTPS) เพื่อการเข้าถึงจากระยะไกล"
-read_when:
-  - คุณต้องการโฮสต์Linuxที่เปิดตลอดและมีค่าใช้จ่ายต่ำสำหรับ Gateway
-  - คุณต้องการเข้าถึง Control UI จากระยะไกลโดยไม่ต้องรัน VPS ของคุณเอง
 title: "exe.dev"
 ---
 

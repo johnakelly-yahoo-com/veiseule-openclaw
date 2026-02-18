@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 调整 Mac 菜单 UI 或状态逻辑
-summary: 菜单栏状态逻辑及向用户展示的内容
 title: 菜单栏
 x-i18n:
   generated_at: "2026-02-01T21:33:00Z"

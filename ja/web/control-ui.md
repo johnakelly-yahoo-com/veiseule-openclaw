@@ -1,8 +1,4 @@
 ---
-summary: "Gateway（ゲートウェイ）向けのブラウザベース制御 UI（チャット、ノード、設定）"
-read_when:
-  - ブラウザから Gateway を操作したい場合
-  - SSH トンネルなしで Tailnet アクセスを利用したい場合
 title: "コントロールUI"
 ---
 

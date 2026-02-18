@@ -1,7 +1,4 @@
 ---
-summary: "Tlon/Urbit-supportstatus, funktioner og konfiguration"
-read_when:
-  - Arbejder på Tlon/Urbit-kanalfunktioner
 title: "Tlon"
 ---
 

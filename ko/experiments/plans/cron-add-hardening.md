@@ -1,5 +1,4 @@
 ---
-summary: "cron.add 입력 처리를 강화하고, 스키마를 정렬하며, cron UI/에이전트 도구를 개선합니다"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"

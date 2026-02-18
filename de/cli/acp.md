@@ -1,8 +1,4 @@
 ---
-summary: "„Ausführen der ACP-Brücke für IDE-Integrationen“"
-read_when:
-  - Einrichten von ACP-basierten IDE-Integrationen
-  - Debuggen des ACP-Sitzungsroutings zum Gateway
 title: "acp"
 ---
 

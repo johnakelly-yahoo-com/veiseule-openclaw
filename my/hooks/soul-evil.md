@@ -1,8 +1,4 @@
 ---
-summary: "SOUL Evil ဟုခ် (SOUL.md ကို SOUL_EVIL.md နှင့် လဲလှယ်ခြင်း)"
-read_when:
-  - SOUL Evil ဟုခ်ကို ဖွင့်ရန် သို့မဟုတ် ချိန်ညှိရန် လိုအပ်သောအခါ
-  - purge window သို့မဟုတ် ကျပန်းအခွင့်အလမ်းဖြင့် persona လဲလှယ်ခြင်းကို လိုအပ်သောအခါ
 title: "SOUL Evil Hook"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw channels` için CLI başvurusu (hesaplar, durum, giriş/çıkış, günlükler)"
-read_when:
-  - Kanal hesaplarını eklemek/kaldırmak istediğinizde (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (eklenti)/Signal/iMessage)
-  - Kanal durumunu kontrol etmek veya kanal günlüklerini izlemek istediğinizde
 title: "kanallar"
 ---
 

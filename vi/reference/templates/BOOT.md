@@ -1,9 +1,5 @@
 ---
-title: "Mẫu BOOT.md"
-summary: "Mẫu không gian làm việc cho BOOT.md"
-read_when:
-  - Thêm danh sách kiểm tra BOOT.md
----
+title: "Mẫu BOOT.md"---
 
 # BOOT.md
 

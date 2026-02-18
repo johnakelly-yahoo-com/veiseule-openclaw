@@ -1,8 +1,4 @@
 ---
-summary: "„Slash-Befehle: Text vs. nativ, Konfiguration und unterstützte Befehle“"
-read_when:
-  - Beim Verwenden oder Konfigurieren von Chat-Befehlen
-  - Beim Debuggen von Befehlsrouting oder Berechtigungen
 title: "Slash-Befehle"
 ---
 

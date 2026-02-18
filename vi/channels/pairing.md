@@ -1,9 +1,4 @@
 ---
-summary: "Tổng quan về ghép cặp: phê duyệt ai có thể nhắn DM cho bạn + những node nào có thể tham gia"
-read_when:
-  - Thiết lập kiểm soát truy cập DM
-  - Ghép cặp một node iOS/Android mới
-  - Rà soát tư thế bảo mật của OpenClaw
 title: "Ghép cặp"
 ---
 

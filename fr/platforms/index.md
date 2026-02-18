@@ -1,8 +1,4 @@
 ---
-summary: "Vue d’ensemble de la prise en charge des plateformes (Gateway + applications compagnon)"
-read_when:
-  - Recherche de la prise en charge des OS ou des chemins d’installation
-  - Choix de l’emplacement d’exécution du Gateway
 title: "Plateformes"
 ---
 

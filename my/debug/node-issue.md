@@ -1,8 +1,4 @@
 ---
-summary: Node + tsx "__name is not a function" ပျက်ကွက်မှုဆိုင်ရာ မှတ်စုများနှင့် ဖြေရှင်းနည်းများ
-read_when:
-  - Node-only dev စကရစ်များ သို့မဟုတ် watch mode ပျက်ကွက်မှုများကို Debug လုပ်နေချိန်
-  - OpenClaw တွင် tsx/esbuild loader ပျက်ကွက်မှုများကို စုံစမ်းစစ်ဆေးနေချိန်
 title: "Node + tsx ပျက်ကွက်မှု"
 ---
 

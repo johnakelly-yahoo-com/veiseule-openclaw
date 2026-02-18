@@ -1,8 +1,4 @@
 ---
-summary: "Kirish tasvir/audio/video tushunish (ixtiyoriy) provayder + CLI zaxira variantlari bilan"
-read_when:
-  - Media tushunishni loyihalash yoki qayta refaktorlash
-  - Kirish audio/video/tasvirni oldindan qayta ishlashni sozlash
 title: "Media tushunish"
 ---
 

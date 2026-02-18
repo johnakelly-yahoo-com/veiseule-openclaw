@@ -1,9 +1,4 @@
----
-summary: "Como funciona a memória do OpenClaw (arquivos do workspace + limpeza automática de memória)"
-read_when:
-  - Você quer o layout e o fluxo de trabalho dos arquivos de memória
-  - Você quer ajustar a limpeza automática de memória antes da compactação
----
+------
 
 # Memória
 

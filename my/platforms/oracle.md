@@ -1,9 +1,4 @@
 ---
-summary: "Oracle Cloud (Always Free ARM) ပေါ်တွင် OpenClaw"
-read_when:
-  - Oracle Cloud ပေါ်တွင် OpenClaw ကို တပ်ဆင်နေစဉ်
-  - OpenClaw အတွက် ကုန်ကျစရိတ်နည်းသော VPS hosting ကို ရှာဖွေနေစဉ်
-  - သေးငယ်သော ဆာဗာပေါ်တွင် 24/7 OpenClaw ကို အသုံးပြုလိုသည့်အခါ
 title: "Oracle Cloud"
 ---
 

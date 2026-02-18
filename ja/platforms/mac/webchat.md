@@ -1,7 +1,4 @@
 ---
-summary: "mac アプリが Gateway WebChat を埋め込む方法と、そのデバッグ方法"
-read_when:
-  - mac WebChat ビューやループバックポートのデバッグ時
 title: "ウェブチャット"
 ---
 

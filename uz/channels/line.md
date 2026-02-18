@@ -1,9 +1,4 @@
 ---
-summary: "19. LINE Messaging API plagini: o‘rnatish, sozlash va foydalanish"
-read_when:
-  - 20. Siz OpenClaw’ni LINE’ga ulashni xohlaysiz
-  - 21. Sizga LINE webhook va hisob ma’lumotlarini sozlash kerak
-  - 22. Siz LINE’ga xos xabar opsiyalarini xohlaysiz
 title: 23. LINE
 ---
 

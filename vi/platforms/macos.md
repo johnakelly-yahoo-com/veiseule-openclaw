@@ -1,8 +1,4 @@
 ---
-summary: "Ứng dụng đồng hành OpenClaw trên macOS (menu bar + gateway broker)"
-read_when:
-  - Triển khai các tính năng ứng dụng macOS
-  - Thay đổi vòng đời gateway hoặc cầu nối node trên macOS
 title: "Ứng dụng macOS"
 ---
 

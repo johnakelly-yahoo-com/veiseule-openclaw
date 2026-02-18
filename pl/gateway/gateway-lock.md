@@ -1,8 +1,4 @@
 ---
-summary: "Ochrona pojedynczej instancji Gateway przy użyciu wiązania nasłuchu WebSocket"
-read_when:
-  - Uruchamianie lub debugowanie procesu Gateway
-  - Badanie wymuszania pojedynczej instancji
 title: "Blokada Gateway"
 ---
 

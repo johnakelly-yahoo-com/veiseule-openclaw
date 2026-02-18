@@ -1,9 +1,4 @@
 ---
-summary: "Översikt av parning: godkänn vem som kan DM:a dig + vilka noder som kan ansluta"
-read_when:
-  - Konfigurera åtkomstkontroll för DM
-  - Para en ny iOS-/Android-nod
-  - Granska OpenClaws säkerhetsläge
 title: "Parning"
 ---
 

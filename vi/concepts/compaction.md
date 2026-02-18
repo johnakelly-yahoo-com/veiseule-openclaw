@@ -1,8 +1,4 @@
 ---
-summary: "Cửa sổ ngữ cảnh + nén: cách OpenClaw giữ các phiên trong giới hạn của mô hình"
-read_when:
-  - Bạn muốn hiểu về tự động nén và /compact
-  - Bạn đang gỡ lỗi các phiên dài chạm giới hạn ngữ cảnh
 title: "Nén"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "„Verwenden Sie Qwen OAuth (Free-Tier) in OpenClaw“"
-read_when:
-  - Sie möchten Qwen mit OpenClaw verwenden
-  - Sie möchten Free-Tier-OAuth-Zugriff auf Qwen Coder
 title: "Qwen"
 ---
 

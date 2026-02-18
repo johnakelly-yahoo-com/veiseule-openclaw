@@ -1,8 +1,4 @@
 ---
-summary: "Mattermost 機器人設定與 OpenClaw 設定"
-read_when:
-  - 設定 Mattermost
-  - 偵錯 Mattermost 路由
 title: "Mattermost"
 ---
 

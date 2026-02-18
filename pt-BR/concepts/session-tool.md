@@ -1,7 +1,4 @@
 ---
-summary: "Ferramentas de sessão do agente para listar sessões, buscar histórico e enviar mensagens entre sessões"
-read_when:
-  - Ao adicionar ou modificar ferramentas de sessão
 title: "Ferramentas de Sessão"
 ---
 

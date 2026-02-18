@@ -1,9 +1,4 @@
 ---
-summary: "macOS에서의 Gateway(게이트웨이) 런타임 (외부 launchd 서비스)"
-read_when:
-  - OpenClaw.app 패키징
-  - macOS Gateway(게이트웨이) launchd 서비스 디버깅
-  - macOS용 Gateway(게이트웨이) CLI 설치
 title: "macOS의 Gateway(게이트웨이)"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "„Kuratierte Links zu den am häufigsten verwendeten OpenClaw-Dokumenten.“"
-read_when:
-  - Sie schnellen Zugriff auf zentrale Dokumentationsseiten wünschen
 title: "Docs-Verzeichnis"
 ---
 

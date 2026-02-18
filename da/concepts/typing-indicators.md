@@ -1,7 +1,4 @@
 ---
-summary: "Hvornår OpenClaw viser skriveindikatorer, og hvordan du justerer dem"
-read_when:
-  - Ændring af adfærd eller standarder for skriveindikatorer
 title: "Skriveindikatorer"
 ---
 

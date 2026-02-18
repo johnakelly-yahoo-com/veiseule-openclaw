@@ -1,8 +1,4 @@
 ---
-summary: "Ce que contient le prompt systeme OpenClaw et comment il est assemble"
-read_when:
-  - Modification du texte du prompt systeme, de la liste d’outils ou des sections temps/heartbeat
-  - Changement du bootstrap de l’espace de travail ou du comportement d’injection des Skills
 title: "Prompt systeme"
 ---
 

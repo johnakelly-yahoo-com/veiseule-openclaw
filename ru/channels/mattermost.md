@@ -1,8 +1,4 @@
 ---
-summary: "Настройка бота Mattermost и конфигурация OpenClaw"
-read_when:
-  - Настройка Mattermost
-  - Отладка маршрутизации Mattermost
 title: "Mattermost"
 ---
 

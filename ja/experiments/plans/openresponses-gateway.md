@@ -1,5 +1,4 @@
 ---
-summary: "計画: OpenResponses /v1/responses エンドポイントを追加し、Chat Completions をクリーンに非推奨化する"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"

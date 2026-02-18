@@ -1,8 +1,4 @@
 ---
-summary: "Các bề mặt web của Gateway: Control UI, chế độ bind và bảo mật"
-read_when:
-  - Bạn muốn truy cập Gateway qua Tailscale
-  - Bạn muốn dùng Control UI trên trình duyệt và chỉnh sửa cấu hình
 title: "Web"
 ---
 

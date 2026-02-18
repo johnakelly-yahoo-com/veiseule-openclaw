@@ -1,8 +1,4 @@
 ---
-summary: "Introduktionsflöde vid första start för OpenClaw (macOS-app)"
-read_when:
-  - Utformning av macOS-introduktionsassistenten
-  - Implementering av autentisering eller identitetskonfiguration
 title: "Introduktion (macOS-app)"
 sidebarTitle: "Kom igång: macOS-app"
 ---

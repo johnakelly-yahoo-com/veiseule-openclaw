@@ -1,9 +1,4 @@
 ---
-summary: "Ghi chú nghiên cứu: hệ thống bộ nhớ offline cho workspace Clawd (Markdown làm nguồn sự thật + chỉ mục dẫn xuất)"
-read_when:
-  - Thiết kế bộ nhớ workspace (~/.openclaw/workspace) vượt ra ngoài các nhật ký Markdown hằng ngày
-  - Deciding: các ràng buộc về thời gian (“điều gì là đúng trong tháng 11 năm 2025?”)
-  - Thêm khả năng hồi tưởng + phản tư offline (retain/recall/reflect)
 title: "Nghiên cứu bộ nhớ Workspace"
 ---
 

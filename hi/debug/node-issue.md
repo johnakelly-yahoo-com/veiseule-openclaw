@@ -1,8 +1,4 @@
 ---
-summary: Node + tsx "__name is not a function" क्रैश के नोट्स और वैकल्पिक उपाय
-read_when:
-  - केवल Node वाले dev स्क्रिप्ट्स या watch मोड विफलताओं का डिबग करते समय
-  - OpenClaw में tsx/esbuild लोडर क्रैश की जाँच करते समय
 title: "Node + tsx क्रैश"
 ---
 

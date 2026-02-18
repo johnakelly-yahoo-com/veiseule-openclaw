@@ -1,7 +1,4 @@
 ---
-summary: "Gelen otomatik yanıt çalıştırmalarını seri hale getiren komut kuyruğu tasarımı"
-read_when:
-  - Otomatik yanıt yürütmesini veya eşzamanlılığını değiştirirken
 title: "Komut Kuyruğu"
 ---
 

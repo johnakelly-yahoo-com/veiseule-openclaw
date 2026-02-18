@@ -1,8 +1,4 @@
 ---
-summary: "モデルプロバイダー向けの OAuth 有効期限を監視します"
-read_when:
-  - 認証の有効期限監視やアラートを設定する場合
-  - Claude Code / Codex の OAuth リフレッシュ確認を自動化する場合
 title: "認証監視"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Mga halimbawa ng configuration na eksakto sa schema para sa mga karaniwang setup ng OpenClaw"
-read_when:
-  - Pag-aaral kung paano i-configure ang OpenClaw
-  - Paghahanap ng mga halimbawa ng configuration
-  - Unang beses na pagse-setup ng OpenClaw
 title: "Mga Halimbawa ng Configuration"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Hvor OpenClaw indlæser miljøvariabler, og rækkefølgen for forrang"
-read_when:
-  - Du skal vide, hvilke miljøvariabler der indlæses, og i hvilken rækkefølge
-  - Du fejlretter manglende API-nøgler i Gateway
-  - Du dokumenterer udbyderautentificering eller udrulningsmiljøer
 title: "Miljøvariabler"
 ---
 

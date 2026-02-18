@@ -1,9 +1,4 @@
----
-summary: "Domyślne instrukcje agenta OpenClaw oraz lista Skills dla konfiguracji osobistego asystenta"
-read_when:
-  - Rozpoczynanie nowej sesji agenta OpenClaw
-  - Włączanie lub audyt domyślnych Skills
----
+------
 
 # AGENTS.md — Osobisty Asystent OpenClaw (domyślny)
 

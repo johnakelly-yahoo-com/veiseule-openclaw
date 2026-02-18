@@ -1,7 +1,4 @@
 ---
-summary: "Statuslogik för menyraden och vad som visas för användare"
-read_when:
-  - Justering av mac-menyns UI eller statuslogik
 title: "Menyrad"
 ---
 

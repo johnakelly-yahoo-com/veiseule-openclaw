@@ -1,9 +1,4 @@
 ---
-summary: "macOS UI स्वचालन के लिए PeekabooBridge एकीकरण"
-read_when:
-  - OpenClaw.app में PeekabooBridge होस्ट करना
-  - Swift Package Manager के माध्यम से Peekaboo का एकीकरण
-  - PeekabooBridge प्रोटोकॉल/पाथ बदलना
 title: "Peekaboo ब्रिज"
 ---
 

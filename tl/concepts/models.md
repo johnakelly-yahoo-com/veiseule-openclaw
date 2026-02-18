@@ -1,9 +1,4 @@
 ---
-summary: "Models CLI: listahan, set, mga alias, mga fallback, scan, status"
-read_when:
-  - Pagdaragdag o pagbabago sa models CLI (models list/set/scan/aliases/fallbacks)
-  - Pagbabago sa behavior ng model fallback o UX ng pagpili
-  - Pag-update ng mga probe ng model scan (tools/images)
 title: "CLI ng Models"
 ---
 

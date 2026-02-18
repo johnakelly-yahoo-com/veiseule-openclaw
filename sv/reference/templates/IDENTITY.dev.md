@@ -1,9 +1,4 @@
----
-summary: "Dev-agentidentitet (C-3PO)"
-read_when:
-  - När du använder dev-gateway-mallarna
-  - När du uppdaterar standardidentiteten för dev-agenten
----
+------
 
 # IDENTITY.md – Agentidentitet
 

@@ -1,8 +1,4 @@
 ---
-summary: "Använd OpenRouters enhetliga API för att få åtkomst till många modeller i OpenClaw"
-read_when:
-  - Du vill ha en enda API-nyckel för många LLM:er
-  - Du vill köra modeller via OpenRouter i OpenClaw
 title: "OpenRouter"
 ---
 

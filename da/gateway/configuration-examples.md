@@ -1,9 +1,4 @@
 ---
-summary: "Skemakorrekte konfigurationseksempler for almindelige OpenClaw-opsætninger"
-read_when:
-  - Når du lærer at konfigurere OpenClaw
-  - Når du leder efter konfigurationseksempler
-  - Når du sætter OpenClaw op for første gang
 title: "Konfigurationseksempler"
 ---
 

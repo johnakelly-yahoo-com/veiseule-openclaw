@@ -1,9 +1,4 @@
 ---
-summary: "`openclaw browser` အတွက် CLI ရည်ညွှန်းချက် (profile များ၊ tab များ၊ လုပ်ဆောင်ချက်များ၊ extension relay)"
-read_when:
-  - သင် `openclaw browser` ကို အသုံးပြုနေပြီး အများဆုံးအသုံးများသော လုပ်ငန်းများအတွက် ဥပမာများကို ကြည့်ချင်သည့်အခါ
-  - အခြားစက်တစ်လုံးပေါ်တွင် လည်ပတ်နေသော browser ကို node host မှတဆင့် ထိန်းချုပ်လိုသည့်အခါ
-  - Chrome extension relay ကို အသုံးပြုလိုသည့်အခါ (toolbar ခလုတ်ဖြင့် attach/detach ပြုလုပ်ခြင်း)
 title: "browser"
 ---
 

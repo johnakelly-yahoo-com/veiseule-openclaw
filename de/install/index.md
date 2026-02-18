@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw installieren — Installationsskript, npm/pnpm, aus dem Quellcode, Docker und mehr"
-read_when:
-  - Sie benötigen eine Installationsmethode außerhalb des Schnellstarts unter „Erste Schritte“
-  - Sie möchten auf einer Cloud-Plattform bereitstellen
-  - Sie müssen aktualisieren, migrieren oder deinstallieren
 title: "Installation"
 ---
 

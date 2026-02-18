@@ -1,9 +1,4 @@
 ---
-summary: "Referencia de la CLI para `openclaw system` (eventos del sistema, latido, presencia)"
-read_when:
-  - Quiere encolar un evento del sistema sin crear un trabajo cron
-  - Necesita habilitar o deshabilitar latidos
-  - Quiere inspeccionar las entradas de presencia del sistema
 title: "system"
 ---
 

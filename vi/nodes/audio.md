@@ -1,7 +1,4 @@
 ---
-summary: "Cách các ghi chú âm thanh/giọng nói đầu vào được tải xuống, phiên âm và chèn vào phản hồi"
-read_when:
-  - Thay đổi phiên âm âm thanh hoặc xử lý media
 title: "Âm thanh và Ghi chú giọng nói"
 ---
 

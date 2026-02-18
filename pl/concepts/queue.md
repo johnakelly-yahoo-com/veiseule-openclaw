@@ -1,7 +1,4 @@
 ---
-summary: "„Projekt kolejki poleceń, który serializuje przychodzące uruchomienia automatycznych odpowiedzi”"
-read_when:
-  - Zmiana wykonywania automatycznych odpowiedzi lub współbieżności
 title: "Kolejka poleceń"
 ---
 

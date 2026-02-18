@@ -1,8 +1,4 @@
 ---
-summary: "Envelope, prompt, tool va connectorlar bo‘ylab sana va vaqtni qayta ishlash"
-read_when:
-  - Siz model yoki foydalanuvchilarga ko‘rsatiladigan timestamp’lar qanday chiqishini o‘zgartiryapsiz
-  - Xabarlar yoki system prompt chiqishidagi vaqt formatlashini tuzatyapsiz
 title: "Sana va vaqt"
 ---
 

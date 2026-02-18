@@ -1,7 +1,4 @@
 ---
-summary: "Gateway boshqaruv paneli (Control UI)ga kirish va autentifikatsiya"
-read_when:
-  - Boshqaruv paneli autentifikatsiyasi yoki ochiqlik rejimlarini o‘zgartirganda
 title: "Boshqaruv paneli"
 ---
 

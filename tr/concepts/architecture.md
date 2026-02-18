@@ -1,7 +1,4 @@
 ---
-summary: "WebSocket gateway mimarisi, bileşenler ve istemci akışları"
-read_when:
-  - Gateway protokolü, istemciler veya taşıma katmanları üzerinde çalışırken
 title: "Gateway Mimarisi"
 ---
 

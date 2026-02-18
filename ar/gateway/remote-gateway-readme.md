@@ -1,6 +1,4 @@
 ---
-summary: "إعداد نفق SSH لتطبيق OpenClaw.app للاتصال بـ Gateway عن بُعد"
-read_when: "ربط تطبيق macOS بـ Gateway عن بُعد عبر SSH"
 title: "إعداد Gateway عن بُعد"
 ---
 

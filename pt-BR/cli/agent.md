@@ -1,7 +1,4 @@
 ---
-summary: "Referência da CLI para `openclaw agent` (enviar um turno de agente via o Gateway)"
-read_when:
-  - Você quer executar um turno de agente a partir de scripts (opcionalmente entregar a resposta)
 title: "agent"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Mga hakbang sa health check para sa connectivity ng channel"
-read_when:
-  - Pag-diagnose ng kalusugan ng WhatsApp channel
 title: "Mga Health Check"
 ---
 

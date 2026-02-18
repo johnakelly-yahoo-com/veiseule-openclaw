@@ -1,8 +1,4 @@
 ---
-summary: "အဝေးမှ ဝင်ရောက်အသုံးပြုရန် exe.dev (VM + HTTPS proxy) ပေါ်တွင် OpenClaw Gateway ကို လည်ပတ်စေပါ"
-read_when:
-  - Gateway အတွက် စျေးသက်သာပြီး အမြဲလည်ပတ်နေသော Linux ဟို့စ် တစ်ခု လိုအပ်သောအခါ
-  - ကိုယ်ပိုင် VPS မလုပ်ဘဲ အဝေးမှ Control UI ကို ဝင်ရောက်အသုံးပြုလိုသောအခါ
 title: "exe.dev"
 ---
 

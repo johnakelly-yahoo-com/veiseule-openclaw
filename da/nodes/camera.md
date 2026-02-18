@@ -1,8 +1,4 @@
 ---
-summary: "Kameraoptagelse (iOS-node + macOS-app) til agentbrug: fotos (jpg) og korte videoklip (mp4)"
-read_when:
-  - Tilføjelse eller ændring af kameraoptagelse på iOS-noder eller macOS
-  - Udvidelse af agenttilgængelige MEDIA-tempfil-workflows
 title: "Kameraoptagelse"
 ---
 

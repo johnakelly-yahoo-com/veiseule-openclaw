@@ -1,8 +1,4 @@
 ---
-summary: "Comando de localização para nós (location.get), modos de permissão e comportamento em segundo plano"
-read_when:
-  - Adicionar suporte ao nó de localização ou UI de permissões
-  - Projetar fluxos de localização em segundo plano + push
 title: "Comando de Localização"
 ---
 

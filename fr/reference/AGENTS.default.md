@@ -1,9 +1,4 @@
----
-summary: "Instructions par defaut de l’agent OpenClaw et repertoire des Skills pour la configuration d’assistant personnel"
-read_when:
-  - Demarrage d’une nouvelle session d’agent OpenClaw
-  - Activation ou audit des Skills par defaut
----
+------
 
 # AGENTS.md — Assistant personnel OpenClaw (par defaut)
 

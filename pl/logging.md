@@ -1,9 +1,4 @@
 ---
-summary: "„Przegląd logowania: logi plikowe, wyjście konsoli, podgląd w CLI oraz interfejs Control UI”"
-read_when:
-  - Potrzebujesz przyjaznego dla początkujących przeglądu logowania
-  - Chcesz skonfigurować poziomy lub formaty logów
-  - Rozwiązujesz problemy i musisz szybko znaleźć logi
 title: "Logowanie"
 ---
 

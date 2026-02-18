@@ -1,7 +1,4 @@
 ---
-summary: "Tlon / Urbit のサポート状況、機能、および設定"
-read_when:
-  - Tlon / Urbit チャンネル機能の作業時
 title: "Tlon"
 ---
 

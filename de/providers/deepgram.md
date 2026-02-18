@@ -1,8 +1,4 @@
 ---
-summary: "„Deepgram-Transkription für eingehende Sprachnachrichten“"
-read_when:
-  - Sie möchten Deepgram Speech-to-Text für Audioanhänge verwenden
-  - Sie benötigen ein schnelles Deepgram-Konfigurationsbeispiel
 title: "„Deepgram“"
 ---
 

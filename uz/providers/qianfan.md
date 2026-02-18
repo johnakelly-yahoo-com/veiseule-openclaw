@@ -1,8 +1,4 @@
 ---
-summary: "37. OpenClaw’da ko‘plab modellarga kirish uchun Qianfan’ning yagona API’sidan foydalaning"
-read_when:
-  - 38. Ko‘plab LLM’lar uchun bitta API kalitini xohlaysiz
-  - 39. Baidu Qianfan sozlash bo‘yicha yo‘riqnoma kerak
 title: "40. Qianfan"
 ---
 

@@ -1,8 +1,4 @@
----
-summary: "SOUL.md için çalışma alanı şablonu"
-read_when:
-  - Bir çalışma alanını manuel olarak başlatırken
----
+------
 
 # SOUL.md - Kim Olduğun
 

@@ -1,7 +1,4 @@
 ---
-summary: "Paano dina-download, tina-transcribe, at ini-inject sa mga sagot ang papasok na audio/voice notes"
-read_when:
-  - Binabago ang audio transcription o paghawak ng media
 title: "Audio at Voice Notes"
 ---
 

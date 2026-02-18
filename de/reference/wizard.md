@@ -1,9 +1,4 @@
 ---
-summary: "Vollständige Referenz für den CLI-Onboarding-Assistenten: jeder Schritt, jede Flag und jedes Konfigurationsfeld"
-read_when:
-  - Nachschlagen eines bestimmten Assistenten-Schritts oder einer Flag
-  - Automatisierung des Onboardings im nicht‑interaktiven Modus
-  - Debugging des Assistenten-Verhaltens
 title: "Onboarding-Assistent – Referenz"
 sidebarTitle: "Assistentenreferenz"
 ---

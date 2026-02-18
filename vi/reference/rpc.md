@@ -1,8 +1,4 @@
 ---
-summary: "Các adapter RPC cho CLI bên ngoài (signal-cli, imsg legacy) và các mẫu gateway"
-read_when:
-  - Thêm hoặc thay đổi tích hợp CLI bên ngoài
-  - Gỡ lỗi adapter RPC (signal-cli, imsg)
 title: "Adapter RPC"
 ---
 

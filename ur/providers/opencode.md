@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw کے ساتھ OpenCode Zen (منتخب ماڈلز) استعمال کریں"
-read_when:
-  - آپ ماڈل تک رسائی کے لیے OpenCode Zen چاہتے ہیں
-  - آپ کو کوڈنگ کے لیے موزوں ماڈلز کی ایک منتخب فہرست درکار ہے
 title: "OpenCode Zen"
 ---
 

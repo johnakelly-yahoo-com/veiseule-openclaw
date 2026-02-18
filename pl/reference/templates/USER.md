@@ -1,8 +1,4 @@
----
-summary: "Rekord profilu użytkownika"
-read_when:
-  - Ręczne uruchamianie obszaru roboczego
----
+------
 
 # USER.md – O Twoim człowieku
 

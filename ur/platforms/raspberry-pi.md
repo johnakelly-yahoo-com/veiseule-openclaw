@@ -1,9 +1,4 @@
 ---
-summary: "Raspberry Pi پر OpenClaw (کم بجٹ خود میزبانی سیٹ اپ)"
-read_when:
-  - Raspberry Pi پر OpenClaw سیٹ اپ کرنا
-  - ARM ڈیوائسز پر OpenClaw چلانا
-  - کم لاگت، ہمہ وقت دستیاب ذاتی AI بنانا
 title: "Raspberry Pi"
 ---
 

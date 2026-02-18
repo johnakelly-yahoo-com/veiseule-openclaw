@@ -1,7 +1,5 @@
 ---
 title: Sandbox CLI
-summary: "Administrér sandbox-containere og inspicér den effektive sandbox-politik"
-read_when: "Du administrerer sandbox-containere eller fejlsøger sandbox-/tool-policy-adfærd."
 status: active
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw security` (audit og udbedring af almindelige sikkerhedsfaldgruber)"
-read_when:
-  - Du vil køre en hurtig sikkerhedsaudit af konfiguration/tilstand
-  - Du vil anvende sikre “fix”-forslag (chmod, strammere standardindstillinger)
 title: "sikkerhed"
 ---
 

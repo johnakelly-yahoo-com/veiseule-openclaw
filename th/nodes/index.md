@@ -1,9 +1,4 @@
 ---
-summary: "โหนด: การจับคู่ ความสามารถ สิทธิ์ และตัวช่วยCLIสำหรับcanvas/camera/screen/system"
-read_when:
-  - การจับคู่โหนดiOS/Androidเข้ากับGateway
-  - การใช้canvas/cameraของโหนดสำหรับบริบทเอเจนต์
-  - การเพิ่มคำสั่งโหนดใหม่หรือตัวช่วยCLI
 title: "โหนด"
 ---
 

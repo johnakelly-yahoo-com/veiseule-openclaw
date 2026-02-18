@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想在 OpenClaw 中使用 Anthropic 模型
-  - 你想使用 setup-token 而不是 API 密钥
-summary: 在 OpenClaw 中通过 API 密钥或 setup-token 使用 Anthropic Claude
 title: Anthropic
 x-i18n:
   generated_at: "2026-02-03T10:08:33Z"

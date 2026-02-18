@@ -1,8 +1,4 @@
----
-summary: "Arbetsytmall för BOOT.md"
-read_when:
-  - Lägger till en BOOT.md-checklista
----
+------
 
 # BOOT.md
 

@@ -1,8 +1,4 @@
 ---
-summary: "Wysyłanie wiadomości WhatsApp do wielu agentów"
-read_when:
-  - Konfigurowanie grup rozgłoszeniowych
-  - Debugowanie odpowiedzi wielu agentów w WhatsApp
 status: experimental
 title: "Grupy rozgłoszeniowe"
 ---

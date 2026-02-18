@@ -1,7 +1,4 @@
 ---
-summary: "Exploration : configuration des modeles, profils d'authentification et comportement de bascule"
-read_when:
-  - Exploration de futures idees de selection de modele + profils d'authentification
 title: "Exploration de la configuration des modeles"
 ---
 

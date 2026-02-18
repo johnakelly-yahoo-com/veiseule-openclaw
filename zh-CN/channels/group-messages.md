@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 更改群组消息规则或提及设置时
-summary: WhatsApp 群组消息处理的行为和配置（mentionPatterns 在各平台间共享）
 title: 群组消息
 x-i18n:
   generated_at: "2026-02-03T10:05:00Z"

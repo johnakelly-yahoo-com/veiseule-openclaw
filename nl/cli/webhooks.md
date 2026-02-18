@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw webhooks` (webhookhelpers + Gmail Pub/Sub)"
-read_when:
-  - Je wilt Gmail Pub/Sub-gebeurtenissen koppelen aan OpenClaw
-  - Je wilt webhook-helperopdrachten
 title: "webhooks"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Manifest ng plugin + mga kinakailangan sa JSON schema (mahigpit na pag-validate ng config)"
-read_when:
-  - Gumagawa ka ng OpenClaw plugin
-  - Kailangan mong mag-ship ng plugin config schema o mag-debug ng mga error sa pag-validate ng plugin
 title: "Manifest ng Plugin"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "installer စခရစ်များ (install.sh, install-cli.sh, install.ps1) အလုပ်လုပ်ပုံ၊ flags နှင့် automation ကို ရှင်းလင်းဖော်ပြထားသည်"
-read_when:
-  - "`openclaw.ai/install.sh` ကို နားလည်လိုသောအခါ"
-  - installs များကို အလိုအလျောက်လုပ်ဆောင်လိုသောအခါ (CI / headless)
-  - GitHub checkout မှ ထည့်သွင်းတပ်ဆင်လိုသောအခါ
 title: "Installer အတွင်းပိုင်းလုပ်ဆောင်ပုံ"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Katayuan ng suporta ng Google Chat app, mga kakayahan, at konpigurasyon"
-read_when:
-  - Gumagawa sa mga feature ng Google Chat channel
 title: "Google Chat"
 ---
 

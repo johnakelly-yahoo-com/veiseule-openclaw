@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw के लिए एजेंट टूल सतह (browser, canvas, nodes, message, cron), जो पुराने `openclaw-*` skills का स्थान लेती है"
-read_when:
-  - एजेंट टूल जोड़ते या संशोधित करते समय
-  - "`openclaw-*` skills को सेवानिवृत्त या बदलते समय"
 title: "टूल्स"
 ---
 

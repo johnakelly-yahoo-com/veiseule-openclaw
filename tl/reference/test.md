@@ -1,7 +1,4 @@
 ---
-summary: "Paano patakbuhin ang mga test nang lokal (vitest) at kung kailan gagamit ng force/coverage modes"
-read_when:
-  - Kapag nagpapatakbo o nag-aayos ng mga test
 title: "Mga Test"
 ---
 

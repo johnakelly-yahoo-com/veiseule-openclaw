@@ -1,8 +1,4 @@
 ---
-summary: "تكامل Tailscale Serve/Funnel للوحة تحكّم Gateway"
-read_when:
-  - تعريض واجهة تحكّم Gateway خارج localhost
-  - أتمتة الوصول إلى لوحة التحكّم عبر tailnet أو بشكل عام
 title: "Tailscale"
 ---
 

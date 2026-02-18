@@ -1,8 +1,4 @@
 ---
-summary: "Platform desteğine genel bakış (Gateway + yardımcı uygulamalar)"
-read_when:
-  - İşletim sistemi desteği veya kurulum yolları arıyorsanız
-  - Gateway’i nerede çalıştıracağınıza karar veriyorsanız
 title: "Platformlar"
 ---
 

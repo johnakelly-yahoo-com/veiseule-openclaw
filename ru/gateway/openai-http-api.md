@@ -1,7 +1,4 @@
 ---
-summary: "Предоставить OpenAI-совместимую HTTP‑конечную точку /v1/chat/completions из Gateway (шлюза)"
-read_when:
-  - Интеграция инструментов, которые ожидают OpenAI Chat Completions
 title: "OpenAI Chat Completions"
 ---
 

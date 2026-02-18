@@ -1,9 +1,4 @@
 ---
-summary: "Extensão do Chrome: deixe o OpenClaw controlar sua aba existente do Chrome"
-read_when:
-  - Você quer que o agente controle uma aba existente do Chrome (botão na barra de ferramentas)
-  - Você precisa de Gateway remoto + automação de navegador local via Tailscale
-  - Você quer entender as implicações de segurança da tomada de controle do navegador
 title: "Extensão do Chrome"
 ---
 

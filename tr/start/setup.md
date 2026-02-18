@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw için gelişmiş kurulum ve geliştirme iş akışları"
-read_when:
-  - Yeni bir makine kurarken
-  - Kişisel kurulumunuzu bozmadan “en yeni + en iyiyi” istiyorsanız
 title: "Kurulum"
 ---
 

@@ -1,8 +1,4 @@
----
-summary: "Registro de perfil do usuário"
-read_when:
-  - Inicializando um workspace manualmente
----
+------
 
 # USER.md - Sobre a pessoa
 

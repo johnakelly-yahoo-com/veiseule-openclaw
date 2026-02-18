@@ -1,8 +1,4 @@
 ---
-summary: "พื้นผิวเว็บของGateway: Control UI, โหมดการผูก(bind)และความปลอดภัย"
-read_when:
-  - คุณต้องการเข้าถึงGatewayผ่านTailscale
-  - คุณต้องการใช้Control UIบนเบราว์เซอร์และการแก้ไขคอนฟิก
 title: "เว็บ"
 ---
 

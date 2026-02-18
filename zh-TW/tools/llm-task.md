@@ -1,8 +1,4 @@
 ---
-summary: "用於工作流程的僅 JSON LLM 任務（可選外掛工具）"
-read_when:
-  - 你想在工作流程中加入僅 JSON 的 LLM 步驟
-  - 你需要可進行結構描述驗證的 LLM 輸出以利自動化
 title: "LLM 任務"
 ---
 

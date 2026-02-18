@@ -1,9 +1,4 @@
 ---
-summary: "Bridge-protocol (legacy nodes): TCP JSONL, koppeling, scoped RPC"
-read_when:
-  - Het bouwen of debuggen van node-clients (iOS/Android/macOS node-modus)
-  - Het onderzoeken van koppelings- of bridge-authenticatiefouten
-  - Het auditen van het node-oppervlak dat door de gateway wordt blootgesteld
 title: "Bridge-protocol"
 ---
 

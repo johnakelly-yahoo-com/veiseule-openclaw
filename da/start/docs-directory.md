@@ -1,7 +1,4 @@
 ---
-summary: "Kuraterede links til de mest brugte OpenClaw-dokumenter."
-read_when:
-  - Du vil have hurtig adgang til centrale dokumentsider
 title: "Dokumentoversigt"
 ---
 

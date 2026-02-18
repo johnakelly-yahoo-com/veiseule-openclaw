@@ -1,8 +1,4 @@
 ---
-summary: "VPS hosting hub para sa OpenClaw (Oracle/Fly/Hetzner/GCP/exe.dev)"
-read_when:
-  - Gusto mong patakbuhin ang Gateway sa cloud
-  - Kailangan mo ng mabilisang mapa ng mga gabay sa VPS/hosting
 title: "Pagho-host ng VPS"
 ---
 

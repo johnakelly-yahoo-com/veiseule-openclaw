@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw memory` (status/index/search) uchun CLI ma’lumotnomasi"
-read_when:
-  - Siz semantik xotirani indekslamoqchi yoki qidirmoqchisiz
-  - Xotira mavjudligi yoki indekslashni nosozliklarini tekshiryapsiz
 title: "memory"
 ---
 

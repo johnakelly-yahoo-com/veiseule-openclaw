@@ -1,7 +1,4 @@
 ---
-summary: "Des hubs qui renvoient vers toute la documentation OpenClaw"
-read_when:
-  - Vous voulez une cartographie complete de la documentation
 title: "Hubs de documentation"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Hooks: händelsedriven automatisering för kommandon och livscykelhändelser"
-read_when:
-  - Du vill ha händelsedriven automatisering för /new, /reset, /stop och agentens livscykelhändelser
-  - Du vill bygga, installera eller felsöka hooks
 title: "Hooks"
 ---
 

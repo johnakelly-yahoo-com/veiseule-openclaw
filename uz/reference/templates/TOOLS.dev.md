@@ -1,9 +1,4 @@
----
-summary: "Dev agent vositalari eslatmalari (C-3PO)"
-read_when:
-  - Using the dev gateway templates
-  - Updating the default dev agent identity
----
+------
 
 # TOOLS.md - Foydalanuvchi vosita eslatmalari (tahrirlanadi)
 

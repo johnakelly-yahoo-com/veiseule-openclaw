@@ -1,8 +1,4 @@
 ---
-summary: "Onboarding-flow ved første kørsel for OpenClaw (macOS-app)"
-read_when:
-  - Design af macOS-onboardingassistenten
-  - Implementering af autentificering eller identitetsopsætning
 title: "Onboarding (macOS-app)"
 sidebarTitle: "Introduktion: macOS-app"
 ---

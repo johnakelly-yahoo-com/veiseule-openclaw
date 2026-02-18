@@ -1,5 +1,4 @@
 ---
-summary: "How to submit a high signal PR"
 title: "Submitting a PR"
 ---
 

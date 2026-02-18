@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想在 OpenClaw 中使用 GLM 模型
-  - 你需要了解模型命名规范和设置方法
-summary: GLM 模型系列概述 + 如何在 OpenClaw 中使用
 title: GLM 模型
 x-i18n:
   generated_at: "2026-02-01T21:34:53Z"

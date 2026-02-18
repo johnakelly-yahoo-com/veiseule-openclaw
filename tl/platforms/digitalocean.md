@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw sa DigitalOcean (simpleng bayad na opsyon ng VPS)"
-read_when:
-  - Pagse-setup ng OpenClaw sa DigitalOcean
-  - Naghahanap ng murang VPS hosting para sa OpenClaw
 title: "DigitalOcean"
 ---
 

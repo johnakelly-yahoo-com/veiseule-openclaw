@@ -1,9 +1,4 @@
 ---
-summary: "訊息流程、工作階段、佇列處理與推理可見性"
-read_when:
-  - 說明傳入訊息如何轉換為回覆
-  - Clarifying sessions, queueing modes, or streaming behavior
-  - 文件化推理可見性與使用上的影響
 title: "訊息"
 ---
 

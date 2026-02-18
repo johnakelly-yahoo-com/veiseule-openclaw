@@ -1,9 +1,4 @@
 ---
-summary: "Nghi thức khởi tạo tác tử gieo mầm không gian làm việc và các tệp danh tính"
-read_when:
-  - Hiểu điều gì xảy ra ở lần chạy tác tử đầu tiên
-  - Giải thích nơi các tệp khởi tạo nằm ở đâu
-  - Gỡ lỗi thiết lập danh tính trong quá trình hướng dẫn ban đầu
 title: "Khởi tạo tác tử"
 sidebarTitle: "Khởi tạo ban đầu"
 ---

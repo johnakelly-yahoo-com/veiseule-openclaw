@@ -1,9 +1,4 @@
 ---
-summary: "Agentens bootstrapping-ritual, der sår arbejdsområdet og identitetsfilerne"
-read_when:
-  - Forstå hvad der sker ved agentens første kørsel
-  - Forklare hvor bootstrapping-filerne ligger
-  - Fejlsøgning af introduktionens identitetsopsætning
 title: "Agent-bootstrapping"
 sidebarTitle: "Opstart"
 ---

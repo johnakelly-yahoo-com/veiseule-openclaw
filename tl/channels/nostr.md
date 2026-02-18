@@ -1,8 +1,4 @@
 ---
-summary: "Nostr DM channel sa pamamagitan ng NIP-04 na naka-encrypt na mga mensahe"
-read_when:
-  - Gusto mong tumanggap ang OpenClaw ng mga DM sa pamamagitan ng Nostr
-  - Nagsi-setup ka ng desentralisadong pagmemensahe
 title: "Nostr"
 ---
 

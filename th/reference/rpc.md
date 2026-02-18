@@ -1,8 +1,4 @@
 ---
-summary: "อะแดปเตอร์RPCสำหรับCLIภายนอก(signal-cli, imsgแบบเดิม)และแพตเทิร์นGateway"
-read_when:
-  - การเพิ่มหรือเปลี่ยนการเชื่อมต่อCLIภายนอก
-  - การดีบักอะแดปเตอร์RPC(signal-cli, imsg)
 title: "อะแดปเตอร์RPC"
 ---
 

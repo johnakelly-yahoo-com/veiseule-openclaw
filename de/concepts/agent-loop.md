@@ -1,7 +1,4 @@
 ---
-summary: "„Lebenszyklus der Agenten-Schleife, Streams und Warte-Semantik“"
-read_when:
-  - Sie benötigen eine exakte Schritt-für-Schritt-Erklärung der Agenten-Schleife oder der Lebenszyklusereignisse
 title: "„Agenten-Schleife“"
 ---
 

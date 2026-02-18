@@ -1,8 +1,4 @@
 ---
-summary: "Commande de localisation pour les nœuds (location.get), modes d’autorisation et comportement en arrière-plan"
-read_when:
-  - Ajout de la prise en charge du nœud de localisation ou de l’interface des autorisations
-  - Conception des flux de localisation en arrière-plan + push
 title: "Commande de localisation"
 ---
 

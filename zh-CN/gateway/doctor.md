@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 添加或修改 doctor 迁移
-  - 引入破坏性配置更改
-summary: Doctor 命令：健康检查、配置迁移和修复步骤
 title: "医生"
 x-i18n:
   generated_at: "2026-02-03T07:49:03Z"

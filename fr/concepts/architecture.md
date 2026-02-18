@@ -1,7 +1,4 @@
 ---
-summary: "Architecture de la passerelle WebSocket, composants et flux clients"
-read_when:
-  - Travail sur le protocole de la passerelle, les clients ou les transports
 title: "Architecture de la passerelle"
 ---
 

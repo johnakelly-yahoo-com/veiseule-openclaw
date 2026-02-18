@@ -1,9 +1,4 @@
 ---
-summary: "Buong reference para sa CLI onboarding wizard: bawat hakbang, flag, at config field"
-read_when:
-  - Naghahanap ng partikular na hakbang o flag ng wizard
-  - Pag-a-automate ng onboarding gamit ang non-interactive mode
-  - Pag-debug ng behavior ng wizard
 title: "Sanggunian ng Onboarding Wizard"
 sidebarTitle: "Sanggunian ng Wizard"
 ---

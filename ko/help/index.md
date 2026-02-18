@@ -1,8 +1,4 @@
 ---
-summary: "도움말 허브: 일반적인 수정 사항, 설치 상태 점검, 문제가 발생했을 때 확인할 위치"
-read_when:
-  - You’re new and want the “what do I click/run” guide
-  - 문제가 발생했고 가장 빠른 해결 경로를 원할 때
 title: "도움말"
 ---
 

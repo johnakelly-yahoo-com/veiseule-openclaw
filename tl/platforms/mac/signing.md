@@ -1,7 +1,4 @@
 ---
-summary: "Mga hakbang sa pag-sign para sa mga macOS debug build na ginagawa ng mga packaging script"
-read_when:
-  - Pagbuo o pag-sign ng mga mac debug build
 title: "Pag-sign sa macOS"
 ---
 

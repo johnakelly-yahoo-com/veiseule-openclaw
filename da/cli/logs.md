@@ -1,8 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw logs` (følg Gateway-logge via RPC)"
-read_when:
-  - Du har brug for at følge Gateway-logge eksternt (uden SSH)
-  - Du vil have JSON-loglinjer til værktøjer
 title: "logs"
 ---
 

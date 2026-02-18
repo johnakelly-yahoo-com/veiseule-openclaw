@@ -1,8 +1,4 @@
----
-summary: "Modelo de workspace para BOOT.md"
-read_when:
-  - Ao adicionar um checklist BOOT.md
----
+------
 
 # BOOT.md
 

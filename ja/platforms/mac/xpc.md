@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw アプリ、ゲートウェイ ノードのトランスポート、および PeekabooBridge 向けの macOS IPC アーキテクチャ"
-read_when:
-  - IPC コントラクトまたはメニューバー アプリの IPC を編集する場合
 title: "macOS IPC"
 ---
 

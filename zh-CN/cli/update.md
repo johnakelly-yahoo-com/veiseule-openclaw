@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想安全地更新源码检出
-  - 你需要了解 `--update` 简写行为
-summary: "`openclaw update` 的 CLI 参考（相对安全的源码更新 + Gateway 网关自动重启）"
 title: update
 x-i18n:
   generated_at: "2026-02-03T07:45:34Z"

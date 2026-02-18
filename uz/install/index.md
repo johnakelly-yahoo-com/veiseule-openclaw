@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw’ni o‘rnatish — o‘rnatuvchi skript, npm/pnpm, manba kodidan, Docker va boshqalar"
-read_when:
-  - Sizga Getting Started tezkor qo‘llanmasidan tashqari o‘rnatish usuli kerak
-  - Siz bulutli platformaga joylashtirmoqchisiz
-  - Sizga yangilash, migratsiya qilish yoki o‘chirish kerak
 title: "O‘rnatish"
 ---
 

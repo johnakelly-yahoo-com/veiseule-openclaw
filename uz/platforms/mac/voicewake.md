@@ -1,7 +1,4 @@
 ---
-summary: "42. Mac ilovada voice wake va push-to-talk rejimlari hamda marshrutlash tafsilotlari"
-read_when:
-  - 43. Voice wake yoki PTT yo‘llari ustida ishlash
 title: "44. Voice Wake"
 ---
 

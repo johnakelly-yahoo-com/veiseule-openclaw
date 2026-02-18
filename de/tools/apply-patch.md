@@ -1,8 +1,4 @@
 ---
-summary: "„Mehrdatei-Patches mit dem Werkzeug apply_patch anwenden“"
-read_when:
-  - Sie benötigen strukturierte Dateibearbeitungen über mehrere Dateien hinweg
-  - Sie möchten patchbasierte Bearbeitungen dokumentieren oder debuggen
 title: "„apply_patch-Werkzeug“"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Referenz: anbieterspezifische Regeln zur Bereinigung und Reparatur von Transkripten"
-read_when:
-  - Sie debuggen Anbieter-Ablehnungen von Anfragen, die mit der Struktur des Transkripts zusammenhängen
-  - Sie ändern die Bereinigung von Transkripten oder die Reparaturlogik für Tool-Aufrufe
-  - Sie untersuchen Inkonsistenzen von Tool-Call-IDs über Anbieter hinweg
 title: "Transkript-Hygiene"
 ---
 

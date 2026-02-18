@@ -1,9 +1,4 @@
----
-summary: "Comment fonctionne la mémoire d’OpenClaw (fichiers d’espace de travail + purge automatique de la mémoire)"
-read_when:
-  - Vous voulez la disposition des fichiers de mémoire et le flux de travail
-  - Vous voulez ajuster la purge automatique de la mémoire avant la compaction
----
+------
 
 # Mémoire
 

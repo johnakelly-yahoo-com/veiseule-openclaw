@@ -1,8 +1,4 @@
----
-summary: "Fiche d'identite de l'agent"
-read_when:
-  - Initialisation manuelle d'un espace de travail
----
+------
 
 # IDENTITY.md - « Qui suis-je ?
 

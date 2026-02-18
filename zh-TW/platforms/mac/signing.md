@@ -1,7 +1,4 @@
 ---
-summary: "由封裝腳本產生的 macOS 除錯組建之簽署步驟"
-read_when:
-  - 建置或簽署 mac 除錯組建時
 title: "macOS 簽署"
 ---
 

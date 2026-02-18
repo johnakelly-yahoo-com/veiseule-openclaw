@@ -1,7 +1,4 @@
 ---
-summary: "Tryby wybudzania głosem i push‑to‑talk oraz szczegóły routingu w aplikacji na macOS"
-read_when:
-  - Praca nad ścieżkami wybudzania głosem lub PTT
 title: "Wybudzanie głosem"
 ---
 

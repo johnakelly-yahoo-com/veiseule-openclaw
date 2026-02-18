@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 开发 Telegram 功能或 webhook
-summary: Telegram 机器人支持状态、功能和配置
 title: Telegram
 x-i18n:
   generated_at: "2026-02-03T10:07:32Z"

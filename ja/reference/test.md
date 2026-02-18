@@ -1,7 +1,4 @@
 ---
-summary: "ローカルでテスト（Vitest）を実行する方法と、force／coverage モードを使用するタイミング"
-read_when:
-  - テストを実行または修正するとき
 title: "テスト"
 ---
 

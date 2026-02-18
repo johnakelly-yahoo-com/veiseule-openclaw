@@ -1,8 +1,4 @@
 ---
-summary: "Hỗ trợ tài khoản Zalo cá nhân thông qua zca-cli (đăng nhập QR), khả năng và cấu hình"
-read_when:
-  - Thiết lập Zalo Personal cho OpenClaw
-  - Gỡ lỗi đăng nhập hoặc luồng tin nhắn Zalo Personal
 title: "Zalo Personal"
 ---
 

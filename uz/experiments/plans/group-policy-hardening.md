@@ -1,7 +1,4 @@
 ---
-summary: "Telegram allowlist mustahkamlanishi: prefiks va bo‘shliqni normallashtirish"
-read_when:
-  - Tarixiy Telegram allowlist o‘zgarishlarini ko‘rib chiqish
 title: "Telegram Allowlist mustahkamlanishi"
 ---
 

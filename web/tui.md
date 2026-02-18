@@ -1,8 +1,4 @@
 ---
-summary: "Terminal UI (TUI): connect to the Gateway from any machine"
-read_when:
-  - You want a beginner-friendly walkthrough of the TUI
-  - You need the complete list of TUI features, commands, and shortcuts
 title: "TUI"
 ---
 

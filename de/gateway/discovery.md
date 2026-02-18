@@ -1,9 +1,4 @@
 ---
-summary: "Node-Erkennung und Transporte (Bonjour, Tailscale, SSH) zum Auffinden des Gateways"
-read_when:
-  - Implementierung oder Änderung der Bonjour-Erkennung/-Ankündigung
-  - Anpassung von Remote-Verbindungsmodi (direkt vs. SSH)
-  - Entwurf Knotenerkennung + Paarung für entfernte Knoten
 title: "Discovery und Transporte"
 ---
 

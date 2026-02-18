@@ -1,9 +1,4 @@
 ---
-summary: "Chuqur tahlil: sessiya ombori + transkriptlar, hayotiy sikl va (avto)kompaktatsiya ichki mexanizmlari"
-read_when:
-  - Sessiya identifikatorlari, transcript JSONL yoki sessions.json maydonlarini nosozlikdan chiqarishingiz kerak bo‘lsa
-  - Avto-kompaktatsiya xatti-harakatini o‘zgartirayotgan bo‘lsangiz yoki “pre-compaction” xizmat ishlarini qo‘shayotgan bo‘lsangiz
-  - Xotira flush’larini yoki jim system turn’larni joriy qilmoqchi bo‘lsangiz
 title: "Sessiyalarni Boshqarish: Chuqur Tahlil"
 ---
 

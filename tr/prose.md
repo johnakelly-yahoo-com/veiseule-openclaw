@@ -1,9 +1,4 @@
 ---
-summary: "OpenProse: OpenClaw’da .prose iş akışları, slash komutları ve durum"
-read_when:
-  - .prose iş akışlarını çalıştırmak veya yazmak istiyorsunuz
-  - OpenProse eklentisini etkinleştirmek istiyorsunuz
-  - Durum depolamayı anlamanız gerekir
 title: "OpenProse"
 ---
 

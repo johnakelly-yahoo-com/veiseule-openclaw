@@ -1,9 +1,4 @@
 ---
-summary: "통합 브라우저 제어 서비스 + 액션 명령"
-read_when:
-  - 에이전트 제어 브라우저 자동화를 추가할 때
-  - openclaw 가 자신의 Chrome 에 간섭하는 이유를 디버깅할 때
-  - macOS 앱에서 브라우저 설정 + 라이프사이클을 구현할 때
 title: "Browser (OpenClaw 관리)"
 ---
 

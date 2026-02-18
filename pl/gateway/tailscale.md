@@ -1,8 +1,4 @@
 ---
-summary: "Zintegrowany Tailscale Serve/Funnel dla panelu Gateway"
-read_when:
-  - Udostępnianie interfejsu sterowania Gateway poza localhost
-  - Automatyzacja dostępu do panelu w tailnecie lub publicznie
 title: "Tailscale"
 ---
 

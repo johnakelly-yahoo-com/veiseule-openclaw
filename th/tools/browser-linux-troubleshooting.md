@@ -1,6 +1,4 @@
 ---
-summary: "แก้ไขปัญหาการเริ่มต้น Chrome/Brave/Edge/Chromium CDP สำหรับการควบคุมเบราว์เซอร์ OpenClaw บน Linux"
-read_when: "การควบคุมเบราว์เซอร์ล้มเหลวบน Linux โดยเฉพาะเมื่อใช้ Chromium แบบ snap"
 title: "การแก้ไขปัญหาเบราว์เซอร์"
 ---
 

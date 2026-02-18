@@ -1,7 +1,4 @@
 ---
-summary: "Comment l’app mac integre le WebChat de la Gateway (passerelle) et comment le deboguer"
-read_when:
-  - Debogage de la vue WebChat mac ou du port loopback
 title: "WebChat"
 ---
 

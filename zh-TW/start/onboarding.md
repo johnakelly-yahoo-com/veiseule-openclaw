@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw（macOS 應用程式）的首次執行入門流程"
-read_when:
-  - 設計 macOS 入門引導助理時
-  - Implementing auth or identity setup
 title: "入門引導（macOS 應用程式）"
 sidebarTitle: "入門指南：macOS 應用程式"
 ---

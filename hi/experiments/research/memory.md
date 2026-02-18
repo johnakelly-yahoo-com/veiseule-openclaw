@@ -1,9 +1,4 @@
 ---
-summary: "अनुसंधान नोट्स: Clawd वर्कस्पेस के लिए ऑफ़लाइन मेमोरी सिस्टम (Markdown स्रोत‑ऑफ़‑ट्रुथ + व्युत्पन्न इंडेक्स)"
-read_when:
-  - दैनिक Markdown लॉग से आगे वर्कस्पेस मेमोरी (~/.openclaw/workspace) डिज़ाइन करते समय
-  - Deciding: 42. standalone CLI बनाम deep OpenClaw integration
-  - ऑफ़लाइन रिकॉल + रिफ़्लेक्शन (retain/recall/reflect) जोड़ते समय
 title: "वर्कस्पेस मेमोरी अनुसंधान"
 ---
 

@@ -1,5 +1,4 @@
 ---
-summary: "Hur du skickar in en PR med hög signal"
 title: "Skicka in en PR"
 ---
 

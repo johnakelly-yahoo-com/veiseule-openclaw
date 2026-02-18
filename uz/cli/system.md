@@ -1,9 +1,4 @@
 ---
-summary: "system"
-read_when:
-  - Siz cron job yaratmasdan tizim hodisasini navbatga qo‘ymoqchisiz
-  - Siz heartbeat’larni yoqish yoki o‘chirishni xohlaysiz
-  - Siz tizim presence yozuvlarini ko‘zdan kechirmoqchisiz
 title: "**main** sessiyada tizim hodisasini navbatga qo‘shish."
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Gateway, düğümler ve canvas ana makinesinin nasıl bağlandığı."
-read_when:
-  - Gateway ağ modelinin özlü bir görünümünü istediğinizde
 title: "Ağ modeli"
 ---
 

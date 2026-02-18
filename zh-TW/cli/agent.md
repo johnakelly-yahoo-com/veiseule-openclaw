@@ -1,7 +1,4 @@
 ---
-summary: "用於 `openclaw agent` 的 CLI 參考（透過 Gateway 閘道器 傳送一次代理程式回合）"
-read_when:
-  - 你想要從指令碼執行一次代理程式回合（可選擇是否傳遞回覆）
 title: "agent"
 ---
 

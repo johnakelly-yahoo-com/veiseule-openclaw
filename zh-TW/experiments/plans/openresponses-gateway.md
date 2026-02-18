@@ -1,5 +1,4 @@
 ---
-summary: "計畫：新增 OpenResponses /v1/responses 端點，並乾淨地淘汰 Chat Completions"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"

@@ -1,9 +1,4 @@
 ---
-summary: "Referência: regras de sanitização e reparo de transcrições específicas por provedor"
-read_when:
-  - Voce está depurando rejeições de requisições do provedor ligadas ao formato da transcrição
-  - Voce está alterando a sanitização de transcrições ou a lógica de reparo de chamadas de ferramenta
-  - Voce está investigando incompatibilidades de id de chamadas de ferramenta entre provedores
 title: "Higiene da Transcrição"
 ---
 

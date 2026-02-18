@@ -1,8 +1,4 @@
 ---
-summary: "حارس تفريد Gateway باستخدام ربط مستمع WebSocket"
-read_when:
-  - تشغيل عملية Gateway أو تصحيح أخطائها
-  - التحقيق في فرض التشغيل بنسخة واحدة
 title: "قفل Gateway"
 ---
 

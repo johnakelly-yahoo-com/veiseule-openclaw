@@ -1,7 +1,4 @@
 ---
-summary: "Architektura bramy WebSocket, komponenty i przepływy klientów"
-read_when:
-  - Praca nad protokołem Gateway, klientami lub transportami
 title: "Architektura Gateway"
 ---
 

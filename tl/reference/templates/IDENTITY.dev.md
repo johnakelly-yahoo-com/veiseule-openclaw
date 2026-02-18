@@ -1,9 +1,4 @@
----
-summary: "Identity ng dev agent (C-3PO)"
-read_when:
-  - Kapag gumagamit ng mga dev gateway template
-  - Kapag ina-update ang default na identity ng dev agent
----
+------
 
 # IDENTITY.md - Identity ng Agent
 

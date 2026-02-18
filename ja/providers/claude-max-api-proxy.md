@@ -1,9 +1,4 @@
 ---
-summary: "Claude Max/Pro サブスクリプションを OpenAI 互換 API エンドポイントとして使用します"
-read_when:
-  - OpenAI 互換ツールで Claude Max サブスクリプションを使用したい場合
-  - Claude Code CLI をラップするローカル API サーバーが必要な場合
-  - API キーではなくサブスクリプションを使用してコストを節約したい場合
 title: "Claude Max API プロキシ"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Mattermost ボットのセットアップと OpenClaw の設定"
-read_when:
-  - Mattermost のセットアップ
-  - Mattermost ルーティングのデバッグ
 title: "Mattermost"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Tham chiếu CLI cho `openclaw nodes` (liệt kê/trạng thái/phê duyệt/gọi, camera/canvas/screen)"
-read_when:
-  - Bạn đang quản lý các node đã ghép đôi (camera, màn hình, canvas)
-  - Bạn cần phê duyệt yêu cầu hoặc gọi các lệnh của node
 title: "nodes"
 ---
 

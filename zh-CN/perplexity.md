@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想使用 Perplexity Sonar 进行网络搜索
-  - 你需要设置 PERPLEXITY_API_KEY 或 OpenRouter
-summary: Perplexity Sonar 的 web_search 设置
 title: Perplexity Sonar
 x-i18n:
   generated_at: "2026-02-01T21:19:10Z"

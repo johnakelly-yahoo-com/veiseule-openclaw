@@ -1,8 +1,4 @@
 ---
-summary: "เช็กลิสต์การรีลีส OpenClaw บน macOS (ฟีด Sparkle, การแพ็กเกจ, การเซ็นชื่อ)"
-read_when:
-  - ระหว่างตัดหรือยืนยันการรีลีส OpenClaw บน macOS
-  - ระหว่างอัปเดต appcast หรือแอสเซ็ตของฟีด Sparkle
 title: "การรีลีส macOS"
 ---
 

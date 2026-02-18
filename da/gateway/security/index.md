@@ -1,7 +1,4 @@
 ---
-summary: "Sikkerhedsovervejelser og trusselsmodel for at køre en AI-gateway med shell-adgang"
-read_when:
-  - Når du tilføjer funktioner, der udvider adgang eller automatisering
 title: "Sikkerhed"
 ---
 

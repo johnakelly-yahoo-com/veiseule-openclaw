@@ -1,8 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw node` (hôte de nœud sans interface)"
-read_when:
-  - Exécution de l’hôte de nœud sans interface
-  - Appairage d’un nœud non macOS pour system.run
 title: "node"
 ---
 

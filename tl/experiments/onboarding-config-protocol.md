@@ -1,6 +1,4 @@
 ---
-summary: "Mga tala sa RPC protocol para sa onboarding wizard at config schema"
-read_when: "Kapag binabago ang mga hakbang ng onboarding wizard o ang mga endpoint ng config schema"
 title: "Onboarding at Config Protocol"
 ---
 

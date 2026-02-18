@@ -1,9 +1,4 @@
 ---
-summary: "เครื่องมือค้นหาเว็บและดึงข้อมูล (Brave Search API, Perplexity direct/OpenRouter)"
-read_when:
-  - คุณต้องการเปิดใช้งาน web_search หรือ web_fetch
-  - คุณต้องการตั้งค่าคีย์ Brave Search API
-  - คุณต้องการใช้ Perplexity Sonar สำหรับการค้นหาเว็บ
 title: "เครื่องมือเว็บ"
 ---
 

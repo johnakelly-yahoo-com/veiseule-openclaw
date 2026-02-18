@@ -1,9 +1,4 @@
 ---
-summary: "Resumen de logging: registros en archivo, salida de consola, tail desde la CLI y la UI de Control"
-read_when:
-  - Necesita una visión general de logging apta para principiantes
-  - Quiere configurar niveles o formatos de logs
-  - Está solucionando problemas y necesita encontrar logs rápidamente
 title: "Registro"
 ---
 

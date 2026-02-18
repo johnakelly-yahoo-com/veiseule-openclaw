@@ -1,7 +1,4 @@
 ---
-summary: "macOS 에서 OpenClaw 의 메뉴 막대 아이콘 상태와 애니메이션"
-read_when:
-  - 메뉴 막대 아이콘 동작 변경 시
 title: "메뉴 막대 아이콘"
 ---
 

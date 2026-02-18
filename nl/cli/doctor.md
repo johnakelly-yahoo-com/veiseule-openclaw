@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw doctor` (gezondheidscontroles + begeleide reparaties)"
-read_when:
-  - Je hebt verbindings-/authenticatieproblemen en wilt begeleide oplossingen
-  - Je hebt geüpdatet en wilt een sanitycheck
 title: "doctor"
 ---
 

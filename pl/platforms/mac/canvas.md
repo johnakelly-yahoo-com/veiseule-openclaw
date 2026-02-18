@@ -1,9 +1,4 @@
 ---
-summary: "„Panel Canvas sterowany przez agenta, osadzony przez WKWebView + niestandardowy schemat URL”"
-read_when:
-  - Implementacja panelu Canvas w macOS
-  - Dodawanie sterowania agenta dla wizualnego obszaru roboczego
-  - Debugowanie ładowań Canvas w WKWebView
 title: "„Canvas”"
 ---
 

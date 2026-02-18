@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 诊断 WhatsApp 渠道健康状况
-summary: 渠道连接的健康检查步骤
 title: 健康检查
 x-i18n:
   generated_at: "2026-02-03T07:47:59Z"

@@ -1,8 +1,4 @@
 ---
-summary: Notatki o awarii Node + tsx „__name is not a function” oraz obejścia
-read_when:
-  - Debugowanie skryptów deweloperskich tylko dla Node lub awarii trybu watch
-  - Badanie awarii loadera tsx/esbuild w OpenClaw
 title: "Awaria Node + tsx"
 ---
 

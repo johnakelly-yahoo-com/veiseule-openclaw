@@ -1,9 +1,4 @@
 ---
-summary: "45. OpenClaw’ni Nix yordamida deklarativ tarzda o‘rnating"
-read_when:
-  - 46. Siz qayta ishlab chiqariladigan, orqaga qaytariladigan o‘rnatishlarni xohlaysiz
-  - 47. Siz allaqachon Nix/NixOS/Home Manager’dan foydalanmoqdasiz
-  - 48. Siz hammasi pinlangan va deklarativ boshqarilishini xohlaysiz
 title: "49. Nix"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw CLI 的 `openclaw` 指令、子指令與選項參考"
-read_when:
-  - 新增或修改 CLI 指令或選項時
-  - 文件化新的指令介面時
 title: "CLI 參考"
 ---
 

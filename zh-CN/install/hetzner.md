@@ -1,10 +1,4 @@
 ---
-read_when:
-  - 你想让 OpenClaw 在云 VPS 上 24/7 运行（而不是你的笔记本电脑）
-  - 你想在自己的 VPS 上运行生产级、永久在线的 Gateway 网关
-  - 你想完全控制持久化、二进制文件和重启行为
-  - 你在 Hetzner 或类似提供商上用 Docker 运行 OpenClaw
-summary: 在廉价的 Hetzner VPS（Docker）上 24/7 运行 OpenClaw Gateway 网关，带持久状态和内置二进制文件
 title: Hetzner
 x-i18n:
   generated_at: "2026-02-03T07:52:17Z"

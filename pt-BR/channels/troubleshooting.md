@@ -1,8 +1,4 @@
 ---
-summary: "Solução rápida de problemas no nível de canal com assinaturas de falha por canal e correções"
-read_when:
-  - O transporte do canal indica conectado, mas as respostas falham
-  - Voce precisa de verificações específicas do canal antes de consultar a documentação profunda do provedor
 title: "Solução de problemas de canal"
 ---
 

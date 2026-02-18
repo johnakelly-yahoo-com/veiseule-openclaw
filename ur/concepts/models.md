@@ -1,9 +1,4 @@
 ---
-summary: "Models CLI: فہرست، سیٹ، عرفیات، فالبیکس، اسکین، اسٹیٹس"
-read_when:
-  - Models CLI (models list/set/scan/aliases/fallbacks) شامل کرتے یا تبدیل کرتے وقت
-  - ماڈل فالبیک رویّے یا انتخابی UX میں تبدیلی کرتے وقت
-  - ماڈل اسکین پروبز (tools/images) کو اپڈیٹ کرتے وقت
 title: "Models CLI"
 ---
 

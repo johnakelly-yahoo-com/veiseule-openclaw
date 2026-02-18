@@ -1,8 +1,4 @@
 ---
-summary: "Gateway မှ OpenResponses နှင့် ကိုက်ညီသော /v1/responses HTTP endpoint ကို ဖော်ထုတ်ပေးခြင်း"
-read_when:
-  - OpenResponses API ကို ပြောဆိုနိုင်သော client များကို ပေါင်းစည်းရာတွင်
-  - item-based inputs၊ client tool calls သို့မဟုတ် SSE events လိုအပ်သည့်အခါ
 title: "OpenResponses API"
 ---
 

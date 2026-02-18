@@ -1,7 +1,4 @@
 ---
-summary: "Direktivsyntaks for /think + /verbose og hvordan de påvirker modellens ræsonnering"
-read_when:
-  - Justering af parsing eller standarder for thinking- eller verbose-direktiver
 title: "Thinking-niveauer"
 ---
 

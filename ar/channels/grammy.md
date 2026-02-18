@@ -1,7 +1,4 @@
 ---
-summary: "تكامل Telegram Bot API عبر grammY مع ملاحظات الإعداد"
-read_when:
-  - عند العمل على مسارات Telegram أو grammY
 title: grammY
 ---
 

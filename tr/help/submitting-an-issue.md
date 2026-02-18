@@ -1,5 +1,4 @@
 ---
-summary: "Yüksek sinyal içeren sorun ve hata raporları oluşturma"
 title: "Bir Sorun Gönderme"
 ---
 

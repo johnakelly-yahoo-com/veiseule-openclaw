@@ -1,8 +1,4 @@
 ---
-summary: "Hooks: automatización basada en eventos para comandos y eventos del ciclo de vida"
-read_when:
-  - Desea automatización basada en eventos para /new, /reset, /stop y eventos del ciclo de vida del agente
-  - Desea crear, instalar o depurar hooks
 title: "Hooks"
 ---
 

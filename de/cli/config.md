@@ -1,7 +1,4 @@
 ---
-summary: "CLI-Referenz für `openclaw config` (Config-Werte abrufen/setzen/entfernen)"
-read_when:
-  - Sie Konfigurationen nicht interaktiv lesen oder bearbeiten möchten
 title: "config"
 ---
 

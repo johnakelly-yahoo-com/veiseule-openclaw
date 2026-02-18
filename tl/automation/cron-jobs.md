@@ -1,9 +1,4 @@
 ---
-summary: "Mga cron job + wakeup para sa Gateway scheduler"
-read_when:
-  - Pag-iskedyul ng mga background job o wakeup
-  - Pag-wire ng automation na dapat tumakbo kasama o kasabay ng mga heartbeat
-  - Pagpapasya sa pagitan ng heartbeat at cron para sa mga naka-iskedyul na gawain
 title: "Mga Cron Job"
 ---
 

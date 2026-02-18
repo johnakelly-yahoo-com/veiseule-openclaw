@@ -1,7 +1,4 @@
 ---
-summary: "Doğrudan `openclaw agent` CLI çalıştırmaları (isteğe bağlı teslimat ile)"
-read_when:
-  - Ajan CLI giriş noktasını eklerken veya değiştirirken
 title: "Agent Send"
 ---
 

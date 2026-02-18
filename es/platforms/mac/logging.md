@@ -1,8 +1,4 @@
 ---
-summary: "Registro de OpenClaw: archivo de diagnóstico rotativo + banderas de privacidad del registro unificado"
-read_when:
-  - Capturar registros de macOS o investigar el registro de datos privados
-  - Depurar problemas del ciclo de vida de activación/ sesión de voz
 title: "Registro en macOS"
 ---
 

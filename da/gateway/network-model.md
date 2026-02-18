@@ -1,7 +1,4 @@
 ---
-summary: "Hvordan Gateway, noder og canvas-vært forbinder."
-read_when:
-  - Du ønsker et kort overblik over Gatewayens netværksmodel
 title: "Netværksmodel"
 ---
 

@@ -1,6 +1,4 @@
 ---
-summary: "Configuração do Slack para modo socket ou webhook HTTP"
-read_when: "Ao configurar o Slack ou depurar o modo socket/HTTP do Slack"
 title: "Slack"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "`~/.openclaw/openclaw.json` uchun barcha konfiguratsiya opsiyalari misollar bilan"
-read_when:
-  - Konfiguratsiya maydonlarini qo‘shish yoki o‘zgartirish
 title: "Konfiguratsiya"
 ---
 

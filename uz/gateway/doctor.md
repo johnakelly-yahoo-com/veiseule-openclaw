@@ -1,8 +1,4 @@
 ---
-summary: "Doctor buyrug‘i: tizim holatini tekshirish, konfiguratsiya migratsiyalari va tuzatish bosqichlari"
-read_when:
-  - Adding or modifying doctor migrations
-  - 1. Konfiguratsiyadagi buzuvchi o‘zgarishlarni joriy etish
 title: "Doctor"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Referência da CLI para `openclaw configure` (prompts interativos de configuração)"
-read_when:
-  - Você quer ajustar credenciais, dispositivos ou padrões do agente de forma interativa
 title: "configurar"
 ---
 

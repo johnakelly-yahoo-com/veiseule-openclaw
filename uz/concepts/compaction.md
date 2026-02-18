@@ -1,8 +1,4 @@
 ---
-summary: "Kontekst oynasi + kompaksiyalash: OpenClaw sessiyalarni model limitlari ostida qanday saqlaydi"
-read_when:
-  - Siz avtomatik kompaksiyalash va /compact ni tushunmoqchisiz
-  - Kontekst limitlariga urilib qolayotgan uzoq sessiyalarni nosozlikdan o‘tkazyapsiz
 title: "Kompaksiyalash"
 ---
 

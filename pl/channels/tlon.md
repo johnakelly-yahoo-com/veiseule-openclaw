@@ -1,7 +1,4 @@
 ---
-summary: "Status wsparcia Tlon/Urbit, możliwości i konfiguracja"
-read_when:
-  - Praca nad funkcjami kanału Tlon/Urbit
 title: "Tlon"
 ---
 

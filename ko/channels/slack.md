@@ -1,6 +1,4 @@
 ---
-summary: "Socket 또는 HTTP 웹훅 모드를 위한 Slack 설정"
-read_when: "Slack 설정 또는 Slack socket/HTTP 모드 디버깅 시"
 title: "Slack"
 ---
 

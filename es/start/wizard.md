@@ -1,8 +1,4 @@
 ---
-summary: "Asistente de incorporación de la CLI: configuración guiada para Gateway, espacio de trabajo, canales y Skills"
-read_when:
-  - Al ejecutar o configurar el asistente de incorporación
-  - Al configurar una nueva máquina
 title: "Asistente de incorporación (CLI)"
 sidebarTitle: "Incorporación: CLI"
 ---

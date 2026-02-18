@@ -1,9 +1,4 @@
----
-summary: "Dev-agentens sjæl (C-3PO)"
-read_when:
-  - Når du bruger dev gateway-skabelonerne
-  - Når du opdaterer standardidentiteten for dev-agenten
----
+------
 
 # SOUL.md - C-3PO’s sjæl
 

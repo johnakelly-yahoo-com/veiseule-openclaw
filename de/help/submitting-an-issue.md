@@ -1,5 +1,4 @@
 ---
-summary: "Aussagekräftige Issues und Bug-Reports einreichen"
 title: "Ein Issue einreichen"
 ---
 

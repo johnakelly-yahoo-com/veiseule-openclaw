@@ -1,7 +1,4 @@
 ---
-summary: "Estado de compatibilidad del bot de Discord, capacidades y configuración"
-read_when:
-  - Al trabajar en funciones del canal de Discord
 title: "Discord"
 ---
 

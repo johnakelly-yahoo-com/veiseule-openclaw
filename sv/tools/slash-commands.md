@@ -1,8 +1,4 @@
 ---
-summary: "Slashkommandon: text vs. native, konfig och stödda kommandon"
-read_when:
-  - När du använder eller konfigurerar chattkommandon
-  - Vid felsökning av kommandoroutning eller behörigheter
 title: "Slashkommandon"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Flux des messages, sessions, mise en file d’attente et visibilite du raisonnement"
-read_when:
-  - Expliquer comment les messages entrants deviennent des reponses
-  - Clarifier les sessions, les modes de mise en file d’attente ou le comportement de streaming
-  - Documenter la visibilite du raisonnement et ses implications d’utilisation
 title: "Messages"
 ---
 

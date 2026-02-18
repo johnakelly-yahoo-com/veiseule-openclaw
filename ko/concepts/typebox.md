@@ -1,7 +1,4 @@
 ---
-summary: "Gateway 프로토콜을 위한 단일 진실 원천으로서의 TypeBox 스키마"
-read_when:
-  - 프로토콜 스키마 또는 코드 생성기를 업데이트할 때
 title: "TypeBox"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "„Konfiguration und Einrichtung eines Twitch-Chatbots“"
-read_when:
-  - Einrichten der Twitch-Chat-Integration für OpenClaw
 title: "„Twitch“"
 ---
 

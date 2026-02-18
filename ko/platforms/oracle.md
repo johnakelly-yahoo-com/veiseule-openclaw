@@ -1,9 +1,4 @@
 ---
-summary: "Oracle Cloud (Always Free ARM)에서 OpenClaw 실행"
-read_when:
-  - Oracle Cloud 에서 OpenClaw 설정하기
-  - OpenClaw 용 저비용 VPS 호스팅을 찾고 있을 때
-  - 소형 서버에서 24/7 OpenClaw 를 원할 때
 title: "Oracle Cloud"
 ---
 

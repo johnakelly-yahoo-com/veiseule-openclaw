@@ -1,9 +1,4 @@
 ---
-summary: "Testkit: unit/e2e/live-suites, Docker-runners en wat elke test dekt"
-read_when:
-  - Tests lokaal of in CI uitvoeren
-  - Regressies toevoegen voor model/provider-bugs
-  - Gateway- en agentgedrag debuggen
 title: "Testen"
 ---
 

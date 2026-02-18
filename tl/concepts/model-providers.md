@@ -1,8 +1,4 @@
 ---
-summary: "Pangkalahatang-ideya ng model provider na may mga halimbawa ng config + daloy ng CLI"
-read_when:
-  - Kailangan mo ng sanggunian sa setup ng model ayon sa provider
-  - Gusto mo ng mga halimbawa ng config o mga CLI onboarding command para sa mga model provider
 title: "Mga Model Provider"
 ---
 

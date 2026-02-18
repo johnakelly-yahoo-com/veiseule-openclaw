@@ -1,8 +1,4 @@
 ---
-summary: "Messages de sondage Heartbeat et règles de notification"
-read_when:
-  - Ajuster la cadence ou la messagerie du heartbeat
-  - Choisir entre heartbeat et cron pour les tâches planifiées
 title: "Signal de vie"
 ---
 

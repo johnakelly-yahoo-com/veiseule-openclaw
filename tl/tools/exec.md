@@ -1,8 +1,4 @@
 ---
-summary: "Paggamit ng Exec tool, mga mode ng stdin, at suporta sa TTY"
-read_when:
-  - Kapag gumagamit o nagmo-modify ng exec tool
-  - Kapag nagde-debug ng stdin o TTY behavior
 title: "Kasangkapang Exec"
 ---
 

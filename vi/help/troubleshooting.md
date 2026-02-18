@@ -1,8 +1,4 @@
 ---
-summary: "Trung tâm xử lý sự cố ưu tiên theo triệu chứng cho OpenClaw"
-read_when:
-  - OpenClaw không hoạt động và bạn cần con đường nhanh nhất để khắc phục
-  - Bạn muốn một luồng phân loại trước khi đi sâu vào các runbook chi tiết
 title: "Xử lý sự cố"
 ---
 

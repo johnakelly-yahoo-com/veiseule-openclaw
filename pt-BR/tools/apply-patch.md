@@ -1,8 +1,4 @@
 ---
-summary: "Aplique patches de vários arquivos com a ferramenta apply_patch"
-read_when:
-  - Voce precisa de edições estruturadas de arquivos em vários arquivos
-  - Voce quer documentar ou depurar edições baseadas em patch
 title: "Ferramenta apply_patch"
 ---
 

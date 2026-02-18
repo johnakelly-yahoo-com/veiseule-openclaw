@@ -1,7 +1,4 @@
 ---
-summary: "„Kiedy OpenClaw pokazuje wskaźniki pisania i jak je dostroić”"
-read_when:
-  - Zmiana zachowania lub ustawień domyślnych wskaźników pisania
 title: "„Wskaźniki pisania”"
 ---
 

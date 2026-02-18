@@ -1,8 +1,4 @@
 ---
-summary: "Retry-politik for udgående udbyderkald"
-read_when:
-  - Opdatering af udbyderes retry-adfærd eller standarder
-  - Fejlfinding af fejl ved afsendelse hos udbydere eller rate limits
 title: "Retry-politik"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw на DigitalOcean (простой платный вариант VPS)"
-read_when:
-  - Настройка OpenClaw на DigitalOcean
-  - Поиск дешёвого VPS-хостинга для OpenClaw
 title: "DigitalOcean"
 ---
 

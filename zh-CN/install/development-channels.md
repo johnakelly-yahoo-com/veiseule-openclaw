@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想在 stable/beta/dev 之间切换
-  - 你正在标记或发布预发布版本
-summary: stable、beta 和 dev 渠道：语义、切换和标签
 title: 开发渠道
 x-i18n:
   generated_at: "2026-02-03T10:07:21Z"

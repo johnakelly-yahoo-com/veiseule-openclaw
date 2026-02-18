@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw nodes` (list/status/approve/invoke, kamera/canvas/skärm)"
-read_when:
-  - Du hanterar parade noder (kameror, skärm, canvas)
-  - Du behöver godkänna förfrågningar eller anropa nodkommandon
 title: "nodes"
 ---
 

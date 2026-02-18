@@ -1,9 +1,4 @@
 ---
-summary: "在 Oracle Cloud（永遠免費 ARM）上執行 OpenClaw"
-read_when:
-  - 在 Oracle Cloud 上設定 OpenClaw
-  - 尋找低成本的 OpenClaw VPS 主機
-  - 想要在小型伺服器上 24/7 執行 OpenClaw
 title: "Oracle Cloud"
 ---
 

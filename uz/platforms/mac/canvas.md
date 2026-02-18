@@ -1,9 +1,4 @@
 ---
-summary: "Agent tomonidan boshqariladigan Canvas paneli WKWebView + maxsus URL sxemasi orqali joylashtirilgan"
-read_when:
-  - macOS Canvas panelini amalga oshirish
-  - Vizual ish maydoni uchun agent boshqaruvlarini qo‘shish
-  - WKWebView Canvas yuklanishini sozlash (debug)
 title: "Canvas"
 ---
 

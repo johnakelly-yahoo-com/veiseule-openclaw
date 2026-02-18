@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw approvals` (uitvoeringsgoedkeuringen voor Gateway- of node-hosts)"
-read_when:
-  - Je wilt uitvoeringsgoedkeuringen bewerken via de CLI
-  - Je moet toegestane lijsten beheren op Gateway- of node-hosts
 title: "goedkeuringen"
 ---
 

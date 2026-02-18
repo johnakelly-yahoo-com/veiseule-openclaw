@@ -1,8 +1,4 @@
 ---
-summary: "Gebruik MiniMax M2.1 in OpenClaw"
-read_when:
-  - Je wilt MiniMax-modellen in OpenClaw gebruiken
-  - Je hebt begeleiding nodig bij het instellen van MiniMax
 title: "MiniMax"
 ---
 

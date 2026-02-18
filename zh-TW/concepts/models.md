@@ -1,9 +1,4 @@
 ---
-summary: "Models CLI：列出、設定、別名、備援、掃描、狀態"
-read_when:
-  - 新增或修改 Models CLI（models list/set/scan/aliases/fallbacks）
-  - 變更模型備援行為或選擇 UX
-  - 更新模型掃描探測（工具／圖片）
 title: "Models CLI"
 ---
 

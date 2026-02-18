@@ -1,8 +1,4 @@
 ---
-summary: "Exponha um endpoint HTTP /v1/responses compatível com OpenResponses a partir do Gateway"
-read_when:
-  - Integrar clientes que falam a API OpenResponses
-  - Você quer entradas baseadas em itens, chamadas de ferramentas do cliente ou eventos SSE
 title: "API OpenResponses"
 ---
 

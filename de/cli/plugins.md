@@ -1,8 +1,4 @@
 ---
-summary: "CLI-Referenz für `openclaw plugins` (Auflisten, Installieren, Aktivieren/Deaktivieren, Diagnose)"
-read_when:
-  - Sie möchten In-Process-Gateway-Plugins installieren oder verwalten
-  - Sie möchten Fehler beim Laden von Plugins debuggen
 title: "Plugins"
 ---
 

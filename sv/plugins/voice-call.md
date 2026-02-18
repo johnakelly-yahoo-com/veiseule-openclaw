@@ -1,8 +1,4 @@
 ---
-summary: "Röst­samtalsplugin: utgående + inkommande samtal via Twilio/Telnyx/Plivo (plugininstallation + konfiguration + CLI)"
-read_when:
-  - Du vill ringa ett utgående röstsamtal från OpenClaw
-  - Du konfigurerar eller utvecklar voice-call‑pluginet
 title: "Röstsamtalsplugin"
 ---
 

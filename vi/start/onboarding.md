@@ -1,8 +1,4 @@
 ---
-summary: "Luồng hướng dẫn ban đầu khi chạy lần đầu cho OpenClaw (ứng dụng macOS)"
-read_when:
-  - Thiết kế trợ lý hướng dẫn ban đầu trên macOS
-  - Triển khai xác thực hoặc thiết lập danh tính
 title: "Hướng dẫn ban đầu (Ứng dụng macOS)"
 sidebarTitle: "Hướng dẫn bắt đầu: Ứng dụng macOS"
 ---

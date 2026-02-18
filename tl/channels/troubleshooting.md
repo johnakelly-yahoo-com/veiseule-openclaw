@@ -1,8 +1,4 @@
 ---
-summary: "Mabilis na pag-troubleshoot sa antas ng channel na may mga signature ng failure bawat channel at mga ayos"
-read_when:
-  - Sinasabi ng transport ng channel na connected ngunit pumapalya ang mga reply
-  - Kailangan mo ng mga check na partikular sa channel bago sumabak sa mas malalim na docs ng provider
 title: "Pag-troubleshoot ng Channel"
 ---
 

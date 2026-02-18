@@ -1,9 +1,4 @@
 ---
-summary: "Application Android (nœud) : runbook de connexion + Canvas/Chat/Camera"
-read_when:
-  - Appairage ou reconnexion du nœud Android
-  - Débogage de la découverte ou de l’authentification de la Gateway Android
-  - Vérification de la parité de l’historique de chat entre les clients
 title: "Application Android"
 ---
 

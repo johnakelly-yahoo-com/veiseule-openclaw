@@ -1,7 +1,4 @@
 ---
-summary: "Routningsregler per kanal (WhatsApp, Telegram, Discord, Slack) och delad kontext"
-read_when:
-  - Ändrar kanalroutning eller inkorgsbeteende
 title: "Kanalroutning"
 ---
 

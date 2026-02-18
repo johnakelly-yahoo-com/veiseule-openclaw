@@ -1,9 +1,4 @@
 ---
-summary: "Kontext: was das Modell sieht, wie er aufgebaut ist und wie Sie ihn prüfen"
-read_when:
-  - Sie möchten verstehen, was „Kontext“ in OpenClaw bedeutet
-  - Sie debuggen, warum das Modell etwas „weiß“ (oder vergessen hat)
-  - Sie möchten den Kontext-Overhead reduzieren (/context, /status, /compact)
 title: "Kontext"
 ---
 

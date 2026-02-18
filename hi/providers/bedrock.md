@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw के साथ Amazon Bedrock (Converse API) मॉडल का उपयोग करें"
-read_when:
-  - आप OpenClaw के साथ Amazon Bedrock मॉडल का उपयोग करना चाहते हैं
-  - आपको मॉडल कॉल के लिए AWS क्रेडेंशियल/रीजन सेटअप की आवश्यकता है
 title: "Amazon Bedrock"
 ---
 

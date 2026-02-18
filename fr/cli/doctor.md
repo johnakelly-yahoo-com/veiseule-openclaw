@@ -1,8 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw doctor` (verifications d'etat + reparations guidees)"
-read_when:
-  - Vous avez des problemes de connectivite/d'authentification et souhaitez des correctifs guides
-  - Vous avez effectue une mise a jour et voulez un controle de coherence
 title: "doctor"
 ---
 

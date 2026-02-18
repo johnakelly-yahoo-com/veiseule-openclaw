@@ -1,9 +1,4 @@
 ---
-summary: "Draai OpenClaw op lokale LLM’s (LM Studio, vLLM, LiteLLM, aangepaste OpenAI-endpoints)"
-read_when:
-  - Je wilt modellen serveren vanaf je eigen GPU-box
-  - Je LM Studio of een OpenAI-compatibele proxy aansluit
-  - Je de veiligste richtlijnen voor lokale modellen nodig hebt
 title: "Lokale modellen"
 ---
 

@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 你想启用 web_search 或 web_fetch
-  - 你需要设置 Brave Search API 密钥
-  - 你想使用 Perplexity Sonar 进行网络搜索
-summary: Web 搜索 + 获取工具（Brave Search API、Perplexity 直连/OpenRouter）
 title: Web 工具
 x-i18n:
   generated_at: "2026-02-03T10:12:43Z"

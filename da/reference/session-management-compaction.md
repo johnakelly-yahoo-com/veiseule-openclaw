@@ -1,9 +1,4 @@
 ---
-summary: "Dybdegående gennemgang: sessionslager + transskripter, livscyklus og (auto)kompakterings‑internals"
-read_when:
-  - Du skal debugge session-id’er, transcript JSONL eller felter i sessions.json
-  - Du ændrer auto-kompakteringsadfærd eller tilføjer “pre-compaction” housekeeping
-  - Du vil implementere memory flushes eller tavse systemturns
 title: "Dybdegående gennemgang af sessionstyring"
 ---
 

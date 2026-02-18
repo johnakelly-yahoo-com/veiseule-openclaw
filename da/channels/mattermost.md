@@ -1,8 +1,4 @@
 ---
-summary: "Opsætning af Mattermost-bot og OpenClaw-konfiguration"
-read_when:
-  - Opsætning af Mattermost
-  - Fejlfinding af Mattermost-routing
 title: "Mattermost"
 ---
 

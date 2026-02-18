@@ -1,8 +1,4 @@
 ---
-summary: "28. DigitalOcean’da OpenClaw (oddiy pullik VPS varianti)"
-read_when:
-  - 29. DigitalOcean’da OpenClaw’ni sozlash
-  - 30. OpenClaw uchun arzon VPS hosting qidiryapsizmi
 title: "31. DigitalOcean"
 ---
 

@@ -1,8 +1,4 @@
----
-summary: "Arbejdsområdeskabelon til HEARTBEAT.md"
-read_when:
-  - Bootstrapping af et arbejdsområde manuelt
----
+------
 
 # HEARTBEAT.md
 

@@ -1,7 +1,4 @@
 ---
-summary: "Direktivsyntax für /think + /verbose und wie sie die Modellbegründung beeinflussen"
-read_when:
-  - Anpassen von Denk- oder Ausführlichkeitsrichtlinien
 title: "Denkstufen"
 ---
 

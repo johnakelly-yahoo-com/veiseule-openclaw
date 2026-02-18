@@ -1,8 +1,4 @@
 ---
-summary: "ใช้ API แบบรวมศูนย์ของ Qianfan เพื่อเข้าถึงโมเดลจำนวนมากใน OpenClaw"
-read_when:
-  - คุณต้องการคีย์APIเพียงชุดเดียวสำหรับLLMหลายตัว
-  - คุณต้องการคำแนะนำการตั้งค่า Baidu Qianfan
 title: "Qianfan"
 ---
 

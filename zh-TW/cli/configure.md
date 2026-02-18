@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw configure` 的 CLI 參考（互動式設定提示）」"
-read_when:
-  - You want to tweak credentials, devices, or agent defaults interactively
 title: "設定"
 ---
 

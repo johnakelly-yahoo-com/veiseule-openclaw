@@ -1,7 +1,4 @@
 ---
-summary: "พฤติกรรมแชทกลุ่มข้ามแพลตฟอร์ม(WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
-read_when:
-  - เปลี่ยนพฤติกรรมแชทกลุ่มหรือการกำหนดการทริกเกอร์ด้วยการกล่าวถึง
 title: "กลุ่ม"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw webhooks`에 대한 CLI 레퍼런스 (웹훅 헬퍼 + Gmail Pub/Sub)"
-read_when:
-  - Gmail Pub/Sub 이벤트를 OpenClaw에 연결하려는 경우
-  - 웹훅 헬퍼 명령이 필요한 경우
 title: "웹훅"
 ---
 

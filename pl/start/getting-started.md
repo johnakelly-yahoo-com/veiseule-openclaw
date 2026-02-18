@@ -1,8 +1,4 @@
 ---
-summary: "Zainstaluj OpenClaw i uruchom swój pierwszy czat w kilka minut."
-read_when:
-  - Pierwsza konfiguracja od zera
-  - Chcesz najszybszej ścieżki do działającego czatu
 title: "Pierwsze kroki"
 ---
 

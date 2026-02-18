@@ -1,9 +1,4 @@
 ---
-summary: "OpenProse: mga .prose workflow, slash command, at state sa OpenClaw"
-read_when:
-  - Gusto mong magpatakbo o magsulat ng mga .prose workflow
-  - Gusto mong i-enable ang OpenProse plugin
-  - Kailangan mong maunawaan ang pag-iimbak ng state
 title: "OpenProse"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Khám phá node và các phương thức truyền tải (Bonjour, Tailscale, SSH) để tìm gateway"
-read_when:
-  - Triển khai hoặc thay đổi cơ chế khám phá/quảng bá Bonjour
-  - Điều chỉnh các chế độ kết nối từ xa (trực tiếp so với SSH)
-  - Thiết kế khám phá node + ghép cặp cho các node từ xa
 title: "Khám phá và phương thức truyền tải"
 ---
 

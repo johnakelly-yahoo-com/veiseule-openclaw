@@ -1,8 +1,4 @@
 ---
-summary: "Stabile, Beta- und Dev-Kanäle: Semantik, Wechsel und Tagging"
-read_when:
-  - Sie möchten zwischen Stable/Beta/Dev wechseln
-  - Sie taggen oder veröffentlichen Vorabversionen
 title: "Entwicklungskanäle"
 ---
 

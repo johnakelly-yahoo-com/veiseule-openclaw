@@ -1,7 +1,4 @@
 ---
-summary: "Supportstatus, funktioner och konfiguration för Nextcloud Talk"
-read_when:
-  - Arbetar med kanalfunktioner för Nextcloud Talk
 title: "Nextcloud Talk"
 ---
 

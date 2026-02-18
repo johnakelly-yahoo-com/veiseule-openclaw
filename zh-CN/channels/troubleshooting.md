@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 渠道已连接但消息无法流通
-  - 排查渠道配置错误（意图、权限、隐私模式）
-summary: 渠道专属故障排除快捷指南（Discord/Telegram/WhatsApp）
 title: 渠道故障排除
 x-i18n:
   generated_at: "2026-02-01T19:58:09Z"

@@ -1,9 +1,4 @@
 ---
-summary: "Diepgaande uitleg: sessie-opslag + transcripties, levenscyclus en (auto)compactie-internals"
-read_when:
-  - Je moet sessie-id’s, transcript-JSONL of velden in sessions.json debuggen
-  - Je wijzigt het gedrag van auto-compactie of voegt “pre-compactie”-huishoudtaken toe
-  - Je wilt geheugen-flushes of stille systeembeurten implementeren
 title: "Diepgaande uitleg sessiebeheer"
 ---
 

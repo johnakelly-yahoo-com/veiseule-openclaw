@@ -1,8 +1,4 @@
 ---
-summary: "Cách OpenClaw xây dựng ngữ cảnh prompt và báo cáo mức sử dụng token + chi phí"
-read_when:
-  - Giải thích về mức sử dụng token, chi phí hoặc cửa sổ ngữ cảnh
-  - Gỡ lỗi sự tăng trưởng ngữ cảnh hoặc hành vi nén gọn
 title: "Sử dụng Token và Chi phí"
 ---
 

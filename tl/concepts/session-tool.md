@@ -1,7 +1,4 @@
 ---
-summary: "Mga tool ng agent session para sa paglista ng mga session, pagkuha ng history, at pagpapadala ng cross-session na mga mensahe"
-read_when:
-  - Pagdaragdag o pagbabago ng mga session tool
 title: "Mga Tool ng Session"
 ---
 

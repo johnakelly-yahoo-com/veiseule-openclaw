@@ -1,8 +1,4 @@
 ---
-summary: "I-expose ang OpenResponses-compatible na /v1/responses HTTP endpoint mula sa Gateway"
-read_when:
-  - Pag-integrate ng mga client na nagsasalita ng OpenResponses API
-  - Gusto mo ng item-based inputs, client tool calls, o SSE events
 title: "OpenResponses API"
 ---
 

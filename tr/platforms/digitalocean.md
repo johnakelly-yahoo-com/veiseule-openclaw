@@ -1,8 +1,4 @@
 ---
-summary: "DigitalOcean üzerinde OpenClaw (basit ücretli VPS seçeneği)"
-read_when:
-  - DigitalOcean üzerinde OpenClaw kurarken
-  - OpenClaw için ucuz VPS barındırma ararken
 title: "DigitalOcean"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Visão geral do bot Feishu, recursos e configuração"
-read_when:
-  - Você quer conectar um bot Feishu/Lark
-  - Você está configurando o canal Feishu
 title: Feishu
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw memory` (status/index/search)"
-read_when:
-  - Du vill indexera eller söka i semantiskt minne
-  - Du felsöker minnestillgänglighet eller indexering
 title: "minne"
 ---
 

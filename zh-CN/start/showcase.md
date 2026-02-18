@@ -1,6 +1,5 @@
 ---
 description: Real-world OpenClaw projects from the community
-summary: 社区构建的基于 OpenClaw 的项目和集成
 title: 案例展示
 x-i18n:
   generated_at: "2026-02-03T10:11:36Z"

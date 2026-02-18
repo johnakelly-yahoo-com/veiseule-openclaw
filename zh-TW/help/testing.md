@@ -1,9 +1,4 @@
 ---
-summary: "測試套件：unit/e2e/live 測試、Docker 執行器，以及各測試涵蓋內容"
-read_when:
-  - 在本機或 CI 中執行測試
-  - 為模型／提供者錯誤新增回歸測試
-  - 除錯 Gateway + 代理程式 行為
 title: "測試"
 ---
 

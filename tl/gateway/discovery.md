@@ -1,9 +1,4 @@
 ---
-summary: "Discovery ng node at mga transport (Bonjour, Tailscale, SSH) para sa paghahanap ng Gateway"
-read_when:
-  - Pagpapatupad o pagbabago ng Bonjour discovery/advertising
-  - Pag-aayos ng mga remote connection mode (direct vs SSH)
-  - Pagdidisenyo ng node discovery + pairing para sa mga remote node
 title: "Discovery at mga Transport"
 ---
 

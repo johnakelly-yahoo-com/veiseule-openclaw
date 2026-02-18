@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw macOS アプリで作業する開発者向けのセットアップガイド"
-read_when:
-  - macOS 開発環境のセットアップ
 title: "macOS 開発者セットアップ"
 ---
 

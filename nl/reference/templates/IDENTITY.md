@@ -1,8 +1,4 @@
----
-summary: "Agentidentiteitsrecord"
-read_when:
-  - Een werkruimte handmatig bootstrappen
----
+------
 
 # IDENTITY.md - Wie ben ik?
 

@@ -1,8 +1,4 @@
 ---
-summary: "Agentlar, konvertlar va promptlar uchun vaqt mintaqasini boshqarish"
-read_when:
-  - You need to understand how timestamps are normalized for the model
-  - Configuring the user timezone for system prompts
 title: "Vaqt mintaqalari"
 ---
 

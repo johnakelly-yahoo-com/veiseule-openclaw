@@ -1,8 +1,4 @@
 ---
-summary: "Tích hợp Tailscale Serve/Funnel cho bảng điều khiển Gateway"
-read_when:
-  - Mở bảng điều khiển Gateway Control UI ra ngoài localhost
-  - Tự động hóa quyền truy cập bảng điều khiển qua tailnet hoặc công khai
 title: "Tailscale"
 ---
 

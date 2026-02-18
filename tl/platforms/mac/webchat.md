@@ -1,7 +1,4 @@
 ---
-summary: "Paano ini-embed ng mac app ang Gateway WebChat at paano ito i-debug"
-read_when:
-  - Pag-debug ng mac WebChat view o loopback port
 title: "WebChat"
 ---
 

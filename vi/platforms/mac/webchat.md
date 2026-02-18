@@ -1,7 +1,4 @@
 ---
-summary: "Cách ứng dụng mac nhúng WebChat của Gateway và cách gỡ lỗi"
-read_when:
-  - Gỡ lỗi chế độ xem WebChat trên mac hoặc cổng loopback
 title: "WebChat"
 ---
 

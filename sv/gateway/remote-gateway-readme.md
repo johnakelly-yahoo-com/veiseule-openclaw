@@ -1,6 +1,4 @@
 ---
-summary: "SSH-tunnelkonfiguration för OpenClaw.app som ansluter till en fjärr-Gateway"
-read_when: "Ansluta macOS-appen till en fjärr-Gateway över SSH"
 title: "Konfigurering av fjärr-Gateway"
 ---
 

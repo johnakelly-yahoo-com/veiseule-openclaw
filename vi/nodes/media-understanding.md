@@ -1,8 +1,4 @@
 ---
-summary: "Hiểu nội dung media đầu vào (hình ảnh/âm thanh/video) tùy chọn với nhà cung cấp + phương án dự phòng CLI"
-read_when:
-  - Thiết kế hoặc tái cấu trúc phần hiểu media
-  - Tinh chỉnh tiền xử lý âm thanh/video/hình ảnh đầu vào
 title: "Hiểu Media"
 ---
 

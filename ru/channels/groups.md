@@ -1,7 +1,4 @@
 ---
-summary: "Поведение групповых чатов на разных платформах (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
-read_when:
-  - Изменение поведения групповых чатов или управления упоминаниями
 title: "Группы"
 ---
 

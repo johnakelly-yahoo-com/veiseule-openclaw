@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw, herhangi bir işletim sisteminde çalışan AI ajanları için çok kanallı bir gateway’dir."
-read_when:
-  - OpenClaw’ı yeni başlayanlara tanıtma
 title: "OpenClaw"
 ---
 

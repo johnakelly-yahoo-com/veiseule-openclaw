@@ -1,6 +1,4 @@
 ---
-summary: "Socket veya HTTP webhook modu için Slack kurulumu"
-read_when: "Slack kurulurken veya Slack socket/HTTP modu hata ayıklanırken"
 title: "Slack"
 ---
 

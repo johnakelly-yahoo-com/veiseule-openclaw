@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 安装 OpenClaw
-  - 你想从 GitHub 安装
-summary: 安装 OpenClaw（推荐安装器、全局安装或从源代码安装）
 title: 安装
 x-i18n:
   generated_at: "2026-02-03T10:07:43Z"

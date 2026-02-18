@@ -1,8 +1,4 @@
 ---
-summary: "Hooks: event-driven na automation para sa mga command at lifecycle event"
-read_when:
-  - Gusto mo ng event-driven na automation para sa /new, /reset, /stop, at mga lifecycle event ng agent
-  - Gusto mong bumuo, mag-install, o mag-debug ng mga hook
 title: "Mga Hook"
 ---
 

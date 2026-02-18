@@ -1,7 +1,4 @@
 ---
-summary: "46. Loyiha kelib chiqishi, hissa qo‘shganlar va litsenziya."
-read_when:
-  - 47. Siz loyiha tarixi yoki hissa qo‘shganlar kreditlarini xohlaysiz
 title: "48. Kreditlar"
 ---
 

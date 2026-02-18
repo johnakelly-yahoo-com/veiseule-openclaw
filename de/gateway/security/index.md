@@ -1,7 +1,4 @@
 ---
-summary: "„Sicherheitsüberlegungen und Bedrohungsmodell für den Betrieb eines KI-Gateways mit Shell-Zugriff“"
-read_when:
-  - Beim Hinzufügen von Funktionen, die Zugriff oder Automatisierung erweitern
 title: "Sicherheit"
 ---
 

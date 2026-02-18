@@ -1,7 +1,4 @@
 ---
-summary: "Elevated exec-läge och /elevated-direktiv"
-read_when:
-  - Justerar standardvärden för elevated-läge, tillåtelselistor eller beteende för snedstreckskommandon
 title: "Elevated-läge"
 ---
 

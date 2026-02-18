@@ -1,7 +1,5 @@
 ---
-summary: "Çoklu ajan yönlendirmesi: yalıtılmış ajanlar, kanal hesapları ve bağlamalar"
 title: "Çoklu Ajan Yönlendirme"
-read_when: "Tek bir gateway sürecinde birden fazla yalıtılmış ajan (çalışma alanları + kimlik doğrulama) istiyorsunuz."
 status: active
 ---
 

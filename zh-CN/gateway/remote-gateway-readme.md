@@ -1,6 +1,4 @@
 ---
-read_when: Connecting the macOS app to a remote gateway over SSH
-summary: OpenClaw.app 连接远程 Gateway 网关的 SSH 隧道设置
 title: 远程 Gateway 网关设置
 x-i18n:
   generated_at: "2026-02-03T07:48:37Z"

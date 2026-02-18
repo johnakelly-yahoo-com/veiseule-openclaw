@@ -1,8 +1,4 @@
 ---
-summary: "Thiết lập bot Mattermost và cấu hình OpenClaw"
-read_when:
-  - Thiết lập Mattermost
-  - Gỡ lỗi định tuyến Mattermost
 title: "Mattermost"
 ---
 

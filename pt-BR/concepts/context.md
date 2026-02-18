@@ -1,9 +1,4 @@
 ---
-summary: "Contexto: o que o modelo vê, como é construído e como inspecioná-lo"
-read_when:
-  - Você quer entender o que “contexto” significa no OpenClaw
-  - Você está depurando por que o modelo “sabe” algo (ou esqueceu)
-  - Você quer reduzir a sobrecarga de contexto (/context, /status, /compact)
 title: "Contexto"
 ---
 

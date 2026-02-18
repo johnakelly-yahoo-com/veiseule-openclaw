@@ -1,8 +1,4 @@
 ---
-summary: "web_search 用の Perplexity Sonar セットアップ"
-read_when:
-  - Perplexity Sonar を web 検索に使用したい場合
-  - PERPLEXITY_API_KEY または OpenRouter のセットアップが必要な場合
 title: "Perplexity Sonar"
 ---
 

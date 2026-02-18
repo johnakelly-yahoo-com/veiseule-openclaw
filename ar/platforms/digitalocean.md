@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw على DigitalOcean (خيار VPS مدفوع بسيط)"
-read_when:
-  - إعداد OpenClaw على DigitalOcean
-  - البحث عن استضافة VPS منخفضة التكلفة لـ OpenClaw
 title: "DigitalOcean"
 ---
 

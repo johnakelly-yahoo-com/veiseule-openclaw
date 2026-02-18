@@ -1,7 +1,4 @@
 ---
-summary: "Statut de prise en charge du bot Zalo, capacites et configuration"
-read_when:
-  - Travail sur les fonctionnalites Zalo ou les webhooks
 title: "Zalo"
 ---
 

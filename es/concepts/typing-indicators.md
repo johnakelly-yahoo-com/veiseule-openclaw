@@ -1,7 +1,4 @@
 ---
-summary: "Cuándo OpenClaw muestra indicadores de escritura y cómo ajustarlos"
-read_when:
-  - Cambiar el comportamiento o los valores predeterminados de los indicadores de escritura
 title: "Indicadores de escritura"
 ---
 

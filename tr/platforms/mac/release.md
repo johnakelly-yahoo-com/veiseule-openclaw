@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS sürüm kontrol listesi (Sparkle feed, paketleme, imzalama)"
-read_when:
-  - Bir OpenClaw macOS sürümünü keserken veya doğrularken
-  - Sparkle appcast’ini veya feed varlıklarını güncellerken
 title: "macOS Sürümü"
 ---
 

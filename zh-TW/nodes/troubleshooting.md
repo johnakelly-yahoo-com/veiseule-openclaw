@@ -1,8 +1,4 @@
 ---
-summary: "疑難排解節點配對、前景需求、權限與工具失敗"
-read_when:
-  - 節點已連線，但相機／畫布／螢幕／exec 工具失敗
-  - You need the node pairing versus approvals mental model
 title: "節點疑難排解"
 ---
 

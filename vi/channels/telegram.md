@@ -1,7 +1,4 @@
 ---
-summary: "Trạng thái hỗ trợ bot Telegram, khả năng và cấu hình"
-read_when:
-  - Khi làm việc với các tính năng hoặc webhook của Telegram
 title: "Telegram"
 ---
 

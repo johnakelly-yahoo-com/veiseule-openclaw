@@ -1,8 +1,4 @@
 ---
-summary: "Berichtplatforms waarmee OpenClaw kan verbinden"
-read_when:
-  - Je wilt een chatkanaal voor OpenClaw kiezen
-  - Je hebt een snel overzicht nodig van ondersteunde berichtplatforms
 title: "Chatkanalen"
 ---
 

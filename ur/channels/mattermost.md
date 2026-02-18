@@ -1,8 +1,4 @@
 ---
-summary: "Mattermost بوٹ سیٹ اپ اور OpenClaw کنفیگ"
-read_when:
-  - Mattermost سیٹ اپ کرنا
-  - Mattermost روٹنگ کی خرابیوں کا ازالہ
 title: "Mattermost"
 ---
 

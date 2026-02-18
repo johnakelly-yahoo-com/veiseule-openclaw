@@ -1,9 +1,4 @@
 ---
-summary: "Referência da CLI para `openclaw system` (eventos do sistema, heartbeat, presença)"
-read_when:
-  - Você quer enfileirar um evento de sistema sem criar um cron job
-  - Você precisa habilitar ou desabilitar heartbeats
-  - Você quer inspecionar entradas de presença do sistema
 title: "sistema"
 ---
 

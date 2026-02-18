@@ -1,8 +1,4 @@
----
-summary: "Plantilla de espacio de trabajo para AGENTS.md"
-read_when:
-  - Inicialización manual de un espacio de trabajo
----
+------
 
 # AGENTS.md - Su espacio de trabajo
 

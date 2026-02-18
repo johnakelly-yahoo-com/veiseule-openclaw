@@ -1,9 +1,4 @@
 ---
-summary: "ノード: ペアリング、機能、権限、そして canvas/camera/screen/system 用の CLI ヘルパー"
-read_when:
-  - iOS/Android ノードをゲートウェイにペアリングする場合
-  - エージェントのコンテキストとしてノードの canvas/camera を使用する場合
-  - 新しいノードコマンドや CLI ヘルパーを追加する場合
 title: "ノード"
 ---
 

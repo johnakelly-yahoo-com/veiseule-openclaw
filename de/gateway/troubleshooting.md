@@ -1,8 +1,4 @@
 ---
-summary: "Detailliertes Runbook zur Fehlerbehebung für Gateway, Kanäle, Automatisierung, Nodes und Browser"
-read_when:
-  - Der Fehlerbehebungs-Hub hat Sie für eine tiefere Diagnose hierher verwiesen
-  - Sie benötigen stabile, symptomorientierte Runbook-Abschnitte mit exakten Befehlen
 title: "Fehlerbehebung"
 ---
 

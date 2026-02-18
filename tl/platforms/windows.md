@@ -1,8 +1,4 @@
 ---
-summary: "Suporta sa Windows (WSL2) + status ng companion app"
-read_when:
-  - Nag-i-install ng OpenClaw sa Windows
-  - Naghahanap ng status ng Windows companion app
 title: "Windows (WSL2)"
 ---
 

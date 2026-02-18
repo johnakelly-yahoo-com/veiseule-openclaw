@@ -1,7 +1,5 @@
 ---
-summary: "Multi-agent routing: geïsoleerde agents, kanaalaccounts en bindingen"
 title: Multi-Agent Routering
-read_when: "Je wilt meerdere geïsoleerde agents (werkruimtes + auth) in één Gateway-proces."
 status: active
 ---
 

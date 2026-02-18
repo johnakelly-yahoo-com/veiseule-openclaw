@@ -1,8 +1,4 @@
 ---
-summary: "Envio de enquetes via gateway + CLI"
-read_when:
-  - Adicionando ou modificando suporte a enquetes
-  - Depurando envios de enquetes pela CLI ou gateway
 title: "Enquetes"
 ---
 

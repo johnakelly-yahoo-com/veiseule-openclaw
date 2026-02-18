@@ -1,7 +1,4 @@
 ---
-summary: "Modo de execução elevado e diretivas /elevated"
-read_when:
-  - Ao ajustar padrões do modo elevado, listas de permissões ou comportamento de comandos com barra
 title: "Modo Elevado"
 ---
 

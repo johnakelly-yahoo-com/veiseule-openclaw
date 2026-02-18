@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 设置 Signal 支持
-  - 调试 Signal 发送/接收
-summary: 通过 signal-cli（JSON-RPC + SSE）支持 Signal，设置和号码模型
 title: Signal
 x-i18n:
   generated_at: "2026-02-03T07:44:15Z"

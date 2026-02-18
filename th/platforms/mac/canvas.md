@@ -1,9 +1,4 @@
 ---
-summary: "แผงCanvasที่ควบคุมโดยเอเจนต์ ฝังผ่าน WKWebView + สคีม URL แบบกำหนดเอง"
-read_when:
-  - การพัฒนาแผงCanvasบน macOS
-  - การเพิ่มการควบคุมเอเจนต์สำหรับเวิร์กสเปซแบบภาพ
-  - การดีบักการโหลดCanvasด้วย WKWebView
 title: "Canvas"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "مرجع CLI لأمر `openclaw health` (نقطة نهاية صحة Gateway عبر RPC)"
-read_when:
-  - تريد التحقق بسرعة من صحة Gateway قيد التشغيل
 title: "الصحة"
 ---
 

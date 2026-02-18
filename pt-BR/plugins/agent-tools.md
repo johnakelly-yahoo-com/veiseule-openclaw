@@ -1,8 +1,4 @@
 ---
-summary: "Escreva ferramentas de agente em um plugin (esquemas, ferramentas opcionais, listas de permissões)"
-read_when:
-  - Você quer adicionar uma nova ferramenta de agente em um plugin
-  - Você precisa tornar uma ferramenta opt-in via listas de permissões
 title: "Ferramentas de agente de plugin"
 ---
 

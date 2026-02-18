@@ -1,8 +1,4 @@
 ---
-summary: "Runbook de solução de problemas aprofundado para gateway, canais, automação, nós e navegador"
-read_when:
-  - O hub de solução de problemas apontou você para cá para um diagnóstico mais profundo
-  - Você precisa de seções estáveis de runbook baseadas em sintomas com comandos exatos
 title: "Solução de problemas"
 ---
 

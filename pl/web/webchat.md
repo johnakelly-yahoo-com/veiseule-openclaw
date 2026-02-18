@@ -1,7 +1,4 @@
 ---
-summary: "Statyczny host WebChat w pętli zwrotnej oraz użycie Gateway WS dla interfejsu czatu"
-read_when:
-  - Debugowanie lub konfigurowanie dostępu do WebChat
 title: "WebChat"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw doctor` (sundhedstjek + guidede rettelser)"
-read_when:
-  - Du har forbindelses-/autentificeringsproblemer og vil have guidede løsninger
-  - Du har opdateret og vil lave et fornuftstjek
 title: "doctor"
 ---
 

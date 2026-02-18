@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 向新用户介绍 ClawHub
-  - 安装、搜索或发布 Skills
-  - 说明 ClawHub CLI 标志和同步行为
-summary: ClawHub 指南：公共 Skills 注册中心 + CLI 工作流
 title: ClawHub
 x-i18n:
   generated_at: "2026-02-01T21:42:32Z"

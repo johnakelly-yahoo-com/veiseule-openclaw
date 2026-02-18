@@ -1,8 +1,4 @@
 ---
-summary: "Referencja CLI dla `openclaw devices` (parowanie urządzeń + rotacja/cofanie tokenów)"
-read_when:
-  - Zatwierdzasz żądania parowania urządzeń
-  - Musisz obrócić lub cofnąć tokeny urządzeń
 title: "urządzenia"
 ---
 

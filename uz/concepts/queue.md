@@ -1,7 +1,4 @@
 ---
-summary: "32. Kiruvchi auto-reply ishlarini ketma-ketlashtiradigan buyruqlar navbati dizayni"
-read_when:
-  - 33. Auto-reply bajarilishi yoki parallelizmini o‘zgartirish
 title: "34. Buyruqlar navbati"
 ---
 

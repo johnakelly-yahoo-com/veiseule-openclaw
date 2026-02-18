@@ -1,8 +1,4 @@
 ---
-summary: "„Nutzen Sie Qianfans einheitliche API, um auf viele Modelle in OpenClaw zuzugreifen“"
-read_when:
-  - Sie möchten einen einzigen API-Schlüssel für viele LLMs
-  - Sie benötigen eine Einrichtungsanleitung für Baidu Qianfan
 title: "„Qianfan“"
 ---
 

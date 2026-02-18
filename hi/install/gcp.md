@@ -1,9 +1,4 @@
 ---
-summary: "GCP Compute Engine VM (Docker) पर OpenClaw Gateway को 24/7 चलाएँ, टिकाऊ स्टेट के साथ"
-read_when:
-  - आप GCP पर OpenClaw को 24/7 चलाना चाहते हैं
-  - आप अपनी स्वयं की VM पर प्रोडक्शन-ग्रेड, हमेशा-चालू Gateway चाहते हैं
-  - आप persistence, binaries और restart व्यवहार पर पूर्ण नियंत्रण चाहते हैं
 title: "GCP"
 ---
 

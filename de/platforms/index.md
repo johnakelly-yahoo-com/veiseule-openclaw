@@ -1,8 +1,4 @@
 ---
-summary: "Überblick über die Plattformunterstützung (Gateway + Companion-Apps)"
-read_when:
-  - Auf der Suche nach OS-Unterstützung oder Installationspfaden
-  - Entscheidung, wo das Gateway betrieben werden soll
 title: "Plattformen"
 ---
 

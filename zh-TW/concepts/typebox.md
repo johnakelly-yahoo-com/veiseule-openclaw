@@ -1,7 +1,4 @@
 ---
-summary: "將 TypeBox 結構描述作為 Gateway 通訊協定的單一事實來源"
-read_when:
-  - 更新通訊協定結構描述或程式碼產生
 title: "TypeBox"
 ---
 

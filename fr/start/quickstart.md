@@ -1,8 +1,4 @@
 ---
-summary: "« Demarrage rapide » a été déplacé vers « Premiers pas »."
-read_when:
-  - Vous recherchez les étapes de configuration les plus rapides
-  - Vous avez été redirigé ici depuis un lien plus ancien
 title: "Demarrage rapide"
 ---
 

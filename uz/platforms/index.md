@@ -1,8 +1,4 @@
 ---
-summary: "Platformalarni qo‘llab-quvvatlash haqida umumiy ma’lumot (Gateway + yordamchi ilovalar)"
-read_when:
-  - OT qo‘llab-quvvatlanishini yoki o‘rnatish yo‘llarini qidirayotganda
-  - Gateway qayerda ishga tushirilishini hal qilayotganda
 title: "Platformalar"
 ---
 

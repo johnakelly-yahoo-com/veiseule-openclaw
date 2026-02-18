@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw node` के लिए CLI संदर्भ (हेडलैस नोड होस्ट)"
-read_when:
-  - हेडलैस नोड होस्ट चलाते समय
-  - system.run के लिए गैर‑macOS नोड को पेयर करते समय
 title: "नोड"
 ---
 

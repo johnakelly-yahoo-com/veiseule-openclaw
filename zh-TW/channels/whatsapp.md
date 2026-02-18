@@ -1,7 +1,4 @@
 ---
-summary: "WhatsApp（網頁頻道）整合：登入、收件匣、回覆、媒體與營運"
-read_when:
-  - 處理 WhatsApp／網頁頻道行為或收件匣路由時
 title: "WhatsApp"
 ---
 

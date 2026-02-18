@@ -1,8 +1,4 @@
 ---
-summary: "Inkomende beeld-/audio-/videoverwerking (optioneel) met provider- en CLI-terugvalopties"
-read_when:
-  - Ontwerpen of refactoren van mediaverwerking
-  - Afstemmen van inkomende audio-/video-/beeldvoorverwerking
 title: "Media begrijpen"
 ---
 

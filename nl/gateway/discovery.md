@@ -1,9 +1,4 @@
 ---
-summary: "Node-discovery en transports (Bonjour, Tailscale, SSH) voor het vinden van de gateway"
-read_when:
-  - Implementeren of wijzigen van Bonjour-discovery/-advertising
-  - Aanpassen van externe verbindingsmodi (direct vs SSH)
-  - Ontwerpen van node-discovery + pairing voor externe nodes
 title: "Discovery en Transports"
 ---
 

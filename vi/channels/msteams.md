@@ -1,7 +1,4 @@
 ---
-summary: "Trạng thái hỗ trợ bot Microsoft Teams, khả năng và cấu hình"
-read_when:
-  - Làm việc trên các tính năng kênh MS Teams
 title: "Microsoft Teams"
 ---
 

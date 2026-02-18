@@ -1,10 +1,4 @@
----
-summary: "Steg-för-steg-checklista för release av npm + macOS-app"
-read_when:
-  - Skapa en ny npm-release
-  - Skapa en ny macOS-app-release
-  - Verifiera metadata före publicering
----
+------
 
 # Releasechecklista (npm + macOS)
 

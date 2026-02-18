@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想安装或管理进程内 Gateway 网关插件
-  - 你想调试插件加载失败问题
-summary: "`openclaw plugins` 的 CLI 参考（列出、安装、启用/禁用、诊断）"
 title: plugins
 x-i18n:
   generated_at: "2026-02-03T07:45:08Z"

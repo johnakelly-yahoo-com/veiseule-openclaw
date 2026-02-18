@@ -1,9 +1,4 @@
 ---
-summary: "Giao thức WebSocket của Gateway: bắt tay, khung, phiên bản hóa"
-read_when:
-  - Triển khai hoặc cập nhật client WS của gateway
-  - Gỡ lỗi sai lệch giao thức hoặc lỗi kết nối
-  - Tái tạo schema/mô hình giao thức
 title: "Giao thức Gateway"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Keşif: model yapılandırması, kimlik doğrulama profilleri ve geri dönüş davranışı"
-read_when:
-  - Gelecekteki model seçimi + kimlik doğrulama profili fikirlerini keşfederken
 title: "Model Yapılandırması Keşfi"
 ---
 

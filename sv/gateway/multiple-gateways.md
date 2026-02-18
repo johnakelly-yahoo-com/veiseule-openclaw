@@ -1,8 +1,4 @@
 ---
-summary: "Kör flera OpenClaw Gateways på en värd (isolering, portar och profiler)"
-read_when:
-  - Köra mer än en Gateway på samma maskin
-  - Du behöver isolerad konfig/tilstånd/portar per Gateway
 title: "Flera Gateways"
 ---
 

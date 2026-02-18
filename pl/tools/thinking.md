@@ -1,7 +1,4 @@
 ---
-summary: "Składnia dyrektyw dla /think + /verbose oraz ich wpływ na rozumowanie modelu"
-read_when:
-  - Dostosowywanie parsowania dyrektyw think lub verbose albo ustawień domyślnych
 title: "Poziomy myślenia"
 ---
 

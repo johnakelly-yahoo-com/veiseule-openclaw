@@ -1,8 +1,4 @@
 ---
-summary: "안정판, 베타, 개발 채널: 의미, 전환, 태깅"
-read_when:
-  - You want to switch between stable/beta/dev
-  - 사전 릴리스를 태깅하거나 게시하는 경우
 title: "개발 채널"
 ---
 

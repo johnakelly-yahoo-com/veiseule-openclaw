@@ -1,8 +1,4 @@
 ---
-summary: "以症狀為先的 OpenClaw 疑難排解中樞"
-read_when:
-  - OpenClaw 無法運作，且你需要最快的修復途徑
-  - You want a triage flow before diving into deep runbooks
 title: "疑難排解"
 ---
 

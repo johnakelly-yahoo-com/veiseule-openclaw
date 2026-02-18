@@ -1,9 +1,4 @@
 ---
-summary: "Models CLI：一覧表示、設定、エイリアス、フォールバック、スキャン、ステータス"
-read_when:
-  - Models CLI（models list/set/scan/aliases/fallbacks）を追加または変更する場合
-  - モデルのフォールバック挙動や選択 UX を変更する場合
-  - モデルスキャンのプローブ（ツール／画像）を更新する場合
 title: "モデル CLI"
 ---
 

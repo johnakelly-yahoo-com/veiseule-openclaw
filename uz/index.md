@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw — har qanday OS’da ishlaydigan, AI agentlari uchun ko‘p kanalli shlyuz."
-read_when:
-  - Yangi foydalanuvchilarga OpenClaw’ni tanishtirish
 title: "OpenClaw"
 ---
 

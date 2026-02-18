@@ -1,8 +1,4 @@
 ---
-summary: "Logga in på GitHub Copilot från OpenClaw med hjälp av enhetsflödet"
-read_when:
-  - Du vill använda GitHub Copilot som modellleverantör
-  - Du behöver flödet `openclaw models auth login-github-copilot`
 title: "GitHub Copilot"
 ---
 

@@ -1,10 +1,4 @@
 ---
-summary: "OAuth i OpenClaw: tokenudveksling, lagring og mønstre for flere konti"
-read_when:
-  - Du vil forstå OpenClaw OAuth fra ende til ende
-  - Du støder på problemer med token-ugyldiggørelse / logout
-  - Du vil bruge setup-token eller OAuth-godkendelsesflows
-  - Du vil have flere konti eller profil-routing
 title: "OAuth"
 ---
 

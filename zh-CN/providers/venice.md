@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想在 OpenClaw 中使用注重隐私的推理服务
-  - 你需要 Venice AI 设置指导
-summary: 在 OpenClaw 中使用 Venice AI 注重隐私的模型
 title: Venice AI
 x-i18n:
   generated_at: "2026-02-01T21:36:03Z"

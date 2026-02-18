@@ -1,5 +1,4 @@
 ---
-summary: "Att rapportera ärenden och felrapporter med högt signalvärde"
 title: "Skicka in ett ärende"
 ---
 

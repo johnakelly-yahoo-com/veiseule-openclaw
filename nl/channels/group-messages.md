@@ -1,7 +1,4 @@
 ---
-summary: "Gedrag en configuratie voor het afhandelen van WhatsApp-groepsberichten (mentionPatterns worden gedeeld over surfaces)"
-read_when:
-  - Groepsberichtregels of mentions wijzigen
 title: "Groepsberichten"
 ---
 

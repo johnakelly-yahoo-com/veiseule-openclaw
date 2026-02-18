@@ -1,7 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw pairing` (godkend/list parringsanmodninger)"
-read_when:
-  - Du bruger parrings-tilstand i DM’er og skal godkende afsendere
 title: "parring"
 ---
 

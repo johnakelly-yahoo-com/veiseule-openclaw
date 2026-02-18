@@ -1,9 +1,4 @@
 ---
-summary: "Luồng thông điệp, phiên, xếp hàng và khả năng hiển thị lập luận"
-read_when:
-  - Giải thích cách thông điệp đến trở thành phản hồi
-  - Làm rõ phiên, chế độ xếp hàng hoặc hành vi streaming
-  - Tài liệu hóa khả năng hiển thị lập luận và các tác động khi sử dụng
 title: "Thông điệp"
 ---
 

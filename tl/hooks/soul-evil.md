@@ -1,8 +1,4 @@
 ---
-summary: "SOUL Evil hook (ipalit ang SOUL.md sa SOUL_EVIL.md)"
-read_when:
-  - Gusto mong paganahin o i-tune ang SOUL Evil hook
-  - Gusto mo ng purge window o random-chance na pagpapalit ng persona
 title: "SOUL Evil Hook"
 ---
 

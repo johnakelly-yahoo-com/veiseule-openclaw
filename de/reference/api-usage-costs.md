@@ -1,9 +1,4 @@
 ---
-summary: "Prüfen, was Geld ausgeben kann, welche Schlüssel verwendet werden und wie die Nutzung angezeigt wird"
-read_when:
-  - Sie möchten verstehen, welche Funktionen kostenpflichtige APIs aufrufen können
-  - Sie müssen Schlüssel, Kosten und Nutzungstransparenz prüfen
-  - Sie erklären die Kostenberichte von /status oder /usage
 title: "API-Nutzung und Kosten"
 ---
 

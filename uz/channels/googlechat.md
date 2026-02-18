@@ -1,7 +1,4 @@
 ---
-summary: "Google Chat ilovasi qo‘llab-quvvatlash holati, imkoniyatlari va sozlanishi"
-read_when:
-  - Google Chat kanali funksiyalari ustida ishlayotganda
 title: "Google Chat"
 ---
 

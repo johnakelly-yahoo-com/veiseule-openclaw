@@ -1,8 +1,4 @@
 ---
-summary: "Gateway’e bağlı `openclaw tui` için CLI başvurusu (terminal UI)"
-read_when:
-  - Gateway için bir terminal UI istiyorsanız (uzaktan kullanıma uygun)
-  - You want to pass url/token/session from scripts
 title: "tui"
 ---
 

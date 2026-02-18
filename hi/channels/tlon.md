@@ -1,7 +1,4 @@
 ---
-summary: "Tlon/Urbit समर्थन की स्थिति, क्षमताएँ, और विन्यास"
-read_when:
-  - Tlon/Urbit चैनल सुविधाओं पर काम करते समय
 title: "Tlon"
 ---
 

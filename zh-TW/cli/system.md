@@ -1,9 +1,4 @@
 ---
-summary: "「openclaw system」的 CLI 參考（系統事件、心跳、存在狀態）"
-read_when:
-  - 你想在不建立 cron 工作的情況下佇列系統事件
-  - 你需要啟用或停用心跳
-  - 31. 你想要檢視系統存在性項目
 title: "system"
 ---
 

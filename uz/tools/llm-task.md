@@ -1,8 +1,4 @@
 ---
-summary: "tizim promptida yoki sxemada ko‘rinmasa, model uni chaqira olmaydi."
-read_when:
-  - Ish oqimlari uchun faqat JSON’dan iborat LLM vazifalari (ixtiyoriy plagin vositasi)
-  - Siz ish oqimlari ichida faqat JSON chiqaradigan LLM bosqichini xohlaysiz
 title: "Avtomatlashtirish uchun sxema bilan tekshiriladigan LLM chiqishi kerak"
 ---
 

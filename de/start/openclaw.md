@@ -1,8 +1,4 @@
 ---
-summary: "„End-to-End-Leitfaden zum Ausführen von OpenClaw als persönlicher Assistent mit Sicherheitshinweisen“"
-read_when:
-  - Onboarding einer neuen Assistenteninstanz
-  - Überprüfung von Sicherheits- und Berechtigungsimplikationen
 title: "„Einrichtung eines persönlichen Assistenten“"
 ---
 

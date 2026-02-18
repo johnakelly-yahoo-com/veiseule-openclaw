@@ -1,8 +1,4 @@
 ---
-summary: "Reja: barcha xabar almashish konnektorlari uchun yagona, soddalashtirilgan plugin SDK + runtime"
-read_when:
-  - Defining or refactoring the plugin architecture
-  - Migrating channel connectors to the plugin SDK/runtime
 title: "Plugin SDK’ni qayta tuzish"
 ---
 

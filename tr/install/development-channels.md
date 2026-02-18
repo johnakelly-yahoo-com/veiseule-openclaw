@@ -1,8 +1,4 @@
 ---
-summary: "Kararlı, beta ve dev kanalları: anlamları, geçiş ve etiketleme"
-read_when:
-  - Kararlı/beta/dev arasında geçiş yapmak istiyorsunuz
-  - Ön sürümleri etiketliyor veya yayımlıyorsunuz
 title: "Geliştirme Kanalları"
 ---
 

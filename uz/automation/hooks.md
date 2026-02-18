@@ -1,8 +1,4 @@
 ---
-summary: "15. Sinov"
-read_when:
-  - "16. Kuzatilayotgan inbox’ga xabar yuboring:"
-  - 17. gog gmail send \
 title: "  --account openclaw@gmail.com \\"
 ---
 

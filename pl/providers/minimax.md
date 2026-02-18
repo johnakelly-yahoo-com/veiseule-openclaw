@@ -1,8 +1,4 @@
 ---
-summary: "Używaj MiniMax M2.1 w OpenClaw"
-read_when:
-  - Chcesz korzystać z modeli MiniMax w OpenClaw
-  - Potrzebujesz wskazówek dotyczących konfiguracji MiniMax
 title: "MiniMax"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw’da Synthetic’in Anthropic uyumlu API’sini kullanın"
-read_when:
-  - Synthetic’i bir model sağlayıcısı olarak kullanmak istiyorsunuz
-  - Bir Synthetic API anahtarına veya temel URL kurulumuna ihtiyacınız var
 title: "Synthetic"
 ---
 

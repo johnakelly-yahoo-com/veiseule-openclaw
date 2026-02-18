@@ -1,8 +1,4 @@
 ---
-summary: "Talk 모드: ElevenLabs TTS 를 사용한 연속 음성 대화"
-read_when:
-  - macOS/iOS/Android 에서 Talk 모드를 구현할 때
-  - 음성/TTS/인터럽트 동작을 변경할 때
 title: "Talk 모드"
 ---
 

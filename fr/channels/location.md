@@ -1,8 +1,4 @@
 ---
-summary: "Analyse des emplacements entrants des canaux (Telegram + WhatsApp) et champs de contexte"
-read_when:
-  - Ajout ou modification de l’analyse des emplacements de canal
-  - Utilisation des champs de contexte d’emplacement dans les invites ou outils d’agent
 title: "Analyse des emplacements de canal"
 ---
 

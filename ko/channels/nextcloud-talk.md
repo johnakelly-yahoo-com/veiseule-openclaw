@@ -1,7 +1,4 @@
 ---
-summary: "Nextcloud Talk 지원 상태, 기능, 및 구성"
-read_when:
-  - Nextcloud Talk 채널 기능 작업 중
 title: "Nextcloud Talk"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw onboard`에 대한 CLI 레퍼런스(대화형 온보딩 마법사)"
-read_when:
-  - Gateway(게이트웨이), 워크스페이스, 인증, 채널, Skills에 대한 안내식 설정이 필요할 때
 title: "온보드"
 ---
 

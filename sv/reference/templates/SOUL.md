@@ -1,8 +1,4 @@
----
-summary: "Arbetsytemall för SOUL.md"
-read_when:
-  - Manuell uppstart av en arbetsyta
----
+------
 
 # SOUL.md – Vem du är
 

@@ -1,9 +1,4 @@
 ---
-summary: "Pag-uugali ng streaming + chunking (block replies, draft streaming, mga limitasyon)"
-read_when:
-  - Ipinapaliwanag kung paano gumagana ang streaming o chunking sa mga channel
-  - Binabago ang block streaming o channel chunking behavior
-  - Pag-debug ng duplicate/maagang block replies o draft streaming
 title: "Streaming at Chunking"
 ---
 

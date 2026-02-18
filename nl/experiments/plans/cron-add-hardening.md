@@ -1,5 +1,4 @@
 ---
-summary: "Cron.add-invoerafhandeling verharden, schema’s uitlijnen en cron-UI/agent-tooling verbeteren"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"

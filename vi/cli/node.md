@@ -1,8 +1,4 @@
 ---
-summary: "Tài liệu tham chiếu CLI cho `openclaw node` (máy chủ node không giao diện)"
-read_when:
-  - Chạy máy chủ node không giao diện
-  - Ghép cặp một node không phải macOS cho system.run
 title: "node"
 ---
 

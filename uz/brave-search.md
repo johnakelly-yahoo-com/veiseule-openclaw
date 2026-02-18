@@ -1,8 +1,4 @@
 ---
-summary: "web_search uchun Brave Search API sozlamalari"
-read_when:
-  - Siz web_search uchun Brave Search’dan foydalanmoqchisiz
-  - Sizga BRAVE_API_KEY yoki tarif tafsilotlari kerak
 title: "Brave Search"
 ---
 

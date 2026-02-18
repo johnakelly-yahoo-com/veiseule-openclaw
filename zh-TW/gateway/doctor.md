@@ -1,8 +1,4 @@
 ---
-summary: "Doctor 指令：健康檢查、設定遷移與修復步驟"
-read_when:
-  - 新增或修改 doctor 遷移
-  - 導入破壞性的設定變更
 title: "醫生"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw 에서 API 키 또는 Codex 구독을 통해 OpenAI 를 사용하는 방법"
-read_when:
-  - OpenClaw 에서 OpenAI 모델을 사용하려는 경우
-  - API 키 대신 Codex 구독 인증을 사용하려는 경우
 title: "OpenAI"
 ---
 

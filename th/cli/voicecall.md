@@ -1,8 +1,4 @@
 ---
-summary: "เอกสารอ้างอิงCLIสำหรับ `openclaw voicecall` (พื้นผิวคำสั่งของปลั๊กอินการโทรด้วยเสียง)"
-read_when:
-  - คุณใช้ปลั๊กอินการโทรด้วยเสียงและต้องการจุดเข้าใช้งานของCLI
-  - คุณต้องการตัวอย่างอย่างรวดเร็วสำหรับ `voicecall call|continue|status|tail|expose`
 title: "voicecall"
 ---
 

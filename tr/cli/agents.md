@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw agents` için CLI referansı (listeleme/ekleme/silme/kimlik ayarlama)"
-read_when:
-  - Birden fazla yalıtılmış ajan (çalışma alanları + yönlendirme + kimlik doğrulama) istediğinizde
 title: "cli/agents.md"
 ---
 

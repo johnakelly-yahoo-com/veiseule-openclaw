@@ -1,8 +1,4 @@
 ---
-summary: "Patakbuhin ang OpenClaw gamit ang Ollama (lokal na LLM runtime)"
-read_when:
-  - Gusto mong patakbuhin ang OpenClaw gamit ang mga lokal na model sa pamamagitan ng Ollama
-  - Kailangan mo ng gabay sa setup at konpigurasyon ng Ollama
 title: "Ollama"
 ---
 

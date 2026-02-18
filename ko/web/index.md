@@ -1,8 +1,4 @@
 ---
-summary: "Gateway(게이트웨이) 웹 표면: Control UI, 바인드 모드 및 보안"
-read_when:
-  - Tailscale 을 통해 Gateway(게이트웨이)에 접근하려는 경우
-  - 브라우저 Control UI 및 구성 편집이 필요한 경우
 title: "웹"
 ---
 

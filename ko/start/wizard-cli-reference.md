@@ -1,8 +1,4 @@
 ---
-summary: "CLI 온보딩 흐름, 인증/모델 설정, 출력 및 내부 동작에 대한 전체 참조"
-read_when:
-  - openclaw 온보딩의 상세 동작이 필요할 때
-  - 온보딩 결과를 디버깅하거나 온보딩 클라이언트를 통합할 때
 title: "CLI 온보딩 참조"
 sidebarTitle: "CLI 참조"
 ---

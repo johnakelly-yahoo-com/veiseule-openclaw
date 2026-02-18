@@ -1,8 +1,4 @@
 ---
-summary: "„Ausführung im Hintergrund und Prozessverwaltung“"
-read_when:
-  - Hinzufügen oder Ändern des Verhaltens der Hintergrundausführung
-  - Debuggen von lang laufenden Exec-Aufgaben
 title: "„Background Exec und Process Tool“"
 ---
 

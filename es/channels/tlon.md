@@ -1,7 +1,4 @@
 ---
-summary: "Estado de compatibilidad de Tlon/Urbit, capacidades y configuración"
-read_when:
-  - Al trabajar en funciones del canal Tlon/Urbit
 title: "Tlon"
 ---
 

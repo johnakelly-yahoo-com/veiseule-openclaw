@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw channels` uchun CLI ma’lumotnomasi (akkauntlar, holat, kirish/chiqish, loglar)"
-read_when:
-  - Siz kanal akkauntlarini qo‘shmoqchi/olib tashlamoqchisiz (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage)
-  - Siz kanal holatini tekshirmoqchisiz yoki kanal loglarini real vaqt rejimida ko‘rmoqchisiz
 title: "channels"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Authentication ng modelo: OAuth, mga API key, at setup-token"
-read_when:
-  - Pag-debug ng model auth o pag-expire ng OAuth
-  - Pagdodokumento ng authentication o pag-iimbak ng credential
 title: "Pagpapatunay ng Pagkakakilanlan"
 ---
 

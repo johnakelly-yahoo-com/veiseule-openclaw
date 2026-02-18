@@ -1,9 +1,4 @@
----
-summary: "Cắt tỉa phiên: rút gọn kết quả công cụ để giảm phình to ngữ cảnh"
-read_when:
-  - Bạn muốn giảm tăng trưởng ngữ cảnh LLM do đầu ra công cụ
-  - Bạn đang tinh chỉnh agents.defaults.contextPruning
----
+------
 
 # Cắt tỉa phiên
 

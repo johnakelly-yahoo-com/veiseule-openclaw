@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw status` (diagnostiek, probes, gebruikssnapshots)"
-read_when:
-  - Je wilt een snelle diagnose van kanaalstatus + recente sessie-ontvangers
-  - Je wilt een plakklare “alles”-status voor debugging
 title: "status"
 ---
 

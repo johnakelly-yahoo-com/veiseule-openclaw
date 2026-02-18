@@ -1,8 +1,4 @@
 ---
-summary: "Politique de réessai pour les appels sortants des fournisseurs"
-read_when:
-  - Mise à jour du comportement ou des valeurs par défaut de réessai des fournisseurs
-  - Dépannage des erreurs d’envoi ou des limitations de débit des fournisseurs
 title: "Politique de réessai"
 ---
 

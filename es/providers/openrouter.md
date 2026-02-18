@@ -1,8 +1,4 @@
 ---
-summary: "Use la API unificada de OpenRouter para acceder a muchos modelos en OpenClaw"
-read_when:
-  - Quiere una sola clave de API para muchos LLM
-  - Quiere ejecutar modelos a través de OpenRouter en OpenClaw
 title: "OpenRouter"
 ---
 

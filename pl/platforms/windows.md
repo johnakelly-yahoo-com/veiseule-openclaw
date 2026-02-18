@@ -1,8 +1,4 @@
 ---
-summary: "Obsługa Windows (WSL2) + status aplikacji towarzyszącej"
-read_when:
-  - Instalowanie OpenClaw na Windows
-  - Szukanie informacji o statusie aplikacji towarzyszącej na Windows
 title: "Windows (WSL2)"
 ---
 

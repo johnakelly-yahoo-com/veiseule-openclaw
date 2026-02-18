@@ -1,8 +1,4 @@
 ---
-summary: "Используйте Anthropic-совместимый API Synthetic в OpenClaw"
-read_when:
-  - Вы хотите использовать Synthetic как провайдера моделей
-  - Вам нужен ключ API Synthetic или настройка базового URL
 title: "Synthetic"
 ---
 

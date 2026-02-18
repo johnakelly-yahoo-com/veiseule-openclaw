@@ -1,8 +1,4 @@
 ---
-summary: "runbook de dépannage profond pour passerelle, canaux, automatisation, nœuds et navigateur"
-read_when:
-  - Le centre de dépannage vous a pointé ici pour un diagnostic plus approfondi
-  - Vous avez besoin de sections du runbook basées sur des symptômes stables avec des commandes exactes
 title: "Problemes courants"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Zalo 봇 지원 상태, 기능 및 구성"
-read_when:
-  - Zalo 기능 또는 웹훅 작업 시
 title: "Zalo"
 ---
 

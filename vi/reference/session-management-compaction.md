@@ -1,9 +1,4 @@
 ---
-summary: "Chuyên sâu: kho phiên + bản ghi hội thoại, vòng đời và nội bộ (tự động) nén"
-read_when:
-  - Bạn cần gỡ lỗi session id, JSONL bản ghi hội thoại, hoặc các trường trong sessions.json
-  - Bạn đang thay đổi hành vi tự động nén hoặc thêm công việc dọn dẹp “trước khi nén”
-  - Bạn muốn triển khai xả bộ nhớ hoặc các lượt hệ thống im lặng
 title: "Chuyên sâu quản lý phiên"
 ---
 

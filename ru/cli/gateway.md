@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw Gateway CLI (`openclaw gateway`) — запуск, запрос и обнаружение шлюзов"
-read_when:
-  - Запуск Gateway из CLI (dev или серверы)
-  - Отладка аутентификации Gateway, режимов привязки и подключения
-  - Обнаружение шлюзов через Bonjour (LAN + tailnet)
 title: "gateway"
 ---
 

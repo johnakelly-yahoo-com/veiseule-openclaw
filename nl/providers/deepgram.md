@@ -1,8 +1,4 @@
 ---
-summary: "Deepgram-transcriptie voor inkomende spraaknotities"
-read_when:
-  - Je wilt Deepgram spraak-naar-tekst voor audio-bijlagen
-  - Je hebt een snel Deepgram-configuratievoorbeeld nodig
 title: "Deepgram"
 ---
 

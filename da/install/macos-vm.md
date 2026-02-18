@@ -1,10 +1,4 @@
 ---
-summary: "Kør OpenClaw i en sandboxed macOS-VM (lokal eller hosted), når du har brug for isolation eller iMessage"
-read_when:
-  - Du vil have OpenClaw isoleret fra dit primære macOS-miljø
-  - Du vil have iMessage-integration (BlueBubbles) i en sandbox
-  - Du vil have et nulstilleligt macOS-miljø, som du kan klone
-  - Du vil sammenligne lokale vs. hosted macOS-VM-muligheder
 title: "macOS-VM'er"
 ---
 

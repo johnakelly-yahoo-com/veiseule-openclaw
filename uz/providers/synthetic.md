@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw’da Synthetic’ning Anthropic-mos API’sidan foydalaning"
-read_when:
-  - Siz Synthetic’ni model provayderi sifatida ishlatmoqchisiz
-  - Sizga Synthetic API kaliti yoki bazaviy URL sozlamasi kerak
 title: "Synthetic"
 ---
 

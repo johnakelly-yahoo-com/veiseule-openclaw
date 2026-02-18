@@ -1,8 +1,4 @@
 ---
-summary: "imsg (JSON-RPC over stdio) ကို အသုံးပြု၍ Legacy iMessage ကို ပံ့ပိုးသည်။ အသစ်စတင်တပ်ဆင်မှုများတွင် BlueBubbles ကို အသုံးပြုသင့်သည်။"
-read_when:
-  - iMessage ထောက်ပံ့မှု တပ်ဆင်ခြင်း
-  - iMessage ပို့ခြင်း/လက်ခံခြင်း ကို Debug လုပ်ခြင်း
 title: iMessage
 ---
 

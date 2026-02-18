@@ -1,8 +1,4 @@
 ---
-summary: "Scripted na onboarding at setup ng agent para sa OpenClaw CLI"
-read_when:
-  - Nag-a-automate ka ng onboarding sa mga script o CI
-  - Kailangan mo ng mga non-interactive na halimbawa para sa mga partikular na provider
 title: "CLI Awtomasyon"
 sidebarTitle: "CLI awtomasyon"
 ---

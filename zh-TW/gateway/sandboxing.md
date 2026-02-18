@@ -1,7 +1,5 @@
 ---
-summary: "OpenClaw 沙箱隔離的運作方式：模式、範圍、工作區存取與映像"
 title: 沙箱隔離
-read_when: "當你需要關於沙箱隔離的專門說明，或需要調整 agents.defaults.sandbox。"
 status: active
 ---
 

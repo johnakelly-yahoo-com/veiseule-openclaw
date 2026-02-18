@@ -1,8 +1,4 @@
 ---
-summary: "Ollama (स्थानीय LLM रनटाइम) के साथ OpenClaw चलाएँ"
-read_when:
-  - आप Ollama के माध्यम से स्थानीय मॉडलों के साथ OpenClaw चलाना चाहते हैं
-  - आपको Ollama की सेटअप और विन्यास संबंधी मार्गदर्शन चाहिए
 title: "Ollama"
 ---
 

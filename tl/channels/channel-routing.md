@@ -1,7 +1,4 @@
 ---
-summary: "Mga patakaran sa routing bawat channel (WhatsApp, Telegram, Discord, Slack) at shared na context"
-read_when:
-  - Pagbabago ng channel routing o behavior ng inbox
 title: "Pag-route ng Channel"
 ---
 

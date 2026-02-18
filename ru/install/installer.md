@@ -1,9 +1,4 @@
 ---
-summary: "Как работают скрипты установщика (install.sh, install-cli.sh, install.ps1), флаги и автоматизация"
-read_when:
-  - Вы хотите понять `openclaw.ai/install.sh`
-  - Вы хотите автоматизировать установку (CI / headless)
-  - Вы хотите установить из checkout репозитория GitHub
 title: "Внутреннее устройство установщика"
 ---
 

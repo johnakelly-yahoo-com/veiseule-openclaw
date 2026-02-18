@@ -1,9 +1,4 @@
 ---
-summary: "Models CLI: lijst, instellen, aliassen, fallbacks, scannen, status"
-read_when:
-  - Modellen CLI toevoegen of wijzigen (models list/set/scan/aliases/fallbacks)
-  - Gedrag van model-fallbacks of selectie-UX wijzigen
-  - Model-scanprobes bijwerken (tools/afbeeldingen)
 title: "Models CLI"
 ---
 

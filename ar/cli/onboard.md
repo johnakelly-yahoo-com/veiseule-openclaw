@@ -1,7 +1,4 @@
 ---
-summary: "مرجع CLI للأمر `openclaw onboard` (معالج تهيئة أولية تفاعلي)"
-read_when:
-  - عندما تريد إعدادًا موجّهًا لـ Gateway ومساحة العمل والمصادقة والقنوات وSkills
 title: "onboard"
 ---
 

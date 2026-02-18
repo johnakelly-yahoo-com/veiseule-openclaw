@@ -1,9 +1,4 @@
 ---
-summary: "Context: kung ano ang nakikita ng model, paano ito binubuo, at paano ito siyasatin"
-read_when:
-  - Gusto mong maunawaan kung ano ang ibig sabihin ng “context” sa OpenClaw
-  - Nagde-debug ka kung bakit may “alam” ang model tungkol sa isang bagay (o nakalimutan ito)
-  - Gusto mong bawasan ang context overhead (/context, /status, /compact)
 title: "Konteksto"
 ---
 

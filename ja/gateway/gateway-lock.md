@@ -1,8 +1,4 @@
 ---
-summary: "WebSocket リスナーのバインドを使用した Gateway シングルトンガード"
-read_when:
-  - Gateway プロセスを実行またはデバッグする場合
-  - 単一インスタンスの強制を調査する場合
 title: "Gateway ロック"
 ---
 

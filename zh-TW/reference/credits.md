@@ -1,7 +1,4 @@
 ---
-summary: "專案起源、貢獻者與授權條款。"
-read_when:
-  - You want the project backstory or contributor credits
 title: "致謝"
 ---
 

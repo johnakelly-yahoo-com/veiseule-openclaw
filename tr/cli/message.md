@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw message` için CLI başvurusu (gönderme + kanal eylemleri)"
-read_when:
-  - Mesaj CLI eylemleri eklerken veya değiştirirken
-  - Giden kanal davranışını değiştirirken
 title: "message"
 ---
 

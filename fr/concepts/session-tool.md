@@ -1,7 +1,4 @@
 ---
-summary: "Outils de session d’agent pour lister les sessions, recuperer l’historique et envoyer des messages inter‑sessions"
-read_when:
-  - Ajout ou modification des outils de session
 title: "Outils de session"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Uyandırma ve izole ajan çalıştırmaları için webhook girişi"
-read_when:
-  - Webhook uç noktaları eklerken veya değiştirirken
-  - Harici sistemleri OpenClaw’a bağlarken
 title: "Webhook'lar"
 ---
 

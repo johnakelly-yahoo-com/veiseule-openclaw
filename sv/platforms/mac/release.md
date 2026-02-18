@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS-utchecklista för release (Sparkle-flöde, paketering, signering)"
-read_when:
-  - Skapa eller validera en OpenClaw macOS-release
-  - Uppdatera Sparkle-appcasten eller flödestillgångar
 title: "macOS-release"
 ---
 

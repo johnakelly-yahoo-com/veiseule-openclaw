@@ -1,8 +1,6 @@
 ---
 title: "쇼케이스"
-description: "커뮤니티의 실제 OpenClaw 프로젝트"
-summary: "OpenClaw 로 구동되는 커뮤니티 제작 프로젝트와 통합 사례"
----
+description: "커뮤니티의 실제 OpenClaw 프로젝트"---
 
 # 쇼케이스
 

@@ -1,9 +1,4 @@
 ---
-summary: "Hvordan installationsscripts fungerer (install.sh, install-cli.sh, install.ps1), flag og automatisering"
-read_when:
-  - Du vil forstå `openclaw.ai/install.sh`
-  - Du vil automatisere installationer (CI / headless)
-  - Du vil installere fra et GitHub-checkout
 title: "Installerens indre"
 ---
 

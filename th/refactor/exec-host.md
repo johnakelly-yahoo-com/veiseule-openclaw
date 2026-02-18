@@ -1,9 +1,4 @@
 ---
-summary: "แผนรีแฟกเตอร์: การกำหนดเส้นทางexec host, การอนุมัติโหนด และ runner แบบ headless"
-read_when:
-  - การออกแบบการกำหนดเส้นทางexec hostหรือการอนุมัติexec
-  - การทำ node runner + UI IPC
-  - การเพิ่มโหมดความปลอดภัยของexec hostและคำสั่งแบบ slash
 title: "การรีแฟกเตอร์Exec Host"
 ---
 

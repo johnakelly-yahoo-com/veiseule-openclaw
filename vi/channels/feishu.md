@@ -1,8 +1,4 @@
 ---
-summary: "Tổng quan bot Feishu, tính năng và cấu hình"
-read_when:
-  - Bạn muốn kết nối một bot Feishu/Lark
-  - Bạn đang cấu hình kênh Feishu
 title: Feishu
 ---
 

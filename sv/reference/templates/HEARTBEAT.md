@@ -1,8 +1,4 @@
----
-summary: "Arbetsytemall för HEARTBEAT.md"
-read_when:
-  - Manuell uppstart av ett arbetsyta
----
+------
 
 # HEARTBEAT.md
 

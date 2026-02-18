@@ -1,9 +1,4 @@
----
-summary: "Identiteit van de dev-agent (C-3PO)"
-read_when:
-  - Gebruik van de dev-gatewaytemplates
-  - Bijwerken van de standaardidentiteit van de dev-agent
----
+------
 
 # IDENTITY.md - Agentidentiteit
 

@@ -1,8 +1,4 @@
----
-summary: "Workspace-skabelon til TOOLS.md"
-read_when:
-  - Manuel bootstrap af et workspace
----
+------
 
 # TOOLS.md - Lokale noter
 

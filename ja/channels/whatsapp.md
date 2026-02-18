@@ -1,7 +1,4 @@
 ---
-summary: "WhatsApp（Web チャンネル）統合：ログイン、受信トレイ、返信、メディア、運用"
-read_when:
-  - WhatsApp/Web チャンネルの挙動や受信トレイのルーティングに取り組むとき
 title: "WhatsApp"
 ---
 

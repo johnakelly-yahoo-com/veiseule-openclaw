@@ -1,8 +1,4 @@
 ---
-summary: "瀏覽器自動化與 X/Twitter 發佈的手動登入"
-read_when:
-  - 你需要為瀏覽器自動化登入網站
-  - 你想要在 X/Twitter 發佈更新
 title: "瀏覽器登入"
 ---
 

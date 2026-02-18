@@ -1,8 +1,4 @@
 ---
-summary: "使用量追蹤的呈現介面與憑證需求"
-read_when:
-  - You are wiring provider usage/quota surfaces
-  - 你需要說明使用量追蹤的行為或身分驗證需求
 title: "使用量追蹤"
 ---
 

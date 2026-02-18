@@ -1,9 +1,4 @@
 ---
-summary: "macOS-tilladelsers persistens (TCC) og krav til signering"
-read_when:
-  - Fejlfinding af manglende eller fastlåste macOS-tilladelsesprompter
-  - Pakning eller signering af macOS-appen
-  - Ændring af bundle-id'er eller app-installationsstier
 title: "macOS-tilladelser"
 ---
 

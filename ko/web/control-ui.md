@@ -1,8 +1,4 @@
 ---
-summary: "Gateway(게이트웨이)를 위한 브라우저 기반 제어 UI (채팅, 노드, 구성)"
-read_when:
-  - 브라우저에서 Gateway(게이트웨이)를 운영하려는 경우
-  - SSH 터널 없이 Tailnet 접근이 필요한 경우
 title: "Control UI"
 ---
 

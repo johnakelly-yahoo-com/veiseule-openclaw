@@ -1,8 +1,4 @@
 ---
-summary: "Stabila, beta- och dev-kanaler: semantik, växling och taggning"
-read_when:
-  - Du vill växla mellan stable/beta/dev
-  - Du taggar eller publicerar prereleaser
 title: "Utvecklingskanaler"
 ---
 

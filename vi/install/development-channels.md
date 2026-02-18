@@ -1,8 +1,4 @@
 ---
-summary: "Các kênh stable, beta và dev: ngữ nghĩa, chuyển đổi và gắn thẻ"
-read_when:
-  - Bạn muốn chuyển giữa stable/beta/dev
-  - Bạn đang gắn thẻ hoặc phát hành prerelease
 title: "Các kênh phát triển"
 ---
 

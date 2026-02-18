@@ -1,9 +1,4 @@
 ---
-summary: "Configuración, ajustes y uso del plugin de la API de mensajería de LINE"
-read_when:
-  - Quiere conectar OpenClaw con LINE
-  - Necesita configurar el webhook y las credenciales de LINE
-  - Quiere opciones de mensajes específicas de LINE
 title: LINE
 ---
 

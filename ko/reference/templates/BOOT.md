@@ -1,8 +1,4 @@
----
-summary: "BOOT.md 를 위한 워크스페이스 템플릿"
-read_when:
-  - BOOT.md 체크리스트를 추가할 때
----
+------
 
 # BOOT.md
 

@@ -1,9 +1,4 @@
 ---
-summary: "Mga exec approval, allowlist, at mga prompt para sa paglabas ng sandbox"
-read_when:
-  - Pagko-configure ng exec approvals o mga allowlist
-  - Pagpapatupad ng exec approval UX sa macOS app
-  - Pagsusuri ng mga sandbox escape prompt at mga implikasyon
 title: "Mga Pag-apruba ng Ehekutibo"
 ---
 

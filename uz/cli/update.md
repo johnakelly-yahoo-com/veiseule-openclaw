@@ -1,8 +1,4 @@
 ---
-summary: "5. `openclaw update` uchun CLI ma’lumotnomasi (xavfsizroq manba yangilash + gateway’ni avtomatik qayta ishga tushirish)"
-read_when:
-  - 6. Siz manba checkout’ini xavfsiz yangilamoqchisiz
-  - 7. `--update` qisqartmasi qanday ishlashini tushunishingiz kerak
 title: "`--no-restart`: muvaffaqiyatli yangilashdan so‘ng Gateway xizmatini qayta ishga tushirishni o‘tkazib yuboradi."
 ---
 

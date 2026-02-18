@@ -1,8 +1,4 @@
 ---
-summary: "IDE 統合のために ACP ブリッジを実行します"
-read_when:
-  - ACP ベースの IDE 統合をセットアップする場合
-  - ACP セッションの Gateway へのルーティングをデバッグする場合
 title: "acp"
 ---
 

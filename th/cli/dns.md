@@ -1,8 +1,4 @@
 ---
-summary: "เอกสารอ้างอิงCLIสำหรับ`openclaw dns`(ตัวช่วยDiscoveryแบบเครือข่ายกว้าง)"
-read_when:
-  - คุณต้องการDiscoveryแบบเครือข่ายกว้าง(DNS-SD)ผ่านTailscale+CoreDNS
-  - You’re setting up split DNS for a custom discovery domain (example: openclaw.internal)
 title: "dns"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Daloy ng mensahe, mga session, queueing, at visibility ng reasoning"
-read_when:
-  - Pagpapaliwanag kung paano nagiging mga reply ang mga inbound na mensahe
-  - Paglilinaw ng mga session, queueing mode, o gawi ng streaming
-  - Pagdodokumento ng visibility ng reasoning at mga implikasyon sa paggamit
 title: "Mga Mensahe"
 ---
 

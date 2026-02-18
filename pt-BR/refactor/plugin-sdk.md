@@ -1,8 +1,4 @@
 ---
-summary: "Plano: um SDK de plugin + runtime limpos para todos os conectores de mensagens"
-read_when:
-  - Definindo ou refatorando a arquitetura de plugins
-  - Migrando conectores de canal para o SDK/runtime de plugins
 title: "Refatoração do SDK de Plugin"
 ---
 

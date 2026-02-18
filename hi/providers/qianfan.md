@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw में अनेक मॉडलों तक पहुँचने के लिए Qianfan के एकीकृत API का उपयोग करें"
-read_when:
-  - आप कई LLMs के लिए एक ही API कुंजी चाहते हैं
-  - आपको Baidu Qianfan सेटअप मार्गदर्शन की आवश्यकता है
 title: "Qianfan"
 ---
 

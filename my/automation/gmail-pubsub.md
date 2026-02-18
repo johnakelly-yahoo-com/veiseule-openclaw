@@ -1,8 +1,4 @@
 ---
-summary: "gogcli မှတဆင့် OpenClaw webhooks နှင့် ချိတ်ဆက်ထားသော Gmail Pub/Sub push"
-read_when:
-  - Gmail inbox trigger များကို OpenClaw နှင့် ချိတ်ဆက်ခြင်း
-  - agent wake အတွက် Pub/Sub push ကို တပ်ဆင်ခြင်း
 title: "Gmail PubSub"
 ---
 

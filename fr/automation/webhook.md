@@ -1,8 +1,4 @@
 ---
-summary: "Ingress webhook pour le réveil et les exécutions d’agents isolées"
-read_when:
-  - Ajout ou modification des points de terminaison webhook
-  - Câblage de systèmes externes dans OpenClaw
 title: "Webhooks"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Invocar uma única ferramenta diretamente pelo endpoint HTTP do Gateway"
-read_when:
-  - Chamar ferramentas sem executar um turno completo do agente
-  - Criar automações que precisam de aplicação de políticas de ferramentas
 title: "API de Invocação de Ferramentas"
 ---
 

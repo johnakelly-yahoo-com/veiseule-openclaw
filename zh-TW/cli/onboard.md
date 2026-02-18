@@ -1,7 +1,4 @@
 ---
-summary: "CLI 參考文件：`openclaw onboard`（互動式入門引導精靈）"
-read_when:
-  - 你想要為 Gateway 閘道器、工作區、身分驗證、頻道與 Skills 進行引導式設定
 title: "onboard"
 ---
 

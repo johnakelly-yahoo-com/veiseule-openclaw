@@ -1,8 +1,4 @@
 ---
-summary: "Mga script ng repository: layunin, saklaw, at mga tala sa kaligtasan"
-read_when:
-  - Pagpapatakbo ng mga script mula sa repo
-  - Pagdaragdag o pagbabago ng mga script sa ilalim ng ./scripts
 title: "Mga Script"
 ---
 

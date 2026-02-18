@@ -1,7 +1,4 @@
 ---
-summary: "Status, funktioner och konfiguration för Matrix-stöd"
-read_when:
-  - Arbetar med funktioner för Matrix-kanalen
 title: "Matrix"
 ---
 

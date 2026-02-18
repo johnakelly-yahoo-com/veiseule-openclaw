@@ -1,10 +1,4 @@
----
-summary: "Lista kontrolna wydania krok po kroku dla npm + aplikacji macOS"
-read_when:
-  - Przygotowywanie nowego wydania npm
-  - Przygotowywanie nowego wydania aplikacji macOS
-  - Weryfikacja metadanych przed publikacją
----
+------
 
 # Lista kontrolna wydania (npm + macOS)
 

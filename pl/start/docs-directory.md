@@ -1,7 +1,4 @@
 ---
-summary: "Starannie dobrane linki do najczęściej używanych dokumentów OpenClaw."
-read_when:
-  - Chcesz mieć szybki dostęp do kluczowych stron dokumentacji
 title: "Katalog dokumentacji"
 ---
 

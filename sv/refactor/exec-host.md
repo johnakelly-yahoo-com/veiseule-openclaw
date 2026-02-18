@@ -1,9 +1,4 @@
 ---
-summary: "Refaktorplan: routning av exec-värd, nodgodkännanden och headless runner"
-read_when:
-  - Utformar routning av exec-värd eller exec-godkännanden
-  - Implementerar nodrunner + UI IPC
-  - Lägger till säkerhetslägen för exec-värd och slash-kommandon
 title: "Refaktorering av exec-värd"
 ---
 

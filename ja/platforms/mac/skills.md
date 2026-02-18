@@ -1,8 +1,4 @@
 ---
-summary: "macOS の Skills 設定 UI と ゲートウェイ によるステータス"
-read_when:
-  - macOS の Skills 設定 UI を更新する場合
-  - Skills のゲーティングやインストール動作を変更する場合
 title: "スキル"
 ---
 

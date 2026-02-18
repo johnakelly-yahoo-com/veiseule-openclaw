@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw webhooks` အတွက် CLI ကိုးကားချက် (webhook အကူအညီပေးကိရိယာများ + Gmail Pub/Sub)"
-read_when:
-  - Gmail Pub/Sub ဖြစ်ရပ်များကို OpenClaw သို့ ချိတ်ဆက်လိုသောအခါ
-  - webhook အကူအညီပေး အမိန့်များကို အသုံးပြုလိုသောအခါ
 title: "ဝဘ်ဟုတ်များ"
 ---
 

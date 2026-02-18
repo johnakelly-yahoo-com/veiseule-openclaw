@@ -1,7 +1,4 @@
 ---
-summary: "Ondersteuningsstatus, mogelijkheden en configuratie voor Tlon/Urbit"
-read_when:
-  - Werken aan Tlon/Urbit-kanaalfunctionaliteit
 title: "Tlon"
 ---
 

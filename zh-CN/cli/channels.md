@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想添加/删除渠道账户（WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost（插件）/Signal/iMessage）
-  - 你想检查渠道状态或跟踪渠道日志
-summary: "`openclaw channels` 的 CLI 参考（账户、状态、登录/登出、日志）"
 title: channels
 x-i18n:
   generated_at: "2026-02-03T07:44:51Z"

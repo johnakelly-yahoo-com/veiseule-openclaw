@@ -1,9 +1,4 @@
 ---
-summary: "연구 노트: Clawd 워크스페이스를 위한 오프라인 메모리 시스템 (Markdown 단일 소스 오브 트루스 + 파생 인덱스)"
-read_when:
-  - 일일 Markdown 로그를 넘어서는 워크스페이스 메모리 (~/.openclaw/workspace) 설계 시
-  - Deciding: 독립형 CLI vs OpenClaw 심층 통합 결정 시
-  - 오프라인 회상 + 성찰 (retain/recall/reflect) 추가 시
 title: "워크스페이스 메모리 연구"
 ---
 

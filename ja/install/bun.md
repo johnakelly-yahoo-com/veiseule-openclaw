@@ -1,8 +1,4 @@
 ---
-summary: "Bun ワークフロー（実験的）：pnpm との違い、インストール時の注意点"
-read_when:
-  - Bun + watch による最速のローカル開発ループを求めている場合
-  - Bun の install / patch / ライフサイクルスクリプトの問題に遭遇した場合
 title: "Bun（実験的）"
 ---
 

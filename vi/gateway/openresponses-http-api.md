@@ -1,8 +1,4 @@
 ---
-summary: "Mở một endpoint HTTP /v1/responses tương thích OpenResponses từ Gateway"
-read_when:
-  - Tích hợp các client sử dụng API OpenResponses
-  - Bạn muốn đầu vào dạng item, client tool calls hoặc sự kiện SSE
 title: "API OpenResponses"
 ---
 

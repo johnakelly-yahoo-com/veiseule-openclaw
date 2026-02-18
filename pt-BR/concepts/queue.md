@@ -1,7 +1,4 @@
 ---
-summary: "Design da fila de comandos que serializa execuções de resposta automática de entrada"
-read_when:
-  - Alterar a execução ou a concorrência de respostas automáticas
 title: "Fila de Comandos"
 ---
 

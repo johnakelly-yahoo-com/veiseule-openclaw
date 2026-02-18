@@ -1,8 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw approvals` (exec-godkendelser for gateway- eller node-værter)"
-read_when:
-  - Du vil redigere exec-godkendelser fra CLI
-  - Du skal administrere tilladelseslister på gateway- eller node-værter
 title: "godkendelser"
 ---
 

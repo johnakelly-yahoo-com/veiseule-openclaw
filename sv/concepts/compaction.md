@@ -1,8 +1,4 @@
 ---
-summary: "Kontextfönster + kompaktering: hur OpenClaw håller sessioner inom modellgränser"
-read_when:
-  - Du vill förstå autokompaktering och /compact
-  - Du felsöker långa sessioner som slår i kontextgränser
 title: "Kompaktering"
 ---
 

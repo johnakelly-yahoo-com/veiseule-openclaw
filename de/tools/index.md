@@ -1,8 +1,4 @@
 ---
-summary: "„Agenten-Werkzeugoberfläche für OpenClaw (Browser, Canvas, Nodes, Nachrichten, Cron), die veraltete `openclaw-*` Skills ersetzt“"
-read_when:
-  - Beim Hinzufügen oder Ändern von Agenten-Werkzeugen
-  - Beim Außerbetriebnehmen oder Ändern von `openclaw-*` Skills
 title: "„Werkzeuge“"
 ---
 

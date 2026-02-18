@@ -1,7 +1,4 @@
 ---
-summary: "Runbook cho dịch vụ Gateway, vòng đời và vận hành"
-read_when:
-  - Khi chạy hoặc gỡ lỗi tiến trình gateway
 title: "Runbook Gateway"
 ---
 

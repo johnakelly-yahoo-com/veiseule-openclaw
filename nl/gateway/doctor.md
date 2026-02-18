@@ -1,8 +1,4 @@
 ---
-summary: "Doctor-opdracht: healthchecks, config-migraties en reparatiestappen"
-read_when:
-  - Het toevoegen of wijzigen van doctor-migraties
-  - Het introduceren van ingrijpende configwijzigingen
 title: "Dokter"
 ---
 

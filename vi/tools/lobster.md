@@ -1,11 +1,6 @@
 ---
 title: Lobster
-summary: "Runtime workflow có kiểu cho OpenClaw với các cổng phê duyệt có thể tiếp tục."
-description: Runtime workflow có kiểu cho OpenClaw — các pipeline có thể ghép nối với cổng phê duyệt.
-read_when:
-  - Bạn muốn các workflow nhiều bước có tính quyết định với phê duyệt rõ ràng
-  - Bạn cần tiếp tục một workflow mà không phải chạy lại các bước trước đó
----
+description: Runtime workflow có kiểu cho OpenClaw — các pipeline có thể ghép nối với cổng phê duyệt.---
 
 # Lobster
 

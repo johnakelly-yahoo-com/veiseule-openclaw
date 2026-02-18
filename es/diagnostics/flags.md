@@ -1,8 +1,4 @@
 ---
-summary: "Indicadores de diagnóstico para registros de depuración dirigidos"
-read_when:
-  - Necesita registros de depuración dirigidos sin aumentar los niveles de registro globales
-  - Necesita capturar registros específicos de subsistemas para soporte
 title: "Indicadores de diagnóstico"
 ---
 

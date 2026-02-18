@@ -1,9 +1,4 @@
 ---
-summary: "macOS UI 自動化向けの PeekabooBridge 統合"
-read_when:
-  - OpenClaw.app で PeekabooBridge をホストする場合
-  - Swift Package Manager を介して Peekaboo を統合する場合
-  - PeekabooBridge のプロトコルやパスを変更する場合
 title: "Peekaboo Bridge"
 ---
 

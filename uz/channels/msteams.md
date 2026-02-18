@@ -1,7 +1,4 @@
 ---
-summary: "33. Microsoft Teams botini qo‘llab-quvvatlash holati, imkoniyatlari va konfiguratsiyasi"
-read_when:
-  - 34. MS Teams kanal funksiyalari ustida ish olib borilmoqda
 title: "35. Microsoft Teams"
 ---
 

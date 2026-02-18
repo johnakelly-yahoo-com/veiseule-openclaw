@@ -1,8 +1,4 @@
 ---
-summary: "インバウンド音声メモ向けの Deepgram 文字起こし"
-read_when:
-  - 音声添付に Deepgram の音声認識を使いたい場合
-  - Deepgram の簡単な設定例が必要な場合
 title: "Deepgram"
 ---
 

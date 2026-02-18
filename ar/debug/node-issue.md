@@ -1,8 +1,4 @@
 ---
-summary: ملاحظات وتعويضات لتعطّل Node + tsx برسالة «__name is not a function»
-read_when:
-  - تصحيح أخطاء سكربتات التطوير الخاصة بـ Node فقط أو أعطال وضع المراقبة
-  - التحقيق في أعطال مُحمِّل tsx/esbuild في OpenClaw
 title: "تعطّل Node + tsx"
 ---
 

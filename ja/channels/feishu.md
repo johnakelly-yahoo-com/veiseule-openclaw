@@ -1,8 +1,4 @@
 ---
-summary: "Feishu ボットの概要、機能、および設定"
-read_when:
-  - Feishu/Lark ボットを接続したい場合
-  - Feishu チャンネルを設定している場合
 title: Feishu
 ---
 

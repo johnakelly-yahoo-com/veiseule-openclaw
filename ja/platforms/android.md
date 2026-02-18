@@ -1,9 +1,4 @@
 ---
-summary: "Android アプリ（ノード）：接続ランブック + Canvas / Chat / Camera"
-read_when:
-  - Android ノードのペアリングまたは再接続を行う場合
-  - Android ゲートウェイの検出や認証をデバッグする場合
-  - クライアント間でチャット履歴の整合性を確認する場合
 title: "Android アプリ"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Agent loop 的生命週期、串流與等待語義"
-read_when:
-  - 當你需要對 agent loop 或生命週期事件有精確的逐步說明
 title: "代理迴圈"
 ---
 

@@ -1,6 +1,4 @@
 ---
-summary: "Linux 에서 OpenClaw 브라우저 제어를 위한 Chrome/Brave/Edge/Chromium CDP 시작 문제 해결"
-read_when: "Linux 에서 브라우저 제어가 실패할 때, 특히 snap Chromium 사용 시"
 title: "브라우저 문제 해결"
 ---
 

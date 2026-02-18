@@ -1,9 +1,4 @@
 ---
-summary: "WKWebView とカスタム URL スキームを介して埋め込まれた、エージェント制御の Canvas パネル"
-read_when:
-  - macOS Canvas パネルを実装する場合
-  - 視覚的ワークスペース向けのエージェント制御を追加する場合
-  - WKWebView の Canvas 読み込みをデバッグする場合
 title: "Canvas"
 ---
 

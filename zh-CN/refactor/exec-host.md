@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 设计 exec 主机路由或 exec 批准
-  - 实现节点运行器 + UI IPC
-  - 添加 exec 主机安全模式和斜杠命令
-summary: 重构计划：exec 主机路由、节点批准和无头运行器
 title: Exec 主机重构
 x-i18n:
   generated_at: "2026-02-03T07:54:43Z"

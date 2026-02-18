@@ -1,8 +1,4 @@
 ---
-summary: "signal-cli (JSON-RPC + SSE)를 통한 Signal 지원, 설정 및 번호 모델"
-read_when:
-  - Signal 지원 설정
-  - Signal 송수신 디버깅
 title: "Signal"
 ---
 

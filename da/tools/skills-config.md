@@ -1,8 +1,4 @@
 ---
-summary: "Skema og eksempler for Skills-konfiguration"
-read_when:
-  - Tilføjelse eller ændring af Skills-konfiguration
-  - Justering af bundtet tilladelsesliste eller installationsadfærd
 title: "Skills-konfiguration"
 ---
 

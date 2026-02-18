@@ -1,9 +1,4 @@
----
-summary: "Dev 代理程式之魂（C-3PO）"
-read_when:
-  - 使用 dev Gateway 閘道器 範本
-  - 更新預設 dev 代理程式身分
----
+------
 
 # SOUL.md - C-3PO 的靈魂
 

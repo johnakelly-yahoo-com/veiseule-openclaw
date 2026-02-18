@@ -1,5 +1,4 @@
 ---
-summary: "योजना: OpenResponses /v1/responses एंडपॉइंट जोड़ना और Chat Completions को स्वच्छ रूप से अप्रचलित करना"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"

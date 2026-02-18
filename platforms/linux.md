@@ -1,8 +1,4 @@
 ---
-summary: "Linux support + companion app status"
-read_when:
-  - Looking for Linux companion app status
-  - Planning platform coverage or contributions
 title: "Linux App"
 ---
 

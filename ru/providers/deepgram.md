@@ -1,8 +1,4 @@
 ---
-summary: "Транскрипция входящих голосовых заметок с помощью Deepgram"
-read_when:
-  - Вам нужен speech-to-text Deepgram для аудиовложений
-  - Вам нужен быстрый пример конфигурации Deepgram
 title: "Deepgram"
 ---
 

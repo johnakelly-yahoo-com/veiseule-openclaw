@@ -1,9 +1,4 @@
 ---
-summary: "Forskningsanteckningar: offline-minnessystem för Clawd-arbetsytor (Markdown som källa för sanningen + härlett index)"
-read_when:
-  - Utformning av arbetsyteminne (~/.openclaw/workspace) bortom dagliga Markdown-loggar
-  - Deciding: fristående CLI vs djup OpenClaw integration
-  - Tillägg av offline återkallelse + reflektion (retain/recall/reflect)
 title: "Forskning om arbetsyteminne"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Análise aprofundada: armazenamento de sessões + transcrições, ciclo de vida e detalhes internos de (auto)compactação"
-read_when:
-  - Você precisa depurar ids de sessão, JSONL de transcrições ou campos de sessions.json
-  - Você está alterando o comportamento de auto-compactação ou adicionando rotinas de organização “pré-compactação”
-  - Você quer implementar despejos de memória ou turnos silenciosos do sistema
 title: "Gerenciamento de sessão profunda mergulho"
 ---
 

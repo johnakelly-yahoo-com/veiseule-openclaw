@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 手动引导初始化工作区
-summary: AGENTS.md 的工作区模板
 x-i18n:
   generated_at: "2026-02-01T21:37:51Z"
   model: claude-opus-4-5

@@ -1,8 +1,4 @@
 ---
-summary: "Wtyczka Voice Call: połączenia wychodzące i przychodzące przez Twilio/Telnyx/Plivo (instalacja wtyczki + konfiguracja + CLI)"
-read_when:
-  - Chcesz wykonać wychodzące połączenie głosowe z OpenClaw
-  - Konfigurujesz lub rozwijasz wtyczkę voice-call
 title: "Wtyczka Voice Call"
 ---
 

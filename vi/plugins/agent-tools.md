@@ -1,8 +1,4 @@
 ---
-summary: "Viết công cụ cho tác tử trong một plugin (schema, công cụ tùy chọn, danh sách cho phép)"
-read_when:
-  - Bạn muốn thêm một công cụ tác tử mới trong một plugin
-  - Bạn cần biến một công cụ thành tùy chọn thông qua danh sách cho phép
 title: "Công cụ tác tử của Plugin"
 ---
 

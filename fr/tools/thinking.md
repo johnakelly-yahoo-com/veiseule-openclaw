@@ -1,7 +1,4 @@
 ---
-summary: "Syntaxe des directives pour /think + /verbose et leur impact sur le raisonnement du modele"
-read_when:
-  - Ajuster l’analyse des directives de thinking ou verbose, ou leurs valeurs par defaut
 title: "Niveaux de thinking"
 ---
 

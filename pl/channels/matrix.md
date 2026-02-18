@@ -1,7 +1,4 @@
 ---
-summary: "„Status obsługi Matrix, możliwości i konfiguracja”"
-read_when:
-  - Prace nad funkcjami kanału Matrix
 title: "„Matrix”"
 ---
 

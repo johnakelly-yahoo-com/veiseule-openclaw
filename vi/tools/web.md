@@ -1,9 +1,4 @@
 ---
-summary: "Công cụ tìm kiếm web + tải nội dung (Brave Search API, Perplexity trực tiếp/OpenRouter)"
-read_when:
-  - Bạn muốn bật web_search hoặc web_fetch
-  - Bạn cần thiết lập khóa Brave Search API
-  - Bạn muốn dùng Perplexity Sonar cho tìm kiếm web
 title: "Công cụ Web"
 ---
 

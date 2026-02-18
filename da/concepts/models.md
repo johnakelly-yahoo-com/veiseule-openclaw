@@ -1,9 +1,4 @@
 ---
-summary: "Models CLI: list, set, aliaser, fallbacks, scan, status"
-read_when:
-  - Tilføjelse eller ændring af models CLI (models list/set/scan/aliases/fallbacks)
-  - Ændring af model-fallback-adfærd eller valg-UX
-  - Opdatering af model-scan-prober (værktøjer/billeder)
 title: "Models CLI"
 ---
 

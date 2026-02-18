@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw hooks` (agent hooks) အတွက် CLI ကိုးကားချက်"
-read_when:
-  - agent hooks များကို စီမံခန့်ခွဲလိုသောအခါ
-  - hooks များကို ထည့်သွင်းခြင်း သို့မဟုတ် အပ်ဒိတ်လုပ်လိုသောအခါ
 title: "hooks"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Bonjour/mDNS ڈسکوری + ڈیبگنگ (Gateway بیکنز، کلائنٹس، اور عام ناکامی کے انداز)"
-read_when:
-  - macOS/iOS پر Bonjour ڈسکوری کے مسائل کی ڈیبگنگ
-  - mDNS سروس ٹائپس، TXT ریکارڈز، یا ڈسکوری UX میں تبدیلی
 title: "Bonjour ڈسکوری"
 ---
 

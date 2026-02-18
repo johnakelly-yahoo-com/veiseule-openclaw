@@ -1,8 +1,4 @@
 ---
-summary: "Geïntegreerde Tailscale Serve/Funnel voor het Gateway-dashboard"
-read_when:
-  - Het Gateway Control UI buiten localhost beschikbaar maken
-  - Toegang tot het tailnet of een openbaar dashboard automatiseren
 title: "Tailscale"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Tham chiếu CLI cho `openclaw update` (cập nhật nguồn an toàn tương đối + tự động khởi động lại gateway)"
-read_when:
-  - Bạn muốn cập nhật một bản checkout nguồn một cách an toàn
-  - Bạn cần hiểu hành vi viết tắt `--update`
 title: "update"
 ---
 

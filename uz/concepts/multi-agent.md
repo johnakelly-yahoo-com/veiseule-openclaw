@@ -1,7 +1,5 @@
 ---
-summary: "Ko‘p-agentli marshrutlash: ajratilgan agentlar, kanal akkauntlari va bog‘lamalar"
 title: Ko‘p-agentli marshrutlash
-read_when: "Siz bitta gateway jarayonida bir nechta ajratilgan agentlarni (ish maydonlari + auth) xohlaysiz."
 status: faol
 ---
 

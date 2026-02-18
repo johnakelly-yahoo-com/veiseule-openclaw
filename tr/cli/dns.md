@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw dns` için CLI başvurusu (geniş alan keşfi yardımcıları)"
-read_when:
-  - Tailscale + CoreDNS üzerinden geniş alan keşfi (DNS-SD) istiyorsunuz
-  - You’re setting up split DNS for a custom discovery domain (example: openclaw.internal)
 title: "dns"
 ---
 

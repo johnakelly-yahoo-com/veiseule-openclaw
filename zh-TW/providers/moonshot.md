@@ -1,9 +1,4 @@
 ---
-summary: "設定 Moonshot K2 與 Kimi Coding（獨立的提供者與金鑰）"
-read_when:
-  - 你想要設定 Moonshot K2（Moonshot Open Platform）與 Kimi Coding
-  - You need to understand separate endpoints, keys, and model refs
-  - 你想要可直接複製貼上的設定，適用於任一提供者
 title: "Moonshot AI"
 ---
 

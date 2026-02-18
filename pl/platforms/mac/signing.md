@@ -1,7 +1,4 @@
 ---
-summary: "Kroki podpisywania dla debugowych buildów macOS generowanych przez skrypty pakujące"
-read_when:
-  - Budowanie lub podpisywanie debugowych buildów macOS
 title: "Podpisywanie macOS"
 ---
 

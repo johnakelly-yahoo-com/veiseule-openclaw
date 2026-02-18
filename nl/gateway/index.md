@@ -1,7 +1,4 @@
 ---
-summary: "Runbook voor de Gateway-service, levenscyclus en operations"
-read_when:
-  - Het Gateway-proces draaien of debuggen
 title: "Gateway-draaiboek"
 ---
 

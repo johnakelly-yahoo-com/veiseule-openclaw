@@ -1,8 +1,4 @@
----
-summary: "Template de workspace para TOOLS.md"
-read_when:
-  - Inicializando um workspace manualmente
----
+------
 
 # TOOLS.md - Notas Locais
 

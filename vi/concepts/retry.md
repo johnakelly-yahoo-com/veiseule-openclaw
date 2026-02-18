@@ -1,8 +1,4 @@
 ---
-summary: "Chính sách retry cho các cuộc gọi nhà cung cấp outbound"
-read_when:
-  - Cập nhật hành vi hoặc mặc định retry của nhà cung cấp
-  - Gỡ lỗi lỗi gửi hoặc giới hạn tốc độ của nhà cung cấp
 title: "Chính sách Retry"
 ---
 

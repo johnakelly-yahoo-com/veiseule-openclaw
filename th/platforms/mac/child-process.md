@@ -1,7 +1,4 @@
 ---
-summary: "วงจรชีวิตของGatewayบนmacOS(launchd)"
-read_when:
-  - การผสานแอปmacOSเข้ากับวงจรชีวิตของGateway
 title: "วงจรชีวิตของGateway"
 ---
 

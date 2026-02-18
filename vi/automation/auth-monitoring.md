@@ -1,8 +1,4 @@
 ---
-summary: "Theo dõi thời hạn OAuth cho các nhà cung cấp mô hình"
-read_when:
-  - Thiết lập giám sát hoặc cảnh báo hết hạn xác thực
-  - Tự động hóa kiểm tra làm mới OAuth cho Claude Code / Codex
 title: "Giám sát xác thực"
 ---
 

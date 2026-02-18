@@ -1,9 +1,4 @@
 ---
-summary: "Noder: parning, funktioner, behörigheter och CLI-hjälpare för canvas/kamera/skärm/system"
-read_when:
-  - Para iOS/Android-noder till en gateway
-  - Använda nodens canvas/kamera för agentkontext
-  - Lägga till nya nodkommandon eller CLI-hjälpare
 title: "Noder"
 ---
 

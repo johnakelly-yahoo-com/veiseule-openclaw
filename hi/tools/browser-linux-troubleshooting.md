@@ -1,6 +1,4 @@
 ---
-summary: "Linux पर OpenClaw ब्राउज़र नियंत्रण के लिए Chrome/Brave/Edge/Chromium CDP स्टार्टअप समस्याएँ ठीक करें"
-read_when: "Linux पर ब्राउज़र नियंत्रण विफल हो, विशेषकर snap Chromium के साथ"
 title: "ब्राउज़र समस्या-निवारण"
 ---
 

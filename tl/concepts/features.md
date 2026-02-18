@@ -1,7 +1,4 @@
 ---
-summary: "Mga kakayahan ng OpenClaw sa iba’t ibang channel, routing, media, at UX."
-read_when:
-  - Gusto mo ng kumpletong listahan ng sinusuportahan ng OpenClaw
 title: "Mga tampok"
 ---
 

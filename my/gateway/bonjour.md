@@ -1,8 +1,4 @@
 ---
-summary: "Bonjour/mDNS ရှာဖွေတွေ့ရှိမှု + ဒီဘဂ်လုပ်ခြင်း (Gateway beacons, clients နှင့် ပုံမှန်တွေ့ရသော မအောင်မြင်မှုအခြေအနေများ)"
-read_when:
-  - macOS/iOS တွင် Bonjour ရှာဖွေတွေ့ရှိမှု ပြဿနာများကို ဒီဘဂ်လုပ်နေချိန်
-  - mDNS service types, TXT records သို့မဟုတ် discovery UX ကို ပြောင်းလဲနေချိန်
 title: "Bonjour ရှာဖွေတွေ့ရှိမှု"
 ---
 

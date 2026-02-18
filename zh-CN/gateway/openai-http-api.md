@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 集成需要 OpenAI Chat Completions 的工具
-summary: 从 Gateway 网关暴露 OpenAI 兼容的 /v1/chat/completions HTTP 端点
 title: OpenAI Chat Completions
 x-i18n:
   generated_at: "2026-02-03T07:48:15Z"

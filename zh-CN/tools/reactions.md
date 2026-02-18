@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 在任何渠道中处理表情回应相关工作
-summary: 跨渠道共享的表情回应语义
 title: 表情回应
 x-i18n:
   generated_at: "2026-02-01T21:42:41Z"

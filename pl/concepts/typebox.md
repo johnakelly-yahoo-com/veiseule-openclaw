@@ -1,7 +1,4 @@
 ---
-summary: "Schematy TypeBox jako pojedyncze źródło prawdy dla protokołu Gateway"
-read_when:
-  - Aktualizacja schematów protokołu lub codegen
 title: "TypeBox"
 ---
 

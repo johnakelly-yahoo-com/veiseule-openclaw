@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw dns」的 CLI 參考（廣域探索輔助工具）"
-read_when:
-  - 您需要透過 Tailscale + CoreDNS 進行廣域探索（DNS-SD）
-  - You’re setting up split DNS for a custom discovery domain (example: openclaw.internal)
 title: "dns"
 ---
 

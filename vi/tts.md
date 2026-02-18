@@ -1,9 +1,4 @@
 ---
-summary: "Chuyển văn bản thành giọng nói (TTS) cho các phản hồi gửi đi"
-read_when:
-  - Bật chuyển văn bản thành giọng nói cho phản hồi
-  - Cấu hình nhà cung cấp TTS hoặc giới hạn
-  - Sử dụng lệnh /tts
 title: "Chuyển văn bản thành giọng nói"
 ---
 

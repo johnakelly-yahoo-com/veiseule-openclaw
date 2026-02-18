@@ -1,7 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw health` (point de terminaison de sante de la Gateway (passerelle) via RPC)"
-read_when:
-  - Vous souhaitez verifier rapidement l'etat de sante de la Gateway (passerelle) en cours d'execution
 title: "sante"
 ---
 

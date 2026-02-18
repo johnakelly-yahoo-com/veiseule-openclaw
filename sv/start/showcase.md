@@ -1,8 +1,6 @@
 ---
 title: "Projektgalleri"
-description: "Verkliga OpenClaw-projekt från communityn"
-summary: "Community-byggda projekt och integrationer drivna av OpenClaw"
----
+description: "Verkliga OpenClaw-projekt från communityn"---
 
 # Projektgalleri
 

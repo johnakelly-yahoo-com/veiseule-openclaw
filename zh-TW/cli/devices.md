@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw devices」的 CLI 參考（裝置配對＋權杖輪替／撤銷）"
-read_when:
-  - You are approving device pairing requests
-  - You need to rotate or revoke device tokens
 title: "裝置"
 ---
 

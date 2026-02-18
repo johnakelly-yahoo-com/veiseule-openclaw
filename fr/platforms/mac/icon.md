@@ -1,7 +1,4 @@
 ---
-summary: "États et animations de l’icône de la barre de menus pour OpenClaw sur macOS"
-read_when:
-  - Modification du comportement de l’icône de la barre de menus
 title: "Icône de la barre de menus"
 ---
 

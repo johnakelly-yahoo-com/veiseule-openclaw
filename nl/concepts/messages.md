@@ -1,9 +1,4 @@
 ---
-summary: "Berichtenstroom, sessies, wachtrijen en zichtbaarheid van redenering"
-read_when:
-  - Uitleggen hoe inkomende berichten antwoorden worden
-  - Verduidelijken van sessies, wachtrijmodi of streaminggedrag
-  - Documenteren van zichtbaarheid van redenering en gebruiksimplicaties
 title: "Berichten"
 ---
 

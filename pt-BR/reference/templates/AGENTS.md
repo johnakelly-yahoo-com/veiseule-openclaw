@@ -1,8 +1,4 @@
----
-summary: "Modelo de workspace para AGENTS.md"
-read_when:
-  - Inicializando um workspace manualmente
----
+------
 
 # AGENTS.md - Seu Workspace
 

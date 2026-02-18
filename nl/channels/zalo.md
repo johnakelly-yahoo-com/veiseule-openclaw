@@ -1,7 +1,4 @@
 ---
-summary: "Ondersteuningsstatus, mogelijkheden en configuratie van de Zalo-bot"
-read_when:
-  - Werken aan Zalo-functies of webhooks
 title: "Zalo"
 ---
 

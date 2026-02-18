@@ -1,8 +1,4 @@
 ---
-summary: "Surface des outils d’agent pour OpenClaw (navigateur, canvas, nœuds, messages, cron) remplaçant les anciens Skills `openclaw-*`"
-read_when:
-  - Ajout ou modification d’outils d’agent
-  - Retrait ou modification des Skills `openclaw-*`
 title: "Outils"
 ---
 

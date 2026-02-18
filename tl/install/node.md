@@ -1,11 +1,5 @@
 ---
-title: "Node.js"
-summary: "I-install at i-configure ang Node.js para sa OpenClaw — mga kinakailangan sa bersyon, mga opsyon sa pag-install, at pag-troubleshoot ng PATH"
-read_when:
-  - "Kailangan mong i-install ang Node.js bago i-install ang OpenClaw"
-  - "Na-install mo ang OpenClaw pero `openclaw` is command not found"
-  - "Nabibigo ang npm install -g dahil sa mga isyu sa permission o PATH"
----
+title: "Node.js"---
 
 # Node.js
 

@@ -1,9 +1,4 @@
----
-summary: "„Wie der OpenClaw-Speicher funktioniert (Workspace-Dateien + automatischer Speicher-Flush)“"
-read_when:
-  - Sie möchten das Layout und den Workflow der Speicherdateien verstehen
-  - Sie möchten den automatischen Pre-Compaction-Speicher-Flush anpassen
----
+------
 
 # Speicher
 

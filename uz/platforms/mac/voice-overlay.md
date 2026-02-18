@@ -1,7 +1,4 @@
 ---
-summary: "O‘rnatish va konfiguratsiya yangilanishlari lokal Mac’da emas, gateway hostda amalga oshiriladi."
-read_when:
-  - Wake-word va push-to-talk ustma-ust kelganda ovozli overlay hayotiy sikli
 title: "Ovozli overlay xatti-harakatini sozlash"
 ---
 

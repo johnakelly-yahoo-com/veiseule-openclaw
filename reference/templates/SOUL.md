@@ -1,9 +1,5 @@
 ---
-title: "SOUL.md Template"
-summary: "Workspace template for SOUL.md"
-read_when:
-  - Bootstrapping a workspace manually
----
+title: "SOUL.md Template"---
 
 # SOUL.md - Who You Are
 

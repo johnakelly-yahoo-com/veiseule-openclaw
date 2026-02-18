@@ -1,8 +1,4 @@
 ---
-summary: "Stöd för Zalo-personligt konto via zca-cli (QR-inloggning), funktioner och konfiguration"
-read_when:
-  - Konfigurera Zalo Personal för OpenClaw
-  - Felsöka inloggning eller meddelandeflöde för Zalo Personal
 title: "Zalo Personal"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Protocolo Bridge (nodos heredados): TCP JSONL, emparejamiento, RPC con alcance"
-read_when:
-  - Creación o depuración de clientes de nodo (modo nodo iOS/Android/macOS)
-  - Investigación de fallos de emparejamiento o autenticación del bridge
-  - Auditoría de la superficie de nodo expuesta por el Gateway
 title: "Protocolo Bridge"
 ---
 

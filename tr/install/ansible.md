@@ -1,9 +1,4 @@
 ---
-summary: "Ansible, Tailscale VPN ve güvenlik duvarı yalıtımı ile otomatikleştirilmiş, güçlendirilmiş OpenClaw kurulumu"
-read_when:
-  - Güvenlik güçlendirmesiyle otomatik sunucu dağıtımı istiyorsanız
-  - VPN erişimi olan, güvenlik duvarıyla yalıtılmış bir kurulum gerekiyorsa
-  - Uzak Debian/Ubuntu sunucularına dağıtım yapıyorsanız
 title: "Ansible"
 ---
 

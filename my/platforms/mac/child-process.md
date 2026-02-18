@@ -1,7 +1,4 @@
 ---
-summary: "macOS တွင် Gateway ၏ လည်ပတ်မှုအဆင့်များ (launchd)"
-read_when:
-  - mac app ကို Gateway lifecycle နှင့် ပေါင်းစည်းနေစဉ်
 title: "Gateway လည်ပတ်မှု သက်တမ်းစက်ဝန်း"
 ---
 

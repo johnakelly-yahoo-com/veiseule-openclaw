@@ -1,8 +1,4 @@
 ---
-summary: "CLI onboarding wizard: ginabayang setup para sa gateway, workspace, mga channel, at skills"
-read_when:
-  - Kapag pinapatakbo o kino-configure ang onboarding wizard
-  - Kapag nagse-setup ng bagong makina
 title: "Wizard sa Pag-setup (CLI)"
 sidebarTitle: "Pag-setup: CLI"
 ---

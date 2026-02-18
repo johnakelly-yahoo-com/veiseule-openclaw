@@ -1,8 +1,4 @@
 ---
-summary: "Справочник CLI для `openclaw dns` (вспомогательные средства обнаружения в глобальной сети)"
-read_when:
-  - Вам требуется обнаружение в глобальной сети (DNS-SD) через Tailscale + CoreDNS
-  - You’re setting up split DNS for a custom discovery domain (example: openclaw.internal)
 title: "dns"
 ---
 

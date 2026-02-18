@@ -1,9 +1,4 @@
 ---
-summary: "深入解析：工作階段儲存與對話記錄、生命週期，以及（自動）壓縮機制內部運作"
-read_when:
-  - 你需要除錯工作階段 ID、逐字稿 JSONL，或 sessions.json 欄位
-  - You are changing auto-compaction behavior or adding “pre-compaction” housekeeping
-  - 你想要實作記憶體寫入或無聲的系統回合
 title: "工作階段管理深入解析"
 ---
 

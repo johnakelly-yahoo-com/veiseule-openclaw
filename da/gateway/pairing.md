@@ -1,9 +1,4 @@
 ---
-summary: "Gateway-ejet nodeparring (Mulighed B) til iOS og andre fjernnoder"
-read_when:
-  - Implementering af godkendelser for nodeparring uden macOS-UI
-  - Tilføjelse af CLI-flows til godkendelse af fjernnoder
-  - Udvidelse af gateway-protokollen med nodehåndtering
 title: "Gateway-ejet parring"
 ---
 

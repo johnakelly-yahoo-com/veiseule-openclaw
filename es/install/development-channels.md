@@ -1,8 +1,4 @@
 ---
-summary: "Canales estable, beta y dev: semántica, cambio y etiquetado"
-read_when:
-  - Desea cambiar entre estable/beta/dev
-  - Está etiquetando o publicando versiones preliminares
 title: "Canales de desarrollo"
 ---
 

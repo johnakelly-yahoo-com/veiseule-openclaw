@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw (macOS အက်ပ်) အတွက် ပထမအကြိမ် စတင်အသုံးပြုရာတွင် လမ်းညွှန်သည့် onboarding လုပ်ငန်းစဉ်"
-read_when:
-  - macOS onboarding assistant ကို ဒီဇိုင်းဆွဲနေချိန်
-  - auth သို့မဟုတ် identity setup ကို အကောင်အထည်ဖော်နေချိန်
 title: "Onboarding (macOS အက်ပ်)"
 sidebarTitle: "စတင်အသုံးပြုရန် လမ်းညွှန်: macOS အက်ပ်"
 ---

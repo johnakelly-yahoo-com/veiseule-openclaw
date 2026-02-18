@@ -1,9 +1,4 @@
 ---
-summary: "Jak działają skrypty instalatora (install.sh, install-cli.sh, install.ps1), flagi i automatyzacja"
-read_when:
-  - Chcesz zrozumieć `openclaw.ai/install.sh`
-  - Chcesz zautomatyzować instalacje (CI / bez interakcji)
-  - Chcesz zainstalować z checkoutu GitHub
 title: "Wewnętrzne mechanizmy instalatora"
 ---
 

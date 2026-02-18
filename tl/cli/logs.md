@@ -1,8 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw logs` (pag-tail ng mga log ng Gateway sa pamamagitan ng RPC)"
-read_when:
-  - Kailangan mong i-tail ang mga log ng Gateway nang remote (nang walang SSH)
-  - Gusto mo ng mga linya ng log na JSON para sa tooling
 title: "mga log"
 ---
 

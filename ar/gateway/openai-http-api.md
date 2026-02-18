@@ -1,7 +1,4 @@
 ---
-summary: "إتاحة نقطة نهاية HTTP متوافقة مع OpenAI لمسار ‎/v1/chat/completions‎ من Gateway"
-read_when:
-  - دمج الأدوات التي تتوقع OpenAI Chat Completions
 title: "إكمالات الدردشة من OpenAI"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Routeringsregels per kanaal (WhatsApp, Telegram, Discord, Slack) en gedeelde context"
-read_when:
-  - Bij het wijzigen van kanaalroutering of inboxgedrag
 title: "Kanaalroutering"
 ---
 

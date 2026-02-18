@@ -1,8 +1,4 @@
 ---
-summary: "Advanced setup and development workflows for OpenClaw"
-read_when:
-  - Setting up a new machine
-  - You want “latest + greatest” without breaking your personal setup
 title: "Setup"
 ---
 

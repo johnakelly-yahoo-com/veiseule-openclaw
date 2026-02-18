@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw presence kayıtlarının nasıl üretildiği, birleştirildiği ve görüntülendiği"
-read_when:
-  - Debugging the Instances tab
-  - Yinelenen veya bayat instance satırlarını araştırma
-  - Gateway WS bağlantısını veya sistem-olayı beacon'larını değiştirme
 title: "Varlık"
 ---
 

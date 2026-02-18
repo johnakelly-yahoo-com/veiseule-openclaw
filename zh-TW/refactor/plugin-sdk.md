@@ -1,8 +1,4 @@
 ---
-summary: "計畫：為所有訊息連接器提供一個乾淨的外掛 SDK + 執行階段"
-read_when:
-  - Defining or refactoring the plugin architecture
-  - 將頻道連接器遷移至外掛 SDK／執行階段時
 title: "refactor/plugin-sdk.md"
 ---
 

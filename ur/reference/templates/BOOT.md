@@ -1,9 +1,5 @@
 ---
-title: "BOOT.md ٹیمپلیٹ"
-summary: "BOOT.md کے لیے ورک اسپیس ٹیمپلیٹ"
-read_when:
-  - BOOT.md چیک لسٹ شامل کرتے وقت
----
+title: "BOOT.md ٹیمپلیٹ"---
 
 # BOOT.md
 

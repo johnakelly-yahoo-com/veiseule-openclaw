@@ -1,7 +1,4 @@
 ---
-summary: "Google Chat uygulaması destek durumu, yetenekler ve yapılandırma"
-read_when:
-  - Google Chat kanal özellikleri üzerinde çalışırken
 title: "Google Chat"
 ---
 

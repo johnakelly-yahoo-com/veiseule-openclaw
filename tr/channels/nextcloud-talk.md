@@ -1,7 +1,4 @@
 ---
-summary: "Nextcloud Talk destek durumu, yetenekler ve yapılandırma"
-read_when:
-  - Nextcloud Talk kanal özellikleri üzerinde çalışırken
 title: "Nextcloud Talk"
 ---
 

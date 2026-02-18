@@ -1,7 +1,4 @@
 ---
-summary: "Trạng thái hỗ trợ, khả năng và cấu hình cho Tlon/Urbit"
-read_when:
-  - Làm việc trên các tính năng kênh Tlon/Urbit
 title: "Tlon"
 ---
 

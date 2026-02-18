@@ -1,8 +1,4 @@
 ---
-summary: "Run OpenClaw with vLLM (OpenAI-compatible local server)"
-read_when:
-  - You want to run OpenClaw against a local vLLM server
-  - You want OpenAI-compatible /v1 endpoints with your own models
 title: "vLLM"
 ---
 

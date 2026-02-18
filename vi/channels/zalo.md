@@ -1,7 +1,4 @@
 ---
-summary: "Trạng thái hỗ trợ bot Zalo, khả năng và cấu hình"
-read_when:
-  - Làm việc với các tính năng hoặc webhook của Zalo
 title: "Zalo"
 ---
 

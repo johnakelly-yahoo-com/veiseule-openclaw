@@ -1,8 +1,4 @@
 ---
-summary: "DigitalOcean 上の OpenClaw（シンプルな有料 VPS オプション）"
-read_when:
-  - DigitalOcean で OpenClaw をセットアップする場合
-  - OpenClaw 用の安価な VPS ホスティングを探している場合
 title: "DigitalOcean"
 ---
 

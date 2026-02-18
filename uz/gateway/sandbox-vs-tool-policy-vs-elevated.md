@@ -1,7 +1,5 @@
 ---
 title: "Sandbox va Tool Policy hamda Elevated o‘rtasidagi farq"
-summary: "Nega tool bloklangan: sandbox runtime, tool allow/deny siyosati va elevated exec gate’lar."
-read_when: "Siz “sandbox jail”ga tushdingiz yoki tool/elevated rad etilishini ko‘ryapsiz va o‘zgartirish kerak bo‘lgan aniq config kalitini xohlaysiz."
 status: faol
 ---
 

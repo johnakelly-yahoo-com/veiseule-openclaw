@@ -1,8 +1,4 @@
 ---
-summary: "รองรับ Signal ผ่าน signal-cli (JSON-RPC + SSE), การตั้งค่า และโมเดลหมายเลข"
-read_when:
-  - การตั้งค่าการรองรับ Signal
-  - การดีบักการส่ง/รับของ Signal
 title: "Signal"
 ---
 

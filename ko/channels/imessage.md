@@ -1,8 +1,4 @@
 ---
-summary: "imsg를 통한 레거시 iMessage 지원 (stdio 상의 JSON-RPC). 새로운 설정에서는 BlueBubbles 사용을 권장합니다."
-read_when:
-  - iMessage 지원 설정
-  - iMessage 송수신 디버깅
 title: iMessage
 ---
 

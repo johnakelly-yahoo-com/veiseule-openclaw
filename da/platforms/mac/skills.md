@@ -1,8 +1,4 @@
 ---
-summary: "macOS Skills-indstillings-UI og gateway-baseret status"
-read_when:
-  - Opdatering af macOS Skills-indstillings-UI
-  - Ændring af gating eller installationsadfærd for Skills
 title: "Skills"
 ---
 

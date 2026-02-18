@@ -1,7 +1,4 @@
 ---
-summary: "mac 앱이 Gateway(게이트웨이) WebChat 을 임베드하는 방식과 이를 디버그하는 방법"
-read_when:
-  - mac WebChat 뷰 또는 loopback 포트를 디버깅할 때
 title: "WebChat"
 ---
 

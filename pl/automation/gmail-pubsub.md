@@ -1,8 +1,4 @@
 ---
-summary: "Push Pub/Sub z Gmaila podłączony do webhooków OpenClaw za pomocą gogcli"
-read_when:
-  - Podłączanie wyzwalaczy skrzynki Gmail do OpenClaw
-  - Konfiguracja push Pub/Sub do wybudzania agenta
 title: "Gmail Pub/Sub"
 ---
 

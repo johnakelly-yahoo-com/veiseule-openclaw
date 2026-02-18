@@ -1,8 +1,4 @@
 ---
-summary: "Symptom first troubleshooting hub for OpenClaw"
-read_when:
-  - OpenClaw is not working and you need the fastest path to a fix
-  - You want a triage flow before diving into deep runbooks
 title: "Troubleshooting"
 ---
 

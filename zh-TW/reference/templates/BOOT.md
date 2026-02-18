@@ -1,8 +1,4 @@
----
-summary: "BOOT.md 的工作區範本"
-read_when:
-  - 新增 BOOT.md 檢查清單時
----
+------
 
 # BOOT.md
 

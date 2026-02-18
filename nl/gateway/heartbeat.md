@@ -1,8 +1,4 @@
 ---
-summary: "Heartbeat-pollingberichten en notificatieregels"
-read_when:
-  - Het aanpassen van heartbeat-cadans of berichten
-  - Beslissen tussen heartbeat en cron voor geplande taken
 title: "Hartslag"
 ---
 

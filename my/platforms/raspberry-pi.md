@@ -1,9 +1,4 @@
 ---
-summary: "Raspberry Pi ပေါ်တွင် OpenClaw (ဘတ်ဂျက်သက်သာသော ကိုယ်တိုင်ဟို့စ်တင် setup)"
-read_when:
-  - Raspberry Pi ပေါ်တွင် OpenClaw ကို တပ်ဆင်ခြင်း
-  - ARM စက်များပေါ်တွင် OpenClaw ကို လည်ပတ်ခြင်း
-  - စျေးသက်သာပြီး အမြဲဖွင့်ထားသော ကိုယ်ပိုင် AI တစ်ခု တည်ဆောက်ခြင်း
 title: "Raspberry Pi"
 ---
 

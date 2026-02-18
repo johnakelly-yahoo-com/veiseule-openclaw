@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 使用开发 Gateway 网关模板
-  - 更新默认开发智能体身份
-summary: 开发智能体灵魂（C-3PO）
 x-i18n:
   generated_at: "2026-02-03T10:09:44Z"
   model: claude-opus-4-5

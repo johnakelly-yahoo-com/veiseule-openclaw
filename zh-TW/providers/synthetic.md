@@ -1,8 +1,4 @@
 ---
-summary: "在 OpenClaw 中使用 Synthetic 的 Anthropic 相容 API"
-read_when:
-  - 您想要使用 Synthetic 作為模型提供者
-  - 您需要設定 Synthetic 的 API 金鑰或基底 URL
 title: "Synthetic"
 ---
 

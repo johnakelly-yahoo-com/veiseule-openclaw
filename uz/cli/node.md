@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw node` uchun CLI ma’lumotnomasi (headless node host)"
-read_when:
-  - Headless node hostni ishga tushirish
-  - system.run uchun macOS bo‘lmagan nodeni juftlash
 title: "node"
 ---
 

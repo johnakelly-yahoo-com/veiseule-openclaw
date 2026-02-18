@@ -1,8 +1,4 @@
 ---
-summary: "CLI کے لیے `openclaw plugins` کا حوالہ (list، install، enable/disable، doctor)"
-read_when:
-  - آپ in-process Gateway پلگ اِنز انسٹال یا منظم کرنا چاہتے ہیں
-  - آپ پلگ اِن لوڈ کی ناکامیوں کی خرابیوں کا ازالہ کرنا چاہتے ہیں
 title: "plugins"
 ---
 

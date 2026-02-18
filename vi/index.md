@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw là một gateway đa kênh cho các tác tử AI, chạy trên mọi hệ điều hành."
-read_when:
-  - Giới thiệu OpenClaw cho người mới
 title: "OpenClaw"
 ---
 

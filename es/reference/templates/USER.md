@@ -1,8 +1,4 @@
----
-summary: "Registro del perfil del usuario"
-read_when:
-  - Inicializar un espacio de trabajo manualmente
----
+------
 
 # USER.md - Acerca de su humano
 

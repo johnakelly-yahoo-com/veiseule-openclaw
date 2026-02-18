@@ -1,7 +1,5 @@
 ---
 title: Sandbox CLI
-summary: "Sandbox kapsayıcılarını yönetin ve etkin sandbox politikasını inceleyin"
-read_when: "Sandbox kapsayıcılarını yönetiyor veya sandbox/araç-politikası davranışını hata ayıklıyorsanız."
 status: active
 ---
 

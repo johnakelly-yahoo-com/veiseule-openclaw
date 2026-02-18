@@ -1,10 +1,4 @@
 ---
-summary: "جب آپ کو علیحدگی یا iMessage کی ضرورت ہو تو OpenClaw کو sandboxed macOS VM (لوکل یا ہوسٹڈ) میں چلائیں"
-read_when:
-  - آپ چاہتے ہیں کہ OpenClaw آپ کے مرکزی macOS ماحول سے الگ رہے
-  - آپ sandbox میں iMessage انضمام (BlueBubbles) چاہتے ہیں
-  - آپ ایک ایسا macOS ماحول چاہتے ہیں جسے ری سیٹ کیا جا سکے اور کلون کیا جا سکے
-  - آپ لوکل بمقابلہ ہوسٹڈ macOS VM کے اختیارات کا موازنہ کرنا چاہتے ہیں
 title: "macOS VMs"
 ---
 

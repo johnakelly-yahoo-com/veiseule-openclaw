@@ -1,8 +1,4 @@
 ---
-summary: "Deepgram-transkription för inkommande röstmeddelanden"
-read_when:
-  - Du vill använda Deepgram tal-till-text för ljudbilagor
-  - Du behöver ett snabbt konfigurations­exempel för Deepgram
 title: "Deepgram"
 ---
 

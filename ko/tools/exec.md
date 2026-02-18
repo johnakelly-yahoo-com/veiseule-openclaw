@@ -1,8 +1,4 @@
 ---
-summary: "Exec 도구 사용법, stdin 모드 및 TTY 지원"
-read_when:
-  - Exec 도구를 사용하거나 수정할 때
-  - stdin 또는 TTY 동작을 디버깅할 때
 title: "Exec 도구"
 ---
 

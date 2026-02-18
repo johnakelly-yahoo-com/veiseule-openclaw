@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 修改媒体管道或附件
-summary: 发送、Gateway 网关和智能体回复的图像和媒体处理规则
 title: 图像和媒体支持
 x-i18n:
   generated_at: "2026-02-03T07:50:42Z"

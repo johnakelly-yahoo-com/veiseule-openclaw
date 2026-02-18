@@ -1,7 +1,4 @@
 ---
-summary: "Discord botu destek durumu, yetenekleri ve yapılandırması"
-read_when:
-  - Discord kanal özellikleri üzerinde çalışırken
 title: "Discord"
 ---
 

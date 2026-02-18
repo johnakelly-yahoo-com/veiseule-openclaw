@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw Gateway CLI (`openclaw gateway`) — Gateway को चलाएँ, क्वेरी करें, और खोजें"
-read_when:
-  - CLI से Gateway चलाते समय (डेव या सर्वर)
-  - Gateway प्रमाणीकरण, बाइंड मोड, और कनेक्टिविटी का डिबग करते समय
-  - Bonjour के माध्यम से Gateways की खोज (LAN + tailnet)
 title: "gateway"
 ---
 

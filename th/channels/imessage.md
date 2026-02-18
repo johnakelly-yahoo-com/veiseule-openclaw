@@ -1,8 +1,4 @@
 ---
-summary: "รองรับ iMessage แบบเดิมผ่าน imsg (JSON-RPC ผ่าน stdio) การตั้งค่าใหม่ควรใช้ BlueBubbles การตั้งค่าใหม่ควรใช้ BlueBubbles"
-read_when:
-  - การตั้งค่าการรองรับ iMessage
-  - การดีบักการส่ง/รับ iMessage
 title: iMessage
 ---
 

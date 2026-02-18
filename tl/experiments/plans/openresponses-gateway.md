@@ -1,5 +1,4 @@
 ---
-summary: "Plano: Idagdag ang OpenResponses /v1/responses endpoint at i-deprecate nang maayos ang chat completions"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"

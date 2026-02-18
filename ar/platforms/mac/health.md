@@ -1,7 +1,4 @@
 ---
-summary: "كيفية قيام تطبيق macOS بالإبلاغ عن حالات سلامة Gateway/Baileys"
-read_when:
-  - تصحيح مؤشرات سلامة تطبيق mac
 title: "الفحص الصحي"
 ---
 

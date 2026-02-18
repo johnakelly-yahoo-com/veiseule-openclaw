@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw’ı güvenle güncelleme (global kurulum veya kaynaktan), ayrıca geri alma stratejisi"
-read_when:
-  - OpenClaw’ı güncelleme
-  - Bir güncellemeden sonra bir şeyler bozulduğunda
 title: "Güncelleme"
 ---
 

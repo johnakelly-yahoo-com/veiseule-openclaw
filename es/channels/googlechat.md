@@ -1,7 +1,4 @@
 ---
-summary: "Estado de compatibilidad, capacidades y configuración de la app de Google Chat"
-read_when:
-  - Al trabajar en funciones del canal de Google Chat
 title: "Google Chat"
 ---
 

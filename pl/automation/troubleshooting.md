@@ -1,9 +1,4 @@
 ---
-summary: "Rozwiązywanie problemów z harmonogramem cron i harmonogramem oraz dostarczaniem heartbeat"
-read_when:
-  - Cron nie uruchomił się
-  - Cron uruchomił się, ale nie dostarczono wiadomości
-  - Heartbeat wydaje się milczeć lub być pomijany
 title: "Rozwiązywanie problemów z automatyzacją"
 ---
 

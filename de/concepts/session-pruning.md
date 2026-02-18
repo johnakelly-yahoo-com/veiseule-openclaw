@@ -1,9 +1,4 @@
----
-summary: "„Session Pruning: Kürzen von Werkzeugergebnissen zur Reduzierung von Kontextaufblähung“"
-read_when:
-  - Sie möchten das Wachstum des LLM‑Kontexts durch Werkzeugausgaben reduzieren
-  - Sie stimmen agents.defaults.contextPruning ab
----
+------
 
 # Session Pruning
 

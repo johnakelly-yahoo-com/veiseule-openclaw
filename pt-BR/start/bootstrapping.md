@@ -1,9 +1,4 @@
 ---
-summary: "Ritual de inicialização do agente que prepara o workspace e os arquivos de identidade"
-read_when:
-  - Entender o que acontece na primeira execução do agente
-  - Explicar onde ficam os arquivos de bootstrapping
-  - Configuração de identidade de depuração
 title: "Bootstrapping do Agente"
 sidebarTitle: "Inicialização"
 ---

@@ -1,9 +1,4 @@
 ---
-summary: "Exemplos de configuração alinhados ao esquema para configurações comuns do OpenClaw"
-read_when:
-  - Aprendendo a configurar o OpenClaw
-  - Procurando exemplos de configuração
-  - Configurando o OpenClaw pela primeira vez
 title: "Exemplos de Configuração"
 ---
 

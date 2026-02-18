@@ -1,8 +1,4 @@
 ---
-summary: "Subagentes: creación de ejecuciones de agentes aisladas que anuncian resultados de vuelta al chat solicitante"
-read_when:
-  - Desea trabajo en segundo plano/paralelo mediante el agente
-  - Está cambiando sessions_spawn o la política de herramientas de subagentes
 title: "Subagentes"
 ---
 

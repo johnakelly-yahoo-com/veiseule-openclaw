@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw کے لیے VPS ہوسٹنگ ہب (Oracle/Fly/Hetzner/GCP/exe.dev)"
-read_when:
-  - آپ Gateway کو کلاؤڈ میں چلانا چاہتے ہیں
-  - آپ کو VPS/ہوسٹنگ گائیڈز کا ایک فوری نقشہ درکار ہے
 title: "VPS ہوسٹنگ"
 ---
 

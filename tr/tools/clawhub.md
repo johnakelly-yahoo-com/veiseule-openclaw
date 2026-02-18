@@ -1,9 +1,4 @@
 ---
-summary: "ClawHub rehberi: herkese açık Skills kayıt defteri + CLI iş akışları"
-read_when:
-  - ClawHub’ı yeni kullanıcılara tanıtma
-  - Skills yükleme, arama veya yayımlama
-  - ClawHub CLI bayraklarını ve senkronizasyon davranışını açıklama
 title: "ClawHub"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Opcjonalna konfiguracja i onboarding oparty na Dockerze dla OpenClaw"
-read_when:
-  - Chcesz użyć konteneryzowanej bramy zamiast instalacji lokalnych
-  - Weryfikujesz przepływ pracy z Dockerem
 title: "Docker"
 ---
 

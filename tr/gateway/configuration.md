@@ -1,7 +1,4 @@
 ---
-summary: "~/.openclaw/openclaw.json için tüm yapılandırma seçenekleri ve örnekler"
-read_when:
-  - Yapılandırma alanlarını eklerken veya değiştirirken
 title: "Yapılandırma"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Modelproviders (LLM's) die door OpenClaw worden ondersteund"
-read_when:
-  - Je wilt een modelprovider kiezen
-  - Je wilt snelle installatievoorbeelden voor LLM-authenticatie + modelselectie
 title: "Snelle start voor modelproviders"
 ---
 

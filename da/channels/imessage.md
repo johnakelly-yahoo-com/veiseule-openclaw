@@ -1,8 +1,4 @@
 ---
-summary: "Legacy iMessage support via imsg (JSON-RPC over stdio). Nye opsætninger bør bruge BlueBubbles."
-read_when:
-  - Opsætning af iMessage-understøttelse
-  - Fejlfinding af iMessage send/modtag
 title: iMessage
 ---
 

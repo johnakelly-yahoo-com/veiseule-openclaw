@@ -1,9 +1,4 @@
 ---
-summary: "CLI-Backends: textbasierter Fallback über lokale KI-CLIs"
-read_when:
-  - Sie möchten einen zuverlässigen Fallback, wenn API-Anbieter ausfallen
-  - Sie betreiben Claude Code CLI oder andere lokale KI-CLIs und möchten diese wiederverwenden
-  - Sie benötigen einen rein textbasierten, werkzeugfreien Pfad, der dennoch Sitzungen und Bilder unterstützt
 title: "CLI-Backends"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Voice Call plagini: Twilio/Telnyx/Plivo orqali chiqish + kirish qo‘ng‘iroqlari (plagin o‘rnatish + sozlash + CLI)"
-read_when:
-  - Siz OpenClaw’dan chiqish ovozli qo‘ng‘iroq qilmoqchisiz
-  - Siz voice-call plaginini sozlayapsiz yoki ishlab chiqyapsiz
 title: "Voice Call Plagini"
 ---
 

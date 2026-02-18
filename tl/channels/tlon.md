@@ -1,7 +1,4 @@
 ---
-summary: "Status ng suporta ng Tlon/Urbit, mga kakayahan, at konpigurasyon"
-read_when:
-  - Gumagawa sa mga feature ng Tlon/Urbit channel
 title: "Tlon"
 ---
 

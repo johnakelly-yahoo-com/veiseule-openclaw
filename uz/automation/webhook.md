@@ -1,8 +1,4 @@
 ---
-summary: "21. Uyg‘otish va ajratilgan agent ishga tushirishlar uchun webhook kirishi"
-read_when:
-  - 22. Webhook endpointlarini qo‘shish yoki o‘zgartirish
-  - 23. Tashqi tizimlarni OpenClaw’ga ulash
 title: "24. Webhooklar"
 ---
 

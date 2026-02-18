@@ -1,8 +1,4 @@
 ---
-summary: "Uzaktan erişim için OpenClaw Gateway’i exe.dev üzerinde (VM + HTTPS proxy) çalıştırın"
-read_when:
-  - Gateway için ucuz, her zaman açık bir Linux ana makinesine ihtiyacınız var
-  - Kendi VPS’inizi çalıştırmadan uzaktan Control UI erişimi istiyorsunuz
 title: "exe.dev"
 ---
 

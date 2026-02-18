@@ -1,7 +1,4 @@
 ---
-summary: "Lifecycle ng Gateway sa macOS (launchd)"
-read_when:
-  - Pag-iintegrate ng mac app sa lifecycle ng Gateway
 title: "Lifecycle ng Gateway"
 ---
 

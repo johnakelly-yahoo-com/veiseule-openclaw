@@ -1,7 +1,4 @@
 ---
-summary: "Жизненный цикл Gateway (шлюза) на macOS (launchd)"
-read_when:
-  - Интеграция приложения для macOS с жизненным циклом Gateway (шлюза)
 title: "Жизненный цикл Gateway"
 ---
 

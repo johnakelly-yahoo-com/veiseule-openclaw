@@ -1,8 +1,4 @@
 ---
-summary: "Ilipat (i-migrate) ang isang OpenClaw install mula sa isang makina patungo sa isa pa"
-read_when:
-  - Ililipat mo ang OpenClaw sa bagong laptop/server
-  - Gusto mong mapanatili ang mga session, auth, at mga login ng channel (WhatsApp, atbp.)
 title: "Gabay sa Migration"
 ---
 

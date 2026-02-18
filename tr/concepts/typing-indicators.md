@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw'ın yazma göstergelerini ne zaman gösterdiği ve bunların nasıl ayarlanacağı"
-read_when:
-  - Yazma göstergesi davranışını veya varsayılanlarını değiştirirken
 title: "Yazma Göstergeleri"
 ---
 

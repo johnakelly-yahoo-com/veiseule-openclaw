@@ -1,8 +1,4 @@
 ---
-summary: "Schema en voorbeelden voor Skills-configuratie"
-read_when:
-  - Skills-configuratie toevoegen of wijzigen
-  - Gebundelde toegestane lijst of installatiegedrag aanpassen
 title: "Skills-configuratie"
 ---
 

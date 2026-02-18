@@ -1,9 +1,4 @@
 ---
-summary: "„Backendy CLI: tekstowy tryb awaryjny przez lokalne CLI AI”"
-read_when:
-  - Gdy potrzebujesz niezawodnego trybu awaryjnego, gdy dostawcy API zawodzą
-  - Gdy uruchamiasz Claude Code CLI lub inne lokalne CLI AI i chcesz je ponownie wykorzystać
-  - Gdy potrzebujesz wyłącznie tekstowej, pozbawionej narzędzi ścieżki, która nadal obsługuje sesje i obrazy
 title: "„Backendy CLI”"
 ---
 

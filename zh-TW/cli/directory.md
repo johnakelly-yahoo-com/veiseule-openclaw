@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw directory」（self、peers、groups）的 CLI 參考文件"
-read_when:
-  - 當你想查詢某個頻道的聯絡人／群組／self ID
-  - 當你正在開發頻道目錄配接器
 title: "directory"
 ---
 

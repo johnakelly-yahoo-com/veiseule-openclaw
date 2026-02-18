@@ -1,7 +1,4 @@
 ---
-summary: "Pasos de verificación de salud para la conectividad del canal"
-read_when:
-  - Diagnóstico de la salud del canal de WhatsApp
 title: "Comprobaciones de salud"
 ---
 

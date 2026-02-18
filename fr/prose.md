@@ -1,9 +1,4 @@
 ---
-summary: "OpenProse : workflows .prose, commandes slash et etat dans OpenClaw"
-read_when:
-  - Vous souhaitez executer ou ecrire des workflows .prose
-  - Vous souhaitez activer le plugin OpenProse
-  - Vous devez comprendre le stockage de l'etat
 title: "OpenProse"
 ---
 

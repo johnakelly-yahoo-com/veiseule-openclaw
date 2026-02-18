@@ -1,7 +1,4 @@
 ---
-summary: "43. mac ilova gateway WebChat’ni qanday joylashtiradi va uni qanday debug qilish mumkin"
-read_when:
-  - 44. mac WebChat ko‘rinishini yoki loopback portni debug qilish
 title: "45. WebChat"
 ---
 

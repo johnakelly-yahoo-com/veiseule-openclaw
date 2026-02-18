@@ -1,9 +1,5 @@
 ---
-title: "HEARTBEAT.md Shabloni"
-summary: "HEARTBEAT.md uchun ish maydoni shabloni"
-read_when:
-  - Ish maydonini qo‘lda boshlang‘ich sozlashda
----
+title: "HEARTBEAT.md Shabloni"---
 
 # HEARTBEAT.md
 

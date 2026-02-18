@@ -1,8 +1,4 @@
 ---
-summary: "現在のトークンで Control UI を開くための `openclaw dashboard` の CLI リファレンス"
-read_when:
-  - 現在のトークンで Control UI を開きたいとき
-  - ブラウザーを起動せずに URL を表示したいとき
 title: "ダッシュボード"
 ---
 

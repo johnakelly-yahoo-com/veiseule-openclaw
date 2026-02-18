@@ -1,10 +1,4 @@
 ---
-summary: "Exécuter OpenClaw Gateway 24/7 sur un VPS Hetzner économique (Docker) avec un état durable et des binaires intégrés"
-read_when:
-  - Vous voulez OpenClaw en fonctionnement 24/7 sur un VPS cloud (pas votre ordinateur portable)
-  - Vous voulez une Gateway (passerelle) de niveau production, toujours active, sur votre propre VPS
-  - Vous voulez un contrôle total sur la persistance, les binaires et le comportement au redémarrage
-  - Vous exécutez OpenClaw dans Docker sur Hetzner ou un fournisseur similaire
 title: "Hetzner"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Regler, nøgler og persistens for sessionhåndtering i chats"
-read_when:
-  - Ændring af sessionhåndtering eller -lagring
 title: "Sessionshåndtering"
 ---
 

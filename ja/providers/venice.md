@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw で Venice AI のプライバシー重視モデルを使用します"
-read_when:
-  - OpenClaw でプライバシー重視の推論を行いたい場合
-  - Venice AI のセットアップ手順を知りたい場合
 title: "Venice AI"
 ---
 

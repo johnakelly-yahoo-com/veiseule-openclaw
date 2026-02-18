@@ -1,10 +1,4 @@
 ---
-summary: "OpenClaw 中的 OAuth：權杖交換、儲存與多帳號模式"
-read_when:
-  - 你想了解 OpenClaw 的 OAuth 端到端流程
-  - 你遇到權杖失效／登出問題
-  - 你想使用 setup-token 或 OAuth 驗證流程
-  - 你想要多個帳號或設定檔路由
 title: "OAuth"
 ---
 

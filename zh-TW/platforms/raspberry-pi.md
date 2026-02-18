@@ -1,9 +1,4 @@
 ---
-summary: "Raspberry Pi 上的 OpenClaw（低成本自架設方案）"
-read_when:
-  - 在 Raspberry Pi 上設定 OpenClaw
-  - 在 ARM 裝置上執行 OpenClaw
-  - 打造便宜且全天候運作的個人 AI
 title: "Raspberry Pi"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Loopback WebChat statisk värd och Gateway WS-användning för chatt-UI"
-read_when:
-  - Felsökning eller konfigurering av WebChat-åtkomst
 title: "WebChat"
 ---
 

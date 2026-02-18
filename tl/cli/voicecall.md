@@ -1,8 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw voicecall` (command surface ng voice-call plugin)"
-read_when:
-  - Ginagamit mo ang voice-call plugin at gusto mo ang mga entry point ng CLI
-  - Gusto mo ng mga mabilis na halimbawa para sa `voicecall call|continue|status|tail|expose`
 title: "voicecall"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Appariement des nœuds détenu par la Gateway (Option B) pour iOS et autres nœuds distants"
-read_when:
-  - Mise en œuvre des approbations d’appariement de nœuds sans interface macOS
-  - Ajout de flux CLI pour approuver des nœuds distants
-  - Extension du protocole de la Gateway avec la gestion des nœuds
 title: "Appariement détenu par la Gateway"
 ---
 

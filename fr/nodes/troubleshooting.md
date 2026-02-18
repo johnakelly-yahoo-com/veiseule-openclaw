@@ -1,8 +1,4 @@
 ---
-summary: "Dépannage de l’appairage des nœuds, des exigences de premier plan, des autorisations et des échecs d’outils"
-read_when:
-  - Le nœud est connecté mais les outils caméra/canvas/écran/exec échouent
-  - Vous avez besoin du modèle mental appairage des nœuds versus approbations
 title: "Dépannage des nœuds"
 ---
 

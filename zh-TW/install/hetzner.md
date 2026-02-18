@@ -1,10 +1,4 @@
 ---
-summary: "在價格實惠的 Hetzner VPS（Docker）上 24/7 執行 OpenClaw Gateway 閘道器，具備可持久狀態與內建二進位檔"
-read_when:
-  - 你想在雲端 VPS（而非你的筆電）上 24/7 執行 OpenClaw
-  - 你想在自己的 VPS 上部署生產等級、永遠在線的 Gateway 閘道器
-  - You want full control over persistence, binaries, and restart behavior
-  - 你正在 Hetzner 或類似供應商上以 Docker 執行 OpenClaw
 title: "Hetzner"
 ---
 

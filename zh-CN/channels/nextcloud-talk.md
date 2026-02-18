@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 开发 Nextcloud Talk 渠道功能时
-summary: Nextcloud Talk 支持状态、功能和配置
 title: Nextcloud Talk
 x-i18n:
   generated_at: "2026-02-03T10:04:00Z"

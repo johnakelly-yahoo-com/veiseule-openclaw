@@ -1,8 +1,4 @@
 ---
-summary: "Palabras de activación por voz globales (propiedad del Gateway) y cómo se sincronizan entre nodos"
-read_when:
-  - Al cambiar el comportamiento o los valores predeterminados de las palabras de activación por voz
-  - Al agregar nuevas plataformas de nodos que necesitan sincronización de palabras de activación
 title: "Activación por voz"
 ---
 

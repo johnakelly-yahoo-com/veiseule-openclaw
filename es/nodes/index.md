@@ -1,9 +1,4 @@
 ---
-summary: "Nodos: emparejamiento, capacidades, permisos y ayudas de CLI para canvas/cámara/pantalla/sistema"
-read_when:
-  - Emparejamiento de nodos iOS/Android con un Gateway
-  - Uso del canvas/cámara del nodo para el contexto del agente
-  - Agregar nuevos comandos de nodo o ayudas de CLI
 title: "Nodos"
 ---
 

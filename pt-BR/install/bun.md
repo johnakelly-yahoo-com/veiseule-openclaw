@@ -1,8 +1,4 @@
 ---
-summary: "Fluxo de trabalho com Bun (experimental): instalação e pegadinhas vs pnpm"
-read_when:
-  - Você quer o loop de desenvolvimento local mais rápido (bun + watch)
-  - Você encontrou problemas de instalação/patch/scripts de ciclo de vida do Bun
 title: "Bun (Experimental)"
 ---
 

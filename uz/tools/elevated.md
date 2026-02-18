@@ -1,7 +1,4 @@
 ---
-summary: "6. Kengaytirilgan exec rejimi va /elevated direktivalari"
-read_when:
-  - 7. Kengaytirilgan rejim standartlarini, ruxsat ro‘yxatlarini yoki slash-buyruqlar xatti-harakatini sozlash
 title: "8. Kengaytirilgan rejim"
 ---
 

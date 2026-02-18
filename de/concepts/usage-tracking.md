@@ -1,8 +1,4 @@
 ---
-summary: "„Oberflächen zur Nutzungsverfolgung und Anforderungen an Anmeldeinformationen“"
-read_when:
-  - Sie verdrahten Oberflächen für Anbieter-Nutzung/Quoten
-  - Sie müssen das Verhalten der Nutzungsverfolgung oder Authentifizierungsanforderungen erklären
 title: "„Nutzungsverfolgung“"
 ---
 

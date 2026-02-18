@@ -1,8 +1,4 @@
 ---
-summary: "Poll verzenden via gateway + CLI"
-read_when:
-  - Toevoegen of wijzigen van poll-ondersteuning
-  - Debuggen van pollverzendingen vanuit de CLI of gateway
 title: "Peilingen"
 ---
 

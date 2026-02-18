@@ -1,8 +1,4 @@
 ---
-summary: "Khám phá Bonjour/mDNS + gỡ lỗi (beacon của Gateway, máy khách và các chế độ lỗi phổ biến)"
-read_when:
-  - Gỡ lỗi các sự cố khám phá Bonjour trên macOS/iOS
-  - Thay đổi loại dịch vụ mDNS, bản ghi TXT hoặc UX khám phá
 title: "Khám phá Bonjour"
 ---
 

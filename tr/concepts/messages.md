@@ -1,9 +1,4 @@
 ---
-summary: "Mesaj akışı, oturumlar, kuyruklama ve muhakeme görünürlüğü"
-read_when:
-  - Gelen mesajların nasıl yanıt hâline geldiğini açıklarken
-  - Oturumları, kuyruklama modlarını veya akış davranışını netleştirirken
-  - Muhakeme görünürlüğünü ve kullanım etkilerini belgelendirirken
 title: "Mesajlar"
 ---
 

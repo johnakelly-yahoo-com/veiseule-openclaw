@@ -1,6 +1,4 @@
 ---
-summary: "Socket یا HTTP webhook موڈ کے لیے Slack سیٹ اپ"
-read_when: "Slack سیٹ اپ کرتے وقت یا Slack socket/HTTP موڈ کی ڈیبگنگ کے دوران"
 title: "Slack"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw update` için CLI referansı (güvenli sayılır kaynak güncellemesi + Gateway otomatik yeniden başlatma)"
-read_when:
-  - Bir kaynak çalışma kopyasını güvenle güncellemek istiyorsunuz
-  - "`--update` kısaltma davranışını anlamanız gerekiyor"
 title: "güncelle"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Indicateurs de diagnostic pour des journaux de debogage cibles"
-read_when:
-  - Vous avez besoin de journaux de debogage cibles sans augmenter les niveaux de journalisation globaux
-  - Vous devez capturer des journaux specifiques a un sous-systeme pour le support
 title: "Indicateurs de diagnostic"
 ---
 

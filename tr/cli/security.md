@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw security` için CLI başvuru belgesi (yaygın güvenlik hatalarını denetleme ve düzeltme)"
-read_when:
-  - Yapılandırma/durum üzerinde hızlı bir güvenlik denetimi çalıştırmak istiyorsanız
-  - Güvenli “düzeltme” önerilerini (chmod, varsayılanları sıkılaştırma) uygulamak istiyorsanız
 title: "güvenlik"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "在 GCP Compute Engine VM（Docker）上 24/7 執行 OpenClaw Gateway，並具備耐久狀態"
-read_when:
-  - 你希望在 GCP 上 24/7 執行 OpenClaw
-  - 你想要在自己的 VM 上部署生產等級、永遠在線的 Gateway
-  - 你希望完全掌控持久化、二進位檔與重新啟動行為
 title: "GCP"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw config` için CLI başvurusu (yapılandırma değerlerini al/ayarla/kaldır)"
-read_when:
-  - Yapılandırmayı etkileşimli olmadan okumak veya düzenlemek istediğinizde
 title: "config"
 ---
 

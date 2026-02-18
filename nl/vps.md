@@ -1,8 +1,4 @@
 ---
-summary: "VPS-hostinghub voor OpenClaw (Oracle/Fly/Hetzner/GCP/exe.dev)"
-read_when:
-  - Je wilt de Gateway in de cloud draaien
-  - Je hebt een snelle kaart van VPS-/hostinggidsen nodig
 title: "VPS-hosting"
 ---
 

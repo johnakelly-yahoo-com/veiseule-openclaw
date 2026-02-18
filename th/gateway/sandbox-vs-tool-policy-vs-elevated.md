@@ -1,7 +1,5 @@
 ---
 title: Sandbox เทียบกับ Tool Policy เทียบกับ Elevated
-summary: "เหตุผลที่เครื่องมือถูกบล็อก: runtime ของ sandbox, นโยบายอนุญาต/ปฏิเสธเครื่องมือ, และเกตการรันแบบ elevated"
-read_when: "เมื่อคุณเจอ 'sandbox jail' หรือเห็นการปฏิเสธ tool/elevated และต้องการคีย์คอนฟิกที่ต้องแก้ไขอย่างชัดเจน"
 status: active
 ---
 

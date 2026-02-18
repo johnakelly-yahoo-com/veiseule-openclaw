@@ -1,7 +1,4 @@
 ---
-summary: "Telegram 許可リストの強化：プレフィックス + 空白の正規化"
-read_when:
-  - これまでの Telegram 許可リストの変更を確認する際
 title: "Telegram 許可リストの強化"
 ---
 

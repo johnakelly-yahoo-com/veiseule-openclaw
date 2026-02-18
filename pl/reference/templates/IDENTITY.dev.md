@@ -1,9 +1,4 @@
----
-summary: "Tożsamość agenta deweloperskiego (C-3PO)"
-read_when:
-  - Korzystanie z szablonów gateway deweloperskiego
-  - Aktualizowanie domyślnej tożsamości agenta deweloperskiego
----
+------
 
 # IDENTITY.md - Tożsamość agenta
 

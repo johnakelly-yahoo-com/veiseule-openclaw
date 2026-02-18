@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 规划节点 + 操作者客户端的统一网络协议
-  - 重新设计跨设备的审批、配对、TLS 和在线状态
-summary: Clawnet 重构：统一网络协议、角色、认证、审批、身份
 title: Clawnet 重构
 x-i18n:
   generated_at: "2026-02-03T07:55:03Z"

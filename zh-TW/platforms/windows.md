@@ -1,8 +1,4 @@
 ---
-summary: "Windows（WSL2）支援與配套應用程式狀態"
-read_when:
-  - 在 Windows 上安裝 OpenClaw
-  - Looking for Windows companion app status
 title: "Windows（WSL2）"
 ---
 

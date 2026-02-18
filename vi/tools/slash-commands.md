@@ -1,8 +1,4 @@
 ---
-summary: "Lệnh slash: văn bản so với native, cấu hình và các lệnh được hỗ trợ"
-read_when:
-  - Sử dụng hoặc cấu hình lệnh chat
-  - Gỡ lỗi định tuyến lệnh hoặc quyền
 title: "Lệnh Slash"
 ---
 

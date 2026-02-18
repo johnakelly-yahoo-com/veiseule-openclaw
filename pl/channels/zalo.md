@@ -1,7 +1,4 @@
 ---
-summary: "Status obsługi bota Zalo, możliwości i konfiguracja"
-read_when:
-  - Praca nad funkcjami Zalo lub webhookami
 title: "Zalo"
 ---
 

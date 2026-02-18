@@ -1,9 +1,4 @@
 ---
-summary: "Orientações para escolher entre heartbeat e jobs cron para automação"
-read_when:
-  - Decidindo como agendar tarefas recorrentes
-  - Configurando monitoramento em segundo plano ou notificações
-  - Otimizando o uso de tokens para verificações periódicas
 title: "Cron vs Heartbeat"
 ---
 

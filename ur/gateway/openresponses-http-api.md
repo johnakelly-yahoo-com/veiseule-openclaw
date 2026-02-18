@@ -1,8 +1,4 @@
 ---
-summary: "Gateway سے OpenResponses کے مطابق /v1/responses HTTP اینڈپوائنٹ فراہم کریں"
-read_when:
-  - OpenResponses API بولنے والے کلائنٹس کو ضم کرتے وقت
-  - آپ کو آئٹم پر مبنی اِن پٹس، کلائنٹ ٹول کالز، یا SSE ایونٹس درکار ہوں
 title: "OpenResponses API"
 ---
 

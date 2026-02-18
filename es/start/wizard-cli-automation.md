@@ -1,8 +1,4 @@
 ---
-summary: "Incorporación automatizada y configuración de agentes mediante scripts para la CLI de OpenClaw"
-read_when:
-  - Está automatizando la incorporación en scripts o CI
-  - Necesita ejemplos no interactivos para proveedores específicos
 title: "Automatización de la CLI"
 sidebarTitle: "automatización de CLI"
 ---

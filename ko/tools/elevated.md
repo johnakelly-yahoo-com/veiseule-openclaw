@@ -1,7 +1,4 @@
 ---
-summary: "Elevated exec 모드와 /elevated 지시문"
-read_when:
-  - Elevated 모드 기본값, 허용 목록, 또는 슬래시 명령 동작을 조정할 때
 title: "Elevated 모드"
 ---
 

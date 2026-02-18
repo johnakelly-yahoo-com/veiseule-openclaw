@@ -1,8 +1,4 @@
 ---
-summary: "Canais estável, beta e dev: semântica, troca e marcação"
-read_when:
-  - Você quer alternar entre estável/beta/dev
-  - Você está marcando ou publicando pré-lançamentos
 title: "Canais de desenvolvimento"
 ---
 

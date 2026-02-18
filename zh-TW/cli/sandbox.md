@@ -1,7 +1,5 @@
 ---
 title: 沙箱 CLI
-summary: "管理沙箱容器並檢視有效的沙箱政策"
-read_when: "當你正在管理沙箱容器或除錯沙箱／工具政策行為時。"
 status: active
 ---
 

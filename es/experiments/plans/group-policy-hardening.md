@@ -1,7 +1,4 @@
 ---
-summary: "Endurecimiento de la lista de permitidos de Telegram: prefijo + normalización de espacios en blanco"
-read_when:
-  - Revisión de cambios históricos de la lista de permitidos de Telegram
 title: "Endurecimiento de la lista de permitidos de Telegram"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Reaktionssemantik som delas över kanaler"
-read_when:
-  - Arbetar med reaktioner i valfri kanal
 title: "Reaktioner"
 ---
 

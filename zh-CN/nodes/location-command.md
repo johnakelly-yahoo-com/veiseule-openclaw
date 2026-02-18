@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 添加位置节点支持或权限 UI
-  - 设计后台位置 + 推送流程
-summary: 节点的位置命令（location.get）、权限模式和后台行为
 title: 位置命令
 x-i18n:
   generated_at: "2026-02-03T07:50:59Z"

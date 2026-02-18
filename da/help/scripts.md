@@ -1,8 +1,4 @@
 ---
-summary: "Repository-scripts: formål, omfang og sikkerhedsnoter"
-read_when:
-  - Kørsel af scripts fra repoet
-  - Tilføjelse eller ændring af scripts under ./scripts
 title: "Skripter"
 ---
 

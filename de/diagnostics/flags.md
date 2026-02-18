@@ -1,8 +1,4 @@
 ---
-summary: "„Diagnose-Flags für gezielte Debug-Logs“"
-read_when:
-  - Sie benötigen gezielte Debug-Logs, ohne globale Logging-Level zu erhöhen
-  - Sie müssen subsystem-spezifische Logs für den Support erfassen
 title: "„Diagnose-Flags“"
 ---
 

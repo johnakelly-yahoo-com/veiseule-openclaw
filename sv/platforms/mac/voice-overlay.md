@@ -1,7 +1,4 @@
 ---
-summary: "Livscykel för röstöverlägg när väckningsord och push-to-talk överlappar"
-read_when:
-  - Justerar beteendet för röstöverlägg
 title: "Röstöverlägg"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "„Agenten‑Sitzungswerkzeuge zum Auflisten von Sitzungen, Abrufen der Historie und Senden sitzungsübergreifender Nachrichten“"
-read_when:
-  - Hinzufügen oder Ändern von Sitzungswerkzeugen
 title: "Sitzungswerkzeuge"
 ---
 

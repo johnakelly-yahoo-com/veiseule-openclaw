@@ -1,8 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw nodes` (list/status/approve/invoke, camera/canvas/screen)"
-read_when:
-  - Pinamamahalaan mo ang mga ipinares na node (mga camera, screen, canvas)
-  - Kailangan mong aprubahan ang mga kahilingan o mag-invoke ng mga command ng node
 title: "nodes"
 ---
 

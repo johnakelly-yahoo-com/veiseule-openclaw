@@ -1,39 +1,4 @@
 ---
-summary: "25.\ 
-
-  \    ```bash
-
-  \    openclaw status
-
-  \    openclaw gateway status
-
-  \    openclaw nodes status
-
-  \    openclaw nodes describe --node "
-read_when:
-  - |-
-    26. 
-        openclaw logs --follow
-        ```
-  - |-
-    27. Yaxshi chiqish quyidagicha ko‘rinadi:
-
-    - Tugun ulangan va `node` roli uchun pairing qilingan.
-    - Chaqqirayotgan buyruq uchun imkoniyat mavjud.
-    - Asbob uchun ruxsat holati berilgan.
-
-    Keng tarqalgan log imzolari:
-
-    - `NODE_BACKGROUND_UNAVAILABLE` → tugun ilovasini foreground’ga olib chiqing.
-    - `*_PERMISSION_REQUIRED` → OS ruxsati rad etilgan/yo‘q.
-    - `SYSTEM_RUN_DENIED: approval required` → exec tasdiqlanishi kutilmoqda.
-    - `SYSTEM_RUN_DENIED: allowlist miss` → buyruq exec allowlist’da yo‘q.
-
-    Chuqur sahifalar:
-
-    - [/gateway/troubleshooting#node-paired-tool-fails](/gateway/troubleshooting#node-paired-tool-fails)
-    - [/nodes/troubleshooting](/nodes/troubleshooting)
-    - [/tools/exec-approvals](/tools/exec-approvals)
 title: "28.\ 
 
   \    ```bash

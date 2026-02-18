@@ -1,8 +1,4 @@
 ---
-summary: "Düğüm eşleştirme, ön planda olma gereksinimleri, izinler ve araç hatalarını giderme"
-read_when:
-  - Düğüm bağlı görünüyor ancak kamera/tuval/ekran/exec araçları başarısız oluyor
-  - Düğüm eşleştirme ile onaylar arasındaki zihinsel modele ihtiyaç duyuyorsunuz
 title: "Düğüm Sorun Giderme"
 ---
 

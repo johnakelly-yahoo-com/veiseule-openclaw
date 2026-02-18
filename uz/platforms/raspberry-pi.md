@@ -1,9 +1,4 @@
 ---
-summary: "Raspberry Pi’da OpenClaw (byudjetli self-hosted sozlama)"
-read_when:
-  - Raspberry Pi’da OpenClaw’ni sozlash
-  - ARM qurilmalarida OpenClaw’ni ishga tushirish
-  - Arzon, doimiy ishlaydigan shaxsiy AI yaratish
 title: "Raspberry Pi"
 ---
 

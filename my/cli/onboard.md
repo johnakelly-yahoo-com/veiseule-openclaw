@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw onboard` အတွက် CLI ကိုးကားချက် (အပြန်အလှန် ဆက်သွယ်သည့် onboarding wizard)"
-read_when:
-  - Gateway၊ workspace၊ auth၊ ချန်နယ်များနှင့် Skills များကို လမ်းညွှန်ပေးထားသည့် တပ်ဆင်ခြင်း လိုအပ်သောအခါ
 title: "onboard"
 ---
 

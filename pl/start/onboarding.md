@@ -1,8 +1,4 @@
 ---
-summary: "Proces wdrożenia przy pierwszym uruchomieniu OpenClaw (aplikacja na macOS)"
-read_when:
-  - Projektowanie asystenta wdrożeniowego macOS
-  - Implementowanie uwierzytelniania lub konfiguracji tożsamości
 title: "Wdrożenie (aplikacja na macOS)"
 sidebarTitle: "Wprowadzenie: aplikacja macOS"
 ---

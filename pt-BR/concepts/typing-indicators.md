@@ -1,7 +1,4 @@
 ---
-summary: "Quando o OpenClaw mostra indicadores de digitação e como ajustá-los"
-read_when:
-  - Alterando o comportamento ou os padrões do indicador de digitação
 title: "Indicadores de digitação"
 ---
 

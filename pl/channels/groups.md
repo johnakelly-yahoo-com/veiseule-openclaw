@@ -1,7 +1,4 @@
 ---
-summary: "Zachowanie czatów grupowych na różnych platformach (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
-read_when:
-  - Zmienianie zachowania czatów grupowych lub kontroli wzmianek
 title: "Grupy"
 ---
 

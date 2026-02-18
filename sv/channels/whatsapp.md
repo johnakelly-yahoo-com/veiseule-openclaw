@@ -1,7 +1,4 @@
 ---
-summary: "WhatsApp‑integration (webbkanal): inloggning, inkorg, svar, media och drift"
-read_when:
-  - Arbetar med WhatsApp/webbkanalens beteende eller inkorgsroutning
 title: "WhatsApp"
 ---
 

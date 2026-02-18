@@ -1,8 +1,4 @@
 ---
-summary: "Küresel sesli uyandırma sözcükleri (Gateway sahipli) ve düğümler arasında nasıl senkronize edildikleri"
-read_when:
-  - Sesli uyandırma sözcüklerinin davranışını veya varsayılanlarını değiştirirken
-  - Uyandırma sözcüğü senkronizasyonu gerektiren yeni düğüm platformları eklerken
 title: "Sesli Uyandırma"
 ---
 

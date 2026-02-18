@@ -1,9 +1,4 @@
 ---
-summary: "36. Xabarlar oqimi, sessiyalar, navbatga qo‘yish va mulohaza (reasoning) ko‘rinishi"
-read_when:
-  - 37. Kiruvchi xabarlar qanday qilib javoblarga aylanishini tushuntirish
-  - 38. Sessiyalar, navbatga qo‘yish rejimlari yoki streaming xatti-harakatlarini aniqlashtirish
-  - 39. Mulohaza (reasoning) ko‘rinishi va undan foydalanish oqibatlarini hujjatlashtirish
 title: "40. Xabarlar"
 ---
 

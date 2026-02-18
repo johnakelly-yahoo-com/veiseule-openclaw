@@ -1,9 +1,4 @@
 ---
-summary: "Gateway-körning på macOS (extern launchd-tjänst)"
-read_when:
-  - Paketering av OpenClaw.app
-  - Felsökning av macOS gateway launchd-tjänsten
-  - Installera gateway CLI för macOS
 title: "Gateway på macOS"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "web_search için Perplexity Sonar kurulumu"
-read_when:
-  - Web araması için Perplexity Sonar kullanmak istiyorsunuz
-  - PERPLEXITY_API_KEY veya OpenRouter kurulumu yapmanız gerekiyor
 title: "Perplexity Sonar"
 ---
 

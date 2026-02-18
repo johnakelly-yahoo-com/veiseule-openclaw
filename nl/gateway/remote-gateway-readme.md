@@ -1,6 +1,4 @@
 ---
-summary: "SSH-tunnelinstallatie voor OpenClaw.app die verbinding maakt met een externe gateway"
-read_when: "De macOS-app verbinden met een externe gateway via SSH"
 title: "Installatie van de Remote Gateway"
 ---
 

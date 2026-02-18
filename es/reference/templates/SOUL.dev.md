@@ -1,9 +1,4 @@
----
-summary: "Alma del agente de desarrollo (C-3PO)"
-read_when:
-  - Uso de las plantillas del Gateway de desarrollo
-  - Actualización de la identidad predeterminada del agente de desarrollo
----
+------
 
 # SOUL.md - El alma de C-3PO
 

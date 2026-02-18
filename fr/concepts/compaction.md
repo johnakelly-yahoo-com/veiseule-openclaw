@@ -1,8 +1,4 @@
 ---
-summary: "Fenêtre de contexte + compaction : comment OpenClaw maintient les sessions sous les limites du modèle"
-read_when:
-  - Vous voulez comprendre l’auto-compaction et /compact
-  - Vous deboguez des sessions longues qui atteignent les limites de contexte
 title: "Compactage"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Brug Venice AI’s privatlivsfokuserede modeller i OpenClaw"
-read_when:
-  - Du vil have privatlivsfokuseret inferens i OpenClaw
-  - Du vil have vejledning til opsætning af Venice AI
 title: "Venice AI"
 ---
 

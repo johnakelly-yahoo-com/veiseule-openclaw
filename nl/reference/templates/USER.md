@@ -1,8 +1,4 @@
----
-summary: "Gebruikersprofielrecord"
-read_when:
-  - Handmatig een werkruimte opstarten
----
+------
 
 # USER.md - Over de persoon die je helpt
 

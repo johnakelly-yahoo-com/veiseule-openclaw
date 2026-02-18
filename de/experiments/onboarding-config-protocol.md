@@ -1,6 +1,4 @@
 ---
-summary: "RPC-Protokollhinweise für Onboarding-Assistent und Konfigurationsschema"
-read_when: "Ändern der Schritte des Onboarding-Assistenten oder der Endpunkte des Konfigurationsschemas"
 title: "Onboarding- und Konfigurationsprotokoll"
 ---
 

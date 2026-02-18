@@ -1,7 +1,4 @@
 ---
-summary: "Kanal bağlantısı için sağlık denetimi adımları"
-read_when:
-  - WhatsApp kanal sağlığını teşhis ederken
 title: "Sağlık Denetimleri"
 ---
 

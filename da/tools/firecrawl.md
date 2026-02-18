@@ -1,9 +1,4 @@
 ---
-summary: "Firecrawl-fallback for web_fetch (anti-bot + cachet udtræk)"
-read_when:
-  - Du vil have Firecrawl-baseret webudtræk
-  - Du har brug for en Firecrawl API-nøgle
-  - Du vil have anti-bot-udtræk for web_fetch
 title: "Firecrawl"
 ---
 

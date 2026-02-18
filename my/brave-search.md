@@ -1,8 +1,4 @@
 ---
-summary: "web_search အတွက် Brave Search API ကို တပ်ဆင်ပြင်ဆင်ခြင်း"
-read_when:
-  - web_search အတွက် Brave Search ကို အသုံးပြုချင်သောအခါ
-  - BRAVE_API_KEY သို့မဟုတ် စီမံကိန်း အစီအစဉ် အသေးစိတ်များ လိုအပ်သောအခါ
 title: "Brave Search"
 ---
 

@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想在 OpenClaw 中使用 MiniMax 模型
-  - 你需要 MiniMax 设置指南
-summary: 在 OpenClaw 中使用 MiniMax M2.1
 title: MiniMax
 x-i18n:
   generated_at: "2026-02-03T10:08:52Z"

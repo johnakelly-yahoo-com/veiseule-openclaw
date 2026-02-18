@@ -1,8 +1,4 @@
 ---
-summary: "Obsługa Signal przez signal-cli (JSON-RPC + SSE), konfiguracja i model numeru"
-read_when:
-  - Konfigurowanie obsługi Signal
-  - Debugowanie wysyłania/odbierania w Signal
 title: "Signal"
 ---
 

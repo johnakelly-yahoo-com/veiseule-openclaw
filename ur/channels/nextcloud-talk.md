@@ -1,7 +1,4 @@
 ---
-summary: "Nextcloud Talk کی معاونت کی حیثیت، صلاحیتیں، اور کنفیگریشن"
-read_when:
-  - Nextcloud Talk چینل کی خصوصیات پر کام کرتے وقت
 title: "Nextcloud Talk"
 ---
 

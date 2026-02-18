@@ -1,7 +1,4 @@
 ---
-summary: "WebSocket-Gateway-architectuur, componenten en clientstromen"
-read_when:
-  - Werken aan gatewayprotocol, clients of transports
 title: "Gateway-architectuur"
 ---
 

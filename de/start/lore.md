@@ -1,7 +1,4 @@
 ---
-summary: "Hintergrundgeschichte und Lore von OpenClaw für Kontext und Tonalität"
-read_when:
-  - Beim Schreiben von Dokumentation oder UX-Texten mit Bezug auf die Lore
 title: "OpenClaw Hintergrundgeschichte"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "~/.openclaw/openclaw.json 에 대한 모든 구성 옵션과 예제"
-read_when:
-  - 구성 필드 추가 또는 수정 시
 title: "구성"
 ---
 

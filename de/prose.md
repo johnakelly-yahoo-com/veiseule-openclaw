@@ -1,9 +1,4 @@
 ---
-summary: "OpenProse: .prose-Workflows, Slash-Befehle und Zustände in OpenClaw"
-read_when:
-  - Sie möchten .prose-Workflows ausführen oder schreiben
-  - Sie möchten das OpenProse-Plugin aktivieren
-  - Sie müssen die Zustandspeicherung verstehen
 title: "OpenProse"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "채널 연결성에 대한 상태 확인 단계"
-read_when:
-  - WhatsApp 채널 상태를 진단할 때
 title: "상태 점검"
 ---
 

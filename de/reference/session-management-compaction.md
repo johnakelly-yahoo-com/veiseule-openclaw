@@ -1,9 +1,4 @@
 ---
-summary: "Deep Dive: Session-Store + Transkripte, Lebenszyklus und (Auto-)Kompaktions-Interna"
-read_when:
-  - Sie müssen Session-IDs, Transcript-JSONL oder Felder in sessions.json debuggen
-  - Sie ändern das Auto-Kompaktionsverhalten oder fügen „Pre-Compaction“-Housekeeping hinzu
-  - Sie möchten Memory-Flushes oder stille System-Turns implementieren
 title: "Session-Management – Deep Dive"
 ---
 

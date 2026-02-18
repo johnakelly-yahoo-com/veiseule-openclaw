@@ -1,9 +1,4 @@
 ---
-summary: "iOS-node-app: verbinding maken met de Gateway, koppelen, canvas en problemen oplossen"
-read_when:
-  - Koppelen of opnieuw verbinden van de iOS-node
-  - De iOS-app vanuit broncode draaien
-  - Gateway Discovery of canvas-opdrachten debuggen
 title: "iOS-app"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Sådan indlejrer mac-appen gatewayens WebChat, og hvordan du debugger den"
-read_when:
-  - Fejlfinding af mac WebChat-visning eller loopback-port
 title: "WebChat"
 ---
 

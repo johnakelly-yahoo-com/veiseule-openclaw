@@ -1,8 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw hooks` (mga hook ng agent)"
-read_when:
-  - Gusto mong pamahalaan ang mga hook ng agent
-  - Gusto mong mag-install o mag-update ng mga hook
 title: "hooks"
 ---
 

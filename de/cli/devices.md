@@ -1,8 +1,4 @@
 ---
-summary: "CLI-Referenz für `openclaw devices` (Geräte-Pairing + Token-Rotation/-Widerruf)"
-read_when:
-  - Sie genehmigen Geräte-Pairing-Anfragen
-  - Sie müssen Geräte-Tokens rotieren oder widerrufen
 title: "Geräte"
 ---
 

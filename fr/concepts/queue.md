@@ -1,7 +1,4 @@
 ---
-summary: "Conception d’une file de commandes qui sérialise les exécutions d’auto-réponse entrantes"
-read_when:
-  - Modification de l’exécution ou de la concurrence des auto-réponses
 title: "File de commandes"
 ---
 

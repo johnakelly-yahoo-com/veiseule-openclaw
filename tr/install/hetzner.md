@@ -1,10 +1,4 @@
 ---
-summary: "Dayanıklı durum ve yerleşik ikili dosyalarla OpenClaw Gateway’i ucuz bir Hetzner VPS’te (Docker) 7/24 çalıştırın"
-read_when:
-  - OpenClaw’un 7/24 bir bulut VPS’te (dizüstünüzde değil) çalışmasını istiyorsanız
-  - Kendi VPS’inizde üretim seviyesinde, her zaman açık bir Gateway istiyorsanız
-  - Kalıcılık, ikili dosyalar ve yeniden başlatma davranışı üzerinde tam kontrol istiyorsanız
-  - OpenClaw’u Hetzner veya benzeri bir sağlayıcıda Docker ile çalıştırıyorsanız
 title: "Hetzner"
 ---
 

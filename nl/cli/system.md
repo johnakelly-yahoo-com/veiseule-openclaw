@@ -1,9 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw system` (systeemgebeurtenissen, heartbeat, aanwezigheid)"
-read_when:
-  - Je wilt een systeemgebeurtenis in de wachtrij plaatsen zonder een cronjob te maken
-  - Je moet heartbeat-signalen in- of uitschakelen
-  - Je wilt systeemaanwezigheidsvermeldingen inspecteren
 title: "systeem"
 ---
 

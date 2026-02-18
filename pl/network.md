@@ -1,9 +1,4 @@
 ---
-summary: "Hub sieciowy: powierzchnie gateway, parowanie, wykrywanie i bezpieczeństwo"
-read_when:
-  - Potrzebujesz przeglądu architektury sieci i bezpieczeństwa
-  - Diagnozujesz dostęp lokalny vs. tailnet lub parowanie
-  - Chcesz kanonicznej listy dokumentów sieciowych
 title: "network.md"
 ---
 

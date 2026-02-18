@@ -1,8 +1,4 @@
 ---
-summary: "„Gmail Pub/Sub Push über gogcli in OpenClaw-Webhooks eingebunden“"
-read_when:
-  - Gmail-Posteingangstrigger mit OpenClaw verdrahten
-  - Pub/Sub Push für das Aufwecken von Agenten einrichten
 title: "„Gmail PubSub“"
 ---
 

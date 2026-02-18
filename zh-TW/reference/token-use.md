@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw 如何建構提示內容並回報權杖使用量與成本"
-read_when:
-  - Explaining token usage, costs, or context windows
-  - Debugging context growth or compaction behavior
 title: "權杖使用與成本"
 ---
 

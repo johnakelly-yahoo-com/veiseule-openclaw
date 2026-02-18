@@ -1,7 +1,4 @@
 ---
-summary: "20. Matrix qo‘llab-quvvatlash holati, imkoniyatlar va konfiguratsiya"
-read_when:
-  - 21. Matrix kanal imkoniyatlari ustida ish olib borilmoqda
 title: "22. Matrix"
 ---
 

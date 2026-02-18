@@ -1,9 +1,4 @@
 ---
-summary: "Exec Genehmigungen, Zulassungen und Sandbox Escape-Eingabeaufforderungen"
-read_when:
-  - Konfigurieren von Exec Genehmigungen oder Zulassungslisten
-  - Implementierung der Exec-Freigabe-UX in der macOS-App
-  - Überprüfung von Sandbox-Escape-Prompts und deren Auswirkungen
 title: "Exec Genehmigungen"
 ---
 

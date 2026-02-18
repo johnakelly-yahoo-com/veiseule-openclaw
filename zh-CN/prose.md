@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 你想运行或编写 .prose 工作流
-  - 你想启用 OpenProse 插件
-  - 你需要了解状态存储
-summary: OpenProse：OpenClaw 中的 .prose 工作流、斜杠命令和状态
 title: OpenProse
 x-i18n:
   generated_at: "2026-02-03T07:53:38Z"

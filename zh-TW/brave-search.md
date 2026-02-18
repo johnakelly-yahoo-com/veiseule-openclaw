@@ -1,8 +1,4 @@
 ---
-summary: "用於 web_search 的 Brave Search API 設定"
-read_when:
-  - 你想要使用 Brave Search 進行 web_search
-  - 你需要 BRAVE_API_KEY 或方案詳細資訊
 title: "Brave Search"
 ---
 

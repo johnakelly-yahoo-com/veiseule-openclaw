@@ -1,8 +1,4 @@
 ---
-summary: "Reference ng CLI para sa `openclaw status` (diagnostics, probes, mga snapshot ng paggamit)"
-read_when:
-  - Gusto mo ng mabilis na diagnosis ng kalusugan ng channel + mga kamakailang recipient ng session
-  - Gusto mo ng isang pasteable na “all” status para sa debugging
 title: "status"
 ---
 

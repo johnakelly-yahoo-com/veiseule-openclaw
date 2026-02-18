@@ -1,9 +1,4 @@
 ---
-summary: "Où OpenClaw charge les variables d'environnement et l'ordre de priorité"
-read_when:
-  - Vous devez savoir quelles sont les variables d'env qui sont chargées, et dans quel ordre
-  - Vous dépannez des clés API manquantes dans la Gateway (passerelle)
-  - Vous documentez l'authentification des fournisseurs ou les environnements de déploiement
 title: "Variables d'environnement"
 ---
 

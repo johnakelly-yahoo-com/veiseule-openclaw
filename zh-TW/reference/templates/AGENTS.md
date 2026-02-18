@@ -1,8 +1,4 @@
----
-summary: "AGENTS.md 的工作區範本"
-read_when:
-  - 手動引導建立工作區
----
+------
 
 # AGENTS.md - 你的工作區
 

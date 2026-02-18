@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw 在 macOS 上的選單列圖示狀態與動畫"
-read_when:
-  - Changing menu bar icon behavior
 title: "選單列圖示"
 ---
 

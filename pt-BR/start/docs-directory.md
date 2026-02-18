@@ -1,7 +1,4 @@
 ---
-summary: "Links selecionados para as documentações mais usadas do OpenClaw."
-read_when:
-  - Você quer acesso rápido às principais páginas da documentação
 title: "Diretório de documentos"
 ---
 

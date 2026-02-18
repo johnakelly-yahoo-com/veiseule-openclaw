@@ -1,9 +1,4 @@
 ---
-summary: "Exec approvals, allowlists, and sandbox escape prompts"
-read_when:
-  - Configuring exec approvals or allowlists
-  - Implementing exec approval UX in the macOS app
-  - Reviewing sandbox escape prompts and implications
 title: "Exec Approvals"
 ---
 

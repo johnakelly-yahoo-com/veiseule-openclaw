@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 开发 Telegram 或 grammY 相关功能时
-summary: 通过 grammY 集成 Telegram Bot API，附设置说明
 title: grammY
 x-i18n:
   generated_at: "2026-02-03T10:03:55Z"

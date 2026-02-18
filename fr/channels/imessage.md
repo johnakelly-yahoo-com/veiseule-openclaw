@@ -1,8 +1,4 @@
 ---
-summary: "Prise en charge iMessage legacy via imsg (JSON-RPC sur stdio). Les nouvelles configurations devraient utiliser BlueBubbles."
-read_when:
-  - Mise en place de la prise en charge iMessage
-  - Débogage de l’envoi/la réception iMessage
 title: iMessage
 ---
 

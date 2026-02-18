@@ -1,9 +1,4 @@
 ---
-summary: "Validação estrita de configuração + migrações apenas via Doctor"
-read_when:
-  - Ao projetar ou implementar comportamento de validação de configuração
-  - Ao trabalhar em migrações de configuração ou fluxos do Doctor
-  - Ao lidar com esquemas de configuração de plugins ou bloqueio de carregamento de plugins
 title: "Validação estrita de configuração"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Matrix のサポート状況、機能、および設定"
-read_when:
-  - Matrix チャンネル機能に取り組んでいるとき
 title: "Matrix"
 ---
 

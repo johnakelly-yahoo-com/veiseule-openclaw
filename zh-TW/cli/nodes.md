@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw nodes」（list/status/approve/invoke、camera/canvas/screen）的 CLI 參考"
-read_when:
-  - 你正在管理已配對的節點（攝影機、螢幕、畫布）
-  - 你需要核准請求或呼叫節點指令
 title: "nodes"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Status de suporte do Matrix, capacidades e configuração"
-read_when:
-  - Trabalhando em recursos do canal Matrix
 title: "Matrix"
 ---
 

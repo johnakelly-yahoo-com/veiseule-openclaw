@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw’ni o‘rnating va birinchi chattingizni bir necha daqiqada ishga tushiring."
-read_when:
-  - Noldan birinchi sozlash
-  - Siz ishlaydigan chatga eng tez yo‘lni xohlaysiz
 title: "Boshlash"
 ---
 

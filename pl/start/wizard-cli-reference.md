@@ -1,8 +1,4 @@
 ---
-summary: "„Kompletne kompendium przepływu onboardingu CLI, konfiguracji uwierzytelniania/modeli, wyjść i elementów wewnętrznych”"
-read_when:
-  - „Potrzebujesz szczegółowego opisu zachowania onboardingu OpenClaw”
-  - „Debugujesz wyniki onboardingu lub integrujesz klientów onboardingu”
 title: "„Referencja onboardingu CLI”"
 sidebarTitle: "Dokumentacja referencyjna CLI"
 ---

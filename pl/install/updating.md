@@ -1,8 +1,4 @@
 ---
-summary: "Bezpieczna aktualizacja OpenClaw (instalacja globalna lub ze źródeł) oraz strategia wycofywania"
-read_when:
-  - Aktualizacja OpenClaw
-  - Coś się psuje po aktualizacji
 title: "Aktualizacja"
 ---
 

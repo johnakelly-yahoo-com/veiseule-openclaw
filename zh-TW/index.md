@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw 是一個可在任何 OS 上執行的 AI 代理程式多通道 Gateway 閘道器。"
-read_when:
-  - 向新手介紹 OpenClaw
 title: "OpenClaw"
 ---
 

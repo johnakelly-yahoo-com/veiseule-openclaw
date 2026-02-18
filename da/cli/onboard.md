@@ -1,7 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw onboard` (interaktiv introduktionsguide)"
-read_when:
-  - Du vil have guidet opsætning af gateway, workspace, autentificering, kanaler og Skills
 title: "onboard"
 ---
 

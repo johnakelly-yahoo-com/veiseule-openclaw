@@ -1,9 +1,4 @@
 ---
-summary: "26. CLI backendlar: mahalliy AI CLI’lar orqali faqat matnli zaxira yo‘li"
-read_when:
-  - 27. API provayderlari ishdan chiqqanda ishonchli zaxira yo‘lini xohlaysiz
-  - 28. Siz Claude Code CLI yoki boshqa mahalliy AI CLI’larni ishga tushiryapsiz va ularni qayta ishlatmoqchisiz
-  - 29. Sessiyalar va rasmlarni qo‘llab-quvvatlaydigan, lekin faqat matnli, vositalarsiz yo‘l kerak
 title: "30. CLI Backendlar"
 ---
 

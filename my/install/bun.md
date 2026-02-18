@@ -1,8 +1,4 @@
 ---
-summary: "Bun လုပ်ငန်းစဉ် (စမ်းသပ်ဆဲ): pnpm နှင့် နှိုင်းယှဉ်သည့် တပ်ဆင်ခြင်းနှင့် သတိပြုရမည့်အချက်များ"
-read_when:
-  - အမြန်ဆုံး local dev loop (bun + watch) ကိုလိုချင်သောအခါ
-  - Bun install/patch/lifecycle script ဆိုင်ရာ ပြဿနာများကို ကြုံတွေ့သောအခါ
 title: "Bun (စမ်းသပ်ဆဲ)"
 ---
 

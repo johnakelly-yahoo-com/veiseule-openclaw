@@ -1,7 +1,4 @@
 ---
-summary: "Udforskning: modelkonfiguration, godkendelsesprofiler og fallback-adfærd"
-read_when:
-  - Udforsker fremtidige idéer til modelvalg + godkendelsesprofiler
 title: "Udforskning af modelkonfiguration"
 ---
 

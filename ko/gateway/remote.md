@@ -1,7 +1,4 @@
 ---
-summary: "SSH 터널 (Gateway WS) 및 tailnet을 사용한 원격 액세스"
-read_when:
-  - 원격 Gateway 설정을 실행하거나 문제를 해결할 때
 title: "원격 액세스"
 ---
 

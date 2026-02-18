@@ -1,7 +1,4 @@
 ---
-summary: "Mga konsiderasyong pangseguridad at threat model para sa pagpapatakbo ng AI gateway na may shell access"
-read_when:
-  - Pagdaragdag ng mga tampok na nagpapalawak ng access o automation
 title: "Seguridad"
 ---
 

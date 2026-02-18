@@ -1,8 +1,4 @@
 ---
-summary: "Referencia de la CLI para `openclaw channels` (cuentas, estado, inicio/cierre de sesión, registros)"
-read_when:
-  - Desea agregar/eliminar cuentas de canales (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage)
-  - Desea comprobar el estado del canal o seguir los registros del canal
 title: "channels"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Manifest plugin + yêu cầu JSON Schema (xác thực cấu hình nghiêm ngặt)"
-read_when:
-  - Bạn đang xây dựng một plugin OpenClaw
-  - Bạn cần phát hành schema cấu hình plugin hoặc gỡ lỗi các lỗi xác thực plugin
 title: "Manifest Plugin"
 ---
 

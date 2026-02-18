@@ -1,8 +1,4 @@
 ---
-summary: "Ajan çalışma alanı: konum, düzen ve yedekleme stratejisi"
-read_when:
-  - Ajan çalışma alanını veya dosya düzenini açıklamanız gerektiğinde
-  - Bir ajan çalışma alanını yedeklemek veya taşımak istediğinizde
 title: "Ajan çalışma alanı"
 ---
 

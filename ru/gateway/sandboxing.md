@@ -1,7 +1,5 @@
 ---
-summary: "Как работает sandboxing в OpenClaw: режимы, области, доступ к рабочему пространству и образы"
 title: "Песочница"
-read_when: "Вам нужно отдельное объяснение sandboxing или требуется настроить agents.defaults.sandbox."
 status: active
 ---
 

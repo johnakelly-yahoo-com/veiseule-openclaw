@@ -1,8 +1,4 @@
 ---
-summary: "Actualización segura de OpenClaw (instalación global o desde código fuente), además de estrategia de reversión"
-read_when:
-  - Actualización de OpenClaw
-  - Algo se rompe después de una actualización
 title: "Actualización"
 ---
 

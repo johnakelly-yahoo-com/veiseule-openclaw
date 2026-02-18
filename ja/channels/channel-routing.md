@@ -1,7 +1,4 @@
 ---
-summary: "チャンネル（WhatsApp、Telegram、Discord、Slack）ごとのルーティングルールと共有コンテキスト"
-read_when:
-  - チャンネルルーティングや受信箱の挙動を変更する場合
 title: "チャンネルルーティング"
 ---
 

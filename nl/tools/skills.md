@@ -1,8 +1,4 @@
 ---
-summary: "Skills: beheerd vs werkruimte, afschermingsregels en config/env-koppeling"
-read_when:
-  - Skills toevoegen of wijzigen
-  - Skill-afscherming of laadregels wijzigen
 title: "Vaardigheden"
 ---
 

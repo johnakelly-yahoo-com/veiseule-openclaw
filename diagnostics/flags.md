@@ -1,8 +1,4 @@
 ---
-summary: "Diagnostics flags for targeted debug logs"
-read_when:
-  - You need targeted debug logs without raising global logging levels
-  - You need to capture subsystem-specific logs for support
 title: "Diagnostics Flags"
 ---
 

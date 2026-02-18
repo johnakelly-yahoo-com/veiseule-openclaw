@@ -1,5 +1,4 @@
 ---
-summary: "Vanliga frågor om installation, konfiguration och användning av OpenClaw"
 title: "Vanliga frågor"
 ---
 

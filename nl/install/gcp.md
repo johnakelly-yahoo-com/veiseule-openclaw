@@ -1,9 +1,4 @@
 ---
-summary: "Draai OpenClaw Gateway 24/7 op een GCP Compute Engine-VM (Docker) met duurzame status"
-read_when:
-  - Je wilt OpenClaw 24/7 op GCP draaien
-  - Je wilt een productieklare, altijd-aan Gateway op je eigen VM
-  - Je wilt volledige controle over persistentie, binaries en herstartgedrag
 title: "GCP"
 ---
 

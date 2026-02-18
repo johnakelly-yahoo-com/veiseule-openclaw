@@ -1,8 +1,4 @@
 ---
-summary: "Comprensión entrante de imágenes/audio/video (opcional) con proveedor + alternativas por CLI"
-read_when:
-  - Diseñar o refactorizar la comprensión de medios
-  - Ajustar el preprocesamiento entrante de audio/video/imagen
 title: "Comprensión de medios"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Справка CLI для `openclaw channels` (аккаунты, статус, вход/выход, логи)"
-read_when:
-  - Вам нужно добавить/удалить аккаунты каналов (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (плагин)/Signal/iMessage)
-  - Вам нужно проверить статус канала или просмотреть логи канала в режиме tail
 title: "channels"
 ---
 

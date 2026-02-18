@@ -1,7 +1,4 @@
 ---
-summary: "CLI-Referenz für `openclaw health` (Gateway-Gesundheitsendpunkt über RPC)"
-read_when:
-  - Sie möchten die Gesundheit des laufenden Gateways schnell prüfen
 title: "Gesundheit"
 ---
 

@@ -1,8 +1,4 @@
----
-summary: "Brugerprofilpost"
-read_when:
-  - Manuel opstart af et workspace
----
+------
 
 # USER.md - Om det menneske, du hjælper
 

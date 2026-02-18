@@ -1,9 +1,4 @@
 ---
-summary: "WKWebView + 사용자 정의 URL 스킴을 통해 임베드된 에이전트 제어 Canvas 패널"
-read_when:
-  - macOS Canvas 패널 구현
-  - 시각적 작업공간을 위한 에이전트 컨트롤 추가
-  - WKWebView Canvas 로드 디버깅
 title: "Canvas"
 ---
 

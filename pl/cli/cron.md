@@ -1,8 +1,4 @@
 ---
-summary: "Referencja CLI dla `openclaw cron` (planowanie i uruchamianie zadań w tle)"
-read_when:
-  - Chcesz korzystać z zaplanowanych zadań i wybudzeń
-  - Debugujesz wykonanie cron i logi
 title: "cron"
 ---
 

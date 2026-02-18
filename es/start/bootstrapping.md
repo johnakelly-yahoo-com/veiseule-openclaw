@@ -1,9 +1,4 @@
 ---
-summary: "Ritual de arranque del agente que inicializa el espacio de trabajo y los archivos de identidad"
-read_when:
-  - Comprender qué sucede en la primera ejecución del agente
-  - Explicar dónde viven los archivos de arranque
-  - Depurar la configuración de identidad durante la incorporación
 title: "Arranque del agente"
 sidebarTitle: "Arranque inicial"
 ---

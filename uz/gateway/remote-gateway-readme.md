@@ -1,6 +1,4 @@
 ---
-summary: "Masofaviy gateway’ga ulanish uchun OpenClaw.app da SSH tunnel sozlamasi"
-read_when: "macOS ilovasini SSH orqali masofaviy gateway’ga ulayotganda"
 title: "Masofaviy Gateway Sozlamasi"
 ---
 

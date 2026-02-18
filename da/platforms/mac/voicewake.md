@@ -1,7 +1,4 @@
 ---
-summary: "Voice wake- og push-to-talk-tilstande samt routingdetaljer i mac-appen"
-read_when:
-  - Arbejder med voice wake- eller PTT-stier
 title: "Stemmeaktivering"
 ---
 

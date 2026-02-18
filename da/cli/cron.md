@@ -1,8 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw cron` (planlæg og kør baggrundsjob)"
-read_when:
-  - Du vil have planlagte job og wakeups
-  - Du fejlretter cron-udførelse og logs
 title: "cron"
 ---
 

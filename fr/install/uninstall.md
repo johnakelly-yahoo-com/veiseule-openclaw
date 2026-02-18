@@ -1,8 +1,4 @@
 ---
-summary: "Désinstaller OpenClaw complètement (CLI, service, état, espace de travail)"
-read_when:
-  - Vous souhaitez supprimer OpenClaw d’une machine
-  - Le service Gateway (passerelle) fonctionne encore après la désinstallation
 title: "Désinstaller"
 ---
 

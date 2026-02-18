@@ -1,8 +1,4 @@
 ---
-summary: "Tác vụ LLM chỉ JSON cho workflow (công cụ plugin tùy chọn)"
-read_when:
-  - Bạn muốn một bước LLM chỉ JSON bên trong workflow
-  - Bạn cần đầu ra LLM được xác thực theo schema để tự động hóa
 title: "Tác vụ LLM"
 ---
 

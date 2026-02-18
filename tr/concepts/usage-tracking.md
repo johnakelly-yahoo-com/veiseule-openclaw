@@ -1,8 +1,4 @@
 ---
-summary: "Kullanım izleme yüzeyleri ve kimlik bilgisi gereksinimleri"
-read_when:
-  - Sağlayıcı kullanım/kota yüzeylerini bağlarken
-  - Kullanım izleme davranışını veya kimlik doğrulama gereksinimlerini açıklamanız gerektiğinde
 title: "Kullanım İzleme"
 ---
 

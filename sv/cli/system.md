@@ -1,9 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw system` (systemhändelser, heartbeat, presence)"
-read_when:
-  - Du vill köa en systemhändelse utan att skapa ett cron-jobb
-  - Du behöver aktivera eller inaktivera heartbeats
-  - Du vill granska systemets presence-poster
 title: "system"
 ---
 

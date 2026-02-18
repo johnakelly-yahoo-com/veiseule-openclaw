@@ -1,8 +1,4 @@
 ---
-summary: "Ajan kullanımı için kamera yakalama (iOS düğümü + macOS uygulaması): fotoğraflar (jpg) ve kısa video klipler (mp4)"
-read_when:
-  - iOS düğümlerinde veya macOS’te kamera yakalamayı eklerken ya da değiştirirken
-  - Ajanın erişebildiği MEDIA geçici dosya iş akışlarını genişletirken
 title: "Kamera Yakalama"
 ---
 

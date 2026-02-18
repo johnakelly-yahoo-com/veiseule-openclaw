@@ -1,8 +1,4 @@
 ---
-summary: "Descripción general de compatibilidad de plataformas (Gateway + aplicaciones complementarias)"
-read_when:
-  - Buscando compatibilidad de SO o rutas de instalación
-  - Decidiendo dónde ejecutar el Gateway
 title: "Plataformas"
 ---
 

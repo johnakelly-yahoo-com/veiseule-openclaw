@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw cron` 的 CLI 參考（排程並執行背景工作）"
-read_when:
-  - 你需要排程工作與喚醒
-  - 你正在除錯 cron 的執行與記錄
 title: "cron"
 ---
 

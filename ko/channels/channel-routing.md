@@ -1,7 +1,4 @@
 ---
-summary: "채널별 라우팅 규칙 (WhatsApp, Telegram, Discord, Slack) 및 공유 컨텍스트"
-read_when:
-  - 채널 라우팅 또는 수신함 동작을 변경할 때
 title: "채널 라우팅"
 ---
 

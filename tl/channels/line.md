@@ -1,9 +1,4 @@
 ---
-summary: "Setup, config, at paggamit ng plugin para sa LINE Messaging API"
-read_when:
-  - Gusto mong ikonekta ang OpenClaw sa LINE
-  - Kailangan mo ng setup ng LINE webhook + mga kredensyal
-  - Gusto mo ng mga opsyon ng mensahe na partikular sa LINE
 title: LINE
 ---
 

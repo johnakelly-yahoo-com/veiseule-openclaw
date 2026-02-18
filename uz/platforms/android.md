@@ -1,9 +1,4 @@
 ---
-summary: "Android ilovasi (node): ulanish yo‘riqnomasi + Canvas/Chat/Camera"
-read_when:
-  - Pairing or reconnecting the Android node
-  - Debugging Android gateway discovery or auth
-  - Verifying chat history parity across clients
 title: "Android App"
 ---
 

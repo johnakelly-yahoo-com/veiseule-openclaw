@@ -1,10 +1,5 @@
 ---
-title: "Vercel AI Gateway"
-summary: "Configuración de Vercel AI Gateway (autenticación + selección de modelo)"
-read_when:
-  - Quiere usar Vercel AI Gateway con OpenClaw
-  - Necesita la variable de entorno de la clave de API o la opción de autenticación de la CLI
----
+title: "Vercel AI Gateway"---
 
 # Vercel AI Gateway
 

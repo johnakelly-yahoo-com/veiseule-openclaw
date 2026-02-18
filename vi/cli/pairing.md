@@ -1,7 +1,4 @@
 ---
-summary: "Tài liệu tham chiếu CLI cho `openclaw pairing` (phê duyệt/liệt kê các yêu cầu ghép đôi)"
-read_when:
-  - Bạn đang sử dụng DM ở chế độ ghép đôi và cần phê duyệt người gửi
 title: "pairing"
 ---
 

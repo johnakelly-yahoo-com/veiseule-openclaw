@@ -1,7 +1,4 @@
 ---
-summary: "Discord بوٹ کی سپورٹ کی حیثیت، صلاحیتیں، اور کنفیگریشن"
-read_when:
-  - Discord چینل کی خصوصیات پر کام کرتے وقت
 title: "Discord"
 ---
 

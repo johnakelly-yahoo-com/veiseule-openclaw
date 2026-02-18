@@ -1,8 +1,4 @@
 ---
-summary: "Prise en charge de Windows (WSL2) + statut de l’application compagnon"
-read_when:
-  - Installation d’OpenClaw sur Windows
-  - Recherche du statut de l’application compagnon Windows
 title: "Windows (WSL2)"
 ---
 

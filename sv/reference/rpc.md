@@ -1,8 +1,4 @@
 ---
-summary: "RPC-adaptrar för externa CLI:er (signal-cli, legacy imsg) och gateway-mönster"
-read_when:
-  - Lägga till eller ändra externa CLI-integrationer
-  - Felsöka RPC-adaptrar (signal-cli, imsg)
 title: "RPC-adaptrar"
 ---
 

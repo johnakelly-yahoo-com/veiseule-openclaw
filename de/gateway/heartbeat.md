@@ -1,8 +1,4 @@
 ---
-summary: "„Heartbeat-Abfragemeldungen und Benachrichtigungsregeln“"
-read_when:
-  - Anpassen der Heartbeat-Taktung oder -Nachrichten
-  - Entscheidung zwischen Heartbeat und Cron für geplante Aufgaben
 title: "„Heartbeat“"
 ---
 

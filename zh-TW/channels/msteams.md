@@ -1,7 +1,4 @@
 ---
-summary: "Microsoft Teams 機器人支援狀態、功能與設定"
-read_when:
-  - 進行 MS Teams 頻道功能相關工作時
 title: "Microsoft Teams"
 ---
 

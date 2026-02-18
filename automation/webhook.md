@@ -1,8 +1,4 @@
 ---
-summary: "Webhook ingress for wake and isolated agent runs"
-read_when:
-  - Adding or changing webhook endpoints
-  - Wiring external systems into OpenClaw
 title: "Webhooks"
 ---
 

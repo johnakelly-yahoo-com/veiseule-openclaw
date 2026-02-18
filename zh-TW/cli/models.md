@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw models」的 CLI 參考（status/list/set/scan、別名、後備、身分驗證）"
-read_when:
-  - 你想要變更預設模型，或查看提供者的身分驗證狀態
-  - 你想要掃描可用的模型／提供者，並偵錯身分驗證設定檔
 title: "模型"
 ---
 

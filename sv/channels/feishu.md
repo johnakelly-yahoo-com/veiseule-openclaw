@@ -1,8 +1,4 @@
 ---
-summary: "Översikt, funktioner och konfiguration för Feishu-bot"
-read_when:
-  - Du vill ansluta en Feishu/Lark-bot
-  - Du konfigurerar Feishu-kanalen
 title: Feishu
 ---
 

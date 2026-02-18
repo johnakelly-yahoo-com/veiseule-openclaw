@@ -1,5 +1,4 @@
 ---
-summary: 关于 OpenClaw 安装、配置和使用的常见问题
 title: 常见问题
 x-i18n:
   generated_at: "2026-02-01T21:32:04Z"

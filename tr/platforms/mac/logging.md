@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw günlükleme: dönen tanılama dosyası günlüğü + birleşik günlük gizlilik bayrakları"
-read_when:
-  - macOS günlüklerini yakalarken veya özel veri günlüklemeyi incelerken
-  - Sesle uyandırma/oturum yaşam döngüsü sorunlarını ayıklarken
 title: "macOS Günlükleme"
 ---
 

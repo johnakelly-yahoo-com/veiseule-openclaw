@@ -1,9 +1,4 @@
 ---
-summary: "Moonshot K2 ile Kimi Coding yapılandırması (ayrı sağlayıcılar + anahtarlar)"
-read_when:
-  - Moonshot K2 (Moonshot Open Platform) ile Kimi Coding kurulumunu istiyorsunuz
-  - Ayrı uç noktaları, anahtarları ve model referanslarını anlamanız gerekiyor
-  - Her iki sağlayıcı için kopyala/yapıştır yapılandırma istiyorsunuz
 title: "Moonshot AI"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Tailnet yoki ommaviy dashboard kirishini avtomatlashtirish"
-read_when:
-  - 10. Gateway Control UI’ni localhost’dan tashqarida ochish
-  - Tailscale (Gateway dashboard)
 title: "OpenClaw Gateway dashboard’i va WebSocket porti uchun Tailscale **Serve** (tailnet) yoki **Funnel** (ommaviy) ni avtomatik sozlashi mumkin."
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Paghawak ng petsa at oras sa mga envelope, prompt, tool, at connector"
-read_when:
-  - Binabago mo kung paano ipinapakita ang mga timestamp sa model o mga user
-  - Nagde-debug ka ng pag-format ng oras sa mga mensahe o output ng system prompt
 title: "Petsa at Oras"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Levenscyclus van de spraakoverlay wanneer wake-woord en push-to-talk overlappen"
-read_when:
-  - Afstemmen van het gedrag van de spraakoverlay
 title: "Spraakoverlay"
 ---
 

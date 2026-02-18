@@ -1,7 +1,4 @@
 ---
-summary: "Etapy oceny stanu dla połączenia z kanałem"
-read_when:
-  - Diagnozowanie stanu kanału WhatsApp
 title: "Kontrole zdrowia"
 ---
 

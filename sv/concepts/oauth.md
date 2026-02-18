@@ -1,10 +1,4 @@
 ---
-summary: "OAuth i OpenClaw: tokenutbyte, lagring och mönster för flera konton"
-read_when:
-  - Du vill förstå OpenClaw OAuth från början till slut
-  - Du stöter på problem med tokeninvalidering / utloggning
-  - Du vill använda setup-token eller OAuth-autentiseringsflöden
-  - Du vill ha flera konton eller profilroutning
 title: "OAuth"
 ---
 

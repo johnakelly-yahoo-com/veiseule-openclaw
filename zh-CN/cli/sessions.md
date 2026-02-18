@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 你想列出已存储的会话并查看近期活动
-summary: "`openclaw sessions`（列出已存储的会话及使用情况）的 CLI 参考"
 title: sessions
 x-i18n:
   generated_at: "2026-02-01T20:21:25Z"

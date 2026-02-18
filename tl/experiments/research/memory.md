@@ -1,9 +1,4 @@
 ---
-summary: "Mga tala sa pananaliksik: offline na sistema ng memorya para sa mga workspace ng Clawd (Markdown bilang source-of-truth + derived index)"
-read_when:
-  - Pagdidisenyo ng workspace memory (~/.openclaw/workspace) lampas sa pang-araw-araw na Markdown logs
-  - Deciding: mga limitasyon sa oras (“ano ang totoo noong Nob 2025?”)
-  - Pagdaragdag ng offline recall + reflection (retain/recall/reflect)
 title: "Pananaliksik sa Workspace Memory"
 ---
 

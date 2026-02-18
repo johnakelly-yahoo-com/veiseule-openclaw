@@ -1,9 +1,4 @@
----
-summary: "Användarprofil för dev-agent (C-3PO)"
-read_when:
-  - Använder mallar för dev-gateway
-  - Uppdaterar standardidentiteten för dev-agenten
----
+------
 
 # USER.md – Användarprofil
 

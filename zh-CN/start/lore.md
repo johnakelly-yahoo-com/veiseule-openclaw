@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 撰写引用传说的文档或用户体验文案时
-summary: OpenClaw 的背景故事和传说，用于上下文和语气参考
 title: OpenClaw 传说
 x-i18n:
   generated_at: "2026-02-03T10:10:30Z"

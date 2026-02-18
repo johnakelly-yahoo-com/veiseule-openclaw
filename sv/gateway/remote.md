@@ -1,7 +1,4 @@
 ---
-summary: "Fjärråtkomst med SSH-tunnlar (Gateway WS) och tailnets"
-read_when:
-  - Körning eller felsökning av fjärrgateway-konfigurationer
 title: "Fjärråtkomst"
 ---
 

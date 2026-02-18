@@ -1,7 +1,4 @@
 ---
-summary: "Discord bot qo‘llab-quvvatlash holati, imkoniyatlari va sozlamalari"
-read_when:
-  - Working on Discord channel features
 title: "Discord"
 ---
 

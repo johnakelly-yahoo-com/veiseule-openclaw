@@ -1,9 +1,4 @@
 ---
-summary: "Tổng quan về logging: log tệp, đầu ra console, theo dõi bằng CLI, và Control UI"
-read_when:
-  - Bạn cần một cái nhìn tổng quan về logging thân thiện cho người mới
-  - Bạn muốn cấu hình mức log hoặc định dạng
-  - Bạn đang xử lý sự cố và cần tìm log nhanh
 title: "Ghi nhật ký"
 ---
 

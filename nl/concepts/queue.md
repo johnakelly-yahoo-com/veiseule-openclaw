@@ -1,7 +1,4 @@
 ---
-summary: "Ontwerp van een opdrachtwachtrij die inkomende auto-reply-runs serialiseert"
-read_when:
-  - Bij het wijzigen van auto-reply-uitvoering of gelijktijdigheid
 title: "Opdracht wachtrij"
 ---
 

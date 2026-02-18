@@ -1,9 +1,4 @@
----
-summary: "Dasturchi agenti AGENTS.md (C-3PO)"
-read_when:
-  - Dev gateway shablonlaridan foydalanish
-  - Standart dev agent identifikatorini yangilash
----
+------
 
 # AGENTS.md - OpenClaw ishchi muhiti
 

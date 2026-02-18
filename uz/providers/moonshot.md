@@ -1,9 +1,4 @@
 ---
-summary: "Moonshot K2 va Kimi Coding’ni sozlash (alohida provayderlar + kalitlar)"
-read_when:
-  - Sizga Moonshot K2 (Moonshot Open Platform) va Kimi Coding sozlamalarini taqqoslash kerak
-  - Alohida endpointlar, kalitlar va model havolalarini tushunishingiz kerak
-  - Har ikkala provayder uchun copy/paste konfiguratsiya kerak
 title: "Moonshot AI"
 ---
 

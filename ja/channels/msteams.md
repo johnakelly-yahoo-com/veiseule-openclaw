@@ -1,7 +1,4 @@
 ---
-summary: "Microsoft Teams ボットのサポート状況、機能、設定"
-read_when:
-  - MS Teams チャンネル機能に取り組んでいるとき
 title: "Microsoft Teams"
 ---
 

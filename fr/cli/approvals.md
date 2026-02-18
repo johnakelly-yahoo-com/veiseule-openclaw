@@ -1,8 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw approvals` (approbations d’execution pour les hôtes de Gateway (passerelle) ou de nœud)"
-read_when:
-  - Vous souhaitez modifier les approbations d’execution depuis la CLI
-  - Vous devez gérer des listes d’autorisation sur des hôtes de Gateway (passerelle) ou de nœud
 title: "approbations"
 ---
 

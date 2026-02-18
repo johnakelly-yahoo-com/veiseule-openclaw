@@ -1,7 +1,4 @@
 ---
-summary: "透過 grammY 進行 Telegram Bot API 整合，含設定注意事項"
-read_when:
-  - 處理 Telegram 或 grammY 流程時
 title: grammY
 ---
 

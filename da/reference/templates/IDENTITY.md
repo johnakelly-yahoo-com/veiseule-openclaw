@@ -1,8 +1,4 @@
----
-summary: "Agentens identitetsoptegnelse"
-read_when:
-  - Manuel opstart af et workspace
----
+------
 
 # IDENTITY.md - Hvem er jeg?
 

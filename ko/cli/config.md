@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw config`에 대한 CLI 참조(구성 값 가져오기/설정하기/해제하기)"
-read_when:
-  - 구성을 비대화형으로 읽거나 편집하려는 경우
 title: "config"
 ---
 

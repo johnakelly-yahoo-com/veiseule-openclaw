@@ -1,7 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw agent` (magpadala ng isang agent turn sa pamamagitan ng Gateway)"
-read_when:
-  - Gusto mong magpatakbo ng isang agent turn mula sa mga script (opsyonal na ihatid ang tugon)
 title: "agent"
 ---
 

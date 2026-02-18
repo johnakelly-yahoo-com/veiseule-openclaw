@@ -1,7 +1,4 @@
 ---
-summary: "macOS 에서의 Gateway(게이트웨이) 수명 주기 (launchd)"
-read_when:
-  - mac 앱을 Gateway(게이트웨이) 수명 주기와 통합할 때
 title: "Gateway(게이트웨이) 수명 주기"
 ---
 

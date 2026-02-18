@@ -1,8 +1,4 @@
 ---
-summary: "Agent-tooloppervlak voor OpenClaw (browser, canvas, nodes, message, cron) ter vervanging van verouderde `openclaw-*` Skills"
-read_when:
-  - Agent-tools toevoegen of wijzigen
-  - "`openclaw-*` Skills uitfaseren of wijzigen"
 title: "Hulpmiddelen"
 ---
 

@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 将 mac 应用与 Gateway 网关生命周期集成时
-summary: macOS 上的 Gateway 网关生命周期（launchd）
 title: Gateway 网关生命周期
 x-i18n:
   generated_at: "2026-02-03T07:52:31Z"

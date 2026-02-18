@@ -1,7 +1,5 @@
 ---
-summary: "Multi-Agent-Routing: isolierte Agenten, Kanal-Konten und Bindungen"
 title: Multi-Agent-Routing
-read_when: "Sie möchten mehrere isolierte Agenten (Workspaces + Auth) in einem Gateway-Prozess."
 status: active
 ---
 

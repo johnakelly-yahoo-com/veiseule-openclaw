@@ -1,7 +1,4 @@
 ---
-summary: "Modo de ejecución elevado y directivas /elevated"
-read_when:
-  - Ajustar los valores predeterminados del modo elevado, las listas de permitidos o el comportamiento de los comandos con barra
 title: "Modo Elevado"
 ---
 

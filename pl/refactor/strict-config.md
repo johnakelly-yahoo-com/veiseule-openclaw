@@ -1,9 +1,4 @@
 ---
-summary: "Ścisła walidacja konfiguracji + migracje wyłącznie przez Doctor"
-read_when:
-  - Projektowanie lub implementacja zachowania walidacji konfiguracji
-  - Praca nad migracjami konfiguracji lub przepływami Doctor
-  - Obsługa schematów konfiguracji wtyczek lub bramkowanie ładowania wtyczek
 title: "Ścisła walidacja konfiguracji"
 ---
 

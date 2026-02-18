@@ -1,8 +1,4 @@
----
-summary: "„Rekord tożsamości agenta”"
-read_when:
-  - Ręczne uruchamianie obszaru roboczego
----
+------
 
 # IDENTITY.md – Kim jestem?
 

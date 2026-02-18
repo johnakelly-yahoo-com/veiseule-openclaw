@@ -1,6 +1,4 @@
 ---
-summary: "Linux ပေါ်တွင် OpenClaw browser control အတွက် Chrome/Brave/Edge/Chromium CDP စတင်မှု ပြဿနာများကို ဖြေရှင်းခြင်း"
-read_when: "Linux ပေါ်တွင် browser control မအောင်မြင်သောအခါ၊ အထူးသဖြင့် snap Chromium အသုံးပြုနေသည့်အခါ"
 title: "Browser ပြဿနာဖြေရှင်းခြင်း"
 ---
 

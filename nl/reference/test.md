@@ -1,7 +1,4 @@
 ---
-summary: "Hoe je tests lokaal uitvoert (vitest) en wanneer je force-/coverage-modi gebruikt"
-read_when:
-  - Tests uitvoeren of oplossen
 title: "Tests"
 ---
 

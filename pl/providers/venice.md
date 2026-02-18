@@ -1,8 +1,4 @@
 ---
-summary: "Korzystaj z modeli Venice AI ukierunkowanych na prywatność w OpenClaw"
-read_when:
-  - Chcesz wnioskowania ukierunkowanego na prywatność w OpenClaw
-  - Chcesz wskazówek konfiguracji Venice AI
 title: "Venice AI"
 ---
 

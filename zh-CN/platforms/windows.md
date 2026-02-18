@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 在 Windows 上安装 OpenClaw
-  - 查找 Windows 配套应用状态
-summary: Windows（WSL2）支持 + 配套应用状态
 title: Windows (WSL2)
 x-i18n:
   generated_at: "2026-02-03T07:53:19Z"

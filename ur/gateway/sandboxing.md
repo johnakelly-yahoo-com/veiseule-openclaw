@@ -1,7 +1,5 @@
 ---
-summary: "OpenClaw میں sandboxing کیسے کام کرتا ہے: موڈز، اسکوپس، ورک اسپیس رسائی، اور امیجز"
 title: "سینڈ باکسنگ"
-read_when: "جب آپ کو sandboxing کی مخصوص وضاحت درکار ہو یا agents.defaults.sandbox کو ٹیون کرنا ہو۔"
 status: active
 ---
 

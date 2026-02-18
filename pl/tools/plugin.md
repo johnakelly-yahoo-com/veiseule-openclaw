@@ -1,8 +1,4 @@
 ---
-summary: "„Wtyczki/rozszerzenia OpenClaw: wykrywanie, konfiguracja i bezpieczeństwo”"
-read_when:
-  - Dodawanie lub modyfikowanie wtyczek/rozszerzeń
-  - Dokumentowanie zasad instalacji lub ładowania wtyczek
 title: "„Wtyczki”"
 ---
 

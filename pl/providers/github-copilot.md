@@ -1,8 +1,4 @@
 ---
-summary: "„Zaloguj się do GitHub Copilot z OpenClaw, korzystając z przepływu urządzenia”"
-read_when:
-  - Chcesz używać GitHub Copilot jako dostawcy modeli
-  - Potrzebujesz przepływu `openclaw models auth login-github-copilot`
 title: "GitHub Copilot"
 ---
 

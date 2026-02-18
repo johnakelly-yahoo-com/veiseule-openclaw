@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 设置 Mattermost
-  - 调试 Mattermost 路由
-summary: Mattermost 机器人设置和 OpenClaw 配置
 title: Mattermost
 x-i18n:
   generated_at: "2026-02-03T07:43:43Z"

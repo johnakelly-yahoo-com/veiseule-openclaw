@@ -1,8 +1,4 @@
 ---
-summary: "Gateway + CLI üzerinden anket gönderimi"
-read_when:
-  - Anket desteği eklerken veya değiştirirken
-  - CLI veya gateway üzerinden anket gönderimlerini hata ayıklarken
 title: "Anketler"
 ---
 

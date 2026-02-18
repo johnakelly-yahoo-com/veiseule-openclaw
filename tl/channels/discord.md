@@ -1,7 +1,4 @@
 ---
-summary: "Katayuan ng suporta ng Discord bot, mga kakayahan, at konpigurasyon"
-read_when:
-  - Gumagawa sa mga feature ng Discord channel
 title: "Discord"
 ---
 

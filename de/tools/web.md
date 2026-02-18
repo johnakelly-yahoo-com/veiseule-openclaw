@@ -1,9 +1,4 @@
 ---
-summary: "„Websuche- und Fetch-Werkzeuge (Brave Search API, Perplexity direkt/OpenRouter)“"
-read_when:
-  - Sie möchten web_search oder web_fetch aktivieren
-  - Sie benötigen die Einrichtung eines Brave Search API-Schlüssels
-  - Sie möchten Perplexity Sonar für die Websuche verwenden
 title: "„Web-Werkzeuge“"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Trạng thái hỗ trợ bot Discord, khả năng và cấu hình"
-read_when:
-  - Làm việc trên các tính năng kênh Discord
 title: "Discord"
 ---
 

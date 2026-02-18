@@ -1,8 +1,4 @@
 ---
-summary: "Manifest wtyczki + wymagania schematu JSON (ścisła walidacja konfiguracji)"
-read_when:
-  - Tworzysz wtyczkę OpenClaw
-  - Musisz dostarczyć schemat konfiguracji wtyczki lub debugować błędy walidacji wtyczek
 title: "Manifest wtyczki"
 ---
 

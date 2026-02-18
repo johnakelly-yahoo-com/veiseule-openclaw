@@ -1,8 +1,4 @@
 ---
-summary: "Harici CLI’ler (signal-cli, legacy imsg) ve gateway desenleri için RPC bağdaştırıcıları"
-read_when:
-  - Harici CLI entegrasyonları eklerken veya değiştirirken
-  - RPC bağdaştırıcılarını (signal-cli, imsg) hata ayıklarken
 title: "RPC Bağdaştırıcıları"
 ---
 

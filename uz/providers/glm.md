@@ -1,8 +1,4 @@
 ---
-summary: "41. GLM model oilasiga umumiy ko‘rinish va uni OpenClaw’da qanday ishlatish"
-read_when:
-  - 42. Siz OpenClaw’da GLM modellardan foydalanmoqchisiz
-  - 43. Sizga model nomlash konvensiyasi va sozlash kerak
 title: "44. GLM modellari"
 ---
 

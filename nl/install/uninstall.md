@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw volledig verwijderen (CLI, service, status, werkruimte)"
-read_when:
-  - Je wilt OpenClaw van een machine verwijderen
-  - De Gateway-service draait nog steeds na het verwijderen
 title: "Verwijderen"
 ---
 

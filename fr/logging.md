@@ -1,9 +1,4 @@
 ---
-summary: "Aperçu de la journalisation : journaux de fichiers, sortie console, suivi CLI et l’UI de contrôle"
-read_when:
-  - Vous avez besoin d’un aperçu de la journalisation adapté aux debutants
-  - Vous souhaitez configurer les niveaux ou les formats de journalisation
-  - Vous effectuez un depannage et devez trouver rapidement les journaux
 title: "Journalisation"
 ---
 

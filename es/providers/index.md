@@ -1,8 +1,4 @@
 ---
-summary: "Proveedores de modelos (LLM) compatibles con OpenClaw"
-read_when:
-  - Quiere elegir un proveedor de modelos
-  - Necesita una visión general rápida de los backends de LLM compatibles
 title: "Proveedores de modelos"
 ---
 

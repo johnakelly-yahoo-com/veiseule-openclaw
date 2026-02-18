@@ -1,7 +1,4 @@
 ---
-summary: "Direkte `openclaw agent`-CLI-kørsler (med valgfri levering)"
-read_when:
-  - Tilføjelse eller ændring af agentens CLI-entrypoint
 title: "Agent-afsendelse"
 ---
 

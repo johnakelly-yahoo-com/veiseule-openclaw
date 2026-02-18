@@ -1,8 +1,4 @@
 ---
-summary: "Découverte Bonjour/mDNS + débogage (balises de la Gateway (passerelle), clients et modes de défaillance courants)"
-read_when:
-  - Débogage des problèmes de découverte Bonjour sur macOS/iOS
-  - Modification des types de services mDNS, des enregistrements TXT ou de l’UX de découverte
 title: "Découverte Bonjour"
 ---
 

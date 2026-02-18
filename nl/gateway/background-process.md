@@ -1,8 +1,4 @@
 ---
-summary: "Uitvoering van achtergrond-exec en procesbeheer"
-read_when:
-  - Achtergrond-exec-gedrag toevoegen of wijzigen
-  - Debuggen van langlopende exec-taken
 title: "Achtergrond Exec en Proces-tool"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Reference de la CLI OpenClaw pour les commandes, sous-commandes et options `openclaw`"
-read_when:
-  - Ajout ou modification de commandes ou d’options CLI
-  - Documentation de nouvelles surfaces de commandes
 title: "Reference CLI"
 ---
 

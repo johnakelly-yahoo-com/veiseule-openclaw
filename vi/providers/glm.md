@@ -1,8 +1,4 @@
 ---
-summary: "Tổng quan họ mô hình GLM + cách sử dụng trong OpenClaw"
-read_when:
-  - Bạn muốn dùng các mô hình GLM trong OpenClaw
-  - Bạn cần quy ước đặt tên mô hình và cách thiết lập
 title: "Các mô hình GLM"
 ---
 

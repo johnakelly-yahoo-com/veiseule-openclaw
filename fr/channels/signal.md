@@ -1,8 +1,4 @@
 ---
-summary: "Prise en charge de Signal via signal-cli (JSON-RPC + SSE), configuration et modèle de numéros"
-read_when:
-  - Configuration de la prise en charge de Signal
-  - Dépannage de l’envoi/réception Signal
 title: "Signal"
 ---
 

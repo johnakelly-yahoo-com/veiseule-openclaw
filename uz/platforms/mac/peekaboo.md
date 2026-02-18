@@ -1,9 +1,4 @@
 ---
-summary: "macOS UI avtomatlashtirish uchun PeekabooBridge integratsiyasi"
-read_when:
-  - OpenClaw.app’da PeekabooBridge’ni joylashtirish
-  - Peekaboo’ni Swift Package Manager orqali integratsiya qilish
-  - PeekabooBridge protokoli/yo‘llarini o‘zgartirish
 title: "Peekaboo Bridge"
 ---
 

@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 你想了解 Moonshot K2（Moonshot 开放平台）与 Kimi Coding 的配置
-  - 你需要了解独立的端点、密钥和模型引用
-  - 你想获取任一提供商的可复制粘贴配置
-summary: 配置 Moonshot K2 与 Kimi Coding（独立提供商和密钥）
 title: Moonshot AI
 x-i18n:
   generated_at: "2026-02-01T21:35:13Z"

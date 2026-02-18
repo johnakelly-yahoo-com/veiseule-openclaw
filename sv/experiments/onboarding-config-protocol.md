@@ -1,6 +1,4 @@
 ---
-summary: "Anteckningar om RPC-protokoll för introduktionsguide och konfigschema"
-read_when: "När stegen i introduktionsguiden eller konfigschemaendpoints ändras"
 title: "Introduktion och konfigprotokoll"
 ---
 

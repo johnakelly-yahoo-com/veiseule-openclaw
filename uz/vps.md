@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw uchun VPS hosting xabi (Oracle/Fly/Hetzner/GCP/exe.dev)"
-read_when:
-  - Siz Gateway’ni bulutda ishga tushirmoqchisiz
-  - Sizga VPS/hosting qo‘llanmalari bo‘yicha tezkor yo‘l xarita kerak
 title: "VPS xostingi"
 ---
 

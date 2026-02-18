@@ -1,7 +1,4 @@
 ---
-summary: "Agent runtime (embedded pi-mono), workspace စာချုပ်နှင့် session bootstrap"
-read_when:
-  - Agent runtime၊ workspace bootstrap သို့မဟုတ် session အပြုအမူကို ပြောင်းလဲသောအခါ
 title: "အေးဂျင့် Runtime"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "NIP-04 で暗号化されたメッセージによる Nostr の DM チャンネル"
-read_when:
-  - Nostr 経由で OpenClaw が DM を受信できるようにしたい場合
-  - 分散型メッセージングを設定しています
 title: "Nostr"
 ---
 

@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 添加或修改智能体工具
-  - 停用或更改 `openclaw-*` Skills
-summary: OpenClaw 的智能体工具接口（browser、canvas、nodes、message、cron），替代旧版 `openclaw-*` Skills
 title: 工具
 x-i18n:
   generated_at: "2026-02-03T10:12:41Z"

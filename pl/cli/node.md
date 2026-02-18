@@ -1,8 +1,4 @@
 ---
-summary: "Dokumentacja referencyjna CLI dla `openclaw node` (bezgłowy host węzła)"
-read_when:
-  - Uruchamianie bezgłowego hosta węzła
-  - Parowanie węzła spoza macOS dla system.run
 title: "node"
 ---
 

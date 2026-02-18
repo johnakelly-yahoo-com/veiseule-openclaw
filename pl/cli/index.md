@@ -1,8 +1,4 @@
 ---
-summary: "Referencja CLI OpenClaw dla poleceń, podpoleceń i opcji `openclaw`"
-read_when:
-  - Dodawanie lub modyfikowanie poleceń lub opcji CLI
-  - Dokumentowanie nowych powierzchni poleceń
 title: "Referencja CLI"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: Node + tsx-crashnotities en workarounds voor "__name is not a function"
-read_when:
-  - Debuggen van alleen-Node dev-scripts of watch-modusfouten
-  - Onderzoeken van tsx/esbuild loader-crashes in OpenClaw
 title: "Node + tsx-crash"
 ---
 

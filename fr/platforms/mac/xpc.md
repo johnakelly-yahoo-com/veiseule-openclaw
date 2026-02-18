@@ -1,7 +1,4 @@
 ---
-summary: "Architecture IPC macOS pour l’application OpenClaw, le transport du nœud Gateway (passerelle) et PeekabooBridge"
-read_when:
-  - Modification des contrats IPC ou de l’IPC de l’application de barre de menus
 title: "IPC macOS"
 ---
 

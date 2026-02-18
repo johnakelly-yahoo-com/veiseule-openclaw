@@ -1,7 +1,4 @@
 ---
-summary: "Matrix-supportstatus, funktioner og konfiguration"
-read_when:
-  - Arbejder med Matrix-kanalfunktioner
 title: "Matrix"
 ---
 

@@ -1,5 +1,4 @@
 ---
-summary: "cron.add kirishlarini qayta ishlashni mustahkamlash, sxemalarni moslashtirish va cron UI/agent vositalarini yaxshilash"
 owner: "openclaw"
 status: "tugallangan"
 last_updated: "2026-01-05"

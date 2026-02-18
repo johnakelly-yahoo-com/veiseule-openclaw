@@ -1,8 +1,4 @@
 ---
-summary: "Tham chiếu CLI cho `openclaw memory` (status/index/search)"
-read_when:
-  - Bạn muốn lập chỉ mục hoặc tìm kiếm bộ nhớ ngữ nghĩa
-  - Bạn đang gỡ lỗi khả năng sẵn sàng hoặc việc lập chỉ mục bộ nhớ
 title: "bộ nhớ"
 ---
 

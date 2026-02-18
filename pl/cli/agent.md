@@ -1,7 +1,4 @@
 ---
-summary: "Referencja CLI dla `openclaw agent` (wysłanie jednej tury agenta przez Gateway)"
-read_when:
-  - Chcesz uruchomić jedną turę agenta ze skryptów (opcjonalnie dostarczyć odpowiedź)
 title: "agent"
 ---
 

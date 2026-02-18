@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw'ı kurun — yükleyici betiği, npm/pnpm, kaynaktan, Docker ve daha fazlası"
-read_when:
-  - Başlarken hızlı başlangıcı dışında bir kurulum yöntemine ihtiyacınız var
-  - Bir bulut platformuna dağıtım yapmak istiyorsunuz
-  - Güncelleme, taşıma veya kaldırma yapmanız gerekiyor
 title: "Kurulum"
 ---
 

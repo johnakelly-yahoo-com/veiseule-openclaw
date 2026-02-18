@@ -1,7 +1,4 @@
 ---
-summary: "„Przepływ aplikacji macOS do sterowania zdalną bramą OpenClaw przez SSH”"
-read_when:
-  - Konfiguracja lub debugowanie zdalnego sterowania macOS
 title: "„Zdalne sterowanie”"
 ---
 

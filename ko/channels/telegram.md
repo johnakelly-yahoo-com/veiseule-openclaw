@@ -1,7 +1,4 @@
 ---
-summary: "Telegram 봇 지원 상태, 기능 및 구성"
-read_when:
-  - Telegram 기능 또는 웹훅을 작업할 때
 title: "Telegram"
 ---
 

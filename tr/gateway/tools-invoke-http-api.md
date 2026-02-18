@@ -1,8 +1,4 @@
 ---
-summary: "Gateway HTTP uç noktası üzerinden tek bir aracı doğrudan çağırma"
-read_when:
-  - Tam bir ajan turu çalıştırmadan araçları çağırma
-  - Araç politika zorunluluğu gerektiren otomasyonlar oluşturma
 title: "Araçları Çağırma API'si"
 ---
 

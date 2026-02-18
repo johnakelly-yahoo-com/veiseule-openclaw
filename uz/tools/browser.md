@@ -1,9 +1,4 @@
 ---
-summary: "Integratsiyalashgan brauzer boshqaruv xizmati + action buyruqlari"
-read_when:
-  - Agent tomonidan boshqariladigan brauzer avtomatlashtirishini qo‘shish
-  - Nega openclaw sizning Chrome’ingizga xalaqit berayotganini diagnostika qilish
-  - macOS ilovasida brauzer sozlamalari va hayot siklini amalga oshirish
 title: "Brauzer (OpenClaw tomonidan boshqariladi)"
 ---
 

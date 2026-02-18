@@ -1,8 +1,4 @@
 ---
-summary: "Symptom-first na troubleshooting hub para sa OpenClaw"
-read_when:
-  - Hindi gumagana ang OpenClaw at kailangan mo ang pinakamabilis na ruta papunta sa ayos
-  - Gusto mo ng triage flow bago sumisid sa mga detalyadong runbook
 title: "Pag-troubleshoot"
 ---
 

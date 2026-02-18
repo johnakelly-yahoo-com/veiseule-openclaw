@@ -1,8 +1,4 @@
 ---
-summary: "„Windows‑Unterstützung (WSL2) + Status der Companion‑App“"
-read_when:
-  - „OpenClaw unter Windows installieren“
-  - „Status der Windows‑Companion‑App suchen“
 title: "Windows (WSL2)"
 ---
 

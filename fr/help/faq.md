@@ -1,5 +1,4 @@
 ---
-summary: "Questions fréquemment posées sur l’installation, la configuration et l’utilisation d’OpenClaw"
 title: "FAQ"
 ---
 

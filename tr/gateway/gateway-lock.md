@@ -1,8 +1,4 @@
 ---
-summary: "WebSocket dinleyicisi bağlaması kullanılarak Gateway tekil örnek koruması"
-read_when:
-  - Gateway sürecini çalıştırırken veya hata ayıklarken
-  - Tek örnek zorlamasını incelerken
 title: "Gateway Kilidi"
 ---
 

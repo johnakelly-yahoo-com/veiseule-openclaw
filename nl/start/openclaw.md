@@ -1,8 +1,4 @@
 ---
-summary: "End-to-end gids voor het draaien van OpenClaw als persoonlijke assistent met veiligheidswaarschuwingen"
-read_when:
-  - Onboarden van een nieuwe assistent-instantie
-  - Beoordelen van veiligheids- en toestemmingsimplicaties
 title: "Installatie van persoonlijke assistent"
 ---
 

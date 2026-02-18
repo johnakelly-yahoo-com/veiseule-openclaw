@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想在保留 CLI 安装的同时清除本地状态
-  - 你想预览哪些内容会被移除
-summary: "`openclaw reset`（重置本地状态/配置）的 CLI 参考"
 title: reset
 x-i18n:
   generated_at: "2026-02-01T20:21:22Z"

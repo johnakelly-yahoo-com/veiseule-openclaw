@@ -1,7 +1,4 @@
 ---
-summary: "Gateway xizmati, hayotiy sikli va operatsiyalari bo‘yicha qo‘llanma"
-read_when:
-  - Running or debugging the gateway process
 title: "Gateway qo‘llanmasi"
 ---
 

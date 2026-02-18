@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 你想将 Claude Max 订阅与 OpenAI 兼容工具配合使用
-  - 你想要一个封装 Claude Code CLI 的本地 API 服务器
-  - 你想通过使用订阅而非 API 密钥来节省费用
-summary: 将 Claude Max/Pro 订阅用作 OpenAI 兼容的 API 端点
 title: Claude Max API 代理
 x-i18n:
   generated_at: "2026-02-01T21:34:52Z"

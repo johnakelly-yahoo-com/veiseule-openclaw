@@ -1,8 +1,4 @@
 ---
-summary: "Subagenci: uruchamianie odizolowanych przebiegów agentów, które ogłaszają wyniki z powrotem w czacie żądającym"
-read_when:
-  - Chcesz wykonywać pracę w tle/równolegle za pomocą agenta
-  - Zmieniasz politykę sessions_spawn lub narzędzi subagenta
 title: "Podagenci"
 ---
 

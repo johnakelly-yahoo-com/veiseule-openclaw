@@ -1,11 +1,5 @@
 ---
-title: "Node.js"
-summary: "OpenClaw uchun Node.js’ni o‘rnatish va sozlash — versiya talablari, o‘rnatish usullari va PATH muammolarini bartaraf etish"
-read_when:
-  - "You need to install Node.js before installing OpenClaw"
-  - "You installed OpenClaw but `openclaw` is command not found"
-  - "npm install -g fails with permissions or PATH issues"
----
+title: "Node.js"---
 
 # Node.js
 

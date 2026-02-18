@@ -1,7 +1,4 @@
 ---
-summary: "mac အက်ပ်က Gateway WebChat ကို မည်သို့ ထည့်သွင်းထားသည်နှင့် ၎င်းကို မည်သို့ ဒီဘဂ်လုပ်ရမည်"
-read_when:
-  - mac WebChat မြင်ကွင်း သို့မဟုတ် loopback ပေါ့တ်ကို ဒီဘဂ်လုပ်နေချိန်
 title: "WebChat"
 ---
 

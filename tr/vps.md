@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw için VPS barındırma merkezi (Oracle/Fly/Hetzner/GCP/exe.dev)"
-read_when:
-  - Gateway'i bulutta çalıştırmak istiyorsanız
-  - VPS/barındırma kılavuzlarının hızlı bir haritasına ihtiyacınız varsa
 title: "VPS Barındırma"
 ---
 

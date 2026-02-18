@@ -1,8 +1,4 @@
 ---
-summary: "Skriv agentværktøjer i et plugin (skemaer, valgfrie værktøjer, tilladelseslister)"
-read_when:
-  - Du vil tilføje et nyt agentværktøj i et plugin
-  - Du skal gøre et værktøj valgfrit via tilladelseslister
 title: "Plugin-agentværktøjer"
 ---
 

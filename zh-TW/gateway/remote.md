@@ -1,7 +1,4 @@
 ---
-summary: "使用 SSH 通道（Gateway WS）與 tailnet 的遠端存取"
-read_when:
-  - 執行或疑難排解遠端 Gateway 設定時
 title: "13. 遠端存取"
 ---
 

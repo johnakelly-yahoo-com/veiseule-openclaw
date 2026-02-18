@@ -1,7 +1,4 @@
 ---
-summary: "„Status der Menüleisten‑Symbole und Animationen für OpenClaw unter macOS“"
-read_when:
-  - Ändern des Verhaltens des Menüleisten‑Symbols
 title: "„Menüleisten‑Symbol“"
 ---
 

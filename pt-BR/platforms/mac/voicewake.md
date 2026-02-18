@@ -1,7 +1,4 @@
 ---
-summary: "Modos de ativação por voz e push-to-talk, além de detalhes de roteamento no app para mac"
-read_when:
-  - Trabalhando nos fluxos de ativação por voz ou PTT
 title: "Ativação por Voz"
 ---
 

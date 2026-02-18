@@ -1,9 +1,4 @@
----
-summary: "Dev-agentidentitet (C-3PO)"
-read_when:
-  - Brug af dev gateway-skabelonerne
-  - Opdatering af standardidentiteten for dev-agenten
----
+------
 
 # IDENTITY.md - Agentidentitet
 

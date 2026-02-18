@@ -1,9 +1,4 @@
 ---
-summary: "Aplicación de nodo iOS: conexión al Gateway, emparejamiento, canvas y solución de problemas"
-read_when:
-  - Emparejar o reconectar el nodo iOS
-  - Ejecutar la app iOS desde el código fuente
-  - Depurar el descubrimiento del Gateway o los comandos de canvas
 title: "App iOS"
 ---
 

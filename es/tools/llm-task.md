@@ -1,8 +1,4 @@
 ---
-summary: "Tareas de LLM solo JSON para flujos de trabajo (herramienta de complemento opcional)"
-read_when:
-  - Quiere un paso de LLM solo JSON dentro de flujos de trabajo
-  - Necesita salida de LLM validada por esquema para automatización
 title: "Tarea de LLM"
 ---
 

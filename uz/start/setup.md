@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw uchun ilg‘or o‘rnatish va ishlab chiqish ish jarayonlari"
-read_when:
-  - Yangi mashina sozlayotganda
-  - Shaxsiy sozlamalaringizni buzmasdan “eng so‘nggi va eng zo‘r” versiyani xohlasangiz
 title: "O‘rnatish"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw’da OpenAI’yi API anahtarları veya Codex aboneliği üzerinden kullanın"
-read_when:
-  - OpenClaw’da OpenAI modellerini kullanmak istiyorsunuz
-  - API anahtarları yerine Codex aboneliği ile kimlik doğrulama istiyorsunuz
 title: "OpenAI"
 ---
 

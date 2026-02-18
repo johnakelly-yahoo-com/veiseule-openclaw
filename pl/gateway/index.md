@@ -1,7 +1,4 @@
 ---
-summary: "Runbook dla usługi Gateway, jej cyklu życia i operacji"
-read_when:
-  - Uruchamianie lub debugowanie procesu gateway
 title: "Runbook Gateway"
 ---
 

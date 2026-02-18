@@ -1,7 +1,4 @@
 ---
-summary: "Har bir OpenClaw hujjatiga havola beruvchi markazlar"
-read_when:
-  - You want a complete map of the documentation
 title: "Hujjatlar markazlari"
 ---
 

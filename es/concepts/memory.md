@@ -1,9 +1,4 @@
----
-summary: "Cómo funciona la memoria de OpenClaw (archivos del espacio de trabajo + vaciado automático de memoria)"
-read_when:
-  - Quiere el diseño de archivos de memoria y el flujo de trabajo
-  - Quiere ajustar el vaciado automático de memoria previo a la compactación
----
+------
 
 # Memoria
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw で API キーまたは Codex サブスクリプションを使用して OpenAI を利用します"
-read_when:
-  - OpenClaw で OpenAI モデルを使用したい場合
-  - API キーではなく Codex サブスクリプション認証を使用したい場合
 title: "OpenAI"
 ---
 

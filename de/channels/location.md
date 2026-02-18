@@ -1,8 +1,4 @@
 ---
-summary: "„Parsing eingehender Kanalstandorte (Telegram + WhatsApp) und Kontextfelder“"
-read_when:
-  - Beim Hinzufügen oder Ändern des Kanal-Standort-Parsing
-  - Beim Verwenden von Standort-Kontextfeldern in Agent-Prompts oder Werkzeugen
 title: "channels/location.md"
 ---
 

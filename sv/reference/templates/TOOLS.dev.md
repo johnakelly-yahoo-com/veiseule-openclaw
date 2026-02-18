@@ -1,9 +1,4 @@
----
-summary: "Anteckningar om verktyg för dev-agenten (C-3PO)"
-read_when:
-  - Använder mallarna för dev-gateway
-  - Uppdaterar standardidentiteten för dev-agenten
----
+------
 
 # TOOLS.md - Användaranteckningar om verktyg (redigerbar)
 

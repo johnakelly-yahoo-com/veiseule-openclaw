@@ -1,9 +1,4 @@
 ---
-summary: "„Przewodnik po ClawHub: publiczny rejestr Skills + przepływy pracy CLI”"
-read_when:
-  - Wprowadzanie ClawHub dla nowych użytkowników
-  - Instalowanie, wyszukiwanie lub publikowanie Skills
-  - Wyjaśnianie flag CLI ClawHub i zachowania synchronizacji
 title: "ClawHub"
 ---
 

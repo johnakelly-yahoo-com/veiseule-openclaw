@@ -1,5 +1,4 @@
 ---
-summary: "منصوبہ: OpenResponses /v1/responses اینڈپوائنٹ شامل کرنا اور چیٹ کمپلیشنز کو صاف انداز میں فرسودہ کرنا"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"

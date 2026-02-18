@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw အက်ပ်၊ Gateway နိုဒ် ပို့ဆောင်ရေးနှင့် PeekabooBridge အတွက် macOS IPC အင်ဂျင်နီယာဖွဲ့စည်းပုံ"
-read_when:
-  - IPC စာချုပ်များ သို့မဟုတ် မီနူးဘား အက်ပ် IPC ကို ပြင်ဆင်နေချိန်
 title: "macOS IPC"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Visão geral de suporte de plataformas (Gateway + aplicativos complementares)"
-read_when:
-  - Procurando suporte de SO ou caminhos de instalação
-  - Decidindo onde executar o Gateway
 title: "Plataformas"
 ---
 

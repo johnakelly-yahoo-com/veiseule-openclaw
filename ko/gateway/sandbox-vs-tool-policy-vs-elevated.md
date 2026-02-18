@@ -1,7 +1,5 @@
 ---
 title: "샌드박스 vs 도구 정책 vs 권한 상승"
-summary: "도구가 차단되는 이유: 샌드박스 런타임, 도구 허용/차단 정책, Elevated exec 게이트"
-read_when: "'sandbox jail' 에 걸렸거나 도구/Elevated 거부를 보았고 변경해야 할 정확한 구성 키가 필요할 때."
 status: active
 ---
 

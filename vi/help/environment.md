@@ -1,9 +1,4 @@
 ---
-summary: "Nơi OpenClaw tải các biến môi trường và thứ tự ưu tiên"
-read_when:
-  - Bạn cần biết những biến môi trường nào được tải và theo thứ tự nào
-  - Bạn đang gỡ lỗi các khóa API bị thiếu trong Gateway
-  - Bạn đang lập tài liệu xác thực nhà cung cấp hoặc môi trường triển khai
 title: "Biến môi trường"
 ---
 

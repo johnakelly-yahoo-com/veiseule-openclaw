@@ -1,7 +1,4 @@
 ---
-summary: "macOS üzerinde OpenClaw için menü çubuğu simge durumları ve animasyonları"
-read_when:
-  - Menü çubuğu simgesi davranışını değiştirirken
 title: "Menü Çubuğu Simgesi"
 ---
 

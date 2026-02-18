@@ -1,9 +1,4 @@
 ---
-summary: "Installation OpenClaw automatisee et renforcee avec Ansible, VPN Tailscale et isolation par pare-feu"
-read_when:
-  - Vous souhaitez un deploiement de serveur automatise avec renforcement de la securite
-  - Vous avez besoin d'une configuration isolee par pare-feu avec acces VPN
-  - Vous deployeez sur des serveurs Debian/Ubuntu distants
 title: "Ansible"
 ---
 

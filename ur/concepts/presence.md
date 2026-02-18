@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw کی presence اندراجات کیسے تیار، ضم اور دکھائی جاتی ہیں"
-read_when:
-  - Instances ٹیب کی ڈیبگنگ
-  - ڈپلیکیٹ یا پرانی instance قطاروں کی تفتیش
-  - گیٹ وے WS کنیکٹ یا system-event بیکنز میں تبدیلی
 title: "موجودگی"
 ---
 

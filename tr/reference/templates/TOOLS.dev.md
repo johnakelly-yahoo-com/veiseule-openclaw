@@ -1,9 +1,4 @@
----
-summary: "Geliştirici ajan araçları notları (C-3PO)"
-read_when:
-  - Geliştirici gateway şablonlarını kullanırken
-  - Varsayılan geliştirici ajan kimliğini güncellerken
----
+------
 
 # TOOLS.md - Kullanıcı Araç Notları (düzenlenebilir)
 

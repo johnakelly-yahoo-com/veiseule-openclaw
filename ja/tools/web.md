@@ -1,9 +1,4 @@
 ---
-summary: "Web 検索 + フェッチツール（Brave Search API、Perplexity 直接 / OpenRouter）"
-read_when:
-  - web_search または web_fetch を有効にしたい場合
-  - Brave Search API キーのセットアップが必要な場合
-  - Web 検索に Perplexity Sonar を使用したい場合
 title: "Web ツール"
 ---
 

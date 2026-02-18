@@ -1,7 +1,5 @@
 ---
-summary: "Hoe OpenClaw-sandboxing werkt: modi, scopes, werkruimte-toegang en images"
 title: "Sandboxing"
-read_when: "Je wilt een toegewijde uitleg van sandboxing of moet agents.defaults.sandbox afstemmen."
 status: active
 ---
 

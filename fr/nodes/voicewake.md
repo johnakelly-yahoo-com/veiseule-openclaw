@@ -1,8 +1,4 @@
 ---
-summary: "Mots de reveil vocaux globaux (appartenant a la Gateway) et leur synchronisation entre les nœuds"
-read_when:
-  - Modification du comportement ou des valeurs par defaut des mots de reveil vocaux
-  - Ajout de nouvelles plateformes de nœuds necessitant la synchronisation des mots de reveil
 title: "Reveil vocal"
 ---
 

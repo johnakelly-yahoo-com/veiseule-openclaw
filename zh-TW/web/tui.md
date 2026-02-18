@@ -1,8 +1,4 @@
 ---
-summary: "終端機 UI（TUI）：從任何機器連線到 Gateway 閘道器"
-read_when:
-  - 你想要一份適合初學者的 TUI 操作導覽
-  - 你需要完整的 TUI 功能、指令與快捷鍵清單
 title: "TUI"
 ---
 

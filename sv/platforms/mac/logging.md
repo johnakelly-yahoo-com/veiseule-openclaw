@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw-loggning: rullande diagnostikfillogg + integritetsflaggor för unified log"
-read_when:
-  - Insamling av macOS-loggar eller undersökning av loggning av privata data
-  - Felsökning av problem med röstväckning/sessionens livscykel
 title: "macOS-loggning"
 ---
 

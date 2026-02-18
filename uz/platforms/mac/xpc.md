@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw ilovasi, gateway node transporti va PeekabooBridge uchun macOS IPC arxitekturasi"
-read_when:
-  - IPC kontraktlari yoki menyu paneli ilovasi IPCsini tahrirlash
 title: "macOS IPC"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Powierzchnie webowe Gateway: interfejs sterowania, tryby bindowania i bezpieczeństwo"
-read_when:
-  - Chcesz uzyskać dostęp do Gateway przez Tailscale
-  - Chcesz używać przeglądarkowego interfejsu Control UI i edycji konfiguracji
 title: "Sieć"
 ---
 

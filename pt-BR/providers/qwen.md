@@ -1,8 +1,4 @@
 ---
-summary: "Use o OAuth do Qwen (camada gratuita) no OpenClaw"
-read_when:
-  - Você quer usar o Qwen com o OpenClaw
-  - Você quer acesso OAuth gratuito ao Qwen Coder
 title: "Qwen"
 ---
 

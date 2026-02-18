@@ -1,5 +1,4 @@
 ---
-summary: "เสริมความแข็งแกร่งการจัดการอินพุตของ cron.add ปรับสคีมาให้สอดคล้อง และปรับปรุงเครื่องมือ cron ของ UI/เอเจนต์"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"

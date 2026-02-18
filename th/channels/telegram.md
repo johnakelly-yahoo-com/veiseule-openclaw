@@ -1,7 +1,4 @@
 ---
-summary: "สถานะการรองรับบอต Telegram ความสามารถ และการกำหนดค่า"
-read_when:
-  - ทำงานเกี่ยวกับฟีเจอร์ Telegram หรือ webhook
 title: "Telegram"
 ---
 

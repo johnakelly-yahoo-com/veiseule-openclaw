@@ -1,9 +1,4 @@
 ---
-summary: "Models CLI: รายการ ตั้งค่า นามแฝง ฟอลแบ็ก สแกน สถานะ"
-read_when:
-  - การเพิ่มหรือแก้ไข Models CLI (models list/set/scan/aliases/fallbacks)
-  - การเปลี่ยนพฤติกรรมฟอลแบ็กของโมเดลหรือ UX การเลือก
-  - การอัปเดตโพรบการสแกนโมเดล (เครื่องมือ/รูปภาพ)
 title: "Models CLI"
 ---
 

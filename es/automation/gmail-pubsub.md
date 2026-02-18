@@ -1,8 +1,4 @@
 ---
-summary: "Push de Gmail Pub/Sub conectado a webhooks de OpenClaw mediante gogcli"
-read_when:
-  - Conectar disparadores de la bandeja de entrada de Gmail a OpenClaw
-  - Configurar push de Pub/Sub para despertar al agente
 title: "Gmail PubSub"
 ---
 

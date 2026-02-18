@@ -1,7 +1,4 @@
 ---
-summary: "Lưu trữ tĩnh WebChat dạng loopback và cách dùng Gateway WS cho giao diện chat"
-read_when:
-  - Khi gỡ lỗi hoặc cấu hình quyền truy cập WebChat
 title: "WebChat"
 ---
 

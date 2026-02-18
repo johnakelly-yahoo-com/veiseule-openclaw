@@ -1,9 +1,4 @@
 ---
-summary: "Hub reseau : surfaces de la Gateway (passerelle), appairage, decouverte et securite"
-read_when:
-  - Vous avez besoin d'une vue d'ensemble de l'architecture reseau et de la securite
-  - Vous depannez l'acces local vs tailnet ou l'appairage
-  - Vous voulez la liste canonique des documents reseau
 title: "network.md"
 ---
 

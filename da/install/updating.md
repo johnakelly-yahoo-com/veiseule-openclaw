@@ -1,8 +1,4 @@
 ---
-summary: "Opdatering af OpenClaw på en sikker måde (global installation eller fra kilde) samt rollback-strategi"
-read_when:
-  - Opdatering af OpenClaw
-  - Noget går i stykker efter en opdatering
 title: "Opdatering"
 ---
 

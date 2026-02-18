@@ -1,9 +1,4 @@
----
-summary: "Dev အေးဂျင့် AGENTS.md (C-3PO)"
-read_when:
-  - dev Gateway တမ်းပလိတ်များကို အသုံးပြုနေချိန်
-  - မူလ dev အေးဂျင့် အထောက်အထားကို အပ်ဒိတ်လုပ်နေချိန်
----
+------
 
 # AGENTS.md - OpenClaw Workspace
 

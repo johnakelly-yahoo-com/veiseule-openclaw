@@ -1,7 +1,4 @@
 ---
-summary: "Arkitektura ng WebSocket gateway, mga component, at mga daloy ng client"
-read_when:
-  - Nagtatrabaho sa gateway protocol, mga client, o mga transport
 title: "Arkitektura ng Gateway"
 ---
 

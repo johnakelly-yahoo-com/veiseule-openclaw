@@ -1,7 +1,4 @@
 ---
-summary: "Twitch チャットボットの設定とセットアップ"
-read_when:
-  - OpenClaw 向けに Twitch チャット統合を設定する場合
 title: "Twitch"
 ---
 

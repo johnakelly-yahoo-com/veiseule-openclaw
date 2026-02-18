@@ -1,8 +1,4 @@
 ---
-summary: "Monitore a expiração de OAuth para provedores de modelo"
-read_when:
-  - Configurando monitoramento de expiração de autenticação ou alertas
-  - Automatizando verificações de renovação de OAuth do Claude Code / Codex
 title: "Monitoramento de autenticação"
 ---
 

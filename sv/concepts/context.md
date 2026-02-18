@@ -1,9 +1,4 @@
 ---
-summary: "Kontext: vad modellen ser, hur det byggs och hur du inspekterar det"
-read_when:
-  - Du vill förstå vad ”kontext” betyder i OpenClaw
-  - Du felsöker varför modellen ”vet” något (eller har glömt det)
-  - Du vill minska kontextöverhead (/context, /status, /compact)
 title: "Kontext"
 ---
 

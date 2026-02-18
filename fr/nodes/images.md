@@ -1,7 +1,4 @@
 ---
-summary: "Regles de gestion des images et des medias pour l’envoi, la Gateway (passerelle) et les reponses de l’agent"
-read_when:
-  - Modification du pipeline media ou des pieces jointes
 title: "Prise en charge des images et des medias"
 ---
 

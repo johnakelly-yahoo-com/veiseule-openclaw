@@ -1,7 +1,4 @@
 ---
-summary: "Runtime del agente (pi-mono integrado), contrato del espacio de trabajo y arranque de sesión"
-read_when:
-  - Al cambiar el runtime del agente, el arranque del espacio de trabajo o el comportamiento de la sesión
 title: "Runtime del agente"
 ---
 

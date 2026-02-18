@@ -1,9 +1,4 @@
 ---
-summary: "I-install ang OpenClaw nang deklaratibo gamit ang Nix"
-read_when:
-  - Gusto mo ng reproducible at may rollback na mga install
-  - Gumagamit ka na ng Nix/NixOS/Home Manager
-  - Gusto mo na naka-pin at pinamamahalaan nang deklaratibo ang lahat
 title: "Nix"
 ---
 

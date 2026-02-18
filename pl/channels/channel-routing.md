@@ -1,7 +1,4 @@
 ---
-summary: "Reguły routingu per kanał (WhatsApp, Telegram, Discord, Slack) oraz współdzielony kontekst"
-read_when:
-  - Zmiana routingu kanałów lub zachowania skrzynki odbiorczej
 title: "Routing kanałów"
 ---
 

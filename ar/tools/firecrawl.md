@@ -1,9 +1,4 @@
 ---
-summary: "الاستعانة بـ Firecrawl كخيار احتياطي لـ web_fetch (مضاد للروبوتات + استخراج مُخزَّن مؤقتًا)"
-read_when:
-  - تريد استخراج الويب المدعوم بـ Firecrawl
-  - تحتاج إلى مفتاح API لـ Firecrawl
-  - تريد استخراجًا مضادًا للروبوتات لـ web_fetch
 title: "Firecrawl"
 ---
 

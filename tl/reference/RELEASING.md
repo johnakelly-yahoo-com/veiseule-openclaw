@@ -1,10 +1,4 @@
----
-summary: "Hakbang-hakbang na checklist ng release para sa npm + macOS app"
-read_when:
-  - Nagka-cut ng bagong npm release
-  - Nagka-cut ng bagong macOS app release
-  - Nive-verify ang metadata bago mag-publish
----
+------
 
 # Checklist ng Release (npm + macOS)
 

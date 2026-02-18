@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw models` (status/list/set/scan, alias, fallbacks, autentisering)"
-read_when:
-  - Du vill ändra standardmodeller eller se status för leverantörsautentisering
-  - Du vill skanna tillgängliga modeller/leverantörer och felsöka autentiseringsprofiler
 title: "modeller"
 ---
 

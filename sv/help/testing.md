@@ -1,9 +1,4 @@
 ---
-summary: "Testkit: unit-/e2e-/live-sviter, Docker-runners och vad varje test täcker"
-read_when:
-  - När du kör tester lokalt eller i CI
-  - När du lägger till regressioner för modell-/leverantörsbuggar
-  - Vid felsökning av gateway- och agentbeteende
 title: "Testning"
 ---
 

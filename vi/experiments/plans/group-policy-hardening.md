@@ -1,7 +1,4 @@
 ---
-summary: "Gia cố danh sách cho phép Telegram: chuẩn hóa tiền tố + khoảng trắng"
-read_when:
-  - Xem lại các thay đổi lịch sử của danh sách cho phép Telegram
 title: "Gia cố danh sách cho phép Telegram"
 ---
 

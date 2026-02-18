@@ -1,8 +1,4 @@
 ---
-summary: "Model provider overview with example configs + CLI flows"
-read_when:
-  - You need a provider-by-provider model setup reference
-  - You want example configs or CLI onboarding commands for model providers
 title: "Model Providers"
 ---
 

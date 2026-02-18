@@ -1,8 +1,4 @@
 ---
-summary: บันทึกปัญหาและวิธีแก้ไขชั่วคราวของการแครช Node + tsx "__name is not a function"
-read_when:
-  - ดีบักสคริปต์พัฒนาแบบ Node เท่านั้นหรือความล้มเหลวของโหมด watch
-  - ตรวจสอบการแครชของตัวโหลด tsx/esbuild ใน OpenClaw
 title: "การแครช Node + tsx"
 ---
 

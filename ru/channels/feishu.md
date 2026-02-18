@@ -1,8 +1,4 @@
 ---
-summary: "Обзор бота Feishu, возможности и конфигурация"
-read_when:
-  - Вы хотите подключить бота Feishu/Lark
-  - Вы настраиваете канал Feishu
 title: Feishu
 ---
 

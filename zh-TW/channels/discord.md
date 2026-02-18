@@ -1,7 +1,4 @@
 ---
-summary: "Discord 機器人支援狀態、功能與設定"
-read_when:
-  - 進行 Discord 頻道功能開發時
 title: "Discord"
 ---
 

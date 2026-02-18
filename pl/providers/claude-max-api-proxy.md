@@ -1,9 +1,4 @@
 ---
-summary: "Używaj subskrypcji Claude Max/Pro jako punktu końcowego API zgodnego z OpenAI"
-read_when:
-  - Chcesz używać subskrypcji Claude Max z narzędziami zgodnymi z OpenAI
-  - Chcesz lokalny serwer API, który opakowuje CLI Claude Code
-  - Chcesz zaoszczędzić pieniądze, korzystając z subskrypcji zamiast kluczy API
 title: "Proxy API Claude Max"
 ---
 

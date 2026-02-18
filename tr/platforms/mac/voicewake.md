@@ -1,7 +1,4 @@
 ---
-summary: "Mac uygulamasında sesle uyandırma ve bas-konuş modları ile yönlendirme ayrıntıları"
-read_when:
-  - Sesle uyandırma veya PTT yolları üzerinde çalışırken
 title: "Sesle Uyandırma"
 ---
 

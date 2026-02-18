@@ -1,8 +1,4 @@
 ---
-summary: "WebSocket listener bind ကို အသုံးပြုသော Gateway singleton ကာကွယ်မှု"
-read_when:
-  - Gateway လုပ်ငန်းစဉ်ကို လည်ပတ်နေစဉ် သို့မဟုတ် debug လုပ်နေစဉ်
-  - တစ်ခုတည်းသာ လည်ပတ်နိုင်ရေးကို စစ်ဆေးလေ့လာနေစဉ်
 title: "Gateway လော့ခ်"
 ---
 

@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 调整思考或详细模式指令解析或默认值时
-summary: "`/think` + `/verbose` 的指令语法及其对模型推理的影响"
 title: 思考级别
 x-i18n:
   generated_at: "2026-02-01T21:43:37Z"

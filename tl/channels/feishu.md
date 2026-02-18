@@ -1,8 +1,4 @@
 ---
-summary: "Pangkalahatang-ideya ng Feishu bot, mga tampok, at konpigurasyon"
-read_when:
-  - Gusto mong kumonekta ng Feishu/Lark bot
-  - Kino-configure mo ang Feishu channel
 title: Feishu
 ---
 

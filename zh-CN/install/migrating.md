@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你正在将 OpenClaw 迁移到新的笔记本电脑/服务器
-  - 你想保留会话、认证和渠道登录（WhatsApp 等）
-summary: 将 OpenClaw 安装从一台机器迁移到另一台
 title: 迁移指南
 x-i18n:
   generated_at: "2026-02-03T07:49:55Z"

@@ -1,7 +1,4 @@
 ---
-summary: "WhatsApp (webkanal) integration: login, indbakke, svar, medier og drift"
-read_when:
-  - Arbejde med WhatsApp/webkanal-adfærd eller routing i indbakken
 title: "WhatsApp"
 ---
 

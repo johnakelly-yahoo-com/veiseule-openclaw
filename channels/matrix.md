@@ -1,7 +1,4 @@
 ---
-summary: "Matrix support status, capabilities, and configuration"
-read_when:
-  - Working on Matrix channel features
 title: "Matrix"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Gateway-runtime på macOS (ekstern launchd-tjeneste)"
-read_when:
-  - Pakning af OpenClaw.app
-  - Fejlfinding af macOS gateway launchd-tjenesten
-  - Installation af gateway CLI til macOS
 title: "Gateway på macOS"
 ---
 

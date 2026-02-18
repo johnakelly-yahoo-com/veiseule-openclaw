@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw health` के लिए CLI संदर्भ (RPC के माध्यम से Gateway स्वास्थ्य एंडपॉइंट)"
-read_when:
-  - आप चल रहे Gateway की स्वास्थ्य स्थिति को शीघ्रता से जांचना चाहते हैं
 title: "health"
 ---
 

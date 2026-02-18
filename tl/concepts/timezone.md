@@ -1,8 +1,4 @@
 ---
-summary: "Paghawak ng timezone para sa mga agent, envelope, at prompt"
-read_when:
-  - Kailangan mong maunawaan kung paano ni-normalize ang mga timestamp para sa model
-  - Pagko-configure ng timezone ng user para sa mga system prompt
 title: "Mga Timezone"
 ---
 

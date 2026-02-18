@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 构建或签名 Mac 调试构建
-summary: 打包脚本生成的 macOS 调试构建的签名步骤
 title: macOS 签名
 x-i18n:
   generated_at: "2026-02-01T21:33:15Z"

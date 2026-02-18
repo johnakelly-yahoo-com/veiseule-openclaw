@@ -1,7 +1,4 @@
 ---
-summary: "Chat UI uchun Loopback WebChat statik xosti va Gateway WS’dan foydalanish"
-read_when:
-  - WebChat kirishini sozlash yoki nosozliklarni bartaraf etishda
 title: "WebChat"
 ---
 

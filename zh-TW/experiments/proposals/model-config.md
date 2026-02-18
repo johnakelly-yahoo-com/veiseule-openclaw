@@ -1,7 +1,4 @@
 ---
-summary: "探索：模型設定、驗證設定檔與備援行為"
-read_when:
-  - Exploring future model selection + auth profile ideas
 title: "模型設定探索"
 ---
 

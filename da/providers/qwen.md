@@ -1,8 +1,4 @@
 ---
-summary: "Brug Qwen OAuth (gratis niveau) i OpenClaw"
-read_when:
-  - Du vil bruge Qwen med OpenClaw
-  - Du vil have gratis OAuth-adgang til Qwen Coder
 title: "Qwen"
 ---
 

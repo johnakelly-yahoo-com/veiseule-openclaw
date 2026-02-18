@@ -1,6 +1,4 @@
 ---
-summary: "Corrija problemas de inicialização do CDP do Chrome/Brave/Edge/Chromium para o controle de navegador do OpenClaw no Linux"
-read_when: "O controle de navegador falha no Linux, especialmente com o Chromium snap"
 title: "Solução de problemas do navegador"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "NIP-04 shifrlangan xabarlar orqali Nostr DM kanali"
-read_when:
-  - Siz OpenClaw’ning Nostr orqali DMlarni qabul qilishini xohlaysiz
-  - Siz markazlashmagan xabar almashishni sozlayapsiz
 title: "Nostr"
 ---
 

@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 你想在 GCP 上 24/7 运行 OpenClaw
-  - 你想要在自己的 VM 上运行生产级、常驻的 Gateway 网关
-  - 你想完全控制持久化、二进制文件和重启行为
-summary: 在 GCP Compute Engine VM（Docker）上 24/7 运行 OpenClaw Gateway 网关并持久化状态
 title: GCP
 x-i18n:
   generated_at: "2026-02-03T07:52:50Z"

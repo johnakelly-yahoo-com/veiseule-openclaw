@@ -1,8 +1,4 @@
 ---
-summary: "適用於 OpenClaw CLI 的腳本化入門引導與代理程式設定"
-read_when:
-  - 你正在於腳本或 CI 中自動化入門引導
-  - 你需要針對特定提供者的非互動式範例
 title: "CLI 自動化"
 sidebarTitle: "CLI 自動化"
 ---

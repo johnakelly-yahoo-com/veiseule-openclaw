@@ -1,10 +1,4 @@
 ---
-summary: "OAuth sa OpenClaw: palitan ng token, pag-iimbak, at mga pattern para sa maraming account"
-read_when:
-  - Gusto mong maunawaan ang OAuth sa OpenClaw mula simula hanggang dulo
-  - Nakaranas ka ng mga isyu sa invalidation ng token / pag-logout
-  - Gusto mo ang setup-token o mga OAuth auth flow
-  - Gusto mo ng maraming account o routing batay sa profile
 title: "OAuth"
 ---
 

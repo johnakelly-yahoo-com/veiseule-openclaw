@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 查看历史 Telegram 允许列表更改
-summary: Telegram 允许列表加固：前缀 + 空白规范化
 title: Telegram 允许列表加固
 x-i18n:
   generated_at: "2026-02-03T07:47:16Z"

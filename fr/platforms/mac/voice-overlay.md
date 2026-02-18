@@ -1,7 +1,4 @@
 ---
-summary: "Cycle de vie de la superposition vocale lorsque le mot d’activation et le push-to-talk se chevauchent"
-read_when:
-  - Ajustement du comportement de la superposition vocale
 title: "Superposition vocale"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Comment l’application macOS rapporte les états de santé de Gateway/Baileys"
-read_when:
-  - Débogage des indicateurs de santé de l’application macOS
 title: "Contrôles de santé"
 ---
 

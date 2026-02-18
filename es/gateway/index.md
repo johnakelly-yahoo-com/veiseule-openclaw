@@ -1,7 +1,4 @@
 ---
-summary: "Manual operativo del servicio Gateway, su ciclo de vida y operaciones"
-read_when:
-  - Al ejecutar o depurar el proceso del gateway
 title: "Manual operativo del Gateway"
 ---
 

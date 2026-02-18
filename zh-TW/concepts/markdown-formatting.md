@@ -1,9 +1,4 @@
 ---
-summary: "用於對外通道的 Markdown 格式化管線"
-read_when:
-  - 當你正在變更對外通道的 Markdown 格式化或分塊行為時
-  - You are adding a new channel formatter or style mapping
-  - 當你正在除錯跨通道的格式回歸問題時
 title: "Markdown 格式化"
 ---
 

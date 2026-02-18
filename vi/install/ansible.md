@@ -1,9 +1,4 @@
 ---
-summary: "Cài đặt OpenClaw tự động, tăng cường bảo mật với Ansible, VPN Tailscale và cô lập bằng firewall"
-read_when:
-  - Bạn muốn triển khai máy chủ tự động với tăng cường bảo mật
-  - Bạn cần thiết lập cô lập bằng firewall với truy cập qua VPN
-  - Bạn đang triển khai lên máy chủ Debian/Ubuntu từ xa
 title: "Ansible"
 ---
 

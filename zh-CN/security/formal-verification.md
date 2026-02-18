@@ -1,6 +1,5 @@
 ---
 permalink: /security/formal-verification/
-summary: 针对 OpenClaw 最高风险路径的机器检查安全模型。
 title: 形式化验证（安全模型）
 x-i18n:
   generated_at: "2026-02-03T07:54:04Z"

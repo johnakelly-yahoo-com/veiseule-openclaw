@@ -1,5 +1,4 @@
 ---
-summary: "強化 cron.add 的輸入處理、對齊結構定義，並改善 cron UI／代理程式工具"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"

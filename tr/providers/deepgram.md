@@ -1,8 +1,4 @@
 ---
-summary: "Gelen sesli notlar için Deepgram transkripsiyonu"
-read_when:
-  - Ses ekleri için Deepgram konuşmadan metne istiyorsanız
-  - Hızlı bir Deepgram yapılandırma örneğine ihtiyacınız varsa
 title: "Deepgram"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Aprobaciones de exec, listas de permitidos y avisos de escape del sandbox"
-read_when:
-  - Configurar aprobaciones de exec o listas de permitidos
-  - Implementar UX de aprobación de exec en la app de macOS
-  - Revisar avisos de escape del sandbox y sus implicaciones
 title: "Aprobaciones de Exec"
 ---
 

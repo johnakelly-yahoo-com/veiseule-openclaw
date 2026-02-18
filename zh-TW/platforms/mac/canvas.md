@@ -1,9 +1,4 @@
 ---
-summary: "透過 WKWebView 與自訂 URL scheme 內嵌的代理程式控制 Canvas 面板"
-read_when:
-  - 實作 macOS Canvas 面板
-  - 為視覺化工作空間加入代理程式控制
-  - 偵錯 WKWebView Canvas 載入問題
 title: "Canvas"
 ---
 

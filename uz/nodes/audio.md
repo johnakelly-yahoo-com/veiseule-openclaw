@@ -1,7 +1,4 @@
 ---
-summary: "Kirish audio/ovozli eslatmalar qanday yuklab olinadi, transkripsiya qilinadi va javoblarga kiritiladi"
-read_when:
-  - Audio transkripsiyasi yoki media bilan ishlashni o‘zgartirish
 title: "Audio va ovozli eslatmalar"
 ---
 

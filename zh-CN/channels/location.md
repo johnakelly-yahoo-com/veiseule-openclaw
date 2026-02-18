@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 添加或修改渠道位置解析
-  - 在智能体提示或工具中使用位置上下文字段
-summary: 入站渠道位置解析（Telegram + WhatsApp）及上下文字段
 title: 渠道位置解析
 x-i18n:
   generated_at: "2026-02-01T19:21:46Z"

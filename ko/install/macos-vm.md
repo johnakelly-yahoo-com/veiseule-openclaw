@@ -1,10 +1,4 @@
 ---
-summary: "격리 또는 iMessage 가 필요할 때 샌드박스화된 macOS VM(로컬 또는 호스팅)에서 OpenClaw 를 실행합니다"
-read_when:
-  - 메인 macOS 환경과 분리하여 OpenClaw 를 사용하고 싶을 때
-  - 샌드박스에서 iMessage 통합(BlueBubbles)을 사용하고 싶을 때
-  - 복제 가능한 초기화 가능한 macOS 환경이 필요할 때
-  - 로컬 vs 호스팅 macOS VM 옵션을 비교하고 싶을 때
 title: "macOS VM"
 ---
 

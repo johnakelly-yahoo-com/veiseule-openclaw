@@ -1,8 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw dns` (assistants de decouverte a grande echelle)"
-read_when:
-  - Vous souhaitez une decouverte a grande echelle (DNS-SD) via Tailscale + CoreDNS
-  - You’re setting up split DNS for a custom discovery domain (example: openclaw.internal)
 title: "dns"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "適用於 iOS 與其他遠端節點的 Gateway 擁有節點配對（選項 B）"
-read_when:
-  - Implementing node pairing approvals without macOS UI
-  - 新增用於核准遠端節點的 CLI 流程
-  - 以節點管理擴充 Gateway 通訊協定
 title: "Gateway 擁有的配對"
 ---
 

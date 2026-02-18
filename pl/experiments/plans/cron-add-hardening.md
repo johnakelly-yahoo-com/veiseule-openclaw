@@ -1,5 +1,4 @@
 ---
-summary: "Utwierdzenie obsługi danych wejściowych cron.add, wyrównanie schematów oraz usprawnienie narzędzi UI/agenta dla crona"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"

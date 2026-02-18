@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw o‘rnatilmasini bir mashinadan boshqasiga ko‘chirish (migratsiya)"
-read_when:
-  - Siz OpenClaw’ni yangi noutbuk/serverga ko‘chiryapsiz
-  - Siz sessiyalarni, autentifikatsiyani va kanal loginlarini (WhatsApp va boshqalar) saqlab qolmoqchisiz
 title: "Migratsiya qo‘llanmasi"
 ---
 

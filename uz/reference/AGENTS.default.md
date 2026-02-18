@@ -1,9 +1,4 @@
----
-summary: "Shaxsiy yordamchi sozlamasi uchun standart OpenClaw agent ko‘rsatmalari va ko‘nikmalar ro‘yxati"
-read_when:
-  - Yangi OpenClaw agent sessiyasini boshlash
-  - Standart ko‘nikmalarni yoqish yoki audit qilish
----
+------
 
 # AGENTS.md — OpenClaw Shaxsiy Yordamchisi (standart)
 

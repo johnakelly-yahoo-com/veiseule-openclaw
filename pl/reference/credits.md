@@ -1,7 +1,4 @@
 ---
-summary: "Pochodzenie projektu, współtwórcy i licencja."
-read_when:
-  - Chcesz poznać historię projektu lub listę współtwórców
 title: "Kredyty"
 ---
 

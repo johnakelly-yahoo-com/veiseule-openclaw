@@ -1,6 +1,4 @@
 ---
-summary: "การตั้งค่า Slack สำหรับโหมด Socket หรือ HTTP webhook"
-read_when: "การตั้งค่า Slack หรือการดีบักโหมด Socket/HTTP ของ Slack"
 title: "Slack"
 ---
 

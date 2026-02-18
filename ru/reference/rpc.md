@@ -1,8 +1,4 @@
 ---
-summary: "RPC-адаптеры для внешних CLI (signal-cli, legacy imsg) и паттерны шлюзов"
-read_when:
-  - Добавление или изменение интеграций внешних CLI
-  - Отладка RPC-адаптеров (signal-cli, imsg)
 title: "RPC-адаптеры"
 ---
 

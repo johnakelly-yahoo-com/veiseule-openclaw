@@ -1,8 +1,4 @@
 ---
-summary: "6. OpenClaw bilan OpenCode Zen’dan foydalaning"
-read_when:
-  - 7. Modelga kirish uchun OpenCode Zen’ni xohlaysiz
-  - 8. Kodlashga qulay modellar ro‘yxatini xohlaysiz
 title: "9. OpenCode Zen"
 ---
 

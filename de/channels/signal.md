@@ -1,8 +1,4 @@
 ---
-summary: "Signal-Unterstützung über signal-cli (JSON-RPC + SSE), Einrichtung und Nummernmodell"
-read_when:
-  - Einrichten der Signal-Unterstützung
-  - Debuggen von Signal Senden/Empfangen
 title: "Signal"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Övervaka OAuth-utgång för modellleverantörer"
-read_when:
-  - Konfigurering av övervakning eller aviseringar för auth‑utgång
-  - Automatisering av kontroller för OAuth‑uppdatering i Claude Code / Codex
 title: "Auth‑övervakning"
 ---
 

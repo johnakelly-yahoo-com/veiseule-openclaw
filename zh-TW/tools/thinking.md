@@ -1,7 +1,4 @@
 ---
-summary: "/think + /verbose 的指令語法，以及它們如何影響模型推理"
-read_when:
-  - 調整 thinking 或 verbose 指令的解析或預設值時
 title: "思考層級"
 ---
 

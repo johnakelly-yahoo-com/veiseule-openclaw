@@ -1,7 +1,4 @@
 ---
-summary: "Pagpapatibay ng Telegram allowlist: prefix + normalisasyon ng whitespace"
-read_when:
-  - Pagsusuri ng mga historikal na pagbabago sa Telegram allowlist
 title: "Pagpapatibay ng Telegram Allowlist"
 ---
 

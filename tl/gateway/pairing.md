@@ -1,9 +1,4 @@
 ---
-summary: "Gateway-owned na pagpa-pair ng node (Option B) para sa iOS at iba pang remote na node"
-read_when:
-  - Pagpapatupad ng mga pag-apruba ng node pairing nang walang macOS UI
-  - Pagdaragdag ng mga CLI flow para sa pag-apruba ng mga remote na node
-  - Pagpapalawak ng gateway protocol gamit ang node management
 title: "Pagpapares na Pinamamahalaan ng Gateway"
 ---
 

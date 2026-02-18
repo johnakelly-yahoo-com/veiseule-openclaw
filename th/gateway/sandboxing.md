@@ -1,7 +1,5 @@
 ---
-summary: "วิธีการทำงานของsandboxingในOpenClaw: โหมด ขอบเขต การเข้าถึงเวิร์กสเปซ และอิมเมจ"
 title: "การทำแซนด์บ็อกซ์"
-read_when: "คุณต้องการคำอธิบายเฉพาะเกี่ยวกับsandboxingหรือจำเป็นต้องปรับแต่งagents.defaults.sandbox"
 status: active
 ---
 

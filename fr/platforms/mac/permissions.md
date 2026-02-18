@@ -1,9 +1,4 @@
 ---
-summary: "Persistance des autorisations macOS (TCC) et exigences de signature"
-read_when:
-  - Debogage des invites d'autorisations macOS manquantes ou bloquees
-  - Packaging ou signature de l'application macOS
-  - Changement des identifiants de bundle ou des chemins d'installation de l'application
 title: "Autorisations macOS"
 ---
 

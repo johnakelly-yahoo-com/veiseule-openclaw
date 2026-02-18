@@ -1,8 +1,4 @@
 ---
-summary: "„Zadania LLM wyłącznie w JSON do workflow (opcjonalne narzędzie wtyczki)”"
-read_when:
-  - Chcesz mieć krok LLM wyłącznie w JSON wewnątrz workflow
-  - Potrzebujesz wyjścia LLM walidowanego schematem do automatyzacji
 title: "„Zadanie LLM”"
 ---
 

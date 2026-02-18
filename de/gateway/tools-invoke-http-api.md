@@ -1,8 +1,4 @@
 ---
-summary: "Ein einzelnes Werkzeug direkt über den Gateway-HTTP-Endpunkt aufrufen"
-read_when:
-  - Aufrufen von Werkzeugen ohne Ausführen eines vollständigen Agent-Durchlaufs
-  - Erstellen von Automatisierungen, die Durchsetzung von Werkzeugrichtlinien benötigen
 title: "Tools-Invoke-API"
 ---
 

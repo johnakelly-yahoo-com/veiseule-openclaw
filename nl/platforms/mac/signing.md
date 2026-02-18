@@ -1,7 +1,4 @@
 ---
-summary: "Ondertekeningsstappen voor macOS-debugbuilds die door verpakkingsscripts worden gegenereerd"
-read_when:
-  - Bouwen of ondertekenen van macOS-debugbuilds
 title: "macOS-ondertekening"
 ---
 

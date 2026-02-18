@@ -1,9 +1,4 @@
----
-summary: "Dev 代理程式 AGENTS.md（C-3PO）"
-read_when:
-  - 使用 dev Gateway 閘道器 範本
-  - 更新預設的 dev 代理程式身分
----
+------
 
 # AGENTS.md - OpenClaw 工作區
 

@@ -1,9 +1,4 @@
 ---
-summary: "Nosozliklarni aniqlash vositalari: kuzatish rejimi, xom model oqimlari va reasoning sizib chiqishini kuzatish"
-read_when:
-  - Reasoning sizib chiqishini aniqlash uchun xom model chiqishini tekshirishingiz kerak
-  - Iteratsiya paytida Gateway’ni watch rejimida ishga tushirmoqchisiz
-  - Takrorlanadigan nosozliklarni aniqlash ish jarayoniga muhtoj siz
 title: "Nosozliklarni aniqlash"
 ---
 

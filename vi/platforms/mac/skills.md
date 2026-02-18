@@ -1,8 +1,4 @@
 ---
-summary: "Giao diện cài đặt Skills trên macOS và trạng thái được hậu thuẫn bởi gateway"
-read_when:
-  - Cập nhật giao diện cài đặt Skills trên macOS
-  - Thay đổi cơ chế kiểm soát hoặc hành vi cài đặt Skills
 title: "Kỹ năng"
 ---
 

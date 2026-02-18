@@ -1,9 +1,4 @@
 ---
-summary: "CLI de modelos: listar, definir, aliases, fallbacks, varredura, status"
-read_when:
-  - Adicionar ou modificar a CLI de modelos (models list/set/scan/aliases/fallbacks)
-  - Alterar o comportamento de fallback de modelos ou a UX de seleção
-  - Atualizar sondas de varredura de modelos (ferramentas/imagens)
 title: "CLI de modelos"
 ---
 

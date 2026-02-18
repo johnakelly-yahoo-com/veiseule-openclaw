@@ -1,8 +1,4 @@
----
-summary: "Template ng workspace para sa BOOT.md"
-read_when:
-  - Pagdaragdag ng checklist ng BOOT.md
----
+------
 
 # BOOT.md
 

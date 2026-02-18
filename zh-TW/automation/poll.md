@@ -1,8 +1,4 @@
 ---
-summary: "透過 Gateway 閘道器 + CLI 傳送投票"
-read_when:
-  - 新增或修改投票支援時
-  - 從 CLI 或 Gateway 閘道器 偵錯投票傳送時
 title: "投票"
 ---
 

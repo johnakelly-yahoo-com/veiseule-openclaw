@@ -1,8 +1,4 @@
 ---
-summary: "Comment OpenClaw fait tourner les profils d’authentification et bascule entre les modeles"
-read_when:
-  - Diagnostiquer la rotation des profils d’authentification, les delais de refroidissement ou le comportement de bascule des modeles
-  - Mettre a jour les regles de bascule pour les profils d’authentification ou les modeles
 title: "Bascule de modele"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "OpenProse: .prose-workflows, slash-kommandoer og tilstand i OpenClaw"
-read_when:
-  - Du vil køre eller skrive .prose-workflows
-  - Du vil aktivere OpenProse-pluginet
-  - Du har brug for at forstå tilstandslagring
 title: "OpenProse"
 ---
 

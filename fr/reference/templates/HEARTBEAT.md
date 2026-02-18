@@ -1,8 +1,4 @@
----
-summary: "Modèle d’espace de travail pour HEARTBEAT.md"
-read_when:
-  - Initialisation manuelle d’un espace de travail
----
+------
 
 # HEARTBEAT.md
 

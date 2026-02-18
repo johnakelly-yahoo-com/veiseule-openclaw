@@ -1,7 +1,4 @@
 ---
-summary: "Integration de l’API Telegram Bot via grammY avec des notes de configuration"
-read_when:
-  - Travail sur des parcours Telegram ou grammY
 title: grammY
 ---
 

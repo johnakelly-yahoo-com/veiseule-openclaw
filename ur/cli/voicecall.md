@@ -1,8 +1,4 @@
 ---
-summary: "CLI کے لیے حوالہ برائے `openclaw voicecall` (voice-call پلگ اِن کی کمانڈ سطح)"
-read_when:
-  - آپ voice-call پلگ اِن استعمال کرتے ہیں اور CLI کے اندراجی پوائنٹس چاہتے ہیں
-  - آپ `voicecall call|continue|status|tail|expose` کے لیے فوری مثالیں چاہتے ہیں
 title: "voicecall"
 ---
 

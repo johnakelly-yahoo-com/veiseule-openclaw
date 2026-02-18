@@ -1,8 +1,4 @@
 ---
-summary: "33. Chiquvchi provayder chaqiruvlari uchun qayta urinish siyosati"
-read_when:
-  - 34. Provayderning qayta urinish xatti-harakatini yoki standartlarini yangilash
-  - 35. Provayder yuborish xatolari yoki tezlik cheklovlarini nosozlikdan chiqarish
 title: "36. Qayta urinish siyosati"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "So‘rovnomani gateway + CLI orqali yuborish"
-read_when:
-  - Adding or modifying poll support
-  - Debugging poll sends from the CLI or gateway
 title: "So‘rovnomalar"
 ---
 

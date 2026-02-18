@@ -1,8 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw update` (sikker-ish kildeopdatering + automatisk genstart af gateway)"
-read_when:
-  - Du vil opdatere et kilde-checkout sikkert
-  - Du har brug for at forstå forkortelsesadfærden for `--update`
 title: "opdatering"
 ---
 

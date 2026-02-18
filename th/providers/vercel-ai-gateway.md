@@ -1,10 +1,5 @@
 ---
-title: "Vercel AI Gateway"
-summary: "การตั้งค่าVercel AI Gateway(การยืนยันตัวตน+การเลือกโมเดล)"
-read_when:
-  - คุณต้องการใช้Vercel AI GatewayกับOpenClaw
-  - คุณต้องการตัวแปรสภาพแวดล้อมคีย์APIหรือทางเลือกการยืนยันตัวตนผ่านCLI
----
+title: "Vercel AI Gateway"---
 
 # Vercel AI Gateway
 

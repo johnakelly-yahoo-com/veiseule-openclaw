@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw на Raspberry Pi (бюджетная самохостинговая настройка)"
-read_when:
-  - Настройка OpenClaw на Raspberry Pi
-  - Запуск OpenClaw на ARM-устройствах
-  - Создание недорогого постоянно работающего персонального ИИ
 title: "Raspberry Pi"
 ---
 

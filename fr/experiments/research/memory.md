@@ -1,9 +1,4 @@
 ---
-summary: "Notes de recherche : systeme de memoire hors ligne pour les espaces de travail Clawd (source de verite Markdown + index derive)"
-read_when:
-  - Conception de la memoire d’espace de travail (~/.openclaw/workspace) au-dela des journaux Markdown quotidiens
-  - Deciding: "Choix: CLI autonome vs integration profonde a OpenClaw"
-  - Ajout du rappel hors ligne + reflexion (retain/recall/reflect)
 title: "Recherche sur la memoire d’espace de travail"
 ---
 

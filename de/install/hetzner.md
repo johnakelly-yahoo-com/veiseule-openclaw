@@ -1,10 +1,4 @@
 ---
-summary: "„Betreiben Sie OpenClaw Gateway rund um die Uhr auf einem günstigen Hetzner‑VPS (Docker) mit dauerhaftem Zustand und fest integrierten Binaries“"
-read_when:
-  - Sie möchten OpenClaw rund um die Uhr auf einem Cloud‑VPS (nicht auf Ihrem Laptop) betreiben
-  - Sie möchten ein produktionsreifes, dauerhaft aktives Gateway auf Ihrem eigenen VPS
-  - Sie möchten volle Kontrolle über Persistenz, Binaries und Neustartverhalten
-  - Sie betreiben OpenClaw in Docker auf Hetzner oder einem ähnlichen Anbieter
 title: "„Hetzner“"
 ---
 

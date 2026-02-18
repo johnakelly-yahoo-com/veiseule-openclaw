@@ -1,9 +1,4 @@
 ---
-summary: "ClawHub-guide: offentlig Skills-registrering + CLI-arbejdsgange"
-read_when:
-  - Introduktion af ClawHub for nye brugere
-  - Installation, søgning eller publicering af Skills
-  - Forklaring af ClawHub CLI-flag og synkroniseringsadfærd
 title: "ClawHub"
 ---
 

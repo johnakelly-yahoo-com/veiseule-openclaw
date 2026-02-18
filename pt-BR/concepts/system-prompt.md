@@ -1,8 +1,4 @@
 ---
-summary: "O que o system prompt do OpenClaw contém e como ele é montado"
-read_when:
-  - Ao editar o texto do system prompt, a lista de ferramentas ou as seções de tempo/heartbeat
-  - Ao alterar o bootstrap do workspace ou o comportamento de injeção de skills
 title: "Prompt do Sistema"
 ---
 

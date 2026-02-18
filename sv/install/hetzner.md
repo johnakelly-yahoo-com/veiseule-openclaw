@@ -1,10 +1,4 @@
 ---
-summary: "Kör OpenClaw Gateway dygnet runt på en billig Hetzner VPS (Docker) med beständig state och inbakade binärer"
-read_when:
-  - Du vill köra OpenClaw dygnet runt på en moln-VPS (inte din laptop)
-  - Du vill ha en produktionsklassad, alltid-på Gateway på din egen VPS
-  - Du vill ha full kontroll över persistens, binärer och omstartsbeteende
-  - Du kör OpenClaw i Docker på Hetzner eller en liknande leverantör
 title: "Hetzner"
 ---
 

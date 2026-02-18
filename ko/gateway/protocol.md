@@ -1,9 +1,4 @@
 ---
-summary: "Gateway WebSocket 프로토콜: 핸드셰이크, 프레임, 버저닝"
-read_when:
-  - Gateway WS 클라이언트 구현 또는 업데이트 시
-  - 프로토콜 불일치 또는 연결 실패 디버깅 시
-  - 프로토콜 스키마/모델 재생성 시
 title: "Gateway 프로토콜"
 ---
 

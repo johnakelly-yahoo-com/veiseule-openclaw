@@ -1,7 +1,4 @@
 ---
-summary: "Backstory at lore ng OpenClaw para sa konteksto at tono"
-read_when:
-  - Pagsusulat ng docs o UX copy na tumutukoy sa lore
 title: "Lore ng OpenClaw"
 ---
 

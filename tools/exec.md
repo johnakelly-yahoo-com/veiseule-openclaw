@@ -1,8 +1,4 @@
 ---
-summary: "Exec tool usage, stdin modes, and TTY support"
-read_when:
-  - Using or modifying the exec tool
-  - Debugging stdin or TTY behavior
 title: "Exec Tool"
 ---
 

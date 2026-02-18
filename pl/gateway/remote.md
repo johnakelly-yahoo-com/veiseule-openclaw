@@ -1,7 +1,4 @@
 ---
-summary: "Zdalny dostęp z użyciem tuneli SSH (Gateway WS) i sieci tailnet"
-read_when:
-  - Uruchamianie lub rozwiązywanie problemów z konfiguracjami zdalnego gateway
 title: "Zdalny dostęp"
 ---
 

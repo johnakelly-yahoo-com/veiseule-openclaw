@@ -1,9 +1,4 @@
 ---
-summary: "OpenProse：OpenClaw 中的 .prose 工作流程、斜線指令與狀態"
-read_when:
-  - 你想要執行或撰寫 .prose 工作流程
-  - 你想要啟用 OpenProse 外掛
-  - 你需要了解狀態儲存
 title: "OpenProse"
 ---
 

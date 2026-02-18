@@ -1,9 +1,4 @@
 ---
-summary: "كيفية عمل سكربتات المُثبّت (install.sh وinstall-cli.sh وinstall.ps1)، والرايات، والأتمتة"
-read_when:
-  - تريد فهم `openclaw.ai/install.sh`
-  - تريد أتمتة عمليات التثبيت (CI / بدون واجهة تفاعلية)
-  - تريد التثبيت من نسخة مستنسخة من GitHub
 title: "متدرب المثبت"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Ajan döngüsü yaşam döngüsü, akışlar ve bekleme semantiği"
-read_when:
-  - You need an exact walkthrough of the agent loop or lifecycle events
 title: "Ajan Döngüsü"
 ---
 

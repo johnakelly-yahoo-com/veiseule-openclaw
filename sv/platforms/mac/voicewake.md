@@ -1,7 +1,4 @@
 ---
-summary: "Röstväckning och push‑to‑talk‑lägen samt routningsdetaljer i mac‑appen"
-read_when:
-  - Arbetar med röstväckning eller PTT‑flöden
 title: "Röstväckning"
 ---
 

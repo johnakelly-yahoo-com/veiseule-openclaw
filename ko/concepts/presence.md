@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw presence 항목이 어떻게 생성, 병합, 표시되는지에 대한 설명"
-read_when:
-  - Instances 탭을 디버깅할 때
-  - 중복되거나 오래된 인스턴스 행을 조사할 때
-  - Gateway WS 연결 또는 시스템 이벤트 비콘을 변경할 때
 title: "프레즌스"
 ---
 

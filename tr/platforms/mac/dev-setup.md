@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw macOS uygulaması üzerinde çalışan geliştiriciler için kurulum kılavuzu"
-read_when:
-  - macOS geliştirme ortamının kurulumu
 title: "macOS Geliştirici Kurulumu"
 ---
 

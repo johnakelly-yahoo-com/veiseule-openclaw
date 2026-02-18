@@ -1,7 +1,4 @@
 ---
-summary: "विभिन्न प्लेटफ़ॉर्म्स (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams) पर समूह चैट का व्यवहार"
-read_when:
-  - समूह चैट व्यवहार या मेंशन गेटिंग बदलते समय
 title: "समूह"
 ---
 

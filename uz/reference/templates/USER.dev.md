@@ -1,9 +1,4 @@
----
-summary: "Dev agent foydalanuvchi profili (C-3PO)"
-read_when:
-  - Dev shlyuzi shablonlaridan foydalanish
-  - Standart dev agent identifikatorini yangilash
----
+------
 
 # USER.md — Foydalanuvchi profili
 

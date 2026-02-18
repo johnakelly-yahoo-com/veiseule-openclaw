@@ -1,7 +1,4 @@
 ---
-summary: "Baggrundshistorie og lore om OpenClaw for kontekst og tone"
-read_when:
-  - Når du skriver dokumentation eller UX-tekst, der refererer til lore
 title: "OpenClaw-historie"
 ---
 

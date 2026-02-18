@@ -1,8 +1,4 @@
 ---
-summary: "Symptoomgerichte probleemoplossingshub voor OpenClaw"
-read_when:
-  - OpenClaw werkt niet en je hebt het snelste pad naar een oplossing nodig
-  - Je wilt een triageflow voordat je in diepe runbooks duikt
 title: "Problemen oplossen"
 ---
 

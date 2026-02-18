@@ -1,8 +1,4 @@
 ---
-summary: "Onboarding bằng script và thiết lập tác tử cho OpenClaw CLI"
-read_when:
-  - Bạn đang tự động hóa onboarding trong script hoặc CI
-  - Bạn cần các ví dụ không tương tác cho từng nhà cung cấp cụ thể
 title: "Tự động hóa CLI"
 sidebarTitle: "Tự động hóa CLI"
 ---

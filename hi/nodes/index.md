@@ -1,9 +1,4 @@
 ---
-summary: "नोड्स: पेयरिंग, क्षमताएँ, अनुमतियाँ, और canvas/camera/screen/system के लिए CLI हेल्पर्स"
-read_when:
-  - iOS/Android नोड्स को Gateway से पेयर करना
-  - एजेंट संदर्भ के लिए नोड canvas/camera का उपयोग
-  - नए नोड कमांड या CLI हेल्पर्स जोड़ना
 title: "नोड्स"
 ---
 

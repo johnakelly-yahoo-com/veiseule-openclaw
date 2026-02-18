@@ -1,7 +1,4 @@
 ---
-summary: "Google Chat 應用程式支援狀態、功能與設定"
-read_when:
-  - 進行 Google Chat 頻道功能開發時
 title: "Google Chat"
 ---
 

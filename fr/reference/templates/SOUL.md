@@ -1,8 +1,4 @@
----
-summary: "Modele d’espace de travail pour SOUL.md"
-read_when:
-  - Initialisation manuelle d’un espace de travail
----
+------
 
 # SOUL.md - Qui vous etes
 

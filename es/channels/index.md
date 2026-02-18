@@ -1,8 +1,4 @@
 ---
-summary: "Plataformas de mensajería a las que OpenClaw puede conectarse"
-read_when:
-  - Quiere elegir un canal de chat para OpenClaw
-  - Necesita una vista rápida de las plataformas de mensajería compatibles
 title: "Canales de chat"
 ---
 

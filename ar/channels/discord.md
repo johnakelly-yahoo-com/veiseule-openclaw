@@ -1,7 +1,4 @@
 ---
-summary: "حالة دعم بوت Discord، والقدرات، والتهيئة"
-read_when:
-  - العمل على ميزات قناة Discord
 title: "Discord"
 ---
 

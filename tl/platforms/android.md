@@ -1,9 +1,4 @@
 ---
-summary: "Android app (node): runbook ng koneksyon + Canvas/Chat/Camera"
-read_when:
-  - Pag-pair o muling pagkonekta ng Android node
-  - Pag-debug ng Android gateway discovery o auth
-  - Pag-verify ng parity ng chat history sa iba’t ibang client
 title: "App ng Android"
 ---
 

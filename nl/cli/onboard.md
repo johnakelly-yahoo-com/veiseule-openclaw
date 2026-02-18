@@ -1,7 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw onboard` (interactieve onboardingwizard)"
-read_when:
-  - Je wilt begeleide installatie voor Gateway, werkruimte, authenticatie, kanalen en Skills
 title: "onboard"
 ---
 

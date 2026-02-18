@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw dns` (hjälpverktyg för vidsträckt Discovery)"
-read_when:
-  - Du vill ha vidsträckt Discovery (DNS-SD) via Tailscale + CoreDNS
-  - You’re setting up split DNS for a custom discovery domain (example: openclaw.internal)
 title: "dns"
 ---
 

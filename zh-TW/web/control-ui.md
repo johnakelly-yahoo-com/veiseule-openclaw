@@ -1,8 +1,4 @@
 ---
-summary: "Gateway 閘道器 的瀏覽器型控制 UI（聊天、節點、設定）"
-read_when:
-  - 你想要從瀏覽器操作 Gateway 閘道器
-  - 你想要在沒有 SSH 通道 的情況下存取 Tailnet
 title: "控制 UI"
 ---
 

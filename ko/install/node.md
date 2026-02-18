@@ -1,11 +1,5 @@
 ---
-title: "Node.js"
-summary: "OpenClaw 를 위한 Node.js 설치 및 구성 — 버전 요구 사항, 설치 옵션, PATH 문제 해결"
-read_when:
-  - "OpenClaw 를 설치하기 전에 Node.js 를 설치해야 할 때"
-  - "OpenClaw 를 설치했지만 `openclaw` 명령을 찾을 수 없을 때"
-  - "npm install -g 가 권한 또는 PATH 문제로 실패할 때"
----
+title: "Node.js"---
 
 # Node.js
 

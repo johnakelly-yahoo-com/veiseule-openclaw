@@ -1,8 +1,4 @@
 ---
-summary: "مهايئات RPC لواجهات CLI الخارجية (signal-cli، imsg القديم) وأنماط Gateway"
-read_when:
-  - إضافة أو تغيير تكاملات CLI الخارجية
-  - تصحيح أخطاء مهايئات RPC (signal-cli، imsg)
 title: "مهايئات RPC"
 ---
 

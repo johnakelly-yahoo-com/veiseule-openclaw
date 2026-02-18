@@ -1,8 +1,4 @@
 ---
-summary: "Logowanie OpenClaw: rotujący plik diagnostyczny + flagi prywatności unified logging"
-read_when:
-  - Przechwytywanie logów macOS lub badanie logowania danych prywatnych
-  - Debugowanie problemów z wybudzaniem głosowym i cyklem życia sesji
 title: "Logowanie macOS"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Models CLI: lista, ställ in, alias, fallbacks, skanna, status"
-read_when:
-  - Lägga till eller ändra models CLI (models list/set/scan/aliases/fallbacks)
-  - Ändra beteende för modell-fallback eller UX för val
-  - Uppdatera modellskanningsprober (verktyg/bilder)
 title: "Models CLI"
 ---
 

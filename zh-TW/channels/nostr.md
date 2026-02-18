@@ -1,8 +1,4 @@
 ---
-summary: "透過 NIP-04 加密訊息的 Nostr 私訊頻道"
-read_when:
-  - 當你希望 OpenClaw 透過 Nostr 接收私訊
-  - 32. 你正在設定去中心化的訊息傳遞
 title: "Nostr"
 ---
 

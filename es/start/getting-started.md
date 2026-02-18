@@ -1,8 +1,4 @@
 ---
-summary: "Instale OpenClaw y ejecute su primer chat en minutos."
-read_when:
-  - Configuración inicial desde cero
-  - Quiere la ruta más rápida hacia un chat funcional
 title: "Comenzando"
 ---
 

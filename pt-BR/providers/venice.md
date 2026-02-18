@@ -1,8 +1,4 @@
 ---
-summary: "Use modelos focados em privacidade da Venice AI no OpenClaw"
-read_when:
-  - Você quer inferência focada em privacidade no OpenClaw
-  - Você quer orientações de configuração da Venice AI
 title: "Venice AI"
 ---
 

@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 添加 BOOT.md 检查清单时
-summary: BOOT.md 的工作区模板
 x-i18n:
   generated_at: "2026-02-01T21:37:16Z"
   model: claude-opus-4-5

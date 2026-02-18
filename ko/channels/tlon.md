@@ -1,7 +1,4 @@
 ---
-summary: "Tlon/Urbit 지원 상태, 기능 및 구성"
-read_when:
-  - Tlon/Urbit 채널 기능을 작업할 때
 title: "Tlon"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Paarübersicht: genehmigen, wer dir DM + welche Knoten beitreten können"
-read_when:
-  - Einrichten der Zugriffskontrolle für Direktnachrichten
-  - Pairing eines neuen iOS-/Android-Nodes
-  - Überprüfung der Sicherheitslage von OpenClaw
 title: "Kopplung"
 ---
 

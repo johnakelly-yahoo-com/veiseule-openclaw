@@ -1,8 +1,4 @@
 ---
-summary: "Gọi trực tiếp một công cụ thông qua endpoint HTTP của Gateway"
-read_when:
-  - Gọi công cụ mà không chạy toàn bộ một lượt tác tử
-  - Xây dựng các tự động hóa cần thực thi chính sách công cụ
 title: "API Gọi Công Cụ"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "提升的 exec 模式與 /elevated 指令"
-read_when:
-  - 調整提升模式的預設值、允許清單，或斜線指令行為時
 title: "提升模式"
 ---
 

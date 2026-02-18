@@ -1,10 +1,4 @@
 ---
-summary: "Yalıtım veya iMessage gerektiğinde OpenClaw’ı sandbox içinde bir macOS VM’de (yerel veya barındırılan) çalıştırın"
-read_when:
-  - OpenClaw’ın ana macOS ortamınızdan yalıtılmış olmasını istiyorsanız
-  - Sandbox içinde iMessage entegrasyonu (BlueBubbles) istiyorsanız
-  - Klonlayabileceğiniz, sıfırlanabilir bir macOS ortamı istiyorsanız
-  - Yerel ve barındırılan macOS VM seçeneklerini karşılaştırmak istiyorsanız
 title: "macOS VM’leri"
 ---
 

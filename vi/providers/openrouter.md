@@ -1,8 +1,4 @@
 ---
-summary: "Dùng API hợp nhất của OpenRouter để truy cập nhiều mô hình trong OpenClaw"
-read_when:
-  - Bạn muốn một khóa API duy nhất cho nhiều LLM
-  - Bạn muốn chạy các mô hình qua OpenRouter trong OpenClaw
 title: "OpenRouter"
 ---
 

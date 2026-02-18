@@ -1,9 +1,4 @@
 ---
-summary: "web_fetch အတွက် Firecrawl fallback (anti-bot + cached extraction)"
-read_when:
-  - Firecrawl အခြေခံ web extraction ကို အသုံးပြုလိုသောအခါ
-  - Firecrawl API key လိုအပ်သောအခါ
-  - web_fetch အတွက် anti-bot extraction လိုအပ်သောအခါ
 title: "Firecrawl"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Hurtig start er flyttet til Kom godt i gang."
-read_when:
-  - Du leder efter de hurtigste opsætningstrin
-  - Du blev sendt hertil fra et ældre link
 title: "Hurtig start"
 ---
 

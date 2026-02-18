@@ -1,7 +1,4 @@
 ---
-summary: "Tài liệu tham khảo CLI cho `openclaw agent` (gửi một lượt tác tử qua Gateway)"
-read_when:
-  - Bạn muốn chạy một lượt tác tử từ script (tùy chọn gửi phản hồi)
 title: "tác tử"
 ---
 

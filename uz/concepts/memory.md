@@ -1,9 +1,4 @@
----
-summary: "5. OpenClaw xotirasi qanday ishlaydi (workspace fayllari + avtomatik xotira flush)"
-read_when:
-  - 6. Siz xotira fayllari joylashuvi va ish jarayonini xohlaysiz
-  - 7. Siz avtomatik pre-kompaktsiya xotira flush’ini sozlamoqchisiz
----
+------
 
 # 8. Xotira
 

@@ -1,8 +1,4 @@
 ---
-summary: "Envoi de sondages via la passerelle + CLI"
-read_when:
-  - Ajout ou modification de la prise en charge des sondages
-  - Debogage des envois de sondages depuis la CLI ou la passerelle
 title: "Sondages"
 ---
 

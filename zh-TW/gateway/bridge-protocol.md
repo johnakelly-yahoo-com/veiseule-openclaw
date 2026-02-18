@@ -1,9 +1,4 @@
 ---
-summary: "橋接通訊協定（舊版節點）：TCP JSONL、配對、具範圍的 RPC"
-read_when:
-  - Building or debugging node clients (iOS/Android/macOS node mode)
-  - 調查配對或橋接身分驗證失敗
-  - Auditing the node surface exposed by the gateway
 title: "橋接協定"
 ---
 

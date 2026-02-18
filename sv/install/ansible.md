@@ -1,9 +1,4 @@
 ---
-summary: "Automatiserad, härdad OpenClaw-installation med Ansible, Tailscale VPN och brandväggsisolering"
-read_when:
-  - Du vill ha automatiserad serverdriftsättning med säkerhetshärdning
-  - Du behöver en brandväggsisolerad installation med VPN-åtkomst
-  - Du distribuerar till fjärrservrar med Debian/Ubuntu
 title: "Ansible"
 ---
 

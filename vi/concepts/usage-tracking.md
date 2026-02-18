@@ -1,8 +1,4 @@
 ---
-summary: "Các bề mặt theo dõi mức sử dụng và yêu cầu về thông tin xác thực"
-read_when:
-  - Bạn đang kết nối các bề mặt mức sử dụng/hạn ngạch của nhà cung cấp
-  - Bạn cần giải thích hành vi theo dõi mức sử dụng hoặc yêu cầu xác thực
 title: "Theo dõi mức sử dụng"
 ---
 

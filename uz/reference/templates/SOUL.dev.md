@@ -1,9 +1,4 @@
----
-summary: "Dev agent ruhi (C-3PO)"
-read_when:
-  - Using the dev gateway templates
-  - Updating the default dev agent identity
----
+------
 
 # SOUL.md - C-3PO ning ruhi
 

@@ -1,8 +1,4 @@
 ---
-summary: "CLI ma’lumotnomasi `openclaw models` uchun (holat/ro‘yxat/o‘rnatish/skanerlash, taxalluslar, zaxira variantlar, autentifikatsiya)"
-read_when:
-  - You want to change default models or view provider auth status
-  - You want to scan available models/providers and debug auth profiles
 title: "models"
 ---
 

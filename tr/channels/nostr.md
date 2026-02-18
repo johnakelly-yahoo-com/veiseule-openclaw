@@ -1,8 +1,4 @@
 ---
-summary: "NIP-04 şifreli mesajlar üzerinden Nostr DM kanalı"
-read_when:
-  - OpenClaw’ın Nostr üzerinden DM almasını istiyorsunuz
-  - Merkeziyetsiz mesajlaşma kuruyorsunuz
 title: "Nostr"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "從 Gateway 公開一個與 OpenAI 相容的 /v1/chat/completions HTTP 端點"
-read_when:
-  - 整合需要 OpenAI Chat Completions 的工具
 title: "OpenAI Chat Completions"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "CLI onboarding wizard: gateway, workspace, kanallar va ko‘nikmalar uchun yo‘naltirilgan sozlash"
-read_when:
-  - Onboarding wizardni ishga tushirish yoki sozlash
-  - Yangi mashinani sozlash
 title: "Boshlang‘ich sozlash ustasi (CLI)"
 sidebarTitle: "Boshlang‘ich sozlash: CLI"
 ---

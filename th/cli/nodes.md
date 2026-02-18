@@ -1,8 +1,4 @@
 ---
-summary: "เอกสารอ้างอิงCLIสำหรับ `openclaw nodes` (list/status/approve/invoke, camera/canvas/screen)"
-read_when:
-  - คุณกำลังจัดการโหนดที่จับคู่แล้ว(กล้อง, หน้าจอ, แคนวาส)
-  - คุณต้องอนุมัติคำขอหรือเรียกใช้คำสั่งของโหนด
 title: "nodes"
 ---
 

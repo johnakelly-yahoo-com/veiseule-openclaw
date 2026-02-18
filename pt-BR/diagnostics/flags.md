@@ -1,8 +1,4 @@
 ---
-summary: "Flags de diagnóstico para logs de depuração direcionados"
-read_when:
-  - Você precisa de logs de depuração direcionados sem aumentar os níveis globais de logging
-  - Você precisa capturar logs específicos de subsistemas para suporte
 title: "Flags de Diagnóstico"
 ---
 

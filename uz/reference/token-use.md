@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw prompt kontekstini qanday tuzadi va tokenlar sarfi hamda xarajatlarni qanday hisobot qiladi"
-read_when:
-  - Explaining token usage, costs, or context windows
-  - Debugging context growth or compaction behavior
 title: "Tokenlar sarfi va xarajatlar"
 ---
 

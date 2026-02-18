@@ -1,8 +1,4 @@
 ---
-summary: "Referência da CLI para `openclaw status` (diagnósticos, sondagens, snapshots de uso)"
-read_when:
-  - Voce quer um diagnóstico rápido da saúde dos canais + destinatários de sessões recentes
-  - Voce quer um status “all” colável para depuração
 title: "status"
 ---
 

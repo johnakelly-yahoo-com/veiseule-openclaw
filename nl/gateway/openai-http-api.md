@@ -1,7 +1,4 @@
 ---
-summary: "Stel een OpenAI-compatibel /v1/chat/completions HTTP-eindpunt bloot via de Gateway"
-read_when:
-  - Integratie van tools die OpenAI Chat Completions verwachten
 title: "OpenAI Chat Completions"
 ---
 

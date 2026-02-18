@@ -1,7 +1,4 @@
 ---
-summary: "„Support-Status, Funktionen und Konfiguration des Zalo-Bots“"
-read_when:
-  - Arbeit an Zalo-Funktionen oder Webhooks
 title: "„Zalo“"
 ---
 

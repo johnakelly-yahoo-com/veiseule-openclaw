@@ -1,8 +1,4 @@
 ---
-summary: "Deplacer (migrer) une installation OpenClaw d'une machine a une autre"
-read_when:
-  - Vous deplacez OpenClaw vers un nouvel ordinateur portable/serveur
-  - Vous souhaitez conserver les sessions, l'authentification et les connexions aux canaux (WhatsApp, etc.)
 title: "Guide de migration"
 ---
 

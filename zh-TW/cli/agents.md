@@ -1,7 +1,4 @@
 ---
-summary: " `openclaw agents` 的 CLI 參考（list/add/delete/set identity）"
-read_when:
-  - 您需要多個相互隔離的代理程式（工作區 + 路由 + 身分驗證）
 title: "agents"
 ---
 

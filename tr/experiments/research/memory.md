@@ -1,9 +1,4 @@
 ---
-summary: "Araştırma notları: Clawd çalışma alanları için çevrimdışı bellek sistemi (Markdown tek gerçek kaynak + türetilmiş indeks)"
-read_when:
-  - Günlük Markdown günlüklerinin ötesinde çalışma alanı belleği (~/.openclaw/workspace) tasarlarken
-  - Deciding: "Karar verirken: bağımsız CLI mi yoksa OpenClaw ile derin entegrasyon mu"
-  - Çevrimdışı geri çağırma + yansıtma eklerken (retain/recall/reflect)
 title: "Çalışma Alanı Belleği Araştırması"
 ---
 

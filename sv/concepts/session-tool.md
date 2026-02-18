@@ -1,7 +1,4 @@
 ---
-summary: "Agentsessionverktyg för att lista sessioner, hämta historik och skicka meddelanden mellan sessioner"
-read_when:
-  - Lägga till eller ändra sessionsverktyg
 title: "Sessionsverktyg"
 ---
 

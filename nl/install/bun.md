@@ -1,8 +1,4 @@
 ---
-summary: "Bun-workflow (experimenteel): installatie en aandachtspunten vs pnpm"
-read_when:
-  - Je wilt de snelste lokale ontwikkelcyclus (bun + watch)
-  - Je loopt tegen Bun install/patch/lifecycle-scriptproblemen aan
 title: "Bun (Experimenteel)"
 ---
 

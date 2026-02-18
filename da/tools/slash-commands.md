@@ -1,8 +1,4 @@
 ---
-summary: "Slash-kommandoer: tekst vs. native, konfiguration og understøttede kommandoer"
-read_when:
-  - Brug eller konfigurer chatkommandoer
-  - Fejlfinding af kommandorouting eller tilladelser
 title: "Slash-kommandoer"
 ---
 

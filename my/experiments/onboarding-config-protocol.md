@@ -1,6 +1,4 @@
 ---
-summary: "onboarding wizard နှင့် config schema အတွက် RPC protocol မှတ်စုများ"
-read_when: "onboarding wizard အဆင့်များ သို့မဟုတ် config schema endpoints များကို ပြောင်းလဲသည့်အခါ"
 title: "Onboarding နှင့် Config Protocol"
 ---
 

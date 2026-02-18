@@ -1,8 +1,4 @@
 ---
-summary: "Pagla-log ng OpenClaw: rolling diagnostics file log + unified log privacy flags"
-read_when:
-  - Pagkuha ng macOS logs o pag-imbestiga ng pagla-log ng pribadong data
-  - Pag-debug ng mga isyu sa voice wake/session lifecycle
 title: "Pagla-log sa macOS"
 ---
 

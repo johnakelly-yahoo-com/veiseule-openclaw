@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw içinde birçok modele erişmek için OpenRouter’ın birleşik API’sini kullanın"
-read_when:
-  - Birçok LLM için tek bir API anahtarı istiyorsunuz
-  - OpenClaw’da OpenRouter üzerinden modeller çalıştırmak istiyorsunuz
 title: "OpenRouter"
 ---
 

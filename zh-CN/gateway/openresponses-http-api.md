@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 集成使用 OpenResponses API 的客户端
-  - 你需要基于 item 的输入、客户端工具调用或 SSE 事件
-summary: 从 Gateway 网关暴露兼容 OpenResponses 的 /v1/responses HTTP 端点
 title: OpenResponses API
 x-i18n:
   generated_at: "2026-02-03T07:48:43Z"

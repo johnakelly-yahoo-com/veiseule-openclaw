@@ -1,8 +1,4 @@
 ---
-summary: "Push Gmail Pub/Sub, подключённый к вебхукам OpenClaw через gogcli"
-read_when:
-  - Подключение триггеров входящих писем Gmail к OpenClaw
-  - Настройка Pub/Sub push для пробуждения агента
 title: "Gmail PubSub"
 ---
 

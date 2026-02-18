@@ -1,7 +1,4 @@
 ---
-summary: "Matrix समर्थन स्थिति, क्षमताएँ, और विन्यास"
-read_when:
-  - Matrix चैनल सुविधाओं पर कार्य करते समय
 title: "Matrix"
 ---
 

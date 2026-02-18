@@ -1,9 +1,4 @@
 ---
-summary: "CLI onboarding wizard bo‘yicha to‘liq ma’lumot: har bir qadam, flag va konfiguratsiya maydoni"
-read_when:
-  - Muayyan wizard qadami yoki flagini qidirayotganda
-  - Onboarding jarayonini non-interactive rejimda avtomatlashtirganda
-  - Wizard xatti-harakatini nosozliklarini tuzatayotganda
 title: "Onboarding Wizard ma’lumotnomasi"
 sidebarTitle: "Wizard ma’lumotnomasi"
 ---

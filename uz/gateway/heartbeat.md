@@ -1,8 +1,4 @@
 ---
-summary: "Heartbeat polling xabarlari va bildirishnoma qoidalari"
-read_when:
-  - Heartbeat intervali yoki xabar matnini sozlayotganda
-  - Rejalashtirilgan vazifalar uchun heartbeat va cron o‘rtasida tanlov qilayotganda
 title: "Heartbeat"
 ---
 

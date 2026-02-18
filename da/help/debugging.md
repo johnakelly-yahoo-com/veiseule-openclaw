@@ -1,9 +1,4 @@
 ---
-summary: "Fejlsøgningsværktøjer: watch-tilstand, rå modelstreams og sporing af lækage af ræsonnement"
-read_when:
-  - Du skal inspicere rå modeloutput for lækage af ræsonnement
-  - Du vil køre Gateway i watch-tilstand under iteration
-  - Du har brug for en gentagelig fejlsøgningsworkflow
 title: "Fejlsøgning"
 ---
 

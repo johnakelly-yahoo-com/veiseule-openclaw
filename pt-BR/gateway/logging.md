@@ -1,8 +1,4 @@
 ---
-summary: "Superfícies de logging, logs em arquivo, estilos de log WS e formatação do console"
-read_when:
-  - Ao alterar a saída ou os formatos de logging
-  - Ao depurar a saída da CLI ou do gateway
 title: "Registro de logs"
 ---
 

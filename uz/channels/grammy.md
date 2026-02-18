@@ -1,7 +1,4 @@
 ---
-summary: "grammY orqali Telegram Bot API integratsiyasi va sozlash eslatmalari"
-read_when:
-  - Telegram yoki grammY yo‘llari ustida ishlash
 title: grammY
 ---
 

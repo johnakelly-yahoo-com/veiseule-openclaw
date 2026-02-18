@@ -1,9 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw browser` (mga profile, tab, aksyon, relay ng extension)"
-read_when:
-  - Gumagamit ka ng `openclaw browser` at gusto mo ng mga halimbawa para sa mga karaniwang gawain
-  - Gusto mong kontrolin ang browser na tumatakbo sa ibang makina sa pamamagitan ng host ng node
-  - Gusto mong gamitin ang relay ng Chrome extension (attach/detach sa pamamagitan ng toolbar button)
 title: "browser"
 ---
 

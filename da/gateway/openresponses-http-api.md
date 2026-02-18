@@ -1,8 +1,4 @@
 ---
-summary: "Eksponér et OpenResponses-kompatibelt /v1/responses HTTP-endpoint fra Gateway"
-read_when:
-  - Integrering af klienter, der taler OpenResponses API
-  - Du ønsker item-baserede input, klientværktøjskald eller SSE-events
 title: "OpenResponses API"
 ---
 

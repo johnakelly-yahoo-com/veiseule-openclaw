@@ -1,8 +1,4 @@
 ---
-summary: "စက်ပစ္စည်း flow ကို အသုံးပြုပြီး OpenClaw မှ GitHub Copilot သို့ လော့ဂ်အင် ဝင်ရန်"
-read_when:
-  - GitHub Copilot ကို မော်ဒယ် ပံ့ပိုးသူအဖြစ် အသုံးပြုလိုသောအခါ
-  - "`openclaw models auth login-github-copilot` flow ကို လိုအပ်သောအခါ"
 title: "GitHub Copilot"
 ---
 

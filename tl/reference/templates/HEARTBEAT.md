@@ -1,8 +1,4 @@
----
-summary: "Template ng workspace para sa HEARTBEAT.md"
-read_when:
-  - Manu-manong pag-bootstrap ng isang workspace
----
+------
 
 # HEARTBEAT.md
 

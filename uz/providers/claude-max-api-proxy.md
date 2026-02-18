@@ -1,9 +1,4 @@
 ---
-summary: "Claude Max/Pro obunasidan OpenAI‑mos API endpoint sifatida foydalaning"
-read_when:
-  - Siz Claude Max obunasini OpenAI‑mos vositalar bilan ishlatmoqchisiz
-  - Siz Claude Code CLI ni o‘rab oluvchi lokal API serverni xohlaysiz
-  - API kalitlari o‘rniga obunadan foydalanib pul tejamoqchisiz
 title: "Claude Max API Proksi"
 ---
 

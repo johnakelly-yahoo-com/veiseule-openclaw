@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw-funktioner på tværs af kanaler, routing, medier og UX."
-read_when:
-  - Du vil have en komplet liste over, hvad OpenClaw understøtter
 title: "Funktioner"
 ---
 

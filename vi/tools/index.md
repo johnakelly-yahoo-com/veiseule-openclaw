@@ -1,8 +1,4 @@
 ---
-summary: "Bề mặt công cụ của tác tử cho OpenClaw (trình duyệt, canvas, nodes, nhắn tin, cron) thay thế các skills `openclaw-*` cũ"
-read_when:
-  - Thêm hoặc chỉnh sửa công cụ của tác tử
-  - Ngừng sử dụng hoặc thay đổi các skills `openclaw-*`
 title: "Công cụ"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Ecrire des outils d’agent dans un plugin (schemas, outils optionnels, listes d’autorisation)"
-read_when:
-  - Vous souhaitez ajouter un nouvel outil d’agent dans un plugin
-  - Vous devez rendre un outil optionnel via des listes d’autorisation
 title: "Outils d’agent de plugin"
 ---
 

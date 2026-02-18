@@ -1,8 +1,4 @@
 ---
-summary: "Vue d’ensemble des fournisseurs de modèles avec des exemples de configurations + des flux CLI"
-read_when:
-  - Vous avez besoin d’une reference de configuration des modeles, fournisseur par fournisseur
-  - Vous voulez des exemples de configurations ou des commandes CLI de prise en main pour les fournisseurs de modeles
 title: "Fournisseurs de modeles"
 ---
 

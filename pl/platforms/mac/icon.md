@@ -1,7 +1,4 @@
 ---
-summary: "Stany i animacje ikony paska menu dla OpenClaw na macOS"
-read_when:
-  - Zmienianie zachowania ikony paska menu
 title: "Ikona paska menu"
 ---
 

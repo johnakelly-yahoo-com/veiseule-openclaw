@@ -1,9 +1,4 @@
 ---
-summary: "Gateway 를 찾기 위한 노드 디바이스 검색 및 전송 (Bonjour, Tailscale, SSH)"
-read_when:
-  - Bonjour 디바이스 검색/광고를 구현하거나 변경할 때
-  - 원격 연결 모드 (직접 vs SSH) 를 조정할 때
-  - 원격 노드를 위한 노드 디바이스 검색 + 페어링을 설계할 때
 title: "디바이스 검색 및 전송"
 ---
 

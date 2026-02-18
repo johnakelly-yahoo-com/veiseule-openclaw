@@ -1,9 +1,4 @@
 ---
-summary: "重構計畫：exec 主機路由、節點核准與無頭執行器"
-read_when:
-  - 設計 exec 主機路由或 exec 核准時
-  - 實作節點 runner + UI IPC
-  - 新增 exec 主機安全模式與斜線指令
 title: "Exec 主機重構"
 ---
 

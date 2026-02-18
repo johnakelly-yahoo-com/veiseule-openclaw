@@ -1,9 +1,4 @@
 ---
-summary: "Strumieniowanie + zachowanie chunkingu (blokuj odpowiedzi, szkic streamingu, limity)"
-read_when:
-  - Wyjaśnianie, jak działa strumieniowanie lub porcjowanie w kanałach
-  - Zmiana zachowania strumieniowania blokowego lub porcjowania kanałów
-  - Debugowanie zduplikowanych/wczesnych odpowiedzi blokowych lub strumieniowania wersji roboczej
 title: "Strumieniowanie i czowanie"
 ---
 

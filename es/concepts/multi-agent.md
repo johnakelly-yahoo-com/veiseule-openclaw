@@ -1,7 +1,5 @@
 ---
-summary: "Enrutamiento multiagente: agentes aislados, cuentas de canal y enlaces"
 title: Enrutamiento multiagente
-read_when: "Quiere múltiples agentes aislados (espacios de trabajo + autenticación) en un solo proceso de Gateway."
 status: active
 ---
 

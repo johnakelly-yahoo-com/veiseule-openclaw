@@ -1,7 +1,4 @@
 ---
-summary: "/think + /verbose için direktif söz dizimi ve bunların model akıl yürütmesini nasıl etkilediği"
-read_when:
-  - Thinking veya verbose direktif ayrıştırmasını ya da varsayılanlarını ayarlarken
 title: "Thinking Düzeyleri"
 ---
 

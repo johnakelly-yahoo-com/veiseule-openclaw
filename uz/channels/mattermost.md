@@ -1,8 +1,4 @@
 ---
-summary: "Mattermost botini sozlash va OpenClaw konfiguratsiyasi"
-read_when:
-  - Mattermost sozlayotganda
-  - Mattermost marshrutlashini nosozliklarini tuzatishda
 title: "Mattermost"
 ---
 

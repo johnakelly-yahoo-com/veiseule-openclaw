@@ -1,10 +1,4 @@
----
-summary: "Lista de verificación paso a paso para el lanzamiento de npm + app macOS"
-read_when:
-  - Preparar un nuevo lanzamiento de npm
-  - Preparar un nuevo lanzamiento de la app macOS
-  - Verificar metadatos antes de publicar
----
+------
 
 # Lista de verificación de lanzamiento (npm + macOS)
 

@@ -1,8 +1,4 @@
 ---
-summary: "SOUL Evil ہُک (SOUL.md کو SOUL_EVIL.md کے ساتھ تبدیل کرنا)"
-read_when:
-  - آپ SOUL Evil ہُک کو فعال یا اس کی ٹیوننگ کرنا چاہتے ہیں
-  - آپ purge ونڈو یا رینڈم-چانس persona سوئچ چاہتے ہیں
 title: "SOUL Evil ہُک"
 ---
 

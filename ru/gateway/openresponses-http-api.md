@@ -1,8 +1,4 @@
 ---
-summary: "Открыть HTTP-эндпоинт /v1/responses, совместимый с OpenResponses, из Gateway"
-read_when:
-  - Интеграция клиентов, которые говорят по API OpenResponses
-  - Вам нужны входы на основе items, клиентские вызовы инструментов или события SSE
 title: "API OpenResponses"
 ---
 

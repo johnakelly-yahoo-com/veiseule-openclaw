@@ -1,9 +1,4 @@
 ---
-summary: "15. Gateway WebSocket protokoli: qo‘l siqish, freymlar, versiyalash"
-read_when:
-  - 16. Gateway WS mijozlarini amalga oshirish yoki yangilash
-  - 17. Protokol nomuvofiqliklari yoki ulanish xatolarini tuzatish
-  - 18. Protokol sxemasi/modellarini qayta yaratish
 title: "19. Gateway protokoli"
 ---
 

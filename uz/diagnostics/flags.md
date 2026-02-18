@@ -1,8 +1,4 @@
 ---
-summary: "30. Maqsadli debug loglar uchun diagnostika flaglari"
-read_when:
-  - 31. Global loglash darajalarini oshirmasdan maqsadli debug loglar kerak
-  - 32. Qo‘llab-quvvatlash uchun subsystemga xos loglarni yig‘ish kerak
 title: "33. Diagnostika flaglari"
 ---
 

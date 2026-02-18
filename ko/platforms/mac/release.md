@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS 릴리스 체크리스트 (Sparkle 피드, 패키징, 서명)"
-read_when:
-  - OpenClaw macOS 릴리스를 컷팅하거나 검증할 때
-  - Sparkle 앱캐스트 또는 피드 자산을 업데이트할 때
 title: "macOS 릴리스"
 ---
 

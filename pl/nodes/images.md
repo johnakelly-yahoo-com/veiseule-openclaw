@@ -1,7 +1,4 @@
 ---
-summary: "„Zasady obsługi obrazów i multimediów dla wysyłania, Gateway oraz odpowiedzi agentów”"
-read_when:
-  - Modyfikowanie potoku multimediów lub załączników
 title: "Obraz i obsługa mediów"
 ---
 

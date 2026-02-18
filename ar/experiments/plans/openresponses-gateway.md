@@ -1,5 +1,4 @@
 ---
-summary: "خطة: إضافة نقطة نهاية OpenResponses ‎/v1/responses‎ وإيقاف Chat Completions بشكلٍ نظيف"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"

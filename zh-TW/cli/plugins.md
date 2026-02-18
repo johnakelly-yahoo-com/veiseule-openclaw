@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw plugins」（清單、安裝、啟用／停用、doctor）的 CLI 參考"
-read_when:
-  - 2. 你想要安裝或管理進程內的 Gateway 外掛程式
-  - 3. 你想要除錯外掛程式載入失敗
 title: "plugins"
 ---
 

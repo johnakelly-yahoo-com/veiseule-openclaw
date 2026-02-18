@@ -1,9 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw browser` (profils, onglets, actions, relais d’extension)"
-read_when:
-  - Vous utilisez `openclaw browser` et souhaitez des exemples pour les taches courantes
-  - Vous voulez controler un navigateur s’executant sur une autre machine via un hote de nœud
-  - Vous voulez utiliser le relais de l’extension Chrome (attacher/detacher via le bouton de la barre d’outils)
 title: "navigateur"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Android-App (Node): Verbindungs-Runbook + Canvas/Chat/Kamera"
-read_when:
-  - Koppeln oder erneutes Verbinden des Android-Nodes
-  - Debugging der Android-Gateway-Erkennung oder -Authentifizierung
-  - Überprüfen der Chat-Verlaufsparität über Clients hinweg
 title: "Android-App"
 ---
 

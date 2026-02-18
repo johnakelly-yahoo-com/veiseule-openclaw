@@ -1,8 +1,4 @@
 ---
-summary: "web_search အတွက် Perplexity Sonar ကို တပ်ဆင်ပြင်ဆင်ခြင်း"
-read_when:
-  - web search အတွက် Perplexity Sonar ကို အသုံးပြုလိုသည့်အခါ
-  - PERPLEXITY_API_KEY သို့မဟုတ် OpenRouter တပ်ဆင်မှု လိုအပ်သည့်အခါ
 title: "Perplexity Sonar"
 ---
 

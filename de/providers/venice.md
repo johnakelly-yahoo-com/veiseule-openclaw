@@ -1,8 +1,4 @@
 ---
-summary: "„Nutzen Sie die datenschutzorientierten Modelle von Venice AI in OpenClaw“"
-read_when:
-  - Sie möchten datenschutzorientierte Inferenz in OpenClaw
-  - Sie möchten Anleitungen zur Einrichtung von Venice AI
 title: "„Venice AI“"
 ---
 

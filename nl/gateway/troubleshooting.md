@@ -1,8 +1,4 @@
 ---
-summary: "Diepgaande troubleshooting-runbook voor gateway, kanalen, automatisering, nodes en browser"
-read_when:
-  - De troubleshooting-hub heeft je hierheen verwezen voor diepere diagnose
-  - Je hebt stabiele, symptoomgebaseerde runbook-secties nodig met exacte opdrachten
 title: "Problemen oplossen"
 ---
 

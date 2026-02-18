@@ -1,8 +1,4 @@
 ---
-summary: "دفع Gmail عبر Pub/Sub موصول بـ Webhooks الخاصة بـ OpenClaw باستخدام gogcli"
-read_when:
-  - توصيل مُحفِّزات صندوق وارد Gmail بـ OpenClaw
-  - إعداد دفع Pub/Sub لإيقاظ الوكيل
 title: "Gmail PubSub"
 ---
 

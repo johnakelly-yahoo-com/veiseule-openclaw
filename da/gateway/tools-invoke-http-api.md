@@ -1,8 +1,4 @@
 ---
-summary: "Kald et enkelt værktøj direkte via Gateway HTTP-endpointet"
-read_when:
-  - Kald af værktøjer uden at køre en fuld agenttur
-  - Opbygning af automatiseringer, der kræver håndhævelse af værktøjspolitikker
 title: "API til at kalde værktøjer"
 ---
 

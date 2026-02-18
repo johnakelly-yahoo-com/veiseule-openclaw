@@ -1,8 +1,4 @@
----
-summary: "Template ng workspace para sa TOOLS.md"
-read_when:
-  - Manu-manong pag-bootstrap ng isang workspace
----
+------
 
 # TOOLS.md - Mga Lokal na Tala
 

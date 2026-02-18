@@ -1,8 +1,4 @@
 ---
-summary: "Gateway 網頁介面：控制 UI、綁定模式與安全性"
-read_when:
-  - 你想要透過 Tailscale 存取 Gateway
-  - 你想要瀏覽器控制 UI 與設定編輯
 title: "網頁"
 ---
 

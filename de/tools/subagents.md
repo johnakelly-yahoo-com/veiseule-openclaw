@@ -1,8 +1,4 @@
 ---
-summary: "Sub-Agents: Starten isolierter Agentenläufe, die Ergebnisse an den anfordernden Chat zurückmelden"
-read_when:
-  - Sie möchten Hintergrund-/Parallelarbeit über den Agenten ausführen
-  - Sie ändern sessions_spawn oder die Sub-Agent-Werkzeugrichtlinie
 title: "Sub-Agenten"
 ---
 

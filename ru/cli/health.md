@@ -1,7 +1,4 @@
 ---
-summary: "Справочник CLI для `openclaw health` (эндпоинт здоровья Gateway (шлюз) через RPC)"
-read_when:
-  - Вам нужно быстро проверить состояние работающего Gateway (шлюз)
 title: "health"
 ---
 

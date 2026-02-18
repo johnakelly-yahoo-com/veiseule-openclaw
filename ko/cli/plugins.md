@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw plugins`에 대한 CLI 참조 (목록, 설치, 활성화/비활성화, doctor)"
-read_when:
-  - 인프로세스 Gateway(게이트웨이) 플러그인을 설치하거나 관리하려는 경우
-  - 플러그인 로드 실패를 디버그하려는 경우
 title: "plugins"
 ---
 

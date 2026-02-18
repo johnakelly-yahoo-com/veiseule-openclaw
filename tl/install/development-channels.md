@@ -1,8 +1,4 @@
 ---
-summary: "Mga stable, beta, at dev na channel: semantika, paglipat, at pag-tag"
-read_when:
-  - Gusto mong lumipat sa pagitan ng stable/beta/dev
-  - Nagta-tag o nagpa-publish ka ng mga prerelease
 title: "Mga Development Channel"
 ---
 

@@ -1,9 +1,5 @@
 ---
 description: Typed workflow runtime for OpenClaw — composable pipelines with approval gates.
-read_when:
-  - 你想要具有显式审批的确定性多步骤工作流
-  - 你需要恢复工作流而不重新运行早期步骤
-summary: OpenClaw 的类型化工作流运行时，支持可恢复的审批关卡。
 title: Lobster
 x-i18n:
   generated_at: "2026-02-03T10:11:30Z"

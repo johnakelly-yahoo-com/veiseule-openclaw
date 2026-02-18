@@ -1,8 +1,4 @@
 ---
-summary: "Uso da ferramenta Exec, modos de stdin e suporte a TTY"
-read_when:
-  - Ao usar ou modificar a ferramenta exec
-  - Ao depurar comportamento de stdin ou TTY
 title: "Ferramenta Exec"
 ---
 

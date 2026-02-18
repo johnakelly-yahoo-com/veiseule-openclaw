@@ -1,9 +1,4 @@
 ---
-summary: "Cách các script cài đặt hoạt động (install.sh, install-cli.sh, install.ps1), các cờ và tự động hóa"
-read_when:
-  - Bạn muốn hiểu `openclaw.ai/install.sh`
-  - Bạn muốn tự động hóa cài đặt (CI / không giao diện)
-  - Bạn muốn cài đặt từ một bản checkout GitHub
 title: "Nội bộ trình cài đặt"
 ---
 

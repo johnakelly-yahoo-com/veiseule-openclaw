@@ -1,8 +1,4 @@
 ---
-summary: "Hooks: 명령과 라이프사이클 이벤트를 위한 이벤트 기반 자동화"
-read_when:
-  - /new, /reset, /stop 및 에이전트 라이프사이클 이벤트를 위한 이벤트 기반 자동화가 필요할 때
-  - hooks 를 빌드, 설치 또는 디버그하고자 할 때
 title: "Hooks"
 ---
 

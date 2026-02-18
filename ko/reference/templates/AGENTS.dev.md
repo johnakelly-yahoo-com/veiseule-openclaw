@@ -1,9 +1,4 @@
----
-summary: "Dev 에이전트 AGENTS.md (C-3PO)"
-read_when:
-  - Dev Gateway(게이트웨이) 템플릿을 사용할 때
-  - 기본 Dev 에이전트 아이덴티티를 업데이트할 때
----
+------
 
 # AGENTS.md - OpenClaw 워크스페이스
 

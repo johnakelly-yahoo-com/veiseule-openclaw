@@ -1,7 +1,4 @@
 ---
-summary: "Mga patakaran sa pamamahala ng session, mga key, at persistence para sa mga chat"
-read_when:
-  - Pagbabago ng paghawak o pag-iimbak ng session
 title: "Pamamahala ng Session"
 ---
 

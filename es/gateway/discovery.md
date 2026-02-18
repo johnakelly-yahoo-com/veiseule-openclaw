@@ -1,9 +1,4 @@
 ---
-summary: "Descubrimiento de nodos y transportes (Bonjour, Tailscale, SSH) para encontrar el Gateway"
-read_when:
-  - Implementar o cambiar el descubrimiento/anuncio por Bonjour
-  - Ajustar los modos de conexión remota (directo vs SSH)
-  - Diseñar el descubrimiento de nodos y el emparejamiento para nodos remotos
 title: "Descubrimiento y transportes"
 ---
 

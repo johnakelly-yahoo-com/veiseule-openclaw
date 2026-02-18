@@ -1,8 +1,4 @@
----
-summary: "TOOLS.md အတွက် Workspace တမ်းပလိတ်"
-read_when:
-  - Workspace ကို လက်ဖြင့် စတင်တည်ဆောက်နေစဉ်
----
+------
 
 # TOOLS.md - ဒေသဆိုင်ရာ မှတ်စုများ
 

@@ -1,8 +1,4 @@
 ---
-summary: "Windows (WSL2) समर्थन + सहचर ऐप की स्थिति"
-read_when:
-  - Windows पर OpenClaw इंस्टॉल करते समय
-  - Windows सहचर ऐप की स्थिति खोजते समय
 title: "Windows (WSL2)"
 ---
 

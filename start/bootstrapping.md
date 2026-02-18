@@ -1,9 +1,4 @@
 ---
-summary: "Agent bootstrapping ritual that seeds the workspace and identity files"
-read_when:
-  - Understanding what happens on the first agent run
-  - Explaining where bootstrapping files live
-  - Debugging onboarding identity setup
 title: "Agent Bootstrapping"
 sidebarTitle: "Bootstrapping"
 ---

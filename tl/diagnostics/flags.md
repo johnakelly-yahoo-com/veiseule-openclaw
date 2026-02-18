@@ -1,8 +1,4 @@
 ---
-summary: "Mga diagnostics flag para sa target na debug logs"
-read_when:
-  - Kailangan mo ng target na debug logs nang hindi itinataas ang global logging levels
-  - Kailangan mong kumuha ng mga log na partikular sa subsystem para sa support
 title: "Mga Diagnostics Flag"
 ---
 

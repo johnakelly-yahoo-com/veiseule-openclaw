@@ -1,7 +1,4 @@
 ---
-summary: "Eksploracja: konfiguracja modeli, profile uwierzytelniania i zachowanie mechanizmu awaryjnego"
-read_when:
-  - Eksplorowanie przyszłych pomysłów dotyczących wyboru modeli i profili uwierzytelniania
 title: "Eksploracja konfiguracji modeli"
 ---
 

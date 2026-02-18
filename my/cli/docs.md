@@ -1,7 +1,4 @@
 ---
-summary: "Terminal မှ live OpenClaw စာရွက်စာတမ်းများကို ရှာဖွေရန် CLI ကိုးကားချက် (`openclaw docs`)"
-read_when:
-  - Terminal မှ live OpenClaw စာရွက်စာတမ်းများကို ရှာဖွေလိုသည့်အခါ
 title: "စာရွက်စာတမ်းများ"
 ---
 

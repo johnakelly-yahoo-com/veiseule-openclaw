@@ -1,9 +1,4 @@
 ---
-summary: "Nós: pareamento, capacidades, permissões e auxiliares de CLI para canvas/câmera/tela/sistema"
-read_when:
-  - Pareamento de nós iOS/Android a um gateway
-  - Uso de canvas/câmera do nó para contexto do agente
-  - Adição de novos comandos de nó ou auxiliares de CLI
 title: "Nós"
 ---
 

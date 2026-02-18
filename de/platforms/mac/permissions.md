@@ -1,9 +1,4 @@
 ---
-summary: "Persistenz von macOS-Berechtigungen (TCC) und Signierungsanforderungen"
-read_when:
-  - Debugging fehlender oder hängen gebliebener macOS-Berechtigungsabfragen
-  - Paketierung oder Signierung der macOS-App
-  - Ändern von Bundle-IDs oder App-Installationspfaden
 title: "macOS-Berechtigungen"
 ---
 

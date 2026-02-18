@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS コンパニオンアプリ（メニューバー + ゲートウェイブローカー）"
-read_when:
-  - macOS アプリ機能を実装する場合
-  - macOS でのゲートウェイのライフサイクルやノードブリッジを変更する場合
 title: "macOS アプリ"
 ---
 

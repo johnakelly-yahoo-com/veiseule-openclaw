@@ -1,9 +1,4 @@
 ---
-summary: "Tâches cron + réveils pour le planificateur du Gateway"
-read_when:
-  - Planifier des tâches d’arrière-plan ou des réveils
-  - Câbler des automatisations qui doivent s’exécuter avec ou en parallèle des heartbeats
-  - Choisir entre heartbeat et cron pour les tâches planifiées
 title: "Tâches Cron"
 ---
 

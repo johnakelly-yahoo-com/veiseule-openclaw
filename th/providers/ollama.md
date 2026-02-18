@@ -1,8 +1,4 @@
 ---
-summary: "รันOpenClawด้วยOllama(รันไทม์LLMภายในเครื่อง)"
-read_when:
-  - คุณต้องการรันOpenClawด้วยโมเดลภายในเครื่องผ่านOllama
-  - คุณต้องการคำแนะนำการตั้งค่าและคอนฟิกOllama
 title: "Ollama"
 ---
 

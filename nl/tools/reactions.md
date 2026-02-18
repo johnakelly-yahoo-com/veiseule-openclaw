@@ -1,7 +1,4 @@
 ---
-summary: "Reactiesemantiek gedeeld over kanalen"
-read_when:
-  - Werken aan reacties in elk kanaal
 title: "Reacties"
 ---
 

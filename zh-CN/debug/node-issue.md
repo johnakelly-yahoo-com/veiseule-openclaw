@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 调试仅限 Node 的开发脚本或 watch 模式失败
-  - 排查 OpenClaw 中 tsx/esbuild 加载器崩溃问题
-summary: Node + tsx "__name is not a function" 崩溃说明及解决方法
 title: Node + tsx 崩溃
 x-i18n:
   generated_at: "2026-02-01T20:24:52Z"

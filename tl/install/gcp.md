@@ -1,9 +1,4 @@
 ---
-summary: "Patakbuhin ang OpenClaw Gateway 24/7 sa isang GCP Compute Engine VM (Docker) na may matibay na state"
-read_when:
-  - Gusto mong tumatakbo ang OpenClaw 24/7 sa GCP
-  - Gusto mo ng production-grade, laging-on na Gateway sa sarili mong VM
-  - Gusto mo ng ganap na kontrol sa persistence, mga binary, at asal ng restart
 title: "GCP"
 ---
 

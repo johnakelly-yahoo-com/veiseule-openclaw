@@ -1,8 +1,4 @@
 ---
-summary: "Поддержка Signal через signal-cli (JSON-RPC + SSE), настройка и модель номеров"
-read_when:
-  - Настройка поддержки Signal
-  - Отладка отправки/получения сообщений Signal
 title: "Signal"
 ---
 

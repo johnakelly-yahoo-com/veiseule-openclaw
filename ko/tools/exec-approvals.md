@@ -1,9 +1,4 @@
 ---
-summary: "Exec 승인, 허용 목록, 그리고 샌드박스 탈출 프롬프트"
-read_when:
-  - Exec 승인 또는 허용 목록을 구성할 때
-  - macOS 앱에서 Exec 승인 UX 를 구현할 때
-  - 샌드박스 탈출 프롬프트와 그 영향을 검토할 때
 title: "Exec 승인"
 ---
 

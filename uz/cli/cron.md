@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw cron` uchun CLI ma’lumotnomasi (fon vazifalarini rejalashtirish va ishga tushirish)"
-read_when:
-  - Rejalashtirilgan vazifalar va uyg‘otishlar kerak
-  - Cron bajarilishi va loglarini nosozlikdan o‘tkazyapsiz
 title: "cron"
 ---
 

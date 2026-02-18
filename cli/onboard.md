@@ -1,7 +1,4 @@
 ---
-summary: "CLI reference for `openclaw onboard` (interactive onboarding wizard)"
-read_when:
-  - You want guided setup for gateway, workspace, auth, channels, and skills
 title: "onboard"
 ---
 

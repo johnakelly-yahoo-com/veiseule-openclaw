@@ -1,7 +1,4 @@
 ---
-summary: "Etapas de assinatura para builds de depuração do macOS geradas por scripts de empacotamento"
-read_when:
-  - Criando ou assinando builds de depuração do mac
 title: "Assinatura no macOS"
 ---
 

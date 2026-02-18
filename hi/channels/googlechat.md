@@ -1,7 +1,4 @@
 ---
-summary: "Google Chat ऐप समर्थन स्थिति, क्षमताएँ, और विन्यास"
-read_when:
-  - Google Chat चैनल सुविधाओं पर कार्य करते समय
 title: "Google Chat"
 ---
 

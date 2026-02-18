@@ -1,8 +1,4 @@
 ---
-summary: "為 IDE 整合執行 ACP 橋接"
-read_when:
-  - 設定基於 ACP 的 IDE 整合
-  - 除錯 ACP 工作階段路由至 Gateway 閘道器
 title: "acp"
 ---
 

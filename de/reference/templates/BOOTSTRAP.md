@@ -1,8 +1,4 @@
----
-summary: "„Ritual für den ersten Start neuer Agenten“"
-read_when:
-  - Manuelles Bootstrapping eines Workspaces
----
+------
 
 # BOOTSTRAP.md – Hallo, Welt
 

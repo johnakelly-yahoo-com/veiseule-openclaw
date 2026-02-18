@@ -1,9 +1,4 @@
 ---
-summary: "Validation stricte de la configuration + migrations uniquement via doctor"
-read_when:
-  - Conception ou implémentation du comportement de validation de la configuration
-  - Travail sur les migrations de configuration ou les workflows doctor
-  - Gestion des schémas de configuration des plugins ou du blocage du chargement des plugins
 title: "Validation stricte de la configuration"
 ---
 

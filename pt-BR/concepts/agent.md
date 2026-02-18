@@ -1,7 +1,4 @@
 ---
-summary: "Runtime do agente (pi-mono incorporado), contrato do workspace e bootstrap de sessão"
-read_when:
-  - Ao alterar o runtime do agente, o bootstrap do workspace ou o comportamento da sessão
 title: "Runtime do Agente"
 ---
 

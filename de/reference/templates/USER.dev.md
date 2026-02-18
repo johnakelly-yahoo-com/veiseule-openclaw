@@ -1,9 +1,4 @@
----
-summary: "„Benutzerprofil des Dev-Agenten (C-3PO)“"
-read_when:
-  - Verwendung der Dev-Gateway-Vorlagen
-  - Beim Aktualisieren der Standardidentität des Dev-Agenten
----
+------
 
 # USER.md – Benutzerprofil
 

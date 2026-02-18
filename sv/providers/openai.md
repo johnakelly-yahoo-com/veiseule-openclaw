@@ -1,8 +1,4 @@
 ---
-summary: "Använd OpenAI via API-nycklar eller Codex-prenumeration i OpenClaw"
-read_when:
-  - Du vill använda OpenAI-modeller i OpenClaw
-  - Du vill använda Codex-prenumerationsautentisering i stället för API-nycklar
 title: "OpenAI"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw CLI-referens för `openclaw`-kommandon, underkommandon och alternativ"
-read_when:
-  - Lägga till eller ändra CLI-kommandon eller alternativ
-  - Dokumentera nya kommandoytor
 title: "CLI-referens"
 ---
 

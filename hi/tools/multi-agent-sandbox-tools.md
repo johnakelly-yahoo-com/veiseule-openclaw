@@ -1,7 +1,5 @@
 ---
-summary: "प्रति-एजेंट sandbox और टूल प्रतिबंध, प्राथमिकता, और उदाहरण"
 title: मल्टी-एजेंट Sandbox और Tools
-read_when: "जब आप मल्टी-एजेंट Gateway में प्रति-एजेंट sandboxing या प्रति-एजेंट टूल allow/deny नीतियाँ चाहते हों।"
 status: active
 ---
 

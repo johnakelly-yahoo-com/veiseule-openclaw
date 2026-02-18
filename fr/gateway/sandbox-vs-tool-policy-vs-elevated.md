@@ -1,7 +1,5 @@
 ---
 title: Sandbox vs politique d’outil vs Élevé
-summary: "Pourquoi un outil est bloqué : runtime de sandbox, politique d’autorisation/refus des outils, et verrous d’exécution élevée"
-read_when: "Vous tombez sur la “prison de sandbox” ou voyez un refus d’outil/élevé et voulez la clé de configuration exacte à modifier."
 status: active
 ---
 

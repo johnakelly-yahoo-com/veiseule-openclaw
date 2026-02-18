@@ -1,9 +1,4 @@
 ---
-summary: "Granska vad som kan kosta pengar, vilka nycklar som används och hur du visar användning"
-read_when:
-  - Du vill förstå vilka funktioner som kan anropa betalda API:er
-  - Du behöver granska nycklar, kostnader och synlighet för användning
-  - Du förklarar rapportering för /status eller /usage
 title: "API-användning och kostnader"
 ---
 

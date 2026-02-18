@@ -1,7 +1,4 @@
 ---
-summary: "โฮสต์สแตติกของLoopback WebChatและการใช้งานGateway WebSocketสำหรับUIแชต"
-read_when:
-  - การดีบักหรือการกำหนดค่าการเข้าถึงWebChat
 title: "WebChat"
 ---
 

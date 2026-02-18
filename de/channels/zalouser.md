@@ -1,8 +1,4 @@
 ---
-summary: "Unterstützung für persönliche Zalo-Konten über zca-cli (QR-Login), Funktionen und Konfiguration"
-read_when:
-  - Einrichten von Zalo Personal für OpenClaw
-  - Debugging von Zalo-Personal-Login oder Nachrichtenfluss
 title: "Zalo Personal"
 ---
 

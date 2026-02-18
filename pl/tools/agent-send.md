@@ -1,7 +1,4 @@
 ---
-summary: "Bezpośrednie uruchomienia CLI `openclaw agent` (z opcjonalnym dostarczaniem)"
-read_when:
-  - Dodawanie lub modyfikowanie punktu wejścia CLI agenta
 title: "Wysyłanie agenta"
 ---
 

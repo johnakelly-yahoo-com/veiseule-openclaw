@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 你想要 Firecrawl 支持的网页提取
-  - 你需要 Firecrawl API 密钥
-  - 你想要 web_fetch 的反机器人提取
-summary: 用于 web_fetch 的 Firecrawl 回退（反机器人 + 缓存提取）
 title: Firecrawl
 x-i18n:
   generated_at: "2026-02-03T10:10:35Z"

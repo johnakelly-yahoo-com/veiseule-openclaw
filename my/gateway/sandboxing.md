@@ -1,7 +1,5 @@
 ---
-summary: "OpenClaw sandboxing အလုပ်လုပ်ပုံ—မုဒ်များ၊ အကျယ်အဝန်းများ၊ workspace ဝင်ရောက်ခွင့်နှင့် image များ"
 title: "Sandboxing (သီးသန့်ခွဲထားသော လုံခြုံရေးပတ်ဝန်းကျင်)"
-read_when: "Sandboxing ကို သီးသန့်ရှင်းလင်းချက်လိုအပ်သည့်အခါ သို့မဟုတ် agents.defaults.sandbox ကို ချိန်ညှိရန် လိုအပ်သည့်အခါ"
 status: active
 ---
 

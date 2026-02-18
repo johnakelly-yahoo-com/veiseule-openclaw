@@ -1,7 +1,4 @@
 ---
-summary: "Étapes de vérification de l’état pour la connectivité des canaux"
-read_when:
-  - Diagnostic de l’état du canal WhatsApp
 title: "Contrôles de santé"
 ---
 

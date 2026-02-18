@@ -1,8 +1,4 @@
 ---
-summary: "Mattermost ဘော့တ် တပ်ဆင်ခြင်းနှင့် OpenClaw ဖွဲ့စည်းပြင်ဆင်မှု"
-read_when:
-  - Mattermost ကို တပ်ဆင်ပြင်ဆင်နေစဉ်
-  - Mattermost routing ကို ပြဿနာရှာဖွေခြင်း
 title: "Mattermost"
 ---
 

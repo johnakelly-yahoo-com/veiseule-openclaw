@@ -1,8 +1,4 @@
 ---
-summary: "Skills: administrerede vs. workspace, gate-regler og config/env-kobling"
-read_when:
-  - Tilføjelse eller ændring af skills
-  - Ændring af skill-gating eller indlæsningsregler
 title: "Færdigheder"
 ---
 

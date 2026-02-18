@@ -1,7 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw agent` (skicka en agenttur via Gateway)"
-read_when:
-  - Du vill köra en agenttur från skript (valfritt leverera svar)
 title: "agent"
 ---
 

@@ -1,9 +1,4 @@
----
-summary: "Danh tính tác tử dev (C-3PO)"
-read_when:
-  - Sử dụng các mẫu gateway dev
-  - Cập nhật danh tính tác tử dev mặc định
----
+------
 
 # IDENTITY.md - Danh tính tác tử
 

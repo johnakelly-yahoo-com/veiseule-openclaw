@@ -1,7 +1,4 @@
 ---
-summary: "Pag-uugali at config para sa paghawak ng WhatsApp group messages (ang mentionPatterns ay ibinabahagi sa iba’t ibang surface)"
-read_when:
-  - Kapag binabago ang mga patakaran ng group message o mga mention
 title: "Mga Mensahe ng Grupo"
 ---
 

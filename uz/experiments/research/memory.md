@@ -1,9 +1,4 @@
 ---
-summary: "Tadqiqot qaydlari: Clawd ish joylari uchun oflayn xotira tizimi (Markdown — manba-haqiqat + hosila indeks)"
-read_when:
-  - Kundalik Markdown jurnallaridan tashqarida ish joyi xotirasini loyihalash (~/.openclaw/workspace)
-  - Deciding: mustaqil CLI va chuqur OpenClaw integratsiyasi
-  - Oflayn eslab qolish + refleksiya qo‘shish (saqlash/eslash/refleksiya)
 title: "Workspace Memory tadqiqoti"
 ---
 

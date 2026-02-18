@@ -1,7 +1,4 @@
 ---
-summary: "Telegram बॉट समर्थन की स्थिति, क्षमताएँ और विन्यास"
-read_when:
-  - Telegram फीचर्स या वेबहुक्स पर काम करते समय
 title: "Telegram"
 ---
 

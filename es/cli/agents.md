@@ -1,7 +1,4 @@
 ---
-summary: "Referencia de la CLI para `openclaw agents` (listar/agregar/eliminar/establecer identidad)"
-read_when:
-  - Desea múltiples agentes aislados (espacios de trabajo + enrutamiento + autenticación)
 title: "agentes"
 ---
 

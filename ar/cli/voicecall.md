@@ -1,8 +1,4 @@
 ---
-summary: "مرجع CLI للأمر `openclaw voicecall` (سطح أوامر إضافة المكالمات الصوتية)"
-read_when:
-  - تستخدم إضافة المكالمات الصوتية وتريد نقاط الدخول في CLI
-  - تريد أمثلة سريعة لأوامر `voicecall call|continue|status|tail|expose`
 title: "voicecall"
 ---
 

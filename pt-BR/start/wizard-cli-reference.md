@@ -1,8 +1,4 @@
 ---
-summary: "Referência completa do fluxo de integração da CLI, configuração de autenticação/modelo, saídas e detalhes internos"
-read_when:
-  - Você precisa de comportamento detalhado para openclaw onboard
-  - Você está depurando resultados de integração ou integrando clientes de integração
 title: "Referência de Integração da CLI"
 sidebarTitle: "Referência da CLI"
 ---

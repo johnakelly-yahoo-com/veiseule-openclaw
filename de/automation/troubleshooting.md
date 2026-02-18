@@ -1,9 +1,4 @@
 ---
-summary: "Behebung von Problemen bei Cron- und Heartbeat-Planung und -Zustellung"
-read_when:
-  - Cron wurde nicht ausgeführt
-  - Cron wurde ausgeführt, aber es wurde keine Nachricht zugestellt
-  - Heartbeat wirkt stumm oder wurde übersprungen
 title: "Fehlerbehebung bei Automatisierung"
 ---
 

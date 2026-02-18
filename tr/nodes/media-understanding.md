@@ -1,8 +1,4 @@
 ---
-summary: "Sağlayıcı + CLI geri dönüşleriyle gelen görüntü/ses/video anlama (isteğe bağlı)"
-read_when:
-  - Medya anlama tasarlarken veya yeniden düzenlerken
-  - Gelen ses/video/görüntü ön işleme ayarlaması yaparken
 title: "Medya Anlama"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Jak OpenClaw rotuje profile uwierzytelniania i wykonuje przełączanie awaryjne między modelami"
-read_when:
-  - Diagnozowanie rotacji profili uwierzytelniania, czasów odnowienia (cooldown) lub zachowania przełączania awaryjnego modeli
-  - Aktualizowanie reguł przełączania awaryjnego dla profili uwierzytelniania lub modeli
 title: "Model nieudany"
 ---
 

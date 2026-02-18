@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 你需要知道哪些环境变量被加载，以及加载顺序
-  - 你在调试 Gateway 网关中缺失的 API 密钥
-  - 你在编写提供商认证或部署环境的文档
-summary: OpenClaw 从哪里加载环境变量以及优先级顺序
 title: 环境变量
 x-i18n:
   generated_at: "2026-02-03T07:47:11Z"

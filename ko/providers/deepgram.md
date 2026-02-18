@@ -1,8 +1,4 @@
 ---
-summary: "인바운드 음성 메모를 위한 Deepgram 전사"
-read_when:
-  - 오디오 첨부 파일에 대해 Deepgram 음성-텍스트 변환이 필요합니다
-  - 빠른 Deepgram 구성 예제가 필요합니다
 title: "Deepgram"
 ---
 

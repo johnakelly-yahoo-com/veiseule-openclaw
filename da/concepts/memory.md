@@ -1,9 +1,4 @@
----
-summary: "Sådan fungerer OpenClaw-hukommelse (arbejdsområdefiler + automatisk hukommelses-flush)"
-read_when:
-  - Du vil kende hukommelsesfilernes layout og workflow
-  - Du vil justere den automatiske pre-kompakterings-hukommelses-flush
----
+------
 
 # Memory
 

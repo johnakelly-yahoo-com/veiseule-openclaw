@@ -1,8 +1,4 @@
 ---
-summary: "Schrijf agent-tools in een plugin (schema’s, optionele tools, toegestane lijsten)"
-read_when:
-  - Je wilt een nieuwe agent-tool toevoegen in een plugin
-  - Je moet een tool opt-in maken via toegestane lijsten
 title: "Plugin Agent Tools"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw skills` (list/info/check) နှင့် Skills အရည်အချင်းပြည့်မီမှုအတွက် CLI ကိုးကားစာရွက်"
-read_when:
-  - အသုံးပြုနိုင်ပြီး လည်ပတ်ရန် အဆင်သင့်ဖြစ်သော Skills များကို ကြည့်လိုသောအခါ
-  - Skills များအတွက် မရှိနေသော binaries/env/config များကို ပြဿနာရှာဖွေလိုသောအခါ
 title: "Skills"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Схемы TypeBox как единственный источник истины для протокола Gateway"
-read_when:
-  - При обновлении схем протокола или codegen
 title: "TypeBox"
 ---
 

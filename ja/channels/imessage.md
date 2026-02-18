@@ -1,8 +1,4 @@
 ---
-summary: "imsg（stdio 上の JSON-RPC）によるレガシー iMessage サポート。新規セットアップでは BlueBubbles の使用を推奨します。 新しいセットアップはBlueBubblesを使用する必要があります。"
-read_when:
-  - iMessage サポートのセットアップ
-  - iMessage の送受信のデバッグ
 title: iMessage
 ---
 

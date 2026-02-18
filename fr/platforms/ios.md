@@ -1,9 +1,4 @@
 ---
-summary: "Application de nœud iOS : connexion à la Gateway, appairage, canvas et dépannage"
-read_when:
-  - Appairage ou reconnexion du nœud iOS
-  - Exécution de l’application iOS depuis les sources
-  - Débogage de la découverte de la Gateway ou des commandes canvas
 title: "Application iOS"
 ---
 

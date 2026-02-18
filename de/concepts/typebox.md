@@ -1,7 +1,4 @@
 ---
-summary: "TypeBox-Schemas als einzige Quelle der Wahrheit für das Gateway-Protokoll"
-read_when:
-  - Aktualisieren von Protokoll-Schemas oder Codegenerierung
 title: "TypeBox"
 ---
 

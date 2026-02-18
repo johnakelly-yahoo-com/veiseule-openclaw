@@ -1,8 +1,4 @@
 ---
-summary: "Nostr-DM-kanaal via NIP-04-versleutelde berichten"
-read_when:
-  - Je wilt dat OpenClaw DM's ontvangt via Nostr
-  - Je bent bezig met het opzetten van gedecentraliseerde berichtgeving
 title: "Nostr"
 ---
 

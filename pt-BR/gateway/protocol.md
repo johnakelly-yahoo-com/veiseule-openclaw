@@ -1,9 +1,4 @@
 ---
-summary: "Protocolo WebSocket do Gateway: handshake, frames, versionamento"
-read_when:
-  - Implementando ou atualizando clientes WS do gateway
-  - Depurando incompatibilidades de protocolo ou falhas de conexão
-  - Regenerando esquema/modelos do protocolo
 title: "Protocolo do Gateway"
 ---
 

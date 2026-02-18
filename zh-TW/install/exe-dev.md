@@ -1,8 +1,4 @@
 ---
-summary: "在 exe.dev（VM + HTTPS 代理）上執行 OpenClaw Gateway 閘道器，以進行遠端存取"
-read_when:
-  - 你需要一個便宜且常駐的 Linux 主機來執行 Gateway 閘道器
-  - 你希望在不自行架設 VPS 的情況下，進行遠端 Control UI 存取
 title: "exe.dev"
 ---
 

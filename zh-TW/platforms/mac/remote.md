@@ -1,7 +1,4 @@
 ---
-summary: "透過 SSH 控制遠端 OpenClaw Gateway 閘道器的 macOS 應用程式流程"
-read_when:
-  - 設定或除錯遠端 mac 控制
 title: "遠端控制"
 ---
 

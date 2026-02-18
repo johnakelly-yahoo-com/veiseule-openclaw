@@ -1,8 +1,4 @@
 ---
-summary: "模型身分驗證：OAuth、API 金鑰與 setup-token"
-read_when:
-  - 偵錯模型身分驗證或 OAuth 到期問題
-  - 撰寫身分驗證或憑證儲存文件
 title: "驗證"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Ejecute OpenClaw en LLM locales (LM Studio, vLLM, LiteLLM, endpoints personalizados compatibles con OpenAI)"
-read_when:
-  - Quiere servir modelos desde su propio equipo con GPU
-  - Está conectando LM Studio o un proxy compatible con OpenAI
-  - Necesita la guía más segura para modelos locales
 title: "Modelos locales"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Referência da CLI para `openclaw nodes` (listar/status/aprovar/invocar, câmera/canvas/tela)"
-read_when:
-  - Você está gerenciando nodes pareados (câmeras, tela, canvas)
-  - Você precisa aprovar solicitações ou invocar comandos de nodes
 title: "nodes"
 ---
 

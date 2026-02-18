@@ -1,8 +1,4 @@
 ---
-summary: "Fehlerbehebung bei Node-Pairing, Vordergrundanforderungen, Berechtigungen und Werkzeugfehlern"
-read_when:
-  - Node ist verbunden, aber Kamera-/Canvas-/Bildschirm-/Exec-Werkzeuge schlagen fehl
-  - Sie benötigen das mentale Modell zu Node-Pairing versus Genehmigungen
 title: "Node-Fehlerbehebung"
 ---
 

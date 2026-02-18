@@ -1,7 +1,4 @@
 ---
-summary: "Twitch चैट बॉट का विन्यास और सेटअप"
-read_when:
-  - OpenClaw के लिए Twitch चैट एकीकरण सेट करते समय
 title: "Twitch"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Hedefli hata ayıklama günlükleri için tanılama bayrakları"
-read_when:
-  - Küresel günlükleme seviyelerini yükseltmeden hedefli hata ayıklama günlüklerine ihtiyaç duyduğunuzda
-  - You need to capture subsystem-specific logs for support
 title: "Tanılama Bayrakları"
 ---
 

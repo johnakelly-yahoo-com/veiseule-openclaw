@@ -1,7 +1,4 @@
 ---
-summary: "สถาปัตยกรรมIPCบนmacOSสำหรับแอปOpenClaw การขนส่งโหนดของGateway（เกตเวย์） และ PeekabooBridge"
-read_when:
-  - การแก้ไขสัญญาIPCหรือIPCของแอปเมนูบาร์
 title: "IPCบนmacOS"
 ---
 

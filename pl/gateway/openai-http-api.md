@@ -1,7 +1,4 @@
 ---
-summary: "Udostępnij zgodny z OpenAI punkt końcowy HTTP /v1/chat/completions z poziomu Gateway"
-read_when:
-  - Integracja narzędzi oczekujących OpenAI Chat Completions
 title: "OpenAI Chat Completions"
 ---
 

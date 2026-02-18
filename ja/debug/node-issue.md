@@ -1,8 +1,4 @@
 ---
-summary: Node と tsx による「__name is not a function」クラッシュのメモと回避策
-read_when:
-  - Node のみの開発スクリプトや watch モードの失敗をデバッグする場合
-  - OpenClaw における tsx/esbuild ローダーのクラッシュを調査する場合
 title: "Node + tsx クラッシュ"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Sådan opbygger OpenClaw prompt-kontekst og rapporterer tokenforbrug + omkostninger"
-read_when:
-  - Forklaring af tokenforbrug, omkostninger eller kontekstvinduer
-  - Fejlfinding af kontekstvækst eller komprimeringsadfærd
 title: "Tokenforbrug og omkostninger"
 ---
 

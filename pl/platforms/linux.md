@@ -1,8 +1,4 @@
 ---
-summary: "Wsparcie dla Linuksa + status aplikacji towarzyszącej"
-read_when:
-  - Szukasz informacji o statusie aplikacji towarzyszącej na Linuksa
-  - Planujesz zakres wsparcia platform lub wkład w rozwój
 title: "Aplikacja Linux"
 ---
 

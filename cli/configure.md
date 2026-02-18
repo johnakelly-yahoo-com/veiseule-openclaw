@@ -1,7 +1,4 @@
 ---
-summary: "CLI reference for `openclaw configure` (interactive configuration prompts)"
-read_when:
-  - You want to tweak credentials, devices, or agent defaults interactively
 title: "configure"
 ---
 

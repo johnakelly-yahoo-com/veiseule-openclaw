@@ -1,9 +1,4 @@
 ---
-summary: "Fördjupning: sessionslagring + transkript, livscykel och internals för (auto)kompaktering"
-read_when:
-  - Du behöver felsöka sessions-id:n, transcript JSONL eller fält i sessions.json
-  - Du ändrar beteendet för automatisk kompaktering eller lägger till ”pre-kompaktering”-städning
-  - Du vill implementera minnesflushar eller tysta systemvändor
 title: "Fördjupning i sessionshantering"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Cronjobs + wake-ups voor de Gateway-scheduler"
-read_when:
-  - Achtergrondtaken of wake-ups plannen
-  - Automatisering koppelen die met of naast heartbeats moet draaien
-  - Beslissen tussen heartbeat en cron voor geplande taken
 title: "Cronjobs"
 ---
 

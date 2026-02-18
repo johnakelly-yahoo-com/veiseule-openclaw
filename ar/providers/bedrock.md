@@ -1,8 +1,4 @@
 ---
-summary: "استخدام نماذج Amazon Bedrock (واجهة Converse API) مع OpenClaw"
-read_when:
-  - تريد استخدام نماذج Amazon Bedrock مع OpenClaw
-  - تحتاج إلى إعداد بيانات اعتماد AWS/المنطقة لاستدعاءات النماذج
 title: "Amazon Bedrock"
 ---
 

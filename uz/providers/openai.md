@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw’da API kalitlari yoki Codex obunasi orqali OpenAI’dan foydalaning"
-read_when:
-  - You want to use OpenAI models in OpenClaw
-  - You want Codex subscription auth instead of API keys
 title: "OpenAI"
 ---
 

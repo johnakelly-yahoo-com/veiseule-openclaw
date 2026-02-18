@@ -1,9 +1,4 @@
 ---
-summary: "Context：模型看到的是什麼、如何建構，以及如何檢視"
-read_when:
-  - 你想了解 OpenClaw 中「context」的意思
-  - 你正在除錯為什麼模型「知道」某些事（或忘記了）
-  - 你想降低 context 的負擔（/context、/status、/compact）
 title: "上下文"
 ---
 

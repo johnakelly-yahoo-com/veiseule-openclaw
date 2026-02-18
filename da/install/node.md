@@ -1,11 +1,5 @@
 ---
-title: "Node.js"
-summary: "Installér og konfigurer Node.js til OpenClaw — versionskrav, installationsmuligheder og fejlfinding af PATH"
-read_when:
-  - "Du skal installere Node.js før installation af OpenClaw"
-  - "Du har installeret OpenClaw, men `openclaw` er en kommando, der ikke blev fundet"
-  - "npm install -g mislykkes med tilladelses- eller PATH-problemer"
----
+title: "Node.js"---
 
 # Node.js
 

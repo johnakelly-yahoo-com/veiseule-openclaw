@@ -1,8 +1,4 @@
 ---
-summary: "Bonjour/mDNS による検出とデバッグ（Gateway ビーコン、クライアント、一般的な失敗モード）"
-read_when:
-  - macOS/iOS での Bonjour 検出問題をデバッグする場合
-  - mDNS サービスタイプ、TXT レコード、検出 UX を変更する場合
 title: "Bonjour 検出"
 ---
 

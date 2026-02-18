@@ -1,8 +1,4 @@
 ---
-summary: "Mattermost-botinstallatie en OpenClaw-configuratie"
-read_when:
-  - Mattermost instellen
-  - Mattermost-routering debuggen
 title: "Mattermost"
 ---
 

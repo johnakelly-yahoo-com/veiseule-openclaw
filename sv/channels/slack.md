@@ -1,6 +1,4 @@
 ---
-summary: "Slack-konfiguration för socket- eller HTTP-webhook-läge"
-read_when: "Konfigurera Slack eller felsöka Slack socket/HTTP-läge"
 title: "Slack"
 ---
 

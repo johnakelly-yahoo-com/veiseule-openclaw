@@ -1,7 +1,4 @@
 ---
-summary: "macOS ilovasi gateway/Baileys sog‘liq holatlarini qanday ko‘rsatadi"
-read_when:
-  - Debugging mac app health indicators
 title: "Sog‘liq tekshiruvlari"
 ---
 

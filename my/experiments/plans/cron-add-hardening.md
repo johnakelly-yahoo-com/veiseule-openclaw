@@ -1,5 +1,4 @@
 ---
-summary: "cron.add အဝင်အထွက်ကို ခိုင်မာအောင်လုပ်ခြင်း၊ schema များကို ကိုက်ညီအောင် ချိန်ညှိခြင်း၊ နှင့် cron UI/agent ကိရိယာများကို တိုးတက်အောင်လုပ်ခြင်း"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"

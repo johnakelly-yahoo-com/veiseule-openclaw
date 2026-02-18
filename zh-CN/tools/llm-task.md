@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你需要在工作流中添加纯 JSON 的 LLM 步骤
-  - 你需要经过 Schema 验证的 LLM 输出用于自动化
-summary: 用于工作流的纯 JSON LLM 任务（可选插件工具）
 title: LLM 任务
 x-i18n:
   generated_at: "2026-02-01T21:42:34Z"

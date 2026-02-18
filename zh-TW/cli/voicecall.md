@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw voicecall」的 CLI 參考（語音通話外掛的指令介面）"
-read_when:
-  - 40. 你使用語音通話外掛程式並想要 CLI 進入點
-  - 當你想要「voicecall call|continue|status|tail|expose」的快速範例時
 title: "voicecall"
 ---
 

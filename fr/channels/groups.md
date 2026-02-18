@@ -1,7 +1,4 @@
 ---
-summary: "Comportement des discussions de groupe sur les différentes surfaces (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
-read_when:
-  - Modification du comportement des discussions de groupe ou du filtrage par mention
 title: "Groupes"
 ---
 

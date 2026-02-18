@@ -1,7 +1,4 @@
 ---
-summary: "Mở một endpoint HTTP /v1/chat/completions tương thích OpenAI từ Gateway"
-read_when:
-  - Tích hợp các công cụ mong đợi OpenAI Chat Completions
 title: "OpenAI Chat Completions"
 ---
 

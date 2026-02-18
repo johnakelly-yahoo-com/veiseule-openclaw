@@ -1,7 +1,4 @@
 ---
-summary: "Ciclo de vida do agent loop, streams e semântica de espera"
-read_when:
-  - Você precisa de um passo a passo exato do agent loop ou dos eventos do ciclo de vida
 title: "Loop do Agente"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Hvordan OpenClaw roterer auth-profiler og falder tilbage på tværs af modeller"
-read_when:
-  - Diagnosticering af rotation af auth-profiler, cooldowns eller model‑fallback‑adfærd
-  - Opdatering af failover‑regler for auth-profiler eller modeller
 title: "Model‑failover"
 ---
 

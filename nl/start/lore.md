@@ -1,7 +1,4 @@
 ---
-summary: "Achtergrondverhaal en lore van OpenClaw voor context en toon"
-read_when:
-  - Bij het schrijven van documentatie of UX-teksten die naar de lore verwijzen
 title: "OpenClaw Overlevering"
 ---
 

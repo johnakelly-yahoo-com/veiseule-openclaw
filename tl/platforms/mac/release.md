@@ -1,8 +1,4 @@
 ---
-summary: "Checklist ng release ng OpenClaw sa macOS (Sparkle feed, packaging, signing)"
-read_when:
-  - Pag-cut o pag-validate ng isang OpenClaw macOS release
-  - Pag-update ng Sparkle appcast o mga feed asset
 title: "Paglabas ng macOS"
 ---
 

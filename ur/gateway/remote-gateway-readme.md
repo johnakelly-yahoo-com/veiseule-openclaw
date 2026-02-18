@@ -1,6 +1,4 @@
 ---
-summary: "ریموٹ گیٹ وے سے کنکشن کے لیے OpenClaw.app کی SSH سرنگ سیٹ اپ"
-read_when: "SSH کے ذریعے macOS ایپ کو ریموٹ گیٹ وے سے جوڑتے وقت"
 title: "ریموٹ Gateway سیٹ اپ"
 ---
 

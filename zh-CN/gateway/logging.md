@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 更改日志输出或格式
-  - 调试 CLI 或 Gateway 网关输出
-summary: 日志输出界面、文件日志、WS 日志样式和控制台格式化
 title: 日志
 x-i18n:
   generated_at: "2026-02-03T07:48:14Z"

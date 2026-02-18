@@ -1,7 +1,4 @@
 ---
-summary: "Chế độ exec nâng cao và các chỉ thị /elevated"
-read_when:
-  - Điều chỉnh mặc định chế độ elevated, allowlist hoặc hành vi lệnh gạch chéo
 title: "Chế độ Elevated"
 ---
 

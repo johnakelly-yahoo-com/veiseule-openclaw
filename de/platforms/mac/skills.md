@@ -1,8 +1,4 @@
 ---
-summary: "„macOS-Skills-Einstellungs-UI und Gateway-gestützter Status“"
-read_when:
-  - „Aktualisieren der macOS-Skills-Einstellungs-UI“
-  - „Ändern der Skills-Gating- oder Installationslogik“
 title: "„Skills“"
 ---
 

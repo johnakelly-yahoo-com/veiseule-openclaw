@@ -1,7 +1,4 @@
 ---
-summary: "Semantyka reakcji współdzielona między kanałami"
-read_when:
-  - Praca nad reakcjami w dowolnym kanale
 title: "Reakcje"
 ---
 

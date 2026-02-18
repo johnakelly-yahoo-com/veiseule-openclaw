@@ -1,8 +1,4 @@
 ---
-summary: "Запуск OpenClaw Gateway на exe.dev (VM + HTTPS‑прокси) для удалённого доступа"
-read_when:
-  - Вам нужен недорогой постоянно работающий хост Linux для Gateway
-  - Вам нужен удалённый доступ к Control UI без развёртывания собственного VPS
 title: "exe.dev"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Foydalanishni kuzatish interfeyslari va credential talablari"
-read_when:
-  - Siz provayder foydalanish/kvota interfeyslarini ulayapsiz
-  - Siz foydalanishni kuzatish xatti-harakati yoki autentifikatsiya talablarini tushuntirishingiz kerak
 title: "Foydalanishni kuzatish"
 ---
 

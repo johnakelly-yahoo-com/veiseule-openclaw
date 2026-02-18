@@ -1,8 +1,4 @@
 ---
-summary: "Använd Venice AI:s integritetsfokuserade modeller i OpenClaw"
-read_when:
-  - Du vill ha integritetsfokuserad inferens i OpenClaw
-  - Du vill ha vägledning för konfiguration av Venice AI
 title: "Venice AI"
 ---
 

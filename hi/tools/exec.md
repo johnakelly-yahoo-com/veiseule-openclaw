@@ -1,8 +1,4 @@
 ---
-summary: "Exec टूल का उपयोग, stdin मोड्स, और TTY समर्थन"
-read_when:
-  - Exec टूल का उपयोग या संशोधन करते समय
-  - stdin या TTY व्यवहार का डिबग करते समय
 title: "Exec टूल"
 ---
 

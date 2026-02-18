@@ -1,8 +1,4 @@
 ---
-summary: "مرجع CLI لأمر `openclaw webhooks` (مساعدات webhook + Gmail Pub/Sub)"
-read_when:
-  - عندما تريد توصيل أحداث Gmail Pub/Sub بـ OpenClaw
-  - عندما تريد أوامر مساعدات webhook
 title: "webhooks"
 ---
 

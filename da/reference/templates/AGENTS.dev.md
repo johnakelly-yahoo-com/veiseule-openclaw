@@ -1,9 +1,4 @@
----
-summary: "Dev-agent AGENTS.md (C-3PO)"
-read_when:
-  - Brug af dev gateway-skabelonerne
-  - Opdatering af standardidentiteten for dev-agenten
----
+------
 
 # AGENTS.md - OpenClaw Workspace
 

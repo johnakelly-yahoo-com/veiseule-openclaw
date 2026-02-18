@@ -1,8 +1,4 @@
 ---
-summary: "Hooks : automatisation pilotée par événements pour les commandes et les événements du cycle de vie"
-read_when:
-  - Vous voulez une automatisation pilotée par événements pour /new, /reset, /stop et les événements du cycle de vie de l’agent
-  - Vous voulez créer, installer ou déboguer des hooks
 title: "Hooks"
 ---
 

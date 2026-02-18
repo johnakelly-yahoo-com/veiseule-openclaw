@@ -1,7 +1,5 @@
 ---
 title: CLI do Sandbox
-summary: "Gerencie contêineres de sandbox e inspecione a política efetiva do sandbox"
-read_when: "Você está gerenciando contêineres de sandbox ou depurando o comportamento de sandbox/política de ferramentas."
 status: active
 ---
 

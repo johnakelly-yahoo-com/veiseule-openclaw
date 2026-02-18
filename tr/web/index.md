@@ -1,8 +1,4 @@
 ---
-summary: "Gateway web yüzeyleri: Kontrol UI, bağlama modları ve güvenlik"
-read_when:
-  - Gateway’e Tailscale üzerinden erişmek istiyorsunuz
-  - Tarayıcı Kontrol UI ve yapılandırma düzenlemeyi istiyorsunuz
 title: "Web"
 ---
 

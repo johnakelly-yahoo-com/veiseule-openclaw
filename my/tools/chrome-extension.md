@@ -1,9 +1,4 @@
 ---
-summary: "Chrome extension: OpenClaw ကို သင့်လက်ရှိ Chrome tab ကို မောင်းနှင်ခိုင်းစေနိုင်သည်"
-read_when:
-  - အေးဂျင့်ကို လက်ရှိ Chrome tab (toolbar ခလုတ်) ကို မောင်းနှင်စေချင်သောအခါ
-  - Remote Gateway + local browser automation ကို Tailscale ဖြင့် လိုအပ်သောအခါ
-  - browser takeover ၏ လုံခြုံရေးဆိုင်ရာ သက်ရောက်မှုများကို နားလည်လိုသောအခါ
 title: "Chrome Extension"
 ---
 

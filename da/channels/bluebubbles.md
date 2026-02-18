@@ -1,9 +1,4 @@
 ---
-summary: "iMessage via BlueBubbles macOS-server (REST send/modtag, skrivning, reaktioner, parring, avancerede handlinger)."
-read_when:
-  - Opsætning af BlueBubbles-kanal
-  - Fejlfinding af webhook-parring
-  - Konfiguration af iMessage på macOS
 title: "BlueBubbles"
 ---
 

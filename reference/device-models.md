@@ -1,8 +1,4 @@
 ---
-summary: "How OpenClaw vendors Apple device model identifiers for friendly names in the macOS app."
-read_when:
-  - Updating device model identifier mappings or NOTICE/license files
-  - Changing how Instances UI displays device names
 title: "Device Model Database"
 ---
 

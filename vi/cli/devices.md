@@ -1,8 +1,4 @@
 ---
-summary: "Tham chiếu CLI cho `openclaw devices` (ghép cặp thiết bị + xoay vòng/thu hồi token)"
-read_when:
-  - Bạn đang phê duyệt yêu cầu ghép cặp thiết bị
-  - Bạn cần xoay vòng hoặc thu hồi token thiết bị
 title: "devices"
 ---
 

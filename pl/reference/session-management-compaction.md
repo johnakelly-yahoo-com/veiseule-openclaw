@@ -1,9 +1,4 @@
 ---
-summary: "„Dogłębna analiza: magazyn sesji i transkrypty, cykl życia oraz mechanizmy (auto)kompaktowania”"
-read_when:
-  - Musisz debugować identyfikatory sesji, JSONL transkryptów lub pola sessions.json
-  - Zmieniasz zachowanie auto-kompaktowania lub dodajesz porządkowanie „przed kompaktowaniem”
-  - Chcesz zaimplementować opróżnianie pamięci lub ciche tury systemowe
 title: "Zarządzanie sesjami Deep Dive"
 ---
 

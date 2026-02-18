@@ -1,9 +1,4 @@
----
-summary: "Ghi chú công cụ cho tác tử dev (C-3PO)"
-read_when:
-  - Khi sử dụng các mẫu Gateway dev
-  - Khi cập nhật danh tính tác tử dev mặc định
----
+------
 
 # TOOLS.md - Ghi chú công cụ người dùng (có thể chỉnh sửa)
 

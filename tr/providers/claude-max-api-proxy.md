@@ -1,9 +1,4 @@
 ---
-summary: "Claude Max/Pro aboneliğini OpenAI uyumlu bir API uç noktası olarak kullanın"
-read_when:
-  - OpenAI uyumlu araçlarla Claude Max aboneliğini kullanmak istiyorsunuz
-  - Claude Code CLI’yi saran yerel bir API sunucusu istiyorsunuz
-  - API anahtarları yerine abonelik kullanarak maliyetlerden tasarruf etmek istiyorsunuz
 title: "Claude Max API Proxy"
 ---
 

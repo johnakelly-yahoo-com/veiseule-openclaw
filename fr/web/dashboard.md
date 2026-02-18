@@ -1,7 +1,4 @@
 ---
-summary: "Accès et authentification du tableau de bord de la Gateway (UI de contrôle)"
-read_when:
-  - Modification des modes d’authentification ou d’exposition du tableau de bord
 title: "Tableau de bord"
 ---
 

@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 设计超越每日 Markdown 日志的工作区记忆（~/.openclaw/workspace）
-  - Deciding: standalone CLI vs deep OpenClaw integration
-  - 添加离线回忆 + 反思（retain/recall/reflect）
-summary: 研究笔记：Clawd 工作区的离线记忆系统（Markdown 作为数据源 + 派生索引）
 title: 工作区记忆研究
 x-i18n:
   generated_at: "2026-02-03T10:06:14Z"

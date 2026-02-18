@@ -1,8 +1,4 @@
 ---
-summary: "Superficies web del Gateway: IU de control, modos de enlace y seguridad"
-read_when:
-  - Quiere acceder al Gateway a través de Tailscale
-  - Quiere la IU de Control en el navegador y la edición de configuración
 title: "Web"
 ---
 

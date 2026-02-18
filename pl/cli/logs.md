@@ -1,8 +1,4 @@
 ---
-summary: "Dokumentacja referencyjna CLI dla `openclaw logs` (śledzenie logów Gateway przez RPC)"
-read_when:
-  - Musisz śledzić logi Gateway zdalnie (bez SSH)
-  - Chcesz otrzymywać linie logów w formacie JSON do narzędzi
 title: "logs"
 ---
 

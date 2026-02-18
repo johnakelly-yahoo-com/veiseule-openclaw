@@ -1,9 +1,4 @@
 ---
-summary: "Text-till-tal (TTS) för utgående svar"
-read_when:
-  - Aktivera text-till-tal för svar
-  - Konfigurera TTS-leverantörer eller gränser
-  - Använda /tts-kommandon
 title: "Text-till-tal"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "ใช้ API แบบรวมศูนย์ของ OpenRouter เพื่อเข้าถึงโมเดลจำนวนมากใน OpenClaw"
-read_when:
-  - คุณต้องการคีย์ API เดียวสำหรับ LLM หลายตัว
-  - คุณต้องการรันโมเดลผ่าน OpenRouter ใน OpenClaw
 title: "OpenRouter"
 ---
 

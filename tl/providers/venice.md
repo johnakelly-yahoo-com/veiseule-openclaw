@@ -1,8 +1,4 @@
 ---
-summary: "Gamitin ang mga modelong nakatuon sa privacy ng Venice AI sa OpenClaw"
-read_when:
-  - Gusto mo ng inference na nakatuon sa privacy sa OpenClaw
-  - Gusto mo ng gabay sa setup ng Venice AI
 title: "Venice AI"
 ---
 

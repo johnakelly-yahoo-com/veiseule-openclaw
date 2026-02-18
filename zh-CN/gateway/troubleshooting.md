@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 调查运行时问题或故障
-summary: OpenClaw 常见故障的快速故障排除指南
 title: 故障排除
 x-i18n:
   generated_at: "2026-02-03T10:09:42Z"

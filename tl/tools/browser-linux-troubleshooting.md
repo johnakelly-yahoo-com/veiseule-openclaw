@@ -1,6 +1,4 @@
 ---
-summary: "Ayusin ang mga isyu sa pagsisimula ng Chrome/Brave/Edge/Chromium CDP para sa kontrol ng browser ng OpenClaw sa Linux"
-read_when: "Nabibigo ang kontrol ng browser sa Linux, lalo na kapag snap Chromium ang gamit"
 title: "Pag-troubleshoot ng Browser"
 ---
 

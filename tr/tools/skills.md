@@ -1,8 +1,4 @@
 ---
-summary: "Skills: yönetilen vs çalışma alanı, geçitleme kuralları ve config/env bağlanması"
-read_when:
-  - Skills eklerken veya değiştirirken
-  - Skill geçitlemesini veya yükleme kurallarını değiştirirken
 title: "Beceriler"
 ---
 

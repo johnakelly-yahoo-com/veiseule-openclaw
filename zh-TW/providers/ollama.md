@@ -1,8 +1,4 @@
 ---
-summary: "使用 Ollama（本機 LLM 執行環境）執行 OpenClaw"
-read_when:
-  - 你想透過 Ollama 使用本機模型來執行 OpenClaw
-  - 你需要 Ollama 的安裝與設定指引
 title: "Ollama"
 ---
 

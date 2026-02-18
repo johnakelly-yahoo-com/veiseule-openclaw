@@ -1,7 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw configure` (interaktive konfigurationsprompter)"
-read_when:
-  - Du vil justere legitimationsoplysninger, enheder eller agentstandarder interaktivt
 title: "configure"
 ---
 

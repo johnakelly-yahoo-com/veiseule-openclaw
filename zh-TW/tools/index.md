@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw 的代理程式工具介面（browser、canvas、nodes、message、cron），用以取代舊版的 `openclaw-*` Skills"
-read_when:
-  - 新增或修改代理程式工具時
-  - 退役或變更 `openclaw-*` Skills 時
 title: "工具"
 ---
 

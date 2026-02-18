@@ -1,7 +1,4 @@
 ---
-summary: "Yüzeyler arasında grup sohbeti davranışı (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
-read_when:
-  - Grup sohbeti davranışını veya mention gating’i değiştirirken
 title: "Gruplar"
 ---
 

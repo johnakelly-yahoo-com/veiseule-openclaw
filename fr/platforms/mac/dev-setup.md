@@ -1,7 +1,4 @@
 ---
-summary: "Guide de configuration pour les developpeurs travaillant sur l’application macOS OpenClaw"
-read_when:
-  - Configuration de l’environnement de developpement macOS
 title: "Configuration dev macOS"
 ---
 

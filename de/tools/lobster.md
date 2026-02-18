@@ -1,11 +1,6 @@
 ---
 title: Lobster
-summary: "„Typisierte Workflow-Laufzeit für OpenClaw mit fortsetzbaren Genehmigungssperren.“"
-description: "Typisierte Workflow-Laufzeitumgebung für OpenClaw — komponierbare Pipelines mit Genehmigungsschritten."
-read_when:
-  - Sie möchten deterministische, mehrstufige Workflows mit expliziten Genehmigungen
-  - Sie müssen einen Workflow fortsetzen, ohne frühere Schritte erneut auszuführen
----
+description: "Typisierte Workflow-Laufzeitumgebung für OpenClaw — komponierbare Pipelines mit Genehmigungsschritten."---
 
 # Lobster
 

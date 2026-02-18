@@ -1,8 +1,4 @@
 ---
-summary: "Utiliser OpenAI via des clés API ou un abonnement Codex dans OpenClaw"
-read_when:
-  - Vous souhaitez utiliser des modèles OpenAI dans OpenClaw
-  - Vous souhaitez une authentification par abonnement Codex plutôt que par clés API
 title: "OpenAI"
 ---
 

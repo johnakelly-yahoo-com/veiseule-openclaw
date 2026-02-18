@@ -1,7 +1,4 @@
 ---
-summary: "Укрепление allowlist Telegram: префикс + нормализация пробелов"
-read_when:
-  - При анализе исторических изменений allowlist Telegram
 title: "Укрепление allowlist Telegram"
 ---
 

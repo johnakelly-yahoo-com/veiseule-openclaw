@@ -1,8 +1,4 @@
----
-summary: "Plantilla de espacio de trabajo para TOOLS.md"
-read_when:
-  - Arranque de un espacio de trabajo manualmente
----
+------
 
 # TOOLS.md - Notas locales
 

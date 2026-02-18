@@ -1,8 +1,4 @@
 ---
-summary: "在 DigitalOcean 上執行 OpenClaw（簡單的付費 VPS 選項）"
-read_when:
-  - 在 DigitalOcean 上設定 OpenClaw
-  - 尋找便宜的 OpenClaw VPS 主機
 title: "DigitalOcean"
 ---
 

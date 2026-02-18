@@ -1,9 +1,4 @@
 ---
-summary: "Refaktör planı: exec ana makinesi yönlendirmesi, düğüm onayları ve başsız çalıştırıcı"
-read_when:
-  - Exec ana makinesi yönlendirmesi veya exec onayları tasarlanırken
-  - Düğüm çalıştırıcısı + UI IPC uygulanırken
-  - Exec ana makinesi güvenlik modları ve slash komutları eklenirken
 title: "Yürütme Ana Bilgisayarı Yeniden Yapılandırması"
 ---
 

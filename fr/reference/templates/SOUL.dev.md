@@ -1,9 +1,4 @@
----
-summary: "Ame de l’agent de dev (C-3PO)"
-read_when:
-  - Utilisation des templates de la Gateway de dev
-  - Mise a jour de l’identite par defaut de l’agent de dev
----
+------
 
 # SOUL.md - L’âme de C-3PO
 

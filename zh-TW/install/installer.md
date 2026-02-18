@@ -1,9 +1,4 @@
 ---
-summary: "安裝程式腳本（install.sh、install-cli.sh、install.ps1）的運作方式、旗標與自動化"
-read_when:
-  - 你想了解 `openclaw.ai/install.sh`
-  - 你想自動化安裝（CI／無互動）
-  - 你想從 GitHub 檢出內容進行安裝
 title: "安裝程式內部機制"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Tài liệu tham chiếu CLI cho `openclaw tui` (UI terminal kết nối với Gateway)"
-read_when:
-  - Bạn muốn một UI terminal cho Gateway (thân thiện với làm việc từ xa)
-  - Bạn muốn truyền url/token/session từ các script
 title: "tui"
 ---
 

@@ -1,5 +1,4 @@
 ---
-summary: "Veelgestelde vragen over de installatie, configuratie en het gebruik van OpenClaw"
 title: "FAQ"
 ---
 

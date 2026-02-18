@@ -1,8 +1,4 @@
 ---
-summary: "Como o OpenClaw faz a rotação de perfis de autenticação e o fallback entre modelos"
-read_when:
-  - Diagnosticar rotação de perfis de autenticação, cooldowns ou comportamento de fallback de modelos
-  - Atualizar regras de failover para perfis de autenticação ou modelos
 title: "Failover de modelo"
 ---
 

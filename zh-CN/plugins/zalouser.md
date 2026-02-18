@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想在 OpenClaw 中支持 Zalo Personal（非官方）
-  - 你正在配置或开发 zalouser 插件
-summary: Zalo Personal 插件：通过 zca-cli 进行 QR 登录 + 消息（插件安装 + 渠道配置 + CLI + 工具）
 title: Zalo Personal 插件
 x-i18n:
   generated_at: "2026-02-03T07:53:33Z"

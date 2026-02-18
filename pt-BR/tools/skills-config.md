@@ -1,8 +1,4 @@
 ---
-summary: "Esquema de configuração de Skills e exemplos"
-read_when:
-  - Adicionando ou modificando a configuração de Skills
-  - Ajustando a lista de permissões empacotada ou o comportamento de instalação
 title: "Configuração de Skills"
 ---
 

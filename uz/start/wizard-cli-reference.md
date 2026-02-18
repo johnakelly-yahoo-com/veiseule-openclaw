@@ -1,8 +1,4 @@
 ---
-summary: "CLI onboarding jarayoni, autentifikatsiya/model sozlamalari, chiqishlar va ichki mexanizmlar bo‘yicha to‘liq ma’lumotnoma"
-read_when:
-  - "`openclaw onboard` uchun batafsil xatti-harakatlar kerak"
-  - Siz onboarding natijalarini debug qilyapsiz yoki onboarding klientlarini integratsiya qilyapsiz
 title: "CLI Ishga tushirish bo‘yicha qo‘llanma"
 sidebarTitle: "CLI ma’lumotnomasi"
 ---

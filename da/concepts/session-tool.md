@@ -1,7 +1,4 @@
 ---
-summary: "Agent-sessionværktøjer til at liste sessioner, hente historik og sende beskeder på tværs af sessioner"
-read_when:
-  - Tilføjelse eller ændring af session tools
 title: "Sessionsværktøjer"
 ---
 

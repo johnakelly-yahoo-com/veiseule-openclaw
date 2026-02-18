@@ -1,8 +1,4 @@
 ---
-summary: "Perplexity Sonar-instelling voor web_search"
-read_when:
-  - Je wilt Perplexity Sonar gebruiken voor web search
-  - Je hebt PERPLEXITY_API_KEY of een OpenRouter-configuratie nodig
 title: "Perplexity Sonar"
 ---
 

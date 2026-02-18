@@ -1,7 +1,4 @@
 ---
-summary: "mac ایپ کس طرح Gateway WebChat کو ایمبیڈ کرتی ہے اور اسے ڈیبگ کیسے کیا جائے"
-read_when:
-  - mac WebChat ویو یا loopback پورٹ کی ڈیبگنگ
 title: "WebChat"
 ---
 

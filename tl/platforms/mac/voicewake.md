@@ -1,7 +1,4 @@
 ---
-summary: "Mga mode ng voice wake at push-to-talk pati mga detalye ng routing sa mac app"
-read_when:
-  - Nagtatrabaho sa mga pathway ng voice wake o PTT
 title: "Pag-activate gamit ang Boses"
 ---
 

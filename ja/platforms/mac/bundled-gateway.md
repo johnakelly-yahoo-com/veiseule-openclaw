@@ -1,9 +1,4 @@
 ---
-summary: "macOS 上で動作する Gateway ランタイム（外部の launchd サービス）"
-read_when:
-  - OpenClaw.app のパッケージング
-  - macOS の gateway launchd サービスのデバッグ
-  - macOS 向け gateway CLI のインストール
 title: "macOS 上の Gateway"
 ---
 

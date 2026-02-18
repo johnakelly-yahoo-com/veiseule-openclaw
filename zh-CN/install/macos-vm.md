@@ -1,10 +1,4 @@
 ---
-read_when:
-  - 你想让 OpenClaw 与你的主 macOS 环境隔离
-  - 你想在沙箱中集成 iMessage（BlueBubbles）
-  - 你想要一个可重置、可克隆的 macOS 环境
-  - 你想比较本地与托管 macOS VM 选项
-summary: 在沙箱隔离的 macOS VM（本地或托管）中运行 OpenClaw，当你需要隔离或 iMessage 时
 title: macOS 虚拟机
 x-i18n:
   generated_at: "2026-02-03T07:53:09Z"

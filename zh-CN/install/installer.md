@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 你想了解 `openclaw.ai/install.sh` 的工作机制
-  - 你想自动化安装（CI / 无头环境）
-  - 你想从 GitHub 检出安装
-summary: 安装器脚本的工作原理（install.sh + install-cli.sh）、参数和自动化
 title: 安装器内部机制
 x-i18n:
   generated_at: "2026-02-01T21:07:55Z"

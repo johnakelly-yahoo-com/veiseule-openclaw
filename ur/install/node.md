@@ -1,11 +1,5 @@
 ---
-title: "Node.js"
-summary: "OpenClaw کے لیے Node.js انسٹال اور کنفیگر کریں — ورژن کی ضروریات، انسٹال کے اختیارات، اور PATH کی خرابیوں کا ازالہ"
-read_when:
-  - "OpenClaw انسٹال کرنے سے پہلے آپ کو Node.js انسٹال کرنا ہو"
-  - "آپ نے OpenClaw انسٹال کر لیا ہو لیکن `openclaw` کمانڈ نہ مل رہی ہو"
-  - "`npm install -g` اجازتوں یا PATH کے مسائل کے ساتھ ناکام ہو رہا ہو"
----
+title: "Node.js"---
 
 # Node.js
 

@@ -1,8 +1,4 @@
 ---
-summary: "使用 WebSocket 監聽器綁定的 Gateway 單例守護"
-read_when:
-  - 執行或除錯 Gateway 程序時
-  - 35. 調查單一實例強制
 title: "Gateway 鎖定"
 ---
 

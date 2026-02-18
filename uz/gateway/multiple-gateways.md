@@ -1,8 +1,4 @@
 ---
-summary: "Bitta xostda bir nechta OpenClaw Gateway ishga tushirish (izolyatsiya, portlar va profillar)"
-read_when:
-  - Bir xil mashinada bir nechta Gateway ishga tushirayotgan bo‘lsangiz
-  - Har bir Gateway uchun alohida config/state/portlar kerak bo‘lsa
 title: "Bir nechta Gateway"
 ---
 

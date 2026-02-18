@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想使用 Deepgram 语音转文字处理音频附件
-  - 你需要一个快速的 Deepgram 配置示例
-summary: Deepgram 语音转录，用于接收语音消息
 title: Deepgram
 x-i18n:
   generated_at: "2026-02-01T21:34:47Z"

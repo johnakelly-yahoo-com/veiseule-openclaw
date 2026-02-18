@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw doctor`에 대한 CLI 참조 (상태 확인 + 안내식 복구)"
-read_when:
-  - 연결/인증 문제가 있으며 안내식 해결을 원할 때
-  - 업데이트를 완료했고 정상 여부를 확인하고 싶음
 title: "doctor"
 ---
 

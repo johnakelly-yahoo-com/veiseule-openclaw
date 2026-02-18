@@ -1,8 +1,4 @@
 ---
-summary: "透過 gogcli 將 Gmail Pub/Sub 推送接線至 OpenClaw Webhooks"
-read_when:
-  - 將 Gmail 收件匣觸發器接線至 OpenClaw
-  - 設定用於代理程式喚醒的 Pub/Sub 推送
 title: "Gmail PubSub"
 ---
 

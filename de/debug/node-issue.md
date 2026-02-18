@@ -1,8 +1,4 @@
 ---
-summary: Node + tsx-Notizen und Workarounds zum Absturz „__name is not a function“
-read_when:
-  - Debugging von reinen Node-Dev-Skripten oder Fehlern im Watch-Modus
-  - Untersuchung von tsx/esbuild-Loader-Abstürzen in OpenClaw
 title: "Node + tsx-Absturz"
 ---
 

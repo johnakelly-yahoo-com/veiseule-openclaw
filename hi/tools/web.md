@@ -1,9 +1,4 @@
 ---
-summary: "वेब खोज + फ़ेच टूल्स (Brave Search API, Perplexity direct/OpenRouter)"
-read_when:
-  - आप web_search या web_fetch सक्षम करना चाहते हैं
-  - आपको Brave Search API कुंजी सेटअप की आवश्यकता है
-  - आप वेब खोज के लिए Perplexity Sonar का उपयोग करना चाहते हैं
 title: "वेब टूल्स"
 ---
 

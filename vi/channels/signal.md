@@ -1,8 +1,4 @@
 ---
-summary: "Hỗ trợ Signal qua signal-cli (JSON-RPC + SSE), thiết lập và mô hình số"
-read_when:
-  - Thiết lập hỗ trợ Signal
-  - Gỡ lỗi gửi/nhận Signal
 title: "Signal"
 ---
 

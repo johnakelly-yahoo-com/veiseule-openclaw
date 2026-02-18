@@ -1,6 +1,4 @@
 ---
-summary: "Socket モードまたは HTTP Webhook モード向けの Slack セットアップ"
-read_when: "Slack をセットアップする場合、または Slack の Socket / HTTP モードをデバッグする場合"
 title: "Slack"
 ---
 

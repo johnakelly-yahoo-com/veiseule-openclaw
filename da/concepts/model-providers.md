@@ -1,8 +1,4 @@
 ---
-summary: "Overblik over modeludbydere med eksempelkonfigurationer + CLI-flows"
-read_when:
-  - Du har brug for en udbyder-for-udbyder reference til modelopsætning
-  - Du vil have eksempelkonfigurationer eller CLI-introduktionskommandoer for modeludbydere
 title: "Modeludbydere"
 ---
 

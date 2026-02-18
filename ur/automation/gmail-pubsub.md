@@ -1,8 +1,4 @@
 ---
-summary: "gogcli کے ذریعے OpenClaw ویب ہُکس میں مربوط Gmail Pub/Sub پُش"
-read_when:
-  - OpenClaw کے ساتھ Gmail اِن باکس ٹرگرز کو جوڑنا
-  - ایجنٹ ویک کے لیے Pub/Sub پُش سیٹ اپ کرنا
 title: "Gmail PubSub"
 ---
 

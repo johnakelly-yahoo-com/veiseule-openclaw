@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS yardımcı uygulaması (menü çubuğu + gateway broker)"
-read_when:
-  - macOS uygulama özelliklerini uygularken
-  - macOS’te gateway yaşam döngüsünü veya düğüm köprülemesini değiştirirken
 title: "macOS Uygulaması"
 ---
 

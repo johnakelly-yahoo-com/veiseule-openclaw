@@ -1,8 +1,4 @@
 ---
-summary: "Tài liệu tham chiếu CLI cho `openclaw plugins` (liệt kê, cài đặt, bật/tắt, doctor)"
-read_when:
-  - Bạn muốn cài đặt hoặc quản lý các plugin Gateway chạy trong tiến trình
-  - Bạn muốn gỡ lỗi các lỗi tải plugin
 title: "plugin"
 ---
 

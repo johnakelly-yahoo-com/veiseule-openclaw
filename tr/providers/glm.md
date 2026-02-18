@@ -1,8 +1,4 @@
 ---
-summary: "GLM model ailesine genel bakış + OpenClaw'da nasıl kullanılır"
-read_when:
-  - OpenClaw'da GLM modellerini istiyorsunuz
-  - Model adlandırma kuralı ve kurulumuna ihtiyacınız var
 title: "GLM Modelleri"
 ---
 

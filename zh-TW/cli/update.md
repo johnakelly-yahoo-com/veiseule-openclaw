@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw update」的 CLI 參考（相對安全的來源更新 + Gateway 閘道器自動重新啟動）"
-read_when:
-  - 當你想要安全地更新來源檢出時
-  - 當你需要了解「--update」的簡寫行為時
 title: "update"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Lógica del estado de la barra de menús y lo que se muestra a los usuarios"
-read_when:
-  - Ajustando la UI del menú de mac o la lógica de estado
 title: "Barra de menús"
 ---
 

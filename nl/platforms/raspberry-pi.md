@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw op Raspberry Pi (budget zelfgehoste setup)"
-read_when:
-  - OpenClaw instellen op een Raspberry Pi
-  - OpenClaw draaien op ARM-apparaten
-  - Een goedkope, altijd actieve persoonlijke AI bouwen
 title: "Raspberry Pi"
 ---
 

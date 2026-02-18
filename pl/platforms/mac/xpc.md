@@ -1,7 +1,4 @@
 ---
-summary: "Architektura IPC w macOS dla aplikacji OpenClaw, transportu węzła Gateway oraz PeekabooBridge"
-read_when:
-  - Edycja kontraktów IPC lub IPC aplikacji paska menu
 title: "IPC w macOS"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Gateway 服務的操作手冊，涵蓋生命週期與營運"
-read_when:
-  - 正在執行或除錯 Gateway 程序時
 title: "Gateway 操作手冊"
 ---
 

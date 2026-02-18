@@ -1,7 +1,4 @@
 ---
-summary: "Telegram allowlist ကို ခိုင်မာစေခြင်း: prefix + whitespace ကို စံညွှန်းတကျ ပြုပြင်ခြင်း"
-read_when:
-  - Telegram allowlist ပြောင်းလဲမှုများ၏ သမိုင်းကို ပြန်လည်သုံးသပ်နေစဉ်
 title: "Telegram Allowlist ကို ခိုင်မာစေခြင်း"
 ---
 

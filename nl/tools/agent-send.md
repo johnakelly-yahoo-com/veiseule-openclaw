@@ -1,7 +1,4 @@
 ---
-summary: "Directe `openclaw agent` CLI-uitvoeringen (met optionele aflevering)"
-read_when:
-  - Toevoegen of wijzigen van het agent-CLI-entrypoint
 title: "Agent verzenden"
 ---
 

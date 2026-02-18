@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw-plugins/extensies: discovery, configuratie en veiligheid"
-read_when:
-  - Plugins/extensies toevoegen of wijzigen
-  - Plugin-installatie- of laadregels documenteren
 title: "Plug-ins"
 ---
 

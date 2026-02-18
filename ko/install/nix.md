@@ -1,9 +1,4 @@
 ---
-summary: "Nix 로 OpenClaw 를 선언적으로 설치"
-read_when:
-  - 재현 가능하고 롤백 가능한 설치를 원할 때
-  - 이미 Nix/NixOS/Home Manager 를 사용하고 있을 때
-  - 모든 것을 고정하고 선언적으로 관리하고 싶을 때
 title: "Nix"
 ---
 

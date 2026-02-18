@@ -1,9 +1,4 @@
 ---
-summary: "Controleer wat geld kan kosten, welke sleutels worden gebruikt en hoe je gebruik kunt bekijken"
-read_when:
-  - Je wilt begrijpen welke functies betaalde API’s kunnen aanroepen
-  - Je moet sleutels, kosten en zichtbaarheid van gebruik auditen
-  - Je legt /status- of /usage-kostenrapportage uit
 title: "API-gebruik en kosten"
 ---
 

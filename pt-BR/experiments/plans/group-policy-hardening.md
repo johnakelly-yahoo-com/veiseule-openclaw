@@ -1,7 +1,4 @@
 ---
-summary: "Endurecimento da allowlist do Telegram: prefixo + normalização de espaços em branco"
-read_when:
-  - Ao revisar mudanças históricas na allowlist do Telegram
 title: "Endurecimento da Allowlist do Telegram"
 ---
 

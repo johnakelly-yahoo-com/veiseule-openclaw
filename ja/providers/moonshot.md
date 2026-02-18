@@ -1,9 +1,4 @@
 ---
-summary: "Moonshot K2 と Kimi Coding の設定（プロバイダーとキーは別）"
-read_when:
-  - Moonshot K2（Moonshot Open Platform）と Kimi Coding のセットアップを行いたい場合
-  - 別々のエンドポイント、キー、モデル参照を理解する必要がある場合
-  - いずれかのプロバイダー向けにコピー＆ペースト可能な設定が欲しい場合
 title: "Moonshot AI"
 ---
 

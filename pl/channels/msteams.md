@@ -1,7 +1,4 @@
 ---
-summary: "Status obsługi bota Microsoft Teams, możliwości i konfiguracja"
-read_when:
-  - Praca nad funkcjami kanału MS Teams
 title: "Microsoft Teams"
 ---
 

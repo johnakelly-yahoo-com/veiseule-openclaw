@@ -1,9 +1,4 @@
 ---
-summary: "Backends de CLI: fallback somente texto via CLIs de IA locais"
-read_when:
-  - Você quer um fallback confiável quando provedores de API falham
-  - Você está executando Claude Code CLI ou outras CLIs de IA locais e quer reutilizá-las
-  - Você precisa de um caminho somente texto, sem ferramentas, que ainda suporte sessões e imagens
 title: "Backends de CLI"
 ---
 

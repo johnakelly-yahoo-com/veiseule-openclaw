@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw security`에 대한 CLI 참조(일반적인 보안 함정 감사 및 수정)"
-read_when:
-  - 구성/상태에 대해 빠른 보안 감사를 실행하고자 할 때
-  - 안전한 “수정” 제안(chmod, 기본값 강화)을 적용하고자 할 때
 title: "security"
 ---
 

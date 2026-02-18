@@ -1,8 +1,4 @@
 ---
-summary: "Diagnostikflaggor för riktade felsökningsloggar"
-read_when:
-  - Du behöver riktade felsökningsloggar utan att höja globala loggnivåer
-  - Du behöver samla in undersystems­specifika loggar för support
 title: "Diagnostikflaggor"
 ---
 

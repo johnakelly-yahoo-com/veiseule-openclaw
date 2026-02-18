@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw update`에 대한 CLI 레퍼런스 (안전한 소스 업데이트 + Gateway(게이트웨이) 자동 재시작)"
-read_when:
-  - 소스 체크아웃을 안전하게 업데이트하려는 경우
-  - "`--update` 축약 동작을 이해해야 하는 경우"
 title: "업데이트"
 ---
 

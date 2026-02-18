@@ -1,8 +1,4 @@
 ---
-summary: "Przegląd rodziny modeli GLM + sposób użycia w OpenClaw"
-read_when:
-  - Chcesz korzystać z modeli GLM w OpenClaw
-  - Potrzebujesz konwencji nazewnictwa modeli i konfiguracji
 title: "Modele GLM"
 ---
 

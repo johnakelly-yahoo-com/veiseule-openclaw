@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 开发 Tlon/Urbit 渠道功能
-summary: Tlon/Urbit 支持状态、功能和配置
 title: Tlon
 x-i18n:
   generated_at: "2026-02-03T07:44:17Z"

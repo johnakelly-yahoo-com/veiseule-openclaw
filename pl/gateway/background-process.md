@@ -1,8 +1,4 @@
 ---
-summary: "Wykonywanie exec w tle i zarządzanie procesami"
-read_when:
-  - Dodawanie lub modyfikowanie zachowania exec w tle
-  - Debugowanie długotrwałych zadań exec
 title: "Exec w tle i narzędzie procesów"
 ---
 

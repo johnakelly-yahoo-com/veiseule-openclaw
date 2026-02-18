@@ -1,9 +1,4 @@
 ---
-summary: "透過 BlueBubbles macOS 伺服器的 iMessage（REST 傳送/接收、輸入中、回應、配對、進階動作）。"
-read_when:
-  - 設定 BlueBubbles 頻道
-  - 疑難排解 webhook 配對
-  - 在 macOS 上設定 iMessage
 title: "BlueBubbles"
 ---
 

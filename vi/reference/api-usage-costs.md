@@ -1,9 +1,4 @@
 ---
-summary: "Kiểm toán những thứ có thể phát sinh chi phí, khóa nào được dùng và cách xem mức sử dụng"
-read_when:
-  - Bạn muốn hiểu những tính năng nào có thể gọi các API trả phí
-  - Bạn cần kiểm toán khóa, chi phí và khả năng hiển thị mức sử dụng
-  - Bạn đang giải thích báo cáo chi phí /status hoặc /usage
 title: "Mức sử dụng API và chi phí"
 ---
 

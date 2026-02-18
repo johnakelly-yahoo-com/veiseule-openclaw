@@ -1,7 +1,4 @@
 ---
-summary: "Flux de l’application macOS pour contrôler une Gateway OpenClaw distante via SSH"
-read_when:
-  - Configuration ou debogage du controle mac a distance
 title: "Controle a distance"
 ---
 

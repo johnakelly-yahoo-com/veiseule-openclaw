@@ -1,9 +1,4 @@
 ---
-summary: "Installeer OpenClaw declaratief met Nix"
-read_when:
-  - Je wilt reproduceerbare installaties met rollback
-  - Je gebruikt al Nix/NixOS/Home Manager
-  - Je wilt dat alles vastgepind en declaratief beheerd wordt
 title: "Nix"
 ---
 

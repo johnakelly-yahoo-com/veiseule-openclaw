@@ -1,8 +1,4 @@
 ---
-summary: "Zalo Personal eklentisi: zca-cli ile QR giriş + mesajlaşma (eklenti kurulumu + kanal yapılandırması + CLI + araç)"
-read_when:
-  - OpenClaw içinde Zalo Personal (resmi olmayan) desteği istiyorsunuz
-  - zalouser eklentisini yapılandırıyor veya geliştiriyorsunuz
 title: "Zalo Personal Eklentisi"
 ---
 

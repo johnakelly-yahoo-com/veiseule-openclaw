@@ -1,7 +1,4 @@
 ---
-summary: "„Erhöhter Ausführungsmodus und /elevated‑Direktiven“"
-read_when:
-  - Anpassen der Standardwerte des erhöhten Modus, der Allowlists oder des Verhaltens von Slash‑Commands
 title: "„Erhöhter Modus“"
 ---
 

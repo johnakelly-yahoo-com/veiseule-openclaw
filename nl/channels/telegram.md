@@ -1,7 +1,4 @@
 ---
-summary: "Ondersteuningsstatus, mogelijkheden en configuratie van Telegram-bots"
-read_when:
-  - Werken aan Telegram-functies of webhooks
 title: "Telegram"
 ---
 

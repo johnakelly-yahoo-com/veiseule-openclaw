@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw cron` (schemalägg och kör bakgrundsjobb)"
-read_when:
-  - Du vill ha schemalagda jobb och väckningar
-  - Du felsöker cron-körning och loggar
 title: "cron"
 ---
 

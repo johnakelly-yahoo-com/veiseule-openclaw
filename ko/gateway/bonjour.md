@@ -1,8 +1,4 @@
 ---
-summary: "Bonjour/mDNS 디바이스 검색 + 디버깅 (Gateway 비콘, 클라이언트, 일반적인 실패 모드)"
-read_when:
-  - macOS/iOS 에서 Bonjour 디바이스 검색 문제를 디버깅할 때
-  - mDNS 서비스 유형, TXT 레코드 또는 디바이스 검색 UX 를 변경할 때
 title: "Bonjour 디바이스 검색"
 ---
 

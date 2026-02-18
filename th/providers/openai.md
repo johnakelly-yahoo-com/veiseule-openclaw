@@ -1,8 +1,4 @@
 ---
-summary: "ใช้ OpenAI ผ่านคีย์APIหรือการสมัครสมาชิกCodexในOpenClaw"
-read_when:
-  - คุณต้องการใช้โมเดลOpenAIในOpenClaw
-  - คุณต้องการการยืนยันตัวตนด้วยการสมัครสมาชิกCodexแทนคีย์API
 title: "OpenAI"
 ---
 

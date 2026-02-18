@@ -1,8 +1,4 @@
 ---
-summary: "Zalo Personal 外掛：QR 登入 + 透過 zca-cli 傳訊（外掛安裝 + 頻道設定 + CLI + 工具）"
-read_when:
-  - 你想在 OpenClaw 中使用 Zalo Personal（非官方）支援
-  - 你正在設定或開發 zalouser 外掛
 title: "Zalo Personal 外掛"
 ---
 

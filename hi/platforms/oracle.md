@@ -1,9 +1,4 @@
 ---
-summary: "Oracle Cloud पर OpenClaw (Always Free ARM)"
-read_when:
-  - Oracle Cloud पर OpenClaw सेटअप करना
-  - OpenClaw के लिए कम-लागत VPS होस्टिंग की तलाश
-  - छोटे सर्वर पर 24/7 OpenClaw चाहते हैं
 title: "Oracle Cloud"
 ---
 

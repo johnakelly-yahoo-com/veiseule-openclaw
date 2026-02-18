@@ -1,8 +1,4 @@
 ---
-summary: "Inilipat na ang Mabilis na pagsisimula sa Pagsisimula."
-read_when:
-  - Naghahanap ka ng pinakamabilis na mga hakbang sa setup
-  - Dinala ka rito mula sa isang mas lumang link
 title: "Mabilis na pagsisimula"
 ---
 

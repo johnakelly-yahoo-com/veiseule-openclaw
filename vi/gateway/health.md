@@ -1,7 +1,4 @@
 ---
-summary: "Các bước kiểm tra sức khỏe để xác minh kết nối kênh"
-read_when:
-  - Chẩn đoán tình trạng kênh WhatsApp
 title: "Kiểm tra sức khỏe"
 ---
 

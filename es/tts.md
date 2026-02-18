@@ -1,9 +1,4 @@
 ---
-summary: "Texto a voz (TTS) para respuestas salientes"
-read_when:
-  - Habilitar texto a voz para respuestas
-  - Configurar proveedores o límites de TTS
-  - Usar comandos /tts
 title: "Texto a Voz"
 ---
 

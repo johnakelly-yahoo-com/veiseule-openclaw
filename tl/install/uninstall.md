@@ -1,8 +1,4 @@
 ---
-summary: "Ganap na i-uninstall ang OpenClaw (CLI, service, state, workspace)"
-read_when:
-  - Gusto mong alisin ang OpenClaw mula sa isang makina
-  - Patuloy na tumatakbo ang gateway service kahit pagkatapos ng uninstall
 title: "I-uninstall"
 ---
 

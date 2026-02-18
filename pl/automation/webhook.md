@@ -1,8 +1,4 @@
 ---
-summary: "Webhooki przychodzące do wybudzania i izolowanych uruchomień agenta"
-read_when:
-  - Dodawanie lub zmiana punktów końcowych webhooków
-  - Łączenie systemów zewnętrznych z OpenClaw
 title: "Webhooki"
 ---
 

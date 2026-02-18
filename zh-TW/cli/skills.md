@@ -1,8 +1,4 @@
 ---
-summary: "用於 `openclaw skills`（list/info/check）與技能資格判定的 CLI 參考文件"
-read_when:
-  - 你想查看哪些 Skills 可用且已準備好執行
-  - 25. 你想要除錯技能缺少的二進位檔／環境變數／設定
 title: "skills"
 ---
 

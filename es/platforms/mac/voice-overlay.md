@@ -1,7 +1,4 @@
 ---
-summary: "Ciclo de vida de la superposición de voz cuando se superponen la palabra de activación y pulsar para hablar"
-read_when:
-  - Ajustar el comportamiento de la superposición de voz
 title: "Superposición de voz"
 ---
 

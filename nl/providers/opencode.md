@@ -1,8 +1,4 @@
 ---
-summary: "Gebruik OpenCode Zen (gecurateerde modellen) met OpenClaw"
-read_when:
-  - Je wilt OpenCode Zen voor modeltoegang
-  - Je wilt een gecureerde lijst met codeervriendelijke modellen
 title: "OpenCode Zen"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Manuella inloggningar för webbläsarautomatisering + publicering på X/Twitter"
-read_when:
-  - Du behöver logga in på webbplatser för webbläsarautomatisering
-  - Du vill publicera uppdateringar på X/Twitter
 title: "Webbläsarinloggning"
 ---
 

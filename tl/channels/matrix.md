@@ -1,7 +1,4 @@
 ---
-summary: "Katayuan ng suporta sa Matrix, mga kakayahan, at konpigurasyon"
-read_when:
-  - Nagtatrabaho sa mga feature ng Matrix channel
 title: "Matrix"
 ---
 

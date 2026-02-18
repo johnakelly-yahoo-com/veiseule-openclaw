@@ -1,7 +1,4 @@
 ---
-summary: "Cómo ejecutar pruebas localmente (vitest) y cuándo usar los modos forzar/cobertura"
-read_when:
-  - Al ejecutar o corregir pruebas
 title: "Pruebas"
 ---
 

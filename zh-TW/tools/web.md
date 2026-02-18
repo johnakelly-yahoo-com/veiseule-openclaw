@@ -1,9 +1,4 @@
 ---
-summary: "網頁搜尋＋擷取工具（Brave Search API、Perplexity 直接／OpenRouter）"
-read_when:
-  - 你想要啟用 web_search 或 web_fetch
-  - 你需要設定 Brave Search API 金鑰
-  - 你想要使用 Perplexity Sonar 進行網頁搜尋
 title: "Web 工具"
 ---
 

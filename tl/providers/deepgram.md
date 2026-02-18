@@ -1,8 +1,4 @@
 ---
-summary: "Deepgram transcription para sa papasok na voice notes"
-read_when:
-  - Gusto mo ng Deepgram speech-to-text para sa mga audio attachment
-  - Kailangan mo ng mabilis na halimbawa ng Deepgram config
 title: "Deepgram"
 ---
 

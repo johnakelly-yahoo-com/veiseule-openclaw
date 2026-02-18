@@ -1,9 +1,4 @@
 ---
-summary: "Automated at pinatibay na pag-install ng OpenClaw gamit ang Ansible, Tailscale VPN, at firewall isolation"
-read_when:
-  - Gusto mo ng automated na server deployment na may security hardening
-  - Kailangan mo ng setup na may firewall isolation at VPN access
-  - Nagde-deploy ka sa mga remote na Debian/Ubuntu server
 title: "Ansible"
 ---
 

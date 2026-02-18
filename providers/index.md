@@ -1,8 +1,4 @@
 ---
-summary: "Model providers (LLMs) supported by OpenClaw"
-read_when:
-  - You want to choose a model provider
-  - You need a quick overview of supported LLM backends
 title: "Model Providers"
 ---
 

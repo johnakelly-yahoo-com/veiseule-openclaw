@@ -1,8 +1,4 @@
 ---
-summary: "Mga surface ng logging, file logs, mga estilo ng WS log, at pag-format ng console"
-read_when:
-  - Kapag binabago ang logging output o mga format
-  - Kapag nagde-debug ng CLI o output ng gateway
 title: "Pag-log"
 ---
 

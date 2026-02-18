@@ -1,7 +1,4 @@
 ---
-summary: "Gateway से OpenAI‑संगत /v1/chat/completions HTTP एंडपॉइंट को उजागर करें"
-read_when:
-  - OpenAI Chat Completions की अपेक्षा करने वाले टूल्स का एकीकरण करते समय
 title: "OpenAI Chat Completions"
 ---
 

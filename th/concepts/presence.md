@@ -1,9 +1,4 @@
 ---
-summary: "วิธีที่รายการ presence ของ OpenClaw ถูกสร้าง รวม และแสดงผล"
-read_when:
-  - ดีบักแท็บ Instances
-  - ตรวจสอบแถว instance ที่ซ้ำหรือค้างอยู่
-  - เปลี่ยนการเชื่อมต่อ WS ของ Gateway หรือบีคอน system-event
 title: "สถานะออนไลน์"
 ---
 

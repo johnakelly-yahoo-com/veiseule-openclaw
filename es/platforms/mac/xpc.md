@@ -1,7 +1,4 @@
 ---
-summary: "Arquitectura de IPC de macOS para la app OpenClaw, el transporte del nodo del Gateway y PeekabooBridge"
-read_when:
-  - Al editar contratos de IPC o el IPC de la app de la barra de menús
 title: "IPC de macOS"
 ---
 

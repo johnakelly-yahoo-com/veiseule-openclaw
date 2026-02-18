@@ -1,7 +1,5 @@
 ---
-summary: "Fonctionnement du sandboxing d’OpenClaw : modes, portées, accès à l’espace de travail et images"
 title: "Exécution en bac à sable"
-read_when: "Vous voulez une explication dédiée du sandboxing ou devez ajuster agents.defaults.sandbox."
 status: active
 ---
 

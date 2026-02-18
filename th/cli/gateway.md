@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw Gateway CLI (`openclaw gateway`) — รัน สอบถาม และค้นหาเกตเวย์"
-read_when:
-  - การรันGatewayจากCLI(สำหรับdevหรือเซิร์ฟเวอร์)
-  - การดีบักการยืนยันตัวตน โหมดการ bind และการเชื่อมต่อของGateway
-  - การค้นหาเกตเวย์ผ่านBonjour(LAN+tailnet)
 title: "gateway"
 ---
 

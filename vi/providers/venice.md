@@ -1,8 +1,4 @@
 ---
-summary: "Sử dụng các mô hình Venice AI tập trung vào quyền riêng tư trong OpenClaw"
-read_when:
-  - Bạn muốn suy luận tập trung vào quyền riêng tư trong OpenClaw
-  - Bạn muốn hướng dẫn thiết lập Venice AI
 title: "Venice AI"
 ---
 

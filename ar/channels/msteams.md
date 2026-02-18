@@ -1,7 +1,4 @@
 ---
-summary: "حالة دعم روبوت Microsoft Teams، والإمكانات، والتهيئة"
-read_when:
-  - العمل على ميزات قناة MS Teams
 title: "Microsoft Teams"
 ---
 

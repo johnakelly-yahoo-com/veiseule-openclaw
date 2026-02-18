@@ -1,7 +1,4 @@
 ---
-summary: "Schritte zur Zustandsprüfung der Kanalkonnektivität"
-read_when:
-  - Diagnose des Zustands des WhatsApp-Kanals
 title: "Zustandsprüfungen"
 ---
 

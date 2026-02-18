@@ -1,8 +1,4 @@
----
-summary: "Modele d'espace de travail pour TOOLS.md"
-read_when:
-  - Mise en place manuelle d'un espace de travail
----
+------
 
 # TOOLS.md - Notes locales
 

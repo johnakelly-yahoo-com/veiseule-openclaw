@@ -1,9 +1,4 @@
----
-summary: "Agente de desarrollo AGENTS.md (C-3PO)"
-read_when:
-  - Al usar las plantillas del gateway de desarrollo
-  - Al actualizar la identidad predeterminada del agente de desarrollo
----
+------
 
 # AGENTS.md - Espacio de trabajo de OpenClaw
 

@@ -1,5 +1,4 @@
 ---
-summary: "Patibayin ang paghawak ng input ng cron.add, i-align ang mga schema, at pahusayin ang cron UI/agent tooling"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"

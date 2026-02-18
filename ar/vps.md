@@ -1,8 +1,4 @@
 ---
-summary: "مركز استضافة VPS لـ OpenClaw (Oracle/Fly/Hetzner/GCP/exe.dev)"
-read_when:
-  - تريد تشغيل Gateway في السحابة
-  - تحتاج إلى خريطة سريعة لأدلة VPS/الاستضافة
 title: "استضافة VPS"
 ---
 

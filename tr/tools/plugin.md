@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw eklentileri/uzantıları: keşif, yapılandırma ve güvenli kullanım"
-read_when:
-  - Eklenti/uzantı eklerken veya değiştirirken
-  - Eklenti kurulum veya yükleme kurallarını belgelendirirken
 title: "Eklentiler"
 ---
 

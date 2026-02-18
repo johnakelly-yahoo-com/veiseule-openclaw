@@ -1,8 +1,4 @@
 ---
-summary: "Phiên âm Deepgram cho tin nhắn thoại đến"
-read_when:
-  - Bạn muốn dùng Deepgram chuyển giọng nói thành văn bản cho tệp âm thanh đính kèm
-  - Bạn cần một ví dụ cấu hình Deepgram nhanh
 title: "Deepgram"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Como o Gateway, os nós e o host do canvas se conectam."
-read_when:
-  - Você quer uma visão concisa do modelo de rede do Gateway
 title: "Modelo de rede"
 ---
 

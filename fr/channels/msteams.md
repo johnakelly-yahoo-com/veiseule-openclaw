@@ -1,7 +1,4 @@
 ---
-summary: "Statut de prise en charge du bot Microsoft Teams, capacites et configuration"
-read_when:
-  - Travail sur les fonctionnalites du canal MS Teams
 title: "Microsoft Teams"
 ---
 

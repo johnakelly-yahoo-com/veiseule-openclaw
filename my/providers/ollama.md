@@ -1,8 +1,4 @@
 ---
-summary: "Ollama (local LLM runtime) ဖြင့် OpenClaw ကို လည်ပတ်ရန်"
-read_when:
-  - Ollama မှတစ်ဆင့် local မော်ဒယ်များဖြင့် OpenClaw ကို လည်ပတ်လိုပါက
-  - Ollama ကို တပ်ဆင်ခြင်းနှင့် ဖွဲ့စည်းပြင်ဆင်ခြင်းအတွက် လမ်းညွှန်ချက်များ လိုအပ်ပါက
 title: "Ollama"
 ---
 

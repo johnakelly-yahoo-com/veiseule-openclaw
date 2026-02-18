@@ -1,8 +1,4 @@
 ---
-summary: "Chạy cầu nối ACP cho các tích hợp IDE"
-read_when:
-  - Thiết lập các tích hợp IDE dựa trên ACP
-  - Gỡ lỗi định tuyến phiên ACP tới Gateway
 title: "acp"
 ---
 

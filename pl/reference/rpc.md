@@ -1,8 +1,4 @@
 ---
-summary: "Adaptery RPC dla zewnętrznych CLI (signal-cli, legacy imsg) oraz wzorce bramy"
-read_when:
-  - Dodawanie lub zmiana integracji zewnętrznych CLI
-  - Debugowanie adapterów RPC (signal-cli, imsg)
 title: "Adaptery RPC"
 ---
 

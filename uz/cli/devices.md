@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw devices` uchun CLI ma’lumotnomasi (qurilmalarni juftlash + tokenlarni aylantirish/bekor qilish)"
-read_when:
-  - Siz qurilma juftlash so‘rovlarini tasdiqlayapsiz
-  - Siz qurilma tokenlarini aylantirishingiz yoki bekor qilishingiz kerak
 title: "qurilmalar"
 ---
 

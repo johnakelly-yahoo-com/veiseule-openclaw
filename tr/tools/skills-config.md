@@ -1,8 +1,4 @@
 ---
-summary: "Skills yapılandırma şeması ve örnekler"
-read_when:
-  - Skills yapılandırması eklerken veya değiştirirken
-  - Paketli izin listesi veya kurulum davranışını ayarlarken
 title: "Skills Yapılandırması"
 ---
 

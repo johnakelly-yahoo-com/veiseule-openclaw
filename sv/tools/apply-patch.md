@@ -1,8 +1,4 @@
 ---
-summary: "Tillämpa flerfils-patchar med verktyget apply_patch"
-read_when:
-  - Du behöver strukturerade filändringar över flera filer
-  - Du vill dokumentera eller felsöka patch-baserade ändringar
 title: "apply_patch-verktyget"
 ---
 

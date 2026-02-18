@@ -1,7 +1,4 @@
 ---
-summary: "Installatiehandleiding voor ontwikkelaars die aan de OpenClaw macOS-app werken"
-read_when:
-  - Het instellen van de macOS-ontwikkelomgeving
 title: "macOS Dev-installatie"
 ---
 

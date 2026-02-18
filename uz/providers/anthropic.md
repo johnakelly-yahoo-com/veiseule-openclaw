@@ -1,8 +1,4 @@
 ---
-summary: "Anthropic Claude’dan API kalitlari yoki OpenClaw’dagi setup-token orqali foydalaning"
-read_when:
-  - Siz OpenClaw’da Anthropic modellaridan foydalanmoqchisiz
-  - Siz API kalitlari o‘rniga setup-token’dan foydalanmoqchisiz
 title: "Anthropic"
 ---
 

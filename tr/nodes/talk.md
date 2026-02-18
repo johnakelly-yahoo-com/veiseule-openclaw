@@ -1,8 +1,4 @@
 ---
-summary: "Talk modu: ElevenLabs TTS ile sürekli sesli konuşmalar"
-read_when:
-  - macOS/iOS/Android üzerinde Talk modunun uygulanması
-  - Ses/TTS/kesinti davranışının değiştirilmesi
 title: "Talk Modu"
 ---
 

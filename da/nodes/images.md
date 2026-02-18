@@ -1,7 +1,4 @@
 ---
-summary: "Regler for håndtering af billeder og medier for send, gateway og agent-svar"
-read_when:
-  - Ændring af mediepipeline eller vedhæftninger
 title: "Understøttelse af billeder og medier"
 ---
 

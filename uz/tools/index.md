@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw uchun agent vositalari to‘plami (brauzer, canvas, tugunlar, xabar, cron) — eski `openclaw-*` ko‘nikmalarini almashtiradi"
-read_when:
-  - Adding or modifying agent tools
-  - Retiring or changing `openclaw-*` skills
 title: "Asboblar"
 ---
 

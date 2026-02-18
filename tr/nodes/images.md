@@ -1,7 +1,4 @@
 ---
-summary: "Gönderim, gateway ve ajan yanıtları için görsel ve medya işleme kuralları"
-read_when:
-  - Medya hattı veya ekler değiştirildiğinde
 title: "Görsel ve Medya Desteği"
 ---
 

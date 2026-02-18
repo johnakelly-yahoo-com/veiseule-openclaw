@@ -1,8 +1,4 @@
 ---
-summary: "استخدم Z.AI (نماذج GLM) مع OpenClaw"
-read_when:
-  - تريد نماذج Z.AI / GLM في OpenClaw
-  - تحتاج إلى إعداد بسيط لمفتاح ZAI_API_KEY
 title: "Z.AI"
 ---
 

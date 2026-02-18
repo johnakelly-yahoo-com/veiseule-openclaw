@@ -1,11 +1,5 @@
 ---
-title: "Reliz uchun tekshiruv roʻyxati"
-summary: "npm + macOS ilovasi uchun bosqichma-bosqich reliz tekshiruv roʻyxati"
-read_when:
-  - Yangi npm relizini chiqarishda
-  - Yangi macOS ilovasi relizini chiqarishda
-  - Nashrdan oldin metamaʼlumotlarni tekshirishda
----
+title: "Reliz uchun tekshiruv roʻyxati"---
 
 # Reliz uchun tekshiruv roʻyxati (npm + macOS)
 

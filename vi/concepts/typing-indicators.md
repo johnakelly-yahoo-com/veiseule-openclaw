@@ -1,7 +1,4 @@
 ---
-summary: "Khi nào OpenClaw hiển thị chỉ báo đang gõ và cách tinh chỉnh chúng"
-read_when:
-  - Thay đổi hành vi hoặc giá trị mặc định của chỉ báo đang gõ
 title: "Chỉ báo đang gõ"
 ---
 

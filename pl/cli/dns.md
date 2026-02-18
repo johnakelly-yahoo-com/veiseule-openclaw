@@ -1,8 +1,4 @@
 ---
-summary: "Dokumentacja referencyjna CLI dla `openclaw dns` (narzędzia pomocnicze do wykrywania w sieci rozległej)"
-read_when:
-  - Chcesz wykrywanie w sieci rozległej (DNS-SD) przez Tailscale + CoreDNS
-  - You’re setting up split DNS for a custom discovery domain (example: openclaw.internal)
 title: "dns"
 ---
 

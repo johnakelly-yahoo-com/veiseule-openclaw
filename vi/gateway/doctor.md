@@ -1,8 +1,4 @@
 ---
-summary: "Lệnh Doctor: kiểm tra sức khỏe, di chuyển cấu hình và các bước sửa chữa"
-read_when:
-  - Thêm hoặc chỉnh sửa các migration của doctor
-  - Giới thiệu các thay đổi cấu hình gây phá vỡ tương thích
 title: "Bác sĩ"
 ---
 

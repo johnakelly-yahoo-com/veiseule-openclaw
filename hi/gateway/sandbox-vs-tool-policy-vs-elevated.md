@@ -1,7 +1,5 @@
 ---
 title: Sandbox बनाम Tool Policy बनाम Elevated
-summary: "किस कारण कोई टूल ब्लॉक होता है: sandbox runtime, टूल allow/deny नीति, और elevated exec गेट्स"
-read_when: "जब आप 'sandbox jail' में फँसें या किसी tool/elevated अस्वीकृति को देखें और बदलने के लिए सटीक config key जानना चाहें।"
 status: active
 ---
 

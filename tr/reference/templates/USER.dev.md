@@ -1,9 +1,4 @@
----
-summary: "Geliştirici ajan kullanıcı profili (C-3PO)"
-read_when:
-  - Geliştirici gateway şablonlarını kullanırken
-  - Varsayılan geliştirici ajan kimliğini güncellerken
----
+------
 
 # USER.md - Kullanıcı Profili
 

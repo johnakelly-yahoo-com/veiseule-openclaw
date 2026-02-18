@@ -1,9 +1,4 @@
 ---
-summary: "Netwerkhub: gateway-oppervlakken, koppelen, discovery en beveiliging"
-read_when:
-  - Je hebt het netwerkarchitectuur- en beveiligingsoverzicht nodig
-  - Je debugt lokale versus tailnet-toegang of koppelen
-  - Je wilt de canonieke lijst met netwerkdocumentatie
 title: "Netwerk"
 ---
 

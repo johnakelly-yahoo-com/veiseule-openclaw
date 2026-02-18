@@ -1,8 +1,4 @@
 ---
-summary: "Utiliser les modeles Venice AI axes sur la confidentialite dans OpenClaw"
-read_when:
-  - Vous souhaitez une inference axee sur la confidentialite dans OpenClaw
-  - Vous souhaitez des conseils de configuration pour Venice AI
 title: "Venice AI"
 ---
 

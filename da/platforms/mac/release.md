@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS-udgivelsestjekliste (Sparkle-feed, pakning, signering)"
-read_when:
-  - Når du klargør eller validerer en OpenClaw macOS-udgivelse
-  - Når du opdaterer Sparkle-appcast eller feed-aktiver
 title: "macOS-udgivelse"
 ---
 

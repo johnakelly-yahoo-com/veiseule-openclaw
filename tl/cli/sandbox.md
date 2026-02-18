@@ -1,7 +1,5 @@
 ---
 title: Sandbox CLI
-summary: "Pamahalaan ang mga sandbox container at siyasatin ang epektibong sandbox policy"
-read_when: "Pinamamahalaan mo ang mga sandbox container o nagde-debug ng gawi ng sandbox/tool-policy."
 status: active
 ---
 

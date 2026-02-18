@@ -1,8 +1,4 @@
 ---
-summary: "„OpenClaw auf DigitalOcean (einfache kostenpflichtige VPS-Option)“"
-read_when:
-  - OpenClaw auf DigitalOcean einrichten
-  - Günstiges VPS-Hosting für OpenClaw suchen
 title: "DigitalOcean"
 ---
 

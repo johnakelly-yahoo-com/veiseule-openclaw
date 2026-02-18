@@ -1,8 +1,4 @@
 ---
-summary: "NIP-04 암호화 메시지를 통한 Nostr 다이렉트 메시지 채널"
-read_when:
-  - OpenClaw 가 Nostr 를 통해 다이렉트 메시지를 수신하도록 하려는 경우
-  - 탈중앙화 메시징을 설정하는 경우
 title: "Nostr"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Emparejamiento de nodos propiedad del Gateway (Opción B) para iOS y otros nodos remotos"
-read_when:
-  - Implementación de aprobaciones de emparejamiento de nodos sin UI de macOS
-  - Adición de flujos de CLI para aprobar nodos remotos
-  - Extensión del protocolo del Gateway con gestión de nodos
 title: "Emparejamiento propiedad del Gateway"
 ---
 

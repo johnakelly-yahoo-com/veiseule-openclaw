@@ -1,8 +1,4 @@
 ---
-summary: "Günlükleme yüzeyleri, dosya günlükleri, WS günlük stilleri ve konsol biçimlendirme"
-read_when:
-  - Günlükleme çıktısını veya biçimlerini değiştirirken
-  - CLI veya gateway çıktısını hata ayıklarken
 title: "Günlükleme"
 ---
 

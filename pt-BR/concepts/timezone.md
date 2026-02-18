@@ -1,8 +1,4 @@
 ---
-summary: "Tratamento de fuso horário para agentes, envelopes e prompts"
-read_when:
-  - Você precisa entender como os timestamps são normalizados para o modelo
-  - Configurar o fuso horário do usuário para prompts do sistema
 title: "Fusos horários"
 ---
 

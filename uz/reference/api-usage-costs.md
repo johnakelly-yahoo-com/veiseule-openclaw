@@ -1,9 +1,4 @@
 ---
-summary: "Nimalar mablag‘ sarflashi mumkinligi, qaysi kalitlar ishlatilishi va foydalanishni qanday ko‘rish mumkinligini audit qilish"
-read_when:
-  - Qaysi funksiyalar pullik API’larni chaqirishi mumkinligini tushunmoqchisiz
-  - Kalitlar, xarajatlar va foydalanish ko‘rinishini audit qilishingiz kerak
-  - /status yoki /usage xarajat hisobotini tushuntiryapsiz
 title: "API’dan foydalanish va xarajatlar"
 ---
 

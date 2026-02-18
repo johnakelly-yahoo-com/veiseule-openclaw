@@ -1,7 +1,5 @@
 ---
-summary: "Sandbox theo từng tác tử + hạn chế công cụ, thứ tự ưu tiên và ví dụ"
 title: Sandbox & Công cụ đa tác tử
-read_when: "Bạn muốn sandboxing theo từng tác tử hoặc chính sách cho phép/từ chối công cụ theo từng tác tử trong một gateway đa tác tử."
 status: active
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "CLI reference for `openclaw update` (safe-ish source update + gateway auto-restart)"
-read_when:
-  - You want to update a source checkout safely
-  - You need to understand `--update` shorthand behavior
 title: "update"
 ---
 

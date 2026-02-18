@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw node` (huvudlös node‑värd)"
-read_when:
-  - Köra den huvudlösa node‑värden
-  - Para ihop en node som inte är macOS för system.run
 title: "node"
 ---
 

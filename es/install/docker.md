@@ -1,8 +1,4 @@
 ---
-summary: "Configuración opcional basada en Docker y proceso de incorporación para OpenClaw"
-read_when:
-  - Quiere un Gateway en contenedores en lugar de instalaciones locales
-  - Está validando el flujo con Docker
 title: "Docker"
 ---
 

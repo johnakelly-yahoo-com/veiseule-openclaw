@@ -1,10 +1,4 @@
----
-summary: "Schritt-für-Schritt-Release-Checkliste für npm + macOS-App"
-read_when:
-  - Erstellen eines neuen npm-Releases
-  - Erstellen eines neuen macOS-App-Releases
-  - Überprüfen von Metadaten vor der Veröffentlichung
----
+------
 
 # Release-Checkliste (npm + macOS)
 

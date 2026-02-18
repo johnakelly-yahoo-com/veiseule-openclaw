@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw'ı kurun ve ilk sohbetinizi dakikalar içinde çalıştırın."
-read_when:
-  - Sıfırdan ilk kurulum
-  - Çalışan bir sohbete en hızlı yolu istiyorsunuz
 title: "Başlarken"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Skills: zarządzane vs obszar roboczy, reguły bramkowania oraz powiązania konfiguracji/środowiska"
-read_when:
-  - Dodawanie lub modyfikowanie skills
-  - Zmiana bramkowania skills lub reguł ładowania
 title: "Umiejętności"
 ---
 

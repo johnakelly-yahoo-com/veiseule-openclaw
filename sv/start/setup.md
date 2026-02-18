@@ -1,8 +1,4 @@
 ---
-summary: "Avancerad konfigurering och utvecklingsarbetsflöden för OpenClaw"
-read_when:
-  - Konfigurera en ny maskin
-  - Du vill ha ”senaste + bästa” utan att bryta din personliga setup
 title: "Konfigurering"
 ---
 

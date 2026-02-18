@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw docs` uchun CLI ma’lumotnomasi (jonli hujjatlar indeksini qidirish)"
-read_when:
-  - Siz terminaldan turib jonli OpenClaw hujjatlarini qidirmoqchisiz
 title: "docs"
 ---
 

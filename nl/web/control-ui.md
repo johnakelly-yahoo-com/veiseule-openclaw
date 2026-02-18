@@ -1,8 +1,4 @@
 ---
-summary: "Browsergebaseerde bedienings-UI voor de Gateway (chat, nodes, config)"
-read_when:
-  - Je wilt de Gateway vanuit een browser bedienen
-  - Je wilt Tailnet-toegang zonder SSH-tunnels
 title: "Control UI"
 ---
 

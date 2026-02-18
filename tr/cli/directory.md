@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw directory` için CLI referansı (self, peers, groups)"
-read_when:
-  - Bir kanal için kişiler/gruplar/self kimliklerini aramak istiyorsunuz
-  - Bir kanal dizini bağdaştırıcısı geliştiriyorsunuz
 title: "directory"
 ---
 

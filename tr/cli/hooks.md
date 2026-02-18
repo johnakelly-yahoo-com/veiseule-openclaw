@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw hooks` için CLI başvuru dokümantasyonu (ajan hooks)"
-read_when:
-  - You want to manage agent hooks
-  - Hooks’ları yüklemek veya güncellemek istediğinizde
 title: "hooks"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "zca-cli (QR oturum açma) üzerinden Zalo kişisel hesap desteği, yetenekler ve yapılandırma"
-read_when:
-  - OpenClaw için Zalo Personal kurulumu
-  - Zalo Personal oturum açma veya mesaj akışı sorunlarını giderme
 title: "Zalo Personal"
 ---
 

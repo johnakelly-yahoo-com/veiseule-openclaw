@@ -1,8 +1,4 @@
 ---
-summary: "Quy trình Bun (thử nghiệm): cài đặt và các điểm cần lưu ý so với pnpm"
-read_when:
-  - Bạn muốn vòng lặp phát triển cục bộ nhanh nhất (bun + watch)
-  - Bạn gặp sự cố Bun về cài đặt/patch/script vòng đời
 title: "Bun (Thử nghiệm)"
 ---
 

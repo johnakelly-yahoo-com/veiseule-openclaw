@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw 는 모든 OS 에서 실행되는 AI 에이전트를 위한 멀티 채널 Gateway(게이트웨이)입니다."
-read_when:
-  - OpenClaw 를 처음 접하는 사용자에게 소개할 때
 title: "OpenClaw"
 ---
 

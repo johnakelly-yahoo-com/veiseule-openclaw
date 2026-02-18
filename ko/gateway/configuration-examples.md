@@ -1,9 +1,4 @@
 ---
-summary: "일반적인 OpenClaw 설정을 위한 스키마에 정확한 구성 예시"
-read_when:
-  - OpenClaw 구성 방법을 학습할 때
-  - 구성 예시를 찾을 때
-  - OpenClaw 를 처음 설정할 때
 title: "구성 예시"
 ---
 

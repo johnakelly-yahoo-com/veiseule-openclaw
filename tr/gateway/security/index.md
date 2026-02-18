@@ -1,7 +1,4 @@
 ---
-summary: "Kabuk erişimi olan bir AI gateway çalıştırırken güvenlik hususları ve tehdit modeli"
-read_when:
-  - Erişimi veya otomasyonu genişleten özellikler eklerken
 title: "Güvenlik"
 ---
 

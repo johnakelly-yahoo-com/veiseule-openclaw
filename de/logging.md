@@ -1,9 +1,4 @@
 ---
-summary: "Protokollierungsüberblick: Dateiprotokolle, Konsolenausgabe, CLI-Tailing und die Control UI"
-read_when:
-  - Sie benötigen einen einsteigerfreundlichen Überblick zur Protokollierung
-  - Sie möchten Protokollierungsstufen oder -formate konfigurieren
-  - Sie beheben Fehler und müssen Protokolle schnell finden
 title: "Protokollierung"
 ---
 

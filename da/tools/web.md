@@ -1,9 +1,4 @@
 ---
-summary: "Websøgning + hentningsværktøjer (Brave Search API, Perplexity direkte/OpenRouter)"
-read_when:
-  - Du vil aktivere web_search eller web_fetch
-  - Du har brug for opsætning af Brave Search API-nøgle
-  - Du vil bruge Perplexity Sonar til websøgning
 title: "Webværktøjer"
 ---
 

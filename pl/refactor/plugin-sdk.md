@@ -1,8 +1,4 @@
 ---
-summary: "Plan: jeden czysty SDK wtyczek + runtime dla wszystkich konektorów komunikacyjnych"
-read_when:
-  - Definiowanie lub refaktoryzacja architektury wtyczek
-  - Migracja konektorów kanałów do SDK/runtime wtyczek
 title: "Refaktoryzacja SDK wtyczek"
 ---
 

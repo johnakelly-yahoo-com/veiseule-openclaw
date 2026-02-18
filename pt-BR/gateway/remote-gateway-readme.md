@@ -1,6 +1,4 @@
 ---
-summary: "Configuração de túnel SSH para o OpenClaw.app conectando a um gateway remoto"
-read_when: "Conectando o aplicativo macOS a um gateway remoto via SSH"
 title: "Configuração de Gateway Remoto"
 ---
 

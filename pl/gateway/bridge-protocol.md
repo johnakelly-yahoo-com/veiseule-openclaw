@@ -1,9 +1,4 @@
 ---
-summary: "Protokół Bridge (węzły legacy): TCP JSONL, parowanie, RPC o ograniczonym zakresie"
-read_when:
-  - Budowanie lub debugowanie klientów węzłów (tryb węzła iOS/Android/macOS)
-  - Badanie problemów z parowaniem lub uwierzytelnianiem mostu
-  - Audytowanie powierzchni węzła udostępnionej przez gateway
 title: "Protokół Bridge"
 ---
 

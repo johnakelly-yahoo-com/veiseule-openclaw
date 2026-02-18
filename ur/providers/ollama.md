@@ -1,8 +1,4 @@
 ---
-summary: "Ollama (لوکل LLM رن ٹائم) کے ساتھ OpenClaw چلائیں"
-read_when:
-  - آپ Ollama کے ذریعے لوکل ماڈلز کے ساتھ OpenClaw چلانا چاہتے ہیں
-  - آپ کو Ollama کے سیٹ اپ اور کنفیگریشن کی رہنمائی درکار ہے
 title: "Ollama"
 ---
 

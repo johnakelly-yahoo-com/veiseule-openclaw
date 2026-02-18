@@ -1,7 +1,4 @@
 ---
-summary: "Dostęp i uwierzytelnianie pulpitu Gateway (Control UI)"
-read_when:
-  - Zmieniasz tryby uwierzytelniania lub ekspozycji pulpitu
 title: "Panel"
 ---
 

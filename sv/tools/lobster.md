@@ -1,11 +1,6 @@
 ---
 title: Lobster
-summary: "”Typad arbetsflödeskörning för OpenClaw med återupptagbara godkännandespärrar.”"
-description: "Typad arbetsflödeskörning för OpenClaw — komponerbara pipelines med godkännandesteg."
-read_when:
-  - Du vill ha deterministiska flerstegsarbetsflöden med explicita godkännanden
-  - Du behöver återuppta ett arbetsflöde utan att köra om tidigare steg
----
+description: "Typad arbetsflödeskörning för OpenClaw — komponerbara pipelines med godkännandesteg."---
 
 # Lobster
 

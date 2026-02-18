@@ -1,9 +1,4 @@
 ---
-summary: "Oracle Cloud（Always Free ARM）上の OpenClaw"
-read_when:
-  - Oracle Cloud で OpenClaw をセットアップする場合
-  - OpenClaw 向けの低コスト VPS ホスティングを探している場合
-  - 小規模サーバーで 24/7 OpenClaw を運用したい場合
 title: "Oracle Cloud"
 ---
 

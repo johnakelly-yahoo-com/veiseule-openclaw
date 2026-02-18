@@ -1,7 +1,4 @@
 ---
-summary: "各サーフェス（WhatsApp / Telegram / Discord / Slack / Signal / iMessage / Microsoft Teams）におけるグループチャットの挙動"
-read_when:
-  - グループチャットの挙動やメンションゲーティングを変更する場合
 title: "グループ"
 ---
 

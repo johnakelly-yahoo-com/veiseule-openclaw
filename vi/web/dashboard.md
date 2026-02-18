@@ -1,7 +1,4 @@
 ---
-summary: "Quyền truy cập và xác thực dashboard Gateway (Control UI)"
-read_when:
-  - Thay đổi xác thực dashboard hoặc các chế độ phơi bày
 title: "Bảng điều khiển"
 ---
 

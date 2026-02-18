@@ -1,7 +1,5 @@
 ---
-summary: "Cách sandboxing của OpenClaw hoạt động: chế độ, phạm vi, quyền truy cập workspace và image"
 title: "Cô lập (Sandboxing)"
-read_when: "Bạn muốn một giải thích chuyên biệt về sandboxing hoặc cần tinh chỉnh agents.defaults.sandbox."
 status: active
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw pairing`에 대한 CLI 참조 (페어링 요청 승인/목록)"
-read_when:
-  - 페어링 모드 다이렉트 메시지를 사용 중이며 발신자를 승인해야 할 때
 title: "페어링"
 ---
 

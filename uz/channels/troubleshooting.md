@@ -1,8 +1,4 @@
 ---
-summary: "Har bir kanal uchun nosozlik imzolari va tuzatishlar bilan tezkor kanal darajasida nosozliklarni bartaraf etish"
-read_when:
-  - Channel transport says connected but replies fail
-  - You need channel specific checks before deep provider docs
 title: "Kanal nosozliklarini bartaraf etish"
 ---
 

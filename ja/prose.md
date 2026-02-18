@@ -1,9 +1,4 @@
 ---
-summary: "OpenProse：OpenClaw における .prose ワークフロー、スラッシュコマンド、状態管理"
-read_when:
-  - .prose ワークフローを実行または作成したい場合
-  - OpenProse プラグインを有効化したい場合
-  - 状態ストレージを理解する必要がある場合
 title: "OpenProse"
 ---
 

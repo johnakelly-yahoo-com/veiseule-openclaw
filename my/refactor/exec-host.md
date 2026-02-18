@@ -1,9 +1,4 @@
 ---
-summary: "Refactor အစီအစဉ် — exec host routing၊ node approvals နှင့် headless runner"
-read_when:
-  - Exec host routing သို့မဟုတ် exec approvals ကို ဒီဇိုင်းဆွဲနေချိန်
-  - Node runner + UI IPC ကို အကောင်အထည်ဖော်နေချိန်
-  - Exec host security modes နှင့် slash commands ကို ထည့်သွင်းနေချိန်
 title: "Exec Host ပြန်လည်ဖွဲ့စည်းခြင်း"
 ---
 

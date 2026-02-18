@@ -1,8 +1,4 @@
 ---
-summary: "Voice Call-plugin: uitgaande + inkomende gesprekken via Twilio/Telnyx/Plivo (plugin-installatie + configuratie + CLI)"
-read_when:
-  - Je wilt een uitgaand spraakgesprek plaatsen vanuit OpenClaw
-  - Je bent de voice-call plugin aan het configureren of ontwikkelen
 title: "Voice Call-plugin"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "web_fetch için Firecrawl yedek seçeneği (anti-bot + önbellekli çıkarım)"
-read_when:
-  - Firecrawl destekli web çıkarımı istiyorsunuz
-  - Bir Firecrawl API anahtarına ihtiyacınız var
-  - web_fetch için anti-bot çıkarımı istiyorsunuz
 title: "Firecrawl"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Snabb felsökning på kanalnivå med per-kanal-felsignaturer och åtgärder"
-read_when:
-  - Kanaltransporten säger ansluten men svar misslyckas
-  - Du behöver kanalspecifika kontroller innan djupare leverantörsdokumentation
 title: "Kanalfelsökning"
 ---
 

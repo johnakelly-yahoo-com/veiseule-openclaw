@@ -1,8 +1,4 @@
 ---
-summary: "Pas patches voor meerdere bestanden toe met de apply_patch-tool"
-read_when:
-  - Je hebt gestructureerde bestandsbewerkingen over meerdere bestanden nodig
-  - Je wilt patch-gebaseerde bewerkingen documenteren of debuggen
 title: "apply_patch-tool"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Como executar testes localmente (vitest) e quando usar os modos force/coverage"
-read_when:
-  - Executando ou corrigindo testes
 title: "Testes"
 ---
 

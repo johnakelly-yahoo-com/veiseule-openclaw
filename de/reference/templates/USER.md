@@ -1,8 +1,4 @@
----
-summary: "Benutzerprofil-Datensatz"
-read_when:
-  - Manuelles Bootstrapping eines Workspace
----
+------
 
 # USER.md – Über Ihren Menschen
 

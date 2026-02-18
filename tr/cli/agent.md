@@ -1,7 +1,4 @@
 ---
-summary: "Gateway üzerinden `openclaw agent` için CLI başvurusu (Gateway aracılığıyla tek bir ajan turu gönderme)"
-read_when:
-  - Betiklerden tek bir ajan turu çalıştırmak istediğinizde (isteğe bağlı olarak yanıtı iletme)
 title: "cli/agent.md"
 ---
 

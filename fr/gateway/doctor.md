@@ -1,8 +1,4 @@
 ---
-summary: "Commande Doctor : controles de sante, migrations de configuration et etapes de reparation"
-read_when:
-  - Ajout ou modification des migrations de Doctor
-  - Introduction de changements de configuration incompatibles
 title: "Docteur"
 ---
 

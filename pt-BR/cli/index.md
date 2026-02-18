@@ -1,8 +1,4 @@
 ---
-summary: "Referência da CLI do OpenClaw para comandos, subcomandos e opções do `openclaw`"
-read_when:
-  - Ao adicionar ou modificar comandos ou opções da CLI
-  - Ao documentar novas superfícies de comando
 title: "Referência da CLI"
 ---
 

@@ -1,6 +1,4 @@
 ---
-summary: "Socket yoki HTTP webhook rejimi uchun Slack sozlamalari"
-read_when: "Slack’ni sozlash yoki Slack socket/HTTP rejimini nosozliklarni tuzatish"
 title: "Slack"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Các bề mặt ghi log, log tệp, kiểu log WS và định dạng console"
-read_when:
-  - Thay đổi đầu ra hoặc định dạng ghi log
-  - Gỡ lỗi đầu ra CLI hoặc gateway
 title: "Ghi log"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Static host ng Loopback WebChat at paggamit ng Gateway WS para sa chat UI"
-read_when:
-  - Pag-debug o pag-configure ng access sa WebChat
 title: "WebChat"
 ---
 

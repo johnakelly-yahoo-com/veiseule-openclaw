@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw で MiniMax M2.1 を使用します"
-read_when:
-  - OpenClaw で MiniMax モデルを使用したい場合
-  - MiniMax のセットアップ手順が必要な場合
 title: "MiniMax"
 ---
 

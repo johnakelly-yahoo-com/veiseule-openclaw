@@ -1,8 +1,4 @@
 ---
-summary: "Stel een OpenResponses-compatibel /v1/responses HTTP-endpoint beschikbaar vanuit de Gateway"
-read_when:
-  - Clients integreren die de OpenResponses API spreken
-  - Je wilt item-gebaseerde invoer, client tool calls of SSE-events
 title: "OpenResponses API"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Gmail Pub/Sub-push koblet til OpenClaw-webhooks via gogcli"
-read_when:
-  - Kobling af Gmail-indbakke-triggere til OpenClaw
-  - Opsætning af Pub/Sub-push til agent-opvågning
 title: "Gmail PubSub"
 ---
 

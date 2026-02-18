@@ -1,8 +1,4 @@
 ---
-summary: "Model provayderlari uchun OAuth muddati tugashini kuzatish"
-read_when:
-  - Auth muddati tugashini kuzatishni yoki ogohlantirishlarni sozlash
-  - Claude Code / Codex OAuth yangilanish tekshiruvlarini avtomatlashtirish
 title: "Auth monitoringi"
 ---
 

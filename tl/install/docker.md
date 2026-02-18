@@ -1,8 +1,4 @@
 ---
-summary: "Opsyonal na Docker-based na setup at onboarding para sa OpenClaw"
-read_when:
-  - Gusto mo ng isang containerized na gateway sa halip na local installs
-  - Vina-validate mo ang Docker flow
 title: "Docker"
 ---
 

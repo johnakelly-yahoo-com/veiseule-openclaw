@@ -1,8 +1,4 @@
 ---
-summary: "Linux 支援 + 配套應用程式狀態"
-read_when:
-  - 尋找 Linux 夥伴應用程式狀態
-  - 規劃平台涵蓋或貢獻
 title: "Linux 應用程式"
 ---
 

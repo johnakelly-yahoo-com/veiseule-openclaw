@@ -1,9 +1,4 @@
 ---
-summary: "Protokol ng Bridge (mga legacy node): TCP JSONL, pagpapares, RPC na may saklaw"
-read_when:
-  - Pagbuo o pag-debug ng mga node client (iOS/Android/macOS node mode)
-  - Pagsisiyasat ng mga pagkabigo sa pairing o bridge auth
-  - Pag-audit sa node surface na inilalantad ng gateway
 title: "Protokol ng Bridge"
 ---
 

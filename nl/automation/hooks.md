@@ -1,8 +1,4 @@
 ---
-summary: "Hooks: gebeurtenisgestuurde automatisering voor opdrachten en levenscyclusgebeurtenissen"
-read_when:
-  - Je wilt gebeurtenisgestuurde automatisering voor /new, /reset, /stop en levenscyclusgebeurtenissen van agents
-  - Je wilt hooks bouwen, installeren of debuggen
 title: "Hooks"
 ---
 

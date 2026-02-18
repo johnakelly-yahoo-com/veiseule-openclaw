@@ -1,9 +1,4 @@
 ---
-summary: "Streaming + chunking behavior (block replies, Telegram preview streaming, limits)"
-read_when:
-  - Explaining how streaming or chunking works on channels
-  - Changing block streaming or channel chunking behavior
-  - Debugging duplicate/early block replies or Telegram preview streaming
 title: "Streaming and Chunking"
 ---
 

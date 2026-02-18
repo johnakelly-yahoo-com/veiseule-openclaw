@@ -1,7 +1,5 @@
 ---
 title: "Sandbox CLI"
-summary: "Sandbox konteynerlarini boshqarish va amaldagi sandbox siyosatini tekshirish"
-read_when: "Siz sandbox konteynerlarini boshqaryapsiz yoki sandbox/asbob-siyosati xatti-harakatlarini nosozlikdan chiqarayapsiz."
 status: faol
 ---
 

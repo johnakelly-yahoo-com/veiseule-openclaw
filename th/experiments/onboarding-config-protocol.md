@@ -1,6 +1,4 @@
 ---
-summary: "บันทึกโปรโตคอลRPCสำหรับวิซาร์ดเริ่มต้นใช้งานและสคีมาคอนฟิก"
-read_when: "Changing onboarding wizard steps or config schema endpoints"
 title: "โปรโตคอลการเริ่มต้นใช้งานและคอนฟิก"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Alle configuratieopties voor ~/.openclaw/openclaw.json met voorbeelden"
-read_when:
-  - Toevoegen of wijzigen van configvelden
 title: "Configuratie"
 ---
 

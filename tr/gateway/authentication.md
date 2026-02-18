@@ -1,8 +1,4 @@
 ---
-summary: "Model kimlik doğrulaması: OAuth, API anahtarları ve setup-token"
-read_when:
-  - Model kimlik doğrulaması veya OAuth süresinin dolmasını hata ayıklarken
-  - Kimlik doğrulama veya kimlik bilgisi depolamayı belgelendirirken
 title: "Kimlik Doğrulama"
 ---
 

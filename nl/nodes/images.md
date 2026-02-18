@@ -1,7 +1,4 @@
 ---
-summary: "Regels voor beeld- en mediaverwerking voor verzenden, Gateway en agentantwoorden"
-read_when:
-  - Wijzigen van mediapipeline of bijlagen
 title: "Ondersteuning voor Afbeeldingen en Media"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS 發行檢查清單（Sparkle feed、封裝、簽署）"
-read_when:
-  - 切版或驗證 OpenClaw macOS 發行版本時
-  - 更新 Sparkle appcast 或 feed 資產時
 title: "macOS 發行"
 ---
 

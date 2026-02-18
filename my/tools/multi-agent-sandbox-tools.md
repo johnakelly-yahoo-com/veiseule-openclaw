@@ -1,7 +1,5 @@
 ---
-summary: "အေးဂျင့်တစ်ခုချင်းစီအလိုက် sandbox နှင့် tool ကန့်သတ်ချက်များ၊ ဦးစားပေးအဆင့်များနှင့် ဥပမာများ"
 title: "Multi-Agent Sandbox နှင့် Tools"
-read_when: "multi-agent Gateway တစ်ခုတွင် အေးဂျင့်တစ်ခုချင်းစီအလိုက် sandboxing သို့မဟုတ် tool allow/deny မူဝါဒများ လိုအပ်သည့်အခါ"
 status: active
 ---
 

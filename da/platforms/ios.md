@@ -1,9 +1,4 @@
 ---
-summary: "iOS-nodeapp: forbindelse til Gateway, parring, canvas og fejlfinding"
-read_when:
-  - Parring eller genforbindelse af iOS-noden
-  - Kørsel af iOS-appen fra kildekode
-  - Fejlfinding af gateway-discovery eller canvas-kommandoer
 title: "iOS-app"
 ---
 

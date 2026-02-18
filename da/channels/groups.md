@@ -1,7 +1,4 @@
 ---
-summary: "Gruppechat-adfærd på tværs af overflader (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
-read_when:
-  - Ændring af gruppechat-adfærd eller mention-gating
 title: "Grupper"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Yükseltilmiş exec modu ve /elevated yönergeleri"
-read_when:
-  - Yükseltilmiş mod varsayılanlarını, izin listelerini veya slash komutu davranışını ayarlarken
 title: "Elevated Modu"
 ---
 

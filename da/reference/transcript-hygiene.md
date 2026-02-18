@@ -1,9 +1,4 @@
 ---
-summary: "Reference: udbyderspecifik sanitering og reparationsregler for transskripter"
-read_when:
-  - Du fejlretter udbyderafvisninger af forespørgsler, der er knyttet til transskriptets form
-  - Du ændrer sanitering af transskripter eller logik for reparation af tool-calls
-  - Du undersøger mismatches af tool-call-id’er på tværs af udbydere
 title: "Transskript-hygiejne"
 ---
 

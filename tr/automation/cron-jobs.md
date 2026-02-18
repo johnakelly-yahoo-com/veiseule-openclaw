@@ -1,9 +1,4 @@
 ---
-summary: "Gateway zamanlayıcısı için cron işleri + uyandırmalar"
-read_when:
-  - Arka plan işleri veya uyandırmalar zamanlanırken
-  - Kalp atışlarıyla birlikte ya da onların yanında çalışması gereken otomasyon bağlanırken
-  - Zamanlanmış görevler için heartbeat ile cron arasında karar verilirken
 title: "Cron İşleri"
 ---
 

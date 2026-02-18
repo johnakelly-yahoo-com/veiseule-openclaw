@@ -1,9 +1,4 @@
 ---
-summary: "web_fetch 를 위한 Firecrawl 폴백(안티 봇 + 캐시된 추출)"
-read_when:
-  - Firecrawl 기반 웹 추출을 원할 때
-  - Firecrawl API 키가 필요할 때
-  - web_fetch 를 위한 안티 봇 추출이 필요할 때
 title: "Firecrawl"
 ---
 

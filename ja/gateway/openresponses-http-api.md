@@ -1,8 +1,4 @@
 ---
-summary: "Gateway（ゲートウェイ）から OpenResponses 互換の /v1/responses HTTP エンドポイントを公開します"
-read_when:
-  - OpenResponses API を話すクライアントを統合する場合
-  - アイテムベースの入力、クライアントツール呼び出し、または SSE イベントが必要な場合
 title: "OpenResponses API"
 ---
 

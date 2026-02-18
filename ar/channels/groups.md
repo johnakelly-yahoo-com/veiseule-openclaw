@@ -1,7 +1,4 @@
 ---
-summary: "سلوك الدردشة الجماعية عبر الأسطح المختلفة (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
-read_when:
-  - تغيير سلوك الدردشة الجماعية أو بوابة الإشارات (mentions)
 title: "المجموعات"
 ---
 

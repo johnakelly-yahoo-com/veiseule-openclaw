@@ -1,9 +1,4 @@
----
-summary: "Notatki dotyczące narzędzi agenta deweloperskiego (C-3PO)"
-read_when:
-  - Korzystanie z szablonów gateway deweloperskiego
-  - Aktualizowanie domyślnej tożsamości agenta deweloperskiego
----
+------
 
 # TOOLS.md - Notatki użytkownika dotyczące narzędzi (edytowalne)
 

@@ -1,9 +1,4 @@
 ---
-summary: "Настройка Moonshot K2 vs Kimi Coding (отдельные провайдеры и ключи)"
-read_when:
-  - Вам нужна настройка Moonshot K2 (Moonshot Open Platform) vs Kimi Coding
-  - Вам нужно понять различия отдельных эндпоинтов, ключей и ссылок на модели
-  - Вам нужен конфиг для копирования/вставки для любого провайдера
 title: "Moonshot AI"
 ---
 

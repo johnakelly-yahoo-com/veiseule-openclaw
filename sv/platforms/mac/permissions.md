@@ -1,9 +1,4 @@
 ---
-summary: "Beständighet för macOS-behörigheter (TCC) och krav på signering"
-read_when:
-  - Felsökning av saknade eller fastnade macOS-behörighetsprompter
-  - Paketering eller signering av macOS-appen
-  - Ändring av bundle-ID eller appens installationssökvägar
 title: "macOS-behörigheter"
 ---
 

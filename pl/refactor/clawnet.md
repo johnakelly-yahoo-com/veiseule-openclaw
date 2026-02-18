@@ -1,8 +1,4 @@
 ---
-summary: "Refaktoryzacja Clawnet: ujednolicenie protokołu sieciowego, ról, uwierzytelniania, zatwierdzeń i tożsamości"
-read_when:
-  - Planowanie ujednoliconego protokołu sieciowego dla węzłów + klientów operatora
-  - Przebudowa zatwierdzeń, parowania, TLS i obecności między urządzeniami
 title: "Refaktoryzacja Clawnet"
 ---
 

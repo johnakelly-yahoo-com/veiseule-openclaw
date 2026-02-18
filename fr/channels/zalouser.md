@@ -1,8 +1,4 @@
 ---
-summary: "Prise en charge des comptes personnels Zalo via zca-cli (connexion par QR), fonctionnalites et configuration"
-read_when:
-  - Configuration de Zalo Personal pour OpenClaw
-  - Depannage de la connexion ou du flux de messages Zalo Personal
 title: "Zalo Personal"
 ---
 

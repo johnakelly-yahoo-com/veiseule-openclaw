@@ -1,9 +1,4 @@
 ---
-summary: "Narzędzia debugowania: tryb watch, surowe strumienie modelu i śledzenie wycieków rozumowania"
-read_when:
-  - Musisz sprawdzić surowe wyjście modelu pod kątem wycieków rozumowania
-  - Chcesz uruchomić Gateway w trybie watch podczas iteracji
-  - Potrzebujesz powtarzalnego procesu debugowania
 title: "Debugowanie"
 ---
 

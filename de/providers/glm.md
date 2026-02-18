@@ -1,8 +1,4 @@
 ---
-summary: "„Überblick über die GLM-Modellfamilie + Nutzung in OpenClaw“"
-read_when:
-  - Sie möchten GLM-Modelle in OpenClaw verwenden
-  - Sie benötigen die Modellbenennungskonvention und das Setup
 title: "„GLM-Modelle“"
 ---
 

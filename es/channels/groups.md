@@ -1,7 +1,4 @@
 ---
-summary: "Comportamiento del chat grupal en distintas superficies (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
-read_when:
-  - Cambiar el comportamiento del chat grupal o el control por menciones
 title: "Grupos"
 ---
 

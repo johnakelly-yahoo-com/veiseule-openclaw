@@ -1,7 +1,4 @@
 ---
-summary: "Comment le Gateway (passerelle), les nœuds et l’hôte du canvas se connectent."
-read_when:
-  - Vous voulez une vue concise du modele reseau du Gateway
 title: "Modele reseau"
 ---
 

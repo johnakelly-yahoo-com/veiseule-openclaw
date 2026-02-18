@@ -1,7 +1,4 @@
 ---
-summary: "Étapes de signature pour les builds de débogage macOS générés par les scripts de packaging"
-read_when:
-  - Création ou signature de builds mac de débogage
 title: "Signature macOS"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw dns` के लिए CLI संदर्भ (वाइड-एरिया डिस्कवरी सहायक)"
-read_when:
-  - आप Tailscale + CoreDNS के माध्यम से वाइड-एरिया डिस्कवरी (DNS-SD) चाहते हैं
-  - You’re setting up split DNS for a custom discovery domain (example: openclaw.internal)
 title: "dns"
 ---
 

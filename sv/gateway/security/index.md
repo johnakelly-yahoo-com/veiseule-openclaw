@@ -1,7 +1,4 @@
 ---
-summary: "Säkerhetsöverväganden och hotmodell för att köra en AI-gateway med skalåtkomst"
-read_when:
-  - Lägger till funktioner som breddar åtkomst eller automatisering
 title: "Säkerhet"
 ---
 

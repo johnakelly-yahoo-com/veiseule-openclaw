@@ -1,11 +1,6 @@
 ---
 title: Lobster
-summary: "Getypte workflowruntime voor OpenClaw met hervatbare goedkeuringspoorten."
-description: Getypte workflowruntime voor OpenClaw — composeerbare pijplijnen met goedkeuringspoorten.
-read_when:
-  - Je wilt deterministische meerstapsworkflows met expliciete goedkeuringen
-  - Je moet een workflow kunnen hervatten zonder eerdere stappen opnieuw uit te voeren
----
+description: Getypte workflowruntime voor OpenClaw — composeerbare pijplijnen met goedkeuringspoorten.---
 
 # Lobster
 

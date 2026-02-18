@@ -1,9 +1,4 @@
 ---
-summary: "Geïntegreerde browserbesturingsservice + actieopdrachten"
-read_when:
-  - Browserautomatisering toevoegen die door een agent wordt bestuurd
-  - Debuggen waarom OpenClaw interfereert met je eigen Chrome
-  - Browserinstellingen + levenscyclus implementeren in de macOS-app
 title: "Browser (door OpenClaw beheerd)"
 ---
 

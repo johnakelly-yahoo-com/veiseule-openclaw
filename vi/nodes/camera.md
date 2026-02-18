@@ -1,8 +1,4 @@
 ---
-summary: "Chụp camera (node iOS + ứng dụng macOS) để tác tử sử dụng: ảnh (jpg) và clip video ngắn (mp4)"
-read_when:
-  - Thêm hoặc chỉnh sửa chụp camera trên node iOS hoặc macOS
-  - Mở rộng các quy trình MEDIA tệp tạm cho tác tử truy cập
 title: "Chụp Camera"
 ---
 

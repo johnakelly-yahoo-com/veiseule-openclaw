@@ -1,8 +1,4 @@
 ---
-summary: "Repository 腳本：用途、範圍與安全注意事項"
-read_when:
-  - 從 repo 執行腳本
-  - 在 ./scripts 底下新增或變更腳本時
 title: "腳本"
 ---
 

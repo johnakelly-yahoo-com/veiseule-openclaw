@@ -1,8 +1,4 @@
 ---
-summary: "Loggningsytor, filloggar, WS-loggstilar och konsolformatering"
-read_when:
-  - Ändrar loggningsutdata eller format
-  - Felsöker CLI- eller gateway-utdata
 title: "Loggning"
 ---
 

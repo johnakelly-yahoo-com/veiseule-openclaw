@@ -1,7 +1,4 @@
 ---
-summary: "WebSocket-gatewayarkitektur, komponenter og klientflows"
-read_when:
-  - Arbejder med gateway-protokol, klienter eller transporter
 title: "Gateway-arkitektur"
 ---
 

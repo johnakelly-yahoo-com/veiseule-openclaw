@@ -1,8 +1,4 @@
 ---
-summary: "Поддержка устаревшего iMessage через imsg (JSON-RPC через stdio). Для новых установок следует использовать BlueBubbles."
-read_when:
-  - Настройка поддержки iMessage
-  - Отладка отправки/приёма iMessage
 title: iMessage
 ---
 

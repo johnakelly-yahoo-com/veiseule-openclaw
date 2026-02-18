@@ -1,8 +1,4 @@
 ---
-summary: "SOUL Evil hook'u (SOUL.md dosyasını SOUL_EVIL.md ile değiştirir)"
-read_when:
-  - SOUL Evil hook'unu etkinleştirmek veya ayarlamak istiyorsanız
-  - Bir purge penceresi veya rastgele olasılıkla persona değişimi istiyorsanız
 title: "SOUL Kötü Kanca"
 ---
 

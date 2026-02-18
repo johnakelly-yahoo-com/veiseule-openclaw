@@ -1,8 +1,4 @@
 ---
-summary: "完整解除安裝 OpenClaw（CLI、服務、狀態、工作區）"
-read_when:
-  - 你想要從一台機器移除 OpenClaw
-  - 解除安裝後 Gateway 閘道器服務仍在執行
 title: "解除安裝"
 ---
 

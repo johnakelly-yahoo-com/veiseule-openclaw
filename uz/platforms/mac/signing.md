@@ -1,7 +1,4 @@
 ---
-summary: "Paketlash skriptlari tomonidan yaratilgan macOS debug build’larini imzolash bosqichlari"
-read_when:
-  - Building or signing mac debug builds
 title: "macOS uchun imzolash"
 ---
 

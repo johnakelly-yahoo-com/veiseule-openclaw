@@ -1,8 +1,4 @@
 ---
-summary: "Giao diện người dùng Terminal (TUI): kết nối tới Gateway từ bất kỳ máy nào"
-read_when:
-  - Bạn muốn một hướng dẫn thân thiện cho người mới về TUI
-  - Bạn cần danh sách đầy đủ các tính năng, lệnh và phím tắt của TUI
 title: "TUI"
 ---
 

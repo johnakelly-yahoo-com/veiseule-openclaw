@@ -1,8 +1,4 @@
 ---
-summary: "Context window + compaction: how OpenClaw keeps sessions under model limits"
-read_when:
-  - You want to understand auto-compaction and /compact
-  - You are debugging long sessions hitting context limits
 title: "Compaction"
 ---
 

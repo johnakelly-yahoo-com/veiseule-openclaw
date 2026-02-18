@@ -1,9 +1,4 @@
 ---
-summary: "整合式瀏覽器控制服務 + 動作指令"
-read_when:
-  - 新增由代理程式控制的瀏覽器自動化
-  - 疑難排解為何 OpenClaw 正在干擾你自己的 Chrome
-  - 在 macOS 應用程式中實作瀏覽器設定與生命週期
 title: "瀏覽器（由 OpenClaw 管理）"
 ---
 

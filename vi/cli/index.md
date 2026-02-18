@@ -1,8 +1,4 @@
 ---
-summary: "Tài liệu tham chiếu CLI OpenClaw cho các lệnh, lệnh con và tùy chọn của `openclaw`"
-read_when:
-  - Thêm hoặc sửa đổi các lệnh hoặc tùy chọn CLI
-  - Ghi tài liệu cho các bề mặt lệnh mới
 title: "Tham chiếu CLI"
 ---
 

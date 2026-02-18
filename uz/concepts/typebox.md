@@ -1,7 +1,4 @@
 ---
-summary: "9. Gateway protokoli uchun yagona haqiqat manbai sifatida TypeBox sxemalari"
-read_when:
-  - 10. Protokol sxemalarini yoki codegenni yangilash
 title: "11. TypeBox"
 ---
 

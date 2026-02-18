@@ -1,8 +1,4 @@
 ---
-summary: "LLM-taken met alleen JSON voor workflows (optionele plugin-tool)"
-read_when:
-  - Je wilt een LLM-stap met alleen JSON binnen workflows
-  - Je hebt schema-gevalideerde LLM-uitvoer nodig voor automatisering
 title: "LLM-taak"
 ---
 

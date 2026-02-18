@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw devices` (apparaatkoppeling + tokenrotatie/-intrekking)"
-read_when:
-  - Je keurt verzoeken voor apparaatkoppeling goed
-  - Je moet apparaattokens roteren of intrekken
 title: "apparaten"
 ---
 

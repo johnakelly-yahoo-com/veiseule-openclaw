@@ -1,9 +1,4 @@
 ---
-summary: "CLI onboarding wizard အတွက် အပြည့်အစုံ ကိုးကားချက် — အဆင့်တိုင်း၊ flag တိုင်းနှင့် config field တိုင်း"
-read_when:
-  - Wizard အဆင့်တစ်ခု သို့မဟုတ် flag တစ်ခုကို အထူးရှာဖွေကြည့်လိုသောအခါ
-  - Non-interactive mode ဖြင့် onboarding ကို အလိုအလျောက်လုပ်ဆောင်လိုသောအခါ
-  - Wizard အပြုအမူကို debug လုပ်နေသောအခါ
 title: "Onboarding Wizard အညွှန်း"
 sidebarTitle: "Wizard အညွှန်း"
 ---

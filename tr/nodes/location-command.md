@@ -1,8 +1,4 @@
 ---
-summary: "Düğümler için konum komutu (location.get), izin modları ve arka plan davranışı"
-read_when:
-  - Konum düğümü desteği veya izinler UI'si eklerken
-  - Arka plan konumu + push akışları tasarlarken
 title: "Konum Komutu"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "RPC を介した Gateway（ゲートウェイ）のヘルスエンドポイント向けの `openclaw health` の CLI リファレンス"
-read_when:
-  - 実行中の Gateway（ゲートウェイ）のヘルスをすばやく確認したい場合
 title: "ヘルス"
 ---
 

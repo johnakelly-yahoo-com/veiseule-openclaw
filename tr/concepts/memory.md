@@ -1,9 +1,4 @@
----
-summary: "OpenClaw belleğinin nasıl çalıştığı (çalışma alanı dosyaları + otomatik bellek boşaltma)"
-read_when:
-  - Bellek dosyası düzenini ve iş akışını istiyorsanız
-  - Otomatik ön-sıkıştırma bellek boşaltmasını ayarlamak istiyorsanız
----
+------
 
 # Bellek
 

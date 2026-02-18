@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw’ni shaxsiy yordamchi sifatida ishga tushirish bo‘yicha boshidan oxirigacha qo‘llanma va xavfsizlik ogohlantirishlari"
-read_when:
-  - Yangi yordamchi instansiyasini sozlashda
-  - Xavfsizlik/ruxsat oqibatlarini ko‘rib chiqishda
 title: "Shaxsiy yordamchini sozlash"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "CLI-Onboarding-Assistent: geführte Einrichtung für Gateway, Workspace, Kanäle und Skills"
-read_when:
-  - Beim Ausführen oder Konfigurieren des Onboarding-Assistenten
-  - Beim Einrichten einer neuen Maschine
 title: "Onboarding-Assistent (CLI)"
 sidebarTitle: "Einführung: CLI"
 ---

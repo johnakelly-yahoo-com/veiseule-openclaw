@@ -1,7 +1,4 @@
 ---
-summary: "Execuções diretas do CLI `openclaw agent` (com entrega opcional)"
-read_when:
-  - Ao adicionar ou modificar o entrypoint do CLI do agente
 title: "Envio do Agente"
 ---
 

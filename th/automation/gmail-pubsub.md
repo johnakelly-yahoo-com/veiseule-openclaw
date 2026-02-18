@@ -1,8 +1,4 @@
 ---
-summary: "การเชื่อมต่อ Gmail Pub/Sub push เข้ากับเว็บฮุคของ OpenClaw ผ่าน gogcli"
-read_when:
-  - การเชื่อมทริกเกอร์กล่องจดหมาย Gmail เข้ากับ OpenClaw
-  - การตั้งค่า Pub/Sub push สำหรับปลุกเอเจนต์
 title: "Gmail PubSub"
 ---
 

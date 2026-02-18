@@ -1,8 +1,4 @@
 ---
-summary: "„Bun-Workflow (experimentell): Installation und Fallstricke im Vergleich zu pnpm“"
-read_when:
-  - Sie möchten den schnellsten lokalen Entwicklungszyklus (bun + watch)
-  - Sie stoßen auf Probleme bei Bun-Installation/Patching/Lifecycle-Skripten
 title: "„Bun (Experimentell)“"
 ---
 

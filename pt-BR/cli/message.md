@@ -1,8 +1,4 @@
 ---
-summary: "Referência da CLI para `openclaw message` (envio + ações de canal)"
-read_when:
-  - Adicionar ou modificar ações da CLI de mensagens
-  - Alterar o comportamento de canais de saída
 title: "message"
 ---
 

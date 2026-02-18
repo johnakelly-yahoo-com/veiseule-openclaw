@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw installeren — installatiescript, npm/pnpm, vanaf de bron, Docker en meer"
-read_when:
-  - Je hebt een installatiemethode nodig anders dan de Aan de slag-snelstart
-  - Je wilt implementeren op een cloudplatform
-  - Je moet bijwerken, migreren of verwijderen
 title: "Installeren"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Debugging ကိရိယာများ — watch mode၊ raw model stream များနှင့် reasoning leakage ကို ခြေရာခံခြင်း"
-read_when:
-  - reasoning leakage ကို စစ်ဆေးရန် raw model output ကို ကြည့်ရှုလိုအပ်သောအခါ
-  - အပြောင်းအလဲလုပ်နေစဉ် Gateway（ဂိတ်ဝေး）ကို watch mode ဖြင့် လည်ပတ်စေလိုသောအခါ
-  - ပြန်လည်လုပ်ဆောင်နိုင်သော debugging workflow တစ်ခု လိုအပ်သောအခါ
 title: "ဒီဘာဂင်"
 ---
 

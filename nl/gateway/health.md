@@ -1,7 +1,4 @@
 ---
-summary: "Stappen voor gezondheidscontroles voor kanaalconnectiviteit"
-read_when:
-  - Diagnose van de gezondheid van het WhatsApp-kanaal
 title: "Gezondheidscontroles"
 ---
 

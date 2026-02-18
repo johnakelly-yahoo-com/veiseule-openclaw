@@ -1,7 +1,4 @@
 ---
-summary: "Trạng thái hỗ trợ, khả năng và cấu hình ứng dụng Google Chat"
-read_when:
-  - Làm việc với các tính năng kênh Google Chat
 title: "Google Chat"
 ---
 

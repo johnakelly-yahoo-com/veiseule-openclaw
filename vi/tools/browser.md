@@ -1,9 +1,4 @@
 ---
-summary: "Dịch vụ điều khiển trình duyệt tích hợp + các lệnh hành động"
-read_when:
-  - Thêm tự động hóa trình duyệt do tác tử điều khiển
-  - Gỡ lỗi vì sao openclaw can thiệp vào Chrome của bạn
-  - Triển khai cài đặt trình duyệt + vòng đời trong ứng dụng macOS
 title: "Trình duyệt (do OpenClaw quản lý)"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "LINE Messaging API eklenti kurulumu, yapılandırması ve kullanımı"
-read_when:
-  - OpenClaw’ı LINE’a bağlamak istiyorsunuz
-  - LINE webhook + kimlik bilgisi kurulumuna ihtiyacınız var
-  - LINE’a özgü mesaj seçeneklerini istiyorsunuz
 title: LINE
 ---
 

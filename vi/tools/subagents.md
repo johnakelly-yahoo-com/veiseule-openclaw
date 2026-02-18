@@ -1,8 +1,4 @@
 ---
-summary: "Sub-agent: tạo các lần chạy tác tử cô lập chạy song song và thông báo kết quả về chat yêu cầu"
-read_when:
-  - Bạn muốn thực hiện công việc nền/song song thông qua tác tử
-  - Bạn đang thay đổi sessions_spawn hoặc chính sách công cụ sub-agent
 title: "Tác tử phụ"
 ---
 

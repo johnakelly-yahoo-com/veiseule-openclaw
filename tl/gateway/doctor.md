@@ -1,8 +1,4 @@
 ---
-summary: "Doctor command: mga health check, config migration, at mga hakbang sa pag-aayos"
-read_when:
-  - Pagdaragdag o pagbabago ng mga doctor migration
-  - Pagpapakilala ng mga breaking na pagbabago sa config
 title: "Doktor"
 ---
 

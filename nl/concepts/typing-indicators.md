@@ -1,7 +1,4 @@
 ---
-summary: "Wanneer OpenClaw typindicatoren toont en hoe je ze afstemt"
-read_when:
-  - Het gedrag of de standaardwaarden van typindicatoren wijzigen
 title: "Typindicatoren"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Настройка Perplexity Sonar для web_search"
-read_when:
-  - Вам нужно использовать Perplexity Sonar для веб-поиска
-  - Вам нужен PERPLEXITY_API_KEY или настройка OpenRouter
 title: "Perplexity Sonar"
 ---
 

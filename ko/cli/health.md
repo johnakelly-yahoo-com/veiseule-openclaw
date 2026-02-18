@@ -1,7 +1,4 @@
 ---
-summary: "RPC 를 통해 실행 중인 Gateway(게이트웨이) 의 상태를 확인하는 `openclaw health` CLI 참조"
-read_when:
-  - 실행 중인 Gateway(게이트웨이) 의 상태를 빠르게 확인하려는 경우
 title: "health"
 ---
 

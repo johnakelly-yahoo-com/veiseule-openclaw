@@ -1,9 +1,5 @@
 ---
-read_when:
-  - 配置广播群组
-  - 调试 WhatsApp 中的多智能体回复
 status: experimental
-summary: 向多个智能体广播 WhatsApp 消息
 title: 广播群组
 x-i18n:
   generated_at: "2026-02-03T07:43:43Z"

@@ -1,9 +1,4 @@
 ---
-summary: "Cách các mục presence của OpenClaw được tạo ra, hợp nhất và hiển thị"
-read_when:
-  - Gỡ lỗi tab Instances
-  - Điều tra các dòng instance bị trùng lặp hoặc lỗi thời
-  - Thay đổi kết nối WS của gateway hoặc các beacon sự kiện hệ thống
 title: "Hiện diện"
 ---
 

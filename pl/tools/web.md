@@ -1,9 +1,4 @@
 ---
-summary: "Narzędzia wyszukiwania i pobierania z sieci (Brave Search API, Perplexity direct/OpenRouter)"
-read_when:
-  - Chcesz włączyć web_search lub web_fetch
-  - Potrzebujesz konfiguracji klucza API Brave Search
-  - Chcesz używać Perplexity Sonar do wyszukiwania w sieci
 title: "Narzędzia webowe"
 ---
 

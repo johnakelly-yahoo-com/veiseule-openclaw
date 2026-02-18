@@ -1,8 +1,4 @@
 ---
-summary: "Tham chiếu CLI cho `openclaw dns` (các trợ giúp khám phá phạm vi rộng)"
-read_when:
-  - Bạn muốn khám phá phạm vi rộng (DNS-SD) qua Tailscale + CoreDNS
-  - You’re setting up split DNS for a custom discovery domain (example: openclaw.internal)
 title: "dns"
 ---
 

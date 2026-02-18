@@ -1,7 +1,4 @@
 ---
-summary: "grammY 를 통한 Telegram Bot API 통합과 설정 참고 사항"
-read_when:
-  - Telegram 또는 grammY 경로를 작업할 때
 title: grammY
 ---
 

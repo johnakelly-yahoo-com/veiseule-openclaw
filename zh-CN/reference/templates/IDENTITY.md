@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 手动引导工作区
-summary: 智能体身份记录
 x-i18n:
   generated_at: "2026-02-01T21:37:32Z"
   model: claude-opus-4-5

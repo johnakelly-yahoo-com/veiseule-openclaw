@@ -1,7 +1,4 @@
 ---
-summary: "”Hur macOS-appen rapporterar hälsotillstånd för gateway/Baileys”"
-read_when:
-  - Felsökning av hälsindikatorer i macOS-appen
 title: "”Hälsokontroller”"
 ---
 

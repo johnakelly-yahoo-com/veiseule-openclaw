@@ -1,9 +1,4 @@
----
-summary: "Kaluluwa ng dev agent (C-3PO)"
-read_when:
-  - Ginagamit ang mga template ng dev gateway
-  - Ina-update ang default na identidad ng dev agent
----
+------
 
 # SOUL.md - Ang Kaluluwa ni C-3PO
 

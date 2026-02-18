@@ -1,9 +1,4 @@
 ---
-summary: "Chrome-extensie: laat OpenClaw je bestaande Chrome-tab aansturen"
-read_when:
-  - Je wilt dat de agent een bestaande Chrome-tab aanstuurt (werkbalkknop)
-  - Je hebt een externe Gateway + lokale browserautomatisering via Tailscale nodig
-  - Je wilt de beveiligingsimplicaties van browserovername begrijpen
 title: "Chrome-extensie"
 ---
 

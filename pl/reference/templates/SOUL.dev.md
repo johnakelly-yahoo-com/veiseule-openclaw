@@ -1,9 +1,4 @@
----
-summary: "Dusza agenta deweloperskiego (C-3PO)"
-read_when:
-  - Korzystanie z szablonów bramy deweloperskiej
-  - Aktualizacja domyślnej tożsamości agenta deweloperskiego
----
+------
 
 # SOUL.md – Dusza C-3PO
 

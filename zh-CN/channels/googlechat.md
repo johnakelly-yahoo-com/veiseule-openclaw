@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 开发 Google Chat 渠道功能时
-summary: Google Chat 应用支持状态、功能和配置
 title: Google Chat
 x-i18n:
   generated_at: "2026-02-03T07:43:39Z"

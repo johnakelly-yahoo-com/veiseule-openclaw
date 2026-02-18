@@ -1,7 +1,4 @@
 ---
-summary: "Status wsparcia bota Telegram, możliwości i konfiguracja"
-read_when:
-  - Prace nad funkcjami Telegram lub webhookami
 title: "Telegram"
 ---
 

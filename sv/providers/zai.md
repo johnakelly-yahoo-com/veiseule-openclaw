@@ -1,8 +1,4 @@
 ---
-summary: "Använd Z.AI (GLM-modeller) med OpenClaw"
-read_when:
-  - Du vill använda Z.AI / GLM-modeller i OpenClaw
-  - Du behöver en enkel ZAI_API_KEY-konfigurering
 title: "Z.AI"
 ---
 

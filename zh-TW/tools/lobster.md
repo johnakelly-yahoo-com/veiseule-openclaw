@@ -1,11 +1,6 @@
 ---
 title: Lobster
-summary: "為 OpenClaw 打造的具型別工作流程執行環境，支援可恢復的審批關卡。"
-description: 適用於 OpenClaw 的型別化工作流程執行階段 — 具備核准關卡的可組合管線。
-read_when:
-  - You want deterministic multi-step workflows with explicit approvals
-  - 你需要在不重新執行先前步驟的情況下恢復工作流程
----
+description: 適用於 OpenClaw 的型別化工作流程執行階段 — 具備核准關卡的可組合管線。---
 
 # Lobster
 

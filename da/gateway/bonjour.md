@@ -1,8 +1,4 @@
 ---
-summary: "Bonjour/mDNS-discovery + fejlfinding (Gateway-beacons, klienter og almindelige fejltilstande)"
-read_when:
-  - Fejlfinding af Bonjour-discovery-problemer på macOS/iOS
-  - Ændring af mDNS-servicetyper, TXT-poster eller discovery-UX
 title: "Bonjour-discovery"
 ---
 

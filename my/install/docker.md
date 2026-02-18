@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw အတွက် Docker အခြေခံ တပ်ဆင်ခြင်းနှင့် စတင်မိတ်ဆက်ခြင်း (ရွေးချယ်နိုင်)"
-read_when:
-  - ဒေသတွင်း ထည့်သွင်းမှုများအစား containerized Gateway ကို လိုအပ်ပါက
-  - Docker flow ကို စစ်ဆေးအတည်ပြုလိုပါက
 title: "Docker"
 ---
 

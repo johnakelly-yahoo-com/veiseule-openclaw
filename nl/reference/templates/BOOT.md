@@ -1,8 +1,4 @@
----
-summary: "Werkruimtesjabloon voor BOOT.md"
-read_when:
-  - Een BOOT.md-checklist toevoegen
----
+------
 
 # BOOT.md
 

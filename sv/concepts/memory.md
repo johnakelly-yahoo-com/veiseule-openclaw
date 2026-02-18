@@ -1,9 +1,4 @@
----
-summary: "Hur OpenClaw-minne fungerar (arbetsytans filer + automatisk minnesspolning)"
-read_when:
-  - Du vill ha filstrukturen och arbetsflödet för minne
-  - Du vill finjustera den automatiska förkompakterings-spolningen av minne
----
+------
 
 # Minne
 

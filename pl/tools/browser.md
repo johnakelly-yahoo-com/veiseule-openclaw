@@ -1,9 +1,4 @@
 ---
-summary: "„Zintegrowana usługa sterowania przeglądarką + polecenia akcji”"
-read_when:
-  - Dodawanie automatyzacji przeglądarki sterowanej przez agenta
-  - Diagnozowanie, dlaczego OpenClaw ingeruje w Twoją własną przeglądarkę Chrome
-  - Implementacja ustawień przeglądarki i cyklu życia w aplikacji na macOS
 title: "„Przeglądarka (zarządzana przez OpenClaw)”"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Stable, beta va dev kanallari: semantika, almashtirish va teglash"
-read_when:
-  - You want to switch between stable/beta/dev
-  - You are tagging or publishing prereleases
 title: "Rivojlantirish kanallari"
 ---
 

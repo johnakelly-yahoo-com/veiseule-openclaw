@@ -1,9 +1,4 @@
 ---
-summary: "Android 앱 (노드): 연결 런북 + Canvas/Chat/Camera"
-read_when:
-  - Android 노드 페어링 또는 재연결 시
-  - Android Gateway(게이트웨이) 디바이스 검색 또는 인증 디버깅 시
-  - 클라이언트 간 채팅 기록 일치 여부 검증 시
 title: "Android 앱"
 ---
 

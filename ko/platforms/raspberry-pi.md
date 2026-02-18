@@ -1,9 +1,4 @@
 ---
-summary: "Raspberry Pi에서 OpenClaw 실행 (저예산 셀프 호스팅 설정)"
-read_when:
-  - Raspberry Pi에서 OpenClaw 설정하기
-  - ARM 디바이스에서 OpenClaw 실행하기
-  - 저렴한 상시 실행 개인 AI 구축하기
 title: "Raspberry Pi"
 ---
 

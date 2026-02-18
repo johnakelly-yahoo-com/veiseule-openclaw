@@ -1,8 +1,4 @@
 ---
-summary: "Installez OpenClaw et lancez votre premier chat en quelques minutes."
-read_when:
-  - Premiere installation a partir de zero
-  - Vous voulez le chemin le plus rapide vers un chat fonctionnel
 title: "Premiers pas"
 ---
 

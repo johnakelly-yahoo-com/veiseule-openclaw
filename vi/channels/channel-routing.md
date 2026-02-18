@@ -1,7 +1,4 @@
 ---
-summary: "Quy tắc định tuyến theo từng kênh (WhatsApp, Telegram, Discord, Slack) và ngữ cảnh dùng chung"
-read_when:
-  - Thay đổi định tuyến kênh hoặc hành vi hộp thư
 title: "Định tuyến kênh"
 ---
 

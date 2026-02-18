@@ -1,7 +1,4 @@
 ---
-summary: "Loopback WebChat स्थिर होस्ट और चैट UI के लिए Gateway WS उपयोग"
-read_when:
-  - WebChat एक्सेस को डीबग या कॉन्फ़िगर करते समय
 title: "WebChat"
 ---
 

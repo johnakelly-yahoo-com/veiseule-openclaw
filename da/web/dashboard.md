@@ -1,7 +1,4 @@
 ---
-summary: "Adgang og autentificering til Gateway-dashboardet (Control UI)"
-read_when:
-  - Ændring af autentificering eller eksponeringsmetoder for dashboardet
 title: "Kontrolpanel"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Kamerainspelning (iOS-nod + macOS-app) för agentanvändning: foton (jpg) och korta videoklipp (mp4)"
-read_when:
-  - Lägger till eller ändrar kamerainspelning på iOS-noder eller macOS
-  - Utökar agentåtkomliga MEDIA-arbetsflöden med temporära filer
 title: "Kamerainspelning"
 ---
 

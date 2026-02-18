@@ -1,8 +1,4 @@
 ---
-summary: "Patakbuhin ang OpenClaw Gateway sa exe.dev (VM + HTTPS proxy) para sa remote access"
-read_when:
-  - Gusto mo ng murang laging-on na Linux host para sa Gateway
-  - Gusto mo ng remote Control UI access nang hindi nagpapatakbo ng sarili mong VPS
 title: "exe.dev"
 ---
 

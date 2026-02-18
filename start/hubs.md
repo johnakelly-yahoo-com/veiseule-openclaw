@@ -1,7 +1,4 @@
 ---
-summary: "Hubs that link to every OpenClaw doc"
-read_when:
-  - You want a complete map of the documentation
 title: "Docs Hubs"
 ---
 

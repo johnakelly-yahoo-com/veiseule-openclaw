@@ -1,8 +1,4 @@
 ---
-summary: "Retrybeleid voor uitgaande provider-aanroepen"
-read_when:
-  - Bijwerken van provider-retrygedrag of -standaardwaarden
-  - Debuggen van provider-verzendfouten of snelheidslimieten
 title: "Retrybeleid"
 ---
 

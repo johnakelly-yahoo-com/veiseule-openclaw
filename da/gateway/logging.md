@@ -1,8 +1,4 @@
 ---
-summary: "Logningsflader, fillogs, WS-logstile og konsolformatering"
-read_when:
-  - Ændring af logningsoutput eller -formater
-  - Fejlfinding af CLI- eller gateway-output
 title: "Logning"
 ---
 

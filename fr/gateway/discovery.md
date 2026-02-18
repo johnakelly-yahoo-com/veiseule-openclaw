@@ -1,9 +1,4 @@
 ---
-summary: "Decouverte des nœuds et transports (Bonjour, Tailscale, SSH) pour trouver la passerelle"
-read_when:
-  - Implementation ou modification de la decouverte/publicite Bonjour
-  - Ajustement des modes de connexion distante (direct vs SSH)
-  - Conception de la decouverte des nœuds et de l'appairage pour les nœuds distants
 title: "Decouverte et transports"
 ---
 

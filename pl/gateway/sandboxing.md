@@ -1,7 +1,5 @@
 ---
-summary: "Jak działa sandboxing w OpenClaw: tryby, zakresy, dostęp do obszaru roboczego i obrazy"
 title: "Izolacja w piaskownicy"
-read_when: "Chcesz uzyskać dedykowane wyjaśnienie sandboxingu lub musisz dostroić agents.defaults.sandbox."
 status: active
 ---
 

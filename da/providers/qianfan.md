@@ -1,8 +1,4 @@
 ---
-summary: "Brug Qianfans samlede API til at få adgang til mange modeller i OpenClaw"
-read_when:
-  - Du vil have en enkelt API-nøgle til mange LLM'er
-  - Du har brug for vejledning til opsætning af Baidu Qianfan
 title: "Qianfan"
 ---
 

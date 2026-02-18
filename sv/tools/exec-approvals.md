@@ -1,9 +1,4 @@
 ---
-summary: "Exec-godkännanden, tillåtelselistor och sandbox‑escape‑prompter"
-read_when:
-  - Konfigurering av exec-godkännanden eller tillåtelselistor
-  - Implementering av UX för exec-godkännanden i macOS-appen
-  - Granskning av sandbox‑escape‑prompter och deras konsekvenser
 title: "Exec-godkännanden"
 ---
 

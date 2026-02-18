@@ -1,7 +1,4 @@
 ---
-summary: "Elevated exec mode at mga direktibang /elevated"
-read_when:
-  - Ina-adjust ang mga default ng elevated mode, mga allowlist, o pag-uugali ng slash command
 title: "Pinataas na Mode"
 ---
 

@@ -1,5 +1,4 @@
 ---
-summary: "تعزيز معالجة مدخلات cron.add، ومحاذاة المخططات، وتحسين أدوات واجهة المستخدم/الوكيل الخاصة بـ cron"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"

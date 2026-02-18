@@ -1,9 +1,4 @@
 ---
-summary: "รันไทม์GatewayบนmacOS(บริการlaunchdภายนอก)"
-read_when:
-  - การแพ็กเกจ OpenClaw.app
-  - การดีบักบริการlaunchdของGatewayบนmacOS
-  - การติดตั้งGateway CLIสำหรับmacOS
 title: "GatewayบนmacOS"
 ---
 

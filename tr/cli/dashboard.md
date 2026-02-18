@@ -1,8 +1,4 @@
 ---
-summary: "Mevcut belirtecinizle Kontrol UI’sini açmak için CLI başvurusu"
-read_when:
-  - Mevcut belirtecinizle Kontrol UI’sini açmak istiyorsunuz
-  - Bir tarayıcı başlatmadan URL’yi yazdırmak istiyorsunuz
 title: "kontrol paneli"
 ---
 

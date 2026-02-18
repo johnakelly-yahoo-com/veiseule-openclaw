@@ -1,8 +1,4 @@
 ---
-summary: "Capture de caméra (nœud iOS + app macOS) pour l’utilisation par un agent : photos (jpg) et courtes séquences vidéo (mp4)"
-read_when:
-  - Ajout ou modification de la capture de caméra sur des nœuds iOS ou macOS
-  - Extension des workflows MEDIA en fichiers temporaires accessibles aux agents
 title: "Capture de caméra"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "أدوات البحث على الويب + الجلب (واجهة برمجة تطبيقات Brave Search، وPerplexity مباشر/OpenRouter)"
-read_when:
-  - تريد تمكين web_search أو web_fetch
-  - تحتاج إلى إعداد مفتاح واجهة برمجة تطبيقات Brave Search
-  - تريد استخدام Perplexity Sonar للبحث على الويب
 title: "أدوات الويب"
 ---
 

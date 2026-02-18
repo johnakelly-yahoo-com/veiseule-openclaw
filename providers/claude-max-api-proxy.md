@@ -1,9 +1,4 @@
 ---
-summary: "Use Claude Max/Pro subscription as an OpenAI-compatible API endpoint"
-read_when:
-  - You want to use Claude Max subscription with OpenAI-compatible tools
-  - You want a local API server that wraps Claude Code CLI
-  - You want to save money by using subscription instead of API keys
 title: "Claude Max API Proxy"
 ---
 

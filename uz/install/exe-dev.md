@@ -1,8 +1,4 @@
 ---
-summary: "7. Masofaviy kirish uchun OpenClaw Gateway’ni exe.dev’da (VM + HTTPS proxy) ishga tushiring"
-read_when:
-  - 8. Siz Gateway uchun arzon, doimiy ishlaydigan Linux xost xohlaysiz
-  - 9. O‘zingiz VPS ishga tushirmasdan masofaviy Control UI kirishini xohlaysiz
 title: "10. exe.dev"
 ---
 

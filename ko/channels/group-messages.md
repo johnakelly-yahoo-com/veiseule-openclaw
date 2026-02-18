@@ -1,7 +1,4 @@
 ---
-summary: "WhatsApp 그룹 메시지 처리에 대한 동작과 구성 (mentionPatterns 는 모든 표면에서 공유됨)"
-read_when:
-  - 그룹 메시지 규칙 또는 멘션 변경 시
 title: "그룹 메시지"
 ---
 

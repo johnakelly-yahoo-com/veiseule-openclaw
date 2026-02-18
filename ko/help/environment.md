@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw 가 환경 변수를 로드하는 위치와 우선순위 순서"
-read_when:
-  - You need to know which env vars are loaded, and in what order
-  - Gateway(게이트웨이) 에서 API 키 누락을 디버깅할 때
-  - 프로바이더 인증 또는 배포 환경을 문서화할 때
 title: "환경 변수"
 ---
 

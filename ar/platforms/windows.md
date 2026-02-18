@@ -1,8 +1,4 @@
 ---
-summary: "دعم Windows (WSL2) + حالة التطبيق المُرافِق"
-read_when:
-  - تثبيت OpenClaw على Windows
-  - البحث عن حالة تطبيق Windows المُرافِق
 title: "Windows (WSL2)"
 ---
 

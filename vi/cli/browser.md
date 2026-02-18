@@ -1,9 +1,4 @@
 ---
-summary: "Tham chiếu CLI cho `openclaw browser` (hồ sơ, tab, hành động, chuyển tiếp tiện ích mở rộng)"
-read_when:
-  - Bạn dùng `openclaw browser` và muốn xem ví dụ cho các tác vụ phổ biến
-  - Bạn muốn điều khiển một trình duyệt chạy trên máy khác thông qua một node host
-  - Bạn muốn dùng chuyển tiếp tiện ích mở rộng Chrome (gắn/tách qua nút trên thanh công cụ)
 title: "browser"
 ---
 

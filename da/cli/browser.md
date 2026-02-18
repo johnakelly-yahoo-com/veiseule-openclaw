@@ -1,9 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw browser` (profiler, faner, handlinger, udvidelses-relay)"
-read_when:
-  - Du bruger `openclaw browser` og vil have eksempler på almindelige opgaver
-  - Du vil styre en browser, der kører på en anden maskine via en node-vært
-  - Du vil bruge Chrome-udvidelses-relayet (tilknyt/frakobl via værktøjslinjeknap)
 title: "browser"
 ---
 

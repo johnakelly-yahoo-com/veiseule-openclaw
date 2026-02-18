@@ -1,7 +1,4 @@
 ---
-summary: "Signeringssteg för macOS-felsökningsbyggen som genereras av paketeringsskript"
-read_when:
-  - Bygger eller signerar macOS-felsökningsbyggen
 title: "macOS-signering"
 ---
 

@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想在 OpenClaw 中使用 Z.AI / GLM 模型
-  - 你需要简单的 ZAI_API_KEY 配置
-summary: 在 OpenClaw 中使用智谱 AI（GLM 模型）
 title: Z.AI
 x-i18n:
   generated_at: "2026-02-01T21:36:13Z"

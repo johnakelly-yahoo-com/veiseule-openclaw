@@ -1,8 +1,4 @@
 ---
-summary: "Agent-Workspace: Speicherort, Layout und Backup-Strategie"
-read_when:
-  - Sie müssen den Agent-Workspace oder dessen Dateistruktur erklären
-  - Sie möchten einen Agent-Workspace sichern oder migrieren
 title: "Agent-Workspace"
 ---
 

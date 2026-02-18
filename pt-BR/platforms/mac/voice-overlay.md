@@ -1,7 +1,4 @@
 ---
-summary: "Ciclo de vida do overlay de voz quando palavra de ativação e push-to-talk se sobrepõem"
-read_when:
-  - Ajustando o comportamento do overlay de voz
 title: "Overlay de Voz"
 ---
 

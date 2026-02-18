@@ -1,8 +1,4 @@
 ---
-summary: "Hantering av datum och tid över kuvert, promptar, verktyg och kopplingar"
-read_when:
-  - Du ändrar hur tidsstämplar visas för modellen eller användare
-  - Du felsöker tidsformatering i meddelanden eller i systempromptens utdata
 title: "Datum och tid"
 ---
 

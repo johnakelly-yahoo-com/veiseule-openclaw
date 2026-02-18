@@ -1,9 +1,4 @@
 ---
-summary: "Pipeline de mise en forme Markdown pour les canaux sortants"
-read_when:
-  - Vous modifiez la mise en forme Markdown ou le découpage en segments pour les canaux sortants
-  - Vous ajoutez un nouveau formateur de canal ou un mappage de styles
-  - Vous corrigez des régressions de mise en forme entre les canaux
 title: "Mise en forme Markdown"
 ---
 

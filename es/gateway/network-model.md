@@ -1,7 +1,4 @@
 ---
-summary: "Cómo se conectan el Gateway, los nodos y el host del canvas."
-read_when:
-  - Quiere una vista concisa del modelo de red del Gateway
 title: "Modelo de red"
 ---
 

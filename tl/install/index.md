@@ -1,9 +1,4 @@
 ---
-summary: "I-install ang OpenClaw — installer script, npm/pnpm, mula sa source, Docker, at iba pa"
-read_when:
-  - Kailangan mo ng paraan ng pag-install bukod sa Getting Started quickstart
-  - Gusto mong mag-deploy sa isang cloud platform
-  - Kailangan mong mag-update, mag-migrate, o mag-uninstall
 title: "I-install"
 ---
 

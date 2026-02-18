@@ -1,8 +1,4 @@
 ---
-summary: "Depo betikleri: amaç, kapsam ve güvenlik notları"
-read_when:
-  - 39. Depodan betik çalıştırma
-  - ./scripts altında betik eklerken veya değiştirirken
 title: "40. Betikler"
 ---
 

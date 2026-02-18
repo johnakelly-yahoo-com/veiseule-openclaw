@@ -1,8 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw devices` (enhedsparring + tokenrotation/tilbagekaldelse)"
-read_when:
-  - Du godkender anmodninger om enhedsparring
-  - Du skal rotere eller tilbagekalde enhedstokens
 title: "enheder"
 ---
 

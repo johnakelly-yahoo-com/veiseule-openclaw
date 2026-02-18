@@ -1,9 +1,4 @@
 ---
-summary: "Pipeline de formatação Markdown para canais de saída"
-read_when:
-  - Você está alterando a formatação Markdown ou o chunking para canais de saída
-  - Você está adicionando um novo formatador de canal ou mapeamento de estilo
-  - Você está depurando regressões de formatação entre canais
 title: "Formatação Markdown"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "„Konfiguracja, ustawienia i użycie wtyczki LINE Messaging API”"
-read_when:
-  - Chcesz połączyć OpenClaw z LINE
-  - Potrzebujesz konfiguracji webhooka i poświadczeń LINE
-  - Chcesz używać opcji wiadomości specyficznych dla LINE
 title: LINE
 ---
 

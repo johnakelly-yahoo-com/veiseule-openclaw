@@ -1,7 +1,4 @@
 ---
-summary: "دليل إعداد للمطورين العاملين على تطبيق OpenClaw لنظام macOS"
-read_when:
-  - إعداد بيئة تطوير macOS
 title: "إعداد تطوير macOS"
 ---
 

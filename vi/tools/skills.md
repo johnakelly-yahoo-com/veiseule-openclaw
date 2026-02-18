@@ -1,8 +1,4 @@
 ---
-summary: "Skills: được quản lý so với workspace, quy tắc gating và kết nối config/env"
-read_when:
-  - Thêm hoặc chỉnh sửa skills
-  - Thay đổi gating hoặc quy tắc tải skill
 title: "Kỹ năng"
 ---
 

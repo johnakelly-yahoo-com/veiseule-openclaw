@@ -1,7 +1,5 @@
 ---
-summary: "Sandbox لكل وكيل + قيود الأدوات، الأسبقية، وأمثلة"
 title: Sandbox والأدوات متعددة الوكلاء
-read_when: "عندما تريد sandboxing لكل وكيل أو سياسات سماح/منع أدوات لكل وكيل ضمن Gateway متعدد الوكلاء."
 status: active
 ---
 

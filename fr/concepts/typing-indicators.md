@@ -1,7 +1,4 @@
 ---
-summary: "Quand OpenClaw affiche des indicateurs de saisie et comment les ajuster"
-read_when:
-  - Modification du comportement ou des valeurs par defaut des indicateurs de saisie
 title: "Indicateurs de saisie"
 ---
 

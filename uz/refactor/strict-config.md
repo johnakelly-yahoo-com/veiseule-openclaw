@@ -1,9 +1,4 @@
 ---
-summary: "Qat’iy konfiguratsiya tekshiruvi + faqat doctor orqali migratsiyalar"
-read_when:
-  - Designing or implementing config validation behavior
-  - Working on config migrations or doctor workflows
-  - Handling plugin config schemas or plugin load gating
 title: "Qat’iy konfiguratsiya tekshiruvi"
 ---
 

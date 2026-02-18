@@ -1,8 +1,4 @@
 ---
-summary: "SOUL Evil フック（SOUL.md を SOUL_EVIL.md に切り替え）"
-read_when:
-  - SOUL Evil フックを有効化または調整したい場合
-  - パージウィンドウやランダム確率のペルソナ切り替えを行いたい場合
 title: "SOUL Evil フック"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Wie die macOS-App Gesundheitszustände von Gateway/Baileys meldet"
-read_when:
-  - Debugging von Gesundheitsanzeigen der macOS-App
 title: "Zustandsprüfungen"
 ---
 

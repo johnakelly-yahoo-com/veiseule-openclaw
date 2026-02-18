@@ -1,7 +1,4 @@
 ---
-summary: "การรัน CLI `openclaw agent` โดยตรง(พร้อมการส่งมอบแบบไม่บังคับ)"
-read_when:
-  - การเพิ่มหรือแก้ไขจุดเริ่มต้นของ agent CLI
 title: "Agent Send"
 ---
 

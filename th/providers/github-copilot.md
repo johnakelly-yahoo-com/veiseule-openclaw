@@ -1,8 +1,4 @@
 ---
-summary: "ลงชื่อเข้าใช้ GitHub Copilot จาก OpenClaw โดยใช้ device flow"
-read_when:
-  - คุณต้องการใช้ GitHub Copilot เป็นผู้ให้บริการโมเดล
-  - คุณต้องการโฟลว์ `openclaw models auth login-github-copilot`
 title: "GitHub Copilot"
 ---
 

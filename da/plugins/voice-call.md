@@ -1,8 +1,4 @@
 ---
-summary: "Voice Call-plugin: udgående + indgående opkald via Twilio/Telnyx/Plivo (plugin-installation + konfiguration + CLI)"
-read_when:
-  - Du vil foretage et udgående taleopkald fra OpenClaw
-  - Du konfigurerer eller udvikler voice-call-pluginet
 title: "Voice Call-plugin"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "signal-cli (JSON-RPC + SSE) üzerinden Signal desteği, kurulum ve numara modeli"
-read_when:
-  - Signal desteğini kurma
-  - Signal gönderme/alma hata ayıklama
 title: "Signal"
 ---
 

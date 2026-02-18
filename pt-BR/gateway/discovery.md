@@ -1,9 +1,4 @@
 ---
-summary: "Descoberta de nós e transportes (Bonjour, Tailscale, SSH) para localizar o gateway"
-read_when:
-  - Implementar ou alterar descoberta/publicidade via Bonjour
-  - Ajustar modos de conexão remota (direto vs SSH)
-  - Projetar descoberta de nós + pareamento para nós remotos
 title: "Descoberta e Transportes"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "သုတေသန မှတ်စုများ — Clawd workspace များအတွက် offline memory စနစ် (Markdown ကို အမှန်တရားအရင်းအမြစ်အဖြစ်ထားပြီး index ကို ထုတ်လုပ်ခြင်း)"
-read_when:
-  - နေ့စဉ် Markdown လော့ဂ်များကို ကျော်လွန်သည့် workspace memory (~/.openclaw/workspace) ကို ဒီဇိုင်းဆွဲနေချိန်
-  - Deciding: အချိန်ကန့်သတ်ချက်များ (“Nov 2025 အတွင်း ဘာတွေ မှန်ခဲ့သလဲ?”)
-  - offline recall + reflection (retain/recall/reflect) ထည့်သွင်းနေချိန်
 title: "Workspace Memory သုတေသန"
 ---
 

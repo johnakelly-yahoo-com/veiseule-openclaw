@@ -1,8 +1,4 @@
 ---
-summary: "Pangkalahatang-ideya ng pamilya ng modelong GLM + kung paano ito gamitin sa OpenClaw"
-read_when:
-  - Gusto mo ng mga modelong GLM sa OpenClaw
-  - Kailangan mo ang kombensyon ng pangalan ng modelo at setup
 title: "Mga Modelong GLM"
 ---
 

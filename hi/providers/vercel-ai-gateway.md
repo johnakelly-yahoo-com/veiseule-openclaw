@@ -1,10 +1,5 @@
 ---
-title: "Vercel AI Gateway"
-summary: "Vercel AI Gateway सेटअप (प्रमाणीकरण + मॉडल चयन)"
-read_when:
-  - आप OpenClaw के साथ Vercel AI Gateway का उपयोग करना चाहते हैं
-  - आपको API कुंजी पर्यावरण चर या CLI प्रमाणीकरण विकल्प की आवश्यकता है
----
+title: "Vercel AI Gateway"---
 
 # Vercel AI Gateway
 

@@ -1,8 +1,4 @@
 ---
-summary: "Mensajes de sondeo de heartbeat y reglas de notificación"
-read_when:
-  - Ajustar la cadencia del heartbeat o la mensajería
-  - Decidir entre heartbeat y cron para tareas programadas
 title: "Latido"
 ---
 

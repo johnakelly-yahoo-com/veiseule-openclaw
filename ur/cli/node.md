@@ -1,8 +1,4 @@
 ---
-summary: "CLI حوالہ برائے `openclaw node` (ہیڈ لیس نوڈ ہوسٹ)"
-read_when:
-  - ہیڈ لیس نوڈ ہوسٹ چلانا
-  - system.run کے لیے غیر macOS نوڈ کی جوڑی بنانا
 title: "نوڈ"
 ---
 

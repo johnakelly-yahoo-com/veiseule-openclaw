@@ -1,8 +1,4 @@
 ---
-summary: "VPS‑värdnav för OpenClaw (Oracle/Fly/Hetzner/GCP/exe.dev)"
-read_when:
-  - Du vill köra Gateway i molnet
-  - Du behöver en snabb översikt över VPS-/värdnguider
 title: "VPS‑värd"
 ---
 

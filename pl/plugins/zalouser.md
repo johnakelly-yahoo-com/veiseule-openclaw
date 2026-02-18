@@ -1,8 +1,4 @@
 ---
-summary: "Wtyczka Zalo Personal: logowanie QR + wiadomości przez zca-cli (instalacja wtyczki + konfiguracja kanału + CLI + narzędzie)"
-read_when:
-  - Chcesz nieoficjalne wsparcie Zalo Personal w OpenClaw
-  - Konfigurujesz lub rozwijasz wtyczkę zalouser
 title: "Wtyczka Zalo Personal"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "1. macOS’da Gateway hayotiy sikli (launchd)"
-read_when:
-  - Integrating the mac app with the gateway lifecycle
 title: "3. Gateway hayotiy sikli"
 ---
 

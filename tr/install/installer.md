@@ -1,9 +1,4 @@
 ---
-summary: "Yükleyici betiklerinin nasıl çalıştığı (install.sh, install-cli.sh, install.ps1), bayraklar ve otomasyon"
-read_when:
-  - "`openclaw.ai/install.sh` dosyasını anlamak istiyorsanız"
-  - Kurulumları otomatikleştirmek istiyorsanız (CI / başsız)
-  - Bir GitHub checkout’undan kurulum yapmak istiyorsanız
 title: "Yükleyici İç Yapısı"
 ---
 

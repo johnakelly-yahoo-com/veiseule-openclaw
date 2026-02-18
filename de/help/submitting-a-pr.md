@@ -1,5 +1,4 @@
 ---
-summary: "Wie man eine hohe PR sendet"
 title: "PR einreichen"
 ---
 

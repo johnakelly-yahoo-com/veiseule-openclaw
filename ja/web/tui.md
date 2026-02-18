@@ -1,8 +1,4 @@
 ---
-summary: "Terminal UI（TUI）：任意のマシンから Gateway（ゲートウェイ）に接続"
-read_when:
-  - TUI の初心者向けウォークスルーが必要な場合
-  - TUI の機能、コマンド、ショートカットの完全な一覧が必要な場合
 title: "TUI"
 ---
 

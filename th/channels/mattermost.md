@@ -1,8 +1,4 @@
 ---
-summary: "การตั้งค่าบอต Mattermost และคอนฟิก OpenClaw"
-read_when:
-  - การตั้งค่า Mattermost
-  - การดีบักการกำหนดเส้นทาง Mattermost
 title: "Mattermost"
 ---
 

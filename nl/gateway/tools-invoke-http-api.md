@@ -1,8 +1,4 @@
 ---
-summary: "Roep één enkele tool rechtstreeks aan via het Gateway HTTP-eindpunt"
-read_when:
-  - Tools aanroepen zonder een volledige agentbeurt te draaien
-  - Automatiseringen bouwen die toolbeleidshandhaving vereisen
 title: "Tools Aanroepen API"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "直接 `openclaw agent` CLI 実行（任意の配信）"
-read_when:
-  - エージェント CLI エントリーポイントの追加または変更時
 title: "エージェント送信"
 ---
 

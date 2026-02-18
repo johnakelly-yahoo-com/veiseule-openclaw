@@ -1,8 +1,4 @@
 ---
-summary: "4. apply_patch vositasi bilan ko‘p faylli patchlarni qo‘llash"
-read_when:
-  - Sizga bir nechta fayl bo‘ylab tuzilgan tahrirlar kerak
-  - 5. Patch-ga asoslangan tahrirlarni hujjatlashtirmoqchi yoki nosozliklarni tuzatmoqchisiz
 title: "6. apply_patch Vositasi"
 ---
 

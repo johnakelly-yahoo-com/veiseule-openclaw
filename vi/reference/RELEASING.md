@@ -1,10 +1,4 @@
----
-summary: "Danh sách kiểm tra phát hành từng bước cho npm + ứng dụng macOS"
-read_when:
-  - Phát hành một bản npm mới
-  - Phát hành một bản ứng dụng macOS mới
-  - Xác minh metadata trước khi xuất bản
----
+------
 
 # Danh sách kiểm tra phát hành (npm + macOS)
 

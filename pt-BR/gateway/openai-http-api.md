@@ -1,7 +1,4 @@
 ---
-summary: "Exponha um endpoint HTTP /v1/chat/completions compatível com OpenAI a partir do Gateway"
-read_when:
-  - Integração de ferramentas que esperam OpenAI Chat Completions
 title: "OpenAI Chat Completions"
 ---
 

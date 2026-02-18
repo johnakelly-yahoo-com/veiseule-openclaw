@@ -1,8 +1,4 @@
 ---
-summary: "Plugin/extension OpenClaw: khám phá, cấu hình và an toàn"
-read_when:
-  - Thêm hoặc chỉnh sửa plugin/extension
-  - Viết tài liệu về quy tắc cài đặt hoặc tải plugin
 title: "Plugin"
 ---
 

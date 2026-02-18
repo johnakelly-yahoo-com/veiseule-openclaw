@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw memory` için CLI başvurusu (durum/indeks/arama)"
-read_when:
-  - Anlamsal belleği indekslemek veya aramak istiyorsunuz
-  - Bellek kullanılabilirliğini veya indekslemeyi hata ayıklıyorsunuz
 title: "bellek"
 ---
 

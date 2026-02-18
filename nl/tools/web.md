@@ -1,9 +1,4 @@
 ---
-summary: "Webzoek- en ophaaltools (Brave Search API, Perplexity direct/OpenRouter)"
-read_when:
-  - Je wilt web_search of web_fetch inschakelen
-  - Je hebt een Brave Search API-sleutel nodig
-  - Je wilt Perplexity Sonar gebruiken voor webzoekopdrachten
 title: "Webtools"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw’da maxfiylikka yo‘naltirilgan Venice AI modellaridan foydalaning"
-read_when:
-  - You want privacy-focused inference in OpenClaw
-  - You want Venice AI setup guidance
 title: "Venice AI"
 ---
 

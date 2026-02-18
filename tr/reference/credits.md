@@ -1,7 +1,4 @@
 ---
-summary: "Projenin kökeni, katkıda bulunanlar ve lisans."
-read_when:
-  - You want the project backstory or contributor credits
 title: "Katkıda Bulunanlar"
 ---
 

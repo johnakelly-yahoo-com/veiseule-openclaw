@@ -1,7 +1,4 @@
 ---
-summary: "Exploration: Modellkonfiguration, Auth-Profile und Fallback-Verhalten"
-read_when:
-  - Erkundung zukünftiger Ideen zur Modellauswahl und zu Auth-Profilen
 title: "Erkundung der Modellkonfiguration"
 ---
 

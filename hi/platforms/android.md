@@ -1,9 +1,4 @@
 ---
-summary: "Android ऐप (नोड): कनेक्शन रनबुक + Canvas/Chat/Camera"
-read_when:
-  - Android नोड का पेयरिंग या पुनः कनेक्शन
-  - Android Gateway डिस्कवरी या प्रमाणीकरण का डिबगिंग
-  - क्लाइंट्स के बीच चैट इतिहास समानता का सत्यापन
 title: "Android ऐप"
 ---
 

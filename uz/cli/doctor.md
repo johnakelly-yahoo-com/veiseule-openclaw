@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw doctor` uchun CLI ma’lumotnomasi (sog‘liq tekshiruvlari + yo‘naltirilgan tuzatishlar)"
-read_when:
-  - You have connectivity/auth issues and want guided fixes
-  - You updated and want a sanity check
 title: "doctor"
 ---
 

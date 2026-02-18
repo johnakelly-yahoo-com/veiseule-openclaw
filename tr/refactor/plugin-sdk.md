@@ -1,8 +1,4 @@
 ---
-summary: "Plan: tüm mesajlaşma bağlayıcıları için tek, temiz bir eklenti SDK'sı + çalışma zamanı"
-read_when:
-  - Eklenti mimarisini tanımlarken veya yeniden düzenlerken
-  - Kanal bağlayıcılarını eklenti SDK'sı/çalışma zamanına taşırken
 title: "Eklenti SDK'sı Yeniden Düzenleme"
 ---
 

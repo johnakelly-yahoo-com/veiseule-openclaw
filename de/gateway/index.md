@@ -1,7 +1,4 @@
 ---
-summary: "„Runbook für den Gateway‑Dienst, Lebenszyklus und Betrieb“"
-read_when:
-  - Beim Ausführen oder Debuggen des Gateway‑Prozesses
 title: "„Gateway‑Runbook“"
 ---
 

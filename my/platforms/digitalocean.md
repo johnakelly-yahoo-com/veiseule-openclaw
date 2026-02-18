@@ -1,8 +1,4 @@
 ---
-summary: "DigitalOcean ပေါ်တွင် OpenClaw (လွယ်ကူသော အခပေး VPS ရွေးချယ်မှု)"
-read_when:
-  - DigitalOcean ပေါ်တွင် OpenClaw ကို တပ်ဆင်နေချိန်
-  - OpenClaw အတွက် စျေးသက်သာသော VPS hosting ကို ရှာဖွေနေချိန်
 title: "DigitalOcean"
 ---
 

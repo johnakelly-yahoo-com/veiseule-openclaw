@@ -1,8 +1,4 @@
 ---
-summary: "Clawnet yeniden düzenleme: ağ protokolünü, rolleri, kimlik doğrulamayı, onayları ve kimliği birleştirme"
-read_when:
-  - Düğümler + operatör istemcileri için birleşik bir ağ protokolü planlanırken
-  - Cihazlar genelinde onaylar, eşleştirme, TLS ve varlık (presence) yeniden ele alınırken
 title: "Clawnet Yeniden Düzenleme"
 ---
 

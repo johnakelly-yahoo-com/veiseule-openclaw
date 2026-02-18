@@ -1,7 +1,5 @@
 ---
-read_when: You want multiple isolated agents (workspaces + auth) in one gateway process.
 status: active
-summary: 多智能体路由：隔离的智能体、渠道账户和绑定
 title: 多智能体路由
 x-i18n:
   generated_at: "2026-02-03T07:47:38Z"

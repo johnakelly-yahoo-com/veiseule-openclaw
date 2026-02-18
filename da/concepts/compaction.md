@@ -1,8 +1,4 @@
 ---
-summary: "Kontekstvindue + komprimering: hvordan OpenClaw holder sessioner under modellens grænser"
-read_when:
-  - Du vil forstå auto-komprimering og /compact
-  - Du fejlsøger lange sessioner, der rammer kontekstgrænser
 title: "Komprimering"
 ---
 

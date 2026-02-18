@@ -1,8 +1,4 @@
 ---
-summary: "Agent-workspace: placering, layout og backupstrategi"
-read_when:
-  - Du skal forklare agent-workspacet eller dets fillayout
-  - Du vil sikkerhedskopiere eller migrere et agent-workspace
 title: "Agentarbejdsområde"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Obsługa konta osobistego Zalo przez zca-cli (logowanie QR), możliwości i konfiguracja"
-read_when:
-  - Konfiguracja Zalo Personal dla OpenClaw
-  - Debugowanie logowania Zalo Personal lub przepływu wiadomości
 title: "Zalo Personal"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "22. Streaming + bo‘laklash xatti-harakati (blok javoblar, qoralama streaming, limitlar)"
-read_when:
-  - 23. Kanallarda streaming yoki bo‘laklash qanday ishlashini tushuntirish
-  - 24. Blok streaming yoki kanal bo‘laklash xatti-harakatini o‘zgartirish
-  - 25. Takroriy/erta blok javoblari yoki qoralama streamingni nosozlikdan chiqarish
 title: "26. Streaming va Bo‘laklash"
 ---
 

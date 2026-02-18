@@ -1,8 +1,4 @@
 ---
-summary: "45. Misol konfiguratsiyalar + CLI oqimlari bilan model provayderlari sharhi"
-read_when:
-  - 46. Sizga provayderlar bo‘yicha model sozlamalari uchun ma’lumotnoma kerak
-  - 47. Sizga model provayderlari uchun misol konfiguratsiyalar yoki CLI onboarding buyruqlari kerak
 title: "48. Model Provayderlari"
 ---
 

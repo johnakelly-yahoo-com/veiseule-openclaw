@@ -1,7 +1,4 @@
 ---
-summary: "Utwardzanie listy dozwolonych Telegrama: normalizacja prefiksów i białych znaków"
-read_when:
-  - Przeglądanie historycznych zmian listy dozwolonych Telegrama
 title: "Utwardzanie listy dozwolonych Telegrama"
 ---
 

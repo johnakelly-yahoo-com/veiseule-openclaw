@@ -1,8 +1,4 @@
 ---
-summary: "CLI 入門引導流程、驗證／模型設定、輸出與內部機制的完整參考"
-read_when:
-  - 你需要 openclaw 入門引導的詳細行為
-  - 你正在除錯入門引導結果或整合入門引導用戶端
 title: "CLI 入門引導參考"
 sidebarTitle: "CLI 參考"
 ---

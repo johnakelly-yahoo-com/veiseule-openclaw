@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 你想要可复现、可回滚的安装
-  - 你已经在使用 Nix/NixOS/Home Manager
-  - 你想要所有内容都固定并以声明式管理
-summary: 使用 Nix 声明式安装 OpenClaw
 title: Nix
 x-i18n:
   generated_at: "2026-02-03T07:49:51Z"

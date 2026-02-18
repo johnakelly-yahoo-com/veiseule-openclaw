@@ -1,7 +1,4 @@
 ---
-summary: "لوپ بیک WebChat اسٹیٹک ہوسٹ اور چیٹ UI کے لیے Gateway WS کا استعمال"
-read_when:
-  - WebChat رسائی کی خرابیوں کا ازالہ یا کنفیگریشن کرتے وقت
 title: "WebChat"
 ---
 

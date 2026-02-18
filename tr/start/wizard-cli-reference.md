@@ -1,8 +1,4 @@
 ---
-summary: "CLI onboarding akışı, kimlik doğrulama/model kurulumu, çıktılar ve iç yapılar için tam referans"
-read_when:
-  - OpenClaw onboard işleminin ayrıntılı davranışına ihtiyaç duyduğunuzda
-  - Onboarding sonuçlarını hata ayıklarken veya onboarding istemcilerini entegre ederken
 title: "CLI Onboarding Referansı"
 sidebarTitle: "CLI referansı"
 ---

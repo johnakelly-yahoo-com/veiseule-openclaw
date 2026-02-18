@@ -1,9 +1,4 @@
----
-summary: "Instrucoes padrao do agente OpenClaw e lista de Skills para a configuracao de assistente pessoal"
-read_when:
-  - Iniciando uma nova sessao de agente OpenClaw
-  - Ativando ou auditando Skills padrao
----
+------
 
 # AGENTS.md — Assistente Pessoal OpenClaw (padrao)
 

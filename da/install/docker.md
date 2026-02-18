@@ -1,8 +1,4 @@
 ---
-summary: "Valgfri Docker-baseret opsætning og introduktion til OpenClaw"
-read_when:
-  - Du vil have en containeriseret gateway i stedet for lokale installationer
-  - Du validerer Docker-flowet
 title: "Docker"
 ---
 

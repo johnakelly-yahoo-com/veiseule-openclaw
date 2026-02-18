@@ -1,8 +1,4 @@
 ---
-summary: "RPC-Adapter für externe CLIs (signal-cli, legacy imsg) und Gateway-Muster"
-read_when:
-  - Hinzufügen oder Ändern externer CLI-Integrationen
-  - Debuggen von RPC-Adaptern (signal-cli, imsg)
 title: "RPC-Adapter"
 ---
 

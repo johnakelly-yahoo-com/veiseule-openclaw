@@ -1,7 +1,4 @@
 ---
-summary: "Cách ứng dụng macOS báo cáo trạng thái sức khỏe của gateway/Baileys"
-read_when:
-  - Gỡ lỗi các chỉ báo sức khỏe của ứng dụng mac
 title: "Kiểm tra sức khỏe"
 ---
 

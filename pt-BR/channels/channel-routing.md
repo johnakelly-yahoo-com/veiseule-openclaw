@@ -1,7 +1,4 @@
 ---
-summary: "Regras de roteamento por canal (WhatsApp, Telegram, Discord, Slack) e contexto compartilhado"
-read_when:
-  - Ao alterar o roteamento de canais ou o comportamento da caixa de entrada
 title: "Roteamento de canais"
 ---
 

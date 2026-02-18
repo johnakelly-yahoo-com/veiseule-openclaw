@@ -1,7 +1,4 @@
 ---
-summary: "استضافة WebChat الثابتة عبر loopback واستخدام WebSocket الخاص بـ Gateway لواجهة الدردشة"
-read_when:
-  - عند تصحيح الأخطاء أو تهيئة الوصول إلى WebChat
 title: "WebChat"
 ---
 

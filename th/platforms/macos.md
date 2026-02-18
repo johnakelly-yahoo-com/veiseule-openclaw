@@ -1,8 +1,4 @@
 ---
-summary: "แอปคู่หู OpenClaw บน macOS (แถบเมนู + ตัวกลาง Gateway)"
-read_when:
-  - การพัฒนาฟีเจอร์แอป macOS
-  - การเปลี่ยนแปลงวงจรชีวิตของ Gateway หรือการเชื่อมต่อโหนดบน macOS
 title: "แอป macOS"
 ---
 

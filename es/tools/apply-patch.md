@@ -1,8 +1,4 @@
 ---
-summary: "Aplicar parches de múltiples archivos con la herramienta apply_patch"
-read_when:
-  - Necesita ediciones estructuradas de archivos en múltiples archivos
-  - Desea documentar o depurar ediciones basadas en parches
 title: "Herramienta apply_patch"
 ---
 

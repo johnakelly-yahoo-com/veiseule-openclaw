@@ -1,9 +1,4 @@
 ---
-summary: "Tích hợp PeekabooBridge cho tự động hóa UI trên macOS"
-read_when:
-  - Lưu trữ PeekabooBridge trong OpenClaw.app
-  - Tích hợp Peekaboo qua Swift Package Manager
-  - Thay đổi giao thức/đường dẫn PeekabooBridge
 title: "Peekaboo Bridge"
 ---
 

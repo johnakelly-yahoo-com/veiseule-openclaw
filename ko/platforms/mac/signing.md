@@ -1,7 +1,4 @@
 ---
-summary: "패키징 스크립트로 생성된 macOS 디버그 빌드의 서명 단계"
-read_when:
-  - mac 디버그 빌드를 빌드하거나 서명할 때
 title: "macOS 서명"
 ---
 

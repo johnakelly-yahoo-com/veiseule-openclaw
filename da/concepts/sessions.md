@@ -1,7 +1,4 @@
 ---
-summary: "Alias for dokumentation om sessionshåndtering"
-read_when:
-  - Du ledte efter docs/sessions.md; den kanoniske dokumentation findes i docs/session.md
 title: "Sessioner"
 ---
 

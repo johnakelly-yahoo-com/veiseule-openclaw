@@ -1,8 +1,4 @@
 ---
-summary: "Siz audio biriktirmalar uchun Deepgram speech-to-text’dan foydalanmoqchisiz"
-read_when:
-  - Sizga Deepgram konfiguratsiyasining tezkor namunasi kerak
-  - Deepgram
 title: "Deepgram (Audio transkripsiya)"
 ---
 

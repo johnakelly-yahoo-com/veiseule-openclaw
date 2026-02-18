@@ -1,9 +1,4 @@
 ---
-summary: "Streaming- en chunkinggedrag (blokantwoorden, conceptstreaming, limieten)"
-read_when:
-  - Uitleggen hoe streaming of chunking werkt op kanalen
-  - Blokstreaming of kanaal-chunkinggedrag wijzigen
-  - Dubbele/vroege blokantwoorden of conceptstreaming debuggen
 title: "Streaming en Chunking"
 ---
 

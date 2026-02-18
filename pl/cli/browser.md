@@ -1,9 +1,4 @@
 ---
-summary: "Referencja CLI dla `openclaw browser` (profile, karty, akcje, przekaźnik rozszerzenia)"
-read_when:
-  - Używasz `openclaw browser` i chcesz przykładów typowych zadań
-  - Chcesz sterować przeglądarką uruchomioną na innej maszynie za pośrednictwem hosta węzła
-  - Chcesz używać przekaźnika rozszerzenia Chrome (podłączanie/odłączanie przyciskiem na pasku narzędzi)
 title: "browser"
 ---
 

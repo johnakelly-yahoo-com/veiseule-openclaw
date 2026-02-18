@@ -1,9 +1,4 @@
 ---
-summary: "Testing kit: mga unit/e2e/live suite, Docker runners, at kung ano ang saklaw ng bawat test"
-read_when:
-  - Kapag nagpapatakbo ng mga test nang lokal o sa CI
-  - Kapag nagdadagdag ng regressions para sa mga bug ng model/provider
-  - Kapag nagde-debug ng gateway + agent na behavior
 title: "Pagsusuri"
 ---
 

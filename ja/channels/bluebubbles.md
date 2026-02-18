@@ -1,9 +1,4 @@
 ---
-summary: "BlueBubbles macOS サーバー経由の iMessage（REST による送受信、入力中表示、リアクション、ペアリング、高度なアクション）。"
-read_when:
-  - BlueBubbles チャンネルのセットアップ
-  - Webhook ペアリングのトラブルシューティング
-  - macOS での iMessage 設定
 title: "BlueBubbles"
 ---
 

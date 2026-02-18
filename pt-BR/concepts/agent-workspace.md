@@ -1,8 +1,4 @@
 ---
-summary: "Workspace do agente: localização, layout e estratégia de backup"
-read_when:
-  - Você precisa explicar o workspace do agente ou seu layout de arquivos
-  - Você quer fazer backup ou migrar um workspace de agente
 title: "Workspace do Agente"
 ---
 

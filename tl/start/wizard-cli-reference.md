@@ -1,8 +1,4 @@
 ---
-summary: "Kumpletong sanggunian para sa CLI onboarding flow, setup ng auth/model, mga output, at mga internal"
-read_when:
-  - Kailangan mo ng detalyadong behavior para sa openclaw onboard
-  - Nagde-debug ka ng onboarding results o nag-iintegrate ng onboarding clients
 title: "Sanggunian sa CLI Onboarding"
 sidebarTitle: "Sanggunian ng CLI"
 ---

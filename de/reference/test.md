@@ -1,7 +1,4 @@
 ---
-summary: "„Wie Sie Tests lokal ausführen (Vitest) und wann Sie die Modi force/coverage verwenden“"
-read_when:
-  - Beim Ausführen oder Beheben von Tests
 title: "Tests"
 ---
 

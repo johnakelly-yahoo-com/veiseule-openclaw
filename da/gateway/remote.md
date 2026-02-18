@@ -1,7 +1,4 @@
 ---
-summary: "Fjernadgang via SSH-tunneler (Gateway WS) og tailnets"
-read_when:
-  - Kørsel eller fejlfinding af fjernopsætninger af gateway
 title: "Fjernadgang"
 ---
 

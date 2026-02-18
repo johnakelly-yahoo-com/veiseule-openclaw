@@ -1,8 +1,4 @@
----
-summary: "Nghi thức chạy lần đầu cho các tác tử mới"
-read_when:
-  - Khởi tạo một workspace thủ công
----
+------
 
 # BOOTSTRAP.md - Hello, World
 

@@ -1,9 +1,4 @@
 ---
-summary: "CLI modeli: lista, ustawianie, aliasy, fallbacki, skanowanie, status"
-read_when:
-  - Dodawanie lub modyfikowanie CLI modeli (models list/set/scan/aliases/fallbacks)
-  - Zmiana zachowania fallbacków modeli lub UX wyboru
-  - Aktualizacja sond skanowania modeli (narzędzia/obrazy)
 title: "CLI modeli"
 ---
 

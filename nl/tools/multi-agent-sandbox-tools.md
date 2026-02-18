@@ -1,7 +1,5 @@
 ---
-summary: "Sandbox per agent + toolbeperkingen, prioriteit en voorbeelden"
 title: "Multi-agent-sandbox en tools"
-read_when: "Je wilt sandboxing per agent of tool-toestaan/weigeren-beleid per agent in een multi-agent gateway."
 status: active
 ---
 

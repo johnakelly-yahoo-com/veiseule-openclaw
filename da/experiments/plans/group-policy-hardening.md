@@ -1,7 +1,4 @@
 ---
-summary: "Telegram-tilladelsesliste-hærdning: præfiks + normalisering af mellemrum"
-read_when:
-  - Gennemgang af historiske ændringer i Telegram-tilladelseslisten
 title: "Telegram-tilladelsesliste-hærdning"
 ---
 

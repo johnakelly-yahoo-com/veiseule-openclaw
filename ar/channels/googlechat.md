@@ -1,7 +1,4 @@
 ---
-summary: "حالة دعم تطبيق Google Chat، والقدرات، والتهيئة"
-read_when:
-  - العمل على ميزات قناة Google Chat
 title: "Google Chat"
 ---
 

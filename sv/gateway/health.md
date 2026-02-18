@@ -1,7 +1,4 @@
 ---
-summary: "Steg för hälsokontroll av kanalanslutning"
-read_when:
-  - Diagnostiserar WhatsApp-kanalens hälsa
 title: "Hälsokontroller"
 ---
 

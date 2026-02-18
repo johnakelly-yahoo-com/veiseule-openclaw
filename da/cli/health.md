@@ -1,7 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw health` (Gateway-helbredsendepunkt via RPC)"
-read_when:
-  - Du vil hurtigt tjekke den kørende Gateways helbred
 title: "health"
 ---
 

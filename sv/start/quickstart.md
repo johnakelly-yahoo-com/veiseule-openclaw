@@ -1,8 +1,4 @@
 ---
-summary: "Snabbstart har flyttats till Kom igång."
-read_when:
-  - Du letar efter de snabbaste stegen för konfigurering
-  - Du skickades hit från en äldre länk
 title: "Snabbstart"
 ---
 

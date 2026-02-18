@@ -1,8 +1,4 @@
 ---
-summary: "SOUL Evil-hook (byt SOUL.md mot SOUL_EVIL.md)"
-read_when:
-  - Du vill aktivera eller justera SOUL Evil-hooken
-  - Du vill ha ett rensningsfönster eller ett slumpmässigt persona-byte
 title: "SOUL Evil-hook"
 ---
 

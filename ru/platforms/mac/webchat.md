@@ -1,7 +1,4 @@
 ---
-summary: "Как приложение для macOS встраивает WebChat шлюза Gateway и как его отлаживать"
-read_when:
-  - Отладка представления WebChat для macOS или порта local loopback
 title: "WebChat"
 ---
 

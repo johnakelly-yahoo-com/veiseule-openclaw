@@ -1,7 +1,4 @@
 ---
-summary: "send、gateway 與 agent 回覆的影像與媒體處理規則"
-read_when:
-  - 修改媒體管線或附件
 title: "圖片與媒體支援"
 ---
 

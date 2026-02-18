@@ -1,9 +1,4 @@
 ---
-summary: "Waar OpenClaw omgevingsvariabelen laadt en de volgorde van prioriteit"
-read_when:
-  - Je moet weten welke omgevingsvariabelen worden geladen en in welke volgorde
-  - Je bent bezig met het debuggen van ontbrekende API-sleutels in de Gateway
-  - Je documenteert provider-authenticatie of deploymentomgevingen
 title: "Omgevingsvariabelen"
 ---
 

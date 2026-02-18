@@ -1,7 +1,4 @@
 ---
-summary: "Adfærd og konfiguration for håndtering af WhatsApp-gruppemeddelelser (mentionPatterns deles på tværs af flader)"
-read_when:
-  - Ændring af regler for gruppemeddelelser eller omtaler
 title: "Gruppemeddelelser"
 ---
 

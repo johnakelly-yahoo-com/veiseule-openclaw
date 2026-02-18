@@ -1,8 +1,4 @@
----
-summary: "Agentens identitetspost"
-read_when:
-  - Starta ett arbetsutrymme manuellt
----
+------
 
 # IDENTITY.md – Vem är jag?
 

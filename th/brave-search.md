@@ -1,8 +1,4 @@
 ---
-summary: "การตั้งค่า Brave Search API สำหรับ web_search"
-read_when:
-  - คุณต้องการใช้ Brave Search สำหรับ web_search
-  - คุณต้องการ BRAVE_API_KEY หรือรายละเอียดแพ็กเกจ
 title: "Brave Search"
 ---
 

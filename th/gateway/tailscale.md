@@ -1,8 +1,4 @@
 ---
-summary: "ผสานรวม Tailscale Serve/Funnel สำหรับแดชบอร์ดGateway"
-read_when:
-  - การเปิดเผยGateway Control UI นอก localhost
-  - การทำให้อัตโนมัติการเข้าถึงแดชบอร์ดของ tailnet หรือสาธารณะ
 title: "Tailscale"
 ---
 

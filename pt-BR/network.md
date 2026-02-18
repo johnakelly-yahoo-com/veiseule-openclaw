@@ -1,9 +1,4 @@
 ---
-summary: "Hub de rede: superfícies do gateway, pareamento, descoberta e segurança"
-read_when:
-  - Você precisa da visão geral de arquitetura de rede + segurança
-  - Você está depurando acesso local vs tailnet ou pareamento
-  - Você quer a lista canônica de documentos de rede
 title: "Rede"
 ---
 

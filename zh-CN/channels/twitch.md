@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 为 OpenClaw 设置 Twitch 聊天集成
-summary: Twitch 聊天机器人配置和设置
 title: Twitch
 x-i18n:
   generated_at: "2026-02-03T07:44:41Z"

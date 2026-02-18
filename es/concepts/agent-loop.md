@@ -1,7 +1,4 @@
 ---
-summary: "Ciclo de vida del bucle del agente, streams y semántica de espera"
-read_when:
-  - Necesita un recorrido exacto del bucle del agente o de los eventos del ciclo de vida
 title: "Bucle del agente"
 ---
 

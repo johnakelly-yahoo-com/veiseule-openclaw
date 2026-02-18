@@ -1,8 +1,4 @@
 ---
-summary: "Tham chiếu CLI cho `openclaw uninstall` (gỡ dịch vụ gateway + dữ liệu cục bộ)"
-read_when:
-  - Bạn muốn gỡ dịch vụ gateway và/hoặc trạng thái cục bộ
-  - Bạn muốn chạy thử trước (dry-run)
 title: "gỡ cài đặt"
 ---
 

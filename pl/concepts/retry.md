@@ -1,8 +1,4 @@
 ---
-summary: "Polityka ponawiania dla wychodzących wywołań do dostawców"
-read_when:
-  - Aktualizacja zachowania lub domyślnych ustawień ponawiania u dostawców
-  - Debugowanie błędów wysyłania lub limitów szybkości u dostawców
 title: "Polityka ponawiania"
 ---
 

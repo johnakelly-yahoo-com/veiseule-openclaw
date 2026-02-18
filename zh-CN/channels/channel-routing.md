@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 更改渠道路由或收件箱行为
-summary: 每个渠道（WhatsApp、Telegram、Discord、Slack）的路由规则及共享上下文
 title: 渠道路由
 x-i18n:
   generated_at: "2026-02-01T20:22:21Z"

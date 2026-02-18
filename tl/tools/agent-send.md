@@ -1,7 +1,4 @@
 ---
-summary: "Direktang pagpapatakbo ng `openclaw agent` CLI (may opsyonal na delivery)"
-read_when:
-  - Pagdaragdag o pagbabago ng agent CLI entrypoint
 title: "Pagpapadala ng Ahente"
 ---
 

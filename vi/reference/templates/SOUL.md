@@ -1,8 +1,4 @@
----
-summary: "Mẫu workspace cho SOUL.md"
-read_when:
-  - Khởi tạo workspace thủ công
----
+------
 
 # SOUL.md - Bạn là ai
 

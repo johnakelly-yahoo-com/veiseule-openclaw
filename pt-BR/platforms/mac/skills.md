@@ -1,8 +1,4 @@
 ---
-summary: "UI de configurações de Skills no macOS e status baseado no gateway"
-read_when:
-  - Atualizar a UI de configurações de Skills no macOS
-  - Alterar o controle de acesso ou o comportamento de instalação das Skills
 title: "Habilidades"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Twitch 채팅 봇 구성 및 설정"
-read_when:
-  - OpenClaw 를 위한 Twitch 채팅 통합 설정 시
 title: "Twitch"
 ---
 

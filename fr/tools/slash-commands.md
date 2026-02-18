@@ -1,8 +1,4 @@
 ---
-summary: "Commandes slash : texte vs natives, configuration et commandes prises en charge"
-read_when:
-  - Utilisation ou configuration des commandes de chat
-  - Debogage du routage des commandes ou des autorisations
 title: "Commandes slash"
 ---
 

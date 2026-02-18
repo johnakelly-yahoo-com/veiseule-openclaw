@@ -1,8 +1,4 @@
 ---
-summary: "Fournisseurs de modèles (LLM) pris en charge par OpenClaw"
-read_when:
-  - Vous souhaitez choisir un fournisseur de modèles
-  - Vous avez besoin d’un aperçu rapide des backends LLM pris en charge
 title: "Fournisseurs de modèles"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw کے ساتھ Z.AI (GLM ماڈلز) استعمال کریں"
-read_when:
-  - آپ OpenClaw میں Z.AI / GLM ماڈلز چاہتے ہیں
-  - آپ کو سادہ ZAI_API_KEY سیٹ اپ درکار ہے
 title: "Z.AI"
 ---
 

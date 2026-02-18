@@ -1,9 +1,4 @@
 ---
-summary: "Sanggunian: mga provider-specific na panuntunan para sa sanitization at pag-ayos ng transcript"
-read_when:
-  - Ikaw ay nagde-debug ng mga rejection ng provider request na may kaugnayan sa hugis ng transcript
-  - Ikaw ay nagbabago ng transcript sanitization o lohika ng pag-ayos ng tool-call
-  - Ikaw ay nag-iimbestiga ng mga mismatch ng tool-call id sa iba’t ibang provider
 title: "Kalinisan ng Transkripsyon"
 ---
 

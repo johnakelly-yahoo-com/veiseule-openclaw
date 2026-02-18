@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 开发 Discord 渠道功能时
-summary: Discord 机器人支持状态、功能和配置
 title: Discord
 x-i18n:
   generated_at: "2026-02-03T07:45:45Z"

@@ -1,7 +1,4 @@
 ---
-summary: "WhatsApp (web kanalı) entegrasyonu: giriş, gelen kutusu, yanıtlar, medya ve operasyonlar"
-read_when:
-  - WhatsApp/web kanalı davranışı veya gelen kutusu yönlendirmesi üzerinde çalışırken
 title: "WhatsApp"
 ---
 

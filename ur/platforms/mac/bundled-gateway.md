@@ -1,9 +1,4 @@
 ---
-summary: "macOS پر Gateway رَن ٹائم (بیرونی launchd سروس)"
-read_when:
-  - OpenClaw.app کی پیکیجنگ
-  - macOS Gateway launchd سروس کی ڈیبگنگ
-  - macOS کے لیے gateway CLI کی تنصیب
 title: "macOS پر Gateway"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "„Tryb rozmowy: ciągłe rozmowy głosowe z TTS ElevenLabs”"
-read_when:
-  - Implementowanie trybu rozmowy na macOS/iOS/Android
-  - Zmienianie zachowania głosu/TTS/przerywania
 title: "„Tryb rozmowy”"
 ---
 

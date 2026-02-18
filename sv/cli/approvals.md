@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw approvals` (exec-godkännanden för Gateway eller nodvärdar)"
-read_when:
-  - Du vill redigera exec-godkännanden från CLI
-  - Du behöver hantera tillåtelselistor på Gateway- eller nodvärdar
 title: "godkännanden"
 ---
 

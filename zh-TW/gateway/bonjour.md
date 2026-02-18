@@ -1,8 +1,4 @@
 ---
-summary: "Bonjour/mDNS 探索＋除錯（Gateway 信標、用戶端與常見失敗模式）"
-read_when:
-  - 在 macOS／iOS 上除錯 Bonjour 探索問題
-  - 變更 mDNS 服務類型、TXT 記錄或探索 UX
 title: "Bonjour 探索"
 ---
 

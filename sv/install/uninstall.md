@@ -1,8 +1,4 @@
 ---
-summary: "Avinstallera OpenClaw helt (CLI, tjänst, tillstånd, arbetsyta)"
-read_when:
-  - Du vill ta bort OpenClaw från en maskin
-  - Gateway-tjänsten körs fortfarande efter avinstallation
 title: "Avinstallera"
 ---
 

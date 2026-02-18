@@ -1,8 +1,4 @@
 ---
-summary: "signal-cli (JSON-RPC + SSE) के माध्यम से Signal समर्थन, सेटअप, और नंबर मॉडल"
-read_when:
-  - Signal समर्थन सेट करते समय
-  - Signal भेजने/प्राप्त करने का डिबग
 title: "Signal"
 ---
 

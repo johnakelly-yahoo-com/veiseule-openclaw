@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 定义或重构插件架构
-  - 将渠道连接器迁移到插件 SDK/运行时
-summary: 计划：为所有消息连接器提供一套统一的插件 SDK + 运行时
 title: 插件 SDK 重构
 x-i18n:
   generated_at: "2026-02-01T21:36:45Z"

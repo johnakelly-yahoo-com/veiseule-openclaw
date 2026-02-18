@@ -1,7 +1,4 @@
 ---
-summary: "Loopback WebChat の静的ホストおよびチャット UI 向けの Gateway WebSocket 利用"
-read_when:
-  - WebChat アクセスのデバッグまたは設定時
 title: "WebChat"
 ---
 

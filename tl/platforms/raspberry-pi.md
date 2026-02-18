@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw sa Raspberry Pi (budget na self-hosted na setup)"
-read_when:
-  - Pagse-set up ng OpenClaw sa isang Raspberry Pi
-  - Pagpapatakbo ng OpenClaw sa mga ARM device
-  - Pagbuo ng murang, laging-on na personal AI
 title: "Raspberry Pi"
 ---
 

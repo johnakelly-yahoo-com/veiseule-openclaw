@@ -1,8 +1,4 @@
 ---
-summary: "Lista de verificación de lanzamiento de OpenClaw para macOS (feed de Sparkle, empaquetado, firma)"
-read_when:
-  - Al cortar o validar un lanzamiento de OpenClaw para macOS
-  - Al actualizar el appcast o los activos del feed de Sparkle
 title: "Lanzamiento de macOS"
 ---
 

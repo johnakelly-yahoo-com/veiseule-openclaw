@@ -1,9 +1,4 @@
 ---
-summary: "Referencia: reglas de saneamiento y reparación de transcripciones específicas del proveedor"
-read_when:
-  - Usted está depurando rechazos de solicitudes del proveedor vinculados a la forma de la transcripción
-  - Usted está cambiando el saneamiento de transcripciones o la lógica de reparación de llamadas a herramientas
-  - Usted está investigando desajustes de id de llamadas a herramientas entre proveedores
 title: "Higiene de transcripciones"
 ---
 

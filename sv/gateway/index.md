@@ -1,7 +1,4 @@
 ---
-summary: "Drifthandbok för Gateway-tjänsten, livscykel och drift"
-read_when:
-  - När du kör eller felsöker gateway-processen
 title: "Gateway-drifthandbok"
 ---
 

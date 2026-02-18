@@ -1,8 +1,4 @@
 ---
-summary: "Webhook ingress để đánh thức và chạy tác tử cô lập"
-read_when:
-  - Thêm hoặc thay đổi các endpoint webhook
-  - Kết nối các hệ thống bên ngoài vào OpenClaw
 title: "Webhook"
 ---
 

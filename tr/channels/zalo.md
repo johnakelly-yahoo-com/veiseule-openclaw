@@ -1,7 +1,4 @@
 ---
-summary: "Zalo bot destek durumu, yetenekler ve yapılandırma"
-read_when:
-  - Zalo özellikleri veya web kancaları üzerinde çalışırken
 title: "Zalo"
 ---
 

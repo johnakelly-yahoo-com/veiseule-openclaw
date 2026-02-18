@@ -1,8 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw skills` (list/info/check) at pagiging karapat-dapat ng Skills"
-read_when:
-  - Gusto mong makita kung aling mga Skills ang available at handang patakbuhin
-  - Gusto mong i-debug ang mga nawawalang binary/env/config para sa mga Skills
 title: "skills"
 ---
 

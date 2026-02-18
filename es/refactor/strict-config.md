@@ -1,9 +1,4 @@
 ---
-summary: "Validación estricta de configuración + migraciones solo con doctor"
-read_when:
-  - Diseñar o implementar el comportamiento de validación de configuración
-  - Trabajar en migraciones de configuración o flujos de trabajo de doctor
-  - Manejar esquemas de configuración de plugins o el bloqueo de carga de plugins
 title: "Validación estricta de configuración"
 ---
 

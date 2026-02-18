@@ -1,5 +1,4 @@
 ---
-summary: "Plan: Agregar el endpoint OpenResponses /v1/responses y deprecar Chat Completions de forma limpia"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"

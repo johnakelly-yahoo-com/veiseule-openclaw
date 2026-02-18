@@ -1,8 +1,4 @@
 ---
-summary: "web_search için Brave Search API kurulumu"
-read_when:
-  - web_search için Brave Search kullanmak istiyorsunuz
-  - Bir BRAVE_API_KEY veya plan ayrıntılarına ihtiyacınız var
 title: "Brave Search"
 ---
 

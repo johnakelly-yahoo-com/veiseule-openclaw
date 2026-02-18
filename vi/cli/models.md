@@ -1,8 +1,4 @@
 ---
-summary: "Tài liệu tham chiếu CLI cho `openclaw models` (status/list/set/scan, bí danh, fallback, xác thực)"
-read_when:
-  - Bạn muốn thay đổi mô hình mặc định hoặc xem trạng thái xác thực của nhà cung cấp
-  - Bạn muốn quét các mô hình/nhà cung cấp khả dụng và gỡ lỗi hồ sơ xác thực
 title: "models"
 ---
 

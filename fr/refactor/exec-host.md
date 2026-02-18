@@ -1,9 +1,4 @@
 ---
-summary: "Plan de refactorisation : routage de l’hôte d’exécution, approbations des nœuds et runner sans interface"
-read_when:
-  - Conception du routage de l’hôte d’exécution ou des approbations d’exécution
-  - Implémentation du runner de nœud + IPC UI
-  - Ajout des modes de sécurité de l’hôte d’exécution et des commandes slash
 title: "Refactorisation de l’hôte d’exécution"
 ---
 

@@ -1,10 +1,5 @@
 ---
-title: "Cloudflare AI Gateway"
-summary: "Opsætning af Cloudflare AI Gateway (autentificering + modelvalg)"
-read_when:
-  - Du vil bruge Cloudflare AI Gateway med OpenClaw
-  - Du har brug for konto-id, gateway-id eller API-nøgle-miljøvariabel
----
+title: "Cloudflare AI Gateway"---
 
 # Cloudflare AI Gateway
 

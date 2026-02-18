@@ -1,9 +1,4 @@
 ---
-summary: "Bridge-protokol (legacy-noder): TCP JSONL, parring, scoped RPC"
-read_when:
-  - Opbygning eller fejlfinding af nodeklienter (iOS/Android/macOS node-tilstand)
-  - Undersøgelse af parring eller fejl i bridge-godkendelse
-  - Revision af node-overfladen, der eksponeres af gatewayen
 title: "Bridge-protokol"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Referência da CLI para `openclaw hooks` (hooks de agente)"
-read_when:
-  - Você quer gerenciar hooks de agente
-  - Você quer instalar ou atualizar hooks
 title: "hooks"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw devices` için CLI referansı (cihaz eşleştirme + belirteç döndürme/iptal)"
-read_when:
-  - Cihaz eşleştirme isteklerini onaylıyorsunuz
-  - Cihaz belirteçlerini döndürmeniz veya iptal etmeniz gerekiyor
 title: "cihazlar"
 ---
 

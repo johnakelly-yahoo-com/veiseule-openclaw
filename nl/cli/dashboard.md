@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw dashboard` (open de Control UI)"
-read_when:
-  - Je wilt de Control UI openen met je huidige token
-  - Je wilt de URL afdrukken zonder een browser te starten
 title: "dashboard"
 ---
 

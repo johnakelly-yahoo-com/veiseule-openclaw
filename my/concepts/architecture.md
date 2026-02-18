@@ -1,7 +1,4 @@
 ---
-summary: "WebSocket Gateway အခြေခံဖွဲ့စည်းပုံ၊ အစိတ်အပိုင်းများနှင့် client flow များ"
-read_when:
-  - Gateway protocol၊ client များ သို့မဟုတ် transport များကို လုပ်ကိုင်နေချိန်
 title: "Gateway အခြေခံဖွဲ့စည်းပုံ"
 ---
 

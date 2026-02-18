@@ -1,7 +1,5 @@
 ---
 title: "Korumalı Alan ile Araç İlkesi ve Yükseltilmiş Arasındaki Farklar"
-summary: "Bir aracın neden engellendiği: sandbox çalışma zamanı, araç izin/verme politikası ve elevated exec kapıları"
-read_when: "'sandbox jail' ile karşılaştığınızda veya bir tool/elevated reddi gördüğünüzde ve değiştirmeniz gereken tam yapılandırma anahtarını istediğinizde."
 status: active
 ---
 

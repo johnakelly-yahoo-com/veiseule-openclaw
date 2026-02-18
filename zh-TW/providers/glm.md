@@ -1,8 +1,4 @@
 ---
-summary: "GLM 模型家族概覽＋如何在 OpenClaw 中使用"
-read_when:
-  - 你想在 OpenClaw 中使用 GLM 模型
-  - 你需要模型命名慣例與設定方式
 title: "GLM 模型"
 ---
 

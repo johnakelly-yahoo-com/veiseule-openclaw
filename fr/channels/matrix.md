@@ -1,7 +1,4 @@
 ---
-summary: "Statut du support Matrix, capacites et configuration"
-read_when:
-  - Travail sur les fonctionnalites du canal Matrix
 title: "Matrix"
 ---
 

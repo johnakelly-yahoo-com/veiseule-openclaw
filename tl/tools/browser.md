@@ -1,9 +1,4 @@
 ---
-summary: "Pinagsamang serbisyo ng kontrol sa browser + mga command ng aksyon"
-read_when:
-  - Pagdaragdag ng agent-controlled na browser automation
-  - Pag-debug kung bakit nakikialam ang openclaw sa sarili mong Chrome
-  - Pagpapatupad ng mga setting at lifecycle ng browser sa macOS app
 title: "Browser (pinamamahalaan ng OpenClaw)"
 ---
 

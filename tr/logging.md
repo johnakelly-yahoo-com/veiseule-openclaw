@@ -1,9 +1,4 @@
 ---
-summary: "Günlükleme genel bakışı: dosya günlükleri, konsol çıktısı, CLI ile izleme ve Control UI"
-read_when:
-  - You need a beginner-friendly overview of logging
-  - Günlük seviyelerini veya biçimlerini yapılandırmak istediğinizde
-  - You are troubleshooting and need to find logs quickly
 title: "Günlükleme"
 ---
 

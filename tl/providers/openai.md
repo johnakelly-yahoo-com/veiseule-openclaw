@@ -1,8 +1,4 @@
 ---
-summary: "Gamitin ang OpenAI sa pamamagitan ng mga API key o Codex subscription sa OpenClaw"
-read_when:
-  - Gusto mong gumamit ng mga OpenAI model sa OpenClaw
-  - Gusto mo ng Codex subscription auth sa halip na mga API key
 title: "OpenAI"
 ---
 

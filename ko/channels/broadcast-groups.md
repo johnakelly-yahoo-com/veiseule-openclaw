@@ -1,8 +1,4 @@
 ---
-summary: "여러 에이전트에 WhatsApp 메시지를 브로드캐스트"
-read_when:
-  - 브로드캐스트 그룹 구성
-  - WhatsApp 에서 멀티 에이전트 응답 디버깅
 status: experimental
 title: "브로드캐스트 그룹"
 ---

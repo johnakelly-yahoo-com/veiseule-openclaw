@@ -1,8 +1,4 @@
 ---
-summary: "Agent foydalanishi uchun kamera tasvirga olish (iOS tuguni + macOS ilovasi): fotosuratlar (jpg) va qisqa video roliklar (mp4)"
-read_when:
-  - iOS tugunlari yoki macOS’da kamera tasvirga olishni qo‘shish yoki o‘zgartirishda
-  - Agent kira oladigan MEDIA vaqtinchalik fayl jarayonlarini kengaytirishda
 title: "Kamera tasvirga olish"
 ---
 

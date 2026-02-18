@@ -1,7 +1,4 @@
 ---
-summary: "สถานะการรองรับ ความสามารถ และการกำหนดค่าของ Nextcloud Talk"
-read_when:
-  - ทำงานกับฟีเจอร์ของช่องทาง Nextcloud Talk
 title: "Nextcloud Talk"
 ---
 

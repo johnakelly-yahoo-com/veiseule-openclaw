@@ -1,8 +1,4 @@
 ---
-summary: "CLI حوالہ برائے `openclaw dns` (وسیع علاقائی ڈسکوری معاونین)"
-read_when:
-  - آپ Tailscale + CoreDNS کے ذریعے وسیع علاقائی ڈسکوری (DNS-SD) چاہتے ہیں
-  - You’re setting up split DNS for a custom discovery domain (example: openclaw.internal)
 title: "dns"
 ---
 

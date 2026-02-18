@@ -1,9 +1,4 @@
 ---
-summary: "Uruchamianie OpenClaw na lokalnych LLM-ach (LM Studio, vLLM, LiteLLM, niestandardowe endpointy OpenAI)"
-read_when:
-  - Chcesz serwować modele z własnej maszyny GPU
-  - Integrujesz LM Studio lub proxy zgodne z OpenAI
-  - Potrzebujesz najbezpieczniejszych wytycznych dla modeli lokalnych
 title: "Modele lokalne"
 ---
 

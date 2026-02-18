@@ -1,7 +1,4 @@
 ---
-summary: "تدفّق تطبيق macOS للتحكّم في Gateway لـ OpenClaw عن بُعد عبر SSH"
-read_when:
-  - إعداد أو تصحيح أخطاء التحكّم عن بُعد في mac
 title: "التحكم عن بعد"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "سیشن مینجمنٹ دستاویزات کے لیے عرف"
-read_when:
-  - آپ نے docs/sessions.md تلاش کیا؛ مستند دستاویز docs/session.md میں موجود ہے
 title: "سیشنز"
 ---
 

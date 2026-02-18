@@ -1,7 +1,4 @@
 ---
-summary: "Flujo de la app de macOS para controlar un Gateway de OpenClaw remoto a través de SSH"
-read_when:
-  - Configuración o depuración del control remoto de mac en macOS
 title: "Control remoto"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "CLI 參考文件：`openclaw memory`（status/index/search）"
-read_when:
-  - 您想要建立索引或搜尋語意記憶
-  - 您正在除錯記憶可用性或索引建立
 title: "memory"
 ---
 

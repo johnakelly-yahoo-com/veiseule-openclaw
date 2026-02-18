@@ -1,7 +1,4 @@
 ---
-summary: "„Einrichtungsleitfaden für Entwickler, die an der OpenClaw macOS-App arbeiten“"
-read_when:
-  - Einrichten der macOS-Entwicklungsumgebung
 title: "„macOS-Entwickler-Setup“"
 ---
 

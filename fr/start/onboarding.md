@@ -1,8 +1,4 @@
 ---
-summary: "Flux de prise en main au premier lancement pour OpenClaw (application macOS)"
-read_when:
-  - Concevoir l’assistant de prise en main macOS
-  - Mettre en œuvre l’authentification ou la configuration d’identité
 title: "Prise en main (application macOS)"
 sidebarTitle: "Prise en main : application macOS"
 ---

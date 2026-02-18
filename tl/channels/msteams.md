@@ -1,7 +1,4 @@
 ---
-summary: "Katayuan ng suporta, mga kakayahan, at konpigurasyon ng Microsoft Teams bot"
-read_when:
-  - Gumagawa sa mga feature ng MS Teams channel
 title: "Microsoft Teams"
 ---
 

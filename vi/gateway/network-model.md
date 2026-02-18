@@ -1,7 +1,4 @@
 ---
-summary: "Cách Gateway, các node và máy chủ canvas kết nối."
-read_when:
-  - Bạn muốn có cái nhìn ngắn gọn về mô hình mạng của Gateway
 title: "Mô hình mạng"
 ---
 

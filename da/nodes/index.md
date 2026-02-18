@@ -1,9 +1,4 @@
 ---
-summary: "Noder: parring, funktioner, tilladelser og CLI-hjælpere til canvas/kamera/skærm/system"
-read_when:
-  - Parring af iOS/Android-noder til en gateway
-  - Brug af node-canvas/kamera til agentkontekst
-  - Tilføjelse af nye node-kommandoer eller CLI-hjælpere
 title: "Noder"
 ---
 

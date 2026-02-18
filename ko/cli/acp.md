@@ -1,8 +1,4 @@
 ---
-summary: "IDE 통합을 위한 ACP 브리지를 실행합니다"
-read_when:
-  - ACP 기반 IDE 통합을 설정할 때
-  - Gateway(게이트웨이)로의 ACP 세션 라우팅을 디버깅할 때
 title: "acp"
 ---
 

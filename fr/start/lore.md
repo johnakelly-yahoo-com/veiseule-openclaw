@@ -1,7 +1,4 @@
 ---
-summary: "Histoire et mythologie d’OpenClaw pour le contexte et le ton"
-read_when:
-  - Rédaction de documentation ou de textes UX faisant reference au lore
 title: "Le lore d’OpenClaw"
 ---
 

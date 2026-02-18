@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw CLI-referentie voor `openclaw`-opdrachten, subopdrachten en opties"
-read_when:
-  - CLI-opdrachten of -opties toevoegen of wijzigen
-  - Nieuwe opdrachtoppervlakken documenteren
 title: "CLI-referentie"
 ---
 

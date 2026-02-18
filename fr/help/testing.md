@@ -1,9 +1,4 @@
 ---
-summary: "Kit de test : suites unit/e2e/live, runners Docker et ce que couvre chaque test"
-read_when:
-  - Exécuter les tests en local ou en CI
-  - Ajouter des régressions pour des bugs de modèle/fournisseur
-  - Déboguer le comportement de la gateway (passerelle) et de l’agent
 title: "Tests"
 ---
 

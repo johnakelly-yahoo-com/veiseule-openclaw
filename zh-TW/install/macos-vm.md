@@ -1,10 +1,4 @@
 ---
-summary: "在需要隔離或 iMessage 時，於沙箱化的 macOS VM（本機或託管）中執行 OpenClaw"
-read_when:
-  - 你希望將 OpenClaw 與主要的 macOS 環境隔離
-  - 你想在沙箱中使用 iMessage 整合（BlueBubbles）
-  - 你需要可重置、可複製的 macOS 環境
-  - 你想比較本機與託管的 macOS VM 選項
 title: "macOS VM"
 ---
 

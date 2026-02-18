@@ -1,8 +1,4 @@
 ---
-summary: "Gestion de la date et de l’heure à travers les enveloppes, les invites, les outils et les connecteurs"
-read_when:
-  - Vous modifiez la manière dont les horodatages sont affichés au modele ou aux utilisateurs
-  - Vous deboguez la mise en forme de l’heure dans les messages ou la sortie de l’invite systeme
 title: "Date et heure"
 ---
 

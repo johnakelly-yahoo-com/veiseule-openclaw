@@ -1,8 +1,4 @@
 ---
-summary: "플랫폼 지원 개요 (Gateway + 컴패니언 앱)"
-read_when:
-  - OS 지원 또는 설치 경로를 찾고 있을 때
-  - Gateway 를 어디에서 실행할지 결정할 때
 title: "플랫폼"
 ---
 

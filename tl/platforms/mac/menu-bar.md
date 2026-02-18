@@ -1,7 +1,4 @@
 ---
-summary: "Lohika ng status ng menu bar at kung ano ang ipinapakita sa mga user"
-read_when:
-  - Pag-aayos ng mac menu UI o lohika ng status
 title: "Bar ng Menu"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw’ni lokal LLM’larda ishga tushirish (LM Studio, vLLM, LiteLLM, maxsus OpenAI endpoint’lari)"
-read_when:
-  - Modellarni o‘z GPU serveringizdan taqdim etmoqchisiz
-  - LM Studio yoki OpenAI-compatible proksi ulayapsiz
-  - Eng xavfsiz lokal model yo‘riqnomasi kerak
 title: "Lokal modellar"
 ---
 

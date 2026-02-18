@@ -1,6 +1,4 @@
 ---
-summary: "Setup ng Slack para sa socket o HTTP webhook mode"
-read_when: "Kapag nagsi-setup ng Slack o nagde-debug ng Slack socket/HTTP mode"
 title: "Slack"
 ---
 

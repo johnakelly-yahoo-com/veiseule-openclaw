@@ -1,8 +1,4 @@
 ---
-summary: "Visão geral de provedores de modelo com exemplos de configuração + fluxos de CLI"
-read_when:
-  - Você precisa de uma referência de configuração de modelos por provedor
-  - Você quer exemplos de configuração ou comandos de integração inicial via CLI para provedores de modelo
 title: "Provedores de Modelo"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Ko‘nikmalar: boshqariladigan va workspace, cheklov (gating) qoidalari hamda config/env ulanishi"
-read_when:
-  - Adding or modifying skills
-  - Changing skill gating or load rules
 title: "Ko‘nikmalar"
 ---
 

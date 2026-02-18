@@ -1,10 +1,5 @@
 ---
-title: "Vercel AI Gateway"
-summary: "Vercel AI Gateway 설정 (인증 + 모델 선택)"
-read_when:
-  - OpenClaw 와 함께 Vercel AI Gateway 를 사용하려는 경우
-  - API 키 환경 변수 또는 CLI 인증 선택이 필요한 경우
----
+title: "Vercel AI Gateway"---
 
 # Vercel AI Gateway
 

@@ -1,7 +1,4 @@
 ---
-summary: "Các bước ký cho các bản build debug macOS được tạo bởi các script đóng gói"
-read_when:
-  - Khi build hoặc ký các bản build debug mac
 title: "Ký macOS"
 ---
 

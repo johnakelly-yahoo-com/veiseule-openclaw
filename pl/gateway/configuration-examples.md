@@ -1,9 +1,4 @@
 ---
-summary: "Przykłady konfiguracji zgodne ze schematem dla typowych konfiguracji OpenClaw"
-read_when:
-  - Nauka konfiguracji OpenClaw
-  - Poszukiwanie przykładów konfiguracji
-  - Pierwsza konfiguracja OpenClaw
 title: "Przykłady konfiguracji"
 ---
 

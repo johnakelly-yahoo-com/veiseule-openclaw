@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw 在各通道、路由、媒體與使用者體驗方面的能力。"
-read_when:
-  - 你想要完整清單以了解 OpenClaw 支援的功能
 title: "功能"
 ---
 

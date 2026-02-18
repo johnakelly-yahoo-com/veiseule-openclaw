@@ -1,8 +1,4 @@
 ---
-summary: "Gumamit ng mga model ng Amazon Bedrock (Converse API) kasama ang OpenClaw"
-read_when:
-  - Gusto mong gumamit ng mga model ng Amazon Bedrock kasama ang OpenClaw
-  - Kailangan mo ng setup ng AWS credential/region para sa mga tawag ng model
 title: "Amazon Bedrock"
 ---
 

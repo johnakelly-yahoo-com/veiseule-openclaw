@@ -1,8 +1,4 @@
 ---
-summary: "Sanggunian ng OpenClaw CLI para sa mga `openclaw` na command, subcommand, at opsyon"
-read_when:
-  - Pagdaragdag o pagbabago ng mga CLI command o opsyon
-  - Pagdodokumento ng mga bagong command surface
 title: "Sanggunian ng CLI"
 ---
 

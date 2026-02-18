@@ -1,8 +1,4 @@
 ---
-summary: "Slash commands: text vs native, config, at mga sinusuportahang command"
-read_when:
-  - Paggamit o pag-configure ng mga chat command
-  - Pag-debug ng routing o mga pahintulot ng command
 title: "Mga Slash Command"
 ---
 

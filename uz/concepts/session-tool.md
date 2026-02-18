@@ -1,7 +1,4 @@
 ---
-summary: "Sessionlarni ro‘yxatlash, tarixni olish va sessionlararo xabar yuborish uchun agent session tool’lari"
-read_when:
-  - Session tool’larini qo‘shish yoki o‘zgartirish
 title: "Session Tool’lari"
 ---
 

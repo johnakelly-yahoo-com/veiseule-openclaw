@@ -1,8 +1,4 @@
 ---
-summary: "„Kanał DM Nostr przez zaszyfrowane wiadomości NIP-04”"
-read_when:
-  - Chcesz, aby OpenClaw odbierał DM-y przez Nostr
-  - Konfigurujesz zdecentralizowane komunikowanie
 title: "Nostr"
 ---
 

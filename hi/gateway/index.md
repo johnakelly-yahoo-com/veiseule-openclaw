@@ -1,7 +1,4 @@
 ---
-summary: "Gateway सेवा, जीवनचक्र और संचालन के लिए रनबुक"
-read_when:
-  - Gateway प्रक्रिया चलाते या डीबग करते समय
 title: "Gateway रनबुक"
 ---
 

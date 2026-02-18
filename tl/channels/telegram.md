@@ -1,7 +1,4 @@
 ---
-summary: "Katayuan ng suporta ng Telegram bot, mga kakayahan, at konpigurasyon"
-read_when:
-  - Nagtatrabaho sa mga feature o webhook ng Telegram
 title: "Telegram"
 ---
 

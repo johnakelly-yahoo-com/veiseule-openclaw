@@ -1,5 +1,4 @@
 ---
-summary: "OpenClaw kurulumu, yapılandırması ve kullanımı hakkında sık sorulan sorular"
 title: "SSS"
 ---
 

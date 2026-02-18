@@ -1,7 +1,4 @@
 ---
-summary: "Uyandırma sözcüğü ve bas-konuş çakıştığında sesli yer paylaşımının yaşam döngüsü"
-read_when:
-  - Ses kaplama davranışını ayarlama
 title: "Ses Kaplaması"
 ---
 

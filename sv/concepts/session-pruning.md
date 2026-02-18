@@ -1,9 +1,4 @@
----
-summary: "Sessionsrensning: trimning av verktygsresultat för att minska kontextuppblåsthet"
-read_when:
-  - Du vill minska LLM-kontekttillväxt från verktygsutdata
-  - Du finjusterar agents.defaults.contextPruning
----
+------
 
 # Sessionsrensning
 

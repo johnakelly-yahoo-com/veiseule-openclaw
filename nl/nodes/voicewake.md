@@ -1,8 +1,4 @@
 ---
-summary: "Globale voice wake words (eigendom van de Gateway) en hoe ze synchroniseren tussen nodes"
-read_when:
-  - Wijzigen van het gedrag of de standaardwaarden van voice wake words
-  - Toevoegen van nieuwe nodeplatforms die wake word-synchronisatie nodig hebben
 title: "Voice Wake"
 ---
 

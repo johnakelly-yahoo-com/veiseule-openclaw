@@ -1,8 +1,4 @@
 ---
-summary: "Ollama (로컬 LLM 런타임)로 OpenClaw 실행"
-read_when:
-  - Ollama 를 통해 로컬 모델로 OpenClaw 를 실행하려는 경우
-  - Ollama 설정 및 구성 가이드가 필요한 경우
 title: "Ollama"
 ---
 

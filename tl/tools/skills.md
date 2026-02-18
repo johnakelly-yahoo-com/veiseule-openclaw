@@ -1,8 +1,4 @@
 ---
-summary: "Skills: pinamamahalaan vs workspace, mga panuntunan sa gating, at config/env wiring"
-read_when:
-  - Pagdaragdag o pagbabago ng skills
-  - Pagbabago ng skill gating o mga panuntunan sa pag-load
 title: "Mga Kasanayan"
 ---
 

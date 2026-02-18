@@ -1,8 +1,4 @@
 ---
-summary: "ٹاک موڈ: ElevenLabs TTS کے ساتھ مسلسل صوتی گفتگو"
-read_when:
-  - macOS/iOS/Android پر ٹاک موڈ نافذ کرنا
-  - آواز/TTS/انٹرپٹ کے رویّے میں تبدیلی
 title: "ٹاک موڈ"
 ---
 

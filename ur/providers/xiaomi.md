@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw کے ساتھ Xiaomi MiMo (mimo-v2-flash) استعمال کریں"
-read_when:
-  - آپ OpenClaw میں Xiaomi MiMo ماڈلز چاہتے ہیں
-  - آپ کو XIAOMI_API_KEY سیٹ اپ درکار ہے
 title: "Xiaomi MiMo"
 ---
 

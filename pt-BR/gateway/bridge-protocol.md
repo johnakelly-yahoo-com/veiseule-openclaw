@@ -1,9 +1,4 @@
 ---
-summary: "Protocolo de bridge (nós legados): TCP JSONL, pareamento, RPC com escopo"
-read_when:
-  - Criando ou depurando clientes de nó (modo nó iOS/Android/macOS)
-  - Investigando falhas de pareamento ou autenticação da bridge
-  - Auditando a superfície de nó exposta pelo gateway
 title: "Protocolo de Bridge"
 ---
 

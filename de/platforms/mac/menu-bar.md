@@ -1,7 +1,4 @@
 ---
-summary: "„Logik des Menüleistenstatus und was Benutzern angezeigt wird“"
-read_when:
-  - Optimierung der macOS-Menü-UI oder der Statuslogik
 title: "„Menüleiste“"
 ---
 

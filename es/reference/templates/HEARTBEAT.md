@@ -1,8 +1,4 @@
----
-summary: "Plantilla de espacio de trabajo para HEARTBEAT.md"
-read_when:
-  - Inicializar un espacio de trabajo manualmente
----
+------
 
 # HEARTBEAT.md
 

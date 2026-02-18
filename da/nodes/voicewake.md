@@ -1,8 +1,4 @@
 ---
-summary: "Globale vækkeord for stemmeaktivering (Gateway-ejet) og hvordan de synkroniseres på tværs af noder"
-read_when:
-  - Ændring af adfærd eller standarder for vækkeord for stemmeaktivering
-  - Tilføjelse af nye nodeplatforme, der har brug for synkronisering af vækkeord
 title: "Stemmeaktivering"
 ---
 

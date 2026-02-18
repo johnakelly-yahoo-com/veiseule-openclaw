@@ -1,9 +1,4 @@
 ---
-summary: "Các ví dụ cấu hình chính xác theo schema cho những thiết lập OpenClaw phổ biến"
-read_when:
-  - Tìm hiểu cách cấu hình OpenClaw
-  - Tìm kiếm các ví dụ cấu hình
-  - Thiết lập OpenClaw lần đầu
 title: "Ví dụ cấu hình"
 ---
 

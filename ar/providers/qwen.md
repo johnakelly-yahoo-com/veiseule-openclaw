@@ -1,8 +1,4 @@
 ---
-summary: "استخدم OAuth من Qwen (الفئة المجانية) في OpenClaw"
-read_when:
-  - تريد استخدام Qwen مع OpenClaw
-  - تريد وصول OAuth من الفئة المجانية إلى Qwen Coder
 title: "Qwen"
 ---
 

@@ -1,10 +1,4 @@
----
-summary: "Trin-for-trin tjekliste for udgivelse af npm + macOS-app"
-read_when:
-  - Udgivelse af en ny npm-version
-  - Udgivelse af en ny macOS-app-version
-  - Verifikation af metadata før publicering
----
+------
 
 # Release-tjekliste (npm + macOS)
 

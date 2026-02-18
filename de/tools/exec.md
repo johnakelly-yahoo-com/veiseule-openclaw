@@ -1,8 +1,4 @@
 ---
-summary: "Verwendung des Exec-Werkzeugs, stdin-Modi und TTY-Unterstützung"
-read_when:
-  - Bei der Nutzung oder Änderung des Exec-Werkzeugs
-  - Beim Debuggen von stdin- oder TTY-Verhalten
 title: "Exec-Werkzeug"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Gestion des fuseaux horaires pour les agents, les enveloppes et les invites"
-read_when:
-  - Vous devez comprendre comment les horodatages sont normalisés pour le modèle
-  - Configuration du fuseau horaire de l'utilisateur pour les invites systeme
 title: "Fuseaux horaires"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw node`에 대한 CLI 레퍼런스(헤드리스 node 호스트)"
-read_when:
-  - 헤드리스 node 호스트 실행 시
-  - system.run을 위해 macOS가 아닌 node를 페어링할 때
 title: "node"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Heartbeat-pollningsmeddelanden och notifieringsregler"
-read_when:
-  - Justera heartbeat-frekvens eller meddelanden
-  - Välja mellan heartbeat och cron för schemalagda uppgifter
 title: "Hjärtslag"
 ---
 

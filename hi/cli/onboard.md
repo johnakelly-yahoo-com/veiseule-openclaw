@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw onboard` के लिए CLI संदर्भ (इंटरैक्टिव ऑनबोर्डिंग विज़ार्ड)"
-read_when:
-  - आपको Gateway, वर्कस्पेस, प्रमाणीकरण, चैनल और Skills के लिए मार्गदर्शित सेटअप चाहिए
 title: "onboard"
 ---
 

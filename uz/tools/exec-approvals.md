@@ -1,9 +1,4 @@
 ---
-summary: "Exec tasdiqlari, ruxsat roʻyxatlari va sandboxdan chiqish promptlari"
-read_when:
-  - Exec tasdiqlari yoki ruxsat roʻyxatlarini sozlash
-  - macOS ilovasida exec tasdiqlari UX’ini joriy etish
-  - Sandboxdan chiqish promptlarini va ularning oqibatlarini ko‘rib chiqish
 title: "Exec tasdiqlari"
 ---
 

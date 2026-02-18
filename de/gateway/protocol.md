@@ -1,9 +1,4 @@
 ---
-summary: "Gateway-WebSocket-Protokoll: Handshake, Frames, Versionierung"
-read_when:
-  - Implementierung oder Aktualisierung von Gateway-WS-Clients
-  - Debugging von Protokollinkompatibilitäten oder Verbindungsfehlern
-  - Neuerstellung von Protokollschemas/-modellen
 title: "Gateway-Protokoll"
 ---
 

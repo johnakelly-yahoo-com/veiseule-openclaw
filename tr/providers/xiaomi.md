@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw ile Xiaomi MiMo (mimo-v2-flash) kullanın"
-read_when:
-  - OpenClaw’da Xiaomi MiMo modellerini istiyorsunuz
-  - XIAOMI_API_KEY kurulumu yapmanız gerekiyor
 title: "Xiaomi MiMo"
 ---
 

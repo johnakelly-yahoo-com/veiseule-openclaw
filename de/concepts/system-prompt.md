@@ -1,8 +1,4 @@
 ---
-summary: "„Was der OpenClaw-System-Prompt enthält und wie er zusammengestellt wird“"
-read_when:
-  - Beim Bearbeiten des System-Prompt-Texts, der Werkzeugliste oder der Zeit-/Heartbeat-Abschnitte
-  - Beim Ändern des Workspace-Bootstraps oder des Verhaltens der Skills-Injektion
 title: "„System-Prompt“"
 ---
 

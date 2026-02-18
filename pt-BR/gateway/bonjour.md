@@ -1,8 +1,4 @@
 ---
-summary: "Descoberta Bonjour/mDNS + depuração (beacons do Gateway, clientes e modos de falha comuns)"
-read_when:
-  - Depurando problemas de descoberta Bonjour no macOS/iOS
-  - Alterando tipos de serviço mDNS, registros TXT ou UX de descoberta
 title: "Descoberta Bonjour"
 ---
 

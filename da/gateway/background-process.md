@@ -1,8 +1,4 @@
 ---
-summary: "Udførelse i baggrunden og processtyring"
-read_when:
-  - Tilføjelse eller ændring af adfærd for baggrunds-exec
-  - Fejlfinding af langvarige exec-opgaver
 title: "Background Exec og procesværktøj"
 ---
 

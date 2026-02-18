@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw security` uchun CLI ma’lumotnomasi (keng tarqalgan xavfsizlik xatolarini audit qilish va tuzatish)"
-read_when:
-  - You want to run a quick security audit on config/state
-  - You want to apply safe “fix” suggestions (chmod, tighten defaults)
 title: "security"
 ---
 

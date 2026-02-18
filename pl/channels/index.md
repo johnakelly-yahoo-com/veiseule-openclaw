@@ -1,8 +1,4 @@
 ---
-summary: "Platformy komunikacyjne, z którymi OpenClaw może się łączyć"
-read_when:
-  - Chcesz wybrać kanał czatu dla OpenClaw
-  - Potrzebujesz szybkiego przeglądu obsługiwanych platform komunikacyjnych
 title: "Kanały czatu"
 ---
 

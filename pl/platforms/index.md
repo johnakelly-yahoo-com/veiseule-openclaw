@@ -1,8 +1,4 @@
 ---
-summary: "„Przegląd obsługi platform (Gateway + aplikacje towarzyszące)”"
-read_when:
-  - Szukasz informacji o obsłudze systemów operacyjnych lub ścieżkach instalacji
-  - Decydujesz, gdzie uruchomić Gateway
 title: "„Platformy”"
 ---
 

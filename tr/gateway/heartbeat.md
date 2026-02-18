@@ -1,8 +1,4 @@
 ---
-summary: "Heartbeat yoklama mesajları ve bildirim kuralları"
-read_when:
-  - Heartbeat sıklığını veya mesajlaşmayı ayarlarken
-  - Zamanlanmış görevler için heartbeat ile cron arasında karar verirken
 title: "Kalp Atışı"
 ---
 

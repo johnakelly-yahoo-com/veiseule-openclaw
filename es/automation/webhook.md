@@ -1,8 +1,4 @@
 ---
-summary: "Ingreso por webhook para activación y ejecuciones de agentes aisladas"
-read_when:
-  - Al agregar o cambiar endpoints de webhook
-  - Al conectar sistemas externos con OpenClaw
 title: "Webhooks"
 ---
 

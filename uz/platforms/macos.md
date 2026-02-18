@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS yordamchi ilovasi (menyu paneli + gateway broker)"
-read_when:
-  - Implementing macOS app features
-  - macOS’da gateway hayotiy siklini yoki node bog‘lanishini o‘zgartirish
 title: "macOS Ilovasi"
 ---
 

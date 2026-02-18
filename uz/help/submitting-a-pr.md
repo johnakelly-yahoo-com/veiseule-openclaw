@@ -1,5 +1,4 @@
 ---
-summary: "Qanday qilib yuqori signalga ega PR yuborish kerak"
 title: "PR yuborish"
 ---
 

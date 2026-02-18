@@ -1,8 +1,4 @@
 ---
-summary: "Gmail Pub/Sub push gogcli orqali OpenClaw webhook’lariga ulandi"
-read_when:
-  - Wiring Gmail inbox triggers to OpenClaw
-  - Setting up Pub/Sub push for agent wake
 title: "Gmail PubSub"
 ---
 

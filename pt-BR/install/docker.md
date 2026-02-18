@@ -1,8 +1,4 @@
 ---
-summary: "Configuração e integração inicial opcionais baseadas em Docker para o OpenClaw"
-read_when:
-  - Você quer um gateway em contêiner em vez de instalações locais
-  - Você está validando o fluxo do Docker
 title: "Docker"
 ---
 

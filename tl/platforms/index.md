@@ -1,8 +1,4 @@
 ---
-summary: "Pangkalahatang-ideya ng suporta sa platform (Gateway + companion apps)"
-read_when:
-  - Naghahanap ng suporta sa OS o mga path ng pag-install
-  - Nagpapasya kung saan patakbuhin ang Gateway
 title: "Mga Platform"
 ---
 

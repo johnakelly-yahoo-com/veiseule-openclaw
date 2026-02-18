@@ -1,7 +1,4 @@
 ---
-summary: "Hành vi chat nhóm trên các nền tảng (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
-read_when:
-  - Thay đổi hành vi chat nhóm hoặc kiểm soát kích hoạt bằng đề cập
 title: "Nhóm"
 ---
 

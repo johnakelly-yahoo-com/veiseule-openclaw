@@ -1,8 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw status` (diagnostics, sondes, instantanes d'utilisation)"
-read_when:
-  - Vous voulez un diagnostic rapide de l'etat des canaux et des destinataires de sessions recentes
-  - Vous voulez un statut "tout" pour le débogage
 title: "statut"
 ---
 

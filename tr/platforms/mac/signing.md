@@ -1,7 +1,4 @@
 ---
-summary: "Paketleme betikleri tarafından üretilen macOS debug derlemeleri için imzalama adımları"
-read_when:
-  - mac debug derlemelerini oluştururken veya imzalarken
 title: "macOS İmzalama"
 ---
 

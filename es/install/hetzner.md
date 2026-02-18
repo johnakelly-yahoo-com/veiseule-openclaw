@@ -1,10 +1,4 @@
 ---
-summary: "Ejecute OpenClaw Gateway 24/7 en un VPS económico de Hetzner (Docker) con estado duradero y binarios integrados"
-read_when:
-  - Desea OpenClaw ejecutándose 24/7 en un VPS en la nube (no en su laptop)
-  - Desea un Gateway siempre activo y de nivel producción en su propio VPS
-  - Desea control total sobre la persistencia, los binarios y el comportamiento de reinicio
-  - Está ejecutando OpenClaw en Docker en Hetzner o un proveedor similar
 title: "Hetzner"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "CLI des modeles : lister, definir, alias, replis, scan, statut"
-read_when:
-  - Ajout ou modification de la CLI des modeles (models list/set/scan/aliases/fallbacks)
-  - Changement du comportement de repli des modeles ou de l’UX de selection
-  - Mise a jour des sondes de scan des modeles (outils/images)
 title: "CLI des modeles"
 ---
 

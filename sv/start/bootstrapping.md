@@ -1,9 +1,4 @@
 ---
-summary: "”Agentens bootstrap‑ritual som sår arbetsytan och identitetsfilerna”"
-read_when:
-  - Förstå vad som händer vid agentens första körning
-  - Förklara var bootstrap‑filerna finns
-  - Felsöka introduktionens identitetskonfiguration
 title: "”Agent‑bootstrap”"
 sidebarTitle: "Uppstart"
 ---

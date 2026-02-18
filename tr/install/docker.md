@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw için isteğe bağlı Docker tabanlı kurulum ve işe alım"
-read_when:
-  - Yerel kurulumlar yerine kapsayıcılı bir gateway istiyorsunuz
-  - Docker akışını doğruluyorsunuz
 title: "Docker"
 ---
 

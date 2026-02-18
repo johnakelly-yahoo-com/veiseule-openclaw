@@ -1,9 +1,4 @@
 ---
-summary: "Exec-godkendelser, tilladelseslister og prompts for sandbox-udbrud"
-read_when:
-  - Konfiguration af exec-godkendelser eller tilladelseslister
-  - Implementering af exec-godkendelses-UX i macOS-appen
-  - Gennemgang af prompts for sandbox-udbrud og konsekvenser
 title: "Exec-godkendelser"
 ---
 

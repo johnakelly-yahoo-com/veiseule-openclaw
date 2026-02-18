@@ -1,8 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw security` (pag-audit at pag-ayos ng mga karaniwang security footgun)"
-read_when:
-  - Gusto mong magpatakbo ng mabilisang security audit sa config/state
-  - Gusto mong ilapat ang mga ligtas na mungkahing “fix” (chmod, paghihigpit ng mga default)
 title: "seguridad"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Forskningsnoter: offline hukommelsessystem til Clawd-workspaces (Markdown som source-of-truth + afledt indeks)"
-read_when:
-  - Design af workspace-hukommelse (~/.openclaw/workspace) ud over daglige Markdown-logs
-  - Deciding: standalone CLI vs dyb OpenClaw integration
-  - Tilføjelse af offline genkaldelse + refleksion (retain/recall/reflect)
 title: "Forskning i arbejdsområdets hukommelse"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw configure`를 위한 CLI 참조 (대화형 구성 프롬프트)"
-read_when:
-  - 자격 증명, 디바이스 또는 에이전트 기본값을 대화형으로 조정하려는 경우
 title: "configure"
 ---
 

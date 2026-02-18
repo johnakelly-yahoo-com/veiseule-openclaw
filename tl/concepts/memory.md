@@ -1,9 +1,4 @@
----
-summary: "Paano gumagana ang memory ng OpenClaw (mga workspace file + awtomatikong memory flush)"
-read_when:
-  - Gusto mo ang layout ng memory file at workflow
-  - Gusto mong i-tune ang awtomatikong pre-compaction memory flush
----
+------
 
 # Memory
 

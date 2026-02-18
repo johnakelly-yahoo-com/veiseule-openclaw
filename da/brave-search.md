@@ -1,8 +1,4 @@
 ---
-summary: "Opsætning af Brave Search API til web_search"
-read_when:
-  - Du vil bruge Brave Search til web_search
-  - Du har brug for en BRAVE_API_KEY eller plandetaljer
 title: "Brave Search"
 ---
 

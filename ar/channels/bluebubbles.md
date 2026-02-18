@@ -1,9 +1,4 @@
 ---
-summary: "iMessage عبر خادم BlueBubbles على macOS (إرسال/استقبال REST، مؤشرات الكتابة، التفاعلات، الاقتران، إجراءات متقدمة)."
-read_when:
-  - إعداد قناة BlueBubbles
-  - استكشاف أخطاء اقتران webhook وإصلاحها
-  - تهيئة iMessage على macOS
 title: "BlueBubbles"
 ---
 

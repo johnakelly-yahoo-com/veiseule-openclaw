@@ -1,8 +1,4 @@
 ---
-summary: "Se connecter à GitHub Copilot depuis OpenClaw en utilisant le device flow"
-read_when:
-  - Vous souhaitez utiliser GitHub Copilot comme fournisseur de modèles
-  - Vous avez besoin du flux `openclaw models auth login-github-copilot`
 title: "GitHub Copilot"
 ---
 

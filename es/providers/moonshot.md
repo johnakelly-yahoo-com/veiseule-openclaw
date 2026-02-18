@@ -1,9 +1,4 @@
 ---
-summary: "Configurar Moonshot K2 vs Kimi Coding (proveedores y claves separadas)"
-read_when:
-  - Quiere configurar Moonshot K2 (Moonshot Open Platform) vs Kimi Coding
-  - Necesita entender endpoints, claves y referencias de modelo separadas
-  - Quiere configuración lista para copiar/pegar para cualquiera de los proveedores
 title: "Moonshot AI"
 ---
 

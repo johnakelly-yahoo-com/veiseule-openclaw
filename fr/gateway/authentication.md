@@ -1,8 +1,4 @@
 ---
-summary: "Authentification des modeles : OAuth, cles API et setup-token"
-read_when:
-  - Debogage de l’authentification des modeles ou de l’expiration OAuth
-  - Documentation de l’authentification ou du stockage des identifiants
 title: "Authentification"
 ---
 

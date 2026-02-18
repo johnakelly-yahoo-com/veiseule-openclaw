@@ -1,9 +1,4 @@
 ---
-summary: "Masusing pagtalakay: session store + mga transcript, lifecycle, at mga internal ng (auto)compaction"
-read_when:
-  - Kailangan mong mag-debug ng mga session id, transcript JSONL, o mga field ng sessions.json
-  - Binabago mo ang gawi ng auto-compaction o nagdaragdag ng “pre-compaction” housekeeping
-  - Gusto mong magpatupad ng mga memory flush o silent system turn
 title: "Masusing Pag-aaral sa Pamamahala ng Session"
 ---
 

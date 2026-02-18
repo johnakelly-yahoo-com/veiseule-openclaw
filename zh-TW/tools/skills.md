@@ -1,8 +1,4 @@
 ---
-summary: "Skills：受管與工作區的差異、閘控規則，以及設定／環境變數的連接方式"
-read_when:
-  - 新增或修改 Skills
-  - 變更 Skill 的閘控或載入規則
 title: "技能"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Zalo 個人向けプラグイン：zca-cli による QR ログイン + メッセージング（プラグインのインストール + チャンネル設定 + CLI + ツール）"
-read_when:
-  - OpenClaw で Zalo Personal（非公式）を利用したい場合
-  - zalouser プラグインを設定または開発している場合
 title: "Zalo Personal プラグイン"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Hoe de Gateway, nodes en canvas-host verbinding maken."
-read_when:
-  - Je wilt een beknopt overzicht van het netwerkmodel van de Gateway
 title: "Netwerkmodel"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "macOS پر Gateway کی لائف سائیکل (launchd)"
-read_when:
-  - Gateway کی لائف سائیکل کے ساتھ mac ایپ کو یکجا کرتے وقت
 title: "Gateway کی لائف سائیکل"
 ---
 

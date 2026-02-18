@@ -1,7 +1,4 @@
 ---
-summary: "„Status wsparcia bota Discord, możliwości i konfiguracja”"
-read_when:
-  - Prace nad funkcjami kanału Discord
 title: "Discord"
 ---
 

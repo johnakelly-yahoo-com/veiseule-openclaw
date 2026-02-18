@@ -1,7 +1,4 @@
 ---
-summary: "Livscyklus for voice overlay, når wake-word og push-to-talk overlapper"
-read_when:
-  - Justering af voice overlay-adfærd
 title: "Stemmeoverlejring"
 ---
 

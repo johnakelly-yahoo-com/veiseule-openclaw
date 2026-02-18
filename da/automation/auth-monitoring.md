@@ -1,8 +1,4 @@
 ---
-summary: "Overvåg OAuth-udløb for modeludbydere"
-read_when:
-  - Opsætning af overvågning eller alarmer for auth-udløb
-  - Automatisering af Claude Code / Codex OAuth-opdateringstjek
 title: "Autentificeringsovervågning"
 ---
 

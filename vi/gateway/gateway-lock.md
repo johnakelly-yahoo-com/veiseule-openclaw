@@ -1,8 +1,4 @@
 ---
-summary: "Cơ chế bảo vệ singleton của Gateway bằng cách ràng buộc listener WebSocket"
-read_when:
-  - Khi chạy hoặc gỡ lỗi tiến trình gateway
-  - Khi điều tra việc thực thi chạy một phiên bản duy nhất
 title: "Khóa Gateway"
 ---
 

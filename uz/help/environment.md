@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw muhit o‘zgaruvchilarini qayerdan yuklaydi va ustuvorlik tartibi"
-read_when:
-  - Qaysi env o‘zgaruvchilar yuklanishini va qaysi tartibda ekanini bilishingiz kerak
-  - Gateway’da API kalitlari yetishmayotganini nosozlikdan o‘tkazyapsiz
-  - Provayder autentifikatsiyasi yoki deployment muhitlarini hujjatlashtiryapsiz
 title: "Muhit o‘zgaruvchilari"
 ---
 

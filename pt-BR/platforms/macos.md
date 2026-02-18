@@ -1,8 +1,4 @@
 ---
-summary: "Aplicativo complementar OpenClaw para macOS (barra de menus + corretor do gateway)"
-read_when:
-  - Implementando recursos do app macOS
-  - Alterando o ciclo de vida do gateway ou a ponte de nós no macOS
 title: "App macOS"
 ---
 

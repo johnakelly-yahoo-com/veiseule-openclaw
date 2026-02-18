@@ -1,9 +1,4 @@
 ---
-summary: "Streaming + parçalama davranışı (blok yanıtlar, taslak streaming, sınırlar)"
-read_when:
-  - Kanallarda streaming veya parçalamanın nasıl çalıştığını açıklarken
-  - Blok streaming veya kanal parçalama davranışını değiştirirken
-  - Yinelenen/erken blok yanıtları ya da taslak streaming’i hata ayıklarken
 title: "Streaming ve Parçalama"
 ---
 

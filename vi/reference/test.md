@@ -1,7 +1,4 @@
 ---
-summary: "Cách chạy test cục bộ (vitest) và khi nào dùng các chế độ force/coverage"
-read_when:
-  - Chạy hoặc sửa test
 title: "Kiểm thử"
 ---
 

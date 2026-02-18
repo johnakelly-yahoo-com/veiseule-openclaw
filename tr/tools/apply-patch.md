@@ -1,8 +1,4 @@
 ---
-summary: "apply_patch aracıyla çoklu dosya yamaları uygulayın"
-read_when:
-  - Birden fazla dosyada yapılandırılmış düzenlemelere ihtiyacınız olduğunda
-  - Yama tabanlı düzenlemeleri belgelemek veya hata ayıklamak istediğinizde
 title: "apply_patch Aracı"
 ---
 

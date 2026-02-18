@@ -1,7 +1,4 @@
 ---
-summary: "Twitch sohbet botu yapılandırması ve kurulumu"
-read_when:
-  - OpenClaw için Twitch sohbet entegrasyonunu kurarken
 title: "Twitch"
 ---
 

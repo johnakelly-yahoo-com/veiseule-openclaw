@@ -1,9 +1,4 @@
 ---
-summary: "Środowisko uruchomieniowe Gateway na macOS (zewnętrzna usługa launchd)"
-read_when:
-  - Pakietowanie OpenClaw.app
-  - Debugowanie usługi launchd Gateway na macOS
-  - Instalowanie CLI Gateway dla macOS
 title: "Gateway na macOS"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "I-install ang OpenClaw at patakbuhin ang iyong unang chat sa loob ng ilang minuto."
-read_when:
-  - Unang beses na setup mula sa zero
-  - Gusto mo ang pinakamabilis na daan papunta sa gumaganang chat
 title: "Pagsisimula"
 ---
 

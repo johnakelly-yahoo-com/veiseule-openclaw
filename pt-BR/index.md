@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw é um gateway multicanal para agentes de IA que roda em qualquer sistema operacional."
-read_when:
-  - Apresentando o OpenClaw a novos usuários
 title: "OpenClaw"
 ---
 

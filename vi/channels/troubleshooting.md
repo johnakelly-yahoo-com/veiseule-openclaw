@@ -1,8 +1,4 @@
 ---
-summary: "Xử lý sự cố nhanh ở cấp độ kênh với các dấu hiệu lỗi theo từng kênh và cách khắc phục"
-read_when:
-  - Kênh vận chuyển báo đã kết nối nhưng phản hồi thất bại
-  - Bạn cần các kiểm tra theo từng kênh trước khi đọc tài liệu chuyên sâu của nhà cung cấp
 title: "Xử lý sự cố kênh"
 ---
 

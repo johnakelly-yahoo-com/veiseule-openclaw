@@ -1,8 +1,4 @@
 ---
-summary: "Tham chiếu đầy đủ cho luồng hướng dẫn ban đầu bằng CLI, thiết lập xác thực/mô hình, đầu ra và nội bộ"
-read_when:
-  - Bạn cần hành vi chi tiết cho openclaw onboard
-  - Bạn đang gỡ lỗi kết quả onboarding hoặc tích hợp các client onboarding
 title: "Tham chiếu Onboarding CLI"
 sidebarTitle: "Tham chiếu CLI"
 ---

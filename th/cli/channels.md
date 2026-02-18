@@ -1,8 +1,4 @@
 ---
-summary: "เอกสารอ้างอิงCLIสำหรับ `openclaw channels` (บัญชี, สถานะ, เข้าสู่ระบบ/ออกจากระบบ, บันทึก)"
-read_when:
-  - คุณต้องการเพิ่ม/ลบบัญชีช่องทาง (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (ปลั๊กอิน)/Signal/iMessage)
-  - คุณต้องการตรวจสอบสถานะช่องทางหรือดูบันทึกช่องทางแบบต่อเนื่อง
 title: "channels"
 ---
 

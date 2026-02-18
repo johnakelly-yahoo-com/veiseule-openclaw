@@ -1,7 +1,4 @@
 ---
-summary: "wake-word နှင့် push-to-talk တိုက်ဆိုင်လာသောအခါ voice overlay ၏ lifecycle"
-read_when:
-  - Voice overlay အပြုအမူကို ချိန်ညှိနေစဉ်
 title: "အသံ ထပ်တင်ခြင်း"
 ---
 

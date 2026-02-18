@@ -1,9 +1,4 @@
 ---
-summary: "Hành vi streaming + chunking (trả lời theo block, streaming bản nháp, giới hạn)"
-read_when:
-  - Giải thích cách streaming hoặc chunking hoạt động trên các kênh
-  - Thay đổi hành vi streaming theo block hoặc chunking theo kênh
-  - Gỡ lỗi việc trả lời block bị trùng/lệch sớm hoặc streaming bản nháp
 title: "Streaming và Chunking"
 ---
 

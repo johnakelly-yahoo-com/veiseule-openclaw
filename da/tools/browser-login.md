@@ -1,8 +1,4 @@
 ---
-summary: "Manuelle logins til browserautomatisering + opslag på X/Twitter"
-read_when:
-  - Du skal logge ind på websites til browserautomatisering
-  - Du vil poste opdateringer på X/Twitter
 title: "Browser-login"
 ---
 

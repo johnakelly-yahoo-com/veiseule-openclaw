@@ -1,9 +1,4 @@
----
-summary: "Mga tala ng dev agent tools (C-3PO)"
-read_when:
-  - Kapag gumagamit ng mga template ng dev Gateway
-  - Kapag ina-update ang default na pagkakakilanlan ng dev agent
----
+------
 
 # TOOLS.md - Mga Tala ng Tool ng User (nae-edit)
 

@@ -1,8 +1,4 @@
 ---
-summary: "用於入站語音訊息的 Deepgram 轉錄"
-read_when:
-  - 你需要將 Deepgram 語音轉文字用於音訊附件
-  - 你需要一個快速的 Deepgram 設定範例
 title: "Deepgram"
 ---
 

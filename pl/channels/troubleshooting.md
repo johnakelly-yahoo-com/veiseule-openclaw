@@ -1,8 +1,4 @@
 ---
-summary: "Szybkie rozwiązywanie problemów na poziomie kanału z charakterystycznymi sygnaturami awarii i poprawkami dla poszczególnych kanałów"
-read_when:
-  - Transport kanału pokazuje połączenie, ale odpowiedzi nie działają
-  - Potrzebne są kontrole specyficzne dla kanału przed sięgnięciem po szczegółową dokumentację dostawcy
 title: "Rozwiązywanie problemów z kanałami"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Curated links to the most used OpenClaw docs."
-read_when:
-  - You want quick access to key docs pages
 title: "Docs directory"
 ---
 

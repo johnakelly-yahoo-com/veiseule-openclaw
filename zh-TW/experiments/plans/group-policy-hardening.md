@@ -1,7 +1,4 @@
 ---
-summary: "Telegram 允許清單強化：前綴＋空白正規化"
-read_when:
-  - 檢視歷史 Telegram 允許清單變更時
 title: "Telegram 允許清單強化"
 ---
 

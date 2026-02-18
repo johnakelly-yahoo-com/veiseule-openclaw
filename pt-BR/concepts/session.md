@@ -1,7 +1,4 @@
 ---
-summary: "Regras de gerenciamento de sessão, chaves e persistência para chats"
-read_when:
-  - Modificando o tratamento ou armazenamento de sessões
 title: "Gerenciamento de Sessões"
 ---
 

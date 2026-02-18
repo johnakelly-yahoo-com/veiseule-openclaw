@@ -1,8 +1,4 @@
 ---
-summary: "Parseren van inkomende kanaallocaties (Telegram + WhatsApp) en contextvelden"
-read_when:
-  - Het toevoegen of wijzigen van kanaallocatieparsing
-  - Het gebruiken van locatiecontextvelden in agentprompts of tools
 title: "Kanaallocatieparsing"
 ---
 

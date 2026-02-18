@@ -1,7 +1,4 @@
 ---
-summary: "Hur Gateway, noder och canvas-värd ansluter."
-read_when:
-  - Du vill ha en kortfattad överblick över Gateways nätverksmodell
 title: "Nätverksmodell"
 ---
 

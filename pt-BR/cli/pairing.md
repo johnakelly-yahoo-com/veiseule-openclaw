@@ -1,7 +1,4 @@
 ---
-summary: "Referência da CLI para `openclaw pairing` (aprovar/listar solicitações de emparelhamento)"
-read_when:
-  - Você está usando DMs no modo de emparelhamento e precisa aprovar remetentes
 title: "emparelhamento"
 ---
 

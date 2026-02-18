@@ -1,9 +1,4 @@
 ---
-summary: "PeekabooBridge 與 macOS UI 自動化的整合"
-read_when:
-  - 在 OpenClaw.app 中託管 PeekabooBridge
-  - 透過 Swift Package Manager 整合 Peekaboo
-  - 變更 PeekabooBridge 通訊協定／路徑
 title: "Peekaboo Bridge"
 ---
 

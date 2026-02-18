@@ -1,7 +1,4 @@
 ---
-summary: "Jak przychodzące audio/notatki głosowe są pobierane, transkrybowane i wstrzykiwane do odpowiedzi"
-read_when:
-  - Zmiana transkrypcji audio lub obsługi multimediów
 title: "Audio i notatki głosowe"
 ---
 

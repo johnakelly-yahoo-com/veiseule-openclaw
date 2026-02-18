@@ -1,7 +1,4 @@
 ---
-summary: "Zasady zarządzania sesjami, klucze i trwałość dla czatów"
-read_when:
-  - Modyfikowanie obsługi sesji lub przechowywania
 title: "Zarządzanie sesjami"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Escriba herramientas de agente en un plugin (esquemas, herramientas opcionales, listas de permitidos)"
-read_when:
-  - Quiere agregar una nueva herramienta de agente en un plugin
-  - Necesita hacer que una herramienta sea de adhesión voluntaria mediante listas de permitidos
 title: "Herramientas de agente del plugin"
 ---
 

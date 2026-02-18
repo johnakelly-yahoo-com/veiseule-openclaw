@@ -1,7 +1,4 @@
 ---
-summary: "မျက်နှာပြင်များအနှံ့ (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams) တွင် အုပ်စုချတ် အပြုအမူ"
-read_when:
-  - အုပ်စုချတ် အပြုအမူ သို့မဟုတ် mention gating ကို ပြောင်းလဲသည့်အခါ
 title: "အုပ်စုများ"
 ---
 

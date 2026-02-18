@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw တွင် Synthetic ၏ Anthropic-ကိုက်ညီသော API ကို အသုံးပြုခြင်း"
-read_when:
-  - Synthetic ကို မော်ဒယ်ပံ့ပိုးသူအဖြစ် အသုံးပြုလိုသောအခါ
-  - Synthetic API ကီး သို့မဟုတ် base URL ကို သတ်မှတ်ရန် လိုအပ်သောအခါ
 title: "Synthetic"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Onboarding sa unang pagtakbo para sa OpenClaw (macOS app)"
-read_when:
-  - Pagdidisenyo ng macOS onboarding assistant
-  - Pagpapatupad ng auth o identity setup
 title: "Pagsisimula (macOS App)"
 sidebarTitle: "Pagsisimula: macOS App"
 ---

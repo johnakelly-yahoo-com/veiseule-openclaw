@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想要容器化的 Gateway 网关而不是本地安装
-  - 你正在验证 Docker 流程
-summary: OpenClaw 的可选 Docker 设置和新手引导
 title: Docker
 x-i18n:
   generated_at: "2026-02-03T07:51:20Z"

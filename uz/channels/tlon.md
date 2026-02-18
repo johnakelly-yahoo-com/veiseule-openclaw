@@ -1,7 +1,4 @@
 ---
-summary: "Tlon/Urbit qo‘llab-quvvatlash holati, imkoniyatlari va sozlash"
-read_when:
-  - Working on Tlon/Urbit channel features
 title: "Tlon"
 ---
 

@@ -1,8 +1,6 @@
 ---
 title: "Tampok"
-description: "Mga totoong OpenClaw project mula sa komunidad"
-summary: "Mga proyektong ginawa ng komunidad at mga integrasyon na pinapagana ng OpenClaw"
----
+description: "Mga totoong OpenClaw project mula sa komunidad"---
 
 # Tampok
 

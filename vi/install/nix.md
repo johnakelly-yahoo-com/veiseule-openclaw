@@ -1,9 +1,4 @@
 ---
-summary: "Cài đặt OpenClaw theo cách khai báo với Nix"
-read_when:
-  - Bạn muốn cài đặt có thể tái tạo và quay lui
-  - Bạn đã sử dụng Nix/NixOS/Home Manager
-  - Bạn muốn mọi thứ được ghim phiên bản và quản lý theo cách khai báo
 title: "Nix"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "gogcli 를 통해 Gmail Pub/Sub 푸시를 OpenClaw 웹훅에 연결"
-read_when:
-  - Gmail 받은편지함 트리거를 OpenClaw 에 연결하기
-  - 에이전트 웨이크를 위한 Pub/Sub 푸시 설정하기
 title: "Gmail PubSub"
 ---
 

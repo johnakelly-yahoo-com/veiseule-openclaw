@@ -1,8 +1,4 @@
 ---
-summary: "Wiadomości odpytywania heartbeat oraz reguły powiadomień"
-read_when:
-  - Dostosowywanie częstotliwości heartbeat lub komunikatów
-  - Wybór między heartbeat a cronem dla zadań zaplanowanych
 title: "Sygnał życia"
 ---
 

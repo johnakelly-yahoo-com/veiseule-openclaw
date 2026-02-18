@@ -1,8 +1,4 @@
 ---
-summary: "Manifiesto del plugin + requisitos del esquema JSON (validación estricta de configuración)"
-read_when:
-  - Está construyendo un plugin de OpenClaw
-  - Necesita distribuir un esquema de configuración del plugin o depurar errores de validación del plugin
 title: "Manifiesto del plugin"
 ---
 

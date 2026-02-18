@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw میں API کلیدوں یا setup-token کے ذریعے Anthropic Claude استعمال کریں"
-read_when:
-  - آپ OpenClaw میں Anthropic ماڈلز استعمال کرنا چاہتے ہیں
-  - آپ API کلیدوں کے بجائے setup-token چاہتے ہیں
 title: "Anthropic"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Bridge ပရိုတိုကော (legacy နိုဒ်များ): TCP JSONL၊ pairing၊ scoped RPC"
-read_when:
-  - iOS/Android/macOS နိုဒ်မုဒ်အတွက် နိုဒ် client များကို တည်ဆောက်ခြင်း သို့မဟုတ် ပြဿနာရှာဖွေခြင်း
-  - pairing သို့မဟုတ် bridge authentication မအောင်မြင်မှုများကို စုံစမ်းစစ်ဆေးခြင်း
-  - Gateway မှ ဖော်ထုတ်ထားသော နိုဒ် surface ကို စိစစ်သုံးသပ်ခြင်း
 title: "Bridge ပရိုတိုကော"
 ---
 

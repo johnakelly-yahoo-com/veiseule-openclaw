@@ -1,8 +1,4 @@
 ---
-summary: "Talk-tilstand: kontinuerlige talekonversationer med ElevenLabs TTS"
-read_when:
-  - Implementering af Talk-tilstand på macOS/iOS/Android
-  - Ændring af stemme/TTS/afbrydelsesadfærd
 title: "Talk-tilstand"
 ---
 

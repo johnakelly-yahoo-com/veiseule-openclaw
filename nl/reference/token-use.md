@@ -1,8 +1,4 @@
 ---
-summary: "Hoe OpenClaw promptcontext opbouwt en tokengebruik + kosten rapporteert"
-read_when:
-  - Uitleggen van tokengebruik, kosten of contextvensters
-  - Debuggen van contextgroei of compactiegedrag
 title: "Tokengebruik en kosten"
 ---
 

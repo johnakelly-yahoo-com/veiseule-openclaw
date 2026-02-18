@@ -1,8 +1,4 @@
 ---
-summary: "Superfícies de rastreamento de uso e requisitos de credenciais"
-read_when:
-  - Você está conectando superfícies de uso/cota de provedores
-  - Você precisa explicar o comportamento do rastreamento de uso ou os requisitos de autenticação
 title: "Rastreamento de uso"
 ---
 

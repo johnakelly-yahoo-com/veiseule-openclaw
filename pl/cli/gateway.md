@@ -1,9 +1,4 @@
 ---
-summary: "CLI Gateway OpenClaw (`openclaw gateway`) — uruchamianie, zapytania i wykrywanie bram"
-read_when:
-  - Uruchamianie Gateway z CLI (dev lub serwery)
-  - Debugowanie uwierzytelniania Gateway, trybów bindowania i łączności
-  - Wykrywanie bram przez Bonjour (LAN + tailnet)
 title: "gateway"
 ---
 

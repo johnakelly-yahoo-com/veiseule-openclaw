@@ -1,7 +1,4 @@
 ---
-summary: "세션 관리 문서의 별칭"
-read_when:
-  - docs/sessions.md 를 찾았으며, 정식 문서는 docs/session.md 에 있습니다
 title: "세션"
 ---
 

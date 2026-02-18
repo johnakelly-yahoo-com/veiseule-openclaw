@@ -1,9 +1,4 @@
----
-summary: "„Agent deweloperski AGENTS.md (C-3PO)”"
-read_when:
-  - Korzystanie z szablonów gateway deweloperskiego
-  - Aktualizowanie domyślnej tożsamości agenta deweloperskiego
----
+------
 
 # AGENTS.md – Obszar roboczy OpenClaw
 

@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw status` için CLI referansı (tanılama, yoklamalar, kullanım anlık görüntüleri)"
-read_when:
-  - Kanal sağlığının ve son oturum alıcılarının hızlı bir teşhisini istediğinizde
-  - Hata ayıklama için yapıştırılabilir “tümü” durum çıktısı istediğinizde
 title: "durum"
 ---
 

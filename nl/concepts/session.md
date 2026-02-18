@@ -1,7 +1,4 @@
 ---
-summary: "Regels, sleutels en persistentie voor chat-sessiebeheer"
-read_when:
-  - Het aanpassen van sessie-afhandeling of opslag
 title: "Sessiebeheer"
 ---
 

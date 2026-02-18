@@ -1,7 +1,4 @@
 ---
-summary: "Utforskning: modellkonfiguration, autentiseringsprofiler och fallback-beteende"
-read_when:
-  - Utforskar framtida idéer för modellval + autentiseringsprofiler
 title: "Utforskning av modellkonfig"
 ---
 

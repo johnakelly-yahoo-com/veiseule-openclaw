@@ -1,8 +1,4 @@
 ---
-summary: "„Verwenden Sie Z.AI (GLM-Modelle) mit OpenClaw“"
-read_when:
-  - Sie möchten Z.AI-/GLM-Modelle in OpenClaw verwenden
-  - Sie benötigen eine einfache Einrichtung mit ZAI_API_KEY
 title: "Z.AI"
 ---
 

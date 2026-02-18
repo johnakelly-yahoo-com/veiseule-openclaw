@@ -1,8 +1,4 @@
 ---
-summary: "Konfiguration av Mattermost-bot och OpenClaw-konfig"
-read_when:
-  - Konfigurera Mattermost
-  - Felsöka Mattermost-routning
 title: "Mattermost"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Ngữ cảnh: những gì mô hình nhìn thấy, cách nó được xây dựng và cách kiểm tra"
-read_when:
-  - Bạn muốn hiểu “context” nghĩa là gì trong OpenClaw
-  - Bạn đang gỡ lỗi vì sao mô hình “biết” điều gì đó (hoặc quên nó)
-  - Bạn muốn giảm chi phí ngữ cảnh (/context, /status, /compact)
 title: "Ngữ cảnh"
 ---
 

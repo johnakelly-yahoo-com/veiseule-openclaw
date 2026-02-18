@@ -1,6 +1,4 @@
 ---
-summary: "SSH-Tunnel-Einrichtung für OpenClaw.app zur Verbindung mit einem entfernten Gateway"
-read_when: "Verbinden der macOS-App mit einem entfernten Gateway über SSH"
 title: "Einrichtung eines entfernten Gateways"
 ---
 

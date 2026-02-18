@@ -1,9 +1,4 @@
 ---
-summary: "iOS 노드 앱: Gateway 연결, 페어링, 캔버스 및 문제 해결"
-read_when:
-  - iOS 노드 페어링 또는 재연결
-  - 소스에서 iOS 앱 실행
-  - Gateway 디바이스 검색 또는 캔버스 명령 디버깅
 title: "iOS 앱"
 ---
 

@@ -1,10 +1,4 @@
----
-summary: "Checklist de lançamento passo a passo para npm + app macOS"
-read_when:
-  - Cortar um novo lançamento npm
-  - Cortar um novo lançamento do app macOS
-  - Verificar metadados antes de publicar
----
+------
 
 # Checklist de Lançamento (npm + macOS)
 

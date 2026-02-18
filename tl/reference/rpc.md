@@ -1,8 +1,4 @@
 ---
-summary: "Mga RPC adapter para sa mga external CLI (signal-cli, legacy imsg) at mga pattern ng gateway"
-read_when:
-  - Pagdaragdag o pagbabago ng mga external na integrasyon ng CLI
-  - Pag-debug ng mga RPC adapter (signal-cli, imsg)
 title: "Mga RPC Adapter"
 ---
 

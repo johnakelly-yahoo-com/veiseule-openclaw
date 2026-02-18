@@ -1,8 +1,4 @@
 ---
-summary: "Skills の設定スキーマと例"
-read_when:
-  - Skills の設定を追加または変更する場合
-  - 同梱の許可リストやインストール動作を調整する場合
 title: "Skills 設定"
 ---
 

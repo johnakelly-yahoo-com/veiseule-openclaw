@@ -1,8 +1,4 @@
 ---
-summary: "Integrerad Tailscale Serve/Funnel för Gateway-instrumentpanelen"
-read_when:
-  - Exponera Gateway-kontrollgränssnittet utanför localhost
-  - Automatisera åtkomst till tailnet eller offentlig instrumentpanel
 title: "Tailscale"
 ---
 

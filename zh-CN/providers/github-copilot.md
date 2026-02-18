@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想使用 GitHub Copilot 作为模型提供商
-  - 你需要了解 `openclaw models auth login-github-copilot` 流程
-summary: 使用设备流从 OpenClaw 登录 GitHub Copilot
 title: GitHub Copilot
 x-i18n:
   generated_at: "2026-02-01T21:34:57Z"

@@ -1,8 +1,4 @@
 ---
-summary: "컨텍스트 윈도우 + 컴팩션: OpenClaw 가 모델 한계 내에서 세션을 유지하는 방법"
-read_when:
-  - auto-compaction 및 /compact 를 이해하고 싶을 때
-  - 컨텍스트 한계에 도달하는 긴 세션을 디버깅할 때
 title: "컴팩션"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Android 應用程式（節點）：連線操作手冊 + Canvas／聊天／相機"
-read_when:
-  - 配對或重新連線 Android 節點
-  - 偵錯 Android Gateway 閘道器 探索或身分驗證
-  - 驗證跨用戶端的聊天歷史一致性
 title: "Android 應用程式"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Kør OpenClaw på lokale LLM’er (LM Studio, vLLM, LiteLLM, brugerdefinerede OpenAI-endpoints)"
-read_when:
-  - Du vil servere modeller fra din egen GPU-boks
-  - Du kobler LM Studio eller en OpenAI-kompatibel proxy
-  - Du har brug for den sikreste vejledning til lokale modeller
 title: "Lokale modeller"
 ---
 

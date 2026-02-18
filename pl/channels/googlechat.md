@@ -1,7 +1,4 @@
 ---
-summary: "Status wsparcia aplikacji Google Chat, możliwości i konfiguracja"
-read_when:
-  - Prace nad funkcjami kanału Google Chat
 title: "Google Chat"
 ---
 

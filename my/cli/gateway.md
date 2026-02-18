@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw Gateway CLI (`openclaw gateway`) — Gateway များကို လည်ပတ်စေခြင်း၊ မေးမြန်းခြင်းနှင့် ရှာဖွေတွေ့ရှိခြင်း"
-read_when:
-  - CLI မှ Gateway ကို လည်ပတ်စေသောအခါ (dev သို့မဟုတ် ဆာဗာများ)
-  - Gateway အတည်ပြုချက်၊ bind မုဒ်များနှင့် ချိတ်ဆက်နိုင်မှုကို ဒီဘဂ်လုပ်နေစဉ်
-  - Bonjour (LAN + tailnet) ဖြင့် Gateway များကို ရှာဖွေတွေ့ရှိရာတွင်
 title: "gateway"
 ---
 

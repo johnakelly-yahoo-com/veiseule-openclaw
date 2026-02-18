@@ -1,8 +1,4 @@
 ---
-summary: "用於外部 CLI（signal-cli、legacy imsg）的 RPC 介接器與 Gateway 閘道器模式"
-read_when:
-  - 新增或變更外部 CLI 整合時
-  - 偵錯 RPC 介接器（signal-cli、imsg）時
 title: "RPC 介接器"
 ---
 

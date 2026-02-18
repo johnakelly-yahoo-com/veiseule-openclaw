@@ -1,7 +1,4 @@
 ---
-summary: "Pag-uugali ng group chat sa iba’t ibang surface (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
-read_when:
-  - Kapag binabago ang pag-uugali ng group chat o mention gating
 title: "Mga Grupo"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Chạy OpenClaw Gateway trên exe.dev (VM + proxy HTTPS) để truy cập từ xa"
-read_when:
-  - Bạn muốn một máy chủ Linux luôn bật với chi phí thấp cho Gateway
-  - Bạn muốn truy cập Control UI từ xa mà không cần tự vận hành VPS
 title: "exe.dev"
 ---
 

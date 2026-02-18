@@ -1,8 +1,4 @@
 ---
-summary: "استخدم واجهة برمجة التطبيقات الموحّدة من OpenRouter للوصول إلى العديد من النماذج في OpenClaw"
-read_when:
-  - تريد مفتاح API واحدًا للعديد من نماذج LLM
-  - تريد تشغيل النماذج عبر OpenRouter داخل OpenClaw
 title: "OpenRouter"
 ---
 

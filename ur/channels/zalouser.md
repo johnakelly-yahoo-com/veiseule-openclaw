@@ -1,8 +1,4 @@
 ---
-summary: "zca-cli (QR لاگ اِن) کے ذریعے Zalo ذاتی اکاؤنٹ کی معاونت، صلاحیتیں، اور کنفیگریشن"
-read_when:
-  - OpenClaw کے لیے Zalo Personal سیٹ اپ کرنا
-  - Zalo Personal لاگ اِن یا پیغام کے بہاؤ کی ڈیبگنگ
 title: "Zalo Personal"
 ---
 

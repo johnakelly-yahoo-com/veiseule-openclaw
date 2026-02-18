@@ -1,9 +1,4 @@
 ---
-summary: "Context: wat het model ziet, hoe die wordt opgebouwd en hoe je deze kunt inspecteren"
-read_when:
-  - Je wilt begrijpen wat “context” betekent in OpenClaw
-  - Je bent aan het debuggen waarom het model iets “weet” (of is vergeten)
-  - Je wilt context-overhead verminderen (/context, /status, /compact)
 title: "Context"
 ---
 

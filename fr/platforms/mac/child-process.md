@@ -1,7 +1,4 @@
 ---
-summary: "Cycle de vie de la Gateway sur macOS (launchd)"
-read_when:
-  - Integration de l'application mac avec le cycle de vie de la Gateway
 title: "Cycle de vie de la Gateway"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Gateway HTTP endpoint’i orqali bitta asbobni to‘g‘ridan-to‘g‘ri chaqirish"
-read_when:
-  - To‘liq agent aylanishini ishga tushirmasdan asboblarni chaqirish
-  - Asbob siyosati nazoratini talab qiladigan avtomatlasiyalarni yaratish
 title: "Asboblarni chaqirish API"
 ---
 

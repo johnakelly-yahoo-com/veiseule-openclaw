@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw status` uchun CLI ma’lumotnomasi (diagnostika, probalar, foydalanish holati ko‘rinishlari)"
-read_when:
-  - You want a quick diagnosis of channel health + recent session recipients
-  - You want a pasteable “all” status for debugging
 title: "status"
 ---
 

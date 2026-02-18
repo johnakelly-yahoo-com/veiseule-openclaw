@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw deklarativ mit Nix installieren"
-read_when:
-  - Sie möchten reproduzierbare, rollback-fähige Installationen
-  - Sie verwenden bereits Nix/NixOS/Home Manager
-  - Sie möchten alles fest gepinnt und deklarativ verwalten
 title: "Nix"
 ---
 

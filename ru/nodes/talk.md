@@ -1,8 +1,4 @@
 ---
-summary: "Режим Talk: непрерывные голосовые разговоры с TTS ElevenLabs"
-read_when:
-  - Реализация режима Talk на macOS/iOS/Android
-  - Изменение поведения голоса/TTS/прерываний
 title: "Режим Talk"
 ---
 

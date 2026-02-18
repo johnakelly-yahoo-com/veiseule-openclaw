@@ -1,8 +1,4 @@
 ---
-summary: "Reference ng CLI para sa `openclaw cron` (mag-iskedyul at magpatakbo ng mga background job)"
-read_when:
-  - Gusto mo ng mga naka-iskedyul na job at wakeup
-  - Nagde-debug ka ng pagtakbo ng cron at mga log
 title: "cron"
 ---
 

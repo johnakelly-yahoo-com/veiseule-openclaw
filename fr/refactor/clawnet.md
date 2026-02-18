@@ -1,8 +1,4 @@
 ---
-summary: "Refonte de Clawnet : unifier le protocole réseau, les rôles, l’authentification, les validations et l’identité"
-read_when:
-  - Planifier un protocole réseau unifié pour les nœuds et les clients opérateurs
-  - Revoir les validations, l’appairage, TLS et la présence entre appareils
 title: "Refonte de Clawnet"
 ---
 

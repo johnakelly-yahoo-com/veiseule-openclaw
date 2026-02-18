@@ -1,8 +1,6 @@
 ---
 title: "Showcase"
-description: "Real-world OpenClaw projects from the community"
-summary: "Community-built projects and integrations powered by OpenClaw"
----
+description: "Real-world OpenClaw projects from the community"---
 
 # Showcase
 

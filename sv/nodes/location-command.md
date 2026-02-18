@@ -1,8 +1,4 @@
 ---
-summary: "Platskommando för noder (location.get), behörighetslägen och bakgrundsbeteende"
-read_when:
-  - Lägger till stöd för platsnoder eller behörighets-UI
-  - Utformar flöden för bakgrundsplats + push
 title: "Platskommando"
 ---
 

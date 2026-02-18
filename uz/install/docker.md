@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw uchun ixtiyoriy Docker-ga asoslangan sozlash va onboarding"
-read_when:
-  - Mahalliy o‘rnatishlar o‘rniga konteynerlashtirilgan gateway xohlaysiz
-  - Siz Docker oqimini tekshirmoqdasiz
 title: "Docker"
 ---
 

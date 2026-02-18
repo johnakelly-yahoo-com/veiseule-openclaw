@@ -1,8 +1,4 @@
 ---
-summary: "„Skriptgesteuertes Onboarding und Agent-Einrichtung für die OpenClaw CLI“"
-read_when:
-  - Sie automatisieren das Onboarding in Skripten oder CI
-  - Sie benötigen nicht‑interaktive Beispiele für bestimmte Anbieter
 title: "„CLI‑Automatisierung“"
 sidebarTitle: "„CLI‑Automatisierung“"
 ---

@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw voicecall` (opdrachtoppervlak van de voice-call plugin)"
-read_when:
-  - Je gebruikt de voice-call plugin en wilt de CLI-ingangspunten
-  - Je wilt snelle voorbeelden voor `voicecall call|continue|status|tail|expose`
 title: "voicecall"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Översikt över GLM-modellfamiljen + hur du använder den i OpenClaw"
-read_when:
-  - Du vill använda GLM-modeller i OpenClaw
-  - Du behöver namngivningskonventionen och konfigureringen av modeller
 title: "GLM-modeller"
 ---
 

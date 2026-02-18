@@ -1,7 +1,4 @@
 ---
-summary: "CLI-Referenz für `openclaw configure` (interaktive Konfigurationsabfragen)"
-read_when:
-  - Sie möchten Anmeldedaten, Geräte oder Agent-Standards interaktiv anpassen
 title: "Konfigurieren"
 ---
 

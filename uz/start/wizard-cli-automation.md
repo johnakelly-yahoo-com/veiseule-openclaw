@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw CLI uchun skriptlashtirilgan onboarding va agent sozlamalari"
-read_when:
-  - Siz onboarding’ni skriptlar yoki CI orqali avtomatlashtiryapsiz
-  - Muayyan provayderlar uchun interaktiv bo‘lmagan misollar kerak
 title: "CLI avtomatlashtirish"
 sidebarTitle: "CLI avtomatlashtirish"
 ---

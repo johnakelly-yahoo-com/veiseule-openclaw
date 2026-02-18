@@ -1,9 +1,4 @@
 ---
-summary: "Fonctionnement des scripts d’installation (install.sh + install-cli.sh), options et automatisation"
-read_when:
-  - Vous souhaitez comprendre `openclaw.ai/install.sh`
-  - Vous souhaitez automatiser les installations (CI / sans interface)
-  - Vous souhaitez installer depuis un dépôt GitHub cloné
 title: "Fonctionnement interne de l’installateur"
 ---
 

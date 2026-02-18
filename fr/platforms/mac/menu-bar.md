@@ -1,7 +1,4 @@
 ---
-summary: "Logique de statut de la barre de menus et ce qui est présenté aux utilisateurs"
-read_when:
-  - Ajustement de l’interface de menu mac ou de la logique de statut
 title: "Barre de menus"
 ---
 

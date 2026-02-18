@@ -1,8 +1,4 @@
 ---
-summary: "Gateway uchun brauzer asosidagi boshqaruv interfeysi (chat, tugunlar, sozlamalar)"
-read_when:
-  - Gateway’ni brauzer orqali boshqarmoqchisiz
-  - SSH tunnellarisiz Tailnet orqali kirish kerak
 title: "Boshqaruv interfeysi"
 ---
 

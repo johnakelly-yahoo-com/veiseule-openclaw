@@ -1,8 +1,4 @@
----
-summary: "SOUL.md 的工作區範本"
-read_when:
-  - 手動引導建立工作區
----
+------
 
 # SOUL.md - 你是誰
 

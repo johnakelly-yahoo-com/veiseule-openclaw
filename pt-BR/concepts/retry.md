@@ -1,8 +1,4 @@
 ---
-summary: "Política de retry para chamadas de saída a provedores"
-read_when:
-  - Atualizando o comportamento ou os padrões de retry do provedor
-  - Depurando erros de envio do provedor ou limites de taxa
 title: "Política de Retry"
 ---
 

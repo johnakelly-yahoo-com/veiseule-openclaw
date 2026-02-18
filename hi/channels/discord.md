@@ -1,7 +1,4 @@
 ---
-summary: "Discord बॉट समर्थन स्थिति, क्षमताएँ और विन्यास"
-read_when:
-  - Discord चैनल सुविधाओं पर काम करते समय
 title: "Discord"
 ---
 

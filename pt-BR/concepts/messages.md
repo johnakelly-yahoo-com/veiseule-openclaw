@@ -1,9 +1,4 @@
 ---
-summary: "Fluxo de mensagens, sessões, enfileiramento e visibilidade do raciocínio"
-read_when:
-  - Explicar como mensagens de entrada se tornam respostas
-  - Esclarecer sessões, modos de enfileiramento ou comportamento de streaming
-  - Documentar visibilidade do raciocínio e implicações de uso
 title: "Mensagens"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw presence 項目如何產生、合併與顯示"
-read_when:
-  - 除錯 Instances 分頁
-  - 調查重複或過時的 instance 列
-  - 變更 Gateway WS 連線或系統事件 beacon
 title: "在線狀態"
 ---
 

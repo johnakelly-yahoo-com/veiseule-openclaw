@@ -1,5 +1,4 @@
 ---
-summary: "Plan : ajouter le point de terminaison OpenResponses /v1/responses et déprécier proprement les complétions de chat"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"

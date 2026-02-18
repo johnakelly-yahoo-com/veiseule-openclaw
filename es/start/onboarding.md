@@ -1,8 +1,4 @@
 ---
-summary: "Flujo de incorporación en el primer inicio para OpenClaw (app de macOS)"
-read_when:
-  - Diseño del asistente de incorporación de macOS
-  - Implementación de autenticación o configuración de identidad
 title: "Incorporación (App de macOS)"
 sidebarTitle: "Incorporación: Aplicación macOS"
 ---

@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw ایپ، گیٹ وے نوڈ ٹرانسپورٹ، اور PeekabooBridge کے لیے macOS IPC آرکیٹیکچر"
-read_when:
-  - IPC کنٹریکٹس یا مینو بار ایپ IPC میں ترمیم کرتے وقت
 title: "macOS IPC"
 ---
 

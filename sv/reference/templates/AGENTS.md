@@ -1,8 +1,4 @@
----
-summary: "Arbetsytmall för AGENTS.md"
-read_when:
-  - Manuell bootstrap av en arbetsyta
----
+------
 
 # AGENTS.md – Din arbetsyta
 

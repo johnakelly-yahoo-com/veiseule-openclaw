@@ -1,8 +1,4 @@
 ---
-summary: "Overblik over platformsupport (Gateway + Companion-apps)"
-read_when:
-  - Leder efter OS-support eller installationsveje
-  - Overvejer hvor Gateway skal køre
 title: "Platforme"
 ---
 

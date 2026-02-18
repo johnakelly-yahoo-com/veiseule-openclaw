@@ -1,8 +1,4 @@
 ---
-summary: "Installera OpenClaw och kör din första chatt på några minuter."
-read_when:
-  - Förstagångskonfigurering från noll
-  - Du vill ha den snabbaste vägen till en fungerande chatt
 title: "Kom igång"
 ---
 

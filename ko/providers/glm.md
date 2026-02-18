@@ -1,8 +1,4 @@
 ---
-summary: "GLM 모델 패밀리 개요 + OpenClaw 에서 사용하는 방법"
-read_when:
-  - OpenClaw 에서 GLM 모델을 사용하려는 경우
-  - 모델 명명 규칙과 설정이 필요한 경우
 title: "GLM 모델"
 ---
 

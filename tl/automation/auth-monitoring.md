@@ -1,8 +1,4 @@
 ---
-summary: "I-monitor ang pag-expire ng OAuth para sa mga provider ng model"
-read_when:
-  - Pagse-set up ng monitoring o mga alert para sa pag-expire ng auth
-  - Pag-automate ng mga check sa OAuth refresh ng Claude Code / Codex
 title: "Pagsubaybay sa Auth"
 ---
 

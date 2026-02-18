@@ -1,9 +1,4 @@
 ---
-summary: "Visão geral de logging: logs em arquivo, saída no console, tail via CLI e a UI de Controle"
-read_when:
-  - Você precisa de uma visão geral de logging amigável para iniciantes
-  - Você quer configurar níveis ou formatos de log
-  - Você está solucionando problemas e precisa encontrar logs rapidamente
 title: "Registro de logs"
 ---
 

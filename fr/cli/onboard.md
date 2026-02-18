@@ -1,7 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw onboard` (assistant de prise en main interactif)"
-read_when:
-  - Vous souhaitez une configuration guidee pour la passerelle, l'espace de travail, l'authentification, les canaux et les Skills
 title: "onboard"
 ---
 

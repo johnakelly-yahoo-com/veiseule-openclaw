@@ -1,8 +1,4 @@
 ---
-summary: "7. imsg के माध्यम से लेगेसी iMessage सपोर्ट (stdio पर JSON-RPC)। 8. नए सेटअप्स को BlueBubbles का उपयोग करना चाहिए।"
-read_when:
-  - iMessage समर्थन सेट करते समय
-  - iMessage भेजने/प्राप्त करने में डिबगिंग
 title: iMessage
 ---
 

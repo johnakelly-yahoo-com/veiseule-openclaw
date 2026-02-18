@@ -1,8 +1,4 @@
 ---
-summary: "Soporte de Windows (WSL2) + estado de la aplicación complementaria"
-read_when:
-  - Instalación de OpenClaw en Windows
-  - Búsqueda del estado de la aplicación complementaria de Windows
 title: "Windows (WSL2)"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Status, funktioner och konfiguration för Discord-botstöd"
-read_when:
-  - Arbetar med funktioner för Discord-kanalen
 title: "Discord"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Symtomförst felsökningsnav för OpenClaw"
-read_when:
-  - OpenClaw fungerar inte och du behöver den snabbaste vägen till en lösning
-  - Du vill ha ett triageflöde innan du dyker ner i djupa runbooks
 title: "Felsökning"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "สถานะการรองรับ ความสามารถ และการกำหนดค่าของแอป Google Chat"
-read_when:
-  - ทำงานเกี่ยวกับฟีเจอร์ช่องทาง Google Chat
 title: "Google Chat"
 ---
 

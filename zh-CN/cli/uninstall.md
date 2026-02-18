@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想移除 Gateway 网关服务和/或本地状态
-  - 你想先进行试运行
-summary: "`openclaw uninstall` 的 CLI 参考（移除 Gateway 网关服务 + 本地数据）"
 title: uninstall
 x-i18n:
   generated_at: "2026-02-03T10:04:23Z"

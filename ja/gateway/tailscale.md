@@ -1,8 +1,4 @@
 ---
-summary: "Gateway ダッシュボード向けに統合された Tailscale Serve/Funnel"
-read_when:
-  - localhost 外で Gateway コントロール UI を公開する場合
-  - tailnet または公開ダッシュボードのアクセスを自動化する場合
 title: "Tailscale"
 ---
 

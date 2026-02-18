@@ -1,8 +1,4 @@
 ---
-summary: "Verwenden Sie OpenCode Zen (kuratierte Modelle) mit OpenClaw"
-read_when:
-  - Sie möchten OpenCode Zen für den Modellzugriff
-  - Sie möchten eine kuratierte Liste codingfreundlicher Modelle
 title: "OpenCode Zen"
 ---
 

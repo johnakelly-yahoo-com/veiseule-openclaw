@@ -1,9 +1,4 @@
 ---
-summary: "Canalización de formato Markdown para canales salientes"
-read_when:
-  - Está cambiando el formato Markdown o el troceado para canales salientes
-  - Está agregando un nuevo formateador de canal o mapeo de estilos
-  - Está depurando regresiones de formato entre canales
 title: "Formato Markdown"
 ---
 

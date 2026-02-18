@@ -1,10 +1,4 @@
 ---
-summary: "जब आपको आइसोलेशन या iMessage की आवश्यकता हो, तब sandboxed macOS VM (लोकल या होस्टेड) में OpenClaw चलाएँ"
-read_when:
-  - आप OpenClaw को अपने मुख्य macOS वातावरण से अलग रखना चाहते हैं
-  - आप sandbox में iMessage एकीकरण (BlueBubbles) चाहते हैं
-  - आप एक रीसेट‑योग्य macOS वातावरण चाहते हैं जिसे क्लोन किया जा सके
-  - आप लोकल बनाम होस्टेड macOS VM विकल्पों की तुलना करना चाहते हैं
 title: "macOS VM"
 ---
 

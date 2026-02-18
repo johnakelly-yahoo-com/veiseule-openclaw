@@ -1,7 +1,4 @@
 ---
-summary: "Microsoft Teams بوٹ سپورٹ کی حیثیت، صلاحیتیں، اور کنفیگریشن"
-read_when:
-  - MS Teams چینل کی خصوصیات پر کام کرتے وقت
 title: "Microsoft Teams"
 ---
 

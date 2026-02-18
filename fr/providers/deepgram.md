@@ -1,8 +1,4 @@
 ---
-summary: "Transcription Deepgram pour les notes vocales entrantes"
-read_when:
-  - Vous souhaitez utiliser la reconnaissance vocale Deepgram pour les pièces jointes audio
-  - Vous avez besoin d’un exemple de configuration Deepgram rapide
 title: "Deepgram"
 ---
 

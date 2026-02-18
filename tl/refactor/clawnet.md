@@ -1,8 +1,4 @@
 ---
-summary: "Refactor ng Clawnet: pag-isahin ang network protocol, mga role, auth, approvals, at identity"
-read_when:
-  - Pagpaplano ng isang pinag-isang network protocol para sa mga node + operator client
-  - Pagre-rework ng approvals, pairing, TLS, at presence sa iba’t ibang device
 title: "Refactor ng Clawnet"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Wykrywanie węzłów i transporty (Bonjour, Tailscale, SSH) do odnajdywania bramy"
-read_when:
-  - Implementowanie lub zmiana wykrywania/reklamowania Bonjour
-  - Dostosowywanie trybów połączeń zdalnych (bezpośrednio vs SSH)
-  - Projektowanie wykrywania węzłów i parowania dla węzłów zdalnych
 title: "Wykrywanie i transporty"
 ---
 

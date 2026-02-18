@@ -1,8 +1,4 @@
 ---
-summary: "Anropa ett enskilt verktyg direkt via Gateways HTTP-slutpunkt"
-read_when:
-  - Anropa verktyg utan att köra en fullständig agenttur
-  - Bygga automatiseringar som behöver verktygspolicysäkerställande
 title: "Verktygsanrop API"
 ---
 

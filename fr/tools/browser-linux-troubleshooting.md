@@ -1,6 +1,4 @@
 ---
-summary: "Corriger les problèmes de démarrage CDP de Chrome/Brave/Edge/Chromium pour le contrôle du navigateur OpenClaw sous Linux"
-read_when: "Le contrôle du navigateur échoue sous Linux, en particulier avec Chromium snap"
 title: "Dépannage du navigateur"
 ---
 

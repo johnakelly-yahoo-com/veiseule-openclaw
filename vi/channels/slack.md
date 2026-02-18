@@ -1,6 +1,4 @@
 ---
-summary: "Thiết lập Slack cho chế độ socket hoặc HTTP webhook"
-read_when: "Thiết lập Slack hoặc gỡ lỗi chế độ socket/HTTP của Slack"
 title: "Slack"
 ---
 

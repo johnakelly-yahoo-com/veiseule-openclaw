@@ -1,8 +1,4 @@
----
-summary: "Workspace template for BOOT.md"
-read_when:
-  - Adding a BOOT.md checklist
----
+------
 
 # 1. BOOT.md
 

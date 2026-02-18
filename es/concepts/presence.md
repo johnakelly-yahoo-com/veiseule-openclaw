@@ -1,9 +1,4 @@
 ---
-summary: "Cómo se producen, combinan y muestran las entradas de presencia de OpenClaw"
-read_when:
-  - Depuración de la pestaña Instances
-  - Investigación de filas de instancias duplicadas u obsoletas
-  - Cambio de la conexión WS del Gateway o de los beacons de eventos del sistema
 title: "Presencia"
 ---
 

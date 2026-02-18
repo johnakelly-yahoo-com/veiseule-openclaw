@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw บน Raspberry Pi (การตั้งค่าโฮสต์เองแบบประหยัด)"
-read_when:
-  - การตั้งค่า OpenClaw บน Raspberry Pi
-  - การรัน OpenClaw บนอุปกรณ์ ARM
-  - การสร้าง AI ส่วนตัวที่เปิดตลอดแบบต้นทุนต่ำ
 title: "Raspberry Pi"
 ---
 

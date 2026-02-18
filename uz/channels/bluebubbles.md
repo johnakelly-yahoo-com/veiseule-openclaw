@@ -1,9 +1,4 @@
 ---
-summary: "BlueBubbles macOS serveri orqali iMessage (REST yuborish/qabul qilish, yozish indikatori, reaksiyalar, juftlash, kengaytirilgan amallar)."
-read_when:
-  - Setting up BlueBubbles channel
-  - Troubleshooting webhook pairing
-  - Configuring iMessage on macOS
 title: "BlueBubbles"
 ---
 

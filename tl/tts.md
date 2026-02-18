@@ -1,9 +1,4 @@
 ---
-summary: "Text-to-speech (TTS) para sa mga outbound na sagot"
-read_when:
-  - Pag-enable ng text-to-speech para sa mga sagot
-  - Pag-configure ng mga TTS provider o limitasyon
-  - Paggamit ng mga /tts command
 title: "Teksto-sa-Boses"
 ---
 

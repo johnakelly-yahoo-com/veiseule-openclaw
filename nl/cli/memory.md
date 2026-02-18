@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw memory` (status/index/search)"
-read_when:
-  - Je wilt semantisch geheugen indexeren of doorzoeken
-  - Je bent bezig met het debuggen van geheugenbeschikbaarheid of indexering
 title: "geheugen"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Referans: sağlayıcıya özgü transkript temizleme ve onarma kuralları"
-read_when:
-  - Transkript biçimine bağlı sağlayıcı istek reddedilmelerini ayıklarken
-  - Transkript temizleme veya araç çağrısı onarım mantığını değiştiriyorsun
-  - Sağlayıcılar arasında araç çağrısı kimliği uyuşmazlıklarını araştırıyorsun
 title: "Düşünce imzası temizliği"
 ---
 

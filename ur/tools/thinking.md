@@ -1,7 +1,4 @@
 ---
-summary: "‏/think + /verbose کے لیے ہدایتی نحو اور یہ ماڈل کی reasoning پر کیسے اثر انداز ہوتے ہیں"
-read_when:
-  - thinking یا verbose ہدایات کی parsing یا ڈیفالٹس کو ایڈجسٹ کرتے وقت
 title: "سوچنے کی سطحیں"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "प्रति चैनल रूटिंग नियम (WhatsApp, Telegram, Discord, Slack) और साझा संदर्भ"
-read_when:
-  - चैनल रूटिंग या इनबॉक्स व्यवहार बदलते समय
 title: "चैनल रूटिंग"
 ---
 

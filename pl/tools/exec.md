@@ -1,8 +1,4 @@
 ---
-summary: "Użycie narzędzia exec, tryby stdin oraz obsługa TTY"
-read_when:
-  - Używanie lub modyfikowanie narzędzia exec
-  - Debugowanie zachowania stdin lub TTY
 title: "Narzędzie Exec"
 ---
 

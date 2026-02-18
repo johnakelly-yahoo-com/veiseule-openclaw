@@ -1,8 +1,4 @@
 ---
-summary: "CLI リファレンス：`openclaw tui`（Gateway（ゲートウェイ）に接続されたターミナル UI）"
-read_when:
-  - Gateway（ゲートウェイ）向けのターミナル UI（リモートフレンドリー）が必要な場合
-  - スクリプトから url / token / session を渡したい場合
 title: "tui"
 ---
 

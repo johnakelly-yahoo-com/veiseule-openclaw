@@ -1,8 +1,4 @@
 ---
-summary: "تسجيل الدخول إلى GitHub Copilot من OpenClaw باستخدام تدفّق الجهاز"
-read_when:
-  - تريد استخدام GitHub Copilot كمزوّد نموذج
-  - تحتاج إلى تدفّق `openclaw models auth login-github-copilot`
 title: "GitHub Copilot"
 ---
 

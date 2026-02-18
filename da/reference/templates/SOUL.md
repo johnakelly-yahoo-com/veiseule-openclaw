@@ -1,8 +1,4 @@
----
-summary: "Arbejdspladsskabelon til SOUL.md"
-read_when:
-  - Når du bootstrapper en arbejdsplads manuelt
----
+------
 
 # SOUL.md - Hvem du er
 

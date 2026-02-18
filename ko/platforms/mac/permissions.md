@@ -1,9 +1,4 @@
 ---
-summary: "macOS 권한 지속성(TCC) 및 서명 요구 사항"
-read_when:
-  - 누락되거나 멈춘 macOS 권한 프롬프트를 디버깅할 때
-  - macOS 앱을 패키징하거나 서명할 때
-  - 번들 ID 또는 앱 설치 경로를 변경할 때
 title: "macOS 권한"
 ---
 

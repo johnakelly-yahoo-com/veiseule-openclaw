@@ -1,7 +1,4 @@
 ---
-summary: "Mga hub na nagli-link sa bawat OpenClaw doc"
-read_when:
-  - Gusto mo ng kumpletong mapa ng dokumentasyon
 title: "Mga Hub ng Docs"
 ---
 

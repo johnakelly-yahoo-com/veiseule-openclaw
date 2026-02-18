@@ -1,8 +1,4 @@
 ---
-summary: "Pluginmanifest + JSON Schema-krav (strikt validering av konfig)"
-read_when:
-  - Du bygger ett OpenClaw-plugin
-  - Du behöver leverera ett konfigschema för ett plugin eller felsöka valideringsfel för plugin
 title: "Pluginmanifest"
 ---
 

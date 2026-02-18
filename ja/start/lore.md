@@ -1,7 +1,4 @@
 ---
-summary: "文脈とトーンのための OpenClaw のバックストーリーとロア"
-read_when:
-  - ロアに言及するドキュメントや UX コピーを書くとき
 title: "OpenClaw ロア"
 ---
 

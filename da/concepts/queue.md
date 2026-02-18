@@ -1,7 +1,4 @@
 ---
-summary: "Design af kommandokø, der serialiserer indgående auto-svar-kørsler"
-read_when:
-  - Ændring af udførelse eller samtidighed for auto-svar
 title: "Kommandokø"
 ---
 

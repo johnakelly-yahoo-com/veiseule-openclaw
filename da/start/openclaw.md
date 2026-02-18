@@ -1,8 +1,4 @@
 ---
-summary: "End-to-end-guide til at køre OpenClaw som en personlig assistent med sikkerhedsforbehold"
-read_when:
-  - Introduktion af en ny assistentinstans
-  - Gennemgang af sikkerheds- og tilladelsesimplikationer
 title: "Opsætning af personlig assistent"
 ---
 

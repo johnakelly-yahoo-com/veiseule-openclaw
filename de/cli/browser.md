@@ -1,9 +1,4 @@
 ---
-summary: "CLI-Referenz für `openclaw browser` (Profile, Tabs, Aktionen, Extension-Relay)"
-read_when:
-  - Sie verwenden `openclaw browser` und möchten Beispiele für häufige Aufgaben
-  - Sie möchten einen Browser steuern, der auf einer anderen Maschine über einen Node-Host läuft
-  - Sie möchten das Chrome-Extension-Relay verwenden (Anhängen/Trennen über die Toolbar-Schaltfläche)
 title: "browser"
 ---
 

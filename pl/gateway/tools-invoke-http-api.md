@@ -1,8 +1,4 @@
 ---
-summary: "Wywołaj pojedyncze narzędzie bezpośrednio przez punkt końcowy HTTP Gateway"
-read_when:
-  - Wywoływanie narzędzi bez uruchamiania pełnego przebiegu agenta
-  - Budowanie automatyzacji wymagających egzekwowania polityk narzędzi
 title: "API wywoływania narzędzi"
 ---
 

@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想要 TUI 的新手友好演练
-  - 你需要 TUI 功能、命令和快捷键的完整列表
-summary: 终端 UI（TUI）：从任何机器连接到 Gateway 网关
 title: TUI
 x-i18n:
   generated_at: "2026-02-03T10:13:10Z"

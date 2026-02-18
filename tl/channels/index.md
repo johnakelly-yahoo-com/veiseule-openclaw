@@ -1,8 +1,4 @@
 ---
-summary: "Mga messaging platform na maaaring kumonekta ang OpenClaw"
-read_when:
-  - Gusto mong pumili ng chat channel para sa OpenClaw
-  - Kailangan mo ng mabilis na pangkalahatang-ideya ng mga sinusuportahang messaging platform
 title: "Mga Chat Channel"
 ---
 

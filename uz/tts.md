@@ -1,9 +1,4 @@
 ---
-summary: "Chiqish javoblari uchun matndan nutqqa (TTS)"
-read_when:
-  - Javoblar uchun matndan nutqqa funksiyasini yoqish
-  - TTS provayderlari yoki limitlarini sozlash
-  - /tts buyruqlaridan foydalanish
 title: "Matndan Nutqqa"
 ---
 

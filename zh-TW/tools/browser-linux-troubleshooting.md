@@ -1,6 +1,4 @@
 ---
-summary: "修復 Linux 上用於 OpenClaw 瀏覽器控制的 Chrome / Brave / Edge / Chromium CDP 啟動問題"
-read_when: "在 Linux 上瀏覽器控制失敗，特別是使用 snap Chromium 時"
 title: "瀏覽器疑難排解"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "用於檢查頻道連線狀態的健康檢查步驟"
-read_when:
-  - 診斷 WhatsApp 頻道健康狀態
 title: "健康檢查"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Bridge-protokoll (äldre noder): TCP JSONL, parkoppling, avgränsad RPC"
-read_when:
-  - Bygger eller felsöker nodklienter (iOS/Android/macOS nodläge)
-  - Utreder parkopplings- eller bridge‑autentiseringsfel
-  - Granskar nodytan som exponeras av gatewayn
 title: "Bridge-protokoll"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "استخدم واجهة Qianfan البرمجية الموحّدة للوصول إلى العديد من النماذج في OpenClaw"
-read_when:
-  - تريد مفتاح API واحدًا للعديد من نماذج LLM
-  - تحتاج إلى إرشادات إعداد Baidu Qianfan
 title: "Qianfan"
 ---
 

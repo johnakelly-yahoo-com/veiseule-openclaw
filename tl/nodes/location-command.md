@@ -1,8 +1,4 @@
 ---
-summary: "Command ng lokasyon para sa mga node (location.get), mga mode ng pahintulot, at pag-uugali sa background"
-read_when:
-  - Pagdaragdag ng suporta sa location node o UI ng mga pahintulot
-  - Pagdidisenyo ng mga daloy para sa background location + push
 title: "Command ng Lokasyon"
 ---
 

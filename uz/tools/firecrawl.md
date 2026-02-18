@@ -1,9 +1,4 @@
 ---
-summary: "web_fetch uchun Firecrawl zaxira mexanizmi (anti-bot + keshlangan ajratish)"
-read_when:
-  - Firecrawl asosidagi web ajratishni xohlaysiz
-  - Sizga Firecrawl API kaliti kerak
-  - web_fetch uchun anti-bot ajratish kerak
 title: "Firecrawl"
 ---
 

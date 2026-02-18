@@ -1,8 +1,4 @@
 ---
-summary: "استخدم OpenCode Zen (نماذج مُنسّقة) مع OpenClaw"
-read_when:
-  - تريد OpenCode Zen للوصول إلى النماذج
-  - تريد قائمة مُنسّقة من النماذج الملائمة للبرمجة
 title: "OpenCode Zen"
 ---
 

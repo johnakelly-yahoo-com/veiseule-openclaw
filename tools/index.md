@@ -1,8 +1,4 @@
 ---
-summary: "Agent tool surface for OpenClaw (browser, canvas, nodes, message, cron) replacing legacy `openclaw-*` skills"
-read_when:
-  - Adding or modifying agent tools
-  - Retiring or changing `openclaw-*` skills
 title: "Tools"
 ---
 

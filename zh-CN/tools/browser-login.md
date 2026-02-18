@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你需要为浏览器自动化登录网站
-  - 你想在 X/Twitter 上发布更新
-summary: 用于浏览器自动化 + X/Twitter 发帖的手动登录
 title: 浏览器登录
 x-i18n:
   generated_at: "2026-02-03T07:55:03Z"

@@ -1,8 +1,4 @@
 ---
-summary: "Gateway-weboppervlakken: Control UI, bind-modi en beveiliging"
-read_when:
-  - Je wilt toegang tot de Gateway via Tailscale
-  - Je wilt de browser-Control UI en configbewerking
 title: "Web"
 ---
 

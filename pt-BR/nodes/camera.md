@@ -1,8 +1,4 @@
 ---
-summary: "Captura de câmera (nó iOS + app macOS) para uso por agentes: fotos (jpg) e clipes curtos de vídeo (mp4)"
-read_when:
-  - Ao adicionar ou modificar captura de câmera em nós iOS ou macOS
-  - Ao estender fluxos de trabalho de arquivos temporários MEDIA acessíveis ao agente
 title: "Captura de câmera"
 ---
 

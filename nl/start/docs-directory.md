@@ -1,7 +1,4 @@
 ---
-summary: "Gecureerde links naar de meest gebruikte OpenClaw-documentatie."
-read_when:
-  - Je wilt snel toegang tot belangrijke documentatiepagina’s
 title: "Documentatieoverzicht"
 ---
 

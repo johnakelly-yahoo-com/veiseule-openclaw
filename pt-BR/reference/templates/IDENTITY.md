@@ -1,8 +1,4 @@
----
-summary: "Registro de identidade do agente"
-read_when:
-  - Inicializando um workspace manualmente
----
+------
 
 # IDENTITY.md - Quem sou eu?
 

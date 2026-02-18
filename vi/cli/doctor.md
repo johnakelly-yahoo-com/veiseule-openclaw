@@ -1,8 +1,4 @@
 ---
-summary: "Tham chiếu CLI cho `openclaw doctor` (kiểm tra sức khỏe + sửa lỗi có hướng dẫn)"
-read_when:
-  - Bạn gặp vấn đề kết nối/xác thực và muốn có cách khắc phục có hướng dẫn
-  - Bạn vừa cập nhật và muốn kiểm tra nhanh
 title: "doctor"
 ---
 

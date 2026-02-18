@@ -1,9 +1,4 @@
 ---
-summary: "Bảng Canvas do tác tử điều khiển được nhúng qua WKWebView + cơ chế URL tùy chỉnh"
-read_when:
-  - Triển khai bảng Canvas trên macOS
-  - Thêm điều khiển tác tử cho không gian làm việc trực quan
-  - Gỡ lỗi việc tải Canvas trong WKWebView
 title: "Canvas"
 ---
 

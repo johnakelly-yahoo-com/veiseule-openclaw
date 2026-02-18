@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw cron` için CLI başvurusu (zamanlanmış ve arka plan işleri çalıştırma)"
-read_when:
-  - Zamanlanmış işler ve uyanmalar istediğinizde
-  - Cron yürütmesini ve günlüklerini ayıklarken
 title: "cron"
 ---
 

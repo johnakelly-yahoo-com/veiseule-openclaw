@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw status` (diagnostik, prober, användningsögonblicksbilder)"
-read_when:
-  - Du vill ha en snabb diagnos av kanalhälsa + senaste sessionsmottagare
-  - Du vill ha en inklistringsbar ”all”-status för felsökning
 title: "status"
 ---
 

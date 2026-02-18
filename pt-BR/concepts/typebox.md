@@ -1,7 +1,4 @@
 ---
-summary: "Esquemas TypeBox como a única fonte de verdade para o protocolo do gateway"
-read_when:
-  - Atualizar esquemas de protocolo ou codegen
 title: "TypeBox"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "DigitalOcean 에서의 OpenClaw (간단한 유료 VPS 옵션)"
-read_when:
-  - DigitalOcean 에서 OpenClaw 설정 중
-  - OpenClaw 를 위한 저렴한 VPS 호스팅을 찾는 경우
 title: "DigitalOcean"
 ---
 

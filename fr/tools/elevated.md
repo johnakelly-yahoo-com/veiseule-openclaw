@@ -1,7 +1,4 @@
 ---
-summary: "Mode exec eleve et directives /elevated"
-read_when:
-  - Ajustement des valeurs par defaut du mode eleve, des listes d’autorisation ou du comportement des commandes slash
 title: "Mode eleve"
 ---
 

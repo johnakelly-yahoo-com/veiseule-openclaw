@@ -1,9 +1,4 @@
 ---
-summary: "Bridge protokoli (eski tugunlar): TCP JSONL, juftlash, chegaralangan RPC"
-read_when:
-  - Tugun mijozlarini (iOS/Android/macOS tugun rejimi) yaratishda yoki nosozliklarni tuzatishda
-  - Juftlash yoki bridge autentifikatsiya xatolarini tekshirishda
-  - Gateway tomonidan ochilgan tugun sirtini audit qilishda
 title: "Bridge protokoli"
 ---
 

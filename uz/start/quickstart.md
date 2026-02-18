@@ -1,8 +1,4 @@
 ---
-summary: "Tez boshlash endi Getting Started bo‘limiga ko‘chirildi."
-read_when:
-  - Siz eng tezkor o‘rnatish bosqichlarini qidiryapsiz
-  - Siz bu yerga eski havola orqali yuborilgansiz
 title: "Tez boshlash"
 ---
 

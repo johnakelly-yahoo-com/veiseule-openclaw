@@ -1,7 +1,4 @@
 ---
-summary: "모든 OpenClaw 문서로 연결되는 허브"
-read_when:
-  - 문서 전체의 완전한 지도가 필요할 때
 title: "문서 허브"
 ---
 

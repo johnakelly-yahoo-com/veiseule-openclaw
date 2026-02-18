@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 运行或修复测试
-summary: 如何在本地运行测试（vitest）以及何时使用 force/coverage 模式
 title: 测试
 x-i18n:
   generated_at: "2026-02-03T10:09:52Z"

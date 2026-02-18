@@ -1,8 +1,4 @@
 ---
-summary: "Malalim na troubleshooting runbook para sa gateway, mga channel, automation, mga node, at browser"
-read_when:
-  - Itinuro ka rito ng troubleshooting hub para sa mas malalim na diagnosis
-  - Kailangan mo ng matatag na mga seksyon ng runbook na batay sa sintomas na may eksaktong mga command
 title: "Pag-troubleshoot"
 ---
 

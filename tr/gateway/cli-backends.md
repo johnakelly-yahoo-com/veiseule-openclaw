@@ -1,9 +1,4 @@
 ---
-summary: "CLI arka uçları: yerel AI CLI'leri üzerinden yalnızca metin yedek yolu"
-read_when:
-  - API sağlayıcıları başarısız olduğunda güvenilir bir yedek istediğinizde
-  - Claude Code CLI veya diğer yerel AI CLI'lerini çalıştırıyor ve bunları yeniden kullanmak istediğinizde
-  - Oturumları ve görüntüleri desteklemeye devam eden, yalnızca metinli ve araçsız bir yol gerektiğinde
 title: "CLI Arka Uçları"
 ---
 

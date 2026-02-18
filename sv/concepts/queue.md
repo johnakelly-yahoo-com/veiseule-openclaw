@@ -1,7 +1,4 @@
 ---
-summary: "Design för kommandokö som serialiserar inkommande körningar för autosvar"
-read_when:
-  - Ändrar körning eller samtidighet för autosvar
 title: "Kommandokö"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "„Erweiterte Einrichtung und Entwicklungs-Workflows für OpenClaw“"
-read_when:
-  - Einrichten eines neuen Rechners
-  - Sie möchten „neueste + beste Version“, ohne Ihre persönliche Einrichtung zu gefährden
 title: "Einrichtung"
 ---
 

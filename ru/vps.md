@@ -1,8 +1,4 @@
 ---
-summary: "Хаб VPS‑хостинга для OpenClaw (Oracle/Fly/Hetzner/GCP/exe.dev)"
-read_when:
-  - Вы хотите запустить Gateway (шлюз) в облаке
-  - Вам нужна быстрая навигация по руководствам по VPS/хостингу
 title: "VPS‑хостинг"
 ---
 

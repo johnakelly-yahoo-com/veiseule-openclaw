@@ -1,8 +1,4 @@
 ---
-summary: "Deepgram-transskription for indgående talebeskeder"
-read_when:
-  - Du vil bruge Deepgram tale-til-tekst til lydvedhæftninger
-  - Du har brug for et hurtigt Deepgram-konfigurationseksempel
 title: "Deepgram"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Gateway, node’lar va canvas xosti qanday ulanadi."
-read_when:
-  - You want a concise view of the Gateway networking model
 title: "Tarmoq modeli"
 ---
 

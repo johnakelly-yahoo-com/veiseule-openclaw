@@ -1,8 +1,4 @@
 ---
-summary: "Dùng Anthropic Claude qua khóa API hoặc setup-token trong OpenClaw"
-read_when:
-  - Bạn muốn dùng các mô hình Anthropic trong OpenClaw
-  - Bạn muốn dùng setup-token thay vì khóa API
 title: "Anthropic"
 ---
 

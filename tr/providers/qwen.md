@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw’da Qwen OAuth’u (ücretsiz katman) kullanın"
-read_when:
-  - OpenClaw ile Qwen kullanmak istiyorsunuz
-  - Qwen Coder için ücretsiz katman OAuth erişimi istiyorsunuz
 title: "Qwen"
 ---
 

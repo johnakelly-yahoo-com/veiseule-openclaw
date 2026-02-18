@@ -1,8 +1,4 @@
 ---
-summary: "Proveedores de modelos (LLM) compatibles con OpenClaw"
-read_when:
-  - Quiere elegir un proveedor de modelos
-  - Quiere ejemplos de configuración rápida para la autenticación de LLM y la selección de modelos
 title: "Inicio rápido de proveedores de modelos"
 ---
 

@@ -1,6 +1,4 @@
 ---
-summary: "Linux’da OpenClaw brauzer boshqaruvi uchun Chrome/Brave/Edge/Chromium CDP ishga tushirish muammolarini tuzatish"
-read_when: "Linux’da brauzer boshqaruvi ishlamaydi, ayniqsa snap Chromium bilan"
 title: "Brauzer muammolarini bartaraf etish"
 ---
 

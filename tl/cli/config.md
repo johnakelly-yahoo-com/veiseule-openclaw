@@ -1,7 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw config` (get/set/unset ng mga value ng config)"
-read_when:
-  - Gusto mong basahin o i-edit ang config nang hindi interactive
 title: "config"
 ---
 

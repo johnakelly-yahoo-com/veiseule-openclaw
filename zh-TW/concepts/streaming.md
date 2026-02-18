@@ -1,9 +1,4 @@
 ---
-summary: "Streaming + chunking behavior (block replies, draft streaming, limits)"
-read_when:
-  - 說明串流或分塊在各頻道中的運作方式
-  - 變更區塊串流或頻道分塊行為
-  - 偵錯重複／過早的區塊回覆或草稿串流
 title: "串流與分塊處理"
 ---
 

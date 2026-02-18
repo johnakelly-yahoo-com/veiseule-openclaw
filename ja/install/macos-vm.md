@@ -1,10 +1,4 @@
 ---
-summary: "隔離や iMessage が必要な場合に、サンドボックス化された macOS VM（ローカルまたはホスト型）で OpenClaw を実行します"
-read_when:
-  - メインの macOS 環境から OpenClaw を隔離したい
-  - サンドボックス内で iMessage 連携（BlueBubbles）を使いたい
-  - クローン可能でリセットできる macOS 環境が欲しい
-  - ローカルとホスト型の macOS VM オプションを比較したい
 title: "macOS VM"
 ---
 

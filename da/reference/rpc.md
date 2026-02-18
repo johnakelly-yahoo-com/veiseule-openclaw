@@ -1,8 +1,4 @@
 ---
-summary: "RPC-adaptere til eksterne CLI’er (signal-cli, legacy imsg) og gateway-mønstre"
-read_when:
-  - Tilføjelse eller ændring af eksterne CLI-integrationer
-  - Fejlfinding af RPC-adaptere (signal-cli, imsg)
 title: "RPC-adaptere"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Compréhension entrante des images/audio/vidéos (optionnelle) avec fournisseur + solutions de repli CLI"
-read_when:
-  - Conception ou refactorisation de la compréhension des médias
-  - Réglage du prétraitement entrant audio/vidéo/image
 title: "Compréhension des médias"
 ---
 

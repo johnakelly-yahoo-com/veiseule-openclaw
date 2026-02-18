@@ -1,8 +1,4 @@
 ---
-summary: "CLI-Referenz für `openclaw cron` (Hintergrundjobs planen und ausführen)"
-read_when:
-  - Sie möchten geplante Jobs und Wakeups verwenden
-  - Sie debuggen die Ausführung von Cron-Jobs und Logs
 title: "cron"
 ---
 

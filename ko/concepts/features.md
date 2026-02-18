@@ -1,7 +1,4 @@
 ---
-summary: "채널, 라우팅, 미디어, UX 전반에 걸친 OpenClaw 기능."
-read_when:
-  - OpenClaw 가 지원하는 전체 목록이 필요할 때
 title: "기능"
 ---
 

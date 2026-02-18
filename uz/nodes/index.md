@@ -1,9 +1,4 @@
 ---
-summary: "Tugunlar: juftlash, imkoniyatlar, ruxsatlar va canvas/camera/screen/system uchun CLI yordamchilari"
-read_when:
-  - 1. iOS/Android tugunlarini shlyuzga ulash
-  - 2. Agent konteksti uchun tugun canvas/kameradan foydalanish
-  - 3. Yangi tugun buyruqlari yoki CLI yordamchilarini qo‘shish
 title: "4. Tugunlar"
 ---
 

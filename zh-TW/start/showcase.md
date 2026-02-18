@@ -1,8 +1,6 @@
 ---
 title: "展示"
-description: "來自社群的真實世界 OpenClaw 專案"
-summary: "由社群打造、以 OpenClaw 驅動的專案與整合"
----
+description: "來自社群的真實世界 OpenClaw 專案"---
 
 # 展示
 

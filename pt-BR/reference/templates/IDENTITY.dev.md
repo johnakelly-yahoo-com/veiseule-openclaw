@@ -1,9 +1,4 @@
----
-summary: "Identidade do agente de desenvolvimento (C-3PO)"
-read_when:
-  - Usando os templates do gateway de desenvolvimento
-  - Atualizando a identidade padrão do agente de desenvolvimento
----
+------
 
 # IDENTITY.md - Identidade do Agente
 

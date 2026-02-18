@@ -1,7 +1,4 @@
 ---
-summary: "packaging scripts ဖြင့် ထုတ်လုပ်သော macOS debug builds များအတွက် signing အဆင့်များ"
-read_when:
-  - mac debug builds များကို တည်ဆောက်ခြင်း သို့မဟုတ် signing ပြုလုပ်သောအခါ
 title: "macOS လက်မှတ်ရေးထိုးခြင်း"
 ---
 

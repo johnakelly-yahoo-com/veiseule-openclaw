@@ -1,8 +1,4 @@
 ---
-summary: "Referencia de la CLI para `openclaw status` (diagnósticos, sondeos, instantáneas de uso)"
-read_when:
-  - Quiere un diagnóstico rápido de la salud del canal + destinatarios de sesiones recientes
-  - Quiere un estado “all” pegable para depuración
 title: "estado"
 ---
 

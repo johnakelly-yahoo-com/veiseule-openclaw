@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 在 Oracle Cloud 上设置 OpenClaw
-  - 寻找 OpenClaw 的低成本 VPS 托管
-  - 想要在小型服务器上 24/7 运行 OpenClaw
-summary: 在 Oracle Cloud 上运行 OpenClaw（Always Free ARM）
 title: Oracle Cloud
 x-i18n:
   generated_at: "2026-02-03T07:53:25Z"

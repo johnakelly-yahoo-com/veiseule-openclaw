@@ -1,5 +1,4 @@
 ---
-summary: "Comment soumettre une PR à fort signal"
 title: "Soumettre une PR"
 ---
 

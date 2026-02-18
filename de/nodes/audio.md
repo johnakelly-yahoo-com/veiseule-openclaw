@@ -1,7 +1,4 @@
 ---
-summary: "Wie eingehende Audio-/Sprachnachrichten heruntergeladen, transkribiert und in Antworten eingefügt werden"
-read_when:
-  - Ändern der Audiotranskription oder Medienverarbeitung
 title: "Audio- und Sprachnachrichten"
 ---
 

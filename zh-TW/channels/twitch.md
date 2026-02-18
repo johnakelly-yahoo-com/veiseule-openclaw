@@ -1,7 +1,4 @@
 ---
-summary: "Twitch 聊天機器人設定與安裝"
-read_when:
-  - 為 OpenClaw 設定 Twitch 聊天整合
 title: "Twitch"
 ---
 

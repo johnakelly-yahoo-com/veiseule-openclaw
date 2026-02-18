@@ -1,8 +1,4 @@
----
-summary: "Workspace-skabelon til AGENTS.md"
-read_when:
-  - Manuel opstart af et workspace
----
+------
 
 # AGENTS.md - Dit workspace
 

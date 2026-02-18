@@ -1,10 +1,4 @@
 ---
-read_when:
-  - 你想全面了解 OpenClaw 的 OAuth 流程
-  - 你遇到了令牌失效/登出问题
-  - 你想了解 setup-token 或 OAuth 认证流程
-  - 你想使用多账户或配置文件路由
-summary: OpenClaw 中的 OAuth：令牌交换、存储和多账户模式
 title: OAuth
 x-i18n:
   generated_at: "2026-02-01T20:23:29Z"

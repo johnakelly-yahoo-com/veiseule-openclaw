@@ -1,7 +1,5 @@
 ---
 title: Sandbox vs Toolbeleid vs Elevated
-summary: "Waarom een tool is geblokkeerd: sandbox-runtime, tool-toestaan/weigeren-beleid en elevated exec-gates"
-read_when: "Je tegen een 'sandbox jail' aanloopt of een tool/elevated-weigering ziet en exact wilt weten welke config-sleutel je moet aanpassen."
 status: active
 ---
 

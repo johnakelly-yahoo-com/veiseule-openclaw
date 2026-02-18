@@ -1,9 +1,4 @@
----
-summary: "Perfil de usuário do agente dev (C-3PO)"
-read_when:
-  - Usando os templates do gateway de dev
-  - Atualizando a identidade padrão do agente dev
----
+------
 
 # USER.md - Perfil do Usuário
 

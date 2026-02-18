@@ -1,8 +1,4 @@
 ---
-summary: "Áp dụng các bản vá nhiều tệp bằng công cụ apply_patch"
-read_when:
-  - Bạn cần chỉnh sửa tệp có cấu trúc trên nhiều tệp
-  - Bạn muốn ghi lại tài liệu hoặc gỡ lỗi các chỉnh sửa dựa trên bản vá
 title: "Công cụ apply_patch"
 ---
 

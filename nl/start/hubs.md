@@ -1,7 +1,4 @@
 ---
-summary: "Hubs die linken naar elke OpenClaw-documentatie"
-read_when:
-  - Je wilt een volledig overzicht van de documentatie
 title: "Docs-hubs"
 ---
 

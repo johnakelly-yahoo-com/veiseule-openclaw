@@ -1,7 +1,4 @@
 ---
-summary: "Renforcement de la liste d’autorisation Telegram : normalisation des prefixes et des espaces"
-read_when:
-  - Lors de la revue des changements historiques de la liste d’autorisation Telegram
 title: "Renforcement de la liste d’autorisation Telegram"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "„OpenClaw‑Funktionen über Kanäle, Routing, Medien und UX hinweg.“"
-read_when:
-  - Sie möchten eine vollständige Liste dessen, was OpenClaw unterstützt
 title: "Funktionen"
 ---
 

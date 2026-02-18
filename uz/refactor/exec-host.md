@@ -1,9 +1,4 @@
 ---
-summary: "Refaktor rejasi: exec host routing, node tasdiqlashlari va headless runner"
-read_when:
-  - Exec xost marshrutizatsiyasini yoki exec tasdiqlarini loyihalash
-  - Node runner + UI IPC ni joriy etish
-  - Exec xost xavfsizlik rejimlari va slash buyruqlarini qo‘shish
 title: "Exec xostni refaktorlash"
 ---
 

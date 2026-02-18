@@ -1,8 +1,4 @@
----
-summary: "Foydalanuvchi profili yozuvi"
-read_when:
-  - Ish maydonini qo‘lda ishga tushirish
----
+------
 
 # USER.md — Insoningiz haqida
 

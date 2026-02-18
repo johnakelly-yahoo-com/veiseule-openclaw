@@ -1,8 +1,4 @@
 ---
-summary: "Referência da CLI para `openclaw update` (atualização de origem relativamente segura + reinício automático do gateway)"
-read_when:
-  - Voce quer atualizar um checkout de origem com segurança
-  - Voce precisa entender o comportamento do atalho `--update`
 title: "update"
 ---
 

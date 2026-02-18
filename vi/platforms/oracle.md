@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw trên Oracle Cloud (ARM Always Free)"
-read_when:
-  - Thiết lập OpenClaw trên Oracle Cloud
-  - Tìm VPS chi phí thấp để chạy OpenClaw
-  - Muốn chạy OpenClaw 24/7 trên một máy chủ nhỏ
 title: "Oracle Cloud"
 ---
 

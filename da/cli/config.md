@@ -1,7 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw config` (hent/angiv/fjern konfigurationsværdier)"
-read_when:
-  - Du vil læse eller redigere konfiguration ikke-interaktivt
 title: "config"
 ---
 

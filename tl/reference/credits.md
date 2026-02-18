@@ -1,7 +1,4 @@
 ---
-summary: "Pinagmulan ng proyekto, mga nag-ambag, at lisensya."
-read_when:
-  - Gusto mo ang backstory ng proyekto o mga kredito ng contributor
 title: "Mga Kredito"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "32. 飛書機器人總覽、功能與設定"
-read_when:
-  - 你想要連接 Feishu／Lark 機器人
-  - 你正在設定 Feishu 頻道
 title: Feishu
 ---
 

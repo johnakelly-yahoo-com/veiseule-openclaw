@@ -1,7 +1,5 @@
 ---
-summary: "Sandbox na agenta + ograniczenia narzędzi, priorytety i przykłady"
 title: Sandbox i narzędzia dla wielu agentów
-read_when: "Chcesz sandboxing per agent lub zasady zezwalania/odmowy narzędzi per agent w bramie wieloagentowej."
 status: active
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "使用 Ansible、Tailscale VPN 與防火牆隔離的自動化且強化安全性的 OpenClaw 安裝"
-read_when:
-  - 你需要具備安全性強化的自動化伺服器部署
-  - 你需要透過 VPN 存取、並具備防火牆隔離的設定
-  - 你要部署到遠端的 Debian／Ubuntu 伺服器
 title: "Ansible"
 ---
 

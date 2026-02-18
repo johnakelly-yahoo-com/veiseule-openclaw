@@ -1,9 +1,4 @@
 ---
-summary: "Richtlijnen voor het kiezen tussen heartbeat en cron-jobs voor automatisering"
-read_when:
-  - Beslissen hoe terugkerende taken te plannen
-  - Achtergrondmonitoring of notificaties instellen
-  - Tokengebruik optimaliseren voor periodieke controles
 title: "Cron vs Heartbeat"
 ---
 

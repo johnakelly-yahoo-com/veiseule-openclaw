@@ -1,8 +1,6 @@
 ---
 title: "Ko‘rgazma"
-description: "Hamjamiyatdan real dunyodagi OpenClaw loyihalari"
-summary: "OpenClaw asosida hamjamiyat tomonidan qurilgan loyihalar va integratsiyalar"
----
+description: "Hamjamiyatdan real dunyodagi OpenClaw loyihalari"---
 
 # Ko‘rgazma
 

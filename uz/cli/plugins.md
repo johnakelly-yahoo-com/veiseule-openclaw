@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw plugins` uchun CLI maʼlumotnomasi (roʻyxatlash, oʻrnatish, yoqish/oʻchirish, doctor)"
-read_when:
-  - Siz in-process Gateway plaginlarini oʻrnatmoqchi yoki boshqarmoqchisiz
-  - Siz plagin yuklanishidagi nosozliklarni tuzatmoqchisiz
 title: "plaginlar"
 ---
 

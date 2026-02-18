@@ -1,8 +1,4 @@
 ---
-summary: "Gescripte onboarding en agentinstallatie voor de OpenClaw CLI"
-read_when:
-  - Je automatiseert onboarding in scripts of CI
-  - Je hebt niet-interactieve voorbeelden nodig voor specifieke providers
 title: "CLI-automatisering"
 sidebarTitle: "CLI-automatisering"
 ---

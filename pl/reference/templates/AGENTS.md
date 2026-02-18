@@ -1,8 +1,4 @@
----
-summary: "Szablon obszaru roboczego dla AGENTS.md"
-read_when:
-  - Ręczne uruchamianie obszaru roboczego
----
+------
 
 # AGENTS.md – Twój obszar roboczy
 

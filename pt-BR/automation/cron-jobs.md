@@ -1,9 +1,4 @@
 ---
-summary: "Cron jobs + wakeups para o scheduler do Gateway"
-read_when:
-  - Agendamento de jobs em segundo plano ou wakeups
-  - Conectar automações que devem rodar com ou junto aos heartbeats
-  - Decidir entre heartbeat e cron para tarefas agendadas
 title: "Tarefas Cron"
 ---
 

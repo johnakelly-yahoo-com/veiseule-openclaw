@@ -1,8 +1,4 @@
 ---
-summary: "Modelautentificering: OAuth, API-nøgler og setup-token"
-read_when:
-  - Fejlfinding af modelautentificering eller OAuth-udløb
-  - Dokumentation af autentificering eller lagring af legitimationsoplysninger
 title: "Autentificering"
 ---
 

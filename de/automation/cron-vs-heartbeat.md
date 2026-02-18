@@ -1,9 +1,4 @@
 ---
-summary: "„Leitfaden zur Auswahl zwischen Heartbeat und Cron-Jobs für Automatisierung“"
-read_when:
-  - Entscheidung, wie wiederkehrende Aufgaben geplant werden sollen
-  - Einrichten von Hintergrundüberwachung oder Benachrichtigungen
-  - Optimierung der Token-Nutzung für periodische Prüfungen
 title: "„Cron vs. Heartbeat“"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Execute o OpenClaw com o Ollama (runtime local de LLM)"
-read_when:
-  - Você quer executar o OpenClaw com modelos locais via Ollama
-  - Você precisa de orientação de configuração e setup do Ollama
 title: "Ollama"
 ---
 

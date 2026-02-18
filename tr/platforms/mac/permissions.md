@@ -1,9 +1,4 @@
 ---
-summary: "macOS izinlerinin kalıcılığı (TCC) ve imzalama gereksinimleri"
-read_when:
-  - Eksik veya takılı kalan macOS izin istemlerini ayıklarken
-  - macOS uygulamasını paketlerken veya imzalarken
-  - Paket kimliklerini (bundle ID) veya uygulama kurulum yollarını değiştirirken
 title: "macOS İzinleri"
 ---
 

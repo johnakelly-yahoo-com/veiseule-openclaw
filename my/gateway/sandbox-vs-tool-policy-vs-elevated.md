@@ -1,7 +1,5 @@
 ---
 title: "Sandbox နှင့် Tool Policy နှင့် Elevated တို့၏ ကွာခြားချက်"
-summary: "Tool တစ်ခု ဘာကြောင့် ပိတ်ထားရသလဲဆိုတာ—sandbox runtime၊ tool allow/deny policy နဲ့ elevated exec gate တွေ"
-read_when: "'sandbox jail' ကို ရောက်သွားတာမျိုး သို့မဟုတ် tool/elevated ပယ်ချခြင်းကို တွေ့ပြီး ဘယ် config key ကို ပြောင်းရမလဲ အတိအကျ သိချင်တဲ့အခါ"
 status: active
 ---
 

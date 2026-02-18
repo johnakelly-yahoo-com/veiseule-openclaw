@@ -1,8 +1,4 @@
 ---
-summary: "Reference ng CLI para sa `openclaw directory` (sarili, peers, mga grupo)"
-read_when:
-  - Gusto mong hanapin ang mga id ng contact/grupo/sarili para sa isang channel
-  - Nagde-develop ka ng adapter ng directory ng channel
 title: "directory"
 ---
 

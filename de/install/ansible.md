@@ -1,9 +1,4 @@
 ---
-summary: "Automatisierte, gehärtete OpenClaw-Installation mit Ansible, Tailscale-VPN und Firewall-Isolation"
-read_when:
-  - Sie möchten eine automatisierte Serverbereitstellung mit Sicherheits-Härtung
-  - Sie benötigen ein firewall-isoliertes Setup mit VPN-Zugriff
-  - Sie stellen auf entfernten Debian-/Ubuntu-Servern bereit
 title: "Ansible"
 ---
 

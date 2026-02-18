@@ -1,9 +1,4 @@
 ---
-summary: "Forschungsnotizen: Offline-Memory-System für Clawd-Workspaces (Markdown als Source of Truth + abgeleiteter Index)"
-read_when:
-  - Entwurf von Workspace-Memory (~/.openclaw/workspace) über tägliche Markdown-Logs hinaus
-  - Deciding: "Entscheidung: eigenständige CLI vs. tiefe OpenClaw-Integration"
-  - Hinzufügen von Offline-Recall + Reflexion (retain/recall/reflect)
 title: "Workspace-Memory-Forschung"
 ---
 

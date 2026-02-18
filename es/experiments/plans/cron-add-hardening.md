@@ -1,5 +1,4 @@
 ---
-summary: "Endurecer el manejo de entradas de cron.add, alinear esquemas y mejorar las herramientas de UI/agente de cron"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"

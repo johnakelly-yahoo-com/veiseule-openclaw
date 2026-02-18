@@ -1,8 +1,4 @@
 ---
-summary: "在同一台主機上執行多個 OpenClaw Gateway 閘道器（隔離、連接埠與設定檔）"
-read_when:
-  - 在同一台機器上執行多個 Gateway 閘道器
-  - 你需要每個 Gateway 閘道器都有隔離的設定 / 狀態 / 連接埠
 title: "多個 Gateway 閘道器"
 ---
 

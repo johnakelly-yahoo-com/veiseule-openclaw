@@ -1,8 +1,4 @@
 ---
-summary: "Thiết lập và hướng dẫn ban đầu tùy chọn dựa trên Docker cho OpenClaw"
-read_when:
-  - Bạn muốn một gateway chạy trong container thay vì cài đặt cục bộ
-  - Bạn đang kiểm tra luồng Docker
 title: "Docker"
 ---
 

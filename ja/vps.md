@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw 向けの VPS ホスティングハブ（Oracle/Fly/Hetzner/GCP/exe.dev）"
-read_when:
-  - クラウドで Gateway（ゲートウェイ）を実行したい場合
-  - VPS/ホスティングのガイドを手早く把握したい場合
 title: "VPS ホスティング"
 ---
 

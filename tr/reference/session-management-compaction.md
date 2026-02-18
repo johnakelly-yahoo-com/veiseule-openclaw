@@ -1,9 +1,4 @@
 ---
-summary: "Derinlemesine inceleme: oturum deposu + transkriptler, yaşam döngüsü ve (otomatik) sıkıştırma iç işleyişi"
-read_when:
-  - Oturum kimliklerini, transkript JSONL dosyalarını veya sessions.json alanlarını hata ayıklamanız gerektiğinde
-  - Otomatik sıkıştırma davranışını değiştiriyor ya da “ön sıkıştırma” bakım işleri ekliyorsanız
-  - Bellek boşaltmaları veya sessiz sistem turları uygulamak istiyorsanız
 title: "Oturum Yönetimine Derinlemesine Bakış"
 ---
 

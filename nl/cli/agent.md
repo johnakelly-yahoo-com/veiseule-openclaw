@@ -1,7 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw agent` (verzend één agentbeurt via de Gateway)"
-read_when:
-  - Je wilt vanuit scripts één agentbeurt uitvoeren (optioneel het antwoord afleveren)
 title: "agent"
 ---
 

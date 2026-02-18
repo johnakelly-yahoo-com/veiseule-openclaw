@@ -1,9 +1,4 @@
 ---
-summary: "Keng tarqalgan OpenClaw sozlamalari uchun sxemaga mos konfiguratsiya misollari"
-read_when:
-  - Learning how to configure OpenClaw
-  - Looking for configuration examples
-  - Setting up OpenClaw for the first time
 title: "Konfiguratsiya misollari"
 ---
 

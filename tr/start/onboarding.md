@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw için ilk çalıştırma onboarding akışı (macOS uygulaması)"
-read_when:
-  - macOS onboarding asistanını tasarlarken
-  - Kimlik doğrulama veya kimlik kurulumunu uygularken
 title: "Onboarding (macOS Uygulaması)"
 sidebarTitle: "Başlangıç: macOS Uygulaması"
 ---

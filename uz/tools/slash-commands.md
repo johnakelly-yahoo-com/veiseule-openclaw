@@ -1,8 +1,4 @@
 ---
-summary: "Slash buyruqlar: matnli va mahalliy, sozlamalar va qo‘llab-quvvatlanadigan buyruqlar"
-read_when:
-  - Using or configuring chat commands
-  - Debugging command routing or permissions
 title: "Slash buyruqlar"
 ---
 

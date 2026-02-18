@@ -1,8 +1,4 @@
 ---
-summary: "Webhook-Eingang für Wake- und isolierte Agent-Läufe"
-read_when:
-  - Hinzufügen oder Ändern von Webhook-Endpunkten
-  - Anbinden externer Systeme an OpenClaw
 title: "Webhooks"
 ---
 

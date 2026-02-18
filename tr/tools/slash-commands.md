@@ -1,8 +1,4 @@
 ---
-summary: "Slash komutları: metin ve yerel, yapılandırma ve desteklenen komutlar"
-read_when:
-  - Sohbet komutlarını kullanırken veya yapılandırırken
-  - Komut yönlendirmesi ya da izinleri hata ayıklarken
 title: "Slash Komutları"
 ---
 

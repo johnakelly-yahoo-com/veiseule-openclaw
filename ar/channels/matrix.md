@@ -1,7 +1,4 @@
 ---
-summary: "حالة دعم Matrix، والإمكانات، والتهيئة"
-read_when:
-  - العمل على ميزات قناة Matrix
 title: "Matrix"
 ---
 

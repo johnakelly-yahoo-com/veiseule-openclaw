@@ -1,9 +1,4 @@
 ---
-summary: "LINE Messaging API 外掛程式的設定、設定方式與使用說明"
-read_when:
-  - 你想要將 OpenClaw 連接至 LINE
-  - 你需要設定 LINE webhook 與憑證
-  - 你想要使用 LINE 專屬的訊息選項
 title: LINE
 ---
 

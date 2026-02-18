@@ -1,6 +1,4 @@
 ---
-summary: "OpenClaw.app’in uzak bir gateway’e bağlanması için SSH tüneli kurulumu"
-read_when: "macOS uygulamasını SSH üzerinden uzak bir gateway’e bağlarken"
 title: "Uzak Gateway Kurulumu"
 ---
 

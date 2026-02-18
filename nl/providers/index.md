@@ -1,8 +1,4 @@
 ---
-summary: "Modelproviders (LLM's) die door OpenClaw worden ondersteund"
-read_when:
-  - Je wilt een modelprovider kiezen
-  - Je hebt een snel overzicht nodig van ondersteunde LLM-backends
 title: "Modelproviders"
 ---
 

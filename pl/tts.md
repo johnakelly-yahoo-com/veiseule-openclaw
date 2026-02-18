@@ -1,9 +1,4 @@
 ---
-summary: "Synteza mowy (TTS) dla odpowiedzi wychodzących"
-read_when:
-  - Włączanie syntezy mowy dla odpowiedzi
-  - Konfigurowanie dostawców TTS lub limitów
-  - Używanie poleceń /tts
 title: "Tekst na mowę"
 ---
 

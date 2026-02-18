@@ -1,7 +1,4 @@
 ---
-summary: "„Telegram-Allowlist-Härtung: Präfix- und Whitespace-Normalisierung“"
-read_when:
-  - Überprüfung historischer Änderungen an der Telegram-Allowlist
 title: "Telegram-Allowlist-Härtung"
 ---
 

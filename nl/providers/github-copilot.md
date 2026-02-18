@@ -1,8 +1,4 @@
 ---
-summary: "Meld je aan bij GitHub Copilot vanuit OpenClaw met behulp van de apparaatstroom"
-read_when:
-  - Je wilt GitHub Copilot gebruiken als modelprovider
-  - Je hebt de `openclaw models auth login-github-copilot`-flow nodig
 title: "GitHub Copilot"
 ---
 

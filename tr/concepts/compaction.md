@@ -1,8 +1,4 @@
 ---
-summary: "Bağlam penceresi + sıkıştırma: OpenClaw oturumları model sınırları içinde nasıl tutar"
-read_when:
-  - Otomatik sıkıştırmayı ve /compact komutunu anlamak istiyorsunuz
-  - You are debugging long sessions hitting context limits
 title: "Sıkıştırma"
 ---
 

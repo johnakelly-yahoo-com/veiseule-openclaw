@@ -1,10 +1,4 @@
 ---
-summary: "Uruchamiaj OpenClaw w sandboxowanej maszynie wirtualnej macOS (lokalnej lub hostowanej), gdy potrzebujesz izolacji lub iMessage"
-read_when:
-  - Chcesz odizolować OpenClaw od głównego środowiska macOS
-  - Chcesz integracji iMessage (BlueBubbles) w sandboxie
-  - Chcesz resetowalne środowisko macOS, które można klonować
-  - Chcesz porównać lokalne i hostowane opcje maszyn wirtualnych macOS
 title: "Maszyny wirtualne macOS"
 ---
 

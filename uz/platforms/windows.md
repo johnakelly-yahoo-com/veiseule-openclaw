@@ -1,8 +1,4 @@
 ---
-summary: "Windows (WSL2) qo‘llab-quvvatlovi + hamroh ilova holati"
-read_when:
-  - OpenClaw’ni Windows’da o‘rnatayotganda
-  - Windows hamroh ilovasi holatini qidirayotganda
 title: "Windows (WSL2)"
 ---
 

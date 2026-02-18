@@ -1,8 +1,4 @@
 ---
-summary: "Voice Call 플러그인: Twilio/Telnyx/Plivo를 통한 아웃바운드 + 인바운드 통화 (플러그인 설치 + 구성 + CLI)"
-read_when:
-  - OpenClaw에서 아웃바운드 음성 통화를 걸고자 할 때
-  - voice-call 플러그인을 구성하거나 개발할 때
 title: "Voice Call 플러그인"
 ---
 

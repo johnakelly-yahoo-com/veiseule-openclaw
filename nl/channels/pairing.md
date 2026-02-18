@@ -1,9 +1,4 @@
 ---
-summary: "Overzicht van pairing: goedkeuren wie je een DM kan sturen + welke nodes kunnen deelnemen"
-read_when:
-  - DM-toegangsbeheer instellen
-  - Een nieuwe iOS/Android-node koppelen
-  - De beveiligingspositie van OpenClaw beoordelen
 title: "Koppelen"
 ---
 

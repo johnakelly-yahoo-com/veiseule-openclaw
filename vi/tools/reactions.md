@@ -1,7 +1,4 @@
 ---
-summary: "Ngữ nghĩa reaction dùng chung giữa các kênh"
-read_when:
-  - Làm việc với reactions ở bất kỳ kênh nào
 title: "Phản ứng"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Справочник CLI для `openclaw plugins` (list, install, enable/disable, doctor)"
-read_when:
-  - Вам нужно установить или управлять внутрипроцессными плагинами Gateway (шлюз)
-  - Вам нужно отладить ошибки загрузки плагинов
 title: "плагины"
 ---
 

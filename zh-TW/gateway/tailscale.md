@@ -1,8 +1,4 @@
 ---
-summary: "為 Gateway 儀表板整合 Tailscale Serve／Funnel"
-read_when:
-  - 在 localhost 之外公開 Gateway 控制 UI
-  - 自動化 tailnet 或公開儀表板存取
 title: "Tailscale"
 ---
 

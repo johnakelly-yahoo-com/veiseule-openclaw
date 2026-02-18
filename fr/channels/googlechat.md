@@ -1,7 +1,4 @@
 ---
-summary: "Statut de prise en charge de l’application Google Chat, capacites et configuration"
-read_when:
-  - Travail sur les fonctionnalites du canal Google Chat
 title: "Google Chat"
 ---
 

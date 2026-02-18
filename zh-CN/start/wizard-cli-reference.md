@@ -1,8 +1,4 @@
 ---
-summary: "CLI 引导流程、认证/模型设置、输出及内部机制的完整参考"
-read_when:
-  - 你需要了解 openclaw onboard 的详细行为
-  - 你正在调试引导结果或集成引导客户端
 title: "CLI 引导参考"
 sidebarTitle: "CLI 参考"
 ---

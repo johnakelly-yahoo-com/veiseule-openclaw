@@ -1,9 +1,4 @@
 ---
-summary: "OpenProse: quy trình làm việc .prose, lệnh slash và trạng thái trong OpenClaw"
-read_when:
-  - Bạn muốn chạy hoặc viết các quy trình làm việc .prose
-  - Bạn muốn bật plugin OpenProse
-  - Bạn cần hiểu cách lưu trữ trạng thái
 title: "OpenProse"
 ---
 

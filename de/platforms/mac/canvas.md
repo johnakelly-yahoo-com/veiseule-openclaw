@@ -1,9 +1,4 @@
 ---
-summary: "„Agentengesteuertes Canvas-Panel, eingebettet über WKWebView + benutzerdefiniertes URL-Schema“"
-read_when:
-  - Implementierung des macOS-Canvas-Panels
-  - Hinzufügen von Agentensteuerungen für visuelle Arbeitsbereiche
-  - Debugging von WKWebView-Canvas-Ladevorgängen
 title: "„Canvas“"
 ---
 

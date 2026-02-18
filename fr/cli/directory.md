@@ -1,8 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw directory` (soi, pairs, groupes)"
-read_when:
-  - Vous souhaitez rechercher des identifiants de contacts/groupes/soi pour un canal
-  - Vous developpez un adaptateur d'annuaire de canal
 title: "directory"
 ---
 

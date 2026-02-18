@@ -1,8 +1,4 @@
 ---
-summary: "CLI‑introduktionsguide: guidad konfigurering av gateway, arbetsyta, kanaler och Skills"
-read_when:
-  - När du kör eller konfigurerar introduktionsguiden
-  - När du sätter upp en ny maskin
 title: "Introduktionsguide (CLI)"
 sidebarTitle: "Introduktion: CLI"
 ---

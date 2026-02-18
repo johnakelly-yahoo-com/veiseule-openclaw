@@ -1,7 +1,4 @@
 ---
-summary: "Kiến trúc gateway WebSocket, các thành phần và luồng phía client"
-read_when:
-  - Làm việc với giao thức gateway, client hoặc transport
 title: "Kiến trúc Gateway"
 ---
 

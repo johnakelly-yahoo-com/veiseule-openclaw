@@ -1,8 +1,4 @@
 ---
-summary: "Plugins/extensiones de OpenClaw: descubrimiento, configuración y seguridad"
-read_when:
-  - Al agregar o modificar plugins/extensiones
-  - Al documentar reglas de instalación o carga de plugins
 title: "Complementos"
 ---
 

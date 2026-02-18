@@ -1,7 +1,4 @@
 ---
-summary: "Host estático do WebChat em loopback e uso de WS do Gateway para a UI de chat"
-read_when:
-  - Depuração ou configuração do acesso ao WebChat
 title: "WebChat"
 ---
 

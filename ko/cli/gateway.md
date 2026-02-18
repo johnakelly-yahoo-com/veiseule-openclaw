@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw Gateway CLI (`openclaw gateway`) — 게이트웨이 실행, 조회, 검색"
-read_when:
-  - CLI 에서 Gateway 를 실행할 때 (개발 또는 서버)
-  - Gateway 인증, 바인드 모드, 연결성을 디버깅할 때
-  - Bonjour 를 통해 게이트웨이를 검색할 때 (LAN + tailnet)
 title: "gateway"
 ---
 

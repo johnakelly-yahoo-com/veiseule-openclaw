@@ -1,10 +1,5 @@
 ---
-title: "Cloudflare AI Gateway"
-summary: "การตั้งค่าCloudflare AI Gateway(การยืนยันตัวตน+การเลือกโมเดล)"
-read_when:
-  - คุณต้องการใช้Cloudflare AI GatewayกับOpenClaw
-  - คุณต้องการaccount ID, gateway IDหรือAPI key env var
----
+title: "Cloudflare AI Gateway"---
 
 # Cloudflare AI Gateway
 

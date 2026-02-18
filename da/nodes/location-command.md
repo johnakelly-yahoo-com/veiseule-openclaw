@@ -1,8 +1,4 @@
 ---
-summary: "Lokationskommando for noder (location.get), tilladelsestilstande og baggrundsadfærd"
-read_when:
-  - Tilføjelse af understøttelse for lokationsnode eller tilladelses-UI
-  - Design af baggrundslokation + push-flows
 title: "Lokationskommando"
 ---
 

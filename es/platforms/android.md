@@ -1,9 +1,4 @@
 ---
-summary: "Aplicación Android (nodo): runbook de conexión + Canvas/Chat/Cámara"
-read_when:
-  - Emparejamiento o reconexión del nodo Android
-  - Depuración del descubrimiento o la autenticación del Gateway en Android
-  - Verificación de la paridad del historial de chat entre clientes
 title: "Aplicación Android"
 ---
 

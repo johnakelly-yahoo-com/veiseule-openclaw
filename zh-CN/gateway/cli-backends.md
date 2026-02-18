@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 你想要一个在 API 提供商失败时的可靠回退
-  - 你正在运行 Claude Code CLI 或其他本地 AI CLI 并想要复用它们
-  - 你需要一个纯文本、无工具的路径，但仍支持会话和图像
-summary: CLI 后端：通过本地 AI CLI 实现纯文本回退
 title: CLI 后端
 x-i18n:
   generated_at: "2026-02-03T07:47:52Z"

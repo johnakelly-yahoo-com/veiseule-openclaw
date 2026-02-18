@@ -1,8 +1,4 @@
 ---
-summary: "CLI 入門引導精靈：引導式設定 Gateway 閘道器、工作區、頻道與 Skills"
-read_when:
-  - 執行或設定入門引導精靈
-  - 設定新機器
 title: "入門引導精靈（CLI）"
 sidebarTitle: "入門導覽: CLI"
 ---

@@ -1,7 +1,4 @@
 ---
-summary: "Har bir kanal uchun yo‘naltirish qoidalari (WhatsApp, Telegram, Discord, Slack) va umumiy kontekst"
-read_when:
-  - Kanal yo‘naltirishini yoki inbox xatti-harakatini o‘zgartirish
 title: "Kanal yo‘naltirishi"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: Noter og workarounds for Node + tsx "__name er ikke en funktion"-crash
-read_when:
-  - Fejlfinding af Node-only dev-scripts eller fejl i watch-tilstand
-  - Undersøgelse af tsx/esbuild loader-crash i OpenClaw
 title: "Node + tsx-nedbrud"
 ---
 

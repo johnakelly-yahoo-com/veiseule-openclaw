@@ -1,7 +1,4 @@
 ---
-summary: "Jak aplikacja na macOS osadza WebChat Gateway i jak go debugować"
-read_when:
-  - Debugowanie widoku WebChat na macOS lub portu loopback
 title: "WebChat"
 ---
 

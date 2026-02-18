@@ -1,5 +1,4 @@
 ---
-summary: "Como enviar um PR de alto sinal"
 title: "Envio de um PR"
 ---
 

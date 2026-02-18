@@ -1,9 +1,4 @@
 ---
-summary: "Flujo de mensajes, sesiones, colas y visibilidad del razonamiento"
-read_when:
-  - Explicar cómo los mensajes entrantes se convierten en respuestas
-  - Aclarar sesiones, modos de cola o comportamiento de streaming
-  - Documentar la visibilidad del razonamiento y las implicaciones de uso
 title: "Mensajes"
 ---
 

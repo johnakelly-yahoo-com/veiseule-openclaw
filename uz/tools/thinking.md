@@ -1,7 +1,4 @@
 ---
-summary: "/think + /verbose direktivalari sintaksisi va ularning model fikrlashiga ta’siri"
-read_when:
-  - Fikrlash yoki verbose direktiva parsingini yoki standart sozlamalarni o‘zgartirishda
 title: "Fikrlash darajalari"
 ---
 

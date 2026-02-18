@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想要最快的本地开发循环（bun + watch）
-  - 你遇到 Bun 安装/补丁/生命周期脚本问题
-summary: Bun 工作流（实验性）：安装及与 pnpm 相比的注意事项
 title: Bun（实验性）
 x-i18n:
   generated_at: "2026-02-03T07:49:24Z"

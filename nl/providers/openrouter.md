@@ -1,8 +1,4 @@
 ---
-summary: "Gebruik de uniforme API van OpenRouter om toegang te krijgen tot veel modellen in OpenClaw"
-read_when:
-  - Je wilt één API-sleutel voor veel LLM's
-  - Je wilt modellen via OpenRouter in OpenClaw draaien
 title: "OpenRouter"
 ---
 

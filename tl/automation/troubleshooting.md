@@ -1,9 +1,4 @@
 ---
-summary: "I-troubleshoot ang pag-iiskedyul at paghahatid ng cron at heartbeat"
-read_when:
-  - Hindi tumakbo ang cron
-  - Tumakbo ang cron pero walang naihatid na mensahe
-  - Mukhang tahimik o nilaktawan ang heartbeat
 title: "Pag-troubleshoot ng Automation"
 ---
 

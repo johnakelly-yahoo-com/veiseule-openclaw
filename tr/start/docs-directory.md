@@ -1,7 +1,4 @@
 ---
-summary: "En çok kullanılan OpenClaw belgelerine seçilmiş bağlantılar."
-read_when:
-  - Önemli belge sayfalarına hızlı erişim istediğinizde
 title: "Belgeler dizini"
 ---
 

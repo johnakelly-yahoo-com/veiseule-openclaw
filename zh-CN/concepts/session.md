@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 修改会话处理或存储
-summary: 聊天的会话管理规则、键和持久化
 title: 会话管理
 x-i18n:
   generated_at: "2026-02-03T07:47:44Z"

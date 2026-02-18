@@ -1,8 +1,4 @@
 ---
-summary: "Configuration du bot Mattermost et configuration OpenClaw"
-read_when:
-  - Configuration de Mattermost
-  - Debogage du routage Mattermost
 title: "Mattermost"
 ---
 

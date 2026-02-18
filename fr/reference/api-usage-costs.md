@@ -1,9 +1,4 @@
 ---
-summary: "Auditer ce qui peut depenser de l'argent, quelles cles sont utilisees et comment afficher l'utilisation"
-read_when:
-  - Vous souhaitez comprendre quelles fonctionnalites peuvent appeler des API payantes
-  - Vous devez auditer les cles, les couts et la visibilite de l'utilisation
-  - Vous expliquez le reporting des couts via /status ou /usage
 title: "Utilisation des API et couts"
 ---
 

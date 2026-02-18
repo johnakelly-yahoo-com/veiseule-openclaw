@@ -1,6 +1,4 @@
 ---
-summary: "Linux’te OpenClaw tarayıcı denetimi için Chrome/Brave/Edge/Chromium CDP başlatma sorunlarını giderin"
-read_when: "Linux’te tarayıcı denetimi başarısız olduğunda, özellikle snap Chromium ile"
 title: "Tarayıcı Sorun Giderme"
 ---
 

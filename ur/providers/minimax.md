@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw میں MiniMax M2.1 استعمال کریں"
-read_when:
-  - آپ OpenClaw میں MiniMax ماڈلز چاہتے ہیں
-  - آپ کو MiniMax کے سیٹ اپ کی رہنمائی درکار ہے
 title: "MiniMax"
 ---
 

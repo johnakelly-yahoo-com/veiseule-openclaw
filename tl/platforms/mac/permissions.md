@@ -1,9 +1,4 @@
 ---
-summary: "pagpapatuloy ng mga permiso ng macOS (TCC) at mga kinakailangan sa pag-sign"
-read_when:
-  - Pag-debug ng nawawala o na-stuck na mga prompt ng permiso ng macOS
-  - Pag-package o pag-sign ng macOS app
-  - Pagbabago ng mga bundle ID o mga path ng pag-install ng app
 title: "Mga Permiso ng macOS"
 ---
 

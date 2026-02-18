@@ -1,9 +1,4 @@
 ---
-summary: "macOS पर Gateway रनटाइम (बाहरी launchd सेवा)"
-read_when:
-  - OpenClaw.app पैकेज करना
-  - macOS Gateway launchd सेवा का डिबग करना
-  - macOS के लिए Gateway CLI स्थापित करना
 title: "macOS पर Gateway"
 ---
 

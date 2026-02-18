@@ -1,7 +1,4 @@
 ---
-summary: "เอกสารอ้างอิงCLIสำหรับ `openclaw config` (get/set/unset ค่าคอนฟิก)"
-read_when:
-  - คุณต้องการอ่านหรือแก้ไขคอนฟิกแบบไม่โต้ตอบ
 title: "config"
 ---
 

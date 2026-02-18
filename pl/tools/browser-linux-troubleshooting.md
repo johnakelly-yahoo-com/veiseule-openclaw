@@ -1,6 +1,4 @@
 ---
-summary: "„Naprawa problemów z uruchamianiem CDP Chrome/Brave/Edge/Chromium dla sterowania przeglądarką OpenClaw w systemie Linux”"
-read_when: "„Sterowanie przeglądarką nie działa w systemie Linux, zwłaszcza z Chromium w snap”"
 title: "„Rozwiązywanie problemów z przeglądarką”"
 ---
 

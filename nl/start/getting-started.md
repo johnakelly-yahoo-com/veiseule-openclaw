@@ -1,8 +1,4 @@
 ---
-summary: "Installeer OpenClaw en voer binnen enkele minuten je eerste chat uit."
-read_when:
-  - Eerste installatie vanaf nul
-  - Je wilt de snelste route naar een werkende chat
 title: "Aan de slag"
 ---
 

@@ -1,9 +1,4 @@
----
-summary: "Profil utilisateur de l’agent de dev (C-3PO)"
-read_when:
-  - Utilisation des modèles de Gateway (passerelle) de dev
-  - Mise à jour de l’identité par défaut de l’agent de dev
----
+------
 
 # USER.md - Profil utilisateur
 

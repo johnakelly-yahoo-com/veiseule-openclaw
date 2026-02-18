@@ -1,7 +1,4 @@
 ---
-summary: "Discord 봇 지원 상태, 기능, 구성"
-read_when:
-  - Discord 채널 기능 작업 중일 때
 title: "Discord"
 ---
 

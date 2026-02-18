@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw no Raspberry Pi (configuração auto-hospedada econômica)"
-read_when:
-  - Configurando o OpenClaw em um Raspberry Pi
-  - Executando o OpenClaw em dispositivos ARM
-  - Construindo uma IA pessoal barata e sempre ativa
 title: "Raspberry Pi"
 ---
 

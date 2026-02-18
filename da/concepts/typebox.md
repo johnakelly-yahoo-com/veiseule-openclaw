@@ -1,7 +1,4 @@
 ---
-summary: "TypeBox-skemaer som den eneste sandhedskilde for gateway-protokollen"
-read_when:
-  - Opdatering af protokolskemaer eller kodegenerering
 title: "TypeBox"
 ---
 

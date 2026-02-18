@@ -1,8 +1,4 @@
 ---
-summary: "用於目標式除錯記錄的診斷旗標"
-read_when:
-  - You need targeted debug logs without raising global logging levels
-  - 您需要擷取特定子系統的記錄以供支援
 title: "診斷旗標"
 ---
 

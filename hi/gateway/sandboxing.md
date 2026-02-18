@@ -1,7 +1,5 @@
 ---
-summary: "OpenClaw sandboxing कैसे काम करता है: मोड, स्कोप, वर्कस्पेस एक्सेस, और इमेजेज़"
 title: "सैंडबॉक्सिंग"
-read_when: "आप sandboxing की समर्पित व्याख्या चाहते हैं या agents.defaults.sandbox को ट्यून करना चाहते हैं।"
 status: active
 ---
 

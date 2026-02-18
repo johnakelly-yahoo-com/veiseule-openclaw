@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw setup` uchun CLI ma’lumotnomasi (config + workspace ni ishga tushirish)"
-read_when:
-  - To‘liq onboarding ustasisiz birinchi ishga tushirishni bajarayotgan bo‘lsangiz
-  - Standart workspace yo‘lini belgilamoqchi bo‘lsangiz
 title: "setup"
 ---
 

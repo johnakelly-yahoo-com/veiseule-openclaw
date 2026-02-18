@@ -1,8 +1,4 @@
 ---
-summary: "Tài liệu tham chiếu CLI cho `openclaw approvals` (phê duyệt exec cho gateway hoặc máy chủ node)"
-read_when:
-  - Bạn muốn chỉnh sửa phê duyệt exec từ CLI
-  - Bạn cần quản lý danh sách cho phép trên gateway hoặc máy chủ node
 title: "approvals"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Referência da CLI para `openclaw approvals` (aprovações de execução para hosts do gateway ou de nó)"
-read_when:
-  - Você quer editar aprovações de execução pela CLI
-  - Você precisa gerenciar listas de permissões em hosts do gateway ou de nó
 title: "aprovações"
 ---
 

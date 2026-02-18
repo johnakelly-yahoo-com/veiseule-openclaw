@@ -1,8 +1,4 @@
 ---
-summary: "Mattermost 봇 설정 및 OpenClaw 구성"
-read_when:
-  - Mattermost 설정
-  - Mattermost 라우팅 디버깅
 title: "Mattermost"
 ---
 

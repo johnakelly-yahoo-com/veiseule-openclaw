@@ -1,8 +1,4 @@
 ---
-summary: "Uruchom most ACP dla integracji z IDE"
-read_when:
-  - Konfigurowanie integracji IDE opartych na ACP
-  - Debugowanie routingu sesji ACP do Gateway
 title: "acp"
 ---
 

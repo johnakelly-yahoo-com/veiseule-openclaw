@@ -1,7 +1,4 @@
 ---
-summary: "Discord ボットのサポート状況、機能、および設定"
-read_when:
-  - Discord チャンネル機能に取り組むとき
 title: "Discord"
 ---
 

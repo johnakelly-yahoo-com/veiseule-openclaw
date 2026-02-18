@@ -1,7 +1,4 @@
 ---
-summary: "Các hub liên kết tới mọi tài liệu OpenClaw"
-read_when:
-  - Bạn muốn có bản đồ đầy đủ của tài liệu
 title: "Các hub tài liệu"
 ---
 

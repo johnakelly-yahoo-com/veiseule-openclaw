@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw plaginlari/kengaytmalari: kashf etish, sozlash va xavfsizlik"
-read_when:
-  - Adding or modifying plugins/extensions
-  - Documenting plugin install or load rules
 title: "Plaginlar"
 ---
 

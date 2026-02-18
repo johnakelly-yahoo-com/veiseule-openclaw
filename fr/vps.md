@@ -1,8 +1,4 @@
 ---
-summary: "Hub d’hébergement VPS pour OpenClaw (Oracle/Fly/Hetzner/GCP/exe.dev)"
-read_when:
-  - Vous souhaitez exécuter le Gateway (passerelle) dans le cloud
-  - Vous avez besoin d’une vue d’ensemble rapide des guides VPS/hébergement
 title: "Hébergement VPS"
 ---
 

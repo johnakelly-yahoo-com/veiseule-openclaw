@@ -1,8 +1,4 @@
 ---
-summary: "CLI reference for `openclaw models` (status/list/set/scan, aliases, fallbacks, auth)"
-read_when:
-  - You want to change default models or view provider auth status
-  - You want to scan available models/providers and debug auth profiles
 title: "models"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "O‘rnatuvchi skriptlar qanday ishlaydi (install.sh, install-cli.sh, install.ps1), flaglar va avtomatlashtirish"
-read_when:
-  - "`openclaw.ai/install.sh` ni tushunmoqchisiz"
-  - O‘rnatishni avtomatlashtirmoqchisiz (CI / headless)
-  - GitHub checkout’dan o‘rnatmoqchisiz
 title: "O‘rnatuvchi ichki tuzilmasi"
 ---
 

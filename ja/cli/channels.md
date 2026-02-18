@@ -1,8 +1,4 @@
 ---
-summary: "CLI 参照：`openclaw channels`（アカウント、ステータス、ログイン／ログアウト、ログ）"
-read_when:
-  - WhatsApp／Telegram／Discord／Google Chat／Slack／Mattermost（プラグイン）／Signal／iMessage のチャンネルアカウントを追加／削除したい場合
-  - チャンネルのステータスを確認したり、チャンネルログを追跡したい場合
 title: "channels"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "SSH tunnellari (Gateway WS) va tailnetlar orqali masofaviy kirish"
-read_when:
-  - Running or troubleshooting remote gateway setups
 title: "Masofaviy kirish"
 ---
 

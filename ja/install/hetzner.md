@@ -1,10 +1,4 @@
 ---
-summary: "耐久性のある状態と組み込み済みバイナリを備え、安価な Hetzner VPS（Docker）で OpenClaw Gateway（ゲートウェイ）を 24/7 稼働させます"
-read_when:
-  - クラウド VPS（自分のノート PC ではない）で OpenClaw を 24/7 稼働させたい場合
-  - 自分の VPS 上で本番品質の常時稼働 Gateway（ゲートウェイ）を運用したい場合
-  - 永続化、バイナリ、再起動挙動を完全に制御したい場合
-  - Hetzner もしくは同等プロバイダーで Docker 上に OpenClaw を実行している場合
 title: "Hetzner"
 ---
 

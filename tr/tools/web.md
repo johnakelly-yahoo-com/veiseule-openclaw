@@ -1,9 +1,4 @@
 ---
-summary: "Web arama + getirme araçları (Brave Search API, Perplexity direct/OpenRouter)"
-read_when:
-  - web_search veya web_fetch’i etkinleştirmek istiyorsunuz
-  - Brave Search API anahtarı kurulumuna ihtiyacınız var
-  - Web araması için Perplexity Sonar kullanmak istiyorsunuz
 title: "Web Araçları"
 ---
 

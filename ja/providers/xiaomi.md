@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw で Xiaomi MiMo（mimo-v2-flash）を使用します"
-read_when:
-  - OpenClaw で Xiaomi MiMo モデルを使用したい場合
-  - XIAOMI_API_KEY のセットアップが必要な場合
 title: "Xiaomi MiMo"
 ---
 

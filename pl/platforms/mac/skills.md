@@ -1,8 +1,4 @@
 ---
-summary: "Interfejs ustawień Skills w macOS oraz status oparty na Gateway"
-read_when:
-  - Aktualizacja interfejsu ustawień Skills w macOS
-  - Zmiana zasad bramkowania lub zachowania instalacji Skills
 title: "Umiejętności"
 ---
 

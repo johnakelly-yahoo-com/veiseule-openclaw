@@ -1,8 +1,4 @@
 ---
-summary: "Ingresso por webhook para despertar e execuções isoladas de agentes"
-read_when:
-  - Adicionar ou alterar endpoints de webhook
-  - Conectar sistemas externos ao OpenClaw
 title: "Webhooks"
 ---
 

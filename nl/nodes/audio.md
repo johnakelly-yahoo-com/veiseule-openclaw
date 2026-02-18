@@ -1,7 +1,4 @@
 ---
-summary: "Hoe inkomende audio/spraaknotities worden gedownload, getranscribeerd en in antwoorden worden ingevoegd"
-read_when:
-  - Bij het wijzigen van audiotranscriptie of media-afhandeling
 title: "Audio en spraaknotities"
 ---
 

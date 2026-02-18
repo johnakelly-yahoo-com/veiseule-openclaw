@@ -1,8 +1,4 @@
 ---
-summary: "Gamitin ang Anthropic Claude gamit ang mga API key o setup-token sa OpenClaw"
-read_when:
-  - Gusto mong gumamit ng mga Anthropic model sa OpenClaw
-  - Gusto mo ng setup-token sa halip na mga API key
 title: "Anthropic"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Plugin d’appel vocal : appels sortants + entrants via Twilio/Telnyx/Plivo (installation du plugin + configuration + CLI)"
-read_when:
-  - Vous souhaitez passer un appel vocal sortant depuis OpenClaw
-  - Vous configurez ou developpez le plugin voice-call
 title: "Plugin d’appel vocal"
 ---
 

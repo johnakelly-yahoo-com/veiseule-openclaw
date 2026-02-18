@@ -1,7 +1,4 @@
 ---
-summary: "Tích hợp WhatsApp (kênh web): đăng nhập, hộp thư, trả lời, media và vận hành"
-read_when:
-  - Làm việc với hành vi kênh WhatsApp/web hoặc định tuyến hộp thư
 title: "WhatsApp"
 ---
 

@@ -1,9 +1,4 @@
----
-summary: "Mga default na tagubilin ng OpenClaw agent at talaan ng Skills para sa setup ng personal assistant"
-read_when:
-  - Pagsisimula ng bagong OpenClaw agent session
-  - Pag-enable o pag-audit ng mga default na Skills
----
+------
 
 # AGENTS.md — OpenClaw Personal Assistant (default)
 

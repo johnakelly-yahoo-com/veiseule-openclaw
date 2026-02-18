@@ -1,8 +1,4 @@
 ---
-summary: "Modellautentisering: OAuth, API-nycklar och setup-token"
-read_when:
-  - Felsökning av modellautentisering eller OAuth-utgång
-  - Dokumentation av autentisering eller lagring av autentiseringsuppgifter
 title: "Autentisering"
 ---
 

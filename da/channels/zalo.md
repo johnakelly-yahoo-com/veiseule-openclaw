@@ -1,7 +1,4 @@
 ---
-summary: "Status for Zalo-botunderstøttelse, funktioner og konfiguration"
-read_when:
-  - Arbejder med Zalo-funktioner eller webhooks
 title: "Zalo"
 ---
 

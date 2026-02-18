@@ -1,9 +1,4 @@
 ---
-summary: "Pangkalahatang-ideya ng pairing: aprubahan kung sino ang puwedeng mag-DM sa iyo + kung aling mga node ang puwedeng sumali"
-read_when:
-  - Pagse-setup ng kontrol sa access ng DM
-  - Pag-pair ng bagong iOS/Android node
-  - Pagrerepaso ng security posture ng OpenClaw
 title: "Pairing"
 ---
 

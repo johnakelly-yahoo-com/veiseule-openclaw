@@ -1,8 +1,4 @@
 ---
-summary: "透過 imsg 的舊版 iMessage 支援（以 stdio 進行 JSON-RPC）。新的設定應使用 BlueBubbles。 New setups should use BlueBubbles."
-read_when:
-  - 設定 iMessage 支援
-  - 除錯 iMessage 傳送／接收
 title: iMessage
 ---
 

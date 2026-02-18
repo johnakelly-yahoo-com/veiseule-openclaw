@@ -1,10 +1,5 @@
 ---
-title: "Cloudflare AI Gateway"
-summary: "Cloudflare AI Gateway kurulumu (kimlik doğrulama + model seçimi)"
-read_when:
-  - OpenClaw ile Cloudflare AI Gateway kullanmak istiyorsunuz
-  - Hesap kimliği, gateway kimliği veya API anahtarı ortam değişkenine ihtiyacınız var
----
+title: "Cloudflare AI Gateway"---
 
 # Cloudflare AI Gateway
 

@@ -1,9 +1,4 @@
----
-summary: "„Standardanweisungen für den OpenClaw-Agenten und Skills-Übersicht für die Einrichtung des persönlichen Assistenten“"
-read_when:
-  - Starten einer neuen OpenClaw-Agentensitzung
-  - Aktivieren oder Prüfen der Standard-Skills
----
+------
 
 # AGENTS.md — OpenClaw Persönlicher Assistent (Standard)
 

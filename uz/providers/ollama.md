@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw’ni Ollama (mahalliy LLM runtime) bilan ishga tushirish"
-read_when:
-  - Siz OpenClaw’ni Ollama orqali mahalliy modellarda ishga tushirmoqchisiz
-  - Sizga Ollama’ni o‘rnatish va sozlash bo‘yicha qo‘llanma kerak
 title: "Ollama"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Sub-agenter: starta isolerade agentkörningar som annonserar resultat tillbaka till den begärande chatten"
-read_when:
-  - Du vill ha bakgrunds-/parallellt arbete via agenten
-  - Du ändrar sessions_spawn eller policy för sub-agentverktyg
 title: "Sub-agenter"
 ---
 

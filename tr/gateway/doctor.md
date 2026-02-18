@@ -1,8 +1,4 @@
 ---
-summary: "Doctor komutu: sağlık kontrolleri, yapılandırma geçişleri ve onarım adımları"
-read_when:
-  - Doctor geçişleri eklerken veya değiştirirken
-  - Kırıcı yapılandırma değişiklikleri sunarken
 title: "Doktor"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Giden sağlayıcı çağrıları için yeniden deneme ilkesi"
-read_when:
-  - Sağlayıcı yeniden deneme davranışını veya varsayılanlarını güncellerken
-  - Sağlayıcı gönderim hatalarını veya oran sınırlarını ayıklarken
 title: "Yeniden Deneme Politikası"
 ---
 

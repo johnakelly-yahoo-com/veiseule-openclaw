@@ -1,6 +1,4 @@
 ---
-summary: "RPC-protokolnoter for introduktionsguide og konfigurationsskema"
-read_when: "Ændring af trin i introduktionsguiden eller endpoints for konfigurationsskema"
 title: "Introduktion og konfigurationsprotokol"
 ---
 

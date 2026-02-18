@@ -1,9 +1,4 @@
----
-summary: "Run OpenClaw through LiteLLM Proxy for unified model access and cost tracking"
-read_when:
-  - You want to route OpenClaw through a LiteLLM proxy
-  - You need cost tracking, logging, or model routing through LiteLLM
----
+------
 
 # LiteLLM
 

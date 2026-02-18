@@ -1,8 +1,4 @@
 ---
-summary: "Comando de ubicación para nodos (location.get), modos de permisos y comportamiento en segundo plano"
-read_when:
-  - Agregar soporte de nodo de ubicación o UI de permisos
-  - Diseñar flujos de ubicación en segundo plano + push
 title: "Comando de ubicación"
 ---
 

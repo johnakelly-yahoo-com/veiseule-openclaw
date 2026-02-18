@@ -1,9 +1,4 @@
 ---
-summary: "لوحة Canvas خاضعة لتحكم الوكيل ومُضمَّنة عبر WKWebView مع مخطط URL مخصّص"
-read_when:
-  - تنفيذ لوحة Canvas على macOS
-  - إضافة عناصر تحكم الوكيل لمساحة عمل مرئية
-  - تصحيح أخطاء تحميل Canvas عبر WKWebView
 title: "Canvas"
 ---
 

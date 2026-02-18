@@ -1,7 +1,4 @@
 ---
-summary: "Origen del proyecto, colaboradores y licencia."
-read_when:
-  - Quiere conocer la historia del proyecto o los créditos de los colaboradores
 title: "Créditos"
 ---
 

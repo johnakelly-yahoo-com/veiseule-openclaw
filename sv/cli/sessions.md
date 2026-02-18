@@ -1,7 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw sessions` (lista lagrade sessioner + användning)"
-read_when:
-  - Du vill lista lagrade sessioner och se nylig aktivitet
 title: "sessioner"
 ---
 

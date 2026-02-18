@@ -1,7 +1,4 @@
 ---
-summary: "Menyradsikonens tillstånd och animationer för OpenClaw på macOS"
-read_when:
-  - Ändra beteende för menyradsikonen
 title: "Menyradsikon"
 ---
 

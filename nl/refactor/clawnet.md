@@ -1,8 +1,4 @@
 ---
-summary: "Clawnet-refactor: netwerkprotocol, rollen, authenticatie, goedkeuringen en identiteit verenigen"
-read_when:
-  - Een uniform netwerkprotocol plannen voor nodes + operatorclients
-  - Goedkeuringen, pairing, TLS en presence over apparaten heen herwerken
 title: "Clawnet-refactor"
 ---
 

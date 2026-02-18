@@ -1,7 +1,4 @@
 ---
-summary: "Gateway(게이트웨이)에서 OpenAI 호환 /v1/chat/completions HTTP 엔드포인트를 노출합니다"
-read_when:
-  - OpenAI Chat Completions 를 기대하는 도구를 통합할 때
 title: "OpenAI Chat Completions"
 ---
 

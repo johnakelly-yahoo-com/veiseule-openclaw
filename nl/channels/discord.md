@@ -1,7 +1,4 @@
 ---
-summary: "Status van Discord-botondersteuning, mogelijkheden en configuratie"
-read_when:
-  - Werken aan functies voor het Discord-kanaal
 title: "Discord"
 ---
 

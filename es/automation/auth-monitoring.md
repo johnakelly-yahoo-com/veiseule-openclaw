@@ -1,8 +1,4 @@
 ---
-summary: "Monitorear la caducidad de OAuth para proveedores de modelos"
-read_when:
-  - Configurar el monitoreo o alertas de caducidad de autenticación
-  - Automatizar verificaciones de actualización de OAuth de Claude Code / Codex
 title: "Monitoreo de autenticación"
 ---
 

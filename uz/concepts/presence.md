@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw presence yozuvlari qanday yaratiladi, birlashtiriladi va ko‘rsatiladi"
-read_when:
-  - Instances tab’ini debug qilish
-  - Takroriy yoki eskirgan instance qatorlarini tekshirish
-  - Gateway WS ulanishi yoki system-event beacon’larini o‘zgartirish
 title: "Mavjudlik"
 ---
 

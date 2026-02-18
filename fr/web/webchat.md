@@ -1,7 +1,4 @@
 ---
-summary: "Hébergement statique WebChat en local loopback et utilisation du WS du Gateway pour l’UI de chat"
-read_when:
-  - Débogage ou configuration de l’accès WebChat
 title: "WebChat"
 ---
 

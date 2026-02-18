@@ -1,8 +1,4 @@
 ---
-summary: "„Wie OpenClaw Prompt-Kontext aufbaut und Token-Nutzung sowie Kosten meldet“"
-read_when:
-  - Erläuterung von Token-Nutzung, Kosten oder Kontextfenstern
-  - Debugging von Kontextwachstum oder Kompaktierungsverhalten
 title: "„Token-Nutzung und Kosten“"
 ---
 

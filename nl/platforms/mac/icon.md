@@ -1,7 +1,4 @@
 ---
-summary: "Menubalkpictogramtoestanden en animaties voor OpenClaw op macOS"
-read_when:
-  - Wijzigen van het gedrag van het menubalkpictogram
 title: "Menubalkpictogram"
 ---
 

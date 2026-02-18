@@ -1,8 +1,4 @@
 ---
-summary: "Problemen oplossen bij node-koppeling, voorgrondvereisten, rechten en toolfouten"
-read_when:
-  - Node is verbonden maar camera-/canvas-/scherm-/exec-tools falen
-  - Je hebt het mentale model nodig voor node-koppeling versus goedkeuringen
 title: "Node-problemen oplossen"
 ---
 

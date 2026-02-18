@@ -1,8 +1,4 @@
 ---
-summary: Node + tsx "__name is not a function" nosozligi bo‘yicha eslatmalar va yechimlar
-read_when:
-  - Faqat Node’da ishlab chiqish skriptlari yoki kuzatuv (watch) rejimidagi nosozliklarni tuzatish
-  - OpenClaw’da tsx/esbuild yuklagich nosozliklarini tekshirish
 title: "Node + tsx nosozligi"
 ---
 

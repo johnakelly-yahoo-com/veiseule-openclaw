@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw channels」的 CLI 參考（帳號、狀態、登入／登出、日誌）"
-read_when:
-  - 你想要新增／移除頻道帳號（WhatsApp／Telegram／Discord／Google Chat／Slack／Mattermost（外掛）／Signal／iMessage）
-  - 你想要檢查頻道狀態或即時查看頻道日誌
 title: "頻道"
 ---
 

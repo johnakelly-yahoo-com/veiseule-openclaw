@@ -1,9 +1,4 @@
----
-summary: "工作階段修剪：修剪工具結果以減少上下文膨脹"
-read_when:
-  - 你想要降低工具輸出導致的 LLM 內容成長
-  - 你正在調校 agents.defaults.contextPruning
----
+------
 
 # 工作階段修剪
 

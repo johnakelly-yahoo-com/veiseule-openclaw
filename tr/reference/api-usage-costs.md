@@ -1,9 +1,4 @@
 ---
-summary: "Hangi unsurların para harcayabileceğini, hangi anahtarların kullanıldığını ve kullanımın nasıl görüntüleneceğini denetleyin"
-read_when:
-  - Hangi özelliklerin ücretli API’leri çağırabileceğini anlamak istiyorsunuz
-  - Anahtarları, maliyetleri ve kullanım görünürlüğünü denetlemeniz gerekiyor
-  - /status veya /usage maliyet raporlamasını açıklıyorsunuz
 title: "API Kullanımı ve Maliyetler"
 ---
 

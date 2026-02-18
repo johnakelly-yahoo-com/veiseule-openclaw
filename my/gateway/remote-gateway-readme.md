@@ -1,6 +1,4 @@
 ---
-summary: "အဝေးမှ Gateway သို့ ချိတ်ဆက်ရန် OpenClaw.app အတွက် SSH တန်နယ် တပ်ဆင်ခြင်း"
-read_when: "SSH ဖြင့် macOS အက်ပ်ကို အဝေးမှ Gateway သို့ ချိတ်ဆက်ရာတွင်"
 title: "အဝေးမှ Gateway တပ်ဆင်ခြင်း"
 ---
 

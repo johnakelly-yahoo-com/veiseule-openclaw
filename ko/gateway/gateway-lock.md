@@ -1,8 +1,4 @@
 ---
-summary: "WebSocket 리스너 바인드를 사용하는 Gateway(게이트웨이) 싱글톤 가드"
-read_when:
-  - Gateway(게이트웨이) 프로세스를 실행하거나 디버깅할 때
-  - 단일 인스턴스 강제를 조사할 때
 title: "Gateway(게이트웨이) 잠금"
 ---
 

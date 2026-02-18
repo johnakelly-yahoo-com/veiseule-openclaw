@@ -1,7 +1,4 @@
 ---
-summary: "Środowisko uruchomieniowe agenta (osadzony pi-mono), kontrakt obszaru roboczego i bootstrap sesji"
-read_when:
-  - Zmiana środowiska uruchomieniowego agenta, bootstrapu obszaru roboczego lub zachowania sesji
 title: "Środowisko uruchomieniowe agenta"
 ---
 

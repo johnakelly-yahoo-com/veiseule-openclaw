@@ -1,7 +1,4 @@
 ---
-summary: "Статус поддержки бота Microsoft Teams, возможности и конфигурация"
-read_when:
-  - Работа над возможностями канала MS Teams
 title: "Microsoft Teams"
 ---
 

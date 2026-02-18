@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw pairing` uchun CLI maʼlumotnomasi (juftlash soʻrovlarini tasdiqlash/roʻyxatlash)"
-read_when:
-  - Siz pairing-rejimdagi DMlardan foydalanayapsiz va yuboruvchilarni tasdiqlashingiz kerak
 title: "juftlash"
 ---
 

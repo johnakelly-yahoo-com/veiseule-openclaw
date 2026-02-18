@@ -1,9 +1,4 @@
 ---
-summary: "符合結構描述的常見 OpenClaw 設定範例"
-read_when:
-  - 學習如何設定 OpenClaw
-  - 尋找設定範例
-  - 第一次設定 OpenClaw
 title: "設定範例"
 ---
 

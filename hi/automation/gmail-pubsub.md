@@ -1,8 +1,4 @@
 ---
-summary: "gogcli के माध्यम से OpenClaw वेबहुक्स में एकीकृत Gmail Pub/Sub पुश"
-read_when:
-  - Gmail इनबॉक्स ट्रिगर्स को OpenClaw से जोड़ना
-  - एजेंट वेक के लिए Pub/Sub पुश सेट करना
 title: "Gmail PubSub"
 ---
 

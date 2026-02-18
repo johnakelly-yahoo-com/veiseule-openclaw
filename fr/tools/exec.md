@@ -1,8 +1,4 @@
 ---
-summary: "Utilisation de l’outil Exec, modes stdin et prise en charge du TTY"
-read_when:
-  - Utilisation ou modification de l’outil exec
-  - Debogage du comportement stdin ou TTY
 title: "Outil Exec"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Tilstande og animationer for menulinjeikonet for OpenClaw på macOS"
-read_when:
-  - Ændring af adfærd for menulinjeikonet
 title: "Menulinjeikon"
 ---
 

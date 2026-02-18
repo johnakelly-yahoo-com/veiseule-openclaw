@@ -1,8 +1,4 @@
 ---
-summary: "Mga model provider (LLM) na sinusuportahan ng OpenClaw"
-read_when:
-  - Gusto mong pumili ng model provider
-  - Kailangan mo ng mabilis na pangkalahatang-ideya ng mga sinusuportahang LLM backend
 title: "Mga Model Provider"
 ---
 

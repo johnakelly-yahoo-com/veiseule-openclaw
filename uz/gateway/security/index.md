@@ -1,7 +1,4 @@
 ---
-summary: "47. Shellga kirish huquqi bilan AI gateway’ni ishga tushirish uchun xavfsizlik masalalari va tahdid modeli"
-read_when:
-  - 48. Kirishni yoki avtomatlashtirishni kengaytiradigan funksiyalarni qo‘shish
 title: "49. Xavfsizlik"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Fullständig referens för CLI-introduktionsguiden: varje steg, flagga och konfigfält"
-read_when:
-  - Söker efter ett specifikt guide-steg eller flagga
-  - Automatiserar introduktion med icke-interaktivt läge
-  - Felsöker guidebeteende
 title: "Referens för introduktionsguide"
 sidebarTitle: "Referens för guiden"
 ---

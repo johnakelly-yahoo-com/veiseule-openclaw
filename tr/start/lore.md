@@ -1,7 +1,4 @@
 ---
-summary: "Bağlam ve ton için OpenClaw’un arka planı ve anlatısı"
-read_when:
-  - Lore’a referans veren dokümantasyon veya UX metni yazarken
 title: "OpenClaw Lore’u"
 ---
 

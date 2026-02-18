@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw config` အတွက် CLI ကိုးကားလမ်းညွှန် (config တန်ဖိုးများကို get/set/unset ပြုလုပ်ရန်)"
-read_when:
-  - config ကို အပြန်အလှန်မပါဘဲ ဖတ်ရှုရန် သို့မဟုတ် တည်းဖြတ်ရန် လိုအပ်သောအခါ
 title: "config"
 ---
 

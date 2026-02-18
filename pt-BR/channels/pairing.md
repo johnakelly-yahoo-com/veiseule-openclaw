@@ -1,9 +1,4 @@
 ---
-summary: "Visão geral de pareamento: aprove quem pode enviar DM para você + quais nós podem entrar"
-read_when:
-  - Configurando o controle de acesso a DM
-  - Pareando um novo nó iOS/Android
-  - Revisando a postura de segurança do OpenClaw
 title: "Pareamento"
 ---
 

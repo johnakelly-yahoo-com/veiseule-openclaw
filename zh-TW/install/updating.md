@@ -1,8 +1,4 @@
 ---
-summary: "安全更新 OpenClaw（全域安裝或原始碼），以及回滾策略"
-read_when:
-  - 更新 OpenClaw
-  - 更新後發生問題
 title: "更新"
 ---
 

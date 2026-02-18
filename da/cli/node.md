@@ -1,8 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw node` (headless node-vært)"
-read_when:
-  - Når du kører den headless node-vært
-  - Paring af en ikke-macOS-node til system.run
 title: "node"
 ---
 

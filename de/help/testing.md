@@ -1,9 +1,4 @@
 ---
-summary: "„Testkit: Unit-/E2E-/Live-Suiten, Docker-Runner und was jeder Test abdeckt“"
-read_when:
-  - Beim lokalen Ausführen von Tests oder in CI
-  - Beim Hinzufügen von Regressionen für Modell-/Anbieter-Bugs
-  - Beim Debuggen des Gateway- und Agent-Verhaltens
 title: "„Tests“"
 ---
 

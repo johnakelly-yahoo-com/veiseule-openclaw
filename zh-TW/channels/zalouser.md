@@ -1,8 +1,4 @@
 ---
-summary: "透過 zca-cli（QR 登入）支援 Zalo 個人帳號、功能與設定"
-read_when:
-  - 為 OpenClaw 設定 Zalo Personal
-  - 偵錯 Zalo Personal 登入或訊息流程
 title: "Zalo Personal"
 ---
 

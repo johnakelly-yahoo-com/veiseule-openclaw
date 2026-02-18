@@ -1,9 +1,4 @@
----
-summary: "Hướng dẫn mặc định cho tác tử OpenClaw và danh sách Skills cho thiết lập trợ lý cá nhân"
-read_when:
-  - Bắt đầu một phiên tác tử OpenClaw mới
-  - Bật hoặc kiểm tra các Skills mặc định
----
+------
 
 # AGENTS.md — Trợ lý cá nhân OpenClaw (mặc định)
 

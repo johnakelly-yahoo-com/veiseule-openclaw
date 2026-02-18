@@ -1,9 +1,4 @@
 ---
-summary: "Debuggingtools: watch-modus, ruwe modelstreams en het traceren van redeneringslekken"
-read_when:
-  - Je moet ruwe modeluitvoer inspecteren op redeneringslekken
-  - Je wilt de Gateway in watch-modus draaien tijdens iteraties
-  - Je hebt een herhaalbare debugworkflow nodig
 title: "Foutopsporing"
 ---
 

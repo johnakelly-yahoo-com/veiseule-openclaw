@@ -1,9 +1,4 @@
----
-summary: "Alma do agente de desenvolvimento (C-3PO)"
-read_when:
-  - Ao usar os templates do gateway de desenvolvimento
-  - Ao atualizar a identidade padrão do agente de desenvolvimento
----
+------
 
 # SOUL.md - A Alma de C-3PO
 

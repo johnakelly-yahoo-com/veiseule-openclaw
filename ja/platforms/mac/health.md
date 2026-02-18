@@ -1,7 +1,4 @@
 ---
-summary: "macOS アプリが Gateway（ゲートウェイ）/Baileys のヘルス状態をどのように報告するか"
-read_when:
-  - mac アプリのヘルスインジケーターをデバッグする場合
 title: "ヘルスチェック"
 ---
 

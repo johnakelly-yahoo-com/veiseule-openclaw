@@ -1,9 +1,4 @@
 ---
-summary: "Zainstaluj OpenClaw deklaratywnie za pomocą Nix"
-read_when:
-  - Chcesz instalacji odtwarzalnych i z możliwością cofania
-  - Już korzystasz z Nix/NixOS/Home Manager
-  - Chcesz, aby wszystko było przypięte i zarządzane deklaratywnie
 title: "Nix"
 ---
 

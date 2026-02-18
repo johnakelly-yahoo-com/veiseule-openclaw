@@ -1,8 +1,4 @@
 ---
-summary: "43. `openclaw hooks` uchun CLI ma’lumotnomasi (agent hook’lari)"
-read_when:
-  - 44. Agent hook’larini boshqarmoqchisiz
-  - 45. Hook’larni o‘rnatmoqchi yoki yangilamoqchisiz
 title: "46. hooks"
 ---
 

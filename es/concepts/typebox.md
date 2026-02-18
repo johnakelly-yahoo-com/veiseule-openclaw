@@ -1,7 +1,4 @@
 ---
-summary: "Esquemas TypeBox como la única fuente de verdad para el protocolo del Gateway"
-read_when:
-  - Actualización de esquemas de protocolo o generación de código
 title: "TypeBox"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "„Zalo-Personal-Plugin: QR-Login + Messaging über zca-cli (Plugin-Installation + Kanal-Konfiguration + CLI + Werkzeug)“"
-read_when:
-  - Sie möchten Zalo Personal (inoffiziell) in OpenClaw unterstützen
-  - Sie konfigurieren oder entwickeln das zalouser-Plugin
 title: "„Zalo-Personal-Plugin“"
 ---
 

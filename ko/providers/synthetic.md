@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw 에서 Synthetic 의 Anthropic 호환 API 를 사용합니다"
-read_when:
-  - Synthetic 를 모델 프로바이더로 사용하려는 경우
-  - Synthetic API 키 또는 기본 URL 설정이 필요한 경우
 title: "Synthetic"
 ---
 

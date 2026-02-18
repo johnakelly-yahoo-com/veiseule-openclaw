@@ -1,9 +1,4 @@
 ---
-summary: "Volledige referentie voor de CLI-onboardingwizard: elke stap, vlag en configveld"
-read_when:
-  - Een specifieke wizardstap of -vlag opzoeken
-  - Onboarding automatiseren met niet-interactieve modus
-  - Wizardgedrag debuggen
 title: "Referentie onboardingwizard"
 sidebarTitle: "Wizard-referentie"
 ---

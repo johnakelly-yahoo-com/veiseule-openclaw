@@ -1,9 +1,4 @@
 ---
-summary: "Kung paano ginagawa, pinagsasama, at ipinapakita ang mga presence entry ng OpenClaw"
-read_when:
-  - Pag-debug ng tab na Instances
-  - Pag-iimbestiga ng mga duplicate o lipas na instance row
-  - Pagbabago ng gateway WS connect o system-event beacons
 title: "Presensya"
 ---
 

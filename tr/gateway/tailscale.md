@@ -1,8 +1,4 @@
 ---
-summary: "Gateway panosu için entegre Tailscale Serve/Funnel"
-read_when:
-  - Gateway Kontrol UI’sini localhost dışına açma
-  - Tailnet veya herkese açık pano erişimini otomatikleştirme
 title: "Tailscale"
 ---
 

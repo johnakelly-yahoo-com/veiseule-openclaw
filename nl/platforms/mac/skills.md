@@ -1,8 +1,4 @@
 ---
-summary: "macOS Skills-instellingen-UI en status via de Gateway"
-read_when:
-  - De macOS Skills-instellingen-UI bijwerken
-  - Skills-gating of installatiegedrag wijzigen
 title: "Vaardigheden"
 ---
 

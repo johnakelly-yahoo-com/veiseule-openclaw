@@ -1,9 +1,4 @@
 ---
-summary: "Referencja CLI dla `openclaw system` (zdarzenia systemowe, heartbeat, obecność)"
-read_when:
-  - Chcesz umieścić w kolejce zdarzenie systemowe bez tworzenia zadania cron
-  - Musisz włączyć lub wyłączyć heartbeat
-  - Chcesz sprawdzić wpisy obecności systemu
 title: "system"
 ---
 

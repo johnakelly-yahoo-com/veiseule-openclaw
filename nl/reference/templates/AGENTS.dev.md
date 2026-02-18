@@ -1,9 +1,4 @@
----
-summary: "Dev-agent AGENTS.md (C-3PO)"
-read_when:
-  - Bij het gebruik van de dev Gateway-sjablonen
-  - Bij het bijwerken van de standaard dev-agentidentiteit
----
+------
 
 # AGENTS.md - OpenClaw-werkruimte
 

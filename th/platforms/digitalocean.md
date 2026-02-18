@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw บน DigitalOcean (ตัวเลือก VPS แบบเสียเงินที่เรียบง่าย)"
-read_when:
-  - การตั้งค่า OpenClaw บน DigitalOcean
-  - มองหาโฮสต์ VPS ราคาประหยัดสำหรับ OpenClaw
 title: "DigitalOcean"
 ---
 

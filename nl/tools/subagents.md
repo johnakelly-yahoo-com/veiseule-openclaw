@@ -1,8 +1,4 @@
 ---
-summary: "Sub-agents: het starten van geïsoleerde agentruns die resultaten terugmelden aan de aanvragende chat"
-read_when:
-  - Je wilt achtergrond-/parallel werk via de agent
-  - Je wijzigt sessions_spawn of het toolbeleid voor sub-agents
 title: "Sub-agenten"
 ---
 

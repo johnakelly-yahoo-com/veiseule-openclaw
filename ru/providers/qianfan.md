@@ -1,8 +1,4 @@
 ---
-summary: "Используйте единый API Qianfan для доступа ко многим моделям в OpenClaw"
-read_when:
-  - Вам нужен один ключ API для многих LLM
-  - Вам требуется руководство по настройке Baidu Qianfan
 title: "Qianfan"
 ---
 

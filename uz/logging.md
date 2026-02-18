@@ -1,9 +1,4 @@
 ---
-summary: "Loglash sharhi: fayl loglari, konsol chiqishi, CLI orqali kuzatish va Control UI"
-read_when:
-  - Sizga loglash bo‘yicha boshlovchilar uchun qulay sharh kerak
-  - 1. Siz jurnal (log) darajalari yoki formatlarini sozlamoqchisiz
-  - 2. Siz muammoni bartaraf etyapsiz va loglarni tezda topishingiz kerak
 title: "3. Loglash"
 ---
 

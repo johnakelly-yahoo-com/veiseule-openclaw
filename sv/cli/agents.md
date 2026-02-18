@@ -1,7 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw agents` (lista/lägg till/ta bort/ange identitet)"
-read_when:
-  - Du vill ha flera isolerade agenter (arbetsytor + routning + autentisering)
 title: "agenter"
 ---
 

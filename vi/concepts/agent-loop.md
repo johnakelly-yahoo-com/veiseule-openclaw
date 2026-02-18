@@ -1,7 +1,4 @@
 ---
-summary: "Vòng đời agent loop, các luồng, và ngữ nghĩa chờ"
-read_when:
-  - Bạn cần bản hướng dẫn chi tiết từng bước về agent loop hoặc các sự kiện vòng đời
 title: "Vòng lặp Agent"
 ---
 

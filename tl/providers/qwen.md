@@ -1,8 +1,4 @@
 ---
-summary: "Gamitin ang Qwen OAuth (free tier) sa OpenClaw"
-read_when:
-  - Gusto mong gumamit ng Qwen sa OpenClaw
-  - Gusto mo ng free-tier OAuth access sa Qwen Coder
 title: "Qwen"
 ---
 

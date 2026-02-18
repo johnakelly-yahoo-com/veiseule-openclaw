@@ -1,8 +1,4 @@
 ---
-summary: "Prise en charge de Linux + statut de l’application compagnon"
-read_when:
-  - Rechercher le statut de l’application compagnon Linux
-  - Planifier la couverture des plateformes ou des contributions
 title: "Application Linux"
 ---
 

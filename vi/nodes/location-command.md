@@ -1,8 +1,4 @@
 ---
-summary: "Lệnh vị trí cho các node (location.get), các chế độ quyền và hành vi nền"
-read_when:
-  - Thêm hỗ trợ node vị trí hoặc UI quyền
-  - Thiết kế luồng vị trí nền + push
 title: "Lệnh vị trí"
 ---
 

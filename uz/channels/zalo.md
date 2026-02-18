@@ -1,7 +1,4 @@
 ---
-summary: "Zalo bot qo‘llab-quvvatlash holati, imkoniyatlari va sozlamalari"
-read_when:
-  - Zalo funksiyalari yoki webhooklar ustida ishlayotganda
 title: "Zalo"
 ---
 

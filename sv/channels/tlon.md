@@ -1,7 +1,4 @@
 ---
-summary: "Supportstatus, funktioner och konfiguration för Tlon/Urbit"
-read_when:
-  - Arbetar med funktioner för Tlon/Urbit-kanalen
 title: "Tlon"
 ---
 

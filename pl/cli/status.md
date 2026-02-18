@@ -1,8 +1,4 @@
 ---
-summary: "Dokumentacja referencyjna CLI dla `openclaw status` (diagnostyka, sondy, migawki użycia)"
-read_when:
-  - Chcesz szybko zdiagnozować kondycję kanałów oraz ostatnich odbiorców sesji
-  - Chcesz uzyskać wklejalny status „all” do debugowania
 title: "status"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw Gateway CLI（`openclaw gateway`）— 執行、查詢與探索 Gateway 閘道器"
-read_when:
-  - 從 CLI 執行 Gateway 閘道器（開發或伺服器）
-  - Debugging Gateway auth, bind modes, and connectivity
-  - 透過 Bonjour 探索 Gateway 閘道器（LAN + tailnet）
 title: "Gateway"
 ---
 

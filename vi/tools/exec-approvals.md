@@ -1,9 +1,4 @@
 ---
-summary: "Phê duyệt exec, danh sách cho phép và lời nhắc thoát sandbox"
-read_when:
-  - Cấu hình phê duyệt exec hoặc danh sách cho phép
-  - Triển khai UX phê duyệt exec trong ứng dụng macOS
-  - Xem xét các lời nhắc thoát sandbox và hệ quả
 title: "Phê duyệt Exec"
 ---
 

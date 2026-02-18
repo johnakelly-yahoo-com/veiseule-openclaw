@@ -1,7 +1,4 @@
 ---
-summary: "Exploración: configuración de modelos, perfiles de autenticación y comportamiento de fallback"
-read_when:
-  - Explorando ideas futuras de selección de modelos + perfiles de autenticación
 title: "Exploración de configuración de modelos"
 ---
 

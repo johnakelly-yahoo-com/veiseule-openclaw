@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 配对或重新连接 iOS 节点
-  - 从源码运行 iOS 应用
-  - 调试 Gateway 网关发现或 canvas 命令
-summary: iOS 节点应用：连接到 Gateway 网关、配对、canvas 和故障排除
 title: iOS 应用
 x-i18n:
   generated_at: "2026-02-03T07:52:17Z"

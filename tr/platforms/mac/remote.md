@@ -1,7 +1,4 @@
 ---
-summary: "SSH üzerinden uzak bir OpenClaw gateway’ini kontrol etmek için macOS uygulama akışı"
-read_when:
-  - Uzaktan Mac kontrolünü kurma veya hata ayıklama
 title: "Uzaktan Denetim"
 ---
 

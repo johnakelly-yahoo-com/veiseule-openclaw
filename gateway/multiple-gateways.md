@@ -1,8 +1,4 @@
 ---
-summary: "Run multiple OpenClaw Gateways on one host (isolation, ports, and profiles)"
-read_when:
-  - Running more than one Gateway on the same machine
-  - You need isolated config/state/ports per Gateway
 title: "Multiple Gateways"
 ---
 

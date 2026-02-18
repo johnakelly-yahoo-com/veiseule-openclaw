@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw memory」（status/index/search）の CLI リファレンスです。"
-read_when:
-  - セマンティックメモリをインデックス化または検索したい場合
-  - メモリの可用性やインデックス作成のデバッグを行っている場合
 title: "メモリ"
 ---
 

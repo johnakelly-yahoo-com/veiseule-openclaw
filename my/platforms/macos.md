@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS အတူတကွ အသုံးပြုသော အက်ပ် (မီနူးဘား + Gateway broker)"
-read_when:
-  - macOS အက်ပ် အင်္ဂါရပ်များကို အကောင်အထည်ဖော်နေချိန်
-  - macOS တွင် Gateway lifecycle သို့မဟုတ် node bridging ကို ပြောင်းလဲနေချိန်
 title: "macOS အက်ပ်"
 ---
 

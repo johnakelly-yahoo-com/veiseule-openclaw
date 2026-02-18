@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 你想了解 OpenClaw 中"上下文"的含义
-  - 你在调试为什么模型"知道"某些内容（或忘记了）
-  - 你想减少上下文开销（/context、/status、/compact）
-summary: 上下文：模型看到的内容、如何构建以及如何检查
 title: 上下文
 x-i18n:
   generated_at: "2026-02-03T07:46:15Z"

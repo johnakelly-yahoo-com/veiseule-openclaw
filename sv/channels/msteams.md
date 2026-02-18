@@ -1,7 +1,4 @@
 ---
-summary: "Stödstatus, funktioner och konfiguration för Microsoft Teams-bot"
-read_when:
-  - Arbetar med MS Teams-kanalfunktioner
 title: "Microsoft Teams"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "LLM-opgaver kun med JSON til workflows (valgfrit plugin-værktøj)"
-read_when:
-  - Du vil have et LLM-trin kun med JSON inde i workflows
-  - Du har brug for skemavalideret LLM-output til automatisering
 title: "LLM-opgave"
 ---
 

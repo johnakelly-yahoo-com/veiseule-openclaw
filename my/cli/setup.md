@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw setup` အတွက် CLI ကိုးကားချက် (config နှင့် workspace ကို စတင်အတည်ပြုခြင်း)"
-read_when:
-  - အပြည့်အစုံ onboarding wizard မသုံးဘဲ ပထမအကြိမ် စတင်တပ်ဆင်နေချိန်
-  - မူလ workspace လမ်းကြောင်းကို သတ်မှတ်လိုသည့်အခါ
 title: "setup"
 ---
 

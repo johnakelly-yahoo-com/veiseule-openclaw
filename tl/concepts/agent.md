@@ -1,7 +1,4 @@
 ---
-summary: "Runtime ng agent (embedded pi-mono), kontrata ng workspace, at bootstrap ng session"
-read_when:
-  - Pagbabago sa runtime ng agent, bootstrap ng workspace, o pag-uugali ng session
 title: "Runtime ng Agent"
 ---
 

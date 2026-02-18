@@ -1,9 +1,4 @@
 ---
-summary: "Panel ng Canvas na kontrolado ng agent na naka-embed sa pamamagitan ng WKWebView + custom URL scheme"
-read_when:
-  - Pagpapatupad ng macOS Canvas panel
-  - Pagdaragdag ng mga kontrol ng agent para sa visual workspace
-  - Pag-debug ng mga load ng WKWebView canvas
 title: "Canvas"
 ---
 

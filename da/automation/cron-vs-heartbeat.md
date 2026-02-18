@@ -1,9 +1,4 @@
 ---
-summary: "Vejledning til valg mellem heartbeat og cron-jobs til automatisering"
-read_when:
-  - Når du beslutter, hvordan tilbagevendende opgaver skal planlægges
-  - Opsætning af baggrundsovervågning eller notifikationer
-  - Optimering af tokenforbrug ved periodiske tjek
 title: "Cron vs. Heartbeat"
 ---
 

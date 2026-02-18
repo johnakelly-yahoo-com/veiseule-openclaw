@@ -1,8 +1,4 @@
 ---
-summary: "Centro de ayuda: soluciones comunes, verificación de instalación y dónde buscar cuando algo se rompe"
-read_when:
-  - Usted es nuevo y quiere la guía de “qué debo hacer/ejecutar”
-  - Algo se rompió y quiere la ruta más rápida hacia una solución
 title: "Ayuda"
 ---
 

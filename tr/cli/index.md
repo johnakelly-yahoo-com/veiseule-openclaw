@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw` komutları, alt komutları ve seçenekleri için OpenClaw CLI başvuru belgesi"
-read_when:
-  - CLI komutları veya seçenekleri eklerken ya da değiştirirken
-  - Yeni komut yüzeylerini belgelendirirken
 title: "CLI Başvurusu"
 ---
 

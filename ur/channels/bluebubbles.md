@@ -1,9 +1,4 @@
 ---
-summary: "BlueBubbles macOS سرور کے ذریعے iMessage (REST ارسال/وصول، ٹائپنگ، ری ایکشنز، pairing، اور اعلیٰ درجے کی کارروائیاں)."
-read_when:
-  - BlueBubbles چینل سیٹ اپ کرتے وقت
-  - webhook pairing کی خرابیوں کا ازالہ
-  - macOS پر iMessage کی کنفیگریشن
 title: "BlueBubbles"
 ---
 

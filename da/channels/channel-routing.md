@@ -1,7 +1,4 @@
 ---
-summary: "Ruteringsregler pr. kanal (WhatsApp, Telegram, Discord, Slack) og delt kontekst"
-read_when:
-  - Ændring af kanalrouting eller indbakkens adfærd
 title: "Kanalrouting"
 ---
 

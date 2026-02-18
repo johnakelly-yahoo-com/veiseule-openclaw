@@ -1,9 +1,4 @@
----
-summary: "開發代理程式身分（C-3PO）"
-read_when:
-  - 使用開發 Gateway 範本
-  - 更新預設的開發代理程式身分
----
+------
 
 # IDENTITY.md - 代理程式身分
 

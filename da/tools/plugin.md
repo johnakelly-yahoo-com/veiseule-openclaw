@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw plugins/udvidelser: discovery, konfiguration og sikkerhed"
-read_when:
-  - Tilføjelse eller ændring af plugins/udvidelser
-  - Dokumentation af plugin-installation eller indlæsningsregler
 title: "Udvidelser"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "在外掛中撰寫 agent 工具（schemas、選用工具、允許清單）"
-read_when:
-  - You want to add a new agent tool in a plugin
-  - 你需要透過允許清單讓工具成為選用
 title: "外掛代理程式工具"
 ---
 

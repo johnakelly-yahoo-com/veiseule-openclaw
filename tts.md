@@ -1,9 +1,4 @@
 ---
-summary: "Text-to-speech (TTS) for outbound replies"
-read_when:
-  - Enabling text-to-speech for replies
-  - Configuring TTS providers or limits
-  - Using /tts commands
 title: "Text-to-Speech"
 ---
 

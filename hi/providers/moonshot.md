@@ -1,9 +1,4 @@
 ---
-summary: "Moonshot K2 बनाम Kimi Coding का विन्यास (अलग प्रदाता + कुंजियाँ)"
-read_when:
-  - आप Moonshot K2 (Moonshot Open Platform) बनाम Kimi Coding का सेटअप चाहते हैं
-  - आपको अलग-अलग एंडपॉइंट्स, कुंजियाँ और मॉडल संदर्भ समझने हैं
-  - आप किसी भी प्रदाता के लिए कॉपी/पेस्ट विन्यास चाहते हैं
 title: "Moonshot AI"
 ---
 

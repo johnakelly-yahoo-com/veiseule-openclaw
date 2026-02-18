@@ -1,8 +1,4 @@
----
-summary: "Werkruimtesjabloon voor SOUL.md"
-read_when:
-  - Handmatig een werkruimte opzetten
----
+------
 
 # SOUL.md - Wie je bent
 

@@ -1,8 +1,4 @@
 ---
-summary: "Återförsökspolicy för utgående leverantörsanrop"
-read_when:
-  - Uppdatering av leverantörers återförsöksbeteende eller standardvärden
-  - Felsökning av leverantörers sändningsfel eller hastighetsbegränsningar
 title: "Återförsökspolicy"
 ---
 

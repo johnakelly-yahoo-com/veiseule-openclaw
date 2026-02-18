@@ -1,9 +1,4 @@
 ---
-summary: "Hoe OpenClaw-presencevermeldingen worden geproduceerd, samengevoegd en weergegeven"
-read_when:
-  - Debuggen van het tabblad Instances
-  - Onderzoeken van dubbele of verouderde instancerijen
-  - Wijzigen van gateway WS-connectie of systeemgebeurtenis-beacons
 title: "Aanwezigheid"
 ---
 

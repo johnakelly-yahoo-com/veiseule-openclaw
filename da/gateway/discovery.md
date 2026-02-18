@@ -1,9 +1,4 @@
 ---
-summary: "Node-discovery og transporter (Bonjour, Tailscale, SSH) til at finde gatewayen"
-read_when:
-  - Implementering eller ændring af Bonjour-discovery/annoncering
-  - Justering af fjernforbindelsestilstande (direkte vs. SSH)
-  - Design af node-discovery + parring for fjernnoder
 title: "Discovery og transporter"
 ---
 

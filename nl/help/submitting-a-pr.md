@@ -1,5 +1,4 @@
 ---
-summary: "Hoe je een PR met hoge signaalwaarde indient"
 title: "Een PR indienen"
 ---
 

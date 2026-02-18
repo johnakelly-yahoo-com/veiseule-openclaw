@@ -1,9 +1,4 @@
 ---
-summary: "web_fetch के लिए Firecrawl फ़ॉलबैक (एंटी-बॉट + कैश्ड एक्सट्रैक्शन)"
-read_when:
-  - आप Firecrawl-आधारित वेब एक्सट्रैक्शन चाहते हैं
-  - आपको Firecrawl API कुंजी की आवश्यकता है
-  - आप web_fetch के लिए एंटी-बॉट एक्सट्रैक्शन चाहते हैं
 title: "Firecrawl"
 ---
 

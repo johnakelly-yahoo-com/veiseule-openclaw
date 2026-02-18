@@ -1,7 +1,4 @@
 ---
-summary: "Statut de prise en charge, capacites et configuration de Tlon/Urbit"
-read_when:
-  - Travail sur les fonctionnalites du canal Tlon/Urbit
 title: "Tlon"
 ---
 

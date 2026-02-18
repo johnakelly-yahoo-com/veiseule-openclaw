@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw memory` (status/index/search) အတွက် CLI ကိုးကားချက်"
-read_when:
-  - သင်သည် semantic memory ကို အညွှန်းသတ်မှတ်ခြင်း သို့မဟုတ် ရှာဖွေလိုသောအခါ
-  - memory ရရှိနိုင်မှု သို့မဟုတ် အညွှန်းသတ်မှတ်ခြင်းကို ဒီဘဂ်လုပ်နေစဉ်
 title: "မှတ်ဉာဏ်"
 ---
 

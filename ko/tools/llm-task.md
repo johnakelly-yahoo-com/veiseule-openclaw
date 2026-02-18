@@ -1,8 +1,4 @@
 ---
-summary: "워크플로를 위한 JSON 전용 LLM 작업 (선택적 플러그인 도구)"
-read_when:
-  - 워크플로 내에서 JSON 전용 LLM 단계를 원할 때
-  - 자동화를 위해 스키마 검증된 LLM 출력이 필요할 때
 title: "LLM 작업"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Använd OpenCode Zen (kurerade modeller) med OpenClaw"
-read_when:
-  - Du vill använda OpenCode Zen för modellåtkomst
-  - Du vill ha en kurerad lista med kodningsvänliga modeller
 title: "OpenCode Zen"
 ---
 

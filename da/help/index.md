@@ -1,8 +1,4 @@
 ---
-summary: "Hjælpehub: almindelige løsninger, installationskontrol og hvor du kigger, når noget går i stykker"
-read_when:
-  - Du er ny og vil have guiden til “hvad klikker/kører jeg”
-  - Noget gik i stykker, og du vil have den hurtigste vej til en løsning
 title: "Hjælp"
 ---
 

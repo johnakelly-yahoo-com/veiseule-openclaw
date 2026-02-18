@@ -1,8 +1,4 @@
 ---
-summary: "Hướng dẫn đầu-cuối để chạy OpenClaw như một trợ lý cá nhân kèm các lưu ý an toàn"
-read_when:
-  - Hướng dẫn ban đầu cho một phiên bản trợ lý mới
-  - Xem xét các tác động về an toàn/quyền hạn
 title: "Thiết lập Trợ lý Cá nhân"
 ---
 

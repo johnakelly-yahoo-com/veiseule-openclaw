@@ -1,7 +1,4 @@
 ---
-summary: "Bối cảnh và truyền thuyết của OpenClaw để làm ngữ cảnh và định hình giọng điệu"
-read_when:
-  - Khi viết tài liệu hoặc nội dung UX có tham chiếu đến lore
 title: "Truyền thuyết OpenClaw"
 ---
 

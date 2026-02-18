@@ -1,8 +1,4 @@
 ---
-summary: "Superficie de herramientas del agente para OpenClaw (browser, canvas, nodes, message, cron) que reemplaza las skills heredadas `openclaw-*`"
-read_when:
-  - Agregar o modificar herramientas del agente
-  - Retirar o cambiar skills `openclaw-*`
 title: "Herramientas"
 ---
 

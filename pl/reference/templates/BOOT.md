@@ -1,8 +1,4 @@
----
-summary: "Szablon obszaru roboczego dla BOOT.md"
-read_when:
-  - Dodawanie listy kontrolnej BOOT.md
----
+------
 
 # BOOT.md
 

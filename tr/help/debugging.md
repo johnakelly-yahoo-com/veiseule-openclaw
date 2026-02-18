@@ -1,9 +1,4 @@
 ---
-summary: "Hata ayıklama araçları: izleme modu, ham model akışları ve muhakeme sızıntısının izlenmesi"
-read_when:
-  - Ham model çıktısını muhakeme sızıntısı açısından incelemeniz gerekiyor
-  - Yineleme yaparken Gateway’i izleme modunda çalıştırmak istiyorsunuz
-  - Tekrarlanabilir bir hata ayıklama iş akışına ihtiyacınız var
 title: "Hata ayıklama"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "`openclaw browser`에 대한 CLI 참조 (프로필, 탭, 작업, 확장 프로그램 릴레이)"
-read_when:
-  - "`openclaw browser`를 사용하며 일반적인 작업에 대한 예제가 필요할 때"
-  - 노드 호스트를 통해 다른 머신에서 실행 중인 브라우저를 제어하고자 할 때
-  - Chrome 확장 프로그램 릴레이를 사용하고자 할 때 (툴바 버튼을 통한 연결/해제)
 title: "browser"
 ---
 

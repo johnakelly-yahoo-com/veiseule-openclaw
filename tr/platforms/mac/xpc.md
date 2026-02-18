@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw uygulaması, gateway düğüm taşıması ve PeekabooBridge için macOS IPC mimarisi"
-read_when:
-  - IPC sözleşmelerini veya menü çubuğu uygulaması IPC'sini düzenlerken
 title: "macOS IPC"
 ---
 

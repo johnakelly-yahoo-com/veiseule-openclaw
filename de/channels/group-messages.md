@@ -1,7 +1,4 @@
 ---
-summary: "„Verhalten und Konfiguration für die Verarbeitung von WhatsApp-Gruppennachrichten (mentionPatterns werden kanalübergreifend geteilt)“"
-read_when:
-  - Ändern von Regeln für Gruppennachrichten oder Erwähnungen
 title: "„Gruppennachrichten“"
 ---
 

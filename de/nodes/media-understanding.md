@@ -1,8 +1,4 @@
 ---
-summary: "„Eingehende Bild-/Audio-/Video-Erkennung (optional) mit Anbieter- und CLI-Fallbacks“"
-read_when:
-  - Entwurf oder Refactoring der Medienerkennung
-  - Feinabstimmung der eingehenden Audio-/Video-/Bildvorverarbeitung
 title: "Medienverständnis"
 ---
 

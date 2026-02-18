@@ -1,7 +1,4 @@
 ---
-summary: "Gateway 서비스의 런북, 수명 주기 및 운영 가이드"
-read_when:
-  - Gateway 프로세스를 실행하거나 디버깅할 때
 title: "Gateway 런북"
 ---
 

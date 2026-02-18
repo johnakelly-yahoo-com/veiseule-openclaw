@@ -1,8 +1,4 @@
 ---
-summary: "Assistente de integração inicial da CLI: configuração guiada para gateway, workspace, canais e skills"
-read_when:
-  - Ao executar ou configurar o assistente de integração inicial
-  - Ao configurar uma nova máquina
 title: "Assistente de Integração Inicial (CLI)"
 sidebarTitle: "Integração inicial: CLI"
 ---

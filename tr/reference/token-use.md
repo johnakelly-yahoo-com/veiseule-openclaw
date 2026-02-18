@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw’un istem bağlamını nasıl oluşturduğunu ve belirteç kullanımını + maliyetleri nasıl raporladığını açıklar"
-read_when:
-  - Belirteç kullanımını, maliyetleri veya bağlam pencerelerini açıklarken
-  - Bağlam büyümesini veya sıkıştırma davranışını hata ayıklarken
 title: "Belirteç Kullanımı ve Maliyetler"
 ---
 

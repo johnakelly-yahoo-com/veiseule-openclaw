@@ -1,8 +1,4 @@
 ---
-summary: "Patakbuhin ang ACP bridge para sa mga IDE integration"
-read_when:
-  - Pagse-setup ng mga ACP-based na IDE integration
-  - Pag-debug ng ACP session routing papunta sa Gateway
 title: "acp"
 ---
 

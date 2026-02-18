@@ -1,9 +1,4 @@
 ---
-summary: "Panel Canvas controlado por el agente incrustado mediante WKWebView + esquema de URL personalizado"
-read_when:
-  - Implementación del panel Canvas en macOS
-  - Adición de controles del agente para el espacio de trabajo visual
-  - Depuración de cargas de Canvas en WKWebView
 title: "Canvas"
 ---
 

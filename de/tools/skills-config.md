@@ -1,8 +1,4 @@
 ---
-summary: "Schema und Beispiele für die Skills-Konfiguration"
-read_when:
-  - Hinzufügen oder Ändern der Skills-Konfiguration
-  - Anpassen der gebündelten Allowlist oder des Installationsverhaltens
 title: "Skills-Konfiguration"
 ---
 

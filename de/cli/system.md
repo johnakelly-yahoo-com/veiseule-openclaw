@@ -1,9 +1,4 @@
 ---
-summary: "CLI-Referenz für `openclaw system` (Systemereignisse, Heartbeat, Präsenz)"
-read_when:
-  - Sie möchten ein Systemereignis einreihen, ohne einen Cron-Job zu erstellen
-  - Sie müssen Heartbeats aktivieren oder deaktivieren
-  - Sie möchten System-Präsenzeinträge einsehen
 title: "system"
 ---
 

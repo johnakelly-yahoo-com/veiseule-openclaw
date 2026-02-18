@@ -1,9 +1,4 @@
 ---
-summary: "„Integrierter Browsersteuerungsdienst + Aktionsbefehle“"
-read_when:
-  - Hinzufügen agentengesteuerter Browserautomatisierung
-  - Debuggen, warum OpenClaw mit Ihrem eigenen Chrome interferiert
-  - Implementieren von Browsereinstellungen und -lebenszyklus in der macOS-App
 title: "„Browser (OpenClaw-verwaltet)“"
 ---
 

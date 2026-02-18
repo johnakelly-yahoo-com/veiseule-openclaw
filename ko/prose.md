@@ -1,9 +1,4 @@
 ---
-summary: "OpenProse: OpenClaw 에서의 .prose 워크플로, 슬래시 명령, 상태 관리"
-read_when:
-  - .prose 워크플로를 실행하거나 작성하려는 경우
-  - OpenProse 플러그인을 활성화하려는 경우
-  - 상태 저장 방식을 이해해야 하는 경우
 title: "OpenProse"
 ---
 

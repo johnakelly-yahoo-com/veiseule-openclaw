@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 在 localhost 之外暴露 Gateway 网关控制 UI
-  - 自动化 tailnet 或公共仪表盘访问
-summary: 为 Gateway 网关仪表盘集成 Tailscale Serve/Funnel
 title: Tailscale
 x-i18n:
   generated_at: "2026-02-03T07:49:04Z"

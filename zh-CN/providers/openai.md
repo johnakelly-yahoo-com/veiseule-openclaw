@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想在 OpenClaw 中使用 OpenAI 模型
-  - 你想使用 Codex 订阅认证而非 API 密钥
-summary: 在 OpenClaw 中通过 API 密钥或 Codex 订阅使用 OpenAI
 title: OpenAI
 x-i18n:
   generated_at: "2026-02-01T21:35:10Z"

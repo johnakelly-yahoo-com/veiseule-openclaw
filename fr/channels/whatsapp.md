@@ -1,7 +1,4 @@
 ---
-summary: "Intégration WhatsApp (canal web) : connexion, boîte de réception, réponses, médias et opérations"
-read_when:
-  - Travail sur le comportement du canal WhatsApp/web ou le routage de la boîte de réception
 title: "WhatsApp"
 ---
 

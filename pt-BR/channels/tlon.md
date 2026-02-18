@@ -1,7 +1,4 @@
 ---
-summary: "Status de suporte do Tlon/Urbit, capacidades e configuração"
-read_when:
-  - Trabalhando em recursos do canal Tlon/Urbit
 title: "Tlon"
 ---
 

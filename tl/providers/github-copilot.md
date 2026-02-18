@@ -1,8 +1,4 @@
 ---
-summary: "Mag-sign in sa GitHub Copilot mula sa OpenClaw gamit ang device flow"
-read_when:
-  - Gusto mong gamitin ang GitHub Copilot bilang model provider
-  - Kailangan mo ang `openclaw models auth login-github-copilot` flow
 title: "GitHub Copilot"
 ---
 

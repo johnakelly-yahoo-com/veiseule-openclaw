@@ -1,8 +1,4 @@
 ---
-summary: "SOUL Evil hook (สลับ SOUL.md กับ SOUL_EVIL.md)"
-read_when:
-  - คุณต้องการเปิดใช้งานหรือปรับแต่ง SOUL Evil hook
-  - คุณต้องการช่วงเวลา purge หรือการสลับ persona แบบสุ่ม
 title: "SOUL Evil Hook"
 ---
 

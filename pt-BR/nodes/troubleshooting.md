@@ -1,8 +1,4 @@
 ---
-summary: "Solução de problemas de pareamento de nós, requisitos de primeiro plano, permissões e falhas de ferramentas"
-read_when:
-  - O Node está conectado, mas as ferramentas de câmera/canvas/tela/exec falham
-  - Você precisa do modelo mental de pareamento de nós versus aprovações
 title: "Solução de problemas do Node"
 ---
 

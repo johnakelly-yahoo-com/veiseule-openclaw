@@ -1,5 +1,4 @@
 ---
-summary: "Eingabehärtung für cron.add, Schemaabgleich und Verbesserung der Cron-UI/Agent-Tooling"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"

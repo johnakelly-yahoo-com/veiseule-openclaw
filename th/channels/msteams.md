@@ -1,7 +1,4 @@
 ---
-summary: "สถานะการรองรับ ความสามารถ และการกำหนดค่าบอต Microsoft Teams"
-read_when:
-  - ทำงานกับฟีเจอร์ช่องทาง MS Teams
 title: "Microsoft Teams"
 ---
 

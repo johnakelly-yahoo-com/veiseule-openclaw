@@ -1,7 +1,4 @@
 ---
-summary: "دورة حياة Gateway على macOS ‏(launchd)"
-read_when:
-  - دمج تطبيق mac مع دورة حياة Gateway
 title: "دورة حياة Gateway"
 ---
 

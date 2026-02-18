@@ -1,9 +1,4 @@
 ---
-summary: "Kit de testes: suítes unit/e2e/live, runners Docker e o que cada teste cobre"
-read_when:
-  - Executar testes localmente ou em CI
-  - Adicionar regressões para bugs de modelo/provedor
-  - Depurar comportamento do gateway + agente
 title: "Testes"
 ---
 

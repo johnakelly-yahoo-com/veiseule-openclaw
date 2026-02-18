@@ -1,7 +1,4 @@
 ---
-summary: "Hur du kör tester lokalt (vitest) och när du ska använda force-/coverage-lägen"
-read_when:
-  - När du kör eller åtgärdar tester
 title: "Tester"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "iOS 節點應用程式：連線至 Gateway 閘道器、配對、畫布與疑難排解"
-read_when:
-  - 配對或重新連線 iOS 節點
-  - 從原始碼執行 iOS 應用程式
-  - 除錯 Gateway 閘道器探索或畫布命令
 title: "iOS 應用程式"
 ---
 

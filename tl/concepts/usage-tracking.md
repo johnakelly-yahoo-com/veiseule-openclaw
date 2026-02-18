@@ -1,8 +1,4 @@
 ---
-summary: "Mga surface ng pagsubaybay sa paggamit at mga kinakailangan sa kredensyal"
-read_when:
-  - Ikaw ay nagwi-wire ng mga surface ng paggamit/quota ng provider
-  - Kailangan mong ipaliwanag ang gawi ng usage tracking o mga kinakailangan sa auth
 title: "Pagsubaybay sa Paggamit"
 ---
 

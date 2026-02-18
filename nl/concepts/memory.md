@@ -1,9 +1,4 @@
----
-summary: "Hoe OpenClaw-geheugen werkt (werkruimtebestanden + automatische geheugenflush)"
-read_when:
-  - Je wilt de geheugenbestandsindeling en workflow
-  - Je wilt de automatische pre-compactie geheugenflush afstellen
----
+------
 
 # Geheugen
 

@@ -1,9 +1,4 @@
 ---
-summary: "Référence complète de l’assistant d’onboarding CLI : chaque étape, option et champ de configuration"
-read_when:
-  - Recherche d'une étape ou d'un drapeau de l'assistant spécifique
-  - Automatiser l’onboarding avec le mode non interactif
-  - Comportement de l'assistant de débogage
 title: "Référence de l’assistant d’onboarding"
 sidebarTitle: "reference/wizard.md"
 ---

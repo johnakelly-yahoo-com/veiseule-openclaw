@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw node」（無頭節點主機）的 CLI 參考文件"
-read_when:
-  - Running the headless node host
-  - 為 system.run 配對非 macOS 的節點
 title: "node"
 ---
 

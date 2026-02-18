@@ -1,8 +1,4 @@
 ---
-summary: "Przeniesienie (migracja) instalacji OpenClaw z jednej maszyny na inną"
-read_when:
-  - Przenosisz OpenClaw na nowy laptop/serwer
-  - Chcesz zachować sesje, uwierzytelnianie i logowania do kanałów (WhatsApp itp.)
 title: "Przewodnik migracji"
 ---
 

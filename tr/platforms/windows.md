@@ -1,8 +1,4 @@
 ---
-summary: "Windows (WSL2) desteği + yardımcı uygulama durumu"
-read_when:
-  - Windows üzerinde OpenClaw kurarken
-  - Windows yardımcı uygulamasının durumunu arıyor
 title: "Windows (WSL2)"
 ---
 

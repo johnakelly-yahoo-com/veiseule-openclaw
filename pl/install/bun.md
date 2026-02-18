@@ -1,8 +1,4 @@
 ---
-summary: "Przepływ pracy z Bun (eksperymentalny): instalacja i pułapki w porównaniu z pnpm"
-read_when:
-  - Chcesz najszybszej lokalnej pętli developerskiej (bun + watch)
-  - Napotykasz problemy z instalacją/łatkami/skryptami cyklu życia w Bun
 title: "Bun (eksperymentalny)"
 ---
 

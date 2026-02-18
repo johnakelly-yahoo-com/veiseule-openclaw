@@ -1,8 +1,4 @@
 ---
-summary: "使用 OpenCode Zen（精選模型）與 OpenClaw 搭配使用"
-read_when:
-  - 你想要使用 OpenCode Zen 進行模型存取
-  - 你想要一份對程式開發友善的精選模型清單
 title: "OpenCode Zen"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Kung saan nilo-load ng OpenClaw ang mga environment variable at ang pagkakasunud-sunod ng precedence"
-read_when:
-  - Kailangan mong malaman kung aling mga env var ang nilo-load, at sa anong pagkakasunod-sunod
-  - Nagde-debug ka ng mga nawawalang API key sa Gateway
-  - Dinodokumento mo ang provider auth o mga deployment environment
 title: "Mga Environment Variable"
 ---
 

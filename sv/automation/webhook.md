@@ -1,8 +1,4 @@
 ---
-summary: "Webhook-ingång för väckning och isolerade agentkörningar"
-read_when:
-  - Lägga till eller ändra webhook-slutpunkter
-  - Koppla externa system till OpenClaw
 title: "Webhooks"
 ---
 

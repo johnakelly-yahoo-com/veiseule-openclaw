@@ -1,9 +1,4 @@
 ---
-summary: "Raspberry Pi 上での OpenClaw（低予算セルフホスト構成）"
-read_when:
-  - Raspberry Pi に OpenClaw をセットアップする場合
-  - ARM デバイス上で OpenClaw を実行する場合
-  - 安価で常時稼働する個人向け AI を構築する場合
 title: "Raspberry Pi"
 ---
 

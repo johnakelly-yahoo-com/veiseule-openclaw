@@ -1,9 +1,4 @@
 ---
-summary: "Düğümler: eşleştirme, yetenekler, izinler ve canvas/kamera/ekran/sistem için CLI yardımcıları"
-read_when:
-  - iOS/Android düğümlerini bir gateway ile eşleştirme
-  - Ajan bağlamı için düğüm canvas/kamerasını kullanma
-  - Yeni düğüm komutları veya CLI yardımcıları ekleme
 title: "Düğümler"
 ---
 

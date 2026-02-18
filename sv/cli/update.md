@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw update` (säker-ish källuppdatering + automatisk omstart av Gateway)"
-read_when:
-  - Du vill uppdatera en källutcheckning på ett säkert sätt
-  - Du behöver förstå förkortningsbeteendet för `--update`
 title: "update"
 ---
 

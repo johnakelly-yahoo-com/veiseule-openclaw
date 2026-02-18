@@ -1,7 +1,4 @@
 ---
-summary: "เปิดให้ใช้งานเอ็นด์พอยต์ HTTP /v1/chat/completions ที่เข้ากันได้กับ OpenAI จาก Gateway"
-read_when:
-  - การผสานรวมเครื่องมือที่คาดหวัง OpenAI Chat Completions
 title: "OpenAI Chat Completions"
 ---
 

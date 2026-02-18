@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw で Qwen の OAuth（無料枠）を使用します"
-read_when:
-  - OpenClaw で Qwen を使用したい場合
-  - Qwen Coder への無料枠 OAuth アクセスを利用したい場合
 title: "Qwen"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Gateway’dan OpenAI-compatible /v1/chat/completions HTTP endpointini taqdim etish"
-read_when:
-  - Integrating tools that expect OpenAI Chat Completions
 title: "OpenAI Chat Completions"
 ---
 

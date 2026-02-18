@@ -1,9 +1,4 @@
 ---
-summary: "„Strikte Konfigurationsvalidierung + ausschließlich Doctor-Migrationen“"
-read_when:
-  - Entwurf oder Implementierung von Verhalten zur Konfigurationsvalidierung
-  - Arbeit an Konfigurationsmigrationen oder Doctor-Workflows
-  - Umgang mit Plugin-Konfigurationsschemata oder dem Gating beim Plugin-Laden
 title: "„Strikte Konfigurationsvalidierung“"
 ---
 

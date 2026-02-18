@@ -1,9 +1,4 @@
 ---
-summary: "ویب سرچ + فِچ اوزار (Brave Search API، Perplexity direct/OpenRouter)"
-read_when:
-  - آپ web_search یا web_fetch کو فعال کرنا چاہتے ہیں
-  - آپ کو Brave Search API کلید کا سیٹ اپ درکار ہے
-  - آپ ویب سرچ کے لیے Perplexity Sonar استعمال کرنا چاہتے ہیں
 title: "ویب اوزار"
 ---
 

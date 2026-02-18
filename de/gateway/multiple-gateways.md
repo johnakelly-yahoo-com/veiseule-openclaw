@@ -1,8 +1,4 @@
 ---
-summary: "Mehrere OpenClaw Gateways auf einem Host ausführen (Isolation, Ports und Profile)"
-read_when:
-  - Sie betreiben mehr als einen Gateway auf derselben Maschine
-  - Sie benötigen isolierte Konfiguration/Zustand/Ports pro Gateway
 title: "Mehrere Gateways"
 ---
 

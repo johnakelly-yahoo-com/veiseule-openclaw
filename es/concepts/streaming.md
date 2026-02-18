@@ -1,9 +1,4 @@
 ---
-summary: "Comportamiento de streaming + fragmentación (respuestas por bloques, streaming de borradores, límites)"
-read_when:
-  - Explicar cómo funciona el streaming o la fragmentación en los canales
-  - Cambiar el streaming por bloques o el comportamiento de fragmentación por canal
-  - Depurar respuestas por bloques duplicadas/anticipadas o streaming de borradores
 title: "Streaming y fragmentación"
 ---
 

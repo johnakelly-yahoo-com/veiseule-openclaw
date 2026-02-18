@@ -1,8 +1,4 @@
 ---
-summary: "Overflader for brugsregistrering og krav til legitimationsoplysninger"
-read_when:
-  - Du kobler udbyderes brugs-/kvoteoverflader
-  - Du skal forklare adfærd for brugsregistrering eller autentificeringskrav
 title: "Brugsregistrering"
 ---
 

@@ -1,6 +1,4 @@
 ---
-summary: "لینکس پر OpenClaw براؤزر کنٹرول کے لیے Chrome/Brave/Edge/Chromium CDP کے آغاز کے مسائل حل کریں"
-read_when: "لینکس پر براؤزر کنٹرول ناکام ہو، خصوصاً snap Chromium کے ساتھ"
 title: "براؤزر کی خرابیوں کا ازالہ"
 ---
 

@@ -1,9 +1,4 @@
----
-summary: "Noter om udvikleragentens værktøjer (C-3PO)"
-read_when:
-  - Brug af udvikler-Gateway-skabelonerne
-  - Opdatering af standardidentiteten for udvikleragenten
----
+------
 
 # TOOLS.md - Brugernoter om værktøjer (kan redigeres)
 

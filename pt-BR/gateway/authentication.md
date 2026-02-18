@@ -1,8 +1,4 @@
 ---
-summary: "Autenticação de modelos: OAuth, chaves de API e setup-token"
-read_when:
-  - Depurando autenticação de modelos ou expiração de OAuth
-  - Documentando autenticação ou armazenamento de credenciais
 title: "Autenticação"
 ---
 

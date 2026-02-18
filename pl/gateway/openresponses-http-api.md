@@ -1,8 +1,4 @@
 ---
-summary: "Udostępnij zgodny z OpenResponses punkt końcowy HTTP /v1/responses z Gateway"
-read_when:
-  - Integrujesz klientów mówiących w API OpenResponses
-  - Chcesz używać wejść opartych na elementach, wywołań narzędzi po stronie klienta lub zdarzeń SSE
 title: "API OpenResponses"
 ---
 

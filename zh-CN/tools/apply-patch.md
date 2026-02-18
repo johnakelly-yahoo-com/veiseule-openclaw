@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你需要跨多个文件进行结构化编辑
-  - 你想要记录或调试基于补丁的编辑
-summary: 使用 apply_patch 工具应用多文件补丁
 title: apply_patch 工具
 x-i18n:
   generated_at: "2026-02-01T21:39:24Z"

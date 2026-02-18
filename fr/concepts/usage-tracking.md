@@ -1,8 +1,4 @@
 ---
-summary: "Surfaces de suivi d’utilisation et exigences d’identification"
-read_when:
-  - Vous raccordez des surfaces d’utilisation/quota des fournisseurs
-  - Vous devez expliquer le comportement du suivi d’utilisation ou les exigences d’authentification
 title: "Suivi d’utilisation"
 ---
 

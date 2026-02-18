@@ -1,8 +1,4 @@
 ---
-summary: "Terminal UI (TUI): forbind til Gateway fra enhver maskine"
-read_when:
-  - Du vil have en begyndervenlig gennemgang af TUI’en
-  - Du har brug for den komplette liste over TUI-funktioner, kommandoer og genveje
 title: "TUI"
 ---
 

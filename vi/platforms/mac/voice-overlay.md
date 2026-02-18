@@ -1,7 +1,4 @@
 ---
-summary: "Vòng đời lớp phủ giọng nói khi từ đánh thức và nhấn‑để‑nói chồng lấp"
-read_when:
-  - Điều chỉnh hành vi lớp phủ giọng nói
 title: "Lớp phủ giọng nói"
 ---
 

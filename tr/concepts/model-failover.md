@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw’ın kimlik doğrulama profillerini nasıl döndürdüğü ve modeller arasında nasıl geri dönüş yaptığı"
-read_when:
-  - Kimlik doğrulama profili rotasyonu, bekleme süreleri veya model geri dönüşü davranışını teşhis ederken
-  - Kimlik doğrulama profilleri veya modeller için failover kurallarını güncellerken
 title: "Model Yedekleme (Failover)"
 ---
 

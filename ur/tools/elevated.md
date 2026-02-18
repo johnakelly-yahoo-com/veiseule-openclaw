@@ -1,7 +1,4 @@
 ---
-summary: "Elevated exec موڈ اور /elevated ہدایات"
-read_when:
-  - Elevated موڈ کی ڈیفالٹس، اجازت فہرستوں، یا سلیش کمانڈ کے رویّے میں تبدیلی کرتے وقت
 title: "Elevated موڈ"
 ---
 

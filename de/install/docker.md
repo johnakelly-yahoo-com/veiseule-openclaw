@@ -1,8 +1,4 @@
 ---
-summary: "„Optionale Docker-basierte Einrichtung und Onboarding für OpenClaw“"
-read_when:
-  - Sie möchten ein containerisiertes Gateway anstelle lokaler Installationen
-  - Sie validieren den Docker-Flow
 title: "„Docker“"
 ---
 

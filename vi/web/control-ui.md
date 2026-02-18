@@ -1,8 +1,4 @@
 ---
-summary: "Giao diện điều khiển dựa trên trình duyệt cho Gateway (chat, node, cấu hình)"
-read_when:
-  - Bạn muốn vận hành Gateway từ trình duyệt
-  - Bạn muốn truy cập Tailnet mà không cần đường hầm SSH
 title: "Giao diện điều khiển"
 ---
 

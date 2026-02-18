@@ -1,8 +1,4 @@
----
-summary: "Werkruimtesjabloon voor AGENTS.md"
-read_when:
-  - Handmatig een werkruimte opstarten
----
+------
 
 # AGENTS.md - Jouw werkruimte
 

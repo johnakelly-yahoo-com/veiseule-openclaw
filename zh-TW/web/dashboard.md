@@ -1,7 +1,4 @@
 ---
-summary: "Gateway 閘道器儀表板（Control UI）的存取與身分驗證"
-read_when:
-  - 變更儀表板身分驗證或暴露模式時
 title: "儀表板"
 ---
 

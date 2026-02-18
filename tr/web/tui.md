@@ -1,8 +1,4 @@
 ---
-summary: "Terminal UI (TUI): herhangi bir makineden Gateway’e bağlanın"
-read_when:
-  - TUI için başlangıç dostu bir rehbere ihtiyacınız var
-  - TUI özellikleri, komutları ve kısayollarının tam listesine ihtiyacınız var
 title: "TUI"
 ---
 

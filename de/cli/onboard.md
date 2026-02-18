@@ -1,7 +1,4 @@
 ---
-summary: "CLI-Referenz für `openclaw onboard` (interaktiver Onboarding-Assistent)"
-read_when:
-  - Sie möchten eine geführte Einrichtung für Gateway, Workspace, Authentifizierung, Kanäle und Skills
 title: "onboard"
 ---
 

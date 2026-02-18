@@ -1,8 +1,4 @@
 ---
-summary: "Verplaats (migreer) een OpenClaw-installatie van de ene machine naar de andere"
-read_when:
-  - Je verplaatst OpenClaw naar een nieuwe laptop/server
-  - Je wilt sessies, authenticatie en kanaalaanmeldingen (WhatsApp, enz.) behouden
 title: "Migratiegids"
 ---
 

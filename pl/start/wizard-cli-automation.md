@@ -1,8 +1,4 @@
 ---
-summary: "Skryptowe wdrażanie i konfiguracja agentów dla CLI OpenClaw"
-read_when:
-  - Automatyzujesz wdrażanie w skryptach lub CI
-  - Potrzebujesz nieinteraktywnych przykładów dla konkretnych dostawców
 title: "Automatyzacja CLI"
 sidebarTitle: "Automatyzacja CLI"
 ---

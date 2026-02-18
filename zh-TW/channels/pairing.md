@@ -1,9 +1,4 @@
 ---
-summary: "配對總覽：核准誰可以傳送私訊給你 + 哪些節點可以加入"
-read_when:
-  - Setting up DM access control
-  - 配對新的 iOS / Android 節點
-  - 檢視 OpenClaw 的安全性狀態
 title: "配對"
 ---
 

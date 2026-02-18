@@ -1,8 +1,4 @@
 ---
-summary: "22. OpenClaw’da ko‘plab modellarga kirish uchun OpenRouter’ning yagona API’sidan foydalaning"
-read_when:
-  - 23. Ko‘plab LLM’lar uchun bitta API kalitini xohlaysiz
-  - 24. OpenClaw’da OpenRouter orqali modellarni ishga tushirmoqchisiz
 title: "25. OpenRouter"
 ---
 

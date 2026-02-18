@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 调试缺失或卡住的 macOS 权限提示
-  - 打包或签名 macOS 应用
-  - 更改 Bundle ID 或应用安装路径
-summary: macOS 权限持久化（TCC）和签名要求
 title: macOS 权限
 x-i18n:
   generated_at: "2026-02-01T21:32:58Z"

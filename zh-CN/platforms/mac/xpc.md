@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 编辑 IPC 合约或菜单栏应用 IPC
-summary: OpenClaw 应用的 macOS IPC 架构、Gateway 网关节点传输和 PeekabooBridge
 title: macOS IPC
 x-i18n:
   generated_at: "2026-02-03T07:52:57Z"

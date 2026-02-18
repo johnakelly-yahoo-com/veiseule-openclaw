@@ -1,8 +1,4 @@
 ---
-summary: "Stable, beta- en dev-kanalen: semantiek, wisselen en taggen"
-read_when:
-  - Je wilt wisselen tussen stable/beta/dev
-  - Je bent prereleases aan het taggen of publiceren
 title: "Ontwikkelkanalen"
 ---
 

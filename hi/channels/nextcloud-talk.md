@@ -1,7 +1,4 @@
 ---
-summary: "Nextcloud Talk समर्थन की स्थिति, क्षमताएँ, और विन्यास"
-read_when:
-  - Nextcloud Talk चैनल की विशेषताओं पर काम करते समय
 title: "Nextcloud Talk"
 ---
 

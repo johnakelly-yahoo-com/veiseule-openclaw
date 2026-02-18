@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw voicecall` için CLI başvurusu (voice-call eklentisi komut yüzeyi)"
-read_when:
-  - Voice-call eklentisini kullanıyorsunuz ve CLI giriş noktalarını istiyorsunuz
-  - "`voicecall call|continue|status|tail|expose` için hızlı örnekler istiyorsunuz"
 title: "voicecall"
 ---
 

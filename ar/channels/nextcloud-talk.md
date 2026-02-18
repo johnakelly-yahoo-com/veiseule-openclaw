@@ -1,7 +1,4 @@
 ---
-summary: "حالة دعم Nextcloud Talk، والإمكانات، والتهيئة"
-read_when:
-  - العمل على ميزات قناة Nextcloud Talk
 title: "Nextcloud Talk"
 ---
 

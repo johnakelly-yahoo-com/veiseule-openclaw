@@ -1,7 +1,4 @@
 ---
-summary: "Gateway protokolü için tek doğruluk kaynağı olarak TypeBox şemaları"
-read_when:
-  - Protokol şemaları veya codegen güncellenirken
 title: "TypeBox"
 ---
 

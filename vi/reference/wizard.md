@@ -1,9 +1,4 @@
 ---
-summary: "Tài liệu tham chiếu đầy đủ cho trình hướng dẫn CLI onboarding: mọi bước, cờ và trường cấu hình"
-read_when:
-  - Tra cứu một bước hoặc cờ cụ thể của trình hướng dẫn
-  - Tự động hóa onboarding với chế độ không tương tác
-  - Gỡ lỗi hành vi của trình hướng dẫn
 title: "Tài liệu tham chiếu Trình hướng dẫn Onboarding"
 sidebarTitle: "Tham khảo Trình hướng dẫn"
 ---

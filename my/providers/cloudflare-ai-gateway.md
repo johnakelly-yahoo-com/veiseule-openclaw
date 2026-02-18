@@ -1,10 +1,5 @@
 ---
-title: "Cloudflare AI Gateway"
-summary: "Cloudflare AI Gateway ကို တပ်ဆင်ခြင်း (auth + မော်ဒယ် ရွေးချယ်မှု)"
-read_when:
-  - OpenClaw နှင့် Cloudflare AI Gateway ကို အသုံးပြုလိုသောအခါ
-  - account ID၊ gateway ID သို့မဟုတ် API key env var ကို လိုအပ်သောအခါ
----
+title: "Cloudflare AI Gateway"---
 
 # Cloudflare AI Gateway
 

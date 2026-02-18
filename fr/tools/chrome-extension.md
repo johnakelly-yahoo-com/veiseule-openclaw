@@ -1,9 +1,4 @@
 ---
-summary: "Extension Chrome : laissez OpenClaw piloter votre onglet Chrome existant"
-read_when:
-  - Vous souhaitez que l’agent pilote un onglet Chrome existant (bouton de la barre d’outils)
-  - Vous avez besoin d’un Gateway distant + d’une automatisation locale du navigateur via Tailscale
-  - Vous voulez comprendre les implications de sécurité de la prise de contrôle du navigateur
 title: "Extension Chrome"
 ---
 

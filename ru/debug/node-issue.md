@@ -1,8 +1,4 @@
 ---
-summary: Заметки о сбое Node + tsx «__name is not a function» и обходные пути
-read_when:
-  - Отладка dev-скриптов только для Node или сбоев в режиме watch
-  - Исследование сбоев загрузчика tsx/esbuild в OpenClaw
 title: "Сбой Node + tsx"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Örnek yapılandırmalar + CLI akışlarıyla model sağlayıcılarına genel bakış"
-read_when:
-  - Sağlayıcı bazında model kurulum başvurusuna ihtiyaç duyduğunuzda
-  - Model sağlayıcıları için örnek yapılandırmalar veya CLI ile başlangıç komutları istediğinizde
 title: "Model Sağlayıcıları"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Refactorplan: exec-hostroutering, node-goedkeuringen en headless runner"
-read_when:
-  - Ontwerpen van exec-hostroutering of exec-goedkeuringen
-  - Implementeren van node runner + UI IPC
-  - Toevoegen van exec-hostbeveiligingsmodi en slash-commando’s
 title: "Exec-hostrefactor"
 ---
 

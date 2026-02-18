@@ -1,8 +1,4 @@
 ---
-summary: Node + tsx「__name is not a function」當機的筆記與替代方案
-read_when:
-  - 除錯僅限 Node 的開發腳本或 watch 模式失敗
-  - 調查 OpenClaw 中的 tsx/esbuild 載入器當機
 title: "Node + tsx 當機"
 ---
 

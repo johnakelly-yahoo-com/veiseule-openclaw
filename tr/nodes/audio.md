@@ -1,7 +1,4 @@
 ---
-summary: "Gelen ses/sesli notların nasıl indirildiği, yazıya döküldüğü ve yanıtlara enjekte edildiği"
-read_when:
-  - Ses yazıya dökümü veya medya işleme değiştirildiğinde
 title: "Ses ve Sesli Notlar"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Katayuan ng suporta ng Zalo bot, mga kakayahan, at konpigurasyon"
-read_when:
-  - Gumagawa sa mga feature o webhook ng Zalo
 title: "Zalo"
 ---
 

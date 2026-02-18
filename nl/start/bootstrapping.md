@@ -1,9 +1,4 @@
 ---
-summary: "Ritueel voor het opstarten van de agent dat de werkruimte en identiteitsbestanden initialiseert"
-read_when:
-  - Begrijpen wat er gebeurt bij de eerste uitvoering van de agent
-  - Uitleggen waar bootstrap-bestanden zich bevinden
-  - Problemen oplossen bij het instellen van de onboarding-identiteit
 title: "Agent-opstart"
 sidebarTitle: "Opstarten"
 ---

@@ -1,8 +1,4 @@
 ---
-summary: "Manejo de fecha y hora a través de sobres, prompts, herramientas y conectores"
-read_when:
-  - Está cambiando cómo se muestran las marcas de tiempo al modelo o a los usuarios
-  - Está depurando el formato de hora en mensajes o en la salida del prompt del sistema
 title: "Fecha y Hora"
 ---
 

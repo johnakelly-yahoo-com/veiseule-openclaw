@@ -1,9 +1,4 @@
----
-summary: "User profile ng dev agent (C-3PO)"
-read_when:
-  - Kapag gumagamit ng mga template ng dev Gateway
-  - Kapag ina-update ang default na identidad ng dev agent
----
+------
 
 # USER.md - Profile ng User
 

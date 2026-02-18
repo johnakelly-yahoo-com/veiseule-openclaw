@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw 支援的模型提供者（LLM）"
-read_when:
-  - 你想要選擇模型提供者
-  - 你需要快速概覽支援的 LLM 後端
 title: "模型提供者"
 ---
 

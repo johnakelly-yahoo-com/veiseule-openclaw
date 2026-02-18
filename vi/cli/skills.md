@@ -1,8 +1,4 @@
 ---
-summary: "Tài liệu tham chiếu CLI cho `openclaw skills` (list/info/check) và điều kiện đủ của skill"
-read_when:
-  - Bạn muốn xem những skill nào đang có sẵn và sẵn sàng chạy
-  - Bạn muốn gỡ lỗi các binary/biến môi trường/cấu hình còn thiếu cho skill
 title: "Skills"
 ---
 

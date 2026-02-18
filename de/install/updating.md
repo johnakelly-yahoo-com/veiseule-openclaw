@@ -1,8 +1,4 @@
 ---
-summary: "„OpenClaw sicher aktualisieren (globale Installation oder aus dem Quellcode) sowie Rollback-Strategie“"
-read_when:
-  - OpenClaw aktualisieren
-  - Nach einem Update funktioniert etwas nicht mehr
 title: "Aktualisieren"
 ---
 

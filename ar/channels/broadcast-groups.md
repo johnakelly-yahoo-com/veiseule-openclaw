@@ -1,8 +1,4 @@
 ---
-summary: "بثّ رسالة WhatsApp إلى عدة وكلاء"
-read_when:
-  - تهيئة مجموعات البثّ
-  - تصحيح أخطاء ردود متعددة الوكلاء في WhatsApp
 status: experimental
 title: "مجموعات البثّ"
 ---

@@ -1,8 +1,4 @@
 ---
-summary: "Fullständig referens för CLI‑introduktionsflöde, autentisering/modellkonfiguration, utdata och internals"
-read_when:
-  - Du behöver detaljerat beteende för openclaw‑introduktion
-  - Du felsöker introduktionsresultat eller integrerar introduktionsklienter
 title: "CLI‑referens för introduktion"
 sidebarTitle: "CLI‑referens"
 ---

@@ -1,7 +1,4 @@
 ---
-summary: "Runbook para sa serbisyo ng Gateway, lifecycle, at mga operasyon"
-read_when:
-  - Kapag pinapatakbo o dini-debug ang proseso ng gateway
 title: "Runbook ng Gateway"
 ---
 

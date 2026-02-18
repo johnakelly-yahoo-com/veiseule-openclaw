@@ -1,7 +1,4 @@
 ---
-summary: "Dokumentacja referencyjna CLI dla `openclaw sessions` (lista zapisanych sesji + użycie)"
-read_when:
-  - Chcesz wyświetlić listę zapisanych sesji i zobaczyć ostatnią aktywność
 title: "sessions"
 ---
 

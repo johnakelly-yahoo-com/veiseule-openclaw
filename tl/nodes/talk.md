@@ -1,8 +1,4 @@
 ---
-summary: "Talk mode: tuloy-tuloy na mga pag-uusap na boses gamit ang ElevenLabs TTS"
-read_when:
-  - Pagpapatupad ng Talk mode sa macOS/iOS/Android
-  - Pagbabago ng voice/TTS/interrupt na asal
 title: "Mode ng Talk"
 ---
 

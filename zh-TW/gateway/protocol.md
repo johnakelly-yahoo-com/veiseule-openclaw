@@ -1,9 +1,4 @@
 ---
-summary: "Gateway WebSocket 通訊協定：交握、框架、版本控管"
-read_when:
-  - 實作或更新 Gateway WS 用戶端
-  - 偵錯通訊協定不相容或連線失敗
-  - 重新產生通訊協定結構描述／模型
 title: "Gateway 通訊協定"
 ---
 

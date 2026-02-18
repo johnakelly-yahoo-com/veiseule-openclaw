@@ -1,7 +1,4 @@
 ---
-summary: "Verkenning: modelconfiguratie, authenticatieprofielen en fallbackgedrag"
-read_when:
-  - Verkennen van toekomstige ideeën voor modelselectie + authenticatieprofielen
 title: "Verkenning van modelconfiguratie"
 ---
 

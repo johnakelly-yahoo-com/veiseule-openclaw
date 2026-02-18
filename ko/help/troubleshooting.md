@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw 를 위한 증상 중심 문제 해결 허브"
-read_when:
-  - OpenClaw 가 작동하지 않아 가장 빠른 해결 경로가 필요할 때
-  - You want a triage flow before diving into deep runbooks
 title: "문제 해결"
 ---
 

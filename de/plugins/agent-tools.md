@@ -1,8 +1,4 @@
 ---
-summary: "Agent-Werkzeuge in einem Plugin schreiben (Schemas, optionale Werkzeuge, Allowlists)"
-read_when:
-  - Sie möchten in einem Plugin ein neues Agent-Werkzeug hinzufügen
-  - Sie müssen ein Werkzeug per Allowlist optional machen
 title: "Plugin-Agent-Werkzeuge"
 ---
 

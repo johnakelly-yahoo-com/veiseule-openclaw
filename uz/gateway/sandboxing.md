@@ -1,7 +1,5 @@
 ---
-summary: "OpenClaw sandboxing qanday ishlaydi: rejimlar, qamrov, ishchi maydonga kirish va obrazlar"
 title: "Sandboxlash"
-read_when: "You want a dedicated explanation of sandboxing or need to tune agents.defaults.sandbox."
 status: active
 ---
 

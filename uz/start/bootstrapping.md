@@ -1,9 +1,4 @@
 ---
-summary: "Agentni ishga tushirish marosimi, u ishchi muhit va identifikatsiya fayllarini dastlabki ma’lumotlar bilan to‘ldiradi"
-read_when:
-  - Understanding what happens on the first agent run
-  - Explaining where bootstrapping files live
-  - Debugging onboarding identity setup
 title: "Agentni ishga tushirish"
 sidebarTitle: "1. Bootstraplash"
 ---

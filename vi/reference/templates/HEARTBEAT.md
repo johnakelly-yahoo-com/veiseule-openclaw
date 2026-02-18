@@ -1,8 +1,4 @@
----
-summary: "Mẫu workspace cho HEARTBEAT.md"
-read_when:
-  - Khởi tạo một workspace thủ công
----
+------
 
 # HEARTBEAT.md
 

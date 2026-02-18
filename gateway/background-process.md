@@ -1,8 +1,4 @@
 ---
-summary: "Background exec execution and process management"
-read_when:
-  - Adding or modifying background exec behavior
-  - Debugging long-running exec tasks
 title: "Background Exec and Process Tool"
 ---
 

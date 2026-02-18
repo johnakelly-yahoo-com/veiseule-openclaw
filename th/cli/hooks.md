@@ -1,8 +1,4 @@
 ---
-summary: "เอกสารอ้างอิงCLIสำหรับ`openclaw hooks` (agent hooks)"
-read_when:
-  - คุณต้องการจัดการ agent hooks
-  - คุณต้องการติดตั้งหรืออัปเดต hooks
 title: "hooks"
 ---
 

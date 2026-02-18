@@ -1,8 +1,4 @@
 ---
-summary: "터미널 UI (TUI): 어떤 머신에서든 Gateway(게이트웨이)에 연결"
-read_when:
-  - TUI 에 대한 초보자 친화적인 안내가 필요할 때
-  - TUI 기능, 명령, 단축키의 전체 목록이 필요할 때
 title: "TUI"
 ---
 

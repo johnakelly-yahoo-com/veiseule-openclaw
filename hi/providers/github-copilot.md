@@ -1,8 +1,4 @@
 ---
-summary: "डिवाइस फ़्लो का उपयोग करके OpenClaw से GitHub Copilot में साइन इन करें"
-read_when:
-  - आप GitHub Copilot को मॉडल प्रदाता के रूप में उपयोग करना चाहते हैं
-  - आपको `openclaw models auth login-github-copilot` फ़्लो की आवश्यकता है
 title: "GitHub Copilot"
 ---
 

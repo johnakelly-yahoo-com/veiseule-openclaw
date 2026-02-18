@@ -1,7 +1,4 @@
 ---
-summary: "To‘g‘ridan-to‘g‘ri `openclaw agent` CLI ishga tushirishlari (ixtiyoriy yetkazib berish bilan)"
-read_when:
-  - Adding or modifying the agent CLI entrypoint
 title: "Agent yuborish"
 ---
 

@@ -1,8 +1,4 @@
----
-summary: "Ajan kimlik kaydı"
-read_when:
-  - Bir çalışma alanını elle başlatırken
----
+------
 
 # IDENTITY.md - Ben Kimim?
 

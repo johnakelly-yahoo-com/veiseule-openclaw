@@ -1,8 +1,4 @@
 ---
-summary: "Logging-oppervlakken, bestandslogs, WS-logstijlen en console-opmaak"
-read_when:
-  - Wijzigen van logging-uitvoer of -formaten
-  - Debuggen van CLI- of gateway-uitvoer
 title: "Logregistratie"
 ---
 

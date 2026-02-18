@@ -1,8 +1,4 @@
 ---
-summary: "Całkowite odinstalowanie OpenClaw (CLI, usługa, stan, obszar roboczy)"
-read_when:
-  - Chcesz usunąć OpenClaw z maszyny
-  - Usługa gateway nadal działa po odinstalowaniu
 title: "Odinstalowanie"
 ---
 

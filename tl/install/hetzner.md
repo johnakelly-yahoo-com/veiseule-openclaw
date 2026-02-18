@@ -1,10 +1,4 @@
 ---
-summary: "Patakbuhin ang OpenClaw Gateway 24/7 sa murang Hetzner VPS (Docker) na may matibay na state at baked-in na mga binary"
-read_when:
-  - Gusto mo ng OpenClaw na tumatakbo 24/7 sa isang cloud VPS (hindi sa iyong laptop)
-  - Gusto mo ng production-grade, laging naka-on na Gateway sa sarili mong VPS
-  - Gusto mo ng ganap na kontrol sa persistence, mga binary, at behavior ng restart
-  - Pinapatakbo mo ang OpenClaw sa Docker sa Hetzner o katulad na provider
 title: "Hetzner"
 ---
 

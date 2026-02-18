@@ -1,8 +1,4 @@
 ---
-summary: "Uppdatera OpenClaw säkert (global installation eller källkod), plus strategi för återställning"
-read_when:
-  - Uppdatera OpenClaw
-  - Något går sönder efter en uppdatering
 title: "Uppdatering"
 ---
 

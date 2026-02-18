@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 在没有 macOS UI 的情况下实现节点配对审批
-  - 添加用于审批远程节点的 CLI 流程
-  - 扩展 Gateway 网关协议以支持节点管理
-summary: Gateway 网关拥有的节点配对（选项 B），用于 iOS 和其他远程节点
 title: Gateway 网关拥有的配对
 x-i18n:
   generated_at: "2026-02-03T07:48:32Z"

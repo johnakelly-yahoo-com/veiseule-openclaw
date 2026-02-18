@@ -1,8 +1,4 @@
 ---
-summary: "Slash-commando’s: tekst vs native, configuratie en ondersteunde commando’s"
-read_when:
-  - Gebruik of configuratie van chatcommando’s
-  - Debuggen van commandorouting of rechten
 title: "Slash-commando’s"
 ---
 

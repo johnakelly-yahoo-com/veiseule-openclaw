@@ -1,7 +1,4 @@
 ---
-summary: "„Cykl życia nakładki głosowej, gdy nakładają się słowo wybudzające i tryb push‑to‑talk”"
-read_when:
-  - Dostosowywanie zachowania nakładki głosowej
 title: "„Nakładka głosowa”"
 ---
 

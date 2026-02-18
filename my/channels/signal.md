@@ -1,8 +1,4 @@
 ---
-summary: "signal-cli (JSON-RPC + SSE) ကိုအသုံးပြုသော Signal ပံ့ပိုးမှု၊ setup နှင့် နံပါတ် မော်ဒယ်"
-read_when:
-  - Signal ပံ့ပိုးမှုကို တပ်ဆင်ချိန်
-  - Signal ပို့/လက်ခံမှုကို ပြဿနာရှာဖွေချိန်
 title: "Signal"
 ---
 

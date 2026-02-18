@@ -1,7 +1,4 @@
 ---
-summary: "Agent loop hayotiy sikli, streamlar va kutish semantikasi"
-read_when:
-  - Siz agent loopi yoki hayotiy sikl hodisalari bo‘yicha aniq bosqichma-bosqich tushuntirishni xohlaysiz
 title: "Agent Loop"
 ---
 

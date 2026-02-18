@@ -1,7 +1,4 @@
 ---
-summary: "Telegram allowlist 강화: 접두사 + 공백 정규화"
-read_when:
-  - 과거 Telegram allowlist 변경 사항을 검토할 때
 title: "Telegram Allowlist 강화"
 ---
 

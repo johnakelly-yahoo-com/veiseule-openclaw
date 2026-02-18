@@ -1,9 +1,4 @@
 ---
-summary: "Felsök schemaläggning och leverans för cron och heartbeat"
-read_when:
-  - Cron kördes inte
-  - Cron kördes men inget meddelande levererades
-  - Heartbeat verkar tyst eller hoppades över
 title: "Felsökning av automatisering"
 ---
 

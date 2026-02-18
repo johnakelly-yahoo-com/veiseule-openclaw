@@ -1,9 +1,4 @@
 ---
-summary: "Moonshot K2 대 Kimi Coding 설정 (분리된 프로바이더 + 키)"
-read_when:
-  - Moonshot K2 (Moonshot Open Platform)와 Kimi Coding 설정이 필요할 때
-  - 분리된 엔드포인트, 키, 모델 참조를 이해해야 할 때
-  - 어느 프로바이더든 복사/붙여넣기 설정을 원할 때
 title: "Moonshot AI"
 ---
 

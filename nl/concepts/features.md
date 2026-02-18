@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw-mogelijkheden over kanalen, routering, media en UX."
-read_when:
-  - Je wilt een volledige lijst van wat OpenClaw ondersteunt
 title: "Functies"
 ---
 

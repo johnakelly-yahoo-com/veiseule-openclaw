@@ -1,8 +1,4 @@
 ---
-summary: "Diagnostische vlaggen voor gerichte debuglogs"
-read_when:
-  - Je hebt gerichte debuglogs nodig zonder het globale logniveau te verhogen
-  - Je moet subsysteem-specifieke logs vastleggen voor ondersteuning
 title: "Diagnostische vlaggen"
 ---
 

@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 你想将 OpenClaw 连接到 LINE
-  - 你需要配置 LINE webhook + 凭证
-  - 你想了解 LINE 特有的消息选项
-summary: LINE Messaging API 插件的配置、设置和使用方法
 title: LINE
 x-i18n:
   generated_at: "2026-02-03T07:43:38Z"

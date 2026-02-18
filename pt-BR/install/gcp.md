@@ -1,9 +1,4 @@
 ---
-summary: "Execute o OpenClaw Gateway 24/7 em uma VM do GCP Compute Engine (Docker) com estado durável"
-read_when:
-  - Você quer o OpenClaw rodando 24/7 no GCP
-  - Você quer um Gateway sempre ativo, de nível de produção, na sua própria VM
-  - Você quer controle total sobre persistência, binários e comportamento de reinicialização
 title: "GCP"
 ---
 

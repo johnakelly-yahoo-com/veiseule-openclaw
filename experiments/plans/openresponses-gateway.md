@@ -1,5 +1,4 @@
 ---
-summary: "Plan: Add OpenResponses /v1/responses endpoint and deprecate chat completions cleanly"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"

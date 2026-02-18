@@ -1,7 +1,4 @@
 ---
-summary: "Remote na access gamit ang SSH tunnels (Gateway WS) at mga tailnet"
-read_when:
-  - Kapag nagpapatakbo o nagti-troubleshoot ng mga remote gateway setup
 title: "Malayuang Access"
 ---
 

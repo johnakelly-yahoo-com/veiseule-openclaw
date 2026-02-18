@@ -1,8 +1,4 @@
 ---
-summary: "Tawagin ang isang solong tool nang direkta sa pamamagitan ng Gateway HTTP endpoint"
-read_when:
-  - Pagtawag ng mga tool nang hindi nagpapatakbo ng buong agent turn
-  - Pagbuo ng mga automation na nangangailangan ng pagpapatupad ng tool policy
 title: "API ng Pag-invoke ng mga Tool"
 ---
 

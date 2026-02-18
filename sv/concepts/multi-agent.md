@@ -1,7 +1,5 @@
 ---
-summary: "Multi-agent-routning: isolerade agenter, kanalkonton och bindningar"
 title: Multi-Agent-routning
-read_when: "Du vill ha flera isolerade agenter (arbetsytor + autentisering) i en gateway-process."
 status: active
 ---
 

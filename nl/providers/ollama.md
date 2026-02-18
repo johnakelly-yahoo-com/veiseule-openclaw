@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw uitvoeren met Ollama (lokale LLM-runtime)"
-read_when:
-  - Je wilt OpenClaw uitvoeren met lokale modellen via Ollama
-  - Je hebt begeleiding nodig bij het opzetten en configureren van Ollama
 title: "Ollama"
 ---
 

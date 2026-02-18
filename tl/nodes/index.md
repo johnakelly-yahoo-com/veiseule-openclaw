@@ -1,9 +1,4 @@
 ---
-summary: "Mga Node: pag-pair, mga kakayahan, mga permiso, at mga helper ng CLI para sa canvas/camera/screen/system"
-read_when:
-  - Pagpa-pair ng iOS/Android na mga node sa isang gateway
-  - Paggamit ng node canvas/camera para sa konteksto ng agent
-  - Pagdaragdag ng mga bagong node command o CLI helper
 title: "Mga Node"
 ---
 

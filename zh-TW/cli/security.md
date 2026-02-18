@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw security」的 CLI 參考文件（稽核並修復常見的安全性陷阱）"
-read_when:
-  - 你想要對設定／狀態執行快速的安全性稽核
-  - 你想要套用安全的「修復」建議（chmod、收緊預設值）
 title: "安全性"
 ---
 

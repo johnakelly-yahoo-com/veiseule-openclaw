@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw içinde Venice AI gizlilik odaklı modellerini kullanın"
-read_when:
-  - OpenClaw içinde gizlilik odaklı çıkarım istiyorsunuz
-  - Venice AI kurulum rehberine ihtiyacınız var
 title: "Venice AI"
 ---
 

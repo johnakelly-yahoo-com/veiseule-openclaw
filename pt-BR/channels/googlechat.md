@@ -1,7 +1,4 @@
 ---
-summary: "Status de suporte do app Google Chat, capacidades e configuração"
-read_when:
-  - Trabalhando em recursos do canal Google Chat
 title: "Google Chat"
 ---
 

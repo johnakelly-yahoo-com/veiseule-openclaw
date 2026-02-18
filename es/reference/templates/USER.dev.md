@@ -1,9 +1,4 @@
----
-summary: "Perfil de usuario del agente de desarrollo (C-3PO)"
-read_when:
-  - Al usar las plantillas del Gateway de desarrollo
-  - Al actualizar la identidad predeterminada del agente de desarrollo
----
+------
 
 # USER.md - Perfil de usuario
 

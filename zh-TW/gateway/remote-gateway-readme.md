@@ -1,6 +1,4 @@
 ---
-summary: "用於 OpenClaw.app 連線至遠端 Gateway 閘道器的 SSH 通道設定"
-read_when: "透過 SSH 將 macOS 應用程式連線至遠端 Gateway 閘道器"
 title: "遠端 Gateway 閘道器設定"
 ---
 

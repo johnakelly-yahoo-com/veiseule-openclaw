@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw reset` (återställ lokal status/konfig)"
-read_when:
-  - Du vill rensa lokal status samtidigt som CLI:t förblir installerat
-  - Du vill göra en torrkörning av vad som skulle tas bort
 title: "återställ"
 ---
 

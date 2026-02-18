@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw node` için CLI başvurusu (başsız node ana makinesi)"
-read_when:
-  - Başsız node ana makinesini çalıştırırken
-  - system.run için macOS olmayan bir node’u eşleştirirken
 title: "node"
 ---
 

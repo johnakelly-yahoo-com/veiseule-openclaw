@@ -1,9 +1,4 @@
 ---
-summary: "Nodes: Kopplung, Fähigkeiten, Berechtigungen und CLI-Hilfsprogramme für Canvas/Kamera/Bildschirm/System"
-read_when:
-  - Koppeln von iOS/Android-Nodes mit einem Gateway
-  - Verwendung von Node-Canvas/Kamera für Agenten-Kontext
-  - Hinzufügen neuer Node-Befehle oder CLI-Hilfsprogramme
 title: "Knoten"
 ---
 

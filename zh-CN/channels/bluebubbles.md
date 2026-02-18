@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 设置 BlueBubbles 渠道
-  - 排查 webhook 配对问题
-  - 在 macOS 上配置 iMessage
-summary: 通过 BlueBubbles macOS 服务器使用 iMessage（REST 发送/接收、输入状态、回应、配对、高级操作）。
 title: BlueBubbles
 x-i18n:
   generated_at: "2026-02-03T10:04:52Z"

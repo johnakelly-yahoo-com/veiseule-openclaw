@@ -1,7 +1,4 @@
 ---
-summary: "”Beteende och konfig för hantering av WhatsApp-gruppmeddelanden (mentionPatterns delas över ytor)”"
-read_when:
-  - Ändrar regler för gruppmeddelanden eller omnämnanden
 title: "”Gruppmeddelanden”"
 ---
 

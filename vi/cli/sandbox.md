@@ -1,7 +1,5 @@
 ---
 title: "CLI cho môi trường thử nghiệm"
-summary: "Quản lý các container sandbox và kiểm tra chính sách sandbox hiệu lực"
-read_when: "Khi bạn đang quản lý các container sandbox hoặc gỡ lỗi hành vi sandbox/chính sách công cụ."
 status: active
 ---
 

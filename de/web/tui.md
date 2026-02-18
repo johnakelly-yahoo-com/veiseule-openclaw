@@ -1,8 +1,4 @@
 ---
-summary: "„Terminal-UI (TUI): Verbindung zum Gateway von jedem Rechner aus“"
-read_when:
-  - Sie möchten eine einsteigerfreundliche Einführung in die TUI
-  - Sie benötigen die vollständige Liste der TUI-Funktionen, -Befehle und -Tastenkürzel
 title: "„TUI“"
 ---
 

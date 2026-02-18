@@ -1,8 +1,4 @@
 ---
-summary: "दूरस्थ पहुँच के लिए exe.dev (VM + HTTPS प्रॉक्सी) पर OpenClaw Gateway चलाएँ"
-read_when:
-  - आपको Gateway के लिए एक सस्ता, हमेशा चालू रहने वाला Linux होस्ट चाहिए
-  - आप अपना स्वयं का VPS चलाए बिना दूरस्थ Control UI एक्सेस चाहते हैं
 title: "exe.dev"
 ---
 

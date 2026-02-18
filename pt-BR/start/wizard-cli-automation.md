@@ -1,8 +1,4 @@
 ---
-summary: "Integração inicial por script e configuração de agente para a CLI do OpenClaw"
-read_when:
-  - Você está automatizando a integração inicial em scripts ou CI
-  - Você precisa de exemplos não interativos para provedores específicos
 title: "Automação da CLI"
 sidebarTitle: "Automação de CLI"
 ---

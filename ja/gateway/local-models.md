@@ -1,9 +1,4 @@
 ---
-summary: "ローカル LLM（LM Studio、vLLM、LiteLLM、カスタム OpenAI エンドポイント）で OpenClaw を実行します"
-read_when:
-  - 自前の GPU マシンからモデルを提供したい場合
-  - LM Studio や OpenAI 互換プロキシを接続している場合
-  - 最も安全なローカルモデルのガイダンスが必要な場合
 title: "ローカルモデル"
 ---
 

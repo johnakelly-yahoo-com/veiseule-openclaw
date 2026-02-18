@@ -1,7 +1,4 @@
 ---
-summary: "SSH tünelleri (Gateway WS) ve tailnet'ler kullanarak uzaktan erişim"
-read_when:
-  - Uzak gateway kurulumlarını çalıştırırken veya sorun giderirken
 title: "Uzaktan Erişim"
 ---
 

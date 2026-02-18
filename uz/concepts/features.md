@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw imkoniyatlari kanallar, marshrutlash, media va UX bo‘yicha."
-read_when:
-  - You want a full list of what OpenClaw supports
 title: "Xususiyatlar"
 ---
 

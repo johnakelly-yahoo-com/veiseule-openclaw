@@ -1,9 +1,4 @@
 ---
-summary: "Onderzoeksnotities: offline geheugensysteem voor Clawd-werkruimtes (Markdown als bron van waarheid + afgeleide index)"
-read_when:
-  - Ontwerpen van werkruimtegeheugen (~/.openclaw/workspace) voorbij dagelijkse Markdown-logs
-  - Deciding: "Beslissen: zelfstandige CLI vs diepe OpenClaw-integratie"
-  - Offline terughalen + reflectie toevoegen (retain/recall/reflect)
 title: "Werkruimtegeheugenonderzoek"
 ---
 

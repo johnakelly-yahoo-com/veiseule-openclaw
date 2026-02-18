@@ -1,7 +1,4 @@
 ---
-summary: "Regler, nycklar och persistens för sessionshantering i chattar"
-read_when:
-  - Modifierar sessionshantering eller lagring
 title: "Sessionshantering"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "ClawHub qo‘llanmasi: ommaviy skilllar reyestri + CLI ish jarayonlari"
-read_when:
-  - ClawHub’ni yangi foydalanuvchilarga tanishtirish
-  - 24. Ko‘nikmalarni o‘rnatish, qidirish yoki nashr qilish
-  - ClawHub CLI flaglari va sinxronlash xatti-harakatlarini tushuntirish
 title: "ClawHub"
 ---
 

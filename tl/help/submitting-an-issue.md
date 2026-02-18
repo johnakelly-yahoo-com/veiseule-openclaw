@@ -1,5 +1,4 @@
 ---
-summary: "Pagsusumite ng mga isyung may mataas na signal at bug report"
 title: "Pagsusumite ng Isyu"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Bonjour/mDNS keşfi + hata ayıklama (Gateway işaretçileri, istemciler ve yaygın arıza modları)"
-read_when:
-  - macOS/iOS üzerinde Bonjour keşif sorunlarını giderirken
-  - mDNS hizmet türlerini, TXT kayıtlarını veya keşif UX’ini değiştirirken
 title: "Bonjour Keşfi"
 ---
 

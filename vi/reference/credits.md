@@ -1,7 +1,4 @@
 ---
-summary: "Nguồn gốc dự án, người đóng góp và giấy phép."
-read_when:
-  - Bạn muốn tìm hiểu câu chuyện ra đời của dự án hoặc ghi nhận người đóng góp
 title: "Ghi công"
 ---
 

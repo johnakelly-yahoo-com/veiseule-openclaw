@@ -1,8 +1,4 @@
 ---
-summary: "Scripts du dépôt : objectif, périmètre et notes de sécurité"
-read_when:
-  - Exécuter des scripts depuis le dépôt
-  - Ajouter ou modifier des scripts sous ./scripts
 title: "Scripts"
 ---
 

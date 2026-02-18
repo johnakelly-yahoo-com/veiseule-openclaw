@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 调试模型认证或 OAuth 过期
-  - 记录认证或凭证存储
-summary: 模型认证：OAuth、API 密钥和 setup-token
 title: 认证
 x-i18n:
   generated_at: "2026-02-03T07:47:32Z"

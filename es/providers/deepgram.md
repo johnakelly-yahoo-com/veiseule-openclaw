@@ -1,8 +1,4 @@
 ---
-summary: "Transcripción de Deepgram para notas de voz entrantes"
-read_when:
-  - Quiere usar speech-to-text de Deepgram para adjuntos de audio
-  - Necesita un ejemplo rápido de configuración de Deepgram
 title: "Deepgram"
 ---
 

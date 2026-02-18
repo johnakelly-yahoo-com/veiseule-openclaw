@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 添加或修改投票支持
-  - 调试从 CLI 或 Gateway 网关发送的投票
-summary: 通过 Gateway 网关 + CLI 发送投票
 title: 投票
 x-i18n:
   generated_at: "2026-02-03T07:43:12Z"

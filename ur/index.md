@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw ایک کثیر-چینل Gateway ہے جو AI ایجنٹس کے لیے کسی بھی OS پر چلتا ہے۔"
-read_when:
-  - نئے صارفین کو OpenClaw سے متعارف کراتے وقت
 title: "OpenClaw"
 ---
 

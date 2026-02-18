@@ -1,7 +1,4 @@
 ---
-summary: "Toegang op afstand via SSH-tunnels (Gateway WS) en tailnets"
-read_when:
-  - Bij het uitvoeren of oplossen van problemen met externe Gateway-opstellingen
 title: "Toegang op afstand"
 ---
 

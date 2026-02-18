@@ -1,11 +1,6 @@
 ---
 title: Lobster
-summary: "Typet workflow-runtime til OpenClaw med genoptagelige godkendelsesporte."
-description: Typet workflow-runtime til OpenClaw — sammensættelige pipelines med godkendelsesporte.
-read_when:
-  - Du ønsker deterministiske flertrins-workflows med eksplicitte godkendelser
-  - Du har brug for at genoptage et workflow uden at genkøre tidligere trin
----
+description: Typet workflow-runtime til OpenClaw — sammensættelige pipelines med godkendelsesporte.---
 
 # Lobster
 

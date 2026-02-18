@@ -1,5 +1,4 @@
 ---
-summary: "Abertura de issues e relatórios de bugs de alto sinal"
 title: "Enviando um Issue"
 ---
 

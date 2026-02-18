@@ -1,9 +1,4 @@
 ---
-summary: "Gateway WebSocket-protokol: håndtryk, frames, versionering"
-read_when:
-  - Implementering eller opdatering af gateway WS-klienter
-  - Fejlfinding af protokol-mismatch eller forbindelsesfejl
-  - Gengenerering af protokolschemaer/modeller
 title: "Gateway-protokol"
 ---
 

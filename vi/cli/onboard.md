@@ -1,7 +1,4 @@
 ---
-summary: "Tài liệu tham chiếu CLI cho `openclaw onboard` (trình hướng dẫn onboarding tương tác)"
-read_when:
-  - Bạn muốn thiết lập có hướng dẫn cho gateway, workspace, xác thực, kênh và skills
 title: "onboard"
 ---
 

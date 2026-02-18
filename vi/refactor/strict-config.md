@@ -1,9 +1,4 @@
 ---
-summary: "Xác thực cấu hình nghiêm ngặt + migration chỉ qua doctor"
-read_when:
-  - Thiết kế hoặc triển khai hành vi xác thực cấu hình
-  - Làm việc với migration cấu hình hoặc quy trình doctor
-  - Xử lý schema cấu hình plugin hoặc kiểm soát việc tải plugin
 title: "Xác thực cấu hình nghiêm ngặt"
 ---
 

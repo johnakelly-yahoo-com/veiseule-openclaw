@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 你想了解项目背景故事或贡献者致谢信息
-summary: 项目起源、贡献者和许可证。
 title: 致谢
 x-i18n:
   generated_at: "2026-02-04T17:53:19Z"

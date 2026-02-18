@@ -1,8 +1,4 @@
 ---
-summary: "Referencja CLI dla `openclaw plugins` (lista, instalacja, włączanie/wyłączanie, diagnostyka)"
-read_when:
-  - Chcesz zainstalować lub zarządzać wtyczkami Gateway działającymi w procesie
-  - Chcesz debugować niepowodzenia ładowania wtyczek
 title: "wtyczki"
 ---
 

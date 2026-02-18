@@ -1,8 +1,4 @@
 ---
-summary: "背景 exec 執行與程序管理"
-read_when:
-  - 新增或修改背景 exec 行為
-  - 除錯長時間執行的 exec 任務
 title: "背景 Exec 與 Process 工具"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "50. Chatlar uchun sessiyani boshqarish qoidalari, kalitlar va saqlanishi"
-read_when:
-  - Modifying session handling or storage
 title: "Sessiyani boshqarish"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw 앱, Gateway(게이트웨이) 노드 전송, 그리고 PeekabooBridge를 위한 macOS IPC 아키텍처"
-read_when:
-  - IPC 계약 또는 메뉴 바 앱 IPC를 편집할 때
 title: "macOS 프로세스 간 통신"
 ---
 

@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 发布新的 npm 版本
-  - 发布新的 macOS 应用版本
-  - 发布前验证元数据
-summary: npm + macOS 应用的逐步发布清单
 x-i18n:
   generated_at: "2026-02-03T10:09:28Z"
   model: claude-opus-4-5

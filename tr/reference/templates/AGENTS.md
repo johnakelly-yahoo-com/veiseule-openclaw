@@ -1,8 +1,4 @@
----
-summary: "AGENTS.md için çalışma alanı şablonu"
-read_when:
-  - Bir çalışma alanını manuel olarak başlatırken
----
+------
 
 # AGENTS.md - Çalışma Alanınız
 

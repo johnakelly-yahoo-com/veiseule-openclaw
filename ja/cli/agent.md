@@ -1,7 +1,4 @@
 ---
-summary: "CLI 参照：`openclaw agent`（Gateway（ゲートウェイ）経由で 1 回のエージェントターンを送信）"
-read_when:
-  - スクリプトから 1 回のエージェントターンを実行したい場合（オプションで返信を配信）
 title: "agent"
 ---
 

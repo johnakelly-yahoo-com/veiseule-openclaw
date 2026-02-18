@@ -1,7 +1,4 @@
 ---
-summary: "Menü çubuğu durum mantığı ve kullanıcılara neyin sunulduğu"
-read_when:
-  - Mac menü kullanıcı arayüzü veya durum mantığı üzerinde ayarlamalar yaparken
 title: "Menü Çubuğu"
 ---
 

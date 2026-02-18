@@ -1,9 +1,4 @@
----
-summary: "„Notizen zu Dev-Agent-Werkzeugen (C-3PO)“"
-read_when:
-  - Verwendung der Dev-Gateway-Vorlagen
-  - Beim Aktualisieren der Standardidentität des Dev-Agenten
----
+------
 
 # TOOLS.md – Hinweise zu Benutzerwerkzeugen (bearbeitbar)
 

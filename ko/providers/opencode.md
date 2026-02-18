@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw 에서 OpenCode Zen (큐레이션된 모델) 사용"
-read_when:
-  - 모델 접근을 위해 OpenCode Zen 이 필요할 때
-  - 코딩에 친화적인 모델의 큐레이션된 목록이 필요할 때
 title: "OpenCode Zen"
 ---
 

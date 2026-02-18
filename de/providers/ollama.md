@@ -1,8 +1,4 @@
 ---
-summary: "„OpenClaw mit Ollama (lokale LLM-Laufzeit) ausführen“"
-read_when:
-  - Sie möchten OpenClaw mit lokalen Modellen über Ollama ausführen
-  - Sie benötigen Anleitungen zur Einrichtung und Konfiguration von Ollama
 title: "Ollama"
 ---
 

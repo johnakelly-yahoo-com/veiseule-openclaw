@@ -1,7 +1,4 @@
 ---
-summary: "Narzędzia sesji agenta do listowania sesji, pobierania historii oraz wysyłania wiadomości między sesjami"
-read_when:
-  - Dodawanie lub modyfikowanie narzędzi sesji
 title: "Narzędzia sesji"
 ---
 

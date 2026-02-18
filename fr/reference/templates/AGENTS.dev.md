@@ -1,9 +1,4 @@
----
-summary: "Agent de dev AGENTS.md (C-3PO)"
-read_when:
-  - Utilisation des templates de la passerelle de dev
-  - Mise a jour de l'identite par defaut de l'agent de dev
----
+------
 
 # AGENTS.md - Workspace OpenClaw
 

@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想从 OpenClaw 发起出站语音通话
-  - 你正在配置或开发 voice-call 插件
-summary: Voice Call 插件：通过 Twilio/Telnyx/Plivo 进行出站 + 入站通话（插件安装 + 配置 + CLI）
 title: Voice Call 插件
 x-i18n:
   generated_at: "2026-02-03T07:53:40Z"

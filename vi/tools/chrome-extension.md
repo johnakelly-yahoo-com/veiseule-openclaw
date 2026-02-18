@@ -1,9 +1,4 @@
 ---
-summary: "Tiện ích Chrome: cho phép OpenClaw điều khiển tab Chrome hiện có của bạn"
-read_when:
-  - Bạn muốn tác tử điều khiển một tab Chrome hiện có (nút trên thanh công cụ)
-  - Bạn cần Gateway từ xa + tự động hóa trình duyệt cục bộ qua Tailscale
-  - Bạn muốn hiểu các hệ quả bảo mật của việc chiếm quyền trình duyệt
 title: "Tiện ích Chrome"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "38. OpenClaw macOS ilovasi ustida ishlayotgan dasturchilar uchun sozlash qo‘llanmasi"
-read_when:
-  - 39. macOS ishlab chiqish muhitini sozlash
 title: "40. macOS Dev Setup"
 ---
 

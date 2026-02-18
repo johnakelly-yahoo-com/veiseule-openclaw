@@ -1,7 +1,4 @@
 ---
-summary: "Hvordan macOS-appen rapporterer gateway/Baileys-sundhedstilstande"
-read_when:
-  - Fejlfinding af mac-appens sundhedsindikatorer
 title: "Sundhedstjek"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Exécuter le pont ACP pour les integrations d’IDE"
-read_when:
-  - Mise en place d’integrations d’IDE basees sur ACP
-  - Debogage du routage des sessions ACP vers la Gateway (passerelle)
 title: "acp"
 ---
 

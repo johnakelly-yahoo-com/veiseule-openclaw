@@ -1,7 +1,4 @@
 ---
-summary: "Cómo la app de macOS informa los estados de salud del Gateway/Baileys"
-read_when:
-  - Depuración de los indicadores de salud de la app de macOS
 title: "Comprobaciones de salud"
 ---
 

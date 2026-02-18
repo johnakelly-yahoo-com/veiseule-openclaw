@@ -1,8 +1,4 @@
 ---
-summary: "Terminalowy interfejs użytkownika (TUI): połącz się z Gateway z dowolnej maszyny"
-read_when:
-  - Chcesz przyjaznego dla początkujących wprowadzenia do TUI
-  - Potrzebujesz kompletnej listy funkcji, poleceń i skrótów TUI
 title: "TUI"
 ---
 

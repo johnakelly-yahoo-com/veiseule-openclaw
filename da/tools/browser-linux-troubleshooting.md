@@ -1,6 +1,4 @@
 ---
-summary: "Ret Chrome/Brave/Edge/Chromium CDP-opstartsproblemer for OpenClaw browserkontrol på Linux"
-read_when: "Browserkontrol fejler på Linux, især med snap Chromium"
 title: "Browser-fejlfinding"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Suporta sa Signal sa pamamagitan ng signal-cli (JSON-RPC + SSE), setup, at modelo ng numero"
-read_when:
-  - Pagse-set up ng suporta sa Signal
-  - Pag-debug ng pagpapadala/pagtanggap sa Signal
 title: "Signal"
 ---
 

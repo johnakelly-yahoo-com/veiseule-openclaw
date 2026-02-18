@@ -1,8 +1,4 @@
 ---
-summary: "macOS Skills 設定 UI 與以 Gateway 閘道器為後端的狀態"
-read_when:
-  - 更新 macOS Skills 設定 UI
-  - 變更 Skills 的管控或安裝行為
 title: "技能"
 ---
 

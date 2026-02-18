@@ -1,8 +1,4 @@
 ---
-summary: "Parsowanie lokalizacji kanału przychodzącego (Telegram + WhatsApp) oraz pola kontekstu"
-read_when:
-  - Dodawanie lub modyfikowanie parsowania lokalizacji kanałów
-  - Używanie pól kontekstu lokalizacji w promptach lub narzędziach agentów
 title: "Parsowanie lokalizacji kanału"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw တွင် Qwen OAuth (အခမဲ့အဆင့်) ကို အသုံးပြုရန်"
-read_when:
-  - OpenClaw နှင့် Qwen ကို အသုံးပြုလိုပါက
-  - Qwen Coder အတွက် အခမဲ့အဆင့် OAuth ဝင်ရောက်ခွင့်ကို လိုအပ်ပါက
 title: "Qwen"
 ---
 

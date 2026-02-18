@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw 에서 Venice AI 프라이버시 중심 모델 사용"
-read_when:
-  - OpenClaw 에서 프라이버시 중심 추론이 필요합니다
-  - Venice AI 설정 가이드가 필요합니다
 title: "Venice AI"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Dostawcy modeli (LLM) obsługiwani przez OpenClaw"
-read_when:
-  - Chcesz wybrać dostawcę modelu
-  - Potrzebujesz szybkiego przeglądu obsługiwanych backendów LLM
 title: "Dostawcy modeli"
 ---
 

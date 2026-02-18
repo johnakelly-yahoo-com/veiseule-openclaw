@@ -1,8 +1,4 @@
 ---
-summary: "IDE एकीकरणों के लिए ACP ब्रिज चलाएँ"
-read_when:
-  - ACP-आधारित IDE एकीकरण सेट करते समय
-  - Gateway तक ACP सत्र रूटिंग का डिबग करते समय
 title: "acp"
 ---
 

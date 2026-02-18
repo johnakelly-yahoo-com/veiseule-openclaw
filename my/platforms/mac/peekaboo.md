@@ -1,9 +1,4 @@
 ---
-summary: "macOS UI အလိုအလျောက်လုပ်ဆောင်မှုအတွက် PeekabooBridge ပေါင်းစည်းမှု"
-read_when:
-  - OpenClaw.app အတွင်း PeekabooBridge ကို ဟို့စ်တင်ခြင်း
-  - Swift Package Manager ဖြင့် Peekaboo ကို ပေါင်းစည်းခြင်း
-  - PeekabooBridge ပရိုတိုကော/လမ်းကြောင်းများ ပြောင်းလဲခြင်း
 title: "Peekaboo Bridge"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "macOS uygulamasının gateway WebChat’i nasıl gömdüğü ve bunun nasıl hata ayıklanacağı"
-read_when:
-  - macOS WebChat görünümü veya loopback portu hata ayıklanırken
 title: "WebChat"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "WhatsApp grup mesajı işleme davranışı ve yapılandırması (mentionPatterns yüzeyler arasında paylaşılır)"
-read_when:
-  - Grup mesajı kurallarını veya mention’ları değiştirirken
 title: "Grup Mesajları"
 ---
 

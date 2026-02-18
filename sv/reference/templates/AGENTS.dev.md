@@ -1,9 +1,4 @@
----
-summary: "Dev-agent AGENTS.md (C-3PO)"
-read_when:
-  - Användning av dev-gateway-mallarna
-  - Uppdatering av standardidentiteten för dev-agenten
----
+------
 
 # AGENTS.md – OpenClaw Workspace
 

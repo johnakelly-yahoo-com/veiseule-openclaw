@@ -1,9 +1,4 @@
 ---
-summary: "Chrome 拡張機能：既存の Chrome タブを OpenClaw で操作できるようにします"
-read_when:
-  - エージェントに既存の Chrome タブ（ツールバーボタン）を操作させたい場合
-  - Tailscale 経由でリモート Gateway + ローカルブラウザー自動化が必要な場合
-  - ブラウザー乗っ取りのセキュリティ上の影響を理解したい場合
 title: "Chrome 拡張機能"
 ---
 

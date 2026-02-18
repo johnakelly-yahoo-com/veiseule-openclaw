@@ -1,7 +1,4 @@
 ---
-summary: "Cấu hình và thiết lập bot chat Twitch"
-read_when:
-  - Thiết lập tích hợp chat Twitch cho OpenClaw
 title: "Twitch"
 ---
 

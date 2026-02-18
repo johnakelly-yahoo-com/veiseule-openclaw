@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS ریلیز چیک لسٹ (Sparkle فیڈ، پیکیجنگ، سائننگ)"
-read_when:
-  - OpenClaw macOS ریلیز کو کاٹتے یا اس کی توثیق کرتے وقت
-  - Sparkle appcast یا فیڈ اثاثوں کو اپ ڈیٹ کرتے وقت
 title: "macOS ریلیز"
 ---
 

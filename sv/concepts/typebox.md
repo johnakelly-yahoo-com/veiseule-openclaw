@@ -1,7 +1,4 @@
 ---
-summary: "TypeBox-scheman som den enda sanningskällan för gateway-protokollet"
-read_when:
-  - Uppdaterar protokollscheman eller codegen
 title: "TypeBox"
 ---
 

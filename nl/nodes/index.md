@@ -1,9 +1,4 @@
 ---
-summary: "Nodes: koppelen, mogelijkheden, rechten en CLI-hulpprogramma’s voor canvas/camera/scherm/systeem"
-read_when:
-  - iOS/Android-nodes koppelen aan een gateway
-  - Node-canvas/camera gebruiken voor agentcontext
-  - Nieuwe node-opdrachten of CLI-hulpprogramma’s toevoegen
 title: "Knooppunten"
 ---
 

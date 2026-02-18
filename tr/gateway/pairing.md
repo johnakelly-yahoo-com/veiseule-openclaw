@@ -1,9 +1,4 @@
 ---
-summary: "iOS ve diğer uzak düğümler için Gateway’ye ait düğüm eşleştirmesi (Seçenek B)"
-read_when:
-  - macOS kullanıcı arayüzü olmadan düğüm eşleştirme onaylarının uygulanması
-  - Uzak düğümleri onaylamak için CLI akışlarının eklenmesi
-  - Gateway protokolünün düğüm yönetimiyle genişletilmesi
 title: "Gateway-Sahipli Eşleştirme"
 ---
 

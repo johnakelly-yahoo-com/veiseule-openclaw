@@ -1,8 +1,4 @@
 ---
-summary: "Mattermost bot setup and OpenClaw config"
-read_when:
-  - Setting up Mattermost
-  - Debugging Mattermost routing
 title: "Mattermost"
 ---
 

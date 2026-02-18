@@ -1,7 +1,4 @@
 ---
-summary: "macOS IPC-arkitektur for OpenClaw-appen, gateway-node-transport og PeekabooBridge"
-read_when:
-  - Redigering af IPC-kontrakter eller menulinje-appens IPC
 title: "macOS IPC"
 ---
 

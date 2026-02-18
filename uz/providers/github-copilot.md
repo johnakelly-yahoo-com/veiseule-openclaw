@@ -1,8 +1,4 @@
 ---
-summary: "7. Qurilma oqimi orqali OpenClaw’dan GitHub Copilot’ga kiring"
-read_when:
-  - 8. Siz GitHub Copilot’ni model provayderi sifatida ishlatmoqchisiz
-  - 9. Sizga `openclaw models auth login-github-copilot` oqimi kerak
 title: "10. GitHub Copilot"
 ---
 

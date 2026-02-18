@@ -1,9 +1,4 @@
 ---
-summary: "Zautomatyzowana, utwardzona instalacja OpenClaw z użyciem Ansible, VPN Tailscale oraz izolacji zapory"
-read_when:
-  - Chcesz zautomatyzowanego wdrażania serwerów z utwardzaniem bezpieczeństwa
-  - Potrzebujesz konfiguracji izolowanej zaporą z dostępem przez VPN
-  - Wdrażasz na zdalnych serwerach Debian/Ubuntu
 title: "Ansible"
 ---
 

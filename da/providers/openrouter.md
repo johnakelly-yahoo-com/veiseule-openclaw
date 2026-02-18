@@ -1,8 +1,4 @@
 ---
-summary: "Brug OpenRouters samlede API til at få adgang til mange modeller i OpenClaw"
-read_when:
-  - Du vil have én enkelt API-nøgle til mange LLM’er
-  - Du vil køre modeller via OpenRouter i OpenClaw
 title: "OpenRouter"
 ---
 

@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 为回复启用文本转语音
-  - 配置 TTS 提供商或限制
-  - 使用 /tts 命令
-summary: 出站回复的文本转语音（TTS）
 title: 文本转语音
 x-i18n:
   generated_at: "2026-02-03T10:13:55Z"

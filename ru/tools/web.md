@@ -1,9 +1,4 @@
 ---
-summary: "Инструменты веб-поиска и загрузки (Brave Search API, Perplexity напрямую/OpenRouter)"
-read_when:
-  - Вы хотите включить web_search или web_fetch
-  - Вам нужна настройка ключа Brave Search API
-  - Вы хотите использовать Perplexity Sonar для веб-поиска
 title: "Веб-инструменты"
 ---
 

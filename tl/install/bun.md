@@ -1,8 +1,4 @@
 ---
-summary: "Workflow ng Bun (eksperimental): pag-install at mga gotcha kumpara sa pnpm"
-read_when:
-  - Gusto mo ang pinakamabilis na local dev loop (bun + watch)
-  - Nakaranas ka ng mga isyu sa Bun install/patch/lifecycle scripts
 title: "Bun (Eksperimental)"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Utiliser OpenCode Zen (modeles selectionnes) avec OpenClaw"
-read_when:
-  - Vous voulez OpenCode Zen pour l'acces aux modeles
-  - Vous voulez une liste selectionnee de modeles adaptes au code
 title: "OpenCode Zen"
 ---
 

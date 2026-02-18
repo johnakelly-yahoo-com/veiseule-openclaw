@@ -1,8 +1,4 @@
 ---
-summary: "Mga provider ng model (LLMs) na sinusuportahan ng OpenClaw"
-read_when:
-  - Gusto mong pumili ng provider ng model
-  - Gusto mo ng mga halimbawa ng mabilis na setup para sa LLM auth + pagpili ng model
 title: "Mabilis na Pagsisimula ng Model Provider"
 ---
 

@@ -1,8 +1,4 @@
----
-summary: "Szablon obszaru roboczego dla HEARTBEAT.md"
-read_when:
-  - Ręczne uruchamianie obszaru roboczego
----
+------
 
 # HEARTBEAT.md
 

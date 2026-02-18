@@ -1,9 +1,4 @@
 ---
-summary: "Gateway’ni topish uchun tugunlarni aniqlash va transportlar (Bonjour, Tailscale, SSH)"
-read_when:
-  - Bonjour orqali aniqlash/e’lon qilishni joriy etayotganda yoki o‘zgartirganda
-  - Masofaviy ulanish rejimlarini (to‘g‘ridan-to‘g‘ri vs SSH) moslashtirganda
-  - Masofaviy tugunlar uchun aniqlash + juftlash jarayonini loyihalashda
 title: "Aniqlash va transportlar"
 ---
 

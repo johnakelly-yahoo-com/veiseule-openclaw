@@ -1,8 +1,4 @@
 ---
-summary: "Gửi poll qua gateway + CLI"
-read_when:
-  - Thêm hoặc chỉnh sửa hỗ trợ poll
-  - Gỡ lỗi việc gửi poll từ CLI hoặc gateway
 title: "Poll"
 ---
 

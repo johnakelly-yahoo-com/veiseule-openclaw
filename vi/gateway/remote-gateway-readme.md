@@ -1,6 +1,4 @@
 ---
-summary: "Thiết lập đường hầm SSH cho OpenClaw.app kết nối tới một gateway từ xa"
-read_when: "Kết nối ứng dụng macOS tới một gateway từ xa qua SSH"
 title: "Thiết lập Gateway từ xa"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Bonjour/mDNS-Erkennung + Debugging (Gateway-Beacons, Clients und häufige Fehlermodi)"
-read_when:
-  - Debugging von Bonjour-Erkennungsproblemen unter macOS/iOS
-  - Ändern von mDNS-Servicetypen, TXT-Records oder der Discovery-UX
 title: "Bonjour-Erkennung"
 ---
 

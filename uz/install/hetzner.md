@@ -1,10 +1,4 @@
 ---
-summary: "OpenClaw Gateway-ni 24/7 arzon Hetzner VPS’da (Docker) mustahkam holat va ichiga kiritilgan binar fayllar bilan ishga tushiring"
-read_when:
-  - Siz OpenClaw’ning bulut VPS’da (noutbukingizda emas) 24/7 ishlashini xohlaysiz
-  - Siz o‘zingizning VPS’ingizda ishlab chiqarish darajasidagi, doimiy ishlovchi Gateway’ni xohlaysiz
-  - Siz saqlanish (persistence), binar fayllar va qayta ishga tushirish xatti-harakatlari ustidan to‘liq nazoratni xohlaysiz
-  - Siz OpenClaw’ni Hetzner yoki shunga o‘xshash provayderda Docker’da ishga tushiryapsiz
 title: "Hetzner"
 ---
 

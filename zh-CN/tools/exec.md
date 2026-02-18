@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 使用或修改 exec 工具
-  - 调试 stdin 或 TTY 行为
-summary: Exec 工具用法、stdin 模式和 TTY 支持
 title: Exec 工具
 x-i18n:
   generated_at: "2026-02-03T09:26:51Z"

@@ -1,8 +1,4 @@
 ---
-summary: "Cách OpenClaw cung cấp các định danh mẫu thiết bị Apple thành tên thân thiện trong ứng dụng macOS."
-read_when:
-  - Cập nhật ánh xạ định danh mẫu thiết bị hoặc các tệp NOTICE/giấy phép
-  - Thay đổi cách UI Instances hiển thị tên thiết bị
 title: "Cơ sở dữ liệu mẫu thiết bị"
 ---
 

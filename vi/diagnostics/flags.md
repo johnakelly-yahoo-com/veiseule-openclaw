@@ -1,8 +1,4 @@
 ---
-summary: "Cờ chẩn đoán cho nhật ký debug có mục tiêu"
-read_when:
-  - Bạn cần nhật ký debug có mục tiêu mà không tăng mức ghi log toàn cục
-  - Bạn cần thu thập nhật ký theo từng phân hệ để hỗ trợ
 title: "Cờ chẩn đoán"
 ---
 

@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 添加或修改 CLI 命令或选项
-  - 为新命令界面编写文档
-summary: OpenClaw `openclaw` 命令、子命令和选项的 CLI 参考
 title: CLI 参考
 x-i18n:
   generated_at: "2026-02-03T07:47:54Z"

@@ -1,8 +1,4 @@
 ---
-summary: "Afsendelse af afstemninger via gateway + CLI"
-read_when:
-  - Tilføjelse eller ændring af understøttelse af afstemninger
-  - Fejlfinding af afstemningsafsendelser fra CLI eller gateway
 title: "Afstemninger"
 ---
 

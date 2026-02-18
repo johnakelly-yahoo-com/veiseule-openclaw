@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw channels`에 대한 CLI 레퍼런스 (계정, 상태, 로그인/로그아웃, 로그)"
-read_when:
-  - WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (플러그인)/Signal/iMessage 채널 계정을 추가/제거하려는 경우
-  - 채널 상태를 확인하거나 채널 로그를 테일링하려는 경우
 title: "channels"
 ---
 

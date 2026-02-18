@@ -1,9 +1,4 @@
 ---
-summary: "„Cron-Jobs + Wakeups für den Gateway-Scheduler“"
-read_when:
-  - Planen von Hintergrundjobs oder Wakeups
-  - Verdrahten von Automatisierungen, die mit oder neben Heartbeats laufen sollen
-  - Entscheidung zwischen Heartbeat und Cron für geplante Aufgaben
 title: "„Cron Jobs“"
 ---
 

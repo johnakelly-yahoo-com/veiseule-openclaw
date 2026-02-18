@@ -1,7 +1,4 @@
 ---
-summary: "Levenscyclus van de agentlus, streams en wachtsemantiek"
-read_when:
-  - Je hebt een exacte walkthrough nodig van de agentlus of levenscyclusgebeurtenissen
 title: "Agentlus"
 ---
 

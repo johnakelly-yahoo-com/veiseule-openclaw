@@ -1,7 +1,4 @@
 ---
-summary: "macOS app flow for controlling a remote OpenClaw gateway over SSH"
-read_when:
-  - Setting up or debugging remote mac control
 title: "Remote Control"
 ---
 

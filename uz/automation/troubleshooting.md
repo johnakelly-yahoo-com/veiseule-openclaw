@@ -1,9 +1,4 @@
 ---
-summary: "Cron va heartbeat rejalashtirish hamda yetkazib berishni nosozliklardan chiqarish"
-read_when:
-  - Cron ishga tushmadi
-  - Cron ishga tushdi, ammo hech qanday xabar yetkazilmadi
-  - Heartbeat jim yoki o‘tkazib yuborilgandek
 title: "Avtomatlashtirishni nosozliklardan chiqarish"
 ---
 

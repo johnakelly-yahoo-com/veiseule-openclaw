@@ -1,9 +1,4 @@
 ---
-summary: "ClawHub ガイド：公開 Skills レジストリと CLI ワークフロー"
-read_when:
-  - 新規ユーザーに ClawHub を紹介する場合
-  - Skills のインストール、検索、または公開を行う場合
-  - ClawHub CLI フラグと同期動作を説明する場合
 title: "ClawHub"
 ---
 

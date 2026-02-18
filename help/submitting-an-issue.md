@@ -1,5 +1,4 @@
 ---
-summary: "Filing high-signal issues and bug reports"
 title: "Submitting an Issue"
 ---
 

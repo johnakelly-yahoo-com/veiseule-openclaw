@@ -1,7 +1,4 @@
 ---
-summary: "مختلف پلیٹ فارمز پر گروپ چیٹ کا رویہ (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
-read_when:
-  - گروپ چیٹ کے رویے یا منشن گیٹنگ میں تبدیلی کرتے وقت
 title: "گروپس"
 ---
 

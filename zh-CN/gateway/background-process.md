@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 添加或修改后台 exec 行为
-  - 调试长时间运行的 exec 任务
-summary: 后台 exec 执行和进程管理
 title: 后台 Exec 和 Process 工具
 x-i18n:
   generated_at: "2026-02-03T10:05:51Z"

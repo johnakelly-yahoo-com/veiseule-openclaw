@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw CLI를 위한 스크립트 기반 온보딩 및 에이전트 설정"
-read_when:
-  - 스크립트 또는 CI에서 온보딩을 자동화할 때
-  - 특정 프로바이더에 대한 비대화형 예제가 필요할 때
 title: "CLI 자동화"
 sidebarTitle: "CLI 자동화"
 ---

@@ -1,8 +1,4 @@
 ---
-summary: "Cài đặt OpenClaw và chạy cuộc trò chuyện đầu tiên chỉ trong vài phút."
-read_when:
-  - Thiết lập lần đầu từ con số không
-  - Bạn muốn con đường nhanh nhất để có một cuộc trò chuyện hoạt động
 title: "Bắt đầu"
 ---
 

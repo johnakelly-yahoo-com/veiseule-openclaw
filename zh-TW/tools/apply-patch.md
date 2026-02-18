@@ -1,8 +1,4 @@
 ---
-summary: "使用 apply_patch 工具套用多檔案修補"
-read_when:
-  - 你需要跨多個檔案的結構化編輯
-  - 12. 你想要記錄或除錯以補丁為基礎的編輯
 title: "apply_patch 工具"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw nodes` için CLI başvurusu (list/status/approve/invoke, camera/canvas/screen)"
-read_when:
-  - Eşleştirilmiş düğümleri (kameralar, ekran, tuval) yönetiyorsunuz
-  - İstekleri onaylamanız veya düğüm komutlarını çağırmanız gerekiyor
 title: "nodes"
 ---
 

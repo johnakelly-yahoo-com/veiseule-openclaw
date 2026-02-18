@@ -1,7 +1,4 @@
 ---
-summary: "Status de suporte, capacidades e configuração do bot do Microsoft Teams"
-read_when:
-  - Trabalhando em recursos do canal do MS Teams
 title: "Microsoft Teams"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "ClawHub-handleiding: openbare skills-registratie + CLI-workflows"
-read_when:
-  - ClawHub introduceren aan nieuwe gebruikers
-  - Skills installeren, zoeken of publiceren
-  - CLI-vlaggen en sync-gedrag van ClawHub uitleggen
 title: "ClawHub"
 ---
 

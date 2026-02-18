@@ -1,7 +1,4 @@
 ---
-summary: "Projektets ursprung, bidragsgivare och licens."
-read_when:
-  - Du vill ha projektets bakgrundshistoria eller bidragsgivarcredits
 title: "Erkännanden"
 ---
 

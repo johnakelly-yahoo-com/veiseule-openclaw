@@ -1,8 +1,4 @@
 ---
-summary: "IDE entegrasyonları için ACP köprüsünü çalıştırın"
-read_when:
-  - ACP tabanlı IDE entegrasyonlarını kurarken
-  - ACP oturum yönlendirmesini Gateway’e hata ayıklarken
 title: "acp"
 ---
 

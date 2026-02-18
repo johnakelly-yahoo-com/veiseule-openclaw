@@ -2,7 +2,6 @@
 last_updated: "2026-01-05"
 owner: openclaw
 status: complete
-summary: 加固 cron.add 输入处理，对齐 schema，改进 cron UI/智能体工具
 title: Cron Add 加固
 x-i18n:
   generated_at: "2026-02-03T07:47:26Z"

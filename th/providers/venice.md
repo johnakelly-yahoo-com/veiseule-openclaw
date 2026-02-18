@@ -1,8 +1,4 @@
 ---
-summary: "ใช้โมเดลของ Venice AI ที่เน้นความเป็นส่วนตัวใน OpenClaw"
-read_when:
-  - คุณต้องการการอนุมานที่เน้นความเป็นส่วนตัวใน OpenClaw
-  - คุณต้องการคำแนะนำการตั้งค่า Venice AI
 title: "Venice AI"
 ---
 

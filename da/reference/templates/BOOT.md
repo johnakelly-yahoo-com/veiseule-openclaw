@@ -1,8 +1,4 @@
----
-summary: "Arbejdsrumsskabelon til BOOT.md"
-read_when:
-  - Tilføjelse af en BOOT.md-tjekliste
----
+------
 
 # BOOT.md
 

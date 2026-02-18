@@ -1,9 +1,4 @@
 ---
-summary: "Gateway WebSocket-protokoll: handskakning, ramar, versionering"
-read_when:
-  - Implementera eller uppdatera gateway-WS-klienter
-  - Felsöka protokollmismatchar eller anslutningsfel
-  - Återskapa protokollscheman/-modeller
 title: "Gateway-protokoll"
 ---
 

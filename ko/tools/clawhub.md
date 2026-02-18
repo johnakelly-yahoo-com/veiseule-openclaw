@@ -1,9 +1,4 @@
 ---
-summary: "ClawHub 가이드: 공개 Skills 레지스트리 + CLI 워크플로"
-read_when:
-  - 신규 사용자에게 ClawHub 소개 시
-  - Skills 설치, 검색 또는 게시 시
-  - ClawHub CLI 플래그와 동기화 동작 설명 시
 title: "ClawHub"
 ---
 

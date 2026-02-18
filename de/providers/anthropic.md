@@ -1,8 +1,4 @@
 ---
-summary: "„Anthropic Claude über API-Schlüssel oder Setup-Token in OpenClaw verwenden“"
-read_when:
-  - Sie möchten Anthropic-Modelle in OpenClaw verwenden
-  - Sie möchten ein Setup-Token anstelle von API-Schlüsseln verwenden
 title: "„Anthropic“"
 ---
 

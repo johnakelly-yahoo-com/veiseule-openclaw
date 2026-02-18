@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 配对或重新连接 Android 节点
-  - 调试 Android Gateway 网关发现或认证
-  - 验证跨客户端的聊天历史一致性
-summary: Android 应用（节点）：连接操作手册 + Canvas/Chat/Camera
 title: Android 应用
 x-i18n:
   generated_at: "2026-02-03T07:51:34Z"

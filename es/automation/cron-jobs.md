@@ -1,9 +1,4 @@
 ---
-summary: "Tareas cron + activaciones para el programador del Gateway"
-read_when:
-  - Programar tareas de fondo o despertar
-  - Conectar automatizaciones que deban ejecutarse con o junto a los latidos
-  - Decidir entre latido y cron para tareas programadas
 title: "Tareas Cron"
 ---
 

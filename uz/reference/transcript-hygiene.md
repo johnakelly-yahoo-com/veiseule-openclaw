@@ -1,9 +1,4 @@
 ---
-summary: "1. Ma’lumot: provayderga xos transkriptni sanitizatsiya qilish va tuzatish qoidalari"
-read_when:
-  - 2. Siz transkript shakliga bog‘liq provayder so‘rovlarining rad etilishini nosozlikdan o‘tkazyapsiz
-  - 3. Siz transkriptni sanitizatsiya qilish yoki tool-call tuzatish mantiqini o‘zgartiryapsiz
-  - 4. Siz provayderlar bo‘ylab tool-call id nomuvofiqliklarini tekshiryapsiz
 title: "5. Transkript gigiyenasi"
 ---
 

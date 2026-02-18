@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想在 OpenClaw 中使用 Amazon Bedrock 模型
-  - 你需要为模型调用配置 AWS 凭证/区域
-summary: 在 OpenClaw 中使用 Amazon Bedrock（Converse API）模型
 title: Amazon Bedrock
 x-i18n:
   generated_at: "2026-02-03T10:04:01Z"

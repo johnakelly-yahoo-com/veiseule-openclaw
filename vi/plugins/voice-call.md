@@ -1,8 +1,4 @@
 ---
-summary: "Plugin Voice Call: cuộc gọi đi + đến qua Twilio/Telnyx/Plivo (cài plugin + cấu hình + CLI)"
-read_when:
-  - Bạn muốn thực hiện một cuộc gọi thoại đi từ OpenClaw
-  - Bạn đang cấu hình hoặc phát triển plugin voice-call
 title: "Plugin Voice Call"
 ---
 

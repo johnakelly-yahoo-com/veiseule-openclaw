@@ -1,8 +1,4 @@
 ---
-summary: "Plugin Zalo Personal: đăng nhập QR + nhắn tin qua zca-cli (cài plugin + cấu hình kênh + CLI + công cụ)"
-read_when:
-  - Bạn muốn hỗ trợ Zalo Personal (không chính thức) trong OpenClaw
-  - Bạn đang cấu hình hoặc phát triển plugin zalouser
 title: "Plugin Zalo Personal"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Jak OpenClaw buduje kontekst promptu oraz raportuje użycie tokenów i koszty"
-read_when:
-  - Wyjaśnianie użycia tokenów, kosztów lub okien kontekstu
-  - Debugowanie wzrostu kontekstu lub zachowania kompakcji
 title: "Użycie tokenów i koszty"
 ---
 

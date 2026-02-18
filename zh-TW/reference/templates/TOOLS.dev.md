@@ -1,9 +1,4 @@
----
-summary: "Dev 代理程式工具備註（C-3PO）"
-read_when:
-  - 使用 dev Gateway 閘道器範本時
-  - 更新預設 dev 代理程式身分
----
+------
 
 # TOOLS.md - 使用者工具備註（可編輯）
 

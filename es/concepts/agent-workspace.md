@@ -1,8 +1,4 @@
 ---
-summary: "Espacio de trabajo del agente: ubicación, diseño y estrategia de respaldo"
-read_when:
-  - Necesita explicar el espacio de trabajo del agente o su diseño de archivos
-  - Quiere respaldar o migrar un espacio de trabajo del agente
 title: "Espacio de trabajo del agente"
 ---
 

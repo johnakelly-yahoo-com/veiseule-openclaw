@@ -1,7 +1,4 @@
 ---
-summary: "Agent runtime (embedded pi-mono), workspace contract, and session bootstrap"
-read_when:
-  - Changing agent runtime, workspace bootstrap, or session behavior
 title: "Agent Runtime"
 ---
 

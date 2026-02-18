@@ -1,7 +1,4 @@
 ---
-summary: "Gateway hizmeti, yaşam döngüsü ve operasyonları için çalıştırma kılavuzu"
-read_when:
-  - Gateway sürecini çalıştırırken veya hata ayıklarken
 title: "Gateway Çalıştırma Kılavuzu"
 ---
 

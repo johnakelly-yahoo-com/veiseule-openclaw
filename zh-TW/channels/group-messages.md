@@ -1,7 +1,4 @@
 ---
-summary: "WhatsApp 群組訊息處理的行為與設定（mentionPatterns 於各個介面共用）"
-read_when:
-  - 變更群組訊息規則或提及方式時
 title: "群組訊息"
 ---
 

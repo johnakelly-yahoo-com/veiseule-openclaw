@@ -1,9 +1,4 @@
 ---
-summary: "疑難排解 cron 與 heartbeat 的排程與傳送問題"
-read_when:
-  - Cron 未執行
-  - Cron 已執行但未傳送任何訊息
-  - Heartbeat 似乎無聲或被略過
 title: "自動化疑難排解"
 ---
 

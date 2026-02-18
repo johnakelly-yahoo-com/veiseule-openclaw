@@ -1,7 +1,5 @@
 ---
 title: Sandbox vs Política de herramientas vs Elevado
-summary: "Por qué una herramienta está bloqueada: runtime del sandbox, política de permitir/denegar herramientas y compuertas de ejecución elevada"
-read_when: "Cuando aparece 'sandbox jail' o ve un rechazo de herramienta/elevado y quiere la clave de configuración exacta que debe cambiar."
 status: active
 ---
 

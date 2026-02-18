@@ -1,8 +1,4 @@
 ---
-summary: "Tổng quan nhà cung cấp mô hình với cấu hình mẫu + luồng CLI"
-read_when:
-  - Bạn cần tài liệu tham chiếu thiết lập mô hình theo từng nhà cung cấp
-  - Bạn muốn xem cấu hình mẫu hoặc các lệnh CLI hướng dẫn ban đầu cho nhà cung cấp mô hình
 title: "Nhà cung cấp mô hình"
 ---
 

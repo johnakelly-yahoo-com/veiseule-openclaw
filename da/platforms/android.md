@@ -1,9 +1,4 @@
 ---
-summary: "Android-app (node): forbindelses-runbook + Canvas/Chat/Kamera"
-read_when:
-  - Parring eller genforbindelse af Android-noden
-  - Fejlfinding af Android gateway-discovery eller autentificering
-  - Verificering af chat-historikparitet på tværs af klienter
 title: "Android-app"
 ---
 

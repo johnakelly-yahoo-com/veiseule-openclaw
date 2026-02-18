@@ -1,8 +1,4 @@
 ---
-summary: "Använd Xiaomi MiMo (mimo-v2-flash) med OpenClaw"
-read_when:
-  - Du vill använda Xiaomi MiMo‑modeller i OpenClaw
-  - Du behöver konfigurera XIAOMI_API_KEY
 title: "Xiaomi MiMo"
 ---
 

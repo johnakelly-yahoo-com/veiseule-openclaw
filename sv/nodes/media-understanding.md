@@ -1,8 +1,4 @@
 ---
-summary: "Inkommande bild-/ljud-/videoförståelse (valfritt) med leverantör + CLI‑fallbacks"
-read_when:
-  - Utformning eller omarbetning av medieförståelse
-  - Justering av förbehandling av inkommande ljud/video/bild
 title: "Medieförståelse"
 ---
 

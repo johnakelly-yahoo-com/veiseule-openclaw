@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw 記錄：可輪替的診斷檔案記錄 + 統一記錄的隱私旗標"
-read_when:
-  - 擷取 macOS 記錄或調查私密資料記錄
-  - 偵錯語音喚醒／工作階段生命週期問題
 title: "macOS 記錄"
 ---
 

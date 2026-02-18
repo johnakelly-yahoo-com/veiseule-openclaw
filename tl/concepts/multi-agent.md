@@ -1,7 +1,5 @@
 ---
-summary: "Multi-agent routing: mga hiwalay na agent, mga channel account, at mga binding"
 title: "Pagru-route ng Maramihang Agent"
-read_when: "Gusto mo ng maraming hiwalay na agent (workspaces + auth) sa iisang Gateway process."
 status: active
 ---
 

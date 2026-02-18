@@ -1,9 +1,4 @@
 ---
-summary: "Cron ve heartbeat zamanlama ve teslimat sorunlarını giderme"
-read_when:
-  - Cron çalışmadı
-  - Cron çalıştı ancak mesaj teslim edilmedi
-  - Heartbeat sessiz görünüyor veya atlandı
 title: "Otomasyon Sorun Giderme"
 ---
 

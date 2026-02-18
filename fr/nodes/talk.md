@@ -1,8 +1,4 @@
 ---
-summary: "Mode Talk : conversations vocales continues avec la synthèse vocale ElevenLabs"
-read_when:
-  - Mise en œuvre du mode Talk sur macOS/iOS/Android
-  - Modification du comportement de la voix/TTS/des interruptions
 title: "Mode Talk"
 ---
 

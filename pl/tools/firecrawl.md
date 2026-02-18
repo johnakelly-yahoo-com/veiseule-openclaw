@@ -1,9 +1,4 @@
 ---
-summary: "„Zapasowe użycie Firecrawl dla web_fetch (anty‑bot + ekstrakcja z cache)”"
-read_when:
-  - Chcesz ekstrakcję WWW opartą na Firecrawl
-  - Potrzebujesz klucza API Firecrawl
-  - Chcesz ekstrakcję anty‑bot dla web_fetch
 title: "Firecrawl"
 ---
 

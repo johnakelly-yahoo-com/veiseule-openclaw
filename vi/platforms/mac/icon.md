@@ -1,7 +1,4 @@
 ---
-summary: "Các trạng thái và hoạt ảnh của biểu tượng thanh menu cho OpenClaw trên macOS"
-read_when:
-  - Thay đổi hành vi biểu tượng thanh menu
 title: "Biểu tượng thanh menu"
 ---
 

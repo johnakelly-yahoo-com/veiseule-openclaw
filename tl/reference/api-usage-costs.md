@@ -1,9 +1,4 @@
 ---
-summary: "I-audit kung ano ang maaaring gumastos ng pera, aling mga key ang ginagamit, at kung paano tingnan ang usage"
-read_when:
-  - Gusto mong maunawaan kung aling mga feature ang maaaring tumawag sa mga paid API
-  - Kailangan mong i-audit ang mga key, gastos, at visibility ng usage
-  - Ipinapaliwanag mo ang /status o /usage na pag-uulat ng gastos
 title: "API Usage at Mga Gastos"
 ---
 

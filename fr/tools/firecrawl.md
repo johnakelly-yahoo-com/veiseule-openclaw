@@ -1,9 +1,4 @@
 ---
-summary: "Solution de repli Firecrawl pour web_fetch (anti-bot + extraction mise en cache)"
-read_when:
-  - Vous souhaitez une extraction web adossée à Firecrawl
-  - Vous avez besoin d'une clé API Firecrawl
-  - Vous souhaitez une extraction anti-bot pour web_fetch
 title: "Firecrawl"
 ---
 

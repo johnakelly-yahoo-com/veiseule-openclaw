@@ -1,8 +1,4 @@
 ---
-summary: "Tailscale + CoreDNS ကို အသုံးပြုသည့် ကျယ်ပြန့်ဧရိယာ ရှာဖွေတွေ့ရှိမှုအတွက် `openclaw dns` ၏ CLI ကိုးကားချက်"
-read_when:
-  - Tailscale + CoreDNS မှတဆင့် ကျယ်ပြန့်ဧရိယာ ရှာဖွေတွေ့ရှိမှု (DNS-SD) ကို အသုံးပြုလိုသည့်အခါ
-  - You’re setting up split DNS for a custom discovery domain (example: openclaw.internal)
 title: "dns"
 ---
 

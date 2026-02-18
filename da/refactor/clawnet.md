@@ -1,8 +1,4 @@
 ---
-summary: "Clawnet-refaktor: saml netværksprotokol, roller, auth, godkendelser og identitet"
-read_when:
-  - Planlægning af en samlet netværksprotokol for noder + operatørklienter
-  - Omstrukturering af godkendelser, parring, TLS og presence på tværs af enheder
 title: "Clawnet-refaktor"
 ---
 

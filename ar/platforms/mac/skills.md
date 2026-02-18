@@ -1,8 +1,4 @@
 ---
-summary: "واجهة إعدادات Skills على macOS والحالة المدعومة عبر Gateway"
-read_when:
-  - تحديث واجهة إعدادات Skills على macOS
-  - تغيير آليات تقييد Skills أو سلوك التثبيت
 title: "المهارات"
 ---
 

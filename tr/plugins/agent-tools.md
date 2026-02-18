@@ -1,8 +1,4 @@
 ---
-summary: "Bir eklentide ajan araçları yazın (şemalar, isteğe bağlı araçlar, izin listeleri)"
-read_when:
-  - Bir eklentide yeni bir ajan aracı eklemek istiyorsunuz
-  - Bir aracı izin listeleri aracılığıyla isteğe bağlı yapmak istiyorsunuz
 title: "Eklenti Ajan Araçları"
 ---
 

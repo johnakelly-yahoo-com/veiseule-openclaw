@@ -1,7 +1,4 @@
 ---
-summary: "Kiến trúc IPC trên macOS cho ứng dụng OpenClaw, truyền tải node của Gateway và PeekabooBridge"
-read_when:
-  - Chỉnh sửa các hợp đồng IPC hoặc IPC của ứng dụng menu bar
 title: "IPC trên macOS"
 ---
 

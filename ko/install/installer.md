@@ -1,9 +1,4 @@
 ---
-summary: "설치 스크립트(install.sh, install-cli.sh, install.ps1)의 동작 방식, 플래그, 자동화 방법"
-read_when:
-  - "`openclaw.ai/install.sh`를 이해하고 싶을 때"
-  - 설치를 자동화하고 싶을 때(CI / 헤드리스)
-  - GitHub 체크아웃에서 설치하고 싶을 때
 title: "설치 프로그램 내부 동작"
 ---
 

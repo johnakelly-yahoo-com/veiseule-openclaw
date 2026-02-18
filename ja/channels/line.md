@@ -1,9 +1,4 @@
 ---
-summary: "LINE Messaging API プラグインのセットアップ、設定、使用方法"
-read_when:
-  - OpenClaw を LINE に接続したい場合
-  - LINE の webhook と認証情報のセットアップが必要な場合
-  - LINE 固有のメッセージオプションを使用したい場合
 title: LINE
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "CLI-Referenz für `openclaw agents` (auflisten/hinzufügen/löschen/Identität festlegen)"
-read_when:
-  - Sie möchten mehrere isolierte Agenten (Arbeitsbereiche + Routing + Authentifizierung)
 title: "Agenten"
 ---
 

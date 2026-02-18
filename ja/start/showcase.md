@@ -1,8 +1,6 @@
 ---
 title: "ショーケース"
-description: "コミュニティ発の実世界のOpenClawプロジェクト"
-summary: "OpenClaw によって実現された、コミュニティ構築のプロジェクトとインテグレーション"
----
+description: "コミュニティ発の実世界のOpenClawプロジェクト"---
 
 # ショーケース
 

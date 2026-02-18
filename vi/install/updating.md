@@ -1,8 +1,4 @@
 ---
-summary: "Cập nhật OpenClaw an toàn (cài đặt toàn cục hoặc từ mã nguồn), kèm chiến lược khôi phục"
-read_when:
-  - Cập nhật OpenClaw
-  - Có sự cố sau khi cập nhật
 title: "Cập nhật"
 ---
 

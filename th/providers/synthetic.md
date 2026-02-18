@@ -1,8 +1,4 @@
 ---
-summary: "ใช้APIที่เข้ากันได้กับAnthropicของSyntheticในOpenClaw"
-read_when:
-  - คุณต้องการใช้Syntheticเป็นผู้ให้บริการโมเดล
-  - คุณต้องการตั้งค่าคีย์APIหรือbase URLของSynthetic
 title: "Synthetic"
 ---
 

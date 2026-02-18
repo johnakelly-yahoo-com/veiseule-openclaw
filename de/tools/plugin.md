@@ -1,8 +1,4 @@
 ---
-summary: "„OpenClaw-Plugins/-Erweiterungen: Discovery, Konfiguration und Sicherheit“"
-read_when:
-  - Hinzufügen oder Ändern von Plugins/Erweiterungen
-  - Dokumentation von Regeln zur Plugin-Installation oder -Ladung
 title: "„Plugins“"
 ---
 

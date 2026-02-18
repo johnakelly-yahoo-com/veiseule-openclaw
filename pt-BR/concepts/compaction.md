@@ -1,8 +1,4 @@
 ---
-summary: "Janela de contexto + compactação: como o OpenClaw mantém sessões dentro dos limites do modelo"
-read_when:
-  - Você quer entender a compactação automática e /compact
-  - Você está depurando sessões longas que atingem limites de contexto
 title: "Compactação"
 ---
 

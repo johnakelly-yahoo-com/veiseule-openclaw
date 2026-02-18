@@ -1,7 +1,4 @@
 ---
-summary: "Integrasyon ng Telegram Bot API sa pamamagitan ng grammY na may mga tala sa setup"
-read_when:
-  - Kapag nagtatrabaho sa mga pathway ng Telegram o grammY
 title: grammY
 ---
 

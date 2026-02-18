@@ -1,8 +1,4 @@
 ---
-summary: "دعم Signal عبر signal-cli ‏(JSON-RPC + SSE)، الإعداد، ونموذج الأرقام"
-read_when:
-  - إعداد دعم Signal
-  - استكشاف أخطاء الإرسال/الاستقبال في Signal
 title: "Signal"
 ---
 

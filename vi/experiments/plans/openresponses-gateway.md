@@ -1,5 +1,4 @@
 ---
-summary: "Kế hoạch: Thêm endpoint OpenResponses /v1/responses và ngừng Chat Completions một cách gọn gàng"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"

@@ -1,8 +1,4 @@
 ---
-summary: "Чек-лист выпуска OpenClaw для macOS (фид Sparkle, упаковка, подписание)"
-read_when:
-  - При создании или валидации выпуска OpenClaw для macOS
-  - При обновлении appcast Sparkle или связанных ресурсов фида
 title: "Выпуск macOS"
 ---
 

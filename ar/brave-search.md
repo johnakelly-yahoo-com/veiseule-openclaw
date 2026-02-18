@@ -1,8 +1,4 @@
 ---
-summary: "إعداد واجهة برمجة تطبيقات Brave Search لاستخدام web_search"
-read_when:
-  - تريد استخدام Brave Search لأداة web_search
-  - تحتاج إلى BRAVE_API_KEY أو تفاصيل الخطة
 title: "Brave Search"
 ---
 

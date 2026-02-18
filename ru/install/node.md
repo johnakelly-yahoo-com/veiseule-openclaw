@@ -1,11 +1,5 @@
 ---
-title: "Node.js"
-summary: "Установка и настройка Node.js для OpenClaw — требования к версиям, варианты установки и устранение проблем с PATH"
-read_when:
-  - "Вам нужно установить Node.js перед установкой OpenClaw"
-  - "Вы установили OpenClaw, но `openclaw` — команда не найдена"
-  - "npm install -g завершается с ошибками прав доступа или PATH"
----
+title: "Node.js"---
 
 # Node.js
 

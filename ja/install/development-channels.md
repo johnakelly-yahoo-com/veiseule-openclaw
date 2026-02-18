@@ -1,8 +1,4 @@
 ---
-summary: "stable、beta、dev チャンネル：意味、切り替え、タグ付け"
-read_when:
-  - stable / beta / dev を切り替えたい場合
-  - プレリリースをタグ付けまたは公開する場合
 title: "開発チャンネル"
 ---
 

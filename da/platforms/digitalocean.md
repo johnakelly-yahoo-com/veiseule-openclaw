@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw på DigitalOcean (simpel betalt VPS-mulighed)"
-read_when:
-  - Opsætning af OpenClaw på DigitalOcean
-  - Leder efter billig VPS-hosting til OpenClaw
 title: "DigitalOcean"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw میں متعدد ماڈلز تک رسائی کے لیے OpenRouter کی متحدہ API استعمال کریں"
-read_when:
-  - آپ متعدد LLMs کے لیے ایک ہی API کلید چاہتے ہیں
-  - آپ OpenClaw میں OpenRouter کے ذریعے ماڈلز چلانا چاہتے ہیں
 title: "OpenRouter"
 ---
 

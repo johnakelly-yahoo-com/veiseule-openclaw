@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 你希望智能体驱动现有的 Chrome 标签页（工具栏按钮）
-  - 你需要通过 Tailscale 实现远程 Gateway 网关 + 本地浏览器自动化
-  - 你想了解浏览器接管的安全影响
-summary: Chrome 扩展：让 OpenClaw 驱动你现有的 Chrome 标签页
 title: Chrome 扩展
 x-i18n:
   generated_at: "2026-02-03T07:55:32Z"

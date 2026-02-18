@@ -1,8 +1,4 @@
 ---
-summary: "Connexions manuelles pour l’automatisation du navigateur + publication sur X/Twitter"
-read_when:
-  - Vous devez vous connecter à des sites pour l’automatisation du navigateur
-  - Vous souhaitez publier des mises à jour sur X/Twitter
 title: "Connexion au navigateur"
 ---
 

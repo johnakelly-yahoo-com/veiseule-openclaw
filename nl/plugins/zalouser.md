@@ -1,8 +1,4 @@
 ---
-summary: "Zalo Personal-plugin: QR-inloggen + berichten via zca-cli (plugin-installatie + kanaalconfiguratie + CLI + tool)"
-read_when:
-  - Je wilt Zalo Personal (onofficieel) ondersteuning in OpenClaw
-  - Je configureert of ontwikkelt de zalouser-plugin
 title: "Zalo Personal-plugin"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: Anteckningar och lösningar för Node + tsx-krasch med ”__name is not a function”
-read_when:
-  - Felsökning av Node-baserade utvecklingsskript eller fel i watch-läge
-  - Undersökning av tsx/esbuild-loaderkrascher i OpenClaw
 title: "Node + tsx-krasch"
 ---
 

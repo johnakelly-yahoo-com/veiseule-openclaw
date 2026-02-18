@@ -1,8 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw voicecall` (kommandoflade for voice-call-plugin)"
-read_when:
-  - Du bruger voice-call-pluginet og vil have CLI-indgangspunkterne
-  - Du vil have hurtige eksempler på `voicecall call|continue|status|tail|expose`
 title: "voicecall"
 ---
 

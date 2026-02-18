@@ -1,8 +1,4 @@
 ---
-summary: "Bonjour/mDNS-discovery + debugging (Gateway-beacons, clients en veelvoorkomende foutmodi)"
-read_when:
-  - Debuggen van Bonjour-discoveryproblemen op macOS/iOS
-  - Wijzigen van mDNS-servicetypen, TXT-records of discovery-UX
 title: "Bonjour-discovery"
 ---
 

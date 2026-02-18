@@ -1,8 +1,4 @@
 ---
-summary: "CLI-Referenz für `openclaw logs` (Gateway-Logs per RPC verfolgen)"
-read_when:
-  - Sie müssen Gateway-Logs remote verfolgen (ohne SSH)
-  - Sie möchten JSON-Logzeilen für Tools
 title: "Logs"
 ---
 

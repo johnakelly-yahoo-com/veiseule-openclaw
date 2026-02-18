@@ -1,8 +1,4 @@
 ---
-summary: "Application compagnon macOS OpenClaw (barre de menus + courtier de passerelle)"
-read_when:
-  - Implémentation de fonctionnalités de l’application macOS
-  - Modification du cycle de vie de la passerelle ou du pontage de nœuds sur macOS
 title: "Application macOS"
 ---
 

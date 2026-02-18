@@ -1,7 +1,4 @@
 ---
-summary: "Comportamiento y configuración para el manejo de mensajes de grupo de WhatsApp (mentionPatterns se comparten entre superficies)"
-read_when:
-  - Cambiar reglas de mensajes de grupo o menciones
 title: "Mensajes de grupo"
 ---
 

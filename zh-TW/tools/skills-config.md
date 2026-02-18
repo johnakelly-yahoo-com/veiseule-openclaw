@@ -1,8 +1,4 @@
 ---
-summary: "Skills 設定結構與範例"
-read_when:
-  - 新增或修改 Skills 設定
-  - 調整隨附允許清單或安裝行為
 title: "Skills 設定"
 ---
 

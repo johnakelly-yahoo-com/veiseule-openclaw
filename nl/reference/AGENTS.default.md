@@ -1,9 +1,4 @@
----
-summary: "Standaard OpenClaw-agentinstructies en Skills-overzicht voor de persoonlijke assistent-opstelling"
-read_when:
-  - Een nieuwe OpenClaw-agent­sessie starten
-  - Standaard Skills inschakelen of auditen
----
+------
 
 # AGENTS.md — OpenClaw Persoonlijke Assistent (standaard)
 

@@ -1,7 +1,4 @@
 ---
-summary: "Tlon/Urbit‑Unterstützungsstatus, Fähigkeiten und Konfiguration"
-read_when:
-  - Arbeiten an Tlon/Urbit‑Kanalfunktionen
 title: "Tlon"
 ---
 

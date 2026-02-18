@@ -1,8 +1,4 @@
 ---
-summary: "Volledige referentie voor de CLI-onboardingflow, auth-/modelconfiguratie, uitvoer en interne werking"
-read_when:
-  - Je hebt gedetailleerd gedrag nodig voor openclaw onboard
-  - Je debugt onboardingresultaten of integreert onboardingclients
 title: "CLI Onboarding-referentie"
 sidebarTitle: "CLI-referentie"
 ---

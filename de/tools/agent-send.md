@@ -1,7 +1,4 @@
 ---
-summary: "Direkte `openclaw agent`-CLI-Ausführungen (mit optionaler Zustellung)"
-read_when:
-  - Hinzufügen oder Ändern des Agent-CLI-Einstiegspunkts
 title: "Agent senden"
 ---
 

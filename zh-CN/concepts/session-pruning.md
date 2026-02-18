@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想减少工具输出导致的 LLM 上下文增长
-  - 你正在调整 agents.defaults.contextPruning
-summary: 会话剪枝：工具结果修剪以减少上下文膨胀
 x-i18n:
   generated_at: "2026-02-03T07:46:35Z"
   model: claude-opus-4-5

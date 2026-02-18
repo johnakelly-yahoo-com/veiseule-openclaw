@@ -1,8 +1,4 @@
----
-summary: "Agent shaxsini tasvirlovchi yozuv"
-read_when:
-  - Ish maydonini qo‘lda sozlashda
----
+------
 
 # IDENTITY.md - Men kimman?
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS-releasechecklist (Sparkle-feed, packaging, ondertekening)"
-read_when:
-  - Een OpenClaw macOS-release maken of valideren
-  - De Sparkle-appcast of feed-assets bijwerken
 title: "macOS-release"
 ---
 

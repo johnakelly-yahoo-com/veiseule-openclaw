@@ -1,9 +1,4 @@
----
-summary: "Session pruning: tool-result trimming to reduce context bloat"
-read_when:
-  - You want to reduce LLM context growth from tool outputs
-  - You are tuning agents.defaults.contextPruning
----
+------
 
 # Session Pruning
 

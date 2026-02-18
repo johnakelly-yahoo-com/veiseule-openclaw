@@ -1,9 +1,4 @@
 ---
-summary: "ဝဘ်ရှာဖွေရန် + ဖတ်ယူရန် ကိရိယာများ (Brave Search API, Perplexity direct/OpenRouter)"
-read_when:
-  - web_search သို့မဟုတ် web_fetch ကို ဖွင့်အသုံးပြုလိုသောအခါ
-  - Brave Search API key ကို တပ်ဆင်သတ်မှတ်ရန် လိုအပ်သောအခါ
-  - ဝဘ်ရှာဖွေရန် Perplexity Sonar ကို အသုံးပြုလိုသောအခါ
 title: "ဝဘ် ကိရိယာများ"
 ---
 

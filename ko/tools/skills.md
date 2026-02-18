@@ -1,8 +1,4 @@
 ---
-summary: "Skills: 관리형 vs 워크스페이스, 게이팅 규칙 및 구성/환경 변수 연결"
-read_when:
-  - Skills 추가 또는 수정
-  - Skills 게이팅 또는 로드 규칙 변경
 title: "기술"
 ---
 

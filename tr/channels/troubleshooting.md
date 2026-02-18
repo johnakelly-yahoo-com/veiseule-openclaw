@@ -1,8 +1,4 @@
 ---
-summary: "Kanal başına hata imzaları ve düzeltmelerle hızlı kanal düzeyi sorun giderme"
-read_when:
-  - Kanal taşıması bağlı diyor ancak yanıtlar başarısız
-  - Sağlayıcı belgelerine derinlemesine geçmeden önce kanala özgü kontroller gerekir
 title: "Kanal Sorun Giderme"
 ---
 

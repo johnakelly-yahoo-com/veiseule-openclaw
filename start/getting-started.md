@@ -1,8 +1,4 @@
 ---
-summary: "Get OpenClaw installed and run your first chat in minutes."
-read_when:
-  - First time setup from zero
-  - You want the fastest path to a working chat
 title: "Getting Started"
 ---
 

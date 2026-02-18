@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw’ı Nix ile bildirime dayalı olarak kurun"
-read_when:
-  - Tekrarlanabilir, geri alınabilir kurulumlar istiyorsanız
-  - Halihazırda Nix/NixOS/Home Manager kullanıyorsanız
-  - Her şeyin sabitlenmiş ve bildirime dayalı olarak yönetilmesini istiyorsanız
 title: "Nix"
 ---
 

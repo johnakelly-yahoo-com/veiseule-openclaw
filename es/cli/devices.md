@@ -1,8 +1,4 @@
 ---
-summary: "Referencia de la CLI para `openclaw devices` (emparejamiento de dispositivos + rotación/revocación de tokens)"
-read_when:
-  - Está aprobando solicitudes de emparejamiento de dispositivos
-  - Necesita rotar o revocar tokens de dispositivos
 title: "dispositivos"
 ---
 

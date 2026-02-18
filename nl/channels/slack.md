@@ -1,6 +1,4 @@
 ---
-summary: "Slack-installatie voor socket- of HTTP-webhookmodus"
-read_when: "Slack instellen of Slack socket-/HTTP-modus debuggen"
 title: "Slack"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw onboard` için CLI başvuru belgesi (etkileşimli katılım sihirbazı)"
-read_when:
-  - gateway, çalışma alanı, kimlik doğrulama, kanallar ve Skills için rehberli kurulum istediğinizde
 title: "onboard"
 ---
 

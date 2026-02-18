@@ -1,5 +1,4 @@
 ---
-summary: "Plan: isolate browser act:evaluate from Playwright queue using CDP, with end-to-end deadlines and safer ref resolution"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-02-10"

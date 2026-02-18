@@ -1,8 +1,4 @@
 ---
-summary: "Reference ng CLI para sa `openclaw memory` (status/index/search)"
-read_when:
-  - Gusto mong mag-index o maghanap sa semantic memory
-  - Nagde-debug ka ng availability o pag-index ng memory
 title: "memory"
 ---
 

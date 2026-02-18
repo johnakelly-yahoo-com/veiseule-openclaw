@@ -1,8 +1,4 @@
 ---
-summary: "CLI katılım sihirbazı: gateway, çalışma alanı, kanallar ve skills için yönlendirmeli kurulum"
-read_when:
-  - Katılım sihirbazını çalıştırırken veya yapılandırırken
-  - Yeni bir makine kurarken
 title: "Katılım Sihirbazı (CLI)"
 sidebarTitle: "Katılım: CLI"
 ---

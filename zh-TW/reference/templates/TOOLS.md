@@ -1,8 +1,4 @@
----
-summary: "TOOLS.md 的工作區範本"
-read_when:
-  - 手動引導建立工作區
----
+------
 
 # TOOLS.md - 本機備註
 

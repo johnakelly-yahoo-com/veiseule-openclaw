@@ -1,9 +1,4 @@
 ---
-summary: "Mga tool para sa web search + fetch (Brave Search API, Perplexity direct/OpenRouter)"
-read_when:
-  - Gusto mong i-enable ang web_search o web_fetch
-  - Kailangan mo ng setup ng Brave Search API key
-  - Gusto mong gamitin ang Perplexity Sonar para sa web search
 title: "Mga Web Tool"
 ---
 

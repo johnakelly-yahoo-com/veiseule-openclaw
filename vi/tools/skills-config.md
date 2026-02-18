@@ -1,8 +1,4 @@
 ---
-summary: "Schema cấu hình Skills và ví dụ"
-read_when:
-  - Thêm hoặc chỉnh sửa cấu hình Skills
-  - Điều chỉnh danh sách cho phép gói sẵn hoặc hành vi cài đặt
 title: "Cấu hình Skills"
 ---
 

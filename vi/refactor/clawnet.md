@@ -1,8 +1,4 @@
 ---
-summary: "Tái cấu trúc Clawnet: hợp nhất giao thức mạng, vai trò, xác thực, phê duyệt, định danh"
-read_when:
-  - Lập kế hoạch một giao thức mạng thống nhất cho các node + client của operator
-  - Làm lại phê duyệt, ghép cặp, TLS và hiện diện trên các thiết bị
 title: "Tái cấu trúc Clawnet"
 ---
 

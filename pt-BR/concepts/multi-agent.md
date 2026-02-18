@@ -1,7 +1,5 @@
 ---
-summary: "Roteamento multiagente: agentes isolados, contas de canal e vínculos"
 title: Roteamento Multiagente
-read_when: "Voce quer varios agentes isolados (workspaces + autenticação) em um unico processo do gateway."
 status: active
 ---
 

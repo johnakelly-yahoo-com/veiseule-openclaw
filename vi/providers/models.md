@@ -1,8 +1,4 @@
 ---
-summary: "Các nhà cung cấp mô hình (LLM) được OpenClaw hỗ trợ"
-read_when:
-  - Bạn muốn chọn một nhà cung cấp mô hình
-  - Bạn muốn xem ví dụ thiết lập nhanh cho xác thực LLM + chọn mô hình
 title: "Khởi động nhanh nhà cung cấp mô hình"
 ---
 

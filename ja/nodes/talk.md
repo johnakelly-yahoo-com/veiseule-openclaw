@@ -1,8 +1,4 @@
 ---
-summary: "Talk モード：ElevenLabs TTS による継続的な音声会話"
-read_when:
-  - macOS / iOS / Android で Talk モードを実装する場合
-  - 音声 / TTS / 割り込みの挙動を変更する場合
 title: "Talk モード"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw'ı yerel LLM'ler üzerinde çalıştırın (LM Studio, vLLM, LiteLLM, özel OpenAI uç noktaları)"
-read_when:
-  - Kendi GPU sunucunuzdan modeller sunmak istiyorsunuz
-  - LM Studio veya OpenAI uyumlu bir proxy bağlıyorsunuz
-  - En güvenli yerel model rehberliğine ihtiyacınız var
 title: "Yerel Modeller"
 ---
 

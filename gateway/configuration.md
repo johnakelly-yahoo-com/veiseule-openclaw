@@ -1,9 +1,4 @@
 ---
-summary: "Configuration overview: common tasks, quick setup, and links to the full reference"
-read_when:
-  - Setting up OpenClaw for the first time
-  - Looking for common configuration patterns
-  - Navigating to specific config sections
 title: "Configuration"
 ---
 

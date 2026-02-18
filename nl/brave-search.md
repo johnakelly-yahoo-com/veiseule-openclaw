@@ -1,8 +1,4 @@
 ---
-summary: "Installatie van de Brave Search API voor web_search"
-read_when:
-  - Je wilt Brave Search gebruiken voor web_search
-  - Je hebt een BRAVE_API_KEY of plandetails nodig
 title: "Brave Search"
 ---
 

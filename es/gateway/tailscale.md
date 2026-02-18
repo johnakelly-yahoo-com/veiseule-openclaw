@@ -1,8 +1,4 @@
 ---
-summary: "Serve/Funnel de Tailscale integrados para el panel del Gateway"
-read_when:
-  - Exponer la IU de control del Gateway fuera de localhost
-  - Automatizar el acceso al panel del tailnet o público
 title: "Tailscale"
 ---
 

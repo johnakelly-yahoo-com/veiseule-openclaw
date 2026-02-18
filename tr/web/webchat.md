@@ -1,7 +1,4 @@
 ---
-summary: "Loopback WebChat statik barındırma ve sohbet UI için Gateway WS kullanımı"
-read_when:
-  - WebChat erişimini hata ayıklarken veya yapılandırırken
 title: "WebChat"
 ---
 

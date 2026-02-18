@@ -1,9 +1,4 @@
 ---
-summary: "Texto para fala (TTS) para respostas de saída"
-read_when:
-  - Ativando texto para fala para respostas
-  - Configurando provedores ou limites de TTS
-  - Usando comandos /tts
 title: "Texto para Fala"
 ---
 

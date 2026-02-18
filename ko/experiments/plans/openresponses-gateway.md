@@ -1,5 +1,4 @@
 ---
-summary: "계획: OpenResponses /v1/responses 엔드포인트를 추가하고 Chat Completions 를 깔끔하게 사용 중단"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"

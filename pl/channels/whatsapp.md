@@ -1,7 +1,4 @@
 ---
-summary: "„Integracja WhatsApp (kanał webowy): logowanie, skrzynka odbiorcza, odpowiedzi, media i operacje”"
-read_when:
-  - Praca nad zachowaniem kanału WhatsApp/web lub routowaniem skrzynki odbiorczej
 title: "„WhatsApp”"
 ---
 

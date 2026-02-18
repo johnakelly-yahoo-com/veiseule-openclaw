@@ -1,8 +1,4 @@
 ---
-summary: "Reposkript: syfte, omfattning och säkerhetsnoteringar"
-read_when:
-  - När du kör skript från repot
-  - När du lägger till eller ändrar skript under ./scripts
 title: "Skript"
 ---
 

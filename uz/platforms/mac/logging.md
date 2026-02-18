@@ -1,8 +1,4 @@
 ---
-summary: "33. OpenClaw loglash: aylanuvchi diagnostika fayl logi + unified log maxfiylik bayroqlari"
-read_when:
-  - 34. macOS loglarini yozib olish yoki maxfiy ma’lumot loglanishini tekshirish
-  - 35. Ovoz uyg‘otish/session hayotiy sikli muammolarini debug qilish
 title: "36. macOS Logging"
 ---
 

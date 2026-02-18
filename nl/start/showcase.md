@@ -1,8 +1,6 @@
 ---
 title: "Projectoverzicht"
-description: "Praktijkprojecten met OpenClaw uit de community"
-summary: "Door de community gebouwde projecten en integraties aangedreven door OpenClaw"
----
+description: "Praktijkprojecten met OpenClaw uit de community"---
 
 # Projectoverzicht
 

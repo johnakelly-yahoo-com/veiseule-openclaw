@@ -1,8 +1,4 @@
 ---
-summary: "Espace de travail de l’agent : emplacement, organisation et strategie de sauvegarde"
-read_when:
-  - Vous devez expliquer l’espace de travail de l’agent ou son organisation de fichiers
-  - Vous souhaitez sauvegarder ou migrer un espace de travail d’agent
 title: "Espace de travail de l’agent"
 ---
 

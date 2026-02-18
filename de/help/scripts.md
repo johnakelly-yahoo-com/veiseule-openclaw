@@ -1,8 +1,4 @@
 ---
-summary: "„Repository-Skripte: Zweck, Umfang und Sicherheitshinweise“"
-read_when:
-  - Ausführen von Skripten aus dem Repository
-  - Hinzufügen oder Ändern von Skripten unter ./scripts
 title: "Skripte"
 ---
 

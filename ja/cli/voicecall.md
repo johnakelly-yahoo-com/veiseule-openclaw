@@ -1,8 +1,4 @@
 ---
-summary: "CLI 参照: `openclaw voicecall`（voice-call プラグインのコマンド サーフェス）"
-read_when:
-  - voice-call プラグインを使用しており、CLI のエントリーポイントを確認したい場合
-  - "`voicecall call|continue|status|tail|expose` のクイック例を確認したい場合"
 title: "voicecall"
 ---
 

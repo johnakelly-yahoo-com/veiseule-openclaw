@@ -1,8 +1,4 @@
 ---
-summary: "Thiết lập nâng cao và quy trình làm việc cho phát triển OpenClaw"
-read_when:
-  - Thiết lập một máy mới
-  - Bạn muốn “mới nhất + tốt nhất” mà không làm hỏng thiết lập cá nhân
 title: "Thiết lập"
 ---
 

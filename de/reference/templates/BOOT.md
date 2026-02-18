@@ -1,8 +1,4 @@
----
-summary: "„Workspace-Vorlage für BOOT.md“"
-read_when:
-  - Hinzufügen einer BOOT.md-Checkliste
----
+------
 
 # BOOT.md
 

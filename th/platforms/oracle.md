@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw บน Oracle Cloud (ARM Always Free)"
-read_when:
-  - การตั้งค่า OpenClaw บน Oracle Cloud
-  - มองหา VPS ต้นทุนต่ำสำหรับ OpenClaw
-  - ต้องการ OpenClaw ทำงานตลอด 24/7 บนเซิร์ฟเวอร์ขนาดเล็ก
 title: "Oracle Cloud"
 ---
 

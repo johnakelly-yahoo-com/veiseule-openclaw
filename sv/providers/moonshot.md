@@ -1,9 +1,4 @@
 ---
-summary: "Konfigurera Moonshot K2 kontra Kimi Coding (separata leverantörer + nycklar)"
-read_when:
-  - Du vill konfigurera Moonshot K2 (Moonshot Open Platform) kontra Kimi Coding
-  - Du behöver förstå separata endpoints, nycklar och modellreferenser
-  - Du vill ha kopiera/klistra-in-konfig för respektive leverantör
 title: "Moonshot AI"
 ---
 

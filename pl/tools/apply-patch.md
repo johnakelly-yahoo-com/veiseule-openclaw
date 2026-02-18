@@ -1,8 +1,4 @@
 ---
-summary: "Stosuj wieloplikowe poprawki za pomocą narzędzia apply_patch"
-read_when:
-  - Potrzebujesz uporządkowanych edycji plików w wielu plikach
-  - Chcesz dokumentować lub debugować edycje oparte na poprawkach
 title: "Narzędzie apply_patch"
 ---
 

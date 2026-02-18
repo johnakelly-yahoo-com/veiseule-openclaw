@@ -1,8 +1,4 @@
----
-summary: "„Workspace-Vorlage für SOUL.md“"
-read_when:
-  - Manuelles Bootstrapping eines Workspaces
----
+------
 
 # SOUL.md – Wer Sie sind
 

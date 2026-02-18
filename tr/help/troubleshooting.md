@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw için belirti odaklı sorun giderme merkezi"
-read_when:
-  - OpenClaw çalışmıyor ve en hızlı şekilde bir çözüme ulaşmanız gerekiyor
-  - Derin runbook’lara girmeden önce bir triyaj akışı istiyorsunuz
 title: "Sorun Giderme"
 ---
 

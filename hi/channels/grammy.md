@@ -1,7 +1,4 @@
 ---
-summary: "grammY के माध्यम से Telegram Bot API एकीकरण, सेटअप नोट्स सहित"
-read_when:
-  - Telegram या grammY पाथवे पर कार्य करते समय
 title: grammY
 ---
 

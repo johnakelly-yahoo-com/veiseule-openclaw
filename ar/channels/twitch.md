@@ -1,7 +1,4 @@
 ---
-summary: "تهيئة وإعداد روبوت دردشة Twitch"
-read_when:
-  - إعداد تكامل دردشة Twitch لـ OpenClaw
 title: "Twitch"
 ---
 

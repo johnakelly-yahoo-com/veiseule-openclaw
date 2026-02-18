@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 设计 macOS 新手引导助手
-  - 实现认证或身份设置
-summary: OpenClaw 的首次运行新手引导流程（macOS 应用）
 title: 新手引导
 x-i18n:
   generated_at: "2026-02-03T07:54:07Z"

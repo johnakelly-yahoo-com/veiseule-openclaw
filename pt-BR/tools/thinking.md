@@ -1,7 +1,4 @@
 ---
-summary: "Sintaxe de diretiva para /think + /verbose e como elas afetam o raciocínio do modelo"
-read_when:
-  - Ajustar a análise de diretivas de thinking ou verbose ou os padrões
 title: "Níveis de Thinking"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw voicecall` uchun CLI ma’lumotnomasi (voice-call plagin buyruqlari yuzasi)"
-read_when:
-  - "`voicecall call|continue|status|tail|expose` uchun tezkor misollarni xohlaysiz"
-  - "Voice-call plagini: [Voice Call](/plugins/voice-call)"
 title: "voicecall"
 ---
 

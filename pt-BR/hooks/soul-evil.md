@@ -1,8 +1,4 @@
 ---
-summary: "Hook SOUL Evil (troca SOUL.md por SOUL_EVIL.md)"
-read_when:
-  - Você quer habilitar ou ajustar o hook SOUL Evil
-  - Você quer uma janela de purge ou troca de persona por chance aleatória
 title: "Hook SOUL Evil"
 ---
 

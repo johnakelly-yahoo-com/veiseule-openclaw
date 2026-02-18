@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw voicecall` के लिए CLI संदर्भ (voice-call प्लगइन कमांड सतह)"
-read_when:
-  - आप voice-call प्लगइन का उपयोग करते हैं और CLI एंट्री पॉइंट्स चाहते हैं
-  - आप `voicecall call|continue|status|tail|expose` के लिए त्वरित उदाहरण चाहते हैं
 title: "voicecall"
 ---
 

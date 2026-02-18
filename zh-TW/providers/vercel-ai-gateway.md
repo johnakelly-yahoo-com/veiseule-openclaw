@@ -1,10 +1,5 @@
 ---
-title: "Vercel AI Gateway"
-summary: "Vercel AI Gateway 設定（身分驗證 + 模型選擇）"
-read_when:
-  - 你想要將 Vercel AI Gateway 與 OpenClaw 一起使用
-  - 你需要 API 金鑰的 環境變數 或 CLI 身分驗證選項
----
+title: "Vercel AI Gateway"---
 
 # Vercel AI Gateway
 

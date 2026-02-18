@@ -1,8 +1,4 @@
 ---
-summary: "Doctor-kommando: hälsokontroller, konfigmigreringar och reparationssteg"
-read_when:
-  - Lägger till eller ändrar doctor-migreringar
-  - Introducerar brytande konfigändringar
 title: "Doktor"
 ---
 

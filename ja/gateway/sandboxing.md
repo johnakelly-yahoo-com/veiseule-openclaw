@@ -1,7 +1,5 @@
 ---
-summary: "OpenClaw のサンドボックス化の仕組み（モード、スコープ、ワークスペースアクセス、イメージ）"
 title: サンドボックス化
-read_when: "サンドボックス化の専用説明が必要な場合、または agents.defaults.sandbox を調整する必要がある場合。"
 status: active
 ---
 

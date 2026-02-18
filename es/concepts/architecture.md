@@ -1,7 +1,4 @@
 ---
-summary: "Arquitectura del Gateway WebSocket, componentes y flujos de clientes"
-read_when:
-  - Al trabajar en el protocolo del Gateway, clientes o transportes
 title: "Arquitectura del Gateway"
 ---
 

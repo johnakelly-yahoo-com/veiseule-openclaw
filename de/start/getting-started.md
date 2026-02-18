@@ -1,8 +1,4 @@
 ---
-summary: "Installieren Sie OpenClaw und führen Sie in wenigen Minuten Ihren ersten Chat aus."
-read_when:
-  - Erstmaliges Setup von Null
-  - Sie möchten den schnellsten Weg zu einem funktionierenden Chat
 title: "Erste Schritte"
 ---
 

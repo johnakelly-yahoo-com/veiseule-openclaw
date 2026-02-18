@@ -1,8 +1,4 @@
 ---
-summary: "Referencia de la CLI para `openclaw memory` (status/index/search)"
-read_when:
-  - Quiere indexar o buscar memoria semántica
-  - Está depurando la disponibilidad de la memoria o la indexación
 title: "memoria"
 ---
 

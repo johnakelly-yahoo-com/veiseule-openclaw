@@ -1,7 +1,4 @@
 ---
-summary: "Jak łączą się Gateway, węzły i host canvas."
-read_when:
-  - Chcesz uzyskać zwięzły obraz modelu sieciowego Gateway
 title: "Model sieciowy"
 ---
 

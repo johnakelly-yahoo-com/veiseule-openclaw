@@ -1,7 +1,5 @@
 ---
-summary: "Hur OpenClaw sandboxing fungerar: lägen, omfång, åtkomst till arbetsyta och images"
 title: "Sandlådeisolering"
-read_when: "Du vill ha en dedikerad förklaring av sandboxing eller behöver justera agents.defaults.sandbox."
 status: active
 ---
 

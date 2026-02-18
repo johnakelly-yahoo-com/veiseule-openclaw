@@ -1,8 +1,4 @@
 ---
-summary: "平台支援總覽（Gateway 閘道器 + 配套應用程式）"
-read_when:
-  - 尋找作業系統支援或安裝路徑
-  - 決定在哪裡執行 Gateway 閘道器
 title: "平台"
 ---
 

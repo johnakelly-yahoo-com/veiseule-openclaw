@@ -1,9 +1,4 @@
 ---
-summary: "macOS ruxsatlarining saqlanib qolishi (TCC) va imzolash talablari"
-read_when:
-  - Yo‘qolgan yoki tiqilib qolgan macOS ruxsat so‘rovlarini sozlash
-  - macOS ilovasini paketlash yoki imzolash
-  - Bundle ID’larni yoki ilova o‘rnatish yo‘llarini o‘zgartirish
 title: "macOS ruxsatlari"
 ---
 

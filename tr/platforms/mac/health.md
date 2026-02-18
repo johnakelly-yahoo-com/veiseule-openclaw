@@ -1,7 +1,4 @@
 ---
-summary: "macOS uygulamasının gateway/Baileys sağlık durumlarını nasıl raporladığı"
-read_when:
-  - Mac uygulaması sağlık göstergelerinde hata ayıklama
 title: "Sağlık Kontrolleri"
 ---
 

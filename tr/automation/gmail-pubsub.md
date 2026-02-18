@@ -1,8 +1,4 @@
 ---
-summary: "gogcli aracılığıyla OpenClaw webhooks’larına bağlanan Gmail Pub/Sub push"
-read_when:
-  - Gmail gelen kutusu tetikleyicilerini OpenClaw’a bağlama
-  - Ajan uyandırma için Pub/Sub push kurulumu
 title: "Gmail Pub/Sub"
 ---
 

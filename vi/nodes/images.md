@@ -1,7 +1,4 @@
 ---
-summary: "Quy tắc xử lý hình ảnh và media cho gửi, gateway và phản hồi của tác tử"
-read_when:
-  - Sửa đổi pipeline media hoặc tệp đính kèm
 title: "Hỗ trợ Hình ảnh và Media"
 ---
 

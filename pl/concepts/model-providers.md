@@ -1,8 +1,4 @@
 ---
-summary: "Przegląd dostawców modeli z przykładowymi konfiguracjami i przepływami CLI"
-read_when:
-  - Potrzebujesz referencji konfiguracji modeli według dostawców
-  - Chcesz zobaczyć przykładowe konfiguracje lub polecenia CLI do onboardingu dostawców modeli
 title: "Dostawcy modeli"
 ---
 

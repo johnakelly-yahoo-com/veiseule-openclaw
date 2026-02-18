@@ -1,8 +1,4 @@
 ---
-summary: "Mga global na voice wake word (pagmamay-ari ng Gateway) at kung paano sila nagsi-sync sa lahat ng node"
-read_when:
-  - Binabago ang behavior o mga default ng voice wake words
-  - Nagdaragdag ng mga bagong node platform na nangangailangan ng wake word sync
 title: "Pag-activate gamit ang Boses"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Mga tool sa pag-debug: watch mode, raw model streams, at pag-trace ng pagtagas ng reasoning"
-read_when:
-  - Kailangan mong inspeksyunin ang raw model output para sa pagtagas ng reasoning
-  - Gusto mong patakbuhin ang Gateway sa watch mode habang nag-i-iterate
-  - Kailangan mo ng paulit-ulit na workflow sa pag-debug
 title: "Pag-debug"
 ---
 

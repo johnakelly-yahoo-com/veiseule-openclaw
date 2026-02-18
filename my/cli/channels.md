@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw channels` အတွက် CLI ကိုးကားချက် (အကောင့်များ၊ အခြေအနေ၊ လော့ဂ်အင်/လော့ဂ်အောက်၊ လော့ဂ်များ)"
-read_when:
-  - ချန်နယ်အကောင့်များ (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage) ကို ထည့်သွင်း/ဖယ်ရှား လုပ်ချင်သောအခါ
-  - ချန်နယ် အခြေအနေကို စစ်ဆေးလိုသောအခါ သို့မဟုတ် ချန်နယ် လော့ဂ်များကို tail လုပ်ချင်သောအခါ
 title: "channels"
 ---
 

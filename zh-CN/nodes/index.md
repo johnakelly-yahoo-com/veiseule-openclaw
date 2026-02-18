@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 将 iOS/Android 节点配对到 Gateway 网关时
-  - 使用节点 canvas/camera 为智能体提供上下文时
-  - 添加新的节点命令或 CLI 辅助工具时
-summary: 节点：配对、能力、权限以及 canvas/camera/screen/system 的 CLI 辅助工具
 title: 节点
 x-i18n:
   generated_at: "2026-02-03T07:51:55Z"

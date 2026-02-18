@@ -1,8 +1,4 @@
 ---
-summary: "하나의 호스트에서 여러 OpenClaw Gateway(게이트웨이)를 실행합니다(격리, 포트, 프로파일)"
-read_when:
-  - 동일한 머신에서 둘 이상의 Gateway(게이트웨이)를 실행하는 경우
-  - Gateway(게이트웨이)별로 격리된 구성/상태/포트가 필요한 경우
 title: "다중 Gateway(게이트웨이)"
 ---
 

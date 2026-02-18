@@ -1,8 +1,4 @@
 ---
-summary: "Doctor-kommando: helbredstjek, konfigurationsmigreringer og reparations­trin"
-read_when:
-  - Tilføjelse eller ændring af doctor-migreringer
-  - Introduktion af brydende konfigurationsændringer
 title: "Læge"
 ---
 

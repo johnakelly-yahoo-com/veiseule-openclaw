@@ -1,8 +1,4 @@
 ---
-summary: "Meerdere OpenClaw Gateways op één host draaien (isolatie, poorten en profielen)"
-read_when:
-  - Meer dan één Gateway op dezelfde machine draaien
-  - Je geïsoleerde config/toestand/poorten per Gateway nodig hebt
 title: "Meerdere Gateways"
 ---
 

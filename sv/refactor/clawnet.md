@@ -1,8 +1,4 @@
 ---
-summary: "Clawnet-omstrukturering: förena nätverksprotokoll, roller, autentisering, godkännanden, identitet"
-read_when:
-  - Planering av ett enhetligt nätverksprotokoll för noder + operatörsklienter
-  - Omarbetning av godkännanden, parkoppling, TLS och närvaro över enheter
 title: "Clawnet-omstrukturering"
 ---
 

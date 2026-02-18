@@ -1,8 +1,4 @@
 ---
-summary: "เอกสารอ้างอิงCLIสำหรับ`openclaw tui`(เทอร์มินัลUIที่เชื่อมต่อกับGateway)"
-read_when:
-  - คุณต้องการเทอร์มินัลUIสำหรับGateway(เหมาะกับการใช้งานระยะไกล)
-  - คุณต้องการส่งผ่านurl/token/sessionจากสคริปต์
 title: "tui"
 ---
 

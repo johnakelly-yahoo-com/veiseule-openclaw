@@ -1,8 +1,4 @@
 ---
-summary: "Ytor för användningsspårning och krav på autentiseringsuppgifter"
-read_when:
-  - Du kopplar ytor för leverantörers användning/kvoter
-  - Du behöver förklara beteendet för användningsspårning eller autentiseringskrav
 title: "Användningsspårning"
 ---
 

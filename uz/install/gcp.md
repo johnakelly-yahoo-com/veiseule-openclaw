@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw Gateway’ni GCP Compute Engine VM’da (Docker) doimiy holat bilan 24/7 ishga tushirish"
-read_when:
-  - Siz OpenClaw’ni GCP’da 24/7 ishlatmoqchisiz
-  - O‘z VM’ingizda ishlab chiqarish darajasidagi, doimiy ishlaydigan Gateway xohlaysiz
-  - Persistensiya, binar fayllar va qayta ishga tushirish xatti-harakati ustidan to‘liq nazorat istaysiz
 title: "GCP"
 ---
 

@@ -1,10 +1,5 @@
 ---
-title: "Cloudflare AI Gateway"
-summary: "Cloudflare AI Gateway सेटअप (प्रमाणीकरण + मॉडल चयन)"
-read_when:
-  - आप OpenClaw के साथ Cloudflare AI Gateway का उपयोग करना चाहते हैं
-  - आपको खाता ID, Gateway ID, या API key पर्यावरण चर की आवश्यकता है
----
+title: "Cloudflare AI Gateway"---
 
 # Cloudflare AI Gateway
 

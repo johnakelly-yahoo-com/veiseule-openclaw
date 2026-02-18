@@ -1,7 +1,4 @@
 ---
-summary: "حالة دعم بوت Telegram، والإمكانات، والتهيئة"
-read_when:
-  - العمل على ميزات Telegram أو webhooks
 title: "Telegram"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "25. OpenClaw (macOS ilovasi) uchun birinchi ishga tushirishdagi onboarding oqimi"
-read_when:
-  - 26. macOS onboarding yordamchisini loyihalash
-  - 27. Auth yoki identifikatsiya sozlamalarini amalga oshirish
 title: "28. Onboarding (macOS ilovasi)"
 sidebarTitle: "29. Onboarding: macOS ilovasi"
 ---

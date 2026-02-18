@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw node」（ヘッドレス ノード ホスト）の CLI リファレンス"
-read_when:
-  - ヘッドレス ノード ホストを実行する場合
-  - system.run のために非 macOS ノードをペアリングする場合
 title: "node"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw pairing` (aprubahan/ilista ang mga pairing request)"
-read_when:
-  - Gumagamit ka ng pairing-mode na mga DM at kailangan mong aprubahan ang mga nagpadala
 title: "pairing"
 ---
 

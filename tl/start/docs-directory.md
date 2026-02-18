@@ -1,7 +1,4 @@
 ---
-summary: "Piniling mga link patungo sa mga pinaka-ginagamit na OpenClaw docs."
-read_when:
-  - Gusto mo ng mabilis na access sa mga pangunahing pahina ng docs
 title: "Direktoryo ng docs"
 ---
 

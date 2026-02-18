@@ -1,8 +1,4 @@
 ---
-summary: "Verschieben (Migrieren) einer OpenClaw-Installation von einer Maschine auf eine andere"
-read_when:
-  - Sie ziehen OpenClaw auf einen neuen Laptop/Server um
-  - Sie möchten Sitzungen, Authentifizierung und Kanal-Logins (WhatsApp usw.) beibehalten
 title: "Migrationsleitfaden"
 ---
 

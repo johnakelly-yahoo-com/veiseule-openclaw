@@ -1,8 +1,4 @@
 ---
-summary: "Sumulat ng mga agent tool sa isang plugin (schemas, mga opsyonal na tool, mga allowlist)"
-read_when:
-  - Gusto mong magdagdag ng bagong agent tool sa isang plugin
-  - Kailangan mong gawing opt-in ang isang tool gamit ang mga allowlist
 title: "Mga Plugin Agent Tool"
 ---
 

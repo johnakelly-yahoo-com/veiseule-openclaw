@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw ile Amazon Bedrock (Converse API) modellerini kullanın"
-read_when:
-  - OpenClaw ile Amazon Bedrock modellerini kullanmak istiyorsunuz
-  - Model çağrıları için AWS kimlik bilgileri/bölge kurulumuna ihtiyacınız var
 title: "Amazon Bedrock"
 ---
 

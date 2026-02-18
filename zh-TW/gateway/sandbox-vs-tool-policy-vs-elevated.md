@@ -1,7 +1,5 @@
 ---
 title: 沙箱 vs 工具政策 vs Elevated
-summary: "為什麼工具會被封鎖：沙箱執行期、工具允許／拒絕政策，以及 Elevated 執行閘門"
-read_when: "你遇到「sandbox jail」或看到工具／elevated 被拒，並想知道要修改的確切設定鍵時。"
 status: active
 ---
 

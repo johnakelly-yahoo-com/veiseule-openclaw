@@ -1,9 +1,4 @@
 ---
-summary: "macOS üzerinde Gateway çalışma zamanı (harici launchd hizmeti)"
-read_when:
-  - OpenClaw.app paketlenirken
-  - macOS gateway launchd hizmeti hata ayıklanırken
-  - macOS için gateway CLI kurulurken
 title: "macOS üzerinde Gateway"
 ---
 

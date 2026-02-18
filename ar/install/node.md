@@ -1,11 +1,5 @@
 ---
-title: "Node.js"
-summary: "تثبيت وتهيئة Node.js لـ OpenClaw — متطلبات الإصدارات، خيارات التثبيت، واستكشاف أخطاء PATH وإصلاحها"
-read_when:
-  - "تحتاج إلى تثبيت Node.js قبل تثبيت OpenClaw"
-  - "قمت بتثبيت OpenClaw لكن يظهر الخطأ بأن الأمر `openclaw` غير موجود"
-  - "يفشل `npm install -g` بسبب الأذونات أو مشاكل PATH"
----
+title: "Node.js"---
 
 # Node.js
 

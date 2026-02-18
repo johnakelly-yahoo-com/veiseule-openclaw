@@ -1,7 +1,4 @@
 ---
-summary: "Semantika ng reaksyon na ibinabahagi sa iba’t ibang channel"
-read_when:
-  - Kapag nagtatrabaho sa mga reaksyon sa anumang channel
 title: "Mga Reaksyon"
 ---
 

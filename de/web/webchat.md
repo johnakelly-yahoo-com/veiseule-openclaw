@@ -1,7 +1,4 @@
 ---
-summary: "„Loopback-WebChat-Static-Host und Gateway-WS-Nutzung für die Chat-UI“"
-read_when:
-  - Beim Debuggen oder Konfigurieren des WebChat-Zugriffs
 title: "„WebChat“"
 ---
 

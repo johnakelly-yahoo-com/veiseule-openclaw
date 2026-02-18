@@ -1,5 +1,4 @@
 ---
-summary: "Plan: Dodanie punktu końcowego OpenResponses /v1/responses i czyste wycofanie chat completions"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"

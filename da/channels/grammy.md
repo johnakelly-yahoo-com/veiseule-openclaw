@@ -1,7 +1,4 @@
 ---
-summary: "Telegram Bot API-integration via grammY med opsætningsnoter"
-read_when:
-  - Arbejder med Telegram- eller grammY-forløb
 title: grammY
 ---
 

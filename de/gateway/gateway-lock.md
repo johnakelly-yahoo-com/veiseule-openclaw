@@ -1,8 +1,4 @@
 ---
-summary: "„Gateway-Singleton-Schutz durch Binden des WebSocket-Listeners“"
-read_when:
-  - Beim Ausführen oder Debuggen des Gateway-Prozesses
-  - Bei der Untersuchung der Durchsetzung einer Einzelinstanz
 title: "gateway/gateway-lock.md"
 ---
 

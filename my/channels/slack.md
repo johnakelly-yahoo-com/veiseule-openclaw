@@ -1,6 +1,4 @@
 ---
-summary: "Socket သို့မဟုတ် HTTP webhook မုဒ်အတွက် Slack တပ်ဆင်မှု"
-read_when: "Slack ကို တပ်ဆင်နေစဉ် သို့မဟုတ် Slack socket/HTTP မုဒ်ကို ပြဿနာရှာဖွေနေစဉ်"
 title: "Slack"
 ---
 

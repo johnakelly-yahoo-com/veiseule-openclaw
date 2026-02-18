@@ -1,8 +1,4 @@
 ---
-summary: Node + tsx "__name bir fonksiyon değil" çökme notları ve geçici çözümler
-read_when:
-  - Yalnızca Node’a özgü geliştirme betiklerini veya izleme modu hatalarını ayıklarken
-  - OpenClaw’da tsx/esbuild yükleyici çökmelerini incelerken
 title: "Node + tsx Çökmesi"
 ---
 

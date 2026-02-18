@@ -1,8 +1,4 @@
 ---
-summary: "Talk 模式：使用 ElevenLabs TTS 的連續語音對話"
-read_when:
-  - 在 macOS／iOS／Android 上實作 Talk 模式
-  - 變更語音／TTS／中斷行為
 title: "Talk 模式"
 ---
 

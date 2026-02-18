@@ -1,8 +1,4 @@
 ---
-summary: "Envío de encuestas vía Gateway + CLI"
-read_when:
-  - Agregar o modificar el soporte de encuestas
-  - Depurar envíos de encuestas desde la CLI o el Gateway
 title: "Encuestas"
 ---
 

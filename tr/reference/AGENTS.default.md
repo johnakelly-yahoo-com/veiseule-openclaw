@@ -1,9 +1,4 @@
----
-summary: "Kişisel asistan kurulumu için varsayılan OpenClaw ajan talimatları ve Skills listesi"
-read_when:
-  - Yeni bir OpenClaw ajan oturumu başlatırken
-  - Varsayılan Skills’i etkinleştirirken veya denetlerken
----
+------
 
 # AGENTS.md — OpenClaw Kişisel Asistan (varsayılan)
 

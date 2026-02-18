@@ -1,9 +1,4 @@
 ---
-summary: "Översikt över loggning: filloggar, konsolutdata, CLI‑tailing och Control UI"
-read_when:
-  - Du behöver en nybörjarvänlig översikt över loggning
-  - Du vill konfigurera loggnivåer eller format
-  - Du felsöker och behöver hitta loggar snabbt
 title: "Loggning"
 ---
 

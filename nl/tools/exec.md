@@ -1,8 +1,4 @@
 ---
-summary: "Gebruik van de Exec-tool, stdin-modi en TTY-ondersteuning"
-read_when:
-  - Bij het gebruiken of aanpassen van de exec-tool
-  - Bij het debuggen van stdin- of TTY-gedrag
 title: "Exec-tool"
 ---
 

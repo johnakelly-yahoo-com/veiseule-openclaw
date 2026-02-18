@@ -1,7 +1,4 @@
 ---
-summary: "Status de suporte do bot do Discord, capacidades e configuração"
-read_when:
-  - Trabalhando em recursos do canal Discord
 title: "Discord"
 ---
 

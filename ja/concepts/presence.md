@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw の presence エントリーがどのように生成、マージ、表示されるか"
-read_when:
-  - Instances タブのデバッグ時
-  - 重複または古いインスタンス行を調査する場合
-  - ゲートウェイの WS 接続や system-event ビーコンを変更する場合
 title: "プレゼンス"
 ---
 

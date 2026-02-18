@@ -1,11 +1,6 @@
 ---
 title: Lobster
-summary: "OpenClaw uchun qayta tiklanadigan tasdiqlash darvozalari bilan tiplangan ish jarayoni runtime’i."
-description: OpenClaw uchun tiplangan ish jarayoni runtime’i — tasdiqlash darvozalari bilan kompozitsiyalanadigan quvurlar.
-read_when:
-  - Siz aniq tasdiqlar bilan deterministik ko‘p bosqichli ish jarayonlarini xohlaysiz
-  - Oldingi qadamlarni qayta ishga tushirmasdan ish jarayonini davom ettirishingiz kerak
----
+description: OpenClaw uchun tiplangan ish jarayoni runtime’i — tasdiqlash darvozalari bilan kompozitsiyalanadigan quvurlar.---
 
 # Lobster
 

@@ -1,9 +1,4 @@
 ---
-summary: "Serviço integrado de controle do navegador + comandos de ação"
-read_when:
-  - Adicionar automação de navegador controlada por agente
-  - Depurar por que o openclaw está interferindo no seu próprio Chrome
-  - Implementar configurações e ciclo de vida do navegador no app macOS
 title: "Browser (gerenciado pelo OpenClaw)"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "SOUL Evil 훅 (SOUL.md 를 SOUL_EVIL.md 로 교체)"
-read_when:
-  - SOUL Evil 훅을 활성화하거나 조정하려는 경우
-  - 퍼지 윈도우 또는 무작위 확률 기반 페르소나 전환이 필요한 경우
 title: "SOUL Evil 훅"
 ---
 

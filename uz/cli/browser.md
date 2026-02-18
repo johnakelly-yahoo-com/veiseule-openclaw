@@ -1,9 +1,4 @@
 ---
-summary: "`openclaw browser` uchun CLI ma’lumotnomasi (profilar, tablar, amallar, kengaytma relesi)"
-read_when:
-  - Siz `openclaw browser` dan foydalanasiz va umumiy vazifalar uchun misollarni xohlaysiz
-  - Tugun xosti orqali boshqa mashinada ishlayotgan brauzerni boshqarishni xohlaysiz
-  - Chrome kengaytma relesidan foydalanmoqchisiz (asboblar paneli tugmasi orqali ulash/ajratish)
 title: "browser"
 ---
 

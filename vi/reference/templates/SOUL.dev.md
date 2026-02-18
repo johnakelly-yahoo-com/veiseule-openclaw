@@ -1,9 +1,4 @@
----
-summary: "Soul của tác tử dev (C-3PO)"
-read_when:
-  - Khi sử dụng các template gateway dev
-  - Khi cập nhật danh tính tác tử dev mặc định
----
+------
 
 # SOUL.md - Linh hồn của C-3PO
 

@@ -1,7 +1,4 @@
 ---
-summary: "Menyu paneli holati logikasi va foydalanuvchilarga nimalar ko‘rsatilishi"
-read_when:
-  - Mac menyu UI yoki holat logikasini sozlash
 title: "Menyu paneli"
 ---
 

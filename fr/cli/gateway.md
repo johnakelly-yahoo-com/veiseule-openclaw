@@ -1,9 +1,4 @@
 ---
-summary: "CLI de l’OpenClaw Gateway (passerelle) (`openclaw gateway`) — exécuter, interroger et découvrir des gateways"
-read_when:
-  - Exécuter le Gateway depuis la CLI (dev ou serveurs)
-  - Déboguer l’authentification du Gateway, les modes de liaison et la connectivité
-  - Découvrir des gateways via Bonjour (LAN + tailnet)
 title: "gateway"
 ---
 

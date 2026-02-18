@@ -1,5 +1,4 @@
 ---
-summary: "Paano magsumite ng high-signal na PR"
 title: "Pagsusumite ng PR"
 ---
 

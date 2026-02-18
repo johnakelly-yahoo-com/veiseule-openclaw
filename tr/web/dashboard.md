@@ -1,7 +1,4 @@
 ---
-summary: "Gateway kontrol paneli (Control UI) erişimi ve kimlik doğrulama"
-read_when:
-  - Kontrol paneli kimlik doğrulaması veya erişime açma modlarını değiştirirken
 title: "Gösterge Paneli"
 ---
 

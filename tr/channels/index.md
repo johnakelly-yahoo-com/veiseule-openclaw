@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw’un bağlanabildiği mesajlaşma platformları"
-read_when:
-  - OpenClaw için bir sohbet kanalı seçmek istiyorsunuz
-  - Desteklenen mesajlaşma platformlarına hızlı bir genel bakışa ihtiyacınız var
 title: "Sohbet Kanalları"
 ---
 

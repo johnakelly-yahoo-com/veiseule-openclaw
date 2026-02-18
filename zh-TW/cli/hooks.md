@@ -1,8 +1,4 @@
 ---
-summary: "用於 `openclaw hooks` 的 CLI 參考（代理程式 hooks）"
-read_when:
-  - 你想要管理代理程式 hooks
-  - 你想要安裝或更新 hooks
 title: "hooks"
 ---
 

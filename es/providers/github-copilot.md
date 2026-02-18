@@ -1,8 +1,4 @@
 ---
-summary: "Inicie sesión en GitHub Copilot desde OpenClaw usando el flujo de dispositivo"
-read_when:
-  - Desea usar GitHub Copilot como proveedor de modelos
-  - Necesita el flujo `openclaw models auth login-github-copilot`
 title: "GitHub Copilot"
 ---
 

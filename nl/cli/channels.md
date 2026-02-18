@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw channels` (accounts, status, inloggen/uitloggen, logs)"
-read_when:
-  - Je wilt kanaalaccounts toevoegen/verwijderen (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage)
-  - Je wilt de kanaalstatus controleren of kanaallogs volgen
 title: "kanalen"
 ---
 

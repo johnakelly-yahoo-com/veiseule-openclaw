@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 添加或更改外部 CLI 集成
-  - 调试 RPC 适配器（signal-cli、imsg）
-summary: 外部 CLI（signal-cli、imsg）的 RPC 适配器和 Gateway 网关模式
 title: RPC 适配器
 x-i18n:
   generated_at: "2026-02-03T07:53:44Z"

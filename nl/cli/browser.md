@@ -1,9 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw browser` (profielen, tabbladen, acties, extensierelay)"
-read_when:
-  - Je gebruikt `openclaw browser` en wilt voorbeelden voor veelvoorkomende taken
-  - Je wilt een browser die op een andere machine draait bedienen via een node-host
-  - Je wilt de Chrome-extensierelay gebruiken (koppelen/ontkoppelen via de werkbalkknop)
 title: "browser"
 ---
 

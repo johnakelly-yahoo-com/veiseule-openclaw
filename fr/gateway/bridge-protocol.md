@@ -1,9 +1,4 @@
 ---
-summary: "Protocole de pont (nœuds hérités) : TCP JSONL, appairage, RPC à portée limitée"
-read_when:
-  - Création ou débogage de clients nœuds (mode nœud iOS/Android/macOS)
-  - Investigation des échecs d’appairage ou d’authentification du pont
-  - Audit de la surface nœud exposée par la passerelle
 title: "Protocole de pont"
 ---
 

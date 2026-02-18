@@ -1,7 +1,4 @@
 ---
-summary: "CLI 參考文件：`openclaw config`（以 get/set/unset 取得／設定／取消設定值）"
-read_when:
-  - 你想要以非互動方式讀取或編輯設定
 title: "config"
 ---
 

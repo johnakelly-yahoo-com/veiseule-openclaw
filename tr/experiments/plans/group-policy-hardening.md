@@ -1,7 +1,4 @@
 ---
-summary: "Telegram izin listesi güçlendirmesi: önek + boşluk normalizasyonu"
-read_when:
-  - Geçmiş Telegram izin listesi değişikliklerini gözden geçirirken
 title: "Telegram İzin Listesi Güçlendirmesi"
 ---
 

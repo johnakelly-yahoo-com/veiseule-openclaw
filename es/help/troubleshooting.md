@@ -1,8 +1,4 @@
 ---
-summary: "Centro de solución de problemas orientado por síntomas para OpenClaw"
-read_when:
-  - OpenClaw no funciona y necesita el camino más rápido hacia una solución
-  - Quiere un flujo de triaje antes de profundizar en runbooks detallados
 title: "Solución de problemas"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw onboard` (interactive na onboarding wizard)"
-read_when:
-  - Gusto mo ng guided na setup para sa Gateway, workspace, auth, mga channel, at Skills
 title: "onboard"
 ---
 

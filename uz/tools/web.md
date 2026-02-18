@@ -1,9 +1,4 @@
 ---
-summary: "Veb qidiruv + fetch vositalari (Brave Search API, Perplexity direct/OpenRouter)"
-read_when:
-  - Siz web_search yoki web_fetch ni yoqmoqchisiz
-  - Sizga Brave Search API kalitini sozlash kerak
-  - Siz veb qidiruv uchun Perplexity Sonar’dan foydalanmoqchisiz
 title: "Veb vositalar"
 ---
 

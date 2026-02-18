@@ -1,11 +1,5 @@
 ---
-title: "Node.js"
-summary: "Instalacja i konfiguracja Node.js dla OpenClaw — wymagania wersji, opcje instalacji oraz rozwiązywanie problemów z PATH"
-read_when:
-  - "Musisz zainstalować Node.js przed instalacją OpenClaw"
-  - "Zainstalowałeś OpenClaw, ale polecenie `openclaw` nie zostało znalezione"
-  - "npm install -g kończy się błędami uprawnień lub problemami z PATH"
----
+title: "Node.js"---
 
 # Node.js
 

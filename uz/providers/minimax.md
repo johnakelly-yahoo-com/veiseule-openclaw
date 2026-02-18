@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw’da MiniMax M2.1’dan foydalanish"
-read_when:
-  - Siz OpenClaw’da MiniMax modellarini xohlaysiz
-  - Sizga MiniMax sozlash bo‘yicha yo‘riqnoma kerak
 title: "MiniMax"
 ---
 

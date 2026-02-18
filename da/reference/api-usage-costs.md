@@ -1,9 +1,4 @@
 ---
-summary: "Revidér hvad der kan bruge penge, hvilke nøgler der anvendes, og hvordan du ser forbrug"
-read_when:
-  - Du vil forstå hvilke funktioner der kan kalde betalte API’er
-  - Du skal revidere nøgler, omkostninger og synlighed af forbrug
-  - Du forklarer /status eller /usage-omkostningsrapportering
 title: "API-brug og omkostninger"
 ---
 

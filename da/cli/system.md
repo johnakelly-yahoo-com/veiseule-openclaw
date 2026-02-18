@@ -1,9 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw system` (systemhændelser, heartbeat, tilstedeværelse)"
-read_when:
-  - Du vil sætte en systemhændelse i kø uden at oprette et cron-job
-  - Du skal aktivere eller deaktivere heartbeats
-  - Du vil inspicere systemets tilstedeværelsesposter
 title: "system"
 ---
 

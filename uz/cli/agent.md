@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw agent` uchun CLI ma’lumotnomasi (Gateway orqali bitta agent navbatini yuborish)"
-read_when:
-  - Skriptlardan bitta agent navbatini ishga tushirmoqchisiz (ixtiyoriy ravishda javobni yetkazish)
 title: "agent"
 ---
 

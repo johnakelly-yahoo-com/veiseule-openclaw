@@ -1,8 +1,4 @@
 ---
-summary: "Bun ish jarayoni (eksperimental): o‘rnatish va pnpm bilan bog‘liq nozik jihatlar"
-read_when:
-  - Siz eng tezkor lokal dev jarayonini xohlaysiz (bun + watch)
-  - Siz Bun o‘rnatish/patch/lifecycle script muammolariga duch keldingiz
 title: "Bun (Eksperimental)"
 ---
 

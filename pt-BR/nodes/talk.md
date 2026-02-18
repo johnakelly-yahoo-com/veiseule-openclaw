@@ -1,8 +1,4 @@
 ---
-summary: "Modo Talk: conversas de fala contínuas com TTS da ElevenLabs"
-read_when:
-  - Implementando o modo Talk no macOS/iOS/Android
-  - Alterando comportamento de voz/TTS/interrupção
 title: "Modo Talk"
 ---
 

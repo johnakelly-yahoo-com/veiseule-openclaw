@@ -1,8 +1,4 @@
 ---
-summary: "Gamitin ang pinag-isang API ng OpenRouter para ma-access ang maraming model sa OpenClaw"
-read_when:
-  - Gusto mo ng iisang API key para sa maraming LLM
-  - Gusto mong patakbuhin ang mga model sa pamamagitan ng OpenRouter sa OpenClaw
 title: "OpenRouter"
 ---
 

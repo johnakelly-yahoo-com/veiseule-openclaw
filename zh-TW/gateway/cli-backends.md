@@ -1,9 +1,4 @@
 ---
-summary: "CLI 後端：透過本機 AI CLI 的純文字備援"
-read_when:
-  - 當 API 提供者失效時，你需要可靠的備援
-  - 你正在執行 Claude Code CLI 或其他本機 AI CLI，並想要重複使用它們
-  - 你需要一條僅文字、無工具，但仍支援工作階段與圖片的路徑
 title: "CLI 後端"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Verktyg för webbsökning och hämtning (Brave Search API, Perplexity direkt/OpenRouter)"
-read_when:
-  - Du vill aktivera web_search eller web_fetch
-  - Du behöver konfigurera en Brave Search API-nyckel
-  - Du vill använda Perplexity Sonar för webbsökning
 title: "Webbverktyg"
 ---
 

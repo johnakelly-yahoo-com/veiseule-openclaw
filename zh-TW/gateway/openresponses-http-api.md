@@ -1,8 +1,4 @@
 ---
-summary: "從 Gateway 暴露相容 OpenResponses 的 /v1/responses HTTP 端點"
-read_when:
-  - 整合使用 OpenResponses API 的用戶端
-  - 你需要以項目為基礎的輸入、用戶端工具呼叫，或 SSE 事件
 title: "OpenResponses API"
 ---
 

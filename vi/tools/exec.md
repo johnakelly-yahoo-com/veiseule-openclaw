@@ -1,8 +1,4 @@
 ---
-summary: "Cách dùng công cụ Exec, các chế độ stdin và hỗ trợ TTY"
-read_when:
-  - Khi dùng hoặc chỉnh sửa công cụ exec
-  - Khi gỡ lỗi hành vi stdin hoặc TTY
 title: "Công cụ Exec"
 ---
 

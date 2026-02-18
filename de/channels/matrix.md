@@ -1,7 +1,4 @@
 ---
-summary: "Status der Matrix-Unterstützung, Funktionen und Konfiguration"
-read_when:
-  - Arbeiten an Matrix-Kanalfunktionen
 title: "Matrix"
 ---
 

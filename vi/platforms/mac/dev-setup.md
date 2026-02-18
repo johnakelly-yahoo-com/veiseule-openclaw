@@ -1,7 +1,4 @@
 ---
-summary: "Hướng dẫn thiết lập cho lập trình viên làm việc trên ứng dụng OpenClaw macOS"
-read_when:
-  - Thiết lập môi trường phát triển macOS
 title: "Thiết lập Dev macOS"
 ---
 

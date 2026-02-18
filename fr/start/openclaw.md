@@ -1,8 +1,4 @@
 ---
-summary: "Guide de bout en bout pour exécuter OpenClaw comme assistant personnel avec des précautions de sécurité"
-read_when:
-  - Prise en main d’une nouvelle instance d’assistant
-  - Revue des implications de sécurité et de permissions
 title: "Configuration d’un assistant personnel"
 ---
 

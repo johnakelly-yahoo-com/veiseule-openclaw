@@ -1,8 +1,4 @@
 ---
-summary: "外部 CLI（signal-cli、レガシーの imsg）向けの RPC アダプターとゲートウェイのパターン"
-read_when:
-  - 外部 CLI 連携の追加または変更時
-  - RPC アダプター（signal-cli、imsg）のデバッグ時
 title: "RPC アダプター"
 ---
 

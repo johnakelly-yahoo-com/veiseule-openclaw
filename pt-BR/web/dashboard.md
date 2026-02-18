@@ -1,7 +1,4 @@
 ---
-summary: "Acesso e autenticação do dashboard do Gateway (Control UI)"
-read_when:
-  - Alterando a autenticação ou os modos de exposição do dashboard
 title: "Painel"
 ---
 

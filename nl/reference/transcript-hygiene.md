@@ -1,9 +1,4 @@
 ---
-summary: "Referentie: provider-specifieke transcript-sanitatie- en herstelregels"
-read_when:
-  - Je debugt provider-afwijzingen van requests die samenhangen met de vorm van het transcript
-  - Je wijzigt transcript-sanitatie of logica voor het herstellen van tool-calls
-  - Je onderzoekt mismatches van tool-call-id’s tussen providers
 title: "Transcript-hygiëne"
 ---
 

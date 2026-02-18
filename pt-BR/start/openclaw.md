@@ -1,8 +1,4 @@
 ---
-summary: "Guia completo de ponta a ponta para executar o OpenClaw como um assistente pessoal com cuidados de segurança"
-read_when:
-  - Integração inicial de uma nova instância de assistente
-  - Revisão de implicações de segurança/permissões
 title: "Configuração do Assistente Pessoal"
 ---
 

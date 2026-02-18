@@ -1,7 +1,4 @@
 ---
-summary: "Konfigureringsguide för utvecklare som arbetar med OpenClaw macOS-appen"
-read_when:
-  - Konfigurera macOS-utvecklingsmiljön
 title: "macOS-utvecklarsetup"
 ---
 

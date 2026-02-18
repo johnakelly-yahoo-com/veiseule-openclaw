@@ -1,6 +1,4 @@
 ---
-read_when: Changing onboarding wizard steps or config schema endpoints
-summary: 新手引导向导和配置模式的 RPC 协议说明
 title: 新手引导和配置协议
 x-i18n:
   generated_at: "2026-02-03T07:47:10Z"

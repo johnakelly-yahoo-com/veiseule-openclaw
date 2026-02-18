@@ -1,9 +1,4 @@
 ---
-summary: "web_fetch 向けの Firecrawl フォールバック（アンチボット＋キャッシュ抽出）"
-read_when:
-  - Firecrawl を利用した web 抽出を行いたい場合
-  - Firecrawl API キーが必要な場合
-  - web_fetch に対してアンチボット抽出が必要な場合
 title: "Firecrawl"
 ---
 

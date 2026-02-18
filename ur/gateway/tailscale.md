@@ -1,8 +1,4 @@
 ---
-summary: "Gateway ڈیش بورڈ کے لیے مربوط Tailscale Serve/Funnel"
-read_when:
-  - لوکل ہوسٹ سے باہر Gateway کنٹرول UI کو ظاہر کرنا
-  - tailnet یا عوامی ڈیش بورڈ رسائی کو خودکار بنانا
 title: "Tailscale"
 ---
 

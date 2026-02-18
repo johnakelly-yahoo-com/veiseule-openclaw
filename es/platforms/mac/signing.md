@@ -1,7 +1,4 @@
 ---
-summary: "Pasos de firma para compilaciones de depuración de macOS generadas por scripts de empaquetado"
-read_when:
-  - Compilando o firmando compilaciones de depuración de mac
 title: "Firma en macOS"
 ---
 

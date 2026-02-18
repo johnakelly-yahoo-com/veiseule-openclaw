@@ -1,7 +1,5 @@
 ---
-summary: "Multi-agent-routing: isolerede agenter, kanalkonti og bindinger"
 title: Multi-Agent-routing
-read_when: "Du vil have flere isolerede agenter (workspaces + auth) i én gateway-proces."
 status: active
 ---
 

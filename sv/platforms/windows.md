@@ -1,8 +1,4 @@
 ---
-summary: "Windows-stöd (WSL2) + status för companion-app"
-read_when:
-  - Installera OpenClaw på Windows
-  - Söker status för Windows companion-app
 title: "Windows (WSL2)"
 ---
 

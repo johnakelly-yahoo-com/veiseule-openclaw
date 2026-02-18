@@ -1,7 +1,4 @@
 ---
-summary: "„Routing-Regeln pro Kanal (WhatsApp, Telegram, Discord, Slack) und geteilter Kontext“"
-read_when:
-  - Beim Ändern des Kanal-Routings oder des Inbox-Verhaltens
 title: "channels/channel-routing.md"
 ---
 

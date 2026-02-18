@@ -1,10 +1,5 @@
 ---
-title: "Cloudflare AI Gateway"
-summary: "Cloudflare AI Gateway のセットアップ（認証 + モデル選択）"
-read_when:
-  - OpenClaw で Cloudflare AI Gateway を使用したい場合
-  - アカウント ID、ゲートウェイ ID、または API キーの環境変数が必要な場合
----
+title: "Cloudflare AI Gateway"---
 
 # Cloudflare AI Gateway
 

@@ -1,8 +1,4 @@
 ---
-summary: "gogcli を介して OpenClaw Webhook に接続された Gmail Pub/Sub プッシュ"
-read_when:
-  - Gmail の受信トリガーを OpenClaw に接続する
-  - エージェント起動のために Pub/Sub プッシュを設定する
 title: "Gmail Pub/Sub"
 ---
 

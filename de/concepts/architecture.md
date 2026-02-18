@@ -1,7 +1,4 @@
 ---
-summary: "„WebSocket-Gateway-Architektur, Komponenten und Client-Flows“"
-read_when:
-  - Arbeit am Gateway-Protokoll, an Clients oder Transporten
 title: "„Gateway-Architektur“"
 ---
 

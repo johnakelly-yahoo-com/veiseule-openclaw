@@ -1,9 +1,4 @@
 ---
-summary: "Executer OpenClaw avec des LLM locaux (LM Studio, vLLM, LiteLLM, points de terminaison OpenAI personnalises)"
-read_when:
-  - Vous souhaitez servir des modeles depuis votre propre machine GPU
-  - Vous connectez LM Studio ou un proxy compatible OpenAI
-  - Vous avez besoin des recommandations les plus sures pour les modeles locaux
 title: "Modeles locaux"
 ---
 

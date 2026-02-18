@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw ulanishi mumkin bo‘lgan xabar almashish platformalari"
-read_when:
-  - You want to choose a chat channel for OpenClaw
-  - You need a quick overview of supported messaging platforms
 title: "Chat kanallari"
 ---
 

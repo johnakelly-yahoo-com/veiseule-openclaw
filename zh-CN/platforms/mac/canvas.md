@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 实现 macOS Canvas 面板
-  - 为可视化工作区添加智能体控制
-  - 调试 WKWebView canvas 加载
-summary: 通过 WKWebView + 自定义 URL 方案嵌入的智能体控制 Canvas 面板
 title: Canvas
 x-i18n:
   generated_at: "2026-02-03T07:52:39Z"

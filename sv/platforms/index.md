@@ -1,8 +1,4 @@
 ---
-summary: "Översikt över plattformsstöd (Gateway + Companion-appar)"
-read_when:
-  - Letar efter OS-stöd eller installationssökvägar
-  - Bestämmer var du ska köra Gateway
 title: "Plattformar"
 ---
 

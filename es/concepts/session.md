@@ -1,7 +1,4 @@
 ---
-summary: "Reglas de gestión de sesiones, claves y persistencia para chats"
-read_when:
-  - Modificar el manejo o almacenamiento de sesiones
 title: "Gestión de sesiones"
 ---
 

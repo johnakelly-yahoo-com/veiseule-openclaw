@@ -1,8 +1,4 @@
 ---
-summary: "Windows (WSL2) سپورٹ + معاون ایپ کی حیثیت"
-read_when:
-  - Windows پر OpenClaw انسٹال کرتے وقت
-  - Windows معاون ایپ کی حیثیت تلاش کرتے وقت
 title: "Windows (WSL2)"
 ---
 

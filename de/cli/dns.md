@@ -1,8 +1,4 @@
 ---
-summary: "CLI-Referenz für `openclaw dns` (Hilfen für Weitbereichs-Discovery)"
-read_when:
-  - Sie möchten Weitbereichs-Discovery (DNS-SD) über Tailscale + CoreDNS nutzen
-  - You’re setting up split DNS for a custom discovery domain (example: openclaw.internal)
 title: "dns"
 ---
 

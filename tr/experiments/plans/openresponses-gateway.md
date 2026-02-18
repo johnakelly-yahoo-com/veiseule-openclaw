@@ -1,5 +1,4 @@
 ---
-summary: "Plan: OpenResponses /v1/responses uç noktasını eklemek ve chat completions’ı temiz bir şekilde kullanımdan kaldırmak"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"

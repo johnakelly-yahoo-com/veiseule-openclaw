@@ -1,8 +1,4 @@
 ---
-summary: "Pag-troubleshoot ng pagpapares ng node, mga kinakailangan sa foreground, mga pahintulot, at mga pagkabigo ng tool"
-read_when:
-  - Nakakonekta ang node pero pumapalya ang camera/canvas/screen/exec tools
-  - Kailangan mo ang mental model ng pagpapares ng node kumpara sa mga approval
 title: "Pag-troubleshoot ng Node"
 ---
 

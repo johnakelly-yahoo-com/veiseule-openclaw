@@ -1,8 +1,4 @@
 ---
-summary: "Skicka omröstningar via gateway + CLI"
-read_when:
-  - Lägga till eller ändra stöd för omröstningar
-  - Felsöka skickade omröstningar från CLI eller gateway
 title: "Omröstningar"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Gateway-levenscyclus op macOS (launchd)"
-read_when:
-  - Integratie van de mac-app met de Gateway-levenscyclus
 title: "Gateway-levenscyclus"
 ---
 

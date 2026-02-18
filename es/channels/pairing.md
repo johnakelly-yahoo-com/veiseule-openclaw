@@ -1,9 +1,4 @@
 ---
-summary: "Resumen de emparejamiento: aprueba quién puede DM + qué nodos pueden unirse"
-read_when:
-  - Configurar el control de acceso a mensajes directos
-  - Emparejar un nuevo nodo iOS/Android
-  - Revisar la postura de seguridad de OpenClaw
 title: "Emparejamiento"
 ---
 

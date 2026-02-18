@@ -1,7 +1,4 @@
 ---
-summary: "Nav som länkar till varje OpenClaw-dokument"
-read_when:
-  - Du vill ha en komplett karta över dokumentationen
 title: "Dokumentnav"
 ---
 

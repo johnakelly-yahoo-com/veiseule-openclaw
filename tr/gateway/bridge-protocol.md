@@ -1,9 +1,4 @@
 ---
-summary: "Köprü protokolü (eski düğümler): TCP JSONL, eşleştirme, kapsamlı RPC"
-read_when:
-  - Düğüm istemcileri (iOS/Android/macOS düğüm modu) geliştirirken veya hata ayıklarken
-  - Eşleştirme veya köprü kimlik doğrulama hatalarını incelerken
-  - Gateway tarafından açığa çıkarılan düğüm yüzeyini denetlerken
 title: "Köprü Protokolü"
 ---
 

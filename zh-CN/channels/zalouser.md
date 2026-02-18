@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 为 OpenClaw 设置 Zalo Personal
-  - 调试 Zalo Personal 登录或消息流程
-summary: 通过 zca-cli（QR 登录）支持 Zalo 个人账户、功能和配置
 title: Zalo Personal
 x-i18n:
   generated_at: "2026-02-03T07:44:34Z"

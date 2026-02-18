@@ -1,9 +1,4 @@
 ---
-summary: "Quy trình định dạng Markdown cho các kênh gửi ra"
-read_when:
-  - Bạn đang thay đổi định dạng Markdown hoặc cơ chế chunking cho các kênh gửi ra
-  - Bạn đang thêm một formatter kênh mới hoặc ánh xạ kiểu dáng
-  - Bạn đang gỡ lỗi các lỗi hồi quy về định dạng giữa các kênh
 title: "Định dạng Markdown"
 ---
 

@@ -1,8 +1,4 @@
----
-summary: "4. Yangi agentlar uchun birinchi ishga tushirish marosimi"
-read_when:
-  - 5. Ish maydonini qo‘lda ishga tushirish
----
+------
 
 # 6. BOOTSTRAP.md - Salom, Dunyo
 

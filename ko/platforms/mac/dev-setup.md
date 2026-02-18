@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw macOS 앱에서 작업하는 개발자를 위한 설정 가이드"
-read_when:
-  - macOS 개발 환경 설정
 title: "macOS 개발자 설정"
 ---
 

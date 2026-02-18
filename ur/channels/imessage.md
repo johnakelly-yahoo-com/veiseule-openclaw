@@ -1,8 +1,4 @@
 ---
-summary: "imsg کے ذریعے Legacy iMessage کی معاونت (stdio پر JSON-RPC)۔ نئی سیٹ اپس کے لیے BlueBubbles استعمال کریں۔"
-read_when:
-  - iMessage سپورٹ سیٹ اپ کرنا
-  - iMessage بھیجنے/وصول کرنے کی ڈیبگنگ
 title: iMessage
 ---
 

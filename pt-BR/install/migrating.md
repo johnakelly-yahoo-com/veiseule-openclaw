@@ -1,8 +1,4 @@
 ---
-summary: "Mover (migrar) uma instalação do OpenClaw de uma máquina para outra"
-read_when:
-  - Voce esta movendo o OpenClaw para um novo laptop/servidor
-  - Voce quer preservar sessoes, autenticacao e logins de canais (WhatsApp, etc.)
 title: "Guia de Migracao"
 ---
 

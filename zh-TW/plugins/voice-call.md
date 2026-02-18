@@ -1,8 +1,4 @@
 ---
-summary: "語音通話外掛：透過 Twilio／Telnyx／Plivo 進行撥出與來電（外掛安裝＋設定＋ CLI）"
-read_when:
-  - 你想要從 OpenClaw 撥出語音通話
-  - 你正在設定或開發語音通話外掛
 title: "plugins/voice-call.md"
 ---
 

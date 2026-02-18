@@ -1,7 +1,4 @@
 ---
-summary: "Sundhedstjektrin for kanalforbindelse"
-read_when:
-  - Diagnosticering af WhatsApp-kanalens sundhed
 title: "Sundhedstjek"
 ---
 

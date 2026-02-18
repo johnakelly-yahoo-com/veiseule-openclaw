@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw est une passerelle multicanal pour agents IA qui fonctionne sur n’importe quel OS."
-read_when:
-  - Présenter OpenClaw aux nouveaux venus
 title: "OpenClaw"
 ---
 

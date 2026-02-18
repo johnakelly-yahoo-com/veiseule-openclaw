@@ -1,8 +1,4 @@
 ---
-summary: "외부 CLI (signal-cli, 레거시 imsg)를 위한 RPC 어댑터와 Gateway(게이트웨이) 패턴"
-read_when:
-  - 외부 CLI 통합을 추가하거나 변경할 때
-  - RPC 어댑터 (signal-cli, imsg)를 디버깅할 때
 title: "RPC 어댑터"
 ---
 

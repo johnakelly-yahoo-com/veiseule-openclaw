@@ -1,8 +1,4 @@
----
-summary: "Arbetsytemall för TOOLS.md"
-read_when:
-  - Vid manuell bootstrap av en arbetsyta
----
+------
 
 # TOOLS.md – Lokala anteckningar
 

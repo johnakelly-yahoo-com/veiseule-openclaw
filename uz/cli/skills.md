@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw skills`"
-read_when:
-  - You want to see which skills are available and ready to run
-  - You want to debug missing binaries/env/config for skills
 title: "skills"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Doctor 명령: 상태 점검, 설정 마이그레이션 및 복구 단계"
-read_when:
-  - Doctor 마이그레이션을 추가하거나 수정할 때
-  - Introducing breaking config changes
 title: "Doctor"
 ---
 

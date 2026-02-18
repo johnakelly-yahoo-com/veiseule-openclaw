@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 设置私信访问控制
-  - 配对新的 iOS/Android 节点
-  - 审查 OpenClaw 安全态势
-summary: 配对概述：批准谁可以向你发送私信 + 哪些节点可以加入
 title: 配对
 x-i18n:
   generated_at: "2026-02-03T07:54:19Z"

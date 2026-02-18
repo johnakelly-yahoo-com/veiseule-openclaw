@@ -1,9 +1,4 @@
 ---
-summary: "OpenProse: .prose-arbetsflöden, snedstreckskommandon och tillstånd i OpenClaw"
-read_when:
-  - Du vill köra eller skriva .prose-arbetsflöden
-  - Du vill aktivera OpenProse-pluginet
-  - Du behöver förstå lagring av tillstånd
 title: "OpenProse"
 ---
 

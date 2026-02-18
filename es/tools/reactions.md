@@ -1,7 +1,4 @@
 ---
-summary: "Semántica de reacciones compartida entre canales"
-read_when:
-  - Trabajando en reacciones en cualquier canal
 title: "Reacciones"
 ---
 

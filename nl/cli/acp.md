@@ -1,8 +1,4 @@
 ---
-summary: "Voer de ACP-bridge uit voor IDE-integraties"
-read_when:
-  - ACP-gebaseerde IDE-integraties instellen
-  - ACP-sessierouting naar de Gateway debuggen
 title: "acp"
 ---
 

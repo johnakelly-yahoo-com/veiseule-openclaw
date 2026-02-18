@@ -1,7 +1,4 @@
 ---
-summary: "Configuratie en installatie van een Twitch-chatbot"
-read_when:
-  - Twitch-chatintegratie instellen voor OpenClaw
 title: "Twitch"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Skriptad introduktion och agentkonfigurering för OpenClaw CLI"
-read_when:
-  - Du automatiserar introduktion i skript eller CI
-  - Du behöver icke-interaktiva exempel för specifika leverantörer
 title: "CLI-automatisering"
 sidebarTitle: "CLI-automatisering"
 ---

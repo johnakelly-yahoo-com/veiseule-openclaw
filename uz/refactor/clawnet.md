@@ -1,8 +1,4 @@
 ---
-summary: "Clawnet refaktori: tarmoq protokoli, rollar, autentifikatsiya, tasdiqlashlar va identifikatsiyani birlashtirish"
-read_when:
-  - Tugunlar va operator mijozlari uchun yagona tarmoq protokolini rejalashtirishda
-  - Qurilmalar o‘rtasida tasdiqlash, juftlash, TLS va mavjudlikni qayta ishlashda
 title: "Clawnet Refaktori"
 ---
 

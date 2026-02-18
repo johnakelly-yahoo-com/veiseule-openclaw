@@ -1,7 +1,4 @@
 ---
-summary: "Référence CLI pour `openclaw agent` (envoyer un tour d’agent via la Gateway (passerelle))"
-read_when:
-  - Vous souhaitez exécuter un tour d’agent depuis des scripts (avec livraison optionnelle de la réponse)
 title: "agent"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Tarefas de LLM apenas em JSON para workflows (ferramenta de plugin opcional)"
-read_when:
-  - Você quer uma etapa de LLM apenas em JSON dentro de workflows
-  - Você precisa de saída de LLM validada por esquema para automação
 title: "Tarefa de LLM"
 ---
 

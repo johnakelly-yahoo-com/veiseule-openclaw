@@ -1,8 +1,4 @@
 ---
-summary: "Hooks: automação orientada a eventos para comandos e eventos de ciclo de vida"
-read_when:
-  - Você quer automação orientada a eventos para /new, /reset, /stop e eventos de ciclo de vida do agente
-  - Você quer criar, instalar ou depurar hooks
 title: "Ganchos"
 ---
 

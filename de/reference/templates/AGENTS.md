@@ -1,8 +1,4 @@
----
-summary: "„Arbeitsbereich-Vorlage für AGENTS.md“"
-read_when:
-  - Manuelles Bootstrapping eines Arbeitsbereichs
----
+------
 
 # AGENTS.md – Ihr Arbeitsbereich
 

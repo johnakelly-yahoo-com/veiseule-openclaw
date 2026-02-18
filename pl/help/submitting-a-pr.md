@@ -1,5 +1,4 @@
 ---
-summary: "Jak przesłać PR o wysokiej wartości informacyjnej"
 title: "Przesyłanie PR"
 ---
 

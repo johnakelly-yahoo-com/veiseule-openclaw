@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw hooks` (에이전트 훅)용 CLI 참조"
-read_when:
-  - 에이전트 훅을 관리하려는 경우
-  - 훅을 설치하거나 업데이트하려는 경우
 title: "hooks"
 ---
 

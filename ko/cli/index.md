@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw` 명령, 하위 명령 및 옵션에 대한 OpenClaw CLI 참조"
-read_when:
-  - CLI 명령 또는 옵션을 추가하거나 수정할 때
-  - 새로운 명령 표면을 문서화할 때
 title: "CLI 참조"
 ---
 

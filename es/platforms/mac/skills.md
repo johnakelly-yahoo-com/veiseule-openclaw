@@ -1,8 +1,4 @@
 ---
-summary: "Interfaz de configuración de Skills en macOS y estado respaldado por el Gateway"
-read_when:
-  - Actualizar la interfaz de configuración de Skills en macOS
-  - Cambiar el control de acceso o el comportamiento de instalación de Skills
 title: "Habilidades"
 ---
 

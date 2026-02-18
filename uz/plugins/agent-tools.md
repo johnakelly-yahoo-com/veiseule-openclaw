@@ -1,8 +1,4 @@
 ---
-summary: "Plugin ichida agent vositalarini yozish (sxemalar, ixtiyoriy vositalar, allowlistlar)"
-read_when:
-  - Siz plugin ichida yangi agent vositasini qo‘shmoqchisiz
-  - Vosita allowlist orqali opt‑in qilinishini ta’minlamoqchisiz
 title: "Plugin Agent Vositalari"
 ---
 

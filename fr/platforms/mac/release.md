@@ -1,8 +1,4 @@
 ---
-summary: "Liste de controle de version macOS d’OpenClaw (flux Sparkle, packaging, signature)"
-read_when:
-  - Publication ou validation d’une version macOS d’OpenClaw
-  - Mise a jour de l’appcast Sparkle ou des assets du flux
 title: "Version macOS"
 ---
 

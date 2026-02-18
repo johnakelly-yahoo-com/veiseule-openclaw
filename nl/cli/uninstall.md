@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw uninstall` (verwijderen van Gateway-service + lokale gegevens)"
-read_when:
-  - Je wilt de Gateway-service en/of lokale status verwijderen
-  - Je wilt eerst een dry-run uitvoeren
 title: "verwijderen"
 ---
 

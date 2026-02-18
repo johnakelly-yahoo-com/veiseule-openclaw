@@ -1,8 +1,4 @@
 ---
-summary: "Referencia de la CLI para `openclaw doctor` (comprobaciones de estado + reparaciones guiadas)"
-read_when:
-  - Tiene problemas de conectividad/autenticación y quiere correcciones guiadas
-  - Actualizó y quiere una verificación rápida
 title: "doctor"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Streng konfigurationsvalidering + doctor-kun-migreringer"
-read_when:
-  - Design eller implementering af adfærd for konfigurationsvalidering
-  - Arbejde med konfigurationsmigreringer eller doctor-workflows
-  - Håndtering af plugin-konfigurationsskemaer eller gating af plugin-indlæsning
 title: "Streng konfigurationsvalidering"
 ---
 

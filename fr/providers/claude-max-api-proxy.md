@@ -1,9 +1,4 @@
 ---
-summary: "Utiliser un abonnement Claude Max/Pro comme point de terminaison d’API compatible OpenAI"
-read_when:
-  - Vous souhaitez utiliser un abonnement Claude Max avec des outils compatibles OpenAI
-  - Vous souhaitez un serveur d’API local qui encapsule le CLI Claude Code
-  - Vous souhaitez economiser de l’argent en utilisant un abonnement plutot que des cles d’API
 title: "Proxy d’API Claude Max"
 ---
 

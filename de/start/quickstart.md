@@ -1,8 +1,4 @@
 ---
-summary: "„Der Schnellstart ist zu ‚Erste Schritte‘ umgezogen.“"
-read_when:
-  - Sie suchen nach den schnellsten Einrichtungsschritten
-  - Sie wurden von einem älteren Link hierher weitergeleitet
 title: "„Schnellstart“"
 ---
 

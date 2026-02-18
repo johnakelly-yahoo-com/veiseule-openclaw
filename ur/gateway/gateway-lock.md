@@ -1,8 +1,4 @@
 ---
-summary: "WebSocket listener bind کے ذریعے Gateway سنگلٹن گارڈ"
-read_when:
-  - Gateway عمل کو چلاتے یا ڈیبگ کرتے وقت
-  - واحد انسٹینس کے نفاذ کی تفتیش کے دوران
 title: "Gateway لاک"
 ---
 

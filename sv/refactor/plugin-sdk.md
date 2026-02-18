@@ -1,8 +1,4 @@
 ---
-summary: "Plan: ett rent plugin-SDK + runtime för alla meddelandekopplingar"
-read_when:
-  - Definierar eller refaktorerar plugin-arkitekturen
-  - Migrerar kanalkopplingar till plugin-SDK/runtime
 title: "Refaktorering av plugin-SDK"
 ---
 

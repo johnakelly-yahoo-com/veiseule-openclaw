@@ -1,8 +1,4 @@
 ---
-summary: "„Hub hostingu VPS dla OpenClaw (Oracle/Fly/Hetzner/GCP/exe.dev)”"
-read_when:
-  - Chcesz uruchomić Gateway w chmurze
-  - Potrzebujesz szybkiej mapy przewodników VPS/hosting
 title: "„Hosting VPS”"
 ---
 

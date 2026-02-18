@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referentie voor `openclaw cron` (plannen en uitvoeren van achtergrondtaken)"
-read_when:
-  - Je wilt geplande taken en wake-ups
-  - Je bent bezig met het debuggen van cron-uitvoering en logs
 title: "cron"
 ---
 

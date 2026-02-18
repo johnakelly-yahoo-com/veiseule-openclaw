@@ -1,8 +1,4 @@
 ---
-summary: "Diagnoseflag til målrettede debuglogs"
-read_when:
-  - Du har brug for målrettede debuglogs uden at hæve de globale logningsniveauer
-  - Du har brug for at indsamle subsystem-specifikke logs til support
 title: "Diagnoseflag"
 ---
 

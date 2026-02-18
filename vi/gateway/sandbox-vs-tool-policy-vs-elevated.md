@@ -1,7 +1,5 @@
 ---
 title: Sandbox so với Chính sách Tool so với Elevated
-summary: "Vì sao một tool bị chặn: runtime sandbox, chính sách cho phép/chặn tool, và các cổng thực thi elevated"
-read_when: "Khi bạn gặp 'sandbox jail' hoặc thấy tool/elevated bị từ chối và muốn biết chính xác khóa cấu hình cần thay đổi."
 status: active
 ---
 

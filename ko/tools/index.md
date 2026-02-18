@@ -1,8 +1,4 @@
 ---
-summary: "레거시 `openclaw-*` Skills 를 대체하는 OpenClaw 용 에이전트 도구 표면 (browser, canvas, nodes, message, cron)"
-read_when:
-  - 에이전트 도구를 추가하거나 수정할 때
-  - "`openclaw-*` Skills 를 폐기하거나 변경할 때"
 title: "도구"
 ---
 

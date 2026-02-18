@@ -1,8 +1,4 @@
 ---
-summary: "Hub de solução de problemas com abordagem por sintomas para o OpenClaw"
-read_when:
-  - O OpenClaw nao esta funcionando e voce precisa do caminho mais rapido para uma correcao
-  - Voce quer um fluxo de triagem antes de mergulhar em runbooks detalhados
 title: "Solução de problemas"
 ---
 

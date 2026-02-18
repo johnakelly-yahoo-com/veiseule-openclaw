@@ -1,7 +1,4 @@
 ---
-summary: "Eksplorasyon: model config, mga auth profile, at fallback na pag-uugali"
-read_when:
-  - Pag-eeksplora ng mga ideya sa pagpili ng modelo sa hinaharap + mga auth profile
 title: "Eksplorasyon ng Model Config"
 ---
 

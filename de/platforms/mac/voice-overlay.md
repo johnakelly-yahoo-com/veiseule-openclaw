@@ -1,7 +1,4 @@
 ---
-summary: "„Lebenszyklus des Voice-Overlays, wenn Wake-Word und Push-to-Talk überlappen“"
-read_when:
-  - Anpassen des Voice-Overlay-Verhaltens
 title: "„Voice Overlay“"
 ---
 

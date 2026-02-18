@@ -1,8 +1,4 @@
 ---
-summary: "Configuration et prise en main facultatives d’OpenClaw basées sur Docker"
-read_when:
-  - Vous voulez une passerelle conteneurisée plutôt que des installations locales
-  - Vous validez le flux Docker
 title: "Docker"
 ---
 

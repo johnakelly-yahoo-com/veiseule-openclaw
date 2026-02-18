@@ -1,9 +1,4 @@
 ---
-summary: "Backends CLI : solution de repli texte seul via des CLI d’IA locales"
-read_when:
-  - Vous souhaitez un repli fiable lorsque les fournisseurs d’API échouent
-  - Vous exécutez Claude Code CLI ou d’autres CLI d’IA locales et souhaitez les réutiliser
-  - Vous avez besoin d’un chemin texte seul, sans outils, qui prend néanmoins en charge les sessions et les images
 title: "Backends CLI"
 ---
 

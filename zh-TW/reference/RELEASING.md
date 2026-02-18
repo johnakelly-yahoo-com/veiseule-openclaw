@@ -1,10 +1,4 @@
----
-summary: "npm + macOS 應用程式的逐步發佈檢查清單"
-read_when:
-  - 發佈新的 npm 版本
-  - 發佈新的 macOS 應用程式版本
-  - 從儲存庫根目錄使用 `pnpm`（Node 22+）。
----
+------
 
 # 「npm + macOS 應用程式的逐步發佈檢查清單」
 

@@ -1,8 +1,4 @@
 ---
-summary: "Skrypty repozytorium: cel, zakres i uwagi dotyczące bezpieczeństwa"
-read_when:
-  - Uruchamianie skryptów z repozytorium
-  - Dodawanie lub zmienianie skryptów w katalogu ./scripts
 title: "Skrypty"
 ---
 

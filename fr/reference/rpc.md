@@ -1,8 +1,4 @@
 ---
-summary: "Adaptateurs RPC pour des CLI externes (signal-cli, imsg legacy) et des modeles de passerelle"
-read_when:
-  - Ajout ou modification d'integrations CLI externes
-  - Debogage des adaptateurs RPC (signal-cli, imsg)
 title: "Adaptateurs RPC"
 ---
 

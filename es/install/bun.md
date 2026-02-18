@@ -1,8 +1,4 @@
 ---
-summary: "Flujo de trabajo con Bun (experimental): instalación y consideraciones frente a pnpm"
-read_when:
-  - Desea el ciclo de desarrollo local más rápido (bun + watch)
-  - Tiene problemas con la instalación/parches/scripts de ciclo de vida de Bun
 title: "Bun (Experimental)"
 ---
 

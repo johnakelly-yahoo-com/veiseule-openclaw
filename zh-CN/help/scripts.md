@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 从仓库运行脚本时
-  - 在 ./scripts 下添加或修改脚本时
-summary: 仓库脚本：用途、范围和安全注意事项
 title: 脚本
 x-i18n:
   generated_at: "2026-02-01T21:38:11Z"

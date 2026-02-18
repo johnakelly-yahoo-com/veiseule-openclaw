@@ -1,7 +1,4 @@
 ---
-summary: "Verhoogde exec-modus en /elevated-directieven"
-read_when:
-  - Aanpassen van standaardinstellingen voor verhoogde modus, toegestane lijsten of gedrag van slash-opdrachten
 title: "Verhoogde modus"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Status, funktioner och konfiguration för Google Chat-appen"
-read_when:
-  - Arbetar med funktioner för Google Chat-kanalen
 title: "Google Chat"
 ---
 

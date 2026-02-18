@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw tomonidan qo‘llab‑quvvatlanadigan model provayderlari (LLMlar)"
-read_when:
-  - Siz model provayderini tanlamoqchisiz
-  - LLM autentifikatsiyasi va model tanlash bo‘yicha tezkor sozlash misollarini xohlaysiz
 title: "Model Provayderi Tezkor Boshlash"
 ---
 

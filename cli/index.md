@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw CLI reference for `openclaw` commands, subcommands, and options"
-read_when:
-  - Adding or modifying CLI commands or options
-  - Documenting new command surfaces
 title: "CLI Reference"
 ---
 

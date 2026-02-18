@@ -1,7 +1,4 @@
 ---
-summary: "Turli platformalarda (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams) guruh chat xatti-harakati"
-read_when:
-  - Changing group chat behavior or mention gating
 title: "Guruhlar"
 ---
 

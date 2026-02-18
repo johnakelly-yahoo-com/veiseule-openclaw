@@ -1,8 +1,4 @@
 ---
-summary: "Bonjour/mDNS-upptäckt + felsökning (Gateway-beacons, klienter och vanliga feltyper)"
-read_when:
-  - Felsökning av Bonjour-upptäcktsproblem på macOS/iOS
-  - Ändra mDNS-tjänsttyper, TXT-poster eller upptäckts-UX
 title: "Bonjour-upptäckt"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw agents` (list/add/delete/angiv identitet)"
-read_when:
-  - Du vil have flere isolerede agenter (workspaces + routing + auth)
 title: "agenter"
 ---
 

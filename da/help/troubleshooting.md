@@ -1,8 +1,4 @@
 ---
-summary: "Symptom-først fejlfinding-hub for OpenClaw"
-read_when:
-  - OpenClaw virker ikke, og du har brug for den hurtigste vej til en løsning
-  - Du vil have et triage-flow, før du dykker ned i dybe runbooks
 title: "Fejlfinding"
 ---
 

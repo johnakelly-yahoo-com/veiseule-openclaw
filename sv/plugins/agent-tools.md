@@ -1,8 +1,4 @@
 ---
-summary: "Skriv agentverktyg i ett plugin (scheman, valfria verktyg, tillåtelselistor)"
-read_when:
-  - Du vill lägga till ett nytt agentverktyg i ett plugin
-  - Du behöver göra ett verktyg valfritt via tillåtelselistor
 title: "Plugin-agentverktyg"
 ---
 

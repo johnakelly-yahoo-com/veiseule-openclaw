@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw में Venice AI के गोपनीयता-केंद्रित मॉडलों का उपयोग करें"
-read_when:
-  - आप OpenClaw में गोपनीयता-केंद्रित इनफेरेंस चाहते हैं
-  - आप Venice AI सेटअप मार्गदर्शन चाहते हैं
 title: "Venice AI"
 ---
 

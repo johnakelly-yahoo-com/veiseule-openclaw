@@ -1,8 +1,4 @@
----
-summary: "Eerste-opstartritueel voor nieuwe agents"
-read_when:
-  - Een werkruimte handmatig bootstrappen
----
+------
 
 # BOOTSTRAP.md - Hallo, wereld
 

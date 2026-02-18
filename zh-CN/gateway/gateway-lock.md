@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 运行或调试 Gateway 网关进程
-  - 调查单实例强制执行
-summary: 使用 WebSocket 监听器绑定的 Gateway 网关单例保护
 title: Gateway 网关锁
 x-i18n:
   generated_at: "2026-02-03T07:47:52Z"

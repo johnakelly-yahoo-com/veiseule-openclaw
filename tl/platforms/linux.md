@@ -1,8 +1,4 @@
 ---
-summary: "Suporta sa Linux + status ng companion app"
-read_when:
-  - Naghahanap ng status ng Linux companion app
-  - Nagpaplano ng saklaw ng platform o mga kontribusyon
 title: "Aplikasyong Linux"
 ---
 

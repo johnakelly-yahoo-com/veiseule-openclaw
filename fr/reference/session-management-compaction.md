@@ -1,9 +1,4 @@
 ---
-summary: "Analyse approfondie : magasin de sessions + transcriptions, cycle de vie et fonctionnement interne de la (auto)compaction"
-read_when:
-  - Vous devez deboguer les identifiants de session, le JSONL des transcriptions ou les champs de sessions.json
-  - Vous modifiez le comportement de l’auto-compaction ou ajoutez du nettoyage « pre-compaction »
-  - Vous voulez implementer des vidages de memoire ou des tours systeme silencieux
 title: "Analyse approfondie de la gestion des sessions"
 ---
 

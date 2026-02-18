@@ -1,8 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw tui` (terminal-UI forbundet til Gateway)"
-read_when:
-  - Du vil have en terminal-UI til Gateway (fjernvenlig)
-  - Du vil sende url/token/session fra scripts
 title: "tui"
 ---
 

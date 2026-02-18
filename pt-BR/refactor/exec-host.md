@@ -1,9 +1,4 @@
 ---
-summary: "Plano de refatoração: roteamento do host de exec, aprovações de nó e runner headless"
-read_when:
-  - Ao projetar roteamento do host de exec ou aprovações de exec
-  - Ao implementar runner de nó + IPC de UI
-  - Ao adicionar modos de segurança do host de exec e comandos slash
 title: "Refatoração do Host de Exec"
 ---
 

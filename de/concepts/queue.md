@@ -1,7 +1,4 @@
 ---
-summary: "„Design der Befehlswarteschlange, das eingehende Auto-Reply-Ausführungen serialisiert“"
-read_when:
-  - Beim Ändern der Auto-Reply-Ausführung oder -Nebenläufigkeit
 title: "Befehlswarteschlange"
 ---
 

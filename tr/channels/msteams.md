@@ -1,7 +1,4 @@
 ---
-summary: "Microsoft Teams bot destek durumu, yetenekler ve yapılandırma"
-read_when:
-  - MS Teams kanal özellikleri üzerinde çalışırken
 title: "Microsoft Teams"
 ---
 

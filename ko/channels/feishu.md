@@ -1,8 +1,4 @@
 ---
-summary: "Feishu 봇 개요, 기능 및 구성"
-read_when:
-  - Feishu/Lark 봇을 연결하려는 경우
-  - Feishu 채널을 구성하는 경우
 title: Feishu
 ---
 

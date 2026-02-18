@@ -1,8 +1,4 @@
 ---
-summary: "web_search uchun Perplexity Sonar sozlamasi"
-read_when:
-  - Siz web qidiruv uchun Perplexity Sonar’dan foydalanmoqchisiz
-  - Sizga PERPLEXITY_API_KEY yoki OpenRouter sozlamasi kerak
 title: "Perplexity Sonar"
 ---
 

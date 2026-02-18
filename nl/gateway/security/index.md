@@ -1,7 +1,4 @@
 ---
-summary: "Beveiligingsoverwegingen en dreigingsmodel voor het draaien van een AI-gateway met shelltoegang"
-read_when:
-  - Bij het toevoegen van functies die de toegang of automatisering vergroten
 title: "Beveiliging"
 ---
 

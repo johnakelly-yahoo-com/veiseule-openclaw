@@ -1,11 +1,6 @@
 ---
 title: Lobster
-summary: "Onay kapılarıyla devam ettirilebilir, OpenClaw için tipli iş akışı çalışma zamanı."
-description: "OpenClaw için tipli iş akışı çalışma zamanı — onay kapılarıyla birleştirilebilir pipeline’lar."
-read_when:
-  - Açık onaylarla deterministik çok adımlı iş akışları istiyorsunuz
-  - Önceki adımları yeniden çalıştırmadan bir iş akışını sürdürmeniz gerekiyor
----
+description: "OpenClaw için tipli iş akışı çalışma zamanı — onay kapılarıyla birleştirilebilir pipeline’lar."---
 
 # Lobster
 

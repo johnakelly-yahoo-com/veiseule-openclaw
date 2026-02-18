@@ -1,8 +1,4 @@
 ---
-summary: "OAuth-Ablauf für Modellanbieter überwachen"
-read_when:
-  - Einrichten der Überwachung oder von Warnmeldungen zum Auth-Ablauf
-  - Automatisieren von Prüfungen zur OAuth-Aktualisierung für Claude Code / Codex
 title: "Auth-Überwachung"
 ---
 

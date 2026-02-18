@@ -1,8 +1,4 @@
 ---
-summary: "استخدم نماذج Venice AI المُركّزة على الخصوصية في OpenClaw"
-read_when:
-  - تريد استدلالًا مُركّزًا على الخصوصية في OpenClaw
-  - تريد إرشادات إعداد Venice AI
 title: "Venice AI"
 ---
 

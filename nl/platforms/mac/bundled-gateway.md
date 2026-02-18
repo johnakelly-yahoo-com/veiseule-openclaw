@@ -1,9 +1,4 @@
 ---
-summary: "Gateway-runtime op macOS (externe launchd-service)"
-read_when:
-  - Verpakken van OpenClaw.app
-  - Debuggen van de macOS Gateway launchd-service
-  - Installeren van de Gateway CLI voor macOS
 title: "Gateway op macOS"
 ---
 

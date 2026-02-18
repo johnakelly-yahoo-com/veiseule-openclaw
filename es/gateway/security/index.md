@@ -1,7 +1,4 @@
 ---
-summary: "Consideraciones de seguridad y modelo de amenazas para ejecutar un gateway de IA con acceso al shell"
-read_when:
-  - Al agregar funciones que amplían el acceso o la automatización
 title: "Seguridad"
 ---
 

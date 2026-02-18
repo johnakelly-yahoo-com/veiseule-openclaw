@@ -1,8 +1,4 @@
 ---
-summary: "5. Node’lar uchun joylashuv buyrug‘i (location.get), ruxsat rejimlari va fon xatti-harakati"
-read_when:
-  - 6. Joylashuv node qo‘llab-quvvatlashi yoki ruxsatlar UI’sini qo‘shish
-  - 7. Fon joylashuvi + push oqimlarini loyihalash
 title: "8. Joylashuv buyrug‘i"
 ---
 

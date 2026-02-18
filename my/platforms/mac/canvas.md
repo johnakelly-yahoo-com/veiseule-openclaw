@@ -1,9 +1,4 @@
 ---
-summary: "WKWebView + custom URL scheme ဖြင့် ထည့်သွင်းထားသော agent ထိန်းချုပ် Canvas panel"
-read_when:
-  - macOS Canvas panel ကို အကောင်အထည်ဖော်နေချိန်
-  - မြင်ကွင်းအလုပ်လုပ်ရာနေရာအတွက် agent ထိန်းချုပ်မှုများ ထည့်သွင်းနေချိန်
-  - WKWebView canvas load ပြဿနာများကို Debug လုပ်နေချိန်
 title: "ကန်ဗတ်စ်"
 ---
 

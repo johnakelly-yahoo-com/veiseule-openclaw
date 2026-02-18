@@ -1,9 +1,4 @@
 ---
-summary: "Pareamento de nós de propriedade do Gateway (Opção B) para iOS e outros nós remotos"
-read_when:
-  - Implementando aprovações de pareamento de nós sem UI do macOS
-  - Adicionando fluxos de CLI para aprovar nós remotos
-  - Estendendo o protocolo do gateway com gerenciamento de nós
 title: "Pareamento Gateway-Owned"
 ---
 

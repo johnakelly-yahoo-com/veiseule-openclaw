@@ -1,8 +1,4 @@
 ---
-summary: "نظرة عامة على بوت Feishu، الميزات، والتهيئة"
-read_when:
-  - تريد ربط بوت Feishu/Lark
-  - تقوم بتهيئة قناة Feishu
 title: Feishu
 ---
 

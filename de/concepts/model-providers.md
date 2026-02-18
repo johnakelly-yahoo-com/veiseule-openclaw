@@ -1,8 +1,4 @@
 ---
-summary: "Überblick über Modellanbieter mit Beispielkonfigurationen + CLI-Flows"
-read_when:
-  - Sie benötigen eine anbieterweise Referenz zur Modelleinstellung
-  - Sie möchten Beispielkonfigurationen oder CLI-Onboarding-Befehle für Modellanbieter
 title: "Modellanbieter"
 ---
 

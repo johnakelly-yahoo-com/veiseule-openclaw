@@ -1,7 +1,4 @@
 ---
-summary: "„Jak uruchamiać testy lokalnie (vitest) oraz kiedy używać trybów force/coverage”"
-read_when:
-  - Uruchamianie lub naprawianie testów
 title: "„Testy”"
 ---
 

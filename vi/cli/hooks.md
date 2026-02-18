@@ -1,8 +1,4 @@
 ---
-summary: "Tài liệu tham chiếu CLI cho `openclaw hooks` (hook tác tử)"
-read_when:
-  - Bạn muốn quản lý hook tác tử
-  - Bạn muốn cài đặt hoặc cập nhật hook
 title: "hooks"
 ---
 

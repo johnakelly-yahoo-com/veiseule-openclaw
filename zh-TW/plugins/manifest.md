@@ -1,8 +1,4 @@
 ---
-summary: "外掛清單與 JSON Schema 需求（嚴格的設定驗證）"
-read_when:
-  - 你正在建置 OpenClaw 外掛
-  - You need to ship a plugin config schema or debug plugin validation errors
 title: "外掛資訊清單"
 ---
 

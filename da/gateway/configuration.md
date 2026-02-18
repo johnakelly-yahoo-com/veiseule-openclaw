@@ -1,7 +1,4 @@
 ---
-summary: "Alle konfigurationsmuligheder for ~/.openclaw/openclaw.json med eksempler"
-read_when:
-  - Tilføjelse eller ændring af konfigurationsfelter
 title: "Konfiguration"
 ---
 

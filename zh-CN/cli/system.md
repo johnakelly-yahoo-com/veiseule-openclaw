@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 你想在不创建 cron 作业的情况下入队系统事件
-  - 你需要启用或禁用心跳
-  - 你想检查系统在线状态条目
-summary: "`openclaw system` 的 CLI 参考（系统事件、心跳、在线状态）"
 title: system
 x-i18n:
   generated_at: "2026-02-03T07:45:23Z"

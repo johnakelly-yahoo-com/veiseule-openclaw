@@ -1,8 +1,4 @@
----
-summary: "BOOT.md için çalışma alanı şablonu"
-read_when:
-  - BOOT.md kontrol listesi eklerken
----
+------
 
 # BOOT.md
 

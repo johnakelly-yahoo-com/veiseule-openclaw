@@ -1,7 +1,4 @@
 ---
-summary: "Historia de fondo y lore de OpenClaw para contexto y tono"
-read_when:
-  - Al escribir documentación o textos de UX que hagan referencia al lore
 title: "Lore de OpenClaw"
 ---
 

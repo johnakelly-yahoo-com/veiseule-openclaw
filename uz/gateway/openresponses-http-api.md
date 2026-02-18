@@ -1,8 +1,4 @@
 ---
-summary: "Gateway’dan OpenResponses-ga mos keladigan `/v1/responses` HTTP endpointini ochish"
-read_when:
-  - Integrating clients that speak the OpenResponses API
-  - You want item-based inputs, client tool calls, or SSE events
 title: "OpenResponses API"
 ---
 

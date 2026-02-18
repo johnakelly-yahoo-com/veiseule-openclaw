@@ -1,8 +1,4 @@
 ---
-summary: "Plugin manifesti + JSON schema talablari (qat’iy konfiguratsiya tekshiruvi)"
-read_when:
-  - Siz OpenClaw plaginini yaratayapsiz
-  - Plagin konfiguratsiya sxemasini taqdim etishingiz yoki plagin tekshiruv xatolarini tuzatishingiz kerak
 title: "Plugin manifesti"
 ---
 

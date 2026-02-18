@@ -1,5 +1,4 @@
 ---
-summary: "Nộp issue và báo cáo lỗi có tín hiệu cao"
 title: "Gửi một Issue"
 ---
 

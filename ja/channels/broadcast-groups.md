@@ -1,8 +1,4 @@
 ---
-summary: "WhatsApp メッセージを複数のエージェントにブロードキャストする"
-read_when:
-  - ブロードキャストグループの設定
-  - WhatsApp におけるマルチエージェント返信のデバッグ
 status: experimental
 title: "ブロードキャストグループ"
 ---

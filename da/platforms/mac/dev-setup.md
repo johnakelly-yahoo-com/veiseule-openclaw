@@ -1,7 +1,4 @@
 ---
-summary: "Opsætningsguide for udviklere, der arbejder på OpenClaw macOS-appen"
-read_when:
-  - Opsætning af macOS-udviklingsmiljøet
 title: "macOS Udvikleropsætning"
 ---
 

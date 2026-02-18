@@ -1,8 +1,4 @@
 ---
-summary: "Plugin de llamadas de voz: llamadas salientes + entrantes vía Twilio/Telnyx/Plivo (instalación del plugin + configuración + CLI)"
-read_when:
-  - Quiere realizar una llamada de voz saliente desde OpenClaw
-  - Está configurando o desarrollando el plugin de llamadas de voz
 title: "Plugin de Llamadas de Voz"
 ---
 

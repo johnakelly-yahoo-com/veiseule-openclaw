@@ -1,9 +1,4 @@
 ---
-summary: "Gateway’i bulmak için düğüm keşfi ve taşıma yöntemleri (Bonjour, Tailscale, SSH)"
-read_when:
-  - Bonjour keşfi/yayınını uygularken veya değiştirirken
-  - Uzak bağlantı modlarını ayarlarken (doğrudan vs SSH)
-  - Uzak düğümler için düğüm keşfi + eşleştirme tasarlarken
 title: "Keşif ve Taşıma Yöntemleri"
 ---
 

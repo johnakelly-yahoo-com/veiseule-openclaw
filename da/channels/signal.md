@@ -1,8 +1,4 @@
 ---
-summary: "Signal-understøttelse via signal-cli (JSON-RPC + SSE), opsætning og nummermodel"
-read_when:
-  - Opsætning af Signal-understøttelse
-  - Fejlfinding af Signal send/modtag
 title: "Signal"
 ---
 

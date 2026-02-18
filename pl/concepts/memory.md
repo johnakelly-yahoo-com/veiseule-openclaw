@@ -1,9 +1,4 @@
----
-summary: "Jak działa pamięć OpenClaw (pliki robocze + automatyczne opróżnianie pamięci)"
-read_when:
-  - Chcesz poznać układ plików pamięci i przepływ pracy
-  - Chcesz dostroić automatyczne opróżnianie pamięci przed kompakcją
----
+------
 
 # Pamięć
 

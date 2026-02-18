@@ -1,7 +1,4 @@
 ---
-summary: "Regles de gestion des sessions, cles et persistance pour les conversations"
-read_when:
-  - Modification de la gestion ou du stockage des sessions
 title: "Gestion des sessions"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "11. Telegram (Bot API)"
-read_when:
-  - "12. Holat: grammY orqali bot DMlari + guruhlar uchun ishlab chiqarishga tayyor."
 title: "13. Sukut bo‘yicha long-polling; webhook ixtiyoriy."
 ---
 

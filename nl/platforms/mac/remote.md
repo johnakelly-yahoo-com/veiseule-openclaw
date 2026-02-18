@@ -1,7 +1,4 @@
 ---
-summary: "macOS-appstroom voor het bedienen van een externe OpenClaw-gateway via SSH"
-read_when:
-  - Het instellen of debuggen van externe Mac-bediening
 title: "Externe bediening"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Ứng dụng Android (node): runbook kết nối + Canvas/Chat/Camera"
-read_when:
-  - Ghép cặp hoặc kết nối lại node Android
-  - Gỡ lỗi khám phá gateway Android hoặc xác thực
-  - Xác minh tính đồng bộ lịch sử chat giữa các client
 title: "Ứng dụng Android"
 ---
 

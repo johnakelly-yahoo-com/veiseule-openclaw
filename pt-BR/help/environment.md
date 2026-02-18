@@ -1,9 +1,4 @@
 ---
-summary: "Onde o OpenClaw carrega variáveis de ambiente e a ordem de precedência"
-read_when:
-  - Você precisa saber quais variáveis de ambiente são carregadas e em que ordem
-  - Você está depurando chaves de API ausentes no Gateway
-  - Você está documentando autenticação de provedores ou ambientes de implantação
 title: "Variáveis de ambiente"
 ---
 

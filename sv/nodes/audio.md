@@ -1,7 +1,4 @@
 ---
-summary: "Hur inkommande ljud/röstmeddelanden laddas ned, transkriberas och injiceras i svar"
-read_when:
-  - Ändring av ljudtranskribering eller mediehantering
 title: "Ljud och röstmeddelanden"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Todas las opciones de configuración para ~/.openclaw/openclaw.json con ejemplos"
-read_when:
-  - Al agregar o modificar campos de configuración
 title: "Configuración"
 ---
 

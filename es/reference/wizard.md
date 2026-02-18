@@ -1,9 +1,4 @@
 ---
-summary: "Referencia completa del asistente de incorporación de la CLI: cada paso, bandera y campo de configuración"
-read_when:
-  - Consultar un paso o una bandera específica del asistente
-  - Automatizar la incorporación con el modo no interactivo
-  - Depurar el comportamiento del asistente
 title: "Referencia del asistente de incorporación"
 sidebarTitle: "Referencia del Asistente"
 ---

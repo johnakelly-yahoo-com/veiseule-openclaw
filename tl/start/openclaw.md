@@ -1,8 +1,4 @@
 ---
-summary: "End-to-end na gabay para patakbuhin ang OpenClaw bilang personal assistant na may mga paalala sa kaligtasan"
-read_when:
-  - Pag-onboard ng bagong instance ng assistant
-  - Pagrerepaso ng mga implikasyon sa kaligtasan/pahintulot
 title: "Setup ng Personal Assistant"
 ---
 

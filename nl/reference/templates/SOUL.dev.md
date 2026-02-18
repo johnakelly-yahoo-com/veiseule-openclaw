@@ -1,9 +1,4 @@
----
-summary: "Dev-agentziel (C-3PO)"
-read_when:
-  - Bij het gebruik van de dev Gateway-sjablonen
-  - Bij het bijwerken van de standaard dev-agentidentiteit
----
+------
 
 # SOUL.md - De ziel van C-3PO
 

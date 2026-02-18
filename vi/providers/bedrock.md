@@ -1,8 +1,4 @@
 ---
-summary: "Sử dụng các mô hình Amazon Bedrock (Converse API) với OpenClaw"
-read_when:
-  - Bạn muốn sử dụng các mô hình Amazon Bedrock với OpenClaw
-  - Bạn cần thiết lập thông tin xác thực/khu vực AWS cho các lệnh gọi mô hình
 title: "Amazon Bedrock"
 ---
 

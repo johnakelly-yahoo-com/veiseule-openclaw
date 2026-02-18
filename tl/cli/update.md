@@ -1,8 +1,4 @@
 ---
-summary: "CLI reference para sa `openclaw update` (ligtas-ligtas na source update + awtomatikong pag-restart ng Gateway)"
-read_when:
-  - Gusto mong mag-update ng source checkout nang ligtas
-  - Kailangan mong maunawaan ang behavior ng shorthand na `--update`
 title: "update"
 ---
 

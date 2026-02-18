@@ -1,7 +1,4 @@
 ---
-summary: "Hành vi và cấu hình cho việc xử lý tin nhắn nhóm WhatsApp (mentionPatterns được dùng chung trên các bề mặt)"
-read_when:
-  - Khi thay đổi quy tắc tin nhắn nhóm hoặc nhắc tên
 title: "Tin nhắn nhóm"
 ---
 

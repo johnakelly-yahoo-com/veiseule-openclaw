@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 你想为 OpenClaw 选择一个聊天渠道
-  - 你需要快速了解支持的消息平台
-summary: OpenClaw 可连接的消息平台
 title: 聊天渠道
 x-i18n:
   generated_at: "2026-02-03T07:43:27Z"

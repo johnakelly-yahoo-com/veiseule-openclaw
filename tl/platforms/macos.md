@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS kasamang app (menu bar + tagapamagitan ng gateway)"
-read_when:
-  - Pagpapatupad ng mga feature ng macOS app
-  - Pagbabago ng lifecycle ng gateway o node bridging sa macOS
 title: "App ng macOS"
 ---
 

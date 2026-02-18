@@ -1,7 +1,4 @@
 ---
-summary: "Elevated exec မုဒ်နှင့် /elevated ညွှန်ကြားချက်များ"
-read_when:
-  - Elevated မုဒ်၏ ပုံမှန်တန်ဖိုးများ၊ allowlist များ သို့မဟုတ် slash command အပြုအမူကို ပြင်ဆင်ချိန်
 title: "မြှင့်တင်ထားသော မုဒ်"
 ---
 

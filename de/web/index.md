@@ -1,8 +1,4 @@
 ---
-summary: "Gateway-Weboberflächen: Control UI, Bind-Modi und Sicherheit"
-read_when:
-  - Sie möchten auf das Gateway über Tailscale zugreifen
-  - Sie möchten die browserbasierte Control UI und die Konfigurationsbearbeitung
 title: "Web"
 ---
 

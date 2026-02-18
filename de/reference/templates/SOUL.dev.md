@@ -1,9 +1,4 @@
----
-summary: "„Dev-Agent-Seele (C-3PO)“"
-read_when:
-  - Verwendung der Dev-Gateway-Vorlagen
-  - Aktualisierung der Standardidentität des Dev-Agents
----
+------
 
 # SOUL.md – Die Seele von C-3PO
 

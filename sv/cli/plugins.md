@@ -1,8 +1,4 @@
 ---
-summary: "CLI-referens för `openclaw plugins` (lista, installera, aktivera/inaktivera, doctor)"
-read_when:
-  - Du vill installera eller hantera in-process Gateway-plugins
-  - Du vill felsöka fel vid laddning av plugins
 title: "plugins"
 ---
 

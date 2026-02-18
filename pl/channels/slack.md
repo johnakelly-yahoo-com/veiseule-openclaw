@@ -1,6 +1,4 @@
 ---
-summary: "Konfiguracja Slacka w trybie gniazda lub webhooka HTTP"
-read_when: "Konfigurowanie Slacka lub debugowanie trybu gniazda/HTTP w Slacku"
 title: "Slack"
 ---
 

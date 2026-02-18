@@ -1,10 +1,5 @@
 ---
-title: "Vercel AI Gateway"
-summary: "Vercel AI Gateway တပ်ဆင်ခြင်း (auth + မော်ဒယ်ရွေးချယ်မှု)"
-read_when:
-  - OpenClaw နှင့် Vercel AI Gateway ကို အသုံးပြုလိုပါက
-  - API key အတွက် env var သို့မဟုတ် CLI auth ရွေးချယ်မှုကို လိုအပ်ပါက
----
+title: "Vercel AI Gateway"---
 
 # Vercel AI Gateway
 

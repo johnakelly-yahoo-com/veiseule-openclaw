@@ -1,7 +1,4 @@
 ---
-summary: "Lógica de status da barra de menu e o que é exibido aos usuários"
-read_when:
-  - Ajustando a UI do menu do mac ou a lógica de status
 title: "Barra de Menu"
 ---
 

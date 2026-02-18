@@ -1,7 +1,4 @@
 ---
-summary: "Integrasyon ng WhatsApp (web channel): login, inbox, mga sagot, media, at ops"
-read_when:
-  - Kapag nagtatrabaho sa behavior ng WhatsApp/web channel o inbox routing
 title: "WhatsApp"
 ---
 

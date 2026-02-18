@@ -1,7 +1,4 @@
 ---
-summary: "Loopback WebChat static host နှင့် ချတ် UI အတွက် Gateway WebSocket အသုံးပြုမှု"
-read_when:
-  - WebChat ဝင်ရောက်အသုံးပြုမှုကို အမှားရှာဖွေခြင်း သို့မဟုတ် ဖွဲ့စည်းပြင်ဆင်ခြင်း ပြုလုပ်နေချိန်
 title: "WebChat"
 ---
 

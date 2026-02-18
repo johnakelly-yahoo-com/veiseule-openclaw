@@ -1,8 +1,4 @@
 ---
-summary: "Qianfan 의 통합 API 를 사용하여 OpenClaw 에서 여러 모델에 접근합니다"
-read_when:
-  - 여러 LLM 을 하나의 API 키로 사용하고자 할 때
-  - Baidu Qianfan 설정 가이드가 필요할 때
 title: "Qianfan"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Ferramentas de busca na web + fetch (Brave Search API, Perplexity direto/OpenRouter)"
-read_when:
-  - Você quer habilitar web_search ou web_fetch
-  - Você precisa configurar a chave da Brave Search API
-  - Você quer usar o Perplexity Sonar para busca na web
 title: "Ferramentas Web"
 ---
 

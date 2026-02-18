@@ -1,8 +1,4 @@
 ---
-summary: "„Doctor-Befehl: Zustandsprüfungen, Konfigurationsmigrationen und Reparaturschritte“"
-read_when:
-  - Hinzufügen oder Ändern von Doctor-Migrationen
-  - Einführung inkompatibler Konfigurationsänderungen
 title: "Doctor"
 ---
 

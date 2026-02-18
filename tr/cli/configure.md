@@ -1,7 +1,4 @@
 ---
-summary: "`openclaw configure` için CLI başvuru belgesi (etkileşimli yapılandırma istemleri)"
-read_when:
-  - Kimlik bilgilerini, cihazları veya ajan varsayılanlarını etkileşimli olarak ayarlamak istediğinizde
 title: "yapılandır"
 ---
 

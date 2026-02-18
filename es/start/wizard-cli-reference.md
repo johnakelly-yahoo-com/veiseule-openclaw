@@ -1,8 +1,4 @@
 ---
-summary: "Referencia completa del flujo de incorporación de la CLI, configuración de autenticación/modelos, salidas e internals"
-read_when:
-  - Necesita un comportamiento detallado para la incorporación de openclaw
-  - Está depurando los resultados de la incorporación o integrando clientes de incorporación
 title: "Referencia de incorporación por CLI"
 sidebarTitle: "Referencia de CLI"
 ---

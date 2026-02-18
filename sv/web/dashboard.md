@@ -1,7 +1,4 @@
 ---
-summary: "Åtkomst och autentisering för Gateway-dashboarden (Control UI)"
-read_when:
-  - Ändrar autentisering eller exponeringslägen för dashboarden
 title: "Instrumentpanel"
 ---
 

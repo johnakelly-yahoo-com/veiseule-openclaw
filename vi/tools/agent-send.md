@@ -1,7 +1,4 @@
 ---
-summary: "Chạy trực tiếp CLI `openclaw agent` (có tùy chọn gửi kết quả)"
-read_when:
-  - Thêm hoặc chỉnh sửa điểm vào CLI của agent
 title: "Gửi Agent"
 ---
 

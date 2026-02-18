@@ -1,8 +1,4 @@
 ---
-summary: "ویب سرچ کے لیے Perplexity Sonar کی سیٹ اپ"
-read_when:
-  - آپ ویب سرچ کے لیے Perplexity Sonar استعمال کرنا چاہتے ہیں
-  - آپ کو PERPLEXITY_API_KEY یا OpenRouter سیٹ اپ درکار ہے
 title: "Perplexity Sonar"
 ---
 

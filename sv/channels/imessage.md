@@ -1,8 +1,4 @@
 ---
-summary: "Äldre iMessage stöd via imsg (JSON-RPC över stdio). Nya inställningar bör använda BlueBubbles."
-read_when:
-  - Konfigurering av iMessage-stöd
-  - Felsökning av iMessage sändning/mottagning
 title: iMessage
 ---
 

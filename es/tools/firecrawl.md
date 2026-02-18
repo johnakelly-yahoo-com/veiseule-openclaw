@@ -1,9 +1,4 @@
 ---
-summary: "Respaldo de Firecrawl para web_fetch (anti‑bot + extracción en caché)"
-read_when:
-  - Quiere extracción web con respaldo de Firecrawl
-  - Necesita una clave de API de Firecrawl
-  - Quiere extracción anti‑bot para web_fetch
 title: "Firecrawl"
 ---
 

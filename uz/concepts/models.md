@@ -1,9 +1,4 @@
 ---
-summary: "Models CLI: ro‘yxat, sozlash, aliaslar, fallbacklar, skanerlash, holat"
-read_when:
-  - Models CLI (models list/set/scan/aliases/fallbacks) qo‘shilayotganda yoki o‘zgartirilayotganda
-  - Model fallback xatti‑harakati yoki tanlash UX o‘zgartirilayotganda
-  - Model skanerlash probelari (tools/images) yangilanayotganda
 title: "Modellar CLI"
 ---
 

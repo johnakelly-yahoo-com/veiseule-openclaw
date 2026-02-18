@@ -1,7 +1,4 @@
 ---
-summary: "SSH 経由でリモートの OpenClaw ゲートウェイを制御する macOS アプリのフロー"
-read_when:
-  - リモート mac 制御のセットアップやデバッグを行う場合
 title: "リモートコントロール"
 ---
 

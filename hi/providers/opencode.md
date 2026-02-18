@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw के साथ OpenCode Zen (क्यूरेटेड मॉडल) का उपयोग करें"
-read_when:
-  - आप मॉडल एक्सेस के लिए OpenCode Zen चाहते हैं
-  - आप कोडिंग-फ्रेंडली मॉडलों की एक क्यूरेटेड सूची चाहते हैं
 title: "OpenCode Zen"
 ---
 

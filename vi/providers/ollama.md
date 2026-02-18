@@ -1,8 +1,4 @@
 ---
-summary: "Chạy OpenClaw với Ollama (runtime LLM cục bộ)"
-read_when:
-  - Bạn muốn chạy OpenClaw với các mô hình cục bộ thông qua Ollama
-  - Bạn cần hướng dẫn thiết lập và cấu hình Ollama
 title: "Ollama"
 ---
 

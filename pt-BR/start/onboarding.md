@@ -1,8 +1,4 @@
 ---
-summary: "Fluxo de integração inicial na primeira execução do OpenClaw (app macOS)"
-read_when:
-  - Projetando o assistente de integração do macOS
-  - Implementando autenticação ou configuração de identidade
 title: "Integração inicial (App macOS)"
 sidebarTitle: "Integração: Aplicativo macOS"
 ---

@@ -1,7 +1,5 @@
 ---
-summary: "Routage multi-agent : agents isolés, comptes de canal et liaisons"
 title: Routage multi-agent
-read_when: "Vous souhaitez plusieurs agents isolés (espaces de travail + authentification) dans un seul processus de Gateway."
 status: active
 ---
 

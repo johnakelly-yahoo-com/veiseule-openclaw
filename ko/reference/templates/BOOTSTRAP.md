@@ -1,8 +1,4 @@
----
-summary: "새 에이전트를 위한 최초 실행 의식"
-read_when:
-  - 작업공간을 수동으로 부트스트랩할 때
----
+------
 
 # BOOTSTRAP.md - Hello, World
 

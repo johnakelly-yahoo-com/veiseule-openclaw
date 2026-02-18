@@ -1,9 +1,4 @@
 ---
-summary: "Overblik over pairing: godkend hvem der kan sende dig DM’er + hvilke noder der kan tilsluttes"
-read_when:
-  - Opsætning af adgangskontrol for DM’er
-  - Paring af en ny iOS/Android-node
-  - Gennemgang af OpenClaws sikkerhedsprofil
 title: "Parring"
 ---
 

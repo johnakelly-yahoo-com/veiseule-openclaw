@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw-logging: roterend diagnostisch bestandslog + privacyvlaggen voor unified logging"
-read_when:
-  - Vastleggen van macOS-logs of onderzoek naar het loggen van privégegevens
-  - Debuggen van problemen met de levenscyclus van voice wake/sessies
 title: "macOS-logging"
 ---
 

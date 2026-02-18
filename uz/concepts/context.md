@@ -1,9 +1,4 @@
 ---
-summary: "Kontekst: model nimani ko‘radi, u qanday yig‘iladi va uni qanday tekshirish mumkin"
-read_when:
-  - Siz OpenClaw’da “kontekst” nimani anglatishini tushunmoqchisiz
-  - Model nima uchun nimanidir “bilishini” (yoki unutganini) nosozlikdan o‘tkazyapsiz
-  - Kontekst yukini kamaytirmoqchisiz (/context, /status, /compact)
 title: "Kontekst"
 ---
 

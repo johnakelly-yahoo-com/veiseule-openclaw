@@ -1,9 +1,4 @@
 ---
-summary: "`openclaw system` için CLI referansı (sistem olayları, heartbeat, presence)"
-read_when:
-  - Bir cron işi oluşturmadan bir sistem olayı kuyruğa almak istediğinizde
-  - Heartbeat'leri etkinleştirmeniz veya devre dışı bırakmanız gerektiğinde
-  - Sistem presence girdilerini incelemek istediğinizde
 title: "system"
 ---
 

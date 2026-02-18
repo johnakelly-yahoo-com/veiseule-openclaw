@@ -1,8 +1,4 @@
 ---
-summary: "Configuração do bot do Mattermost e configuração do OpenClaw"
-read_when:
-  - Configurando o Mattermost
-  - Depurando o roteamento do Mattermost
 title: "Mattermost"
 ---
 

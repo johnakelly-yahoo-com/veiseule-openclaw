@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw uninstall` uchun CLI ma’lumotnomasi (gateway xizmati + lokal ma’lumotlarni olib tashlash)"
-read_when:
-  - Siz gateway xizmatini va/yoki lokal holatni olib tashlamoqchisiz
-  - Avval dry-run qilishni xohlaysiz
 title: "1. o‘chirish"
 ---
 

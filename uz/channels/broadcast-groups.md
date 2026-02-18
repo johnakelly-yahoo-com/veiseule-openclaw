@@ -1,8 +1,4 @@
 ---
-summary: "Bir nechta agentlarga WhatsApp xabarini translyatsiya qilish"
-read_when:
-  - Translyatsiya guruhlarini sozlash
-  - WhatsApp’da ko‘p agentli javoblarni debug qilish
 status: eksperimental
 title: "Translyatsiya guruhlari"
 ---

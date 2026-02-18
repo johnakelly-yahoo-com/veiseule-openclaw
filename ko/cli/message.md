@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw message` 에 대한 CLI 참조 (전송 + 채널 작업)"
-read_when:
-  - 메시지 CLI 작업을 추가하거나 수정할 때
-  - 아웃바운드 채널 동작을 변경할 때
 title: "message"
 ---
 

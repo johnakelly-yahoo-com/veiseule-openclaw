@@ -1,10 +1,5 @@
 ---
-title: "بوابة Vercel AI"
-summary: "إعداد بوابة Vercel AI (المصادقة + اختيار النموذج)"
-read_when:
-  - تريد استخدام بوابة Vercel AI مع OpenClaw
-  - تحتاج إلى متغير بيئة مفتاح واجهة برمجة التطبيقات أو خيار المصادقة عبر CLI
----
+title: "بوابة Vercel AI"---
 
 # بوابة Vercel AI
 

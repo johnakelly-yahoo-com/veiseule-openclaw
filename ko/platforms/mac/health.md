@@ -1,7 +1,4 @@
 ---
-summary: "macOS 앱이 gateway/Baileys 상태를 어떻게 보고하는지"
-read_when:
-  - 28. mac 앱 상태 지표 디버깅
 title: "29. 상태 점검"
 ---
 

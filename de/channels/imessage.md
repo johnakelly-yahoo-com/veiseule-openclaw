@@ -1,8 +1,4 @@
 ---
-summary: "Legacy-iMessage-Unterstützung über imsg (JSON-RPC über stdio). Neue Setups sollten BlueBubbles verwenden."
-read_when:
-  - Einrichten der iMessage-Unterstützung
-  - Debugging von iMessage-Senden/Empfangen
 title: iMessage
 ---
 

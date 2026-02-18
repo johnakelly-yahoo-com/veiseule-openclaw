@@ -1,9 +1,4 @@
 ---
-summary: "CLI 新手引導精靈的完整參考：每個步驟、旗標與設定欄位"
-read_when:
-  - 查找特定的精靈步驟或旗標
-  - 使用非互動模式自動化入門
-  - 除錯精靈行為
 title: "入門引導精靈參考"
 sidebarTitle: "reference/wizard.md"
 ---

@@ -1,7 +1,4 @@
 ---
-summary: "Agent-loopens livscyklus, streams og vent-semantik"
-read_when:
-  - Du har brug for en præcis gennemgang af agent-loopet eller livscyklusbegivenheder
 title: "Agentløkke"
 ---
 

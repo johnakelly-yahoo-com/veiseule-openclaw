@@ -1,7 +1,4 @@
 ---
-summary: "SSH orqali masofadagi OpenClaw gateway’ni boshqarish uchun macOS ilova oqimi"
-read_when:
-  - Masofaviy mac boshqaruvini sozlash yoki nosozliklarni tuzatish
 title: "Masofadan boshqarish"
 ---
 

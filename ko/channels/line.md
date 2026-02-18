@@ -1,9 +1,4 @@
 ---
-summary: "LINE Messaging API 플러그인 설정, 구성 및 사용법"
-read_when:
-  - OpenClaw 를 LINE 에 연결하려는 경우
-  - LINE 웹훅 및 자격 증명 설정이 필요한 경우
-  - LINE 전용 메시지 옵션을 사용하려는 경우
 title: LINE
 ---
 

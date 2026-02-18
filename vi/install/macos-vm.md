@@ -1,10 +1,4 @@
 ---
-summary: "Chạy OpenClaw trong một VM macOS dạng sandbox (cục bộ hoặc được host) khi bạn cần cách ly hoặc iMessage"
-read_when:
-  - Bạn muốn OpenClaw được cách ly khỏi môi trường macOS chính
-  - Bạn muốn tích hợp iMessage (BlueBubbles) trong một sandbox
-  - Bạn muốn một môi trường macOS có thể đặt lại và sao chép
-  - Bạn muốn so sánh các lựa chọn VM macOS cục bộ và được host
 title: "VM macOS"
 ---
 

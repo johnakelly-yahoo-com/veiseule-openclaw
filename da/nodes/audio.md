@@ -1,7 +1,4 @@
 ---
-summary: "Hvordan indgående lyd/voicenotes downloades, transskriberes og indsættes i svar"
-read_when:
-  - Ændring af lydtransskription eller mediehåndtering
 title: "Lyd og Voicenotes"
 ---
 

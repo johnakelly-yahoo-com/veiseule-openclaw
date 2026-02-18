@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw trên DigitalOcean (tùy chọn VPS trả phí đơn giản)"
-read_when:
-  - Thiết lập OpenClaw trên DigitalOcean
-  - Tìm dịch vụ VPS giá rẻ cho OpenClaw
 title: "DigitalOcean"
 ---
 

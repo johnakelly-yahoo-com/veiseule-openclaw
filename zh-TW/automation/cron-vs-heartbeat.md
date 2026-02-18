@@ -1,9 +1,4 @@
 ---
-summary: "在自動化中選擇 heartbeat 與 cron 工作的指引"
-read_when:
-  - 決定如何排程重複性任務
-  - 設定背景監控或通知
-  - 為定期檢查最佳化權杖使用量
 title: "Cron 與 Heartbeat"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw veilig updaten (globale installatie of vanuit bron), plus rollbackstrategie"
-read_when:
-  - OpenClaw updaten
-  - Iets breekt na een update
 title: "Updaten"
 ---
 

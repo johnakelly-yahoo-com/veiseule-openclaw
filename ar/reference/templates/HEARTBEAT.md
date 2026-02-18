@@ -1,8 +1,4 @@
----
-summary: "قالب مساحة عمل لـ HEARTBEAT.md"
-read_when:
-  - التهيئة اليدوية لمساحة عمل
----
+------
 
 # HEARTBEAT.md
 

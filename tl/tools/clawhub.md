@@ -1,9 +1,4 @@
 ---
-summary: "Gabay sa ClawHub: pampublikong registry ng skills + mga workflow ng CLI"
-read_when:
-  - Pagpapakilala ng ClawHub sa mga bagong user
-  - Pag-install, paghahanap, o pag-publish ng skills
-  - Pagpapaliwanag ng mga flag ng ClawHub CLI at behavior ng sync
 title: "ClawHub"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Stellt vom Gateway einen OpenResponses-kompatiblen /v1/responses-HTTP-Endpunkt bereit"
-read_when:
-  - Integration von Clients, die die OpenResponses-API sprechen
-  - Sie möchten elementbasierte Eingaben, Client-Werkzeugaufrufe oder SSE-Ereignisse
 title: "OpenResponses-API"
 ---
 

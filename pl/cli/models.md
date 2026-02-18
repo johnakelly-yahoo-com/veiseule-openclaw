@@ -1,8 +1,4 @@
 ---
-summary: "Referencja CLI dla `openclaw models` (status/list/set/scan, aliasy, mechanizmy zapasowe, uwierzytelnianie)"
-read_when:
-  - Chcesz zmienić domyślne modele lub wyświetlić stan uwierzytelniania dostawców
-  - Chcesz przeskanować dostępne modele/dostawców i debugować profile uwierzytelniania
 title: "modele"
 ---
 

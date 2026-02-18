@@ -1,8 +1,4 @@
 ---
-summary: "Fon rejimida exec bajarilishi va jarayonlarni boshqarish"
-read_when:
-  - Adding or modifying background exec behavior
-  - Debugging long-running exec tasks
 title: "Fon rejimidagi Exec va Process vositasi"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Djupgående felsökningsrunbook för gateway, kanaler, automation, noder och webbläsare"
-read_when:
-  - Felsökningshubben pekade dig hit för djupare diagnos
-  - Du behöver stabila, symtombaserade runbook-avsnitt med exakta kommandon
 title: "Felsökning"
 ---
 

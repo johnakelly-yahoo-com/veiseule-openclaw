@@ -1,7 +1,4 @@
 ---
-summary: "Les schémas TypeBox comme source de vérité unique pour le protocole de la passerelle"
-read_when:
-  - Lors de la mise à jour des schémas de protocole ou de la génération de code
 title: "TypeBox"
 ---
 

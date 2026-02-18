@@ -1,9 +1,4 @@
 ---
-summary: "Schema-nauwkeurige configuratievoorbeelden voor veelvoorkomende OpenClaw-opstellingen"
-read_when:
-  - Leren hoe je OpenClaw configureert
-  - Op zoek naar configuratievoorbeelden
-  - OpenClaw voor het eerst instellen
 title: "Configuratievoorbeelden"
 ---
 

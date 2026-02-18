@@ -1,9 +1,4 @@
 ---
-summary: "Synthèse vocale (TTS) pour les réponses sortantes"
-read_when:
-  - Activation de la synthèse vocale pour les réponses
-  - Configuration des fournisseurs TTS ou des limites
-  - Utilisation des commandes /tts
 title: "Synthèse vocale"
 ---
 

@@ -1,7 +1,5 @@
 ---
 title: Sandbox vs Política de Ferramentas vs Elevado
-summary: "Por que uma ferramenta é bloqueada: runtime de sandbox, política de permitir/negar ferramentas e portões de exec elevado"
-read_when: "Você cai na 'prisão do sandbox' ou vê uma recusa de ferramenta/elevado e quer a chave de configuração exata para mudar."
 status: active
 ---
 

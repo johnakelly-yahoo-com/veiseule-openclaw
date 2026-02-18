@@ -1,9 +1,4 @@
 ---
-summary: "Markdown-Formatierungspipeline für ausgehende Kanäle"
-read_when:
-  - Sie ändern die Markdown-Formatierung oder das Chunking für ausgehende Kanäle
-  - Sie fügen einen neuen Kanal-Formatter oder eine Stilzuordnung hinzu
-  - Sie debuggen Formatierungsregressionen über Kanäle hinweg
 title: "Markdown-Formatierung"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "対話型の設定プロンプトを使用する `openclaw configure` の CLI リファレンス"
-read_when:
-  - 資格情報、デバイス、またはエージェントの既定値を対話的に調整したい場合
 title: "configure"
 ---
 

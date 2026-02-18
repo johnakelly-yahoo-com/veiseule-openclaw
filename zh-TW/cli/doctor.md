@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw doctor」的 CLI 參考（健康檢查 + 引導式修復）"
-read_when:
-  - 你遇到連線或身分驗證問題，並希望取得引導式修復
-  - 你已更新並想進行健全性檢查
 title: "doctor"
 ---
 

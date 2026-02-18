@@ -1,9 +1,4 @@
 ---
-summary: "Gateway-owned node pairing (Option B) for iOS and other remote nodes"
-read_when:
-  - Implementing node pairing approvals without macOS UI
-  - Adding CLI flows for approving remote nodes
-  - Extending gateway protocol with node management
 title: "Gateway-Owned Pairing"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Comandos de barra: texto vs nativo, configuração e comandos compatíveis"
-read_when:
-  - Usando ou configurando comandos de chat
-  - Depurando roteamento de comandos ou permissões
 title: "Comandos de barra"
 ---
 

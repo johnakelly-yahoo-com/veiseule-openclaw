@@ -1,7 +1,4 @@
 ---
-summary: "Gruppchattbeteende över ytor (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
-read_when:
-  - Ändrar gruppchattbeteende eller nämningsstyrning
 title: "Grupper"
 ---
 

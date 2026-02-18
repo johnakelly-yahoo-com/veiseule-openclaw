@@ -1,9 +1,4 @@
----
-summary: "個人助理設定的預設 OpenClaw 代理程式指示與 Skills 名冊"
-read_when:
-  - 開始新的 OpenClaw 代理程式工作階段
-  - 啟用或稽核預設 Skills
----
+------
 
 # AGENTS.md — OpenClaw 個人助理（預設）
 

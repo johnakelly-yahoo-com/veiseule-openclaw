@@ -1,9 +1,4 @@
 ---
-summary: "„OpenClaw auf Raspberry Pi (günstiges selbstgehostetes Setup)“"
-read_when:
-  - OpenClaw auf einem Raspberry Pi einrichten
-  - OpenClaw auf ARM-Geräten betreiben
-  - Eine günstige, dauerhaft aktive persönliche KI bauen
 title: "„Raspberry Pi“"
 ---
 

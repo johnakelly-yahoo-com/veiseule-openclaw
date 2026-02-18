@@ -1,11 +1,5 @@
 ---
-title: "Node.js"
-summary: "Cài đặt và cấu hình Node.js cho OpenClaw — yêu cầu phiên bản, các tùy chọn cài đặt và xử lý sự cố PATH"
-read_when:
-  - "Bạn cần cài đặt Node.js trước khi cài đặt OpenClaw"
-  - "Bạn đã cài OpenClaw nhưng gặp lỗi `openclaw` là lệnh không tồn tại"
-  - "`npm install -g` thất bại do quyền hoặc sự cố PATH"
----
+title: "Node.js"---
 
 # Node.js
 

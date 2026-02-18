@@ -1,7 +1,4 @@
 ---
-summary: "CLI uchun `openclaw onboard` bo‘yicha ma’lumotnoma (interaktiv boshlang‘ich sozlash ustasi)"
-read_when:
-  - You want guided setup for gateway, workspace, auth, channels, and skills
 title: "onboard"
 ---
 

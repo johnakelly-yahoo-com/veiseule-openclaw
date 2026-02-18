@@ -1,8 +1,4 @@
 ---
-summary: "إعداد بوت Mattermost وتهيئة OpenClaw"
-read_when:
-  - إعداد Mattermost
-  - تصحيح مسارات Mattermost
 title: "Mattermost"
 ---
 

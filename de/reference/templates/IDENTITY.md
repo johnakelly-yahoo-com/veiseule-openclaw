@@ -1,8 +1,4 @@
----
-summary: "„Agenten-Identitätsdatensatz“"
-read_when:
-  - Manuelles Bootstrapping eines Workspace
----
+------
 
 # IDENTITY.md – Wer bin ich?
 

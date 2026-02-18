@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw memory` (status/index/search)에 대한 CLI 참조"
-read_when:
-  - 의미론적 메모리를 인덱싱하거나 검색하려는 경우
-  - 메모리 가용성 또는 인덱싱을 디버깅하는 경우
 title: "메모리"
 ---
 

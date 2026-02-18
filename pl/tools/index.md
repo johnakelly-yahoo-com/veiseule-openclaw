@@ -1,8 +1,4 @@
 ---
-summary: "Powierzchnia narzędzi agenta dla OpenClaw (przeglądarka, canvas, węzły, wiadomości, cron), zastępująca starsze skills `openclaw-*`"
-read_when:
-  - Dodawanie lub modyfikowanie narzędzi agenta
-  - Wycofywanie lub zmienianie skills `openclaw-*`
 title: "Narzędzia"
 ---
 

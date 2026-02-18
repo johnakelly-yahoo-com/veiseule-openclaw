@@ -1,8 +1,4 @@
 ---
-summary: "إدخال Webhook للإيقاظ وتشغيل الوكلاء المعزولين"
-read_when:
-  - إضافة أو تغيير نقاط نهاية Webhook
-  - ربط الأنظمة الخارجية بـ OpenClaw
 title: "Webhooks"
 ---
 

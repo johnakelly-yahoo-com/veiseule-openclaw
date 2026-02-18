@@ -1,8 +1,4 @@
 ---
-summary: "„Kontextfenster + Kompaktierung: wie OpenClaw Sitzungen innerhalb der Modellgrenzen hält“"
-read_when:
-  - Sie möchten Auto-Kompaktierung und /compact verstehen
-  - Sie debuggen lange Sitzungen, die an Kontextgrenzen stoßen
 title: "Verdichtung"
 ---
 

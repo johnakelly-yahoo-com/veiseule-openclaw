@@ -1,9 +1,4 @@
 ---
-summary: "「openclaw browser」的 CLI 參考（設定檔、分頁、動作、擴充功能轉接）"
-read_when:
-  - 當你使用「openclaw browser」並想要常見任務的範例時
-  - 當你想要透過節點主機控制在另一台機器上執行的瀏覽器時
-  - 當你想要使用 Chrome 擴充功能轉接（透過工具列按鈕附加／分離）時
 title: "瀏覽器"
 ---
 

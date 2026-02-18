@@ -1,7 +1,4 @@
 ---
-summary: "Mga patakaran sa paghawak ng imahe at media para sa send, gateway, at agent replies"
-read_when:
-  - Pagbabago sa media pipeline o mga attachment
 title: "Suporta sa Imahe at Media"
 ---
 

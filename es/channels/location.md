@@ -1,8 +1,4 @@
 ---
-summary: "Análisis de ubicación de canales entrantes (Telegram + WhatsApp) y campos de contexto"
-read_when:
-  - Al agregar o modificar el análisis de ubicación de canales
-  - Al usar campos de contexto de ubicación en prompts o herramientas del agente
 title: "Análisis de ubicación del canal"
 ---
 

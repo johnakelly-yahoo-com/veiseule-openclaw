@@ -1,8 +1,4 @@
 ---
-summary: "macOS के लिए Skills सेटिंग्स UI और Gateway-समर्थित स्थिति"
-read_when:
-  - macOS Skills सेटिंग्स UI को अपडेट करते समय
-  - Skills गेटिंग या इंस्टॉल व्यवहार में बदलाव करते समय
 title: "कौशल"
 ---
 

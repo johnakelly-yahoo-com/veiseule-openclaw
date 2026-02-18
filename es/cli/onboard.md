@@ -1,7 +1,4 @@
 ---
-summary: "Referencia de la CLI para `openclaw onboard` (asistente interactivo de incorporación)"
-read_when:
-  - Desea una configuración guiada para el Gateway, el espacio de trabajo, la autenticación, los canales y las Skills
 title: "onboard"
 ---
 

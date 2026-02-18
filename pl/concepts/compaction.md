@@ -1,8 +1,4 @@
 ---
-summary: "„Okno kontekstu + kompakcja: jak OpenClaw utrzymuje sesje w limitach modelu”"
-read_when:
-  - Chcesz zrozumieć automatyczną kompakcję i /compact
-  - Debugujesz długie sesje trafiające na limity kontekstu
 title: "Kompakcja a przycinanie"
 ---
 

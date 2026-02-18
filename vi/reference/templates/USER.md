@@ -1,8 +1,4 @@
----
-summary: "Bản ghi hồ sơ người dùng"
-read_when:
-  - Khởi tạo workspace thủ công
----
+------
 
 # USER.md - Về Con Người Của Bạn
 

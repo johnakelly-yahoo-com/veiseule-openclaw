@@ -1,9 +1,4 @@
 ---
-summary: "Geautomatiseerde, geharde OpenClaw-installatie met Ansible, Tailscale VPN en firewallisolatie"
-read_when:
-  - Je wilt geautomatiseerde serveruitrol met beveiligingsverharding
-  - Je hebt een door de firewall geïsoleerde installatie met VPN-toegang nodig
-  - Je implementeert op externe Debian/Ubuntu-servers
 title: "Ansible"
 ---
 

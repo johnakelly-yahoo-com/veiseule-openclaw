@@ -1,7 +1,5 @@
 ---
-summary: "Định tuyến đa tác tử: tác tử cô lập, tài khoản kênh và các ràng buộc"
 title: Định tuyến đa tác tử
-read_when: "Bạn muốn nhiều tác tử cô lập (workspace + xác thực) trong một tiến trình gateway."
 status: active
 ---
 

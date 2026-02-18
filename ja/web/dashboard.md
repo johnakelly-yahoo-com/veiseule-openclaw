@@ -1,7 +1,4 @@
 ---
-summary: "Gateway ダッシュボード（Control UI）のアクセスと認証"
-read_when:
-  - ダッシュボードの認証や公開モードを変更する場合
 title: "ダッシュボード"
 ---
 

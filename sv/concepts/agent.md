@@ -1,7 +1,4 @@
 ---
-summary: "Agentkörning (inbäddad pi-mono), arbetsyteavtal och sessionsbootstrap"
-read_when:
-  - Vid ändring av agentkörning, bootstrap av arbetsyta eller sessionsbeteende
 title: "Agentkörning"
 ---
 

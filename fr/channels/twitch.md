@@ -1,7 +1,4 @@
 ---
-summary: "Configuration et configuration initiale du bot de chat Twitch"
-read_when:
-  - Configuration de l’integration du chat Twitch pour OpenClaw
 title: "Twitch"
 ---
 

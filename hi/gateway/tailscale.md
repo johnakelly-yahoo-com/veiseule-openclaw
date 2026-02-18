@@ -1,8 +1,4 @@
 ---
-summary: "Gateway डैशबोर्ड के लिए एकीकृत Tailscale Serve/Funnel"
-read_when:
-  - localhost के बाहर Gateway Control UI को एक्सपोज़ करना
-  - tailnet या सार्वजनिक डैशबोर्ड एक्सेस को स्वचालित करना
 title: "Tailscale"
 ---
 

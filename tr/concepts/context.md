@@ -1,9 +1,4 @@
 ---
-summary: "Bağlam: modelin ne gördüğü, nasıl oluşturulduğu ve nasıl inceleneceği"
-read_when:
-  - OpenClaw’da “bağlam”ın ne anlama geldiğini anlamak istiyorsunuz
-  - Modelin neden bir şeyi “bildiğini” (ya da unuttuğunu) ayıklıyorsunuz
-  - Bağlam yükünü azaltmak istiyorsunuz (/context, /status, /compact)
 title: "Bağlam"
 ---
 

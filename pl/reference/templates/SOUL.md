@@ -1,8 +1,4 @@
----
-summary: "„Szablon obszaru roboczego dla SOUL.md”"
-read_when:
-  - Ręczne bootstrapowanie obszaru roboczego
----
+------
 
 # SOUL.md – Kim jesteś
 

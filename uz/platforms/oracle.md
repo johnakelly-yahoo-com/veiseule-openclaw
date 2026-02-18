@@ -1,9 +1,4 @@
 ---
-summary: "8. Oracle Cloud’da OpenClaw (Always Free ARM)"
-read_when:
-  - 9. Oracle Cloud’da OpenClaw’ni sozlash
-  - Looking for low-cost VPS hosting for OpenClaw
-  - 11. Kichik serverda 24/7 OpenClaw xohlaysizmi
 title: "12. Oracle Cloud"
 ---
 

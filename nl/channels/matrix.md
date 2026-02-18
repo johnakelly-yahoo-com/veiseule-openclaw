@@ -1,7 +1,4 @@
 ---
-summary: "Status, mogelijkheden en configuratie van Matrix-ondersteuning"
-read_when:
-  - Werken aan Matrix-kanaalfunctionaliteit
 title: "Matrix"
 ---
 

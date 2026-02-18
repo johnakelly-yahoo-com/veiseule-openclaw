@@ -1,7 +1,4 @@
 ---
-summary: "macOS-appflow til styring af en fjern OpenClaw gateway over SSH"
-read_when:
-  - Opsætning eller fejlfinding af fjern mac-styring
 title: "Fjernstyring"
 ---
 

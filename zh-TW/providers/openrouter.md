@@ -1,8 +1,4 @@
 ---
-summary: "使用 OpenRouter 的統一 API，在 OpenClaw 中存取多種模型"
-read_when:
-  - 你希望以單一 API 金鑰使用多個 LLM
-  - 你希望在 OpenClaw 中透過 OpenRouter 執行模型
 title: "OpenRouter"
 ---
 

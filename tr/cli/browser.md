@@ -1,9 +1,4 @@
 ---
-summary: "`openclaw browser` için CLI referansı (profiller, sekmeler, eylemler, uzantı aktarımı)"
-read_when:
-  - "`openclaw browser` kullanıyor ve yaygın görevler için örnekler istiyorsunuz"
-  - Başka bir makinede çalışan bir tarayıcıyı bir node ana makinesi üzerinden kontrol etmek istiyorsunuz
-  - Chrome uzantı aktarımını kullanmak istiyorsunuz (araç çubuğu düğmesiyle ekle/çıkar)
 title: "tarayıcı"
 ---
 

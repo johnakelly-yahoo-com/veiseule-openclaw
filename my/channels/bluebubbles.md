@@ -1,9 +1,4 @@
 ---
-summary: "BlueBubbles macOS ဆာဗာမှတစ်ဆင့် iMessage (REST ပို့/လက်ခံ၊ စာရိုက်နေမှု၊ တုံ့ပြန်ချက်များ၊ pairing၊ အဆင့်မြင့် လုပ်ဆောင်ချက်များ)။"
-read_when:
-  - BlueBubbles ချန်နယ် တပ်ဆင်သတ်မှတ်နေချိန်
-  - webhook pairing ပြဿနာများကို ဖြေရှင်းနေချိန်
-  - macOS တွင် iMessage ကို ပြင်ဆင်သတ်မှတ်နေချိန်
 title: "BlueBubbles"
 ---
 

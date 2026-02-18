@@ -1,5 +1,4 @@
 ---
-summary: "Hærdning af cron.add-inputhåndtering, tilpasning af skemaer og forbedring af cron UI/agent-værktøjer"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"

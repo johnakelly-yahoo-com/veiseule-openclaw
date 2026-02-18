@@ -1,9 +1,4 @@
 ---
-summary: "Giao thức Bridge (các node kế thừa): TCP JSONL, ghép cặp, RPC theo phạm vi"
-read_when:
-  - Xây dựng hoặc gỡ lỗi client node (chế độ node iOS/Android/macOS)
-  - Điều tra lỗi ghép cặp hoặc xác thực bridge
-  - Kiểm toán bề mặt node được gateway phơi bày
 title: "Giao thức Bridge"
 ---
 

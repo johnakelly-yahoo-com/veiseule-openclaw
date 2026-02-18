@@ -1,9 +1,4 @@
 ---
-summary: "iMessage ผ่านเซิร์ฟเวอร์ BlueBubbles บน macOS (ส่ง/รับแบบ REST, การพิมพ์, รีแอคชัน, การจับคู่, แอ็กชันขั้นสูง)"
-read_when:
-  - การตั้งค่าช่องทาง BlueBubbles
-  - การแก้ไขปัญหาการจับคู่ webhook
-  - การกำหนดค่า iMessage บน macOS
 title: "BlueBubbles"
 ---
 

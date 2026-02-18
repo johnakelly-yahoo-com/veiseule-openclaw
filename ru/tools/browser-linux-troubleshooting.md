@@ -1,6 +1,4 @@
 ---
-summary: "Исправление проблем запуска CDP Chrome/Brave/Edge/Chromium для управления браузером OpenClaw в Linux"
-read_when: "Управление браузером не работает в Linux, особенно со snap-версией Chromium"
 title: "Устранение неполадок браузера"
 ---
 

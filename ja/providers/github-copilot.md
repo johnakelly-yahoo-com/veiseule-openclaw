@@ -1,8 +1,4 @@
 ---
-summary: "デバイスフローを使用して OpenClaw から GitHub Copilot にサインインします"
-read_when:
-  - GitHub Copilot をモデルプロバイダーとして使用したい場合
-  - "`openclaw models auth login-github-copilot` フローが必要な場合"
 title: "GitHub Copilot"
 ---
 

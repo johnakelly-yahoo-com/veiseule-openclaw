@@ -1,9 +1,4 @@
----
-summary: "Dev エージェント AGENTS.md（C-3PO）"
-read_when:
-  - Dev ゲートウェイ テンプレートを使用する場合
-  - デフォルトの Dev エージェント ID を更新する場合
----
+------
 
 # AGENTS.md - OpenClaw ワークスペース
 

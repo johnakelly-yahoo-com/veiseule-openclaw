@@ -1,7 +1,5 @@
 ---
-summary: "Cómo funciona el sandboxing de OpenClaw: modos, alcances, acceso al workspace e imágenes"
 title: "Aislamiento en entorno seguro"
-read_when: "Quiere una explicación dedicada del sandboxing o necesita ajustar agents.defaults.sandbox."
 status: active
 ---
 

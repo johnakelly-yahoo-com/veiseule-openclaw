@@ -1,8 +1,4 @@
----
-summary: "HEARTBEAT.md 를 위한 워크스페이스 템플릿"
-read_when:
-  - 워크스페이스를 수동으로 부트스트랩할 때
----
+------
 
 # HEARTBEAT.md
 

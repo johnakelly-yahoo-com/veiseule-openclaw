@@ -1,8 +1,4 @@
 ---
-summary: "Skills: hanterade vs arbetsyta, spärrregler och konfig-/env-koppling"
-read_when:
-  - Lägga till eller ändra skills
-  - Ändra spärrning eller laddningsregler för skills
 title: "Färdigheter"
 ---
 

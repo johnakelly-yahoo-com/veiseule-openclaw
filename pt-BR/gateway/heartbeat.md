@@ -1,8 +1,4 @@
 ---
-summary: "Mensagens de polling de heartbeat e regras de notificação"
-read_when:
-  - Ajustar a cadência ou as mensagens do heartbeat
-  - Decidir entre heartbeat e cron para tarefas agendadas
 title: "Sinal de Vida"
 ---
 

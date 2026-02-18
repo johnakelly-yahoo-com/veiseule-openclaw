@@ -1,8 +1,4 @@
 ---
-summary: "Reference CLI pour `openclaw memory` (statut/indexation/recherche)"
-read_when:
-  - Vous souhaitez indexer ou rechercher la memoire semantique
-  - Vous depannez la disponibilite de la memoire ou l’indexation
 title: "memoire"
 ---
 

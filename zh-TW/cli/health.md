@@ -1,7 +1,4 @@
 ---
-summary: "透過 RPC 取得 Gateway 閘道器 健康狀態端點的 `openclaw health` CLI 參考"
-read_when:
-  - 當你想要快速檢查正在執行的 Gateway 閘道器 健康狀態
 title: "health"
 ---
 

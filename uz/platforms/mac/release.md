@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS relizi uchun tekshiruv ro‘yxati (Sparkle feed, paketlash, imzolash)"
-read_when:
-  - OpenClaw macOS relizini chiqarish yoki tekshirish
-  - Sparkle appcast yoki feed aktivlarini yangilash
 title: "macOS relizi"
 ---
 

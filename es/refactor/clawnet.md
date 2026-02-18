@@ -1,8 +1,4 @@
 ---
-summary: "Refactorización de Clawnet: unificar protocolo de red, roles, autenticación, aprobaciones e identidad"
-read_when:
-  - Planificar un protocolo de red unificado para nodos + clientes de operador
-  - Replantear aprobaciones, emparejamiento, TLS y presencia entre dispositivos
 title: "Refactorización de Clawnet"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw message` (send + mga aksyon sa channel)"
-read_when:
-  - Pagdaragdag o pagbabago ng mga aksyon ng message sa CLI
-  - Pagbabago ng outbound na gawi ng channel
 title: "mensahe"
 ---
 

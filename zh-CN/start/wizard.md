@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 运行或配置新手引导向导
-  - 设置新机器
-summary: CLI 新手引导向导：引导式配置 Gateway 网关、工作区、渠道和 Skills
 title: 新手引导向导
 x-i18n:
   generated_at: "2026-02-03T09:20:27Z"

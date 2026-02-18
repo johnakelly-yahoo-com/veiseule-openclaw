@@ -1,6 +1,4 @@
 ---
-summary: "إعداد Slack لوضع Socket أو وضع Webhook عبر HTTP"
-read_when: "عند إعداد Slack أو استكشاف أخطاء وضع Socket/HTTP في Slack"
 title: "Slack"
 ---
 

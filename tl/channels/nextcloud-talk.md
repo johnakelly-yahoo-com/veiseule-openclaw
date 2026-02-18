@@ -1,7 +1,4 @@
 ---
-summary: "Katayuan ng suporta, mga kakayahan, at konpigurasyon ng Nextcloud Talk"
-read_when:
-  - Nagtatrabaho sa mga feature ng channel ng Nextcloud Talk
 title: "Nextcloud Talk"
 ---
 

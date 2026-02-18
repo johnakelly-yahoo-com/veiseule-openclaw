@@ -1,7 +1,4 @@
 ---
-summary: "Jak aplikacja macOS raportuje stany zdrowia gateway/Baileys"
-read_when:
-  - Debugowanie wskaźników zdrowia aplikacji macOS
 title: "Kontrole zdrowia"
 ---
 

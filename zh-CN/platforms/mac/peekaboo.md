@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 在 OpenClaw.app 中托管 PeekabooBridge
-  - 通过 Swift Package Manager 集成 Peekaboo
-  - 更改 PeekabooBridge 协议/路径
-summary: 用于 macOS UI 自动化的 PeekabooBridge 集成
 title: Peekaboo Bridge
 x-i18n:
   generated_at: "2026-02-01T21:32:57Z"

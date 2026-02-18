@@ -1,8 +1,4 @@
 ---
-summary: "Flagi diagnostyczne do ukierunkowanych logów debugowania"
-read_when:
-  - Potrzebujesz ukierunkowanych logów debugowania bez podnoszenia globalnych poziomów logowania
-  - Musisz zebrać logi specyficzne dla podsystemu na potrzeby wsparcia
 title: "Flagi diagnostyczne"
 ---
 

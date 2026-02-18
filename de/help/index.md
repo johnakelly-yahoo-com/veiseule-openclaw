@@ -1,8 +1,4 @@
 ---
-summary: "Hilfe-Hub: häufige Lösungen, Installationsprüfung und wo Sie nachsehen, wenn etwas nicht funktioniert"
-read_when:
-  - Sie sind neu und möchten die „Was klicke/führe ich aus“-Anleitung
-  - Etwas ist kaputtgegangen und Sie möchten den schnellsten Weg zur Lösung
 title: "Hilfe"
 ---
 

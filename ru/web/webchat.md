@@ -1,7 +1,4 @@
 ---
-summary: "Статический хост WebChat с loopback и использование WS Gateway для UI чата"
-read_when:
-  - Отладка или настройка доступа WebChat
 title: "WebChat"
 ---
 

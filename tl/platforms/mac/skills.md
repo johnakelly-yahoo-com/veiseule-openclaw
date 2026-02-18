@@ -1,8 +1,4 @@
 ---
-summary: "UI ng settings ng Skills sa macOS at status na sinusuportahan ng Gateway"
-read_when:
-  - Ina-update ang UI ng settings ng Skills sa macOS
-  - Binabago ang gating o pag-uugali ng pag-install ng skills
 title: "Mga Kasanayan"
 ---
 

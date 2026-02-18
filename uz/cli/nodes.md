@@ -1,8 +1,4 @@
 ---
-summary: "Siz juftlangan tugunlarni (kameralar, ekran, canvas) boshqaryapsiz"
-read_when:
-  - So‘rovlarni tasdiqlashingiz yoki tugun buyruqlarini chaqirishingiz kerak
-  - tugunlar
 title: "`openclaw nodes`"
 ---
 

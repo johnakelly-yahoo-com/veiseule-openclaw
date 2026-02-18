@@ -1,8 +1,4 @@
 ---
-summary: "CLI-reference for `openclaw memory` (status/index/search)"
-read_when:
-  - Du vil indeksere eller søge i semantisk hukommelse
-  - Du fejlretter hukommelsestilgængelighed eller indeksering
 title: "hukommelse"
 ---
 

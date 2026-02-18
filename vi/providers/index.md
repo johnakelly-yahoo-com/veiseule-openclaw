@@ -1,8 +1,4 @@
 ---
-summary: "Các nhà cung cấp mô hình (LLM) được OpenClaw hỗ trợ"
-read_when:
-  - Bạn muốn chọn một nhà cung cấp mô hình
-  - Bạn cần tổng quan nhanh về các backend LLM được hỗ trợ
 title: "Nhà cung cấp mô hình"
 ---
 

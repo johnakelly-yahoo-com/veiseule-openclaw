@@ -1,8 +1,4 @@
 ---
-summary: "Referencja CLI dla `openclaw nodes` (list/status/approve/invoke, camera/canvas/screen)"
-read_when:
-  - Zarządzasz sparowanymi węzłami (kamery, ekran, płótno)
-  - Musisz zatwierdzać żądania lub wywoływać polecenia węzłów
 title: "węzły"
 ---
 

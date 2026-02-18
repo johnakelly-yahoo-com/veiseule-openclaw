@@ -1,8 +1,4 @@
 ---
-summary: "Các nền tảng nhắn tin mà OpenClaw có thể kết nối"
-read_when:
-  - Bạn muốn chọn một kênh trò chuyện cho OpenClaw
-  - Bạn cần tổng quan nhanh về các nền tảng nhắn tin được hỗ trợ
 title: "Kênh trò chuyện"
 ---
 

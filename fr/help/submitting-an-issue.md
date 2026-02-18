@@ -1,5 +1,4 @@
 ---
-summary: "Dépôt de tickets et rapports de bugs à fort signal"
 title: "Soumettre un problème"
 ---
 

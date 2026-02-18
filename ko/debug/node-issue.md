@@ -1,8 +1,4 @@
 ---
-summary: Node + tsx "__name is not a function" 충돌 메모 및 해결 방법
-read_when:
-  - Node 전용 개발 스크립트 또는 watch 모드 실패를 디버깅할 때
-  - OpenClaw 에서 tsx/esbuild 로더 충돌을 조사할 때
 title: "Node + tsx 충돌"
 ---
 

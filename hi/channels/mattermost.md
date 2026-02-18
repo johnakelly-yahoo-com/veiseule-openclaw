@@ -1,8 +1,4 @@
 ---
-summary: "Mattermost बॉट सेटअप और OpenClaw विन्यास"
-read_when:
-  - Mattermost सेटअप करते समय
-  - Mattermost रूटिंग का डिबग करते समय
 title: "Mattermost"
 ---
 

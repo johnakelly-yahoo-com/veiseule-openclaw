@@ -1,8 +1,4 @@
 ---
-summary: "Heartbeat-pollingmeddelelser og notifikationsregler"
-read_when:
-  - Justering af heartbeat-kadence eller beskeder
-  - Valg mellem heartbeat og cron til planlagte opgaver
 title: "Hjerteslag"
 ---
 

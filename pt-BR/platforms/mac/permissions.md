@@ -1,9 +1,4 @@
 ---
-summary: "persistência de permissões no macOS (TCC) e requisitos de assinatura"
-read_when:
-  - Depuração de prompts de permissão do macOS ausentes ou travados
-  - Empacotamento ou assinatura do app para macOS
-  - Alteração de IDs de bundle ou caminhos de instalação do app
 title: "Permissões do macOS"
 ---
 

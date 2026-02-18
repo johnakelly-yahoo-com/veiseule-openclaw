@@ -1,8 +1,4 @@
 ---
-summary: "Referencja CLI dla `openclaw approvals` (zatwierdzanie wykonania (exec) dla hostów Gateway lub węzłów)"
-read_when:
-  - Chcesz edytować zatwierdzanie wykonania (exec) z poziomu CLI
-  - Musisz zarządzać listami dozwolonych na hostach Gateway lub węzłów
 title: "approvals"
 ---
 

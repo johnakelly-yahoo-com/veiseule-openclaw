@@ -1,8 +1,4 @@
 ---
-summary: "استخدم OpenAI عبر مفاتيح API أو اشتراك Codex في OpenClaw"
-read_when:
-  - تريد استخدام نماذج OpenAI في OpenClaw
-  - تريد مصادقة اشتراك Codex بدلًا من مفاتيح API
 title: "OpenAI"
 ---
 

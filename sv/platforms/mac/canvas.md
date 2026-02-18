@@ -1,9 +1,4 @@
 ---
-summary: "Agentstyrd Canvas-panel inbäddad via WKWebView + anpassat URL-schema"
-read_when:
-  - Implementering av macOS Canvas-panelen
-  - Lägga till agentkontroller för visuell arbetsyta
-  - Felsökning av WKWebView-inläsningar för Canvas
 title: "Canvas"
 ---
 

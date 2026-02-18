@@ -1,8 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw doctor` (mga health check + ginabayang pag-aayos)"
-read_when:
-  - Mayroon kang mga isyu sa connectivity/auth at gusto mo ng ginabayang mga ayos
-  - Nag-update ka at gusto mo ng sanity check
 title: "doctor"
 ---
 

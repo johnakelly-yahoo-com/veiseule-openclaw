@@ -1,7 +1,5 @@
 ---
-summary: "كيفية عمل sandboxing في OpenClaw: الأوضاع، والنطاقات، والوصول إلى مساحة العمل، والصور"
 title: "العزل"
-read_when: "عندما تحتاج إلى شرح مخصص لـ sandboxing أو ترغب في ضبط agents.defaults.sandbox."
 status: active
 ---
 

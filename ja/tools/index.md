@@ -1,8 +1,4 @@
 ---
-summary: "従来の `openclaw-*` skills を置き換える、OpenClaw 向けエージェントツールのサーフェス（browser、canvas、nodes、message、cron）"
-read_when:
-  - エージェントツールを追加または変更する場合
-  - "`openclaw-*` skills を廃止または変更する場合"
 title: "ツール"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "UI de controle baseada em navegador para o Gateway (chat, nós, configuração)"
-read_when:
-  - Você quer operar o Gateway a partir de um navegador
-  - Você quer acesso via Tailnet sem túneis SSH
 title: "UI de Controle"
 ---
 

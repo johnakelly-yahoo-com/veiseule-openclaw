@@ -1,8 +1,4 @@
 ---
-summary: "Política de reintentos para llamadas salientes a proveedores"
-read_when:
-  - Al actualizar el comportamiento o los valores predeterminados de reintento del proveedor
-  - Al depurar errores de envío del proveedor o límites de velocidad
 title: "Política de reintentos"
 ---
 

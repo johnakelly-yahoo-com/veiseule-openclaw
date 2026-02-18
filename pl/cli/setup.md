@@ -1,8 +1,4 @@
 ---
-summary: "Referencja CLI dla `openclaw setup` (inicjalizacja konfiguracji + obszaru roboczego)"
-read_when:
-  - Wykonujesz konfigurację przy pierwszym uruchomieniu bez pełnego kreatora onboardingu
-  - Chcesz ustawić domyślną ścieżkę obszaru roboczego
 title: "Konfiguracja"
 ---
 

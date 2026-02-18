@@ -1,7 +1,4 @@
 ---
-summary: "Direktivsyntax för /think + /verbose och hur de påverkar modellens resonemang"
-read_when:
-  - Justerar tolkning eller standardvärden för thinking- eller verbose-direktiv
 title: "Tänknivåer"
 ---
 

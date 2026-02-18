@@ -1,8 +1,4 @@
 ---
-summary: "Birçok modele OpenClaw’da erişmek için Qianfan’ın birleşik API’sini kullanın"
-read_when:
-  - Birçok LLM için tek bir API anahtarı istiyorsunuz
-  - Baidu Qianfan kurulum rehberine ihtiyacınız var
 title: "Qianfan"
 ---
 

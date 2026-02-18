@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 手动引导工作区
-summary: 用户档案记录
 x-i18n:
   generated_at: "2026-02-01T21:38:04Z"
   model: claude-opus-4-5

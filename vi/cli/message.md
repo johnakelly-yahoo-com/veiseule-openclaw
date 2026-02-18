@@ -1,8 +1,4 @@
 ---
-summary: "Tài liệu tham chiếu CLI cho `openclaw message` (gửi + hành động kênh)"
-read_when:
-  - Thêm hoặc chỉnh sửa các hành động CLI của message
-  - Thay đổi hành vi kênh gửi đi
 title: "message"
 ---
 

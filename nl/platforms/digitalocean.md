@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw op DigitalOcean (eenvoudige betaalde VPS-optie)"
-read_when:
-  - OpenClaw instellen op DigitalOcean
-  - Op zoek naar goedkope VPS-hosting voor OpenClaw
 title: "DigitalOcean"
 ---
 

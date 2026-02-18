@@ -1,8 +1,4 @@
 ---
-summary: "Hızlı başlangıç, Başlarken bölümüne taşındı."
-read_when:
-  - En hızlı kurulum adımlarını arıyorsunuz
-  - Daha eski bir bağlantıdan buraya yönlendirildiniz
 title: "Hızlı Başlangıç"
 ---
 

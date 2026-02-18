@@ -1,8 +1,4 @@
 ---
-summary: "Zalo Personal प्लगइन: zca-cli के माध्यम से QR लॉगिन + मैसेजिंग (प्लगइन इंस्टॉल + चैनल विन्यास + CLI + टूल)"
-read_when:
-  - आप OpenClaw में Zalo Personal (अनौपचारिक) समर्थन चाहते हैं
-  - आप zalouser प्लगइन को विन्यस्त या विकसित कर रहे हैं
 title: "Zalo Personal प्लगइन"
 ---
 

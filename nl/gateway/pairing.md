@@ -1,9 +1,4 @@
 ---
-summary: "Door de Gateway beheerde node-koppeling (Optie B) voor iOS en andere externe nodes"
-read_when:
-  - Implementeren van goedkeuringen voor node-koppeling zonder macOS-UI
-  - Toevoegen van CLI-flows voor het goedkeuren van externe nodes
-  - Uitbreiden van het gatewayprotocol met nodebeheer
 title: "Door de Gateway beheerde koppeling"
 ---
 

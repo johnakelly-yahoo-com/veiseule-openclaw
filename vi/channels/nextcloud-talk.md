@@ -1,7 +1,4 @@
 ---
-summary: "Trạng thái hỗ trợ, khả năng và cấu hình của Nextcloud Talk"
-read_when:
-  - Làm việc trên các tính năng kênh Nextcloud Talk
 title: "Nextcloud Talk"
 ---
 

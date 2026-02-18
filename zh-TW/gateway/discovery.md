@@ -1,9 +1,4 @@
 ---
-summary: "用於尋找 Gateway 閘道器的節點探索與傳輸（Bonjour、Tailscale、SSH）"
-read_when:
-  - 實作或變更 Bonjour 探索／廣播
-  - 調整遠端連線模式（直接 vs SSH）
-  - 為遠端節點設計節點探索與配對
 title: "探索與傳輸"
 ---
 

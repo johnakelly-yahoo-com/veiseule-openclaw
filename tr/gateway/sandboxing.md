@@ -1,7 +1,5 @@
 ---
-summary: "OpenClaw sandboxing’in nasıl çalıştığı: modlar, kapsamlar, çalışma alanı erişimi ve imajlar"
 title: "Korumalı Alan"
-read_when: "Sandboxing için özel bir açıklamaya ihtiyaç duyduğunuzda veya agents.defaults.sandbox ayarını ince ayarlamanız gerektiğinde."
 status: active
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "CLI-backends: tekst-only fallback via lokale AI-CLI’s"
-read_when:
-  - Je wilt een betrouwbare fallback wanneer API-providers falen
-  - Je draait Claude Code CLI of andere lokale AI-CLI’s en wilt ze hergebruiken
-  - Je hebt een tekst-only, tool-vrije route nodig die nog steeds sessies en afbeeldingen ondersteunt
 title: "CLI-backends"
 ---
 

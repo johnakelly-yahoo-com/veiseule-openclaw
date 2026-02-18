@@ -1,8 +1,4 @@
 ---
-summary: "Справка по CLI для `openclaw directory` (self, peers, groups)"
-read_when:
-  - Вы хотите найти идентификаторы контактов/групп/себя для канала
-  - Вы разрабатываете адаптер каталога канала
 title: "directory"
 ---
 

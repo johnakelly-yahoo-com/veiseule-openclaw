@@ -1,9 +1,4 @@
 ---
-summary: "Oracle Cloud (Always Free ARM) پر OpenClaw"
-read_when:
-  - Oracle Cloud پر OpenClaw سیٹ اپ کر رہے ہوں
-  - OpenClaw کے لیے کم لاگت VPS ہوسٹنگ تلاش کر رہے ہوں
-  - چھوٹے سرور پر 24/7 OpenClaw چلانا چاہتے ہوں
 title: "Oracle Cloud"
 ---
 

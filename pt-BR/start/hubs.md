@@ -1,7 +1,4 @@
 ---
-summary: "Hubs que vinculam a todos os documentos do OpenClaw"
-read_when:
-  - Você quer um mapa completo da documentação
 title: "Hubs de documentos"
 ---
 

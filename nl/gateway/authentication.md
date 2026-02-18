@@ -1,8 +1,4 @@
 ---
-summary: "Modelauthenticatie: OAuth, API-sleutels en setup-token"
-read_when:
-  - Fouten opsporen bij modelauthenticatie of OAuth-verval
-  - Authenticatie of opslag van inloggegevens documenteren
 title: "Authenticatie"
 ---
 

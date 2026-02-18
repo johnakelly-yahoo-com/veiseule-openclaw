@@ -1,7 +1,4 @@
 ---
-summary: "Reaktionssemantik, die kanalübergreifend geteilt wird"
-read_when:
-  - Bei der Arbeit mit Reaktionen in jedem Kanal
 title: "Reaktionen"
 ---
 

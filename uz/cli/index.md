@@ -1,8 +1,4 @@
 ---
-summary: "8. `openclaw` buyruqlari, quyi buyruqlari va parametrlar uchun OpenClaw CLI ma’lumotnomasi"
-read_when:
-  - 9. CLI buyruqlari yoki parametrlarini qo‘shish yoki o‘zgartirish
-  - 10. Yangi buyruq interfeyslarini hujjatlashtirish
 title: "11. CLI ma’lumotnomasi"
 ---
 

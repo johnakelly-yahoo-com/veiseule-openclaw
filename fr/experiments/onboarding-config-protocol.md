@@ -1,6 +1,4 @@
 ---
-summary: "Notes de protocole RPC pour l’assistant de prise en main et le schéma de configuration"
-read_when: "Modification des étapes de l’assistant de prise en main ou des points de terminaison du schéma de configuration"
 title: "Protocole de prise en main et de configuration"
 ---
 

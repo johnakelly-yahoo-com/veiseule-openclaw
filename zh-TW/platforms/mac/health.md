@@ -1,7 +1,4 @@
 ---
-summary: "macOS 應用程式如何回報 Gateway 閘道器／Baileys 的健康狀態"
-read_when:
-  - 偵錯 mac 應用程式健康指示器
 title: "健康檢查"
 ---
 

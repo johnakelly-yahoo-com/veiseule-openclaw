@@ -1,9 +1,4 @@
----
-summary: "개인 비서 설정을 위한 기본 OpenClaw 에이전트 지침 및 Skills 목록"
-read_when:
-  - 새 OpenClaw 에이전트 세션을 시작할 때
-  - 기본 Skills 를 활성화하거나 감사할 때
----
+------
 
 # AGENTS.md — OpenClaw 개인 비서 (기본)
 

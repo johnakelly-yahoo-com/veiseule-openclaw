@@ -1,9 +1,4 @@
----
-summary: "Profil użytkownika agenta deweloperskiego (C-3PO)"
-read_when:
-  - Korzystanie z szablonów Gateway deweloperskiego
-  - Aktualizowanie domyślnej tożsamości agenta deweloperskiego
----
+------
 
 # USER.md – Profil użytkownika
 

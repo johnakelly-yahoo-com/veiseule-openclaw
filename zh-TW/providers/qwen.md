@@ -1,8 +1,4 @@
 ---
-summary: "在 OpenClaw 中使用 Qwen OAuth（免費方案）"
-read_when:
-  - 您想在 OpenClaw 中使用 Qwen
-  - 您想要免費方案的 Qwen Coder OAuth 存取
 title: "Qwen"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw で OpenCode Zen（キュレーションされたモデル）を使用します"
-read_when:
-  - OpenCode Zen をモデルアクセスに使用したい場合
-  - コーディングに適したモデルのキュレーションされたリストが必要な場合
 title: "OpenCode Zen"
 ---
 

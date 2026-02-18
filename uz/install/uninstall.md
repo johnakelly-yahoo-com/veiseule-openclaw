@@ -1,12 +1,4 @@
 ---
-summary: "Agar `EACCES` xatolarini ko‘rsangiz, npm’ning global prefiksini foydalanuvchi yozishi mumkin bo‘lgan katalogga o‘tkazing:"
-read_when:
-  - mkdir -p "$HOME/.npm-global"
-
-    npm config set prefix "$HOME/.npm-global"
-
-    export PATH="$HOME/.npm-global/bin:$PATH"
-  - Doimiy bo‘lishi uchun `export PATH=...` qatorini `~/.bashrc` yoki `~/.zshrc` ga qo‘shing.
 title: "OpenClaw’ni to‘liq olib tashlash (CLI, xizmat, holat, ish maydoni)"
 ---
 

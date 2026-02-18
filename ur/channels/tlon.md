@@ -1,7 +1,4 @@
 ---
-summary: "Tlon/Urbit کی معاونت کی حیثیت، صلاحیتیں، اور کنفیگریشن"
-read_when:
-  - Tlon/Urbit چینل کی خصوصیات پر کام کرتے وقت
 title: "Tlon"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "การผสานรวม PeekabooBridge สำหรับการทำอัตโนมัติ UI บน macOS"
-read_when:
-  - โฮสต์ PeekabooBridge ใน OpenClaw.app
-  - ผสานรวม Peekaboo ผ่าน Swift Package Manager
-  - เปลี่ยนโปรโตคอล/พาธของ PeekabooBridge
 title: "Peekaboo Bridge"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "DigitalOcean پر OpenClaw (سادا بامعاوضہ VPS آپشن)"
-read_when:
-  - DigitalOcean پر OpenClaw سیٹ اپ کرنا
-  - OpenClaw کے لیے سستی VPS ہوسٹنگ تلاش کرنا
 title: "DigitalOcean"
 ---
 

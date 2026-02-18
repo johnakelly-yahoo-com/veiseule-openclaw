@@ -1,7 +1,4 @@
 ---
-summary: "„Regeln, Schlüssel und Persistenz der Sitzungsverwaltung für Chats“"
-read_when:
-  - Ändern der Sitzungsbehandlung oder -speicherung
 title: "Sitzungsverwaltung"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw nodes` کے لیے CLI حوالہ (list/status/approve/invoke، camera/canvas/screen)"
-read_when:
-  - آپ جوڑے گئے نوڈز (کیمرے، اسکرین، کینوس) کا انتظام کر رہے ہوں
-  - آپ کو درخواستوں کی منظوری دینی ہو یا نوڈ کمانڈز چلانی ہوں
 title: "نوڈز"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Integrerad webbläsarkontrolltjänst + åtgärdskommandon"
-read_when:
-  - Lägga till agentstyrd webbläsarautomation
-  - Felsöka varför openclaw stör din egen Chrome
-  - Implementera webbläsarinställningar + livscykel i macOS-appen
 title: "Webbläsare (OpenClaw-hanterad)"
 ---
 

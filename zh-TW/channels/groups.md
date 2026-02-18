@@ -1,7 +1,4 @@
 ---
-summary: "跨平台的群組聊天行為（WhatsApp／Telegram／Discord／Slack／Signal／iMessage／Microsoft Teams）"
-read_when:
-  - 變更群組聊天行為或提及（mention）管控時
 title: "群組"
 ---
 

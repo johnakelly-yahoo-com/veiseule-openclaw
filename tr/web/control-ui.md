@@ -1,8 +1,4 @@
 ---
-summary: "Gateway için tarayıcı tabanlı kontrol arayüzü (sohbet, düğümler, yapılandırma)"
-read_when:
-  - Gateway’i bir tarayıcıdan işletmek istiyorsanız
-  - SSH tünelleri olmadan Tailnet erişimi istiyorsanız
 title: "Kontrol Arayüzü"
 ---
 

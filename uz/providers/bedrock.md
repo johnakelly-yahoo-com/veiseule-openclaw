@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw bilan Amazon Bedrock (Converse API) modellaridan foydalaning"
-read_when:
-  - Siz OpenClaw bilan Amazon Bedrock modellaridan foydalanmoqchisiz
-  - Model chaqiruvlari uchun AWS credential/region sozlamalari talab etiladi
 title: "Amazon Bedrock"
 ---
 

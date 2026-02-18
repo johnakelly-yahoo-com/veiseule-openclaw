@@ -1,8 +1,4 @@
 ---
-summary: "Hur OpenClaw roterar autentiseringsprofiler och faller tillbaka mellan modeller"
-read_when:
-  - Felsökning av rotation av autentiseringsprofiler, nedkylningsperioder eller beteende för modellfallback
-  - Uppdatering av failover-regler för autentiseringsprofiler eller modeller
 title: "Modellfailover"
 ---
 

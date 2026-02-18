@@ -1,7 +1,4 @@
 ---
-summary: "Comment les notes audio/vocales entrantes sont telechargees, transcrites et injectees dans les reponses"
-read_when:
-  - Modification de la transcription audio ou de la gestion des medias
 title: "Audio et notes vocales"
 ---
 

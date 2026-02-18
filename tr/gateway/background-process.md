@@ -1,8 +1,4 @@
 ---
-summary: "Arka plan exec yürütümü ve süreç yönetimi"
-read_when:
-  - Arka plan exec davranışı eklerken veya değiştirirken
-  - Uzun süre çalışan exec görevlerini hata ayıklarken
 title: "Arka Plan Exec ve Process Aracı"
 ---
 

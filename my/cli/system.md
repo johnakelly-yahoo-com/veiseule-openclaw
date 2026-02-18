@@ -1,9 +1,4 @@
 ---
-summary: "`openclaw system` အတွက် CLI ကိုးကားချက် (စနစ်ဖြစ်ရပ်များ၊ heartbeat၊ presence)"
-read_when:
-  - cron job မဖန်တီးဘဲ စနစ်ဖြစ်ရပ်တစ်ခုကို enqueue လုပ်ချင်သောအခါ
-  - heartbeats ကို ဖွင့်ရန် သို့မဟုတ် ပိတ်ရန် လိုအပ်သောအခါ
-  - စနစ် presence အချက်အလက်များကို စစ်ဆေးလိုသောအခါ
 title: "စနစ်"
 ---
 

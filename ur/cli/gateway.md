@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw Gateway CLI (`openclaw gateway`) — گیٹ ویز کو چلانا، کوئری کرنا، اور دریافت کرنا"
-read_when:
-  - CLI سے Gateway چلانا (ڈیولپمنٹ یا سرورز)
-  - Gateway کی تصدیق، بائنڈ موڈز، اور کنیکٹیوٹی کی ڈیبگنگ
-  - Bonjour کے ذریعے گیٹ ویز کی دریافت (LAN + tailnet)
 title: "gateway"
 ---
 

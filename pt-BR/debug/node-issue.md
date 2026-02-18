@@ -1,8 +1,4 @@
 ---
-summary: Notas e soluções alternativas para falha do Node + tsx "__name is not a function"
-read_when:
-  - Depuração de scripts de desenvolvimento apenas com Node ou falhas no modo watch
-  - Investigação de falhas do loader tsx/esbuild no OpenClaw
 title: "Falha do Node + tsx"
 ---
 

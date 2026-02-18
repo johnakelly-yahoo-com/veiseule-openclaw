@@ -1,9 +1,4 @@
 ---
-summary: "OpenProse: OpenClaw အတွင်းရှိ .prose workflow များ၊ slash command များနှင့် state"
-read_when:
-  - .prose workflow များကို လုပ်ဆောင်ရန် သို့မဟုတ် ရေးသားရန် လိုအပ်သည့်အခါ
-  - OpenProse plugin ကို ဖွင့်လိုသည့်အခါ
-  - state သိမ်းဆည်းပုံကို နားလည်ရန် လိုအပ်သည့်အခါ
 title: "OpenProse"
 ---
 

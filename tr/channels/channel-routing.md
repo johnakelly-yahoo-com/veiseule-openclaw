@@ -1,7 +1,4 @@
 ---
-summary: "Kanal bazında yönlendirme kuralları (WhatsApp, Telegram, Discord, Slack) ve paylaşılan bağlam"
-read_when:
-  - Kanal yönlendirmesi veya gelen kutusu davranışı değiştirildiğinde
 title: "Kanal Yönlendirme"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Monitorowanie wygaśnięcia OAuth dla dostawców modeli"
-read_when:
-  - Konfigurowanie monitorowania wygaśnięcia uwierzytelniania lub alertów
-  - Automatyzowanie sprawdzania odświeżania OAuth w Claude Code / Codex
 title: "Monitorowanie uwierzytelniania"
 ---
 

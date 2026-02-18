@@ -1,9 +1,4 @@
 ---
-summary: "12. Chrome kengaytmasi: OpenClaw’ga mavjud Chrome tabingizni boshqarishga ruxsat bering"
-read_when:
-  - 13. Siz agent mavjud Chrome tabini (asboblar paneli tugmasi) boshqarishini xohlaysiz
-  - 14. Sizga masofaviy Gateway + Tailscale orqali mahalliy brauzer avtomatlashtirish kerak
-  - 15. Siz brauzerni egallab olishning xavfsizlik oqibatlarini tushunmoqchisiz
 title: "16. Chrome kengaytmasi"
 ---
 

@@ -1,9 +1,4 @@
----
-summary: "Identite de l’agent de dev (C-3PO)"
-read_when:
-  - Utilisation des modeles de passerelle de dev
-  - Mise a jour de l’identite par defaut de l’agent de dev
----
+------
 
 # IDENTITY.md - Identite de l’agent
 

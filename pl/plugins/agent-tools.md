@@ -1,8 +1,4 @@
 ---
-summary: "Twórz narzędzia agenta we wtyczce (schematy, narzędzia opcjonalne, listy dozwolonych)"
-read_when:
-  - Chcesz dodać nowe narzędzie agenta we wtyczce
-  - Musisz uczynić narzędzie opcjonalnym (opt‑in) za pomocą list dozwolonych
 title: "Narzędzia agenta we wtyczkach"
 ---
 

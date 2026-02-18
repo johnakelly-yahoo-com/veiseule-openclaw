@@ -1,8 +1,4 @@
 ---
-summary: "Hỗ trợ Linux + trạng thái ứng dụng đồng hành"
-read_when:
-  - Tìm trạng thái ứng dụng đồng hành trên Linux
-  - Lập kế hoạch phạm vi nền tảng hoặc đóng góp
 title: "Ứng dụng Linux"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Installera OpenClaw — installationsskript, npm/pnpm, från källkod, Docker och mer"
-read_when:
-  - Du behöver en installationsmetod utöver Snabbstart i Kom igång
-  - Du vill distribuera till en molnplattform
-  - Du behöver uppdatera, migrera eller avinstallera
 title: "Installera"
 ---
 

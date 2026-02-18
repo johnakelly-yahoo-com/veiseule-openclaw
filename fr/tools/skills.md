@@ -1,8 +1,4 @@
 ---
-summary: "Skills : gérées vs espace de travail, règles de filtrage et câblage config/env"
-read_when:
-  - Ajout ou modification de skills
-  - Modification des règles de filtrage ou de chargement des skills
 title: "Compétences"
 ---
 

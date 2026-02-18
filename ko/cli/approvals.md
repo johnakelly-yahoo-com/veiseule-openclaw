@@ -1,8 +1,4 @@
 ---
-summary: "Gateway 또는 노드 호스트에 대한 exec 승인용 `openclaw approvals` CLI 레퍼런스"
-read_when:
-  - CLI 에서 exec 승인을 편집하려는 경우
-  - Gateway 또는 노드 호스트의 허용 목록을 관리해야 하는 경우
 title: "승인"
 ---
 

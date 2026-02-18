@@ -1,8 +1,4 @@
 ---
-summary: "İş akışları için yalnızca JSON LLM görevleri (isteğe bağlı eklenti aracı)"
-read_when:
-  - İş akışları içinde yalnızca JSON kullanan bir LLM adımı istediğinizde
-  - Otomasyon için şema doğrulamalı LLM çıktısına ihtiyaç duyduğunuzda
 title: "LLM Görevi"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Gateway-livscyklus på macOS (launchd)"
-read_when:
-  - Integrering af mac-appen med gatewayens livscyklus
 title: "Gateway-livscyklus"
 ---
 

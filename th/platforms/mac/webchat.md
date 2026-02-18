@@ -1,7 +1,4 @@
 ---
-summary: "แอปmacฝังGateway WebChatอย่างไรและวิธีดีบัก"
-read_when:
-  - การดีบักมุมมองWebChatบนmacหรือพอร์ตloopback
 title: "WebChat"
 ---
 

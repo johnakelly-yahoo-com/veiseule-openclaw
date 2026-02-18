@@ -1,8 +1,4 @@
 ---
-summary: "원격 액세스를 위해 exe.dev (VM + HTTPS 프록시)에서 OpenClaw Gateway 실행"
-read_when:
-  - Gateway(게이트웨이)를 위한 저렴한 상시 실행 Linux 호스트가 필요할 때
-  - 자체 VPS 를 운영하지 않고 원격 Control UI 액세스를 원할 때
 title: "exe.dev"
 ---
 

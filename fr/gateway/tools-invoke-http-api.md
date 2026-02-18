@@ -1,8 +1,4 @@
 ---
-summary: "Invoquer un seul outil directement via le point de terminaison HTTP de la Gateway (passerelle)"
-read_when:
-  - Appeler des outils sans exécuter un tour complet d’agent
-  - Construire des automatisations nécessitant l’application des politiques d’outils
 title: "API d’invocation des outils"
 ---
 

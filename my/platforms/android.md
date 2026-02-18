@@ -1,9 +1,4 @@
 ---
-summary: "Android အက်ပ် (နိုဒ်): ချိတ်ဆက်မှု runbook + Canvas/Chat/Camera"
-read_when:
-  - Android နိုဒ်ကို Pairing ပြုလုပ်ခြင်း သို့မဟုတ် ပြန်လည်ချိတ်ဆက်ခြင်း
-  - Android Gateway ရှာဖွေတွေ့ရှိမှု သို့မဟုတ် auth ကို Debugging လုပ်ခြင်း
-  - ကလိုင်ယင့်များအကြား Chat history တူညီမှုကို အတည်ပြုခြင်း
 title: "Android အက်ပ်"
 ---
 

@@ -1,8 +1,4 @@
----
-summary: "TOOLS.md uchun ish maydoni shabloni"
-read_when:
-  - Ish maydonini qo‘lda ishga tushirish
----
+------
 
 # TOOLS.md — Mahalliy qaydlar
 

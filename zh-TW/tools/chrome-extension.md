@@ -1,9 +1,4 @@
 ---
-summary: "Chrome 擴充功能：讓 OpenClaw 操控你現有的 Chrome 分頁"
-read_when:
-  - 你希望代理程式操控現有的 Chrome 分頁（工具列按鈕）
-  - 你需要遠端 Gateway + 透過 Tailscale 的本地瀏覽器自動化
-  - 你想了解瀏覽器接管的安全性影響
 title: "Chrome 擴充功能"
 ---
 

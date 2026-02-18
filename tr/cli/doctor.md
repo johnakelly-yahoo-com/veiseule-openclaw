@@ -1,8 +1,4 @@
 ---
-summary: "`openclaw doctor` için CLI başvurusu (sağlık kontrolleri + yönlendirmeli onarımlar)"
-read_when:
-  - Bağlantı/kimlik doğrulama sorunlarınız var ve yönlendirmeli çözümler istiyorsunuz
-  - Güncelleme yaptınız ve bir mantık denetimi yapmak istiyorsunuz
 title: "doctor"
 ---
 

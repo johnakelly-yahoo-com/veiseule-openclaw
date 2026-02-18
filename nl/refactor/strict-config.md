@@ -1,9 +1,4 @@
 ---
-summary: "Strikte configvalidatie + alleen-doctor-migraties"
-read_when:
-  - Ontwerpen of implementeren van gedrag voor configvalidatie
-  - Werken aan configmigraties of doctor-workflows
-  - Afhandelen van plugin-configschema’s of het blokkeren van plugin-load
 title: "Strikte configvalidatie"
 ---
 

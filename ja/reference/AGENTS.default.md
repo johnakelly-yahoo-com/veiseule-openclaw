@@ -1,9 +1,4 @@
----
-summary: "個人アシスタント設定向けのデフォルト OpenClaw エージェント指示と Skills 一覧"
-read_when:
-  - 新しい OpenClaw エージェントセッションを開始する場合
-  - デフォルト Skills を有効化または監査する場合
----
+------
 
 # AGENTS.md — OpenClaw 個人アシスタント（デフォルト）
 

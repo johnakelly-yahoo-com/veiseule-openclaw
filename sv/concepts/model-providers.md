@@ -1,8 +1,4 @@
 ---
-summary: "Översikt över modellleverantörer med exempel på konfigurationer + CLI-flöden"
-read_when:
-  - Du behöver en referens för modellkonfiguration per leverantör
-  - Du vill ha exempel på konfigurationer eller CLI-kommandon för introduktion till modellleverantörer
 title: "Modellleverantörer"
 ---
 

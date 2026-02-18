@@ -1,8 +1,4 @@
 ---
-summary: "Hurtig fejlfinding på kanalniveau med fejlmønstre og rettelser pr. kanal"
-read_when:
-  - Kanaltransporten siger forbundet, men svar fejler
-  - Du har brug for kanalspecifikke tjek før dybdegående udbyderdokumentation
 title: "Kanalfejlfinding"
 ---
 

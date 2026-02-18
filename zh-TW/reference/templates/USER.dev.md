@@ -1,9 +1,4 @@
----
-summary: "開發代理使用者設定檔（C-3PO）"
-read_when:
-  - 使用 dev Gateway 閘道器範本時
-  - 更新預設 dev 代理程式身分
----
+------
 
 # USER.md - 使用者設定檔
 

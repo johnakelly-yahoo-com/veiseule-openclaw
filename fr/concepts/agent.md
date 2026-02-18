@@ -1,7 +1,4 @@
 ---
-summary: "Runtime de l’agent (pi-mono embarqué), contrat d’espace de travail et amorçage de session"
-read_when:
-  - Modification du runtime de l’agent, de l’amorçage de l’espace de travail ou du comportement de session
 title: "Runtime de l’agent"
 ---
 

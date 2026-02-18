@@ -1,7 +1,4 @@
 ---
-summary: "WhatsApp (webkanaal) integratie: inloggen, inbox, antwoorden, media en beheer"
-read_when:
-  - Werken aan gedrag van het WhatsApp/webkanaal of inboxroutering
 title: "WhatsApp"
 ---
 

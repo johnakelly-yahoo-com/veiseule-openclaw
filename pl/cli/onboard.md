@@ -1,7 +1,4 @@
 ---
-summary: "Referencja CLI dla `openclaw onboard` (interaktywny kreator wdrażania)"
-read_when:
-  - Chcesz przejść przez konfigurację z przewodnikiem dla Gateway, obszaru roboczego, uwierzytelniania, kanałów i Skills
 title: "onboard"
 ---
 

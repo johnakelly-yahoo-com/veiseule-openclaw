@@ -1,5 +1,4 @@
 ---
-summary: "cron.add girdi işlemesini sertleştirme, şemaları hizalama ve cron UI/ajan araçlarını iyileştirme"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"

@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 添加或修改模型 CLI（models list/set/scan/aliases/fallbacks）
-  - 更改模型回退行为或选择用户体验
-  - 更新模型扫描探测（工具/图像）
-summary: 模型 CLI：列表、设置、别名、回退、扫描、状态
 title: 模型 CLI
 x-i18n:
   generated_at: "2026-02-03T10:05:42Z"

@@ -1,8 +1,4 @@
----
-summary: "Workspace-Vorlage für HEARTBEAT.md"
-read_when:
-  - Manuelles Bootstrapping eines Workspace
----
+------
 
 # HEARTBEAT.md
 

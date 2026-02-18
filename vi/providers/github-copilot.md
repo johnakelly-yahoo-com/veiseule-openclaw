@@ -1,8 +1,4 @@
 ---
-summary: "Đăng nhập GitHub Copilot từ OpenClaw bằng quy trình device flow"
-read_when:
-  - Bạn muốn dùng GitHub Copilot làm nhà cung cấp mô hình
-  - Bạn cần quy trình `openclaw models auth login-github-copilot`
 title: "GitHub Copilot"
 ---
 

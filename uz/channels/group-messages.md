@@ -1,7 +1,4 @@
 ---
-summary: "WhatsApp guruh xabarlarini qayta ishlash xatti-harakati va sozlamalari (mentionPatterns barcha sirtlarda umumiy)"
-read_when:
-  - Guruh xabarlari qoidalari yoki eslatmalar o‘zgartirilganda
 title: "Guruh xabarlari"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Avanceret opsætning og udviklingsworkflows til OpenClaw"
-read_when:
-  - Opsætning af en ny maskine
-  - Du vil have “latest + greatest” uden at ødelægge din personlige opsætning
 title: "Opsætning"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Zalo personal account support via zca-cli (QR login), capabilities, and configuration"
-read_when:
-  - Setting up Zalo Personal for OpenClaw
-  - Debugging Zalo Personal login or message flow
 title: "Zalo Personal"
 ---
 

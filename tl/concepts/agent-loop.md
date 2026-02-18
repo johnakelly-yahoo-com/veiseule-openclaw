@@ -1,7 +1,4 @@
 ---
-summary: "Lifecycle ng agent loop, mga stream, at semantika ng paghihintay"
-read_when:
-  - Kailangan mo ng eksaktong walkthrough ng agent loop o mga kaganapan sa lifecycle
 title: "Loop ng Agent"
 ---
 

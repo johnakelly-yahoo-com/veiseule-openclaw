@@ -1,8 +1,4 @@
 ---
-summary: "49. IDE integratsiyalari uchun ACP bridge’ni ishga tushiring"
-read_when:
-  - 50. ACP-ga asoslangan IDE integratsiyalarini sozlash
-  - Gateway’ga ACP sessiya marshrutlashini nosozliklardan tozalash
 title: "acp"
 ---
 

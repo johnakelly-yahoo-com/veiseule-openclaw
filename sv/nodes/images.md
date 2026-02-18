@@ -1,7 +1,4 @@
 ---
-summary: "Regler för hantering av bilder och media för sändning, gateway och agentsvar"
-read_when:
-  - Ändring av mediepipeline eller bilagor
 title: "Stöd för bilder och media"
 ---
 

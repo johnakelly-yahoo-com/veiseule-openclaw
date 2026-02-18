@@ -1,7 +1,4 @@
 ---
-summary: "Regras de tratamento de imagens e mídia para envios, gateway e respostas de agentes"
-read_when:
-  - Modificando o pipeline de mídia ou anexos
 title: "Suporte a Imagens e Mídia"
 ---
 

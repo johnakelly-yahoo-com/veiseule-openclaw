@@ -1,11 +1,5 @@
 ---
-title: "Node.js"
-summary: "OpenClaw için Node.js’i yükleyin ve yapılandırın — sürüm gereksinimleri, yükleme seçenekleri ve PATH sorun giderme"
-read_when:
-  - "OpenClaw’ı yüklemeden önce Node.js yüklemeniz gerekiyor"
-  - "OpenClaw’ı yüklediniz ancak `openclaw` komutu bulunamadı"
-  - "npm install -g izinler veya PATH sorunları nedeniyle başarısız oluyor"
----
+title: "Node.js"---
 
 # Node.js
 

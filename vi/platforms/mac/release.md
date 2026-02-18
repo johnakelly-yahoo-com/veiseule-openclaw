@@ -1,8 +1,4 @@
 ---
-summary: "Danh sách kiểm tra phát hành OpenClaw macOS (Sparkle feed, đóng gói, ký)"
-read_when:
-  - Cắt hoặc xác thực một bản phát hành OpenClaw macOS
-  - Cập nhật Sparkle appcast hoặc các tài sản feed
 title: "Phát hành macOS"
 ---
 

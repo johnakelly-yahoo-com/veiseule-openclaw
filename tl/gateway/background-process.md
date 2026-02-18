@@ -1,8 +1,4 @@
 ---
-summary: "Pagpapatakbo ng background exec at pamamahala ng proseso"
-read_when:
-  - Pagdaragdag o pagbabago ng behavior ng background exec
-  - Pag-debug ng mga long-running na exec task
 title: "Background Exec at Process Tool"
 ---
 

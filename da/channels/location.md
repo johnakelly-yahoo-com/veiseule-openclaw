@@ -1,8 +1,4 @@
 ---
-summary: "Parsing af indgående kanalers placering (Telegram + WhatsApp) og kontekstfelter"
-read_when:
-  - Tilføjelse eller ændring af parsing af kanalplacering
-  - Brug af kontekstfelter for placering i agentprompter eller værktøjer
 title: "Parsing af kanalplacering"
 ---
 

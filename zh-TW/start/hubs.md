@@ -1,7 +1,4 @@
 ---
-summary: "連結至所有 OpenClaw 文件的中樞頁面"
-read_when:
-  - 你想要完整掌握整份文件的地圖
 title: "文件中心"
 ---
 

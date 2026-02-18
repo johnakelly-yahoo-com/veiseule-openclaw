@@ -1,7 +1,4 @@
 ---
-summary: "حالة دعم Tlon/Urbit وقدراته وتهيئته"
-read_when:
-  - العمل على ميزات قناة Tlon/Urbit
 title: "Tlon"
 ---
 

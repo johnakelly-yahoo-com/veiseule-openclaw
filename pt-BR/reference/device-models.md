@@ -1,8 +1,4 @@
 ---
-summary: "Como o OpenClaw fornece identificadores de modelo de dispositivos Apple para nomes amigáveis no app macOS."
-read_when:
-  - Atualizando mapeamentos de identificadores de modelo de dispositivos ou arquivos NOTICE/licença
-  - Alterando como a UI de Instâncias exibe nomes de dispositivos
 title: "Banco de dados de modelos de dispositivos"
 ---
 

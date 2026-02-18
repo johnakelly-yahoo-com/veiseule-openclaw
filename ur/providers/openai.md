@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw میں OpenAI کو API کلیدوں یا Codex سبسکرپشن کے ذریعے استعمال کریں"
-read_when:
-  - آپ OpenClaw میں OpenAI ماڈلز استعمال کرنا چاہتے ہیں
-  - آپ API کلیدوں کے بجائے Codex سبسکرپشن کی تصدیق چاہتے ہیں
 title: "OpenAI"
 ---
 

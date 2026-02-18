@@ -1,11 +1,5 @@
 ---
-title: "Node.js"
-summary: "ติดตั้งและกำหนดค่า Node.js สำหรับ OpenClaw — ข้อกำหนดเวอร์ชัน ตัวเลือกการติดตั้ง และการแก้ไขปัญหา PATH"
-read_when:
-  - "คุณต้องติดตั้ง Node.js ก่อนติดตั้ง OpenClaw"
-  - "คุณติดตั้ง OpenClaw แล้วแต่ขึ้นว่าไม่พบคำสั่ง `openclaw`"
-  - "`npm install -g` ล้มเหลวเนื่องจากปัญหาสิทธิ์หรือ PATH"
----
+title: "Node.js"---
 
 # Node.js
 

@@ -1,7 +1,4 @@
 ---
-summary: "Como o app do macOS reporta estados de saúde do gateway/Baileys"
-read_when:
-  - Depurando indicadores de saúde do app do macOS
 title: "Verificações de saúde"
 ---
 

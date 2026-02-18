@@ -1,7 +1,4 @@
 ---
-summary: "Zachowanie i konfiguracja obsługi wiadomości grupowych WhatsApp (mentionPatterns są współdzielone między powierzchniami)"
-read_when:
-  - Zmiana reguł wiadomości grupowych lub wzmianek
 title: "Wiadomości grupowe"
 ---
 

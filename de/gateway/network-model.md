@@ -1,7 +1,4 @@
 ---
-summary: "„Wie sich Gateway, Nodes und Canvas-Host verbinden.“"
-read_when:
-  - Sie möchten eine knappe Übersicht über das Netzwerkmodell des Gateway
 title: "„Netzwerkmodell“"
 ---
 

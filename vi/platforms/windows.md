@@ -1,8 +1,4 @@
 ---
-summary: "Hỗ trợ Windows (WSL2) + trạng thái ứng dụng đồng hành"
-read_when:
-  - Cài đặt OpenClaw trên Windows
-  - Tìm trạng thái ứng dụng đồng hành trên Windows
 title: "Windows (WSL2)"
 ---
 

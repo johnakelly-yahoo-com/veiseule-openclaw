@@ -1,8 +1,4 @@
 ---
-summary: "CLI reference for `openclaw devices` (device pairing + token rotation/revocation)"
-read_when:
-  - You are approving device pairing requests
-  - You need to rotate or revoke device tokens
 title: "devices"
 ---
 

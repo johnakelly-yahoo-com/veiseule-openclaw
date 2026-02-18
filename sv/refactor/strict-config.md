@@ -1,9 +1,4 @@
 ---
-summary: "Strikt konfigvalidering + migreringar endast via doctor"
-read_when:
-  - Utformning eller implementering av beteende för konfigvalidering
-  - Arbete med konfigmigreringar eller doctor-arbetsflöden
-  - Hantering av plugin-konfigscheman eller spärrar för plugininläsning
 title: "Strikt konfigvalidering"
 ---
 

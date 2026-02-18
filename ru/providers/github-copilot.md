@@ -1,8 +1,4 @@
 ---
-summary: "Вход в GitHub Copilot из OpenClaw с использованием потока аутентификации устройства"
-read_when:
-  - Вы хотите использовать GitHub Copilot в качестве провайдера модели
-  - Вам нужен поток `openclaw models auth login-github-copilot`
 title: "GitHub Copilot"
 ---
 

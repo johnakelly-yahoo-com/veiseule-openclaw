@@ -1,8 +1,4 @@
 ---
-summary: "Gateway-skydd för singleton med bindning av WebSocket-lyssnaren"
-read_when:
-  - När du kör eller felsöker gateway-processen
-  - När du undersöker efterlevnad av eninstanskrav
 title: "Gateway-lås"
 ---
 

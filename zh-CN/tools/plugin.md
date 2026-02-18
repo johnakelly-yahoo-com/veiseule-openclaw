@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 添加或修改插件/扩展
-  - 记录插件安装或加载规则
-summary: OpenClaw 插件/扩展：发现、配置和安全
 title: 插件
 x-i18n:
   generated_at: "2026-02-03T07:55:25Z"

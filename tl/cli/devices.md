@@ -1,8 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw devices` (pagpapares ng device + pag-ikot/pagbawi ng token)"
-read_when:
-  - Ikaw ay nag-aapruba ng mga kahilingan sa pagpapares ng device
-  - Kailangan mong mag-rotate o mag-revoke ng mga token ng device
 title: "mga device"
 ---
 

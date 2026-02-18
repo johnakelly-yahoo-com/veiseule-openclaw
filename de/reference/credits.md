@@ -1,7 +1,4 @@
 ---
-summary: "Projektursprung, Mitwirkende und Lizenz."
-read_when:
-  - Sie möchten die Hintergrundgeschichte des Projekts oder die Mitwirkenden kennenlernen
 title: "Danksagungen"
 ---
 

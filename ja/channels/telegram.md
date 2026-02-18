@@ -1,7 +1,4 @@
 ---
-summary: "Telegram ボットのサポート状況、機能、および設定"
-read_when:
-  - Telegram 機能や webhook に取り組むとき
 title: "Telegram"
 ---
 

@@ -1,9 +1,4 @@
 ---
-read_when:
-  - 你想要带安全加固的自动化服务器部署
-  - 你需要带 VPN 访问的防火墙隔离设置
-  - 你正在部署到远程 Debian/Ubuntu 服务器
-summary: 使用 Ansible、Tailscale VPN 和防火墙隔离进行自动化、加固的 OpenClaw 安装
 title: Ansible
 x-i18n:
   generated_at: "2026-02-03T07:49:29Z"

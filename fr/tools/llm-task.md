@@ -1,8 +1,4 @@
 ---
-summary: "Tâches LLM uniquement JSON pour les workflows (outil de plugin optionnel)"
-read_when:
-  - Vous souhaitez une étape LLM uniquement JSON dans les workflows
-  - Vous avez besoin d’une sortie LLM validée par schéma pour l’automatisation
 title: "Tâche LLM"
 ---
 

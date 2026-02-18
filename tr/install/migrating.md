@@ -1,8 +1,4 @@
 ---
-summary: "Bir OpenClaw kurulumunu bir makineden diğerine taşıyın (migrate edin)"
-read_when:
-  - OpenClaw’ı yeni bir dizüstü bilgisayara/sunucuya taşıyorsunuz
-  - Oturumları, kimlik doğrulamayı ve kanal girişlerini (WhatsApp vb.) korumak istiyorsunuz
 title: "Geçiş Kılavuzu"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Comportement de streaming et de découpage (réponses par blocs, streaming de brouillon, limites)"
-read_when:
-  - Expliquer comment le streaming ou le découpage fonctionne sur les canaux
-  - Modifier le streaming par blocs ou le comportement de découpage par canal
-  - Déboguer les réponses par blocs dupliquées/prématurées ou le streaming de brouillon
 title: "Streaming et découpage"
 ---
 

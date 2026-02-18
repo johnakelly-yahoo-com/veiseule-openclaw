@@ -1,7 +1,4 @@
 ---
-summary: "Konfiguracja i uruchomienie bota czatu Twitch"
-read_when:
-  - Konfiguracja integracji czatu Twitch dla OpenClaw
 title: "Twitch"
 ---
 

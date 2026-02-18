@@ -1,8 +1,4 @@
 ---
-summary: "用於喚醒與隔離代理程式執行的 Webhook 入口"
-read_when:
-  - 新增或變更 Webhook 端點時
-  - 將外部系統接線至 OpenClaw
 title: "Webhook"
 ---
 

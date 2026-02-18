@@ -1,7 +1,4 @@
 ---
-summary: "„Kwestie bezpieczeństwa i model zagrożeń dla uruchamiania bramy AI z dostępem do powłoki”"
-read_when:
-  - „Dodawanie funkcji, które poszerzają dostęp lub automatyzację”
 title: "„Bezpieczeństwo”"
 ---
 

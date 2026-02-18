@@ -1,9 +1,4 @@
 ---
-summary: "Raspberry Pi पर OpenClaw (बजट स्वयं-होस्टेड सेटअप)"
-read_when:
-  - Raspberry Pi पर OpenClaw सेट अप करना
-  - ARM डिवाइसों पर OpenClaw चलाना
-  - एक सस्ता हमेशा-चालू व्यक्तिगत AI बनाना
 title: "Raspberry Pi"
 ---
 

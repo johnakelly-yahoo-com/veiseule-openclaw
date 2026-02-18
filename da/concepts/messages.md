@@ -1,9 +1,4 @@
 ---
-summary: "Meddelelsesflow, sessioner, køhåndtering og synlighed af ræsonnement"
-read_when:
-  - Forklaring af, hvordan indgående meddelelser bliver til svar
-  - Afklaring af sessioner, køhåndteringsmetoder eller streamingadfærd
-  - Dokumentation af synlighed af ræsonnement og konsekvenser for brug
 title: "Meddelelser"
 ---
 

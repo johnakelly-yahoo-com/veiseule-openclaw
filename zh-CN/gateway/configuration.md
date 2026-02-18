@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 添加或修改配置字段时
-summary: ~/.openclaw/openclaw.json 的所有配置选项及示例
 title: 配置
 x-i18n:
   generated_at: "2026-02-01T21:29:41Z"

@@ -1,8 +1,4 @@
 ---
-summary: "تطبيق OpenClaw المُرافِق على macOS (شريط القوائم + وسيط Gateway)"
-read_when:
-  - تنفيذ ميزات تطبيق macOS
-  - تغيير دورة حياة Gateway أو ربط العُقد على macOS
 title: "تطبيق macOS"
 ---
 

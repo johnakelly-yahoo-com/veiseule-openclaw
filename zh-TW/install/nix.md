@@ -1,9 +1,4 @@
 ---
-summary: "使用 Nix 以宣告式方式安裝 OpenClaw"
-read_when:
-  - 你需要可重現、可回滾的安裝
-  - 你已在使用 Nix／NixOS／Home Manager
-  - 你希望一切都被釘選並以宣告式方式管理
 title: "Nix"
 ---
 

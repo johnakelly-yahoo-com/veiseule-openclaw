@@ -1,8 +1,4 @@
 ---
-summary: "Bun iş akışı (deneysel): pnpm’e kıyasla kurulum ve dikkat edilmesi gerekenler"
-read_when:
-  - En hızlı yerel geliştirme döngüsünü istiyorsunuz (bun + watch)
-  - Bun kurulum/yama/yaşam döngüsü betiği sorunlarıyla karşılaşıyorsunuz
 title: "Bun (Deneysel)"
 ---
 

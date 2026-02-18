@@ -1,8 +1,4 @@
 ---
-summary: "用於 web_search 的 Perplexity Sonar 設定"
-read_when:
-  - 你想要使用 Perplexity Sonar 進行網頁搜尋
-  - 你需要 PERPLEXITY_API_KEY 或 OpenRouter 設定
 title: "Perplexity Sonar"
 ---
 

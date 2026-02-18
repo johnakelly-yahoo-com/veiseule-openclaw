@@ -1,8 +1,4 @@
 ---
-summary: "Overzicht van platformondersteuning (Gateway + Companion-apps)"
-read_when:
-  - Op zoek naar OS-ondersteuning of installatiepaden
-  - Beslissen waar de Gateway moet draaien
 title: "Platformen"
 ---
 

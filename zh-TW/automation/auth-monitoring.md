@@ -1,8 +1,4 @@
 ---
-summary: "監控模型提供者的 OAuth 到期"
-read_when:
-  - 設定身分驗證到期監控或警示時
-  - 自動化 Claude Code / Codex OAuth 重新整理檢查
 title: "身分驗證監控"
 ---
 

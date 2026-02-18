@@ -1,9 +1,4 @@
 ---
-summary: "Nodes: ghép cặp, khả năng, quyền hạn và các trợ giúp CLI cho canvas/camera/màn hình/hệ thống"
-read_when:
-  - Ghép cặp các node iOS/Android với một gateway
-  - Sử dụng canvas/camera của node cho ngữ cảnh tác tử
-  - Thêm lệnh node mới hoặc trợ giúp CLI
 title: "Các nút"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "„Globale Sprach-Aktivierungswörter (vom Gateway verwaltet) und wie sie über Nodes hinweg synchronisiert werden“"
-read_when:
-  - Ändern des Sprach-Weckwort-Verhaltens oder Standardeinstellungen
-  - „Hinzufügen neuer Node-Plattformen, die eine Synchronisierung der Aktivierungswörter benötigen“
 title: "Sprachaktivierung"
 ---
 

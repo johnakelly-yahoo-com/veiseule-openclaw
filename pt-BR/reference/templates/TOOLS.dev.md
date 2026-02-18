@@ -1,9 +1,4 @@
----
-summary: "Notas de ferramentas do agente de dev (C-3PO)"
-read_when:
-  - Usando os templates do gateway de dev
-  - Atualizando a identidade padrão do agente de dev
----
+------
 
 # TOOLS.md - Notas de ferramentas do usuário (editável)
 

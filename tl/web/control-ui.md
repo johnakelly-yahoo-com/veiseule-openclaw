@@ -1,8 +1,4 @@
 ---
-summary: "UI ng kontrol na nakabatay sa browser para sa Gateway (chat, mga node, config)"
-read_when:
-  - Gusto mong patakbuhin ang Gateway mula sa isang browser
-  - Gusto mo ng Tailnet access nang walang SSH tunnels
 title: "UI ng Kontrol"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Cron-jobs + wakeups for Gateway-planlæggeren"
-read_when:
-  - Planlægning af baggrundsjob eller wakeups
-  - Sammenkobling af automatisering, der skal køre med eller sideløbende med heartbeats
-  - Valg mellem heartbeat og cron til planlagte opgaver
 title: "Cron-jobs"
 ---
 

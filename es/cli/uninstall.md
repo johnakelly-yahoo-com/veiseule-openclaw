@@ -1,8 +1,4 @@
 ---
-summary: "Referencia de la CLI para `openclaw uninstall` (eliminar el servicio del Gateway + datos locales)"
-read_when:
-  - Quiere eliminar el servicio del Gateway y/o el estado local
-  - Quieres una ejecución seca primero
 title: "desinstalar"
 ---
 

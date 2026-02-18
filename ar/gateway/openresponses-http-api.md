@@ -1,8 +1,4 @@
 ---
-summary: "إتاحة نقطة نهاية HTTP ‏/v1/responses متوافقة مع OpenResponses من خلال Gateway"
-read_when:
-  - دمج العملاء الذين يتحدثون واجهة OpenResponses API
-  - عندما تريد مدخلات قائمة على العناصر، أو استدعاءات أدوات من العميل، أو أحداث SSE
 title: "واجهة OpenResponses API"
 ---
 

@@ -1,9 +1,4 @@
 ---
-summary: "Backends de CLI: alternativa solo de texto mediante CLIs de IA locales"
-read_when:
-  - Quiere una alternativa confiable cuando los proveedores de API fallan
-  - Está ejecutando Claude Code CLI u otras CLIs de IA locales y quiere reutilizarlas
-  - Necesita una ruta solo de texto, sin herramientas, que aun así admita sesiones e imágenes
 title: "Backends de CLI"
 ---
 

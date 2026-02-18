@@ -1,8 +1,4 @@
 ---
-summary: "Sanggunian ng CLI para sa `openclaw node` (headless na host ng node)"
-read_when:
-  - Pinapatakbo ang headless na host ng node
-  - Pag-pair ng non-macOS na node para sa system.run
 title: "node"
 ---
 

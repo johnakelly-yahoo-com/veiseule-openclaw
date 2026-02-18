@@ -1,7 +1,4 @@
 ---
-summary: "Thiết kế hàng đợi lệnh để tuần tự hóa các lần chạy auto-reply đến"
-read_when:
-  - Thay đổi cách thực thi hoặc mức song song của auto-reply
 title: "Hàng đợi lệnh"
 ---
 

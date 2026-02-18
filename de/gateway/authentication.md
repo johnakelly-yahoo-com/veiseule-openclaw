@@ -1,8 +1,4 @@
 ---
-summary: "„Modellauthentifizierung: OAuth, API-Schlüssel und Setup-Token“"
-read_when:
-  - Debugging der Modellauthentifizierung oder des OAuth-Ablaufs
-  - Dokumentation der Authentifizierung oder der Speicherung von Anmeldedaten
 title: "„Authentifizierung“"
 ---
 

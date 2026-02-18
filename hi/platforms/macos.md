@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw macOS सहचर ऐप (मेनू बार + Gateway ब्रोकर)"
-read_when:
-  - macOS ऐप फीचर्स को लागू करते समय
-  - macOS पर Gateway लाइफसाइकिल या नोड ब्रिजिंग में परिवर्तन करते समय
 title: "macOS ऐप"
 ---
 

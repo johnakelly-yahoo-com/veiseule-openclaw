@@ -1,8 +1,4 @@
 ---
-summary: "Gamitin ang Xiaomi MiMo (mimo-v2-flash) sa OpenClaw"
-read_when:
-  - Gusto mo ng mga model ng Xiaomi MiMo sa OpenClaw
-  - Kailangan mo ng setup ng XIAOMI_API_KEY
 title: "Xiaomi MiMo"
 ---
 

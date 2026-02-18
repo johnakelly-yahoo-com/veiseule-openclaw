@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw uchun alomatga yo‘naltirilgan muammolarni bartaraf etish markazi"
-read_when:
-  - OpenClaw is not working and you need the fastest path to a fix
-  - You want a triage flow before diving into deep runbooks
 title: "Muammolarni bartaraf etish"
 ---
 

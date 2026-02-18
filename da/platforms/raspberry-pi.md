@@ -1,9 +1,4 @@
 ---
-summary: "OpenClaw på Raspberry Pi (budgetvenlig selvhostet opsætning)"
-read_when:
-  - Opsætning af OpenClaw på en Raspberry Pi
-  - Kørsel af OpenClaw på ARM-enheder
-  - Opbygning af en billig, altid-tilgængelig personlig AI
 title: "Raspberry Pi"
 ---
 

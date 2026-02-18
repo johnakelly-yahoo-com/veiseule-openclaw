@@ -1,7 +1,4 @@
 ---
-summary: "Signierschritte für macOS-Debug-Builds, die von Packaging-Skripten erzeugt werden"
-read_when:
-  - Beim Erstellen oder Signieren von macOS-Debug-Builds
 title: "macOS-Signierung"
 ---
 

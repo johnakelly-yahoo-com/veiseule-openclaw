@@ -1,9 +1,4 @@
 ---
-summary: "Kung paano gumagana ang mga installer script (install.sh, install-cli.sh, install.ps1), mga flag, at automation"
-read_when:
-  - Gusto mong maunawaan ang `openclaw.ai/install.sh`
-  - Gusto mong i-automate ang mga install (CI / headless)
-  - Gusto mong mag-install mula sa isang GitHub checkout
 title: "Mga Internal ng Installer"
 ---
 

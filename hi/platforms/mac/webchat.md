@@ -1,7 +1,4 @@
 ---
-summary: "mac ऐप Gateway WebChat को कैसे एम्बेड करता है और उसे कैसे डिबग करें"
-read_when:
-  - mac WebChat दृश्य या loopback पोर्ट का डिबगिंग
 title: "WebChat"
 ---
 

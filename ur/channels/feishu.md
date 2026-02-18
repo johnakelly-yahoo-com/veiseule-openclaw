@@ -1,8 +1,4 @@
 ---
-summary: "Feishu بوٹ کا جائزہ، خصوصیات، اور کنفیگریشن"
-read_when:
-  - آپ Feishu/Lark بوٹ کو منسلک کرنا چاہتے ہیں
-  - آپ Feishu چینل کو کنفیگر کر رہے ہیں
 title: Feishu
 ---
 

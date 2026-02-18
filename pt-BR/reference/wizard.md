@@ -1,9 +1,4 @@
 ---
-summary: "Referência completa do assistente de onboarding da CLI: cada etapa, flag e campo de configuração"
-read_when:
-  - Consultar uma etapa ou flag específica do assistente
-  - Automatizar o onboarding com o modo não interativo
-  - Depurar o comportamento do assistente
 title: "Referência do Assistente de Onboarding"
 sidebarTitle: "Referência do Assistente"
 ---

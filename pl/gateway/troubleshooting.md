@@ -1,8 +1,4 @@
 ---
-summary: "Szczegółowy runbook rozwiązywania problemów dla gateway, kanałów, automatyzacji, węzłów i przeglądarki"
-read_when:
-  - Centrum rozwiązywania problemów skierowało Cię tutaj w celu pogłębionej diagnozy
-  - Potrzebujesz stabilnych sekcji runbooka opartych na objawach z dokładnymi poleceniami
 title: "Rozwiązywanie problemów"
 ---
 

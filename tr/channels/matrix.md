@@ -1,7 +1,4 @@
 ---
-summary: "Matrix destek durumu, yetenekler ve yapılandırma"
-read_when:
-  - Matrix kanal özellikleri üzerinde çalışırken
 title: "Matrix"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "リモートアクセスのために exe.dev（VM + HTTPS プロキシ）で OpenClaw Gateway（ゲートウェイ）を実行します"
-read_when:
-  - Gateway（ゲートウェイ）用に安価で常時稼働の Linux ホストが必要な場合
-  - 自分で VPS を運用せずにリモート Control UI にアクセスしたい場合
 title: "exe.dev"
 ---
 

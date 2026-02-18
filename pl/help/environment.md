@@ -1,9 +1,4 @@
 ---
-summary: "„Skąd OpenClaw ładuje zmienne środowiskowe i jaka jest kolejność pierwszeństwa”"
-read_when:
-  - Musisz wiedzieć, które zmienne środowiskowe są ładowane i w jakiej kolejności
-  - Debugujesz brakujące klucze API w Gateway
-  - Dokumentujesz uwierzytelnianie dostawców lub środowiska wdrożeniowe
 title: "„Zmienne środowiskowe”"
 ---
 

@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 在同一台机器上运行多个 Gateway 网关
-  - 你需要每个 Gateway 网关有隔离的配置/状态/端口
-summary: 在同一主机上运行多个 OpenClaw Gateway 网关（隔离、端口和配置文件）
 title: 多 Gateway 网关
 x-i18n:
   generated_at: "2026-02-03T07:48:13Z"

@@ -1,9 +1,4 @@
 ---
-summary: "Mahigpit na beripikasyon ng config + mga migration na para sa doctor lang"
-read_when:
-  - Nagdidisenyo o nagpapatupad ng behavior ng beripikasyon ng config
-  - Gumagawa sa mga migration ng config o mga workflow ng doctor
-  - Humahawak ng mga schema ng config ng plugin o gating ng pag-load ng plugin
 title: "Mahigpit na Beripikasyon ng Config"
 ---
 

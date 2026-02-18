@@ -1,8 +1,4 @@
 ---
-summary: "Thông điệp thăm dò heartbeat và các quy tắc thông báo"
-read_when:
-  - Điều chỉnh nhịp heartbeat hoặc nội dung thông điệp
-  - Quyết định giữa heartbeat và cron cho các tác vụ theo lịch
 title: "Nhịp tim"
 ---
 

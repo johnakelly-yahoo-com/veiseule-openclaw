@@ -1,7 +1,4 @@
 ---
-summary: "Status for understøttelse af Google Chat-app, funktioner og konfiguration"
-read_when:
-  - Arbejder på funktioner til Google Chat-kanalen
 title: "Google Chat"
 ---
 

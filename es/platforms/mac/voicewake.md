@@ -1,7 +1,4 @@
 ---
-summary: "Modos de activación por voz y pulsar para hablar, además de detalles de enrutamiento en la app para mac"
-read_when:
-  - Al trabajar en rutas de activación por voz o PTT
 title: "Activación por voz"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "SOUL Evil 勾點（在 purge 視窗期間或隨機機率下，將 SOUL.md 與 SOUL_EVIL.md 交換）"
-read_when:
-  - 您想要啟用或調整 SOUL Evil 勾點
-  - 您需要 purge 視窗或隨機機率的人格切換
 title: "SOUL Evil 勾點"
 ---
 

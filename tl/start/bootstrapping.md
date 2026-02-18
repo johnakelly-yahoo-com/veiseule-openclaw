@@ -1,9 +1,4 @@
 ---
-summary: "Ritwal ng bootstrapping ng agent na naglalagay ng paunang laman sa workspace at mga identity file"
-read_when:
-  - Pag-unawa kung ano ang nangyayari sa unang takbo ng agent
-  - Pagpapaliwanag kung saan nakaimbak ang mga bootstrapping file
-  - Pag-debug ng setup ng identity sa onboarding
 title: "Bootstrapping ng Agent"
 sidebarTitle: "Pag-bootstrapping"
 ---

@@ -1,8 +1,4 @@
 ---
-summary: "Referencia de la CLI para `openclaw logs` (seguir los registros del Gateway vía RPC)"
-read_when:
-  - Necesita seguir los registros del Gateway de forma remota (sin SSH)
-  - Quiere líneas de registro en JSON para herramientas
 title: "registros"
 ---
 

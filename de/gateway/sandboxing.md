@@ -1,7 +1,5 @@
 ---
-summary: "„Wie OpenClaw-Sandboxing funktioniert: Modi, Geltungsbereiche, Workspace-Zugriff und Images“"
 title: "Sandboxing"
-read_when: "„Sie möchten eine dedizierte Erklärung zu Sandboxing oder müssen agents.defaults.sandbox feinjustieren.“"
 status: active
 ---
 

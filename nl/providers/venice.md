@@ -1,8 +1,4 @@
 ---
-summary: "Gebruik privacygerichte modellen van Venice AI in OpenClaw"
-read_when:
-  - Je wilt privacygerichte inferentie in OpenClaw
-  - Je wilt begeleide installatie van Venice AI
 title: "Venice AI"
 ---
 

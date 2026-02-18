@@ -1,7 +1,4 @@
 ---
-summary: "6. Agent runtime (ichki pi-mono), ish maydoni shartnomasi va sessiyani ishga tushirish"
-read_when:
-  - 7. Agent runtime’ini, ish maydonini ishga tushirishni yoki sessiya xatti-harakatini o‘zgartirish
 title: "8. Agent Runtime"
 ---
 

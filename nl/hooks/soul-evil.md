@@ -1,8 +1,4 @@
 ---
-summary: "SOUL Evil-hook (verwisselt SOUL.md met SOUL_EVIL.md)"
-read_when:
-  - Je wilt de SOUL Evil-hook inschakelen of afstellen
-  - Je wilt een purge-venster of een persona-wissel met willekeurige kans
 title: "SOUL Kwaadaardige Haak"
 ---
 

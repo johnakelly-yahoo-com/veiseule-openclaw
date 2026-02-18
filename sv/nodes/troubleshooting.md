@@ -1,8 +1,4 @@
 ---
-summary: "Felsök nodparning, förgrundskrav, behörigheter och verktygsfel"
-read_when:
-  - Noden är ansluten men verktyg för kamera/canvas/skärm/exec misslyckas
-  - Du behöver den mentala modellen för nodparning kontra godkännanden
 title: "Felsökning av noder"
 ---
 

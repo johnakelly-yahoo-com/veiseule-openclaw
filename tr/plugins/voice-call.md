@@ -1,8 +1,4 @@
 ---
-summary: "Voice Call eklentisi: Twilio/Telnyx/Plivo üzerinden giden + gelen aramalar (eklenti kurulumu + yapılandırma + CLI)"
-read_when:
-  - OpenClaw’dan giden bir sesli arama yapmak istiyorsunuz
-  - voice-call eklentisini yapılandırıyor veya geliştiriyorsunuz
 title: "Voice Call Eklentisi"
 ---
 

@@ -1,10 +1,4 @@
 ---
-summary: "အထီးကျန်ခွဲခြားထားသော macOS VM (local သို့မဟုတ် hosted) အတွင်း OpenClaw ကို လည်ပတ်စေပြီး isolation သို့မဟုတ် iMessage လိုအပ်သည့်အခါ အသုံးပြုရန်"
-read_when:
-  - သင့်အဓိက macOS ပတ်ဝန်းကျင်မှ OpenClaw ကို ခွဲခြားထားလိုသည့်အခါ
-  - sandbox အတွင်း iMessage ပေါင်းစည်းမှု (BlueBubbles) လိုအပ်သည့်အခါ
-  - clone လုပ်နိုင်ပြီး reset ပြန်လုပ်နိုင်သော macOS ပတ်ဝန်းကျင်လိုအပ်သည့်အခါ
-  - local နှင့် hosted macOS VM ရွေးချယ်စရာများကို နှိုင်းယှဉ်လိုသည့်အခါ
 title: "macOS VM များ"
 ---
 

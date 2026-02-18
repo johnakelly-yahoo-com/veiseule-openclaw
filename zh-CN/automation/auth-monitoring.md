@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 设置认证过期监控或告警
-  - 自动化 Claude Code / Codex OAuth 刷新检查
-summary: 监控模型提供商的 OAuth 过期状态
 title: 认证监控
 x-i18n:
   generated_at: "2026-02-03T10:03:53Z"

@@ -1,7 +1,4 @@
 ---
-summary: "맥락과 톤을 위한 OpenClaw 의 백스토리와 로어"
-read_when:
-  - 로어를 참조하는 문서나 UX 카피를 작성할 때
 title: "OpenClaw 로어"
 ---
 

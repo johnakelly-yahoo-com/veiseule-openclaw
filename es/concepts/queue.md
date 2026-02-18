@@ -1,7 +1,4 @@
 ---
-summary: "Diseño de la cola de comandos que serializa ejecuciones de auto-respuesta entrantes"
-read_when:
-  - Al cambiar la ejecución o la concurrencia de la auto-respuesta
 title: "Cola de comandos"
 ---
 

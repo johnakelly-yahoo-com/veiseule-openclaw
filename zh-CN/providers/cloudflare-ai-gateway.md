@@ -1,10 +1,5 @@
 ---
-title: "Cloudflare AI Gateway"
-summary: "36. Cloudflare AI Gateway 设置（认证 + 模型选择）"
-read_when:
-  - 你想将 Cloudflare AI Gateway 与 OpenClaw 一起使用
-  - 你需要账户 ID、Gateway ID，或 API 密钥环境变量
----
+title: "Cloudflare AI Gateway"---
 
 # Cloudflare AI Gateway
 

@@ -1,8 +1,4 @@
 ---
-summary: "imsg üzerinden eski iMessage desteği (stdio üzerinde JSON-RPC). Yeni kurulumlar BlueBubbles kullanmalıdır."
-read_when:
-  - iMessage desteğini kurma
-  - iMessage gönderme/alma hata ayıklama
 title: iMessage
 ---
 

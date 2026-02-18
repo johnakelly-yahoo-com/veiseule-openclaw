@@ -1,8 +1,4 @@
 ---
-summary: "بیرونی CLIز (signal-cli، legacy imsg) کے لیے RPC اڈاپٹرز اور gateway پیٹرنز"
-read_when:
-  - بیرونی CLI انضمامات شامل یا تبدیل کرتے وقت
-  - RPC اڈاپٹرز (signal-cli، imsg) کی خرابیوں کا ازالہ کرتے وقت
 title: "RPC اڈاپٹرز"
 ---
 

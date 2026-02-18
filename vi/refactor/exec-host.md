@@ -1,9 +1,4 @@
 ---
-summary: "Kế hoạch refactor: định tuyến exec host, phê duyệt node và runner không giao diện"
-read_when:
-  - Thiết kế định tuyến exec host hoặc phê duyệt exec
-  - Triển khai node runner + IPC UI
-  - Thêm các chế độ bảo mật exec host và slash command
 title: "Refactor Exec Host"
 ---
 

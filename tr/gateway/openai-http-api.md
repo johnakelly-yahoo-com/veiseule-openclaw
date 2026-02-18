@@ -1,7 +1,4 @@
 ---
-summary: "Gateway üzerinden OpenAI uyumlu bir /v1/chat/completions HTTP uç noktası sunun"
-read_when:
-  - OpenAI Chat Completions bekleyen araçları entegre ederken
 title: "OpenAI Chat Completions"
 ---
 

@@ -1,7 +1,4 @@
 ---
-summary: "Zalo ボットのサポート状況、機能、設定"
-read_when:
-  - Zalo 機能または webhook に取り組んでいるとき
 title: "Zalo"
 ---
 

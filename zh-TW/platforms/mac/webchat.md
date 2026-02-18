@@ -1,7 +1,4 @@
 ---
-summary: "mac 應用程式如何內嵌 Gateway WebChat 以及如何進行除錯"
-read_when:
-  - 除錯 mac WebChat 檢視或 loopback 連接埠
 title: "WebChat"
 ---
 

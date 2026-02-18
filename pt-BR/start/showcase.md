@@ -1,8 +1,6 @@
 ---
 title: "Vitrine"
-description: "Projetos reais com OpenClaw da comunidade"
-summary: "Projetos e integrações criados pela comunidade e impulsionados pelo OpenClaw"
----
+description: "Projetos reais com OpenClaw da comunidade"---
 
 # Vitrine
 

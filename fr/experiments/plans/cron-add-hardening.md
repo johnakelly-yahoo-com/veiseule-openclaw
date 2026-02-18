@@ -1,5 +1,4 @@
 ---
-summary: "Renforcer la gestion des entrées de cron.add, aligner les schémas et améliorer les outils cron de l’UI et de l’agent"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"

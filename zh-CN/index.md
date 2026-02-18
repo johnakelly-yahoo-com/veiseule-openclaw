@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 向新用户介绍 OpenClaw
-summary: OpenClaw 是一个多渠道 AI 智能体 Gateway 网关，可在任何操作系统上运行。
 title: OpenClaw
 x-i18n:
   generated_at: "2026-02-04T17:53:40Z"

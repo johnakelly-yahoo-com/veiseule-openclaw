@@ -1,6 +1,4 @@
 ---
-summary: "원격 Gateway(게이트웨이)에 연결하기 위한 OpenClaw.app의 SSH 터널 설정"
-read_when: "SSH를 통해 macOS 앱을 원격 Gateway(게이트웨이)에 연결할 때"
 title: "원격 Gateway(게이트웨이) 설정"
 ---
 

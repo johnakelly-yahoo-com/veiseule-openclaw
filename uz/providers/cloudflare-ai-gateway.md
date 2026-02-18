@@ -1,10 +1,5 @@
 ---
-title: "Cloudflare AI Gateway sozlamalari (auth + model tanlash)"
-summary: "Cloudflare AI Gateway sozlamalari (auth + model tanlash)"
-read_when:
-  - Sizga account ID, gateway ID yoki API kalit env o‘zgaruvchisi kerak
-  - Cloudflare AI Gateway
----
+title: "Cloudflare AI Gateway sozlamalari (auth + model tanlash)"---
 
 # Cloudflare AI Gateway provider API’lari oldida joylashadi va analytics, caching hamda nazoratlarni qo‘shish imkonini beradi.
 

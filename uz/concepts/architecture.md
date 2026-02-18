@@ -1,7 +1,4 @@
 ---
-summary: "WebSocket gateway arxitekturasi, komponentlari va mijoz oqimlari"
-read_when:
-  - Working on gateway protocol, clients, or transports
 title: "Gateway Architecture"
 ---
 

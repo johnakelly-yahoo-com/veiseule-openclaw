@@ -1,8 +1,4 @@
----
-summary: "AGENTS.md အတွက် Workspace နမူနာ"
-read_when:
-  - Workspace ကို လက်ဖြင့် စတင်တည်ဆောက်နေစဉ်
----
+------
 
 # AGENTS.md - သင့် Workspace
 

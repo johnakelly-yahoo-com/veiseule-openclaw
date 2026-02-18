@@ -1,8 +1,4 @@
 ---
-summary: "Gateway-singletonbeveiliging via de WebSocket-listenerbinding"
-read_when:
-  - Het gatewayproces uitvoeren of debuggen
-  - Onderzoeken van handhaving van één instantie
 title: "Gateway-vergrendeling"
 ---
 

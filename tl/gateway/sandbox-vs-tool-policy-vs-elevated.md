@@ -1,7 +1,5 @@
 ---
 title: "Sandbox kumpara sa Patakaran ng Tool kumpara sa Elevated"
-summary: "Bakit naka-block ang isang tool: sandbox runtime, tool allow/deny policy, at mga elevated exec gate"
-read_when: "Kapag tumama ka sa 'sandbox jail' o nakakita ng pagtanggi sa tool/elevated at gusto mo ang eksaktong config key na babaguhin."
 status: active
 ---
 

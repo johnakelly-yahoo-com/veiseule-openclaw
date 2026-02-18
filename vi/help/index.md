@@ -1,8 +1,4 @@
 ---
-summary: "Trung tâm trợ giúp: các cách khắc phục phổ biến, kiểm tra cài đặt, và nơi cần xem khi có sự cố"
-read_when:
-  - Bạn mới và muốn hướng dẫn “tôi cần bấm/chạy gì”
-  - Có sự cố và bạn muốn con đường nhanh nhất để khắc phục
 title: "Trợ giúp"
 ---
 

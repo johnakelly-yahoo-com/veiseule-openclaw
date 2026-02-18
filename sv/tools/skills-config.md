@@ -1,8 +1,4 @@
 ---
-summary: "”Schema och exempel för Skills-konfig”"
-read_when:
-  - Lägga till eller ändra Skills-konfig
-  - Justera medföljande tillåtelselista eller installationsbeteende
 title: "”Skills-konfig”"
 ---
 

@@ -1,5 +1,4 @@
 ---
-summary: "แผน: เพิ่มเอ็นด์พอยต์ OpenResponses /v1/responses และเลิกใช้ chat completions อย่างเป็นระเบียบ"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"

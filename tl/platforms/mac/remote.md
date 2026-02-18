@@ -1,7 +1,4 @@
 ---
-summary: "daloy ng macOS app para sa pagkontrol ng remote na OpenClaw gateway sa pamamagitan ng SSH"
-read_when:
-  - Pagse-set up o pag-debug ng remote mac control
 title: "Remote na Kontrol"
 ---
 

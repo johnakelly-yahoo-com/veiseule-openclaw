@@ -1,7 +1,4 @@
 ---
-summary: "När OpenClaw visar skrivindikatorer och hur du finjusterar dem"
-read_when:
-  - Ändrar beteende eller standardvärden för skrivindikatorer
 title: "Skrivindikatorer"
 ---
 

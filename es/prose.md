@@ -1,9 +1,4 @@
 ---
-summary: "OpenProse: flujos de trabajo .prose, comandos de barra y estado en OpenClaw"
-read_when:
-  - Quiere ejecutar o escribir flujos de trabajo .prose
-  - Quiere habilitar el plugin OpenProse
-  - Necesita comprender el almacenamiento de estado
 title: "OpenProse"
 ---
 

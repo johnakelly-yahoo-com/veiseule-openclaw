@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw är en flerkanalig gateway för AI-agenter som körs på alla operativsystem."
-read_when:
-  - Introducerar OpenClaw för nybörjare
 title: "OpenClaw"
 ---
 

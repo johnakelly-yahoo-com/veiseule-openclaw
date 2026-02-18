@@ -1,5 +1,4 @@
 ---
-summary: "Các câu hỏi thường gặp về thiết lập, cấu hình và cách dùng OpenClaw"
 title: "FAQ"
 ---
 

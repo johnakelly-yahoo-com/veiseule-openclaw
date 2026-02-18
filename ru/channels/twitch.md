@@ -1,7 +1,4 @@
 ---
-summary: "Конфигурация и настройка чат-бота Twitch"
-read_when:
-  - Настройка интеграции чата Twitch для OpenClaw
 title: "Twitch"
 ---
 

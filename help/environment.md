@@ -1,9 +1,4 @@
 ---
-summary: "Where OpenClaw loads environment variables and the precedence order"
-read_when:
-  - You need to know which env vars are loaded, and in what order
-  - You are debugging missing API keys in the Gateway
-  - You are documenting provider auth or deployment environments
 title: "Environment Variables"
 ---
 

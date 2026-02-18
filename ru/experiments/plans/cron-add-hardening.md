@@ -1,5 +1,4 @@
 ---
-summary: "Усиление обработки входных данных cron.add, выравнивание схем и улучшение UI/инструментов агента для cron"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"

@@ -1,7 +1,4 @@
 ---
-summary: "Signeringstrin for macOS-debug-builds genereret af pakkescripts"
-read_when:
-  - Bygning eller signering af macOS-debug-builds
 title: "macOS-signering"
 ---
 

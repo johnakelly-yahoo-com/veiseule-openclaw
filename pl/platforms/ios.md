@@ -1,9 +1,4 @@
 ---
-summary: "Aplikacja węzła iOS: połączenie z Gateway, parowanie, canvas i rozwiązywanie problemów"
-read_when:
-  - Parowanie lub ponowne łączenie węzła iOS
-  - Uruchamianie aplikacji iOS ze źródeł
-  - Debugowanie wykrywania Gateway lub poleceń canvas
 title: "Aplikacja iOS"
 ---
 

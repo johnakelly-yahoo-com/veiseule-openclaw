@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw'ı tamamen kaldırın (CLI, servis, durum, çalışma alanı)"
-read_when:
-  - Bir makineden OpenClaw'ı kaldırmak istiyorsunuz
-  - Kaldırma işleminden sonra gateway servisi hâlâ çalışıyor
 title: "Kaldırma"
 ---
 

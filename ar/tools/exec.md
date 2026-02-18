@@ -1,8 +1,4 @@
 ---
-summary: "استخدام أداة Exec، أوضاع stdin، ودعم TTY"
-read_when:
-  - عند استخدام أداة exec أو تعديلها
-  - عند استكشاف سلوك stdin أو TTY وإصلاحه
 title: "أداة Exec"
 ---
 

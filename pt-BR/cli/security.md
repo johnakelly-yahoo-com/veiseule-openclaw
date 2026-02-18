@@ -1,8 +1,4 @@
 ---
-summary: "Referência da CLI para `openclaw security` (auditar e corrigir armadilhas comuns de segurança)"
-read_when:
-  - Você quer executar uma auditoria rápida de segurança na configuração/estado
-  - Você quer aplicar sugestões seguras de “correção” (chmod, endurecer padrões)
 title: "segurança"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Appliquer des correctifs multi-fichiers avec l’outil apply_patch"
-read_when:
-  - Vous avez besoin d’editions de fichiers structurees sur plusieurs fichiers
-  - Vous souhaitez documenter ou depanner des modifications basees sur des correctifs
 title: "Outil apply_patch"
 ---
 

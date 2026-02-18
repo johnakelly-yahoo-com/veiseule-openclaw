@@ -1,7 +1,4 @@
 ---
-summary: "Telegram بوٹ کی معاونت کی حالت، صلاحیتیں، اور کنفیگریشن"
-read_when:
-  - Telegram خصوصیات یا ویب ہوکس پر کام کرتے وقت
 title: "Telegram"
 ---
 

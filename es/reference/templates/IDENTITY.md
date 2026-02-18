@@ -1,8 +1,4 @@
----
-summary: "Registro de identidad del agente"
-read_when:
-  - Arranque manual de un espacio de trabajo
----
+------
 
 # IDENTITY.md - ¿Quién soy?
 

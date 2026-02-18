@@ -1,7 +1,4 @@
 ---
-read_when:
-  - 更改仪表板认证或暴露模式
-summary: Gateway 网关仪表板（控制 UI）访问和认证
 title: 仪表板
 x-i18n:
   generated_at: "2026-02-03T10:13:14Z"

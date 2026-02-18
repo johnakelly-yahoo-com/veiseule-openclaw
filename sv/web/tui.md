@@ -1,8 +1,4 @@
 ---
-summary: "Terminal-UI (TUI): anslut till Gateway från vilken maskin som helst"
-read_when:
-  - Du vill ha en nybörjarvänlig genomgång av TUI
-  - Du behöver den kompletta listan över TUI-funktioner, kommandon och genvägar
 title: "TUI"
 ---
 

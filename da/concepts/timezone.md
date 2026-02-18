@@ -1,8 +1,4 @@
 ---
-summary: "Håndtering af tidszoner for agenter, envelopes og prompts"
-read_when:
-  - Du skal forstå, hvordan tidsstempler normaliseres for modellen
-  - Konfigurering af brugerens tidszone til systemprompts
 title: "Tidszoner"
 ---
 

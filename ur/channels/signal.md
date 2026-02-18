@@ -1,8 +1,4 @@
 ---
-summary: "signal-cli (JSON-RPC + SSE) کے ذریعے Signal سپورٹ، سیٹ اپ، اور نمبر ماڈل"
-read_when:
-  - Signal سپورٹ سیٹ اپ کرنا
-  - Signal بھیجنے/موصول کرنے کی خرابیوں کی جانچ
 title: "Signal"
 ---
 

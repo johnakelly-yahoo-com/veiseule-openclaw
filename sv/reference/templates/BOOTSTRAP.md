@@ -1,8 +1,4 @@
----
-summary: "Första körningens ritual för nya agenter"
-read_when:
-  - Manuell bootstrap av en arbetsyta
----
+------
 
 # BOOTSTRAP.md – Hej, världen
 

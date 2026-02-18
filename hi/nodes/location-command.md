@@ -1,8 +1,4 @@
 ---
-summary: "नोड्स के लिए Location कमांड (location.get), अनुमति मोड, और बैकग्राउंड व्यवहार"
-read_when:
-  - Location नोड सपोर्ट या अनुमति UI जोड़ते समय
-  - बैकग्राउंड Location + पुश फ्लो डिज़ाइन करते समय
 title: "Location कमांड"
 ---
 

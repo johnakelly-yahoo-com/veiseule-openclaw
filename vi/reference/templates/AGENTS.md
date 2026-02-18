@@ -1,8 +1,4 @@
----
-summary: "Mẫu workspace cho AGENTS.md"
-read_when:
-  - Khởi tạo workspace thủ công
----
+------
 
 # AGENTS.md - Workspace của bạn
 

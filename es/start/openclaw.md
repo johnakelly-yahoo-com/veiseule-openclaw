@@ -1,8 +1,4 @@
 ---
-summary: "Guía integral de extremo a extremo para ejecutar OpenClaw como asistente personal con advertencias de seguridad"
-read_when:
-  - Incorporar una nueva instancia de asistente
-  - Revisar implicaciones de seguridad/permisos
 title: "Configuración del asistente personal"
 ---
 

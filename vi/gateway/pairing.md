@@ -1,9 +1,4 @@
 ---
-summary: "Ghép cặp nút do Gateway sở hữu (Tùy chọn B) cho iOS và các nút từ xa khác"
-read_when:
-  - Triển khai phê duyệt ghép cặp nút không có UI macOS
-  - Thêm luồng CLI để phê duyệt các nút từ xa
-  - Mở rộng giao thức gateway với quản lý nút
 title: "Ghép cặp do Gateway sở hữu"
 ---
 

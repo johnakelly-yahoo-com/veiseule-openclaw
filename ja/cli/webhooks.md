@@ -1,8 +1,4 @@
 ---
-summary: "「openclaw webhooks」の CLI リファレンス（Webhook ヘルパー + Gmail Pub/Sub）"
-read_when:
-  - Gmail Pub/Sub イベントを OpenClaw に接続したい場合
-  - Webhook ヘルパーコマンドを使用したい場合
 title: "ウェブフック"
 ---
 

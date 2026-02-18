@@ -1,9 +1,4 @@
 ---
-summary: "iOS node app: kumonekta sa Gateway, pairing, canvas, at pag-troubleshoot"
-read_when:
-  - Pag-pair o muling pagkonekta ng iOS node
-  - Pagpapatakbo ng iOS app mula sa source
-  - Pag-debug ng discovery ng gateway o mga command ng canvas
 title: "App sa iOS"
 ---
 

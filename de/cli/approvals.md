@@ -1,8 +1,4 @@
 ---
-summary: "CLI-Referenz für `openclaw approvals` (Exec-Freigaben für Gateway- oder Node-Hosts)"
-read_when:
-  - Sie möchten Exec-Freigaben über die CLI bearbeiten
-  - Sie müssen Allowlists auf Gateway- oder Node-Hosts verwalten
 title: "approvals"
 ---
 

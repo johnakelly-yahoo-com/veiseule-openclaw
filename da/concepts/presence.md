@@ -1,9 +1,4 @@
 ---
-summary: "Hvordan OpenClaw presence-poster produceres, flettes og vises"
-read_when:
-  - Fejlfinding af fanen Instances
-  - Undersøgelse af dublerede eller forældede instansrækker
-  - Ændring af gateway WS-forbindelse eller system-event-beacons
 title: "Tilstedeværelse"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Lista kontrolna wydania OpenClaw na macOS (kanał Sparkle, pakowanie, podpisywanie)"
-read_when:
-  - Przy tworzeniu lub weryfikacji wydania OpenClaw na macOS
-  - Przy aktualizacji appcastu Sparkle lub zasobów kanału
 title: "Wydanie macOS"
 ---
 

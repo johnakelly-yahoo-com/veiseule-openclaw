@@ -1,8 +1,4 @@
 ---
-summary: "Ejecutar múltiples Gateways de OpenClaw en un solo host (aislamiento, puertos y perfiles)"
-read_when:
-  - Ejecutar más de un Gateway en la misma máquina
-  - Necesita configuración/estado/puertos aislados por Gateway
 title: "Múltiples Gateways"
 ---
 

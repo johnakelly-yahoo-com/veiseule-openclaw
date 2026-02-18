@@ -1,8 +1,4 @@
 ---
-summary: "Ventana de contexto + compactación: cómo OpenClaw mantiene las sesiones dentro de los límites del modelo"
-read_when:
-  - Quiere entender la compactación automática y /compact
-  - Está depurando sesiones largas que alcanzan los límites de contexto
 title: "Compactación"
 ---
 

@@ -1,8 +1,4 @@
 ---
-summary: "Thiết lập API Brave Search cho web_search"
-read_when:
-  - Bạn muốn dùng Brave Search cho web_search
-  - Bạn cần BRAVE_API_KEY hoặc thông tin gói
 title: "Brave Search"
 ---
 

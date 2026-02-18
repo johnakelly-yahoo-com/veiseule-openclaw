@@ -1,8 +1,4 @@
 ---
-summary: "Configuración del bot de Mattermost y configuración de OpenClaw"
-read_when:
-  - Configuración de Mattermost
-  - Depuración del enrutamiento de Mattermost
 title: "Mattermost"
 ---
 

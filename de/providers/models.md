@@ -1,8 +1,4 @@
 ---
-summary: "Von OpenClaw unterstützte Modellanbieter (LLMs)"
-read_when:
-  - Sie möchten einen Modellanbieter auswählen
-  - Sie möchten schnelle Einrichtungsbeispiele für LLM-Authentifizierung und Modellauswahl
 title: "Schnellstart für Modellanbieter"
 ---
 

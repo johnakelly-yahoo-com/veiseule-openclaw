@@ -1,8 +1,4 @@
 ---
-summary: "Sử dụng OpenCode Zen (các mô hình được tuyển chọn) với OpenClaw"
-read_when:
-  - Bạn muốn OpenCode Zen để truy cập mô hình
-  - Bạn muốn danh sách mô hình được tuyển chọn, thân thiện với lập trình
 title: "OpenCode Zen"
 ---
 

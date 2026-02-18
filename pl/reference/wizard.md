@@ -1,9 +1,4 @@
 ---
-summary: "Pełna referencja kreatora onboardingu CLI: każdy krok, flaga i pole konfiguracji"
-read_when:
-  - Szukanie konkretnego kroku kreatora lub flagi
-  - Automatyzowanie onboardingu w trybie nieinteraktywnym
-  - Debugowanie zachowania kreatora
 title: "Referencja kreatora onboardingu"
 sidebarTitle: "Dokumentacja kreatora"
 ---

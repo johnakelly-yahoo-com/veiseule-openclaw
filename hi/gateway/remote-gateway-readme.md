@@ -1,6 +1,4 @@
 ---
-summary: "दूरस्थ Gateway से कनेक्ट करने के लिए OpenClaw.app हेतु SSH टनल सेटअप"
-read_when: "SSH के माध्यम से macOS ऐप को दूरस्थ Gateway से कनेक्ट करते समय"
 title: "Remote Gateway सेटअप"
 ---
 

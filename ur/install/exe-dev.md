@@ -1,8 +1,4 @@
 ---
-summary: "ریموٹ رسائی کے لیے exe.dev (VM + HTTPS پراکسی) پر OpenClaw Gateway چلائیں"
-read_when:
-  - آپ Gateway کے لیے ایک سستا، ہمیشہ آن Linux ہوسٹ چاہتے ہیں
-  - آپ اپنا VPS چلائے بغیر ریموٹ Control UI رسائی چاہتے ہیں
 title: "exe.dev"
 ---
 

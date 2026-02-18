@@ -1,7 +1,4 @@
 ---
-summary: "OpenClaw ist ein Multi-Kanal-Gateway für KI-Agenten, das auf jedem Betriebssystem läuft."
-read_when:
-  - Einführung von OpenClaw für Neueinsteiger
 title: "OpenClaw"
 ---
 

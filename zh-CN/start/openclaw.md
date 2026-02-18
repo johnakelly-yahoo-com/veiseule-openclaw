@@ -1,8 +1,4 @@
 ---
-read_when:
-  - 新手引导新助手实例时
-  - 审查安全/权限影响时
-summary: 将 OpenClaw 作为个人助手运行的端到端指南，包含安全注意事项
 title: 个人助手设置
 x-i18n:
   generated_at: "2026-02-03T07:54:35Z"

@@ -1,8 +1,4 @@
 ---
-summary: "Справочник CLI для `openclaw webhooks` (вспомогательные команды вебхуков + Gmail Pub/Sub)"
-read_when:
-  - Вам нужно подключить события Gmail Pub/Sub к OpenClaw
-  - Вам нужны вспомогательные команды вебхуков
 title: "вебхуки"
 ---
 

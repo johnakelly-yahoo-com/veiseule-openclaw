@@ -1,7 +1,4 @@
 ---
-summary: "Quy tắc quản lý phiên, khóa và tính bền vững cho các cuộc trò chuyện"
-read_when:
-  - Sửa đổi cách xử lý hoặc lưu trữ phiên
 title: "Quản lý phiên"
 ---
 

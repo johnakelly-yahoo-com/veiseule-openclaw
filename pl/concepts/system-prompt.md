@@ -1,8 +1,4 @@
 ---
-summary: "Co zawiera systemowy prompt OpenClaw i jak jest składany"
-read_when:
-  - Edytowanie tekstu systemowego promptu, listy narzędzi lub sekcji czasu/heartbeat
-  - Zmienianie zachowania bootstrapu obszaru roboczego lub wstrzykiwania Skills
 title: "Systemowy prompt"
 ---
 

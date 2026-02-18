@@ -1,8 +1,4 @@
 ---
-summary: "OpenClaw-Protokollierung: rotierende Diagnosedatei + Datenschutz-Flags des Unified Logging"
-read_when:
-  - Erfassen von macOS-Logs oder Untersuchung der Protokollierung privater Daten
-  - Debugging von Problemen mit Sprachaktivierung und Sitzungslebenszyklus
 title: "macOS-Protokollierung"
 ---
 
