@@ -1,5 +1,6 @@
 ---
-title: "بوابة Cloudflare للذكاء الاصطناعي"---
+title: "بوابة Cloudflare للذكاء الاصطناعي"
+---
 
 # بوابة Cloudflare للذكاء الاصطناعي
 

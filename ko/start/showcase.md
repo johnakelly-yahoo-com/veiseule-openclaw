@@ -1,6 +1,7 @@
 ---
 title: "쇼케이스"
-description: "커뮤니티의 실제 OpenClaw 프로젝트"---
+description: "커뮤니티의 실제 OpenClaw 프로젝트"
+---
 
 # 쇼케이스
 

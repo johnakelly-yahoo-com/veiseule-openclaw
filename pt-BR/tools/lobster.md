@@ -1,6 +1,7 @@
 ---
 title: Lobster
-description: "Runtime de workflow tipado para OpenClaw — pipelines componíveis com etapas de aprovação."---
+description: "Runtime de workflow tipado para OpenClaw — pipelines componíveis com etapas de aprovação."
+---
 
 # Lobster
 

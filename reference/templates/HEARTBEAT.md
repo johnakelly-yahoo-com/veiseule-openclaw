@@ -1,5 +1,6 @@
 ---
-title: "HEARTBEAT.md Template"---
+title: "HEARTBEAT.md Template"
+---
 
 # HEARTBEAT.md
 

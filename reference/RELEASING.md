@@ -1,5 +1,6 @@
 ---
-title: "Release Checklist"---
+title: "Release Checklist"
+---
 
 # Release Checklist (npm + macOS)
 

@@ -1,5 +1,6 @@
 ---
-title: "AGENTS.md Template"---
+title: "AGENTS.md Template"
+---
 
 # AGENTS.md - Your Workspace
 

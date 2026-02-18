@@ -1,5 +1,6 @@
 ---
-title: "BOOT.md ٹیمپلیٹ"---
+title: "BOOT.md ٹیمپلیٹ"
+---
 
 # BOOT.md
 

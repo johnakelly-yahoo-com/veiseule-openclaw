@@ -1,5 +1,6 @@
 ---
-title: "TOOLS.md Template"---
+title: "TOOLS.md Template"
+---
 
 # TOOLS.md - Local Notes
 

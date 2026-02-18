@@ -1,6 +1,7 @@
 ---
 title: "Projektgalleri"
-description: "Verkliga OpenClaw-projekt från communityn"---
+description: "Verkliga OpenClaw-projekt från communityn"
+---
 
 # Projektgalleri
 

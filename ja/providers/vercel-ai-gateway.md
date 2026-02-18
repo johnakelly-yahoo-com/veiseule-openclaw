@@ -1,5 +1,6 @@
 ---
-title: "Vercel AI Gateway"---
+title: "Vercel AI Gateway"
+---
 
 # Vercel AI Gateway
 

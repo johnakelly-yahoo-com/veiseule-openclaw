@@ -1,6 +1,7 @@
 ---
 title: Lobster
-description: "OpenClaw için tipli iş akışı çalışma zamanı — onay kapılarıyla birleştirilebilir pipeline’lar."---
+description: "OpenClaw için tipli iş akışı çalışma zamanı — onay kapılarıyla birleştirilebilir pipeline’lar."
+---
 
 # Lobster
 

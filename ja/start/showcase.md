@@ -1,6 +1,7 @@
 ---
 title: "ショーケース"
-description: "コミュニティ発の実世界のOpenClawプロジェクト"---
+description: "コミュニティ発の実世界のOpenClawプロジェクト"
+---
 
 # ショーケース
 

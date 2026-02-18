@@ -1,5 +1,6 @@
 ---
-title: "SOUL.md Template"---
+title: "SOUL.md Template"
+---
 
 # SOUL.md - Who You Are
 

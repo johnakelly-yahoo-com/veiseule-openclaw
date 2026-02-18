@@ -1,6 +1,7 @@
 ---
 title: "Démonstration"
-description: "Projets OpenClaw concrets issus de la communaute"---
+description: "Projets OpenClaw concrets issus de la communaute"
+---
 
 # Démonstration
 

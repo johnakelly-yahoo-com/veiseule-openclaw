@@ -1,5 +1,6 @@
 ---
-title: "Reliz uchun tekshiruv roʻyxati"---
+title: "Reliz uchun tekshiruv roʻyxati"
+---
 
 # Reliz uchun tekshiruv roʻyxati (npm + macOS)
 

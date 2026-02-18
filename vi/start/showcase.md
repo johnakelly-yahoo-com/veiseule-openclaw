@@ -1,6 +1,7 @@
 ---
 title: "Trình diễn"
-description: "Các dự án OpenClaw thực tế từ cộng đồng"---
+description: "Các dự án OpenClaw thực tế từ cộng đồng"
+---
 
 # Trình diễn
 

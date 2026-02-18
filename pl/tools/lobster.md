@@ -1,6 +1,7 @@
 ---
 title: Lobster
-description: "Silnik uruchomieniowy workflowów typowanych dla OpenClaw — kompozycyjne potoki z bramkami zatwierdzania."---
+description: "Silnik uruchomieniowy workflowów typowanych dla OpenClaw — kompozycyjne potoki z bramkami zatwierdzania."
+---
 
 # Lobster
 

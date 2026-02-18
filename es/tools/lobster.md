@@ -1,6 +1,7 @@
 ---
 title: Lobster
-description: "Entorno de ejecución de flujos de trabajo tipados para OpenClaw — canalizaciones componibles con puertas de aprobación."---
+description: "Entorno de ejecución de flujos de trabajo tipados para OpenClaw — canalizaciones componibles con puertas de aprobación."
+---
 
 # Lobster
 

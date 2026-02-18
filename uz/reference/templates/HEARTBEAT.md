@@ -1,5 +1,6 @@
 ---
-title: "HEARTBEAT.md Shabloni"---
+title: "HEARTBEAT.md Shabloni"
+---
 
 # HEARTBEAT.md
 

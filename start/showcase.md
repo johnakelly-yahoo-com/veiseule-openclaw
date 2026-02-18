@@ -1,6 +1,7 @@
 ---
 title: "Showcase"
-description: "Real-world OpenClaw projects from the community"---
+description: "Real-world OpenClaw projects from the community"
+---
 
 # Showcase
 

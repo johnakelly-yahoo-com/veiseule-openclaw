@@ -1,5 +1,6 @@
 ---
-title: "Default AGENTS.md"---
+title: "Default AGENTS.md"
+---
 
 # AGENTS.md — OpenClaw Personal Assistant (default)
 

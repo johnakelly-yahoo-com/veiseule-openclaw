@@ -1,6 +1,7 @@
 ---
 title: Lobster
-description: "Typisierte Workflow-Laufzeitumgebung für OpenClaw — komponierbare Pipelines mit Genehmigungsschritten."---
+description: "Typisierte Workflow-Laufzeitumgebung für OpenClaw — komponierbare Pipelines mit Genehmigungsschritten."
+---
 
 # Lobster
 

@@ -1,6 +1,7 @@
 ---
 title: "Prezentacja"
-description: "Rzeczywiste projekty OpenClaw tworzone przez społeczność"---
+description: "Rzeczywiste projekty OpenClaw tworzone przez społeczność"
+---
 
 # Prezentacja
 

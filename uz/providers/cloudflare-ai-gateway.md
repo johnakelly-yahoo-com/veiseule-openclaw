@@ -1,5 +1,6 @@
 ---
-title: "Cloudflare AI Gateway sozlamalari (auth + model tanlash)"---
+title: "Cloudflare AI Gateway sozlamalari (auth + model tanlash)"
+---
 
 # Cloudflare AI Gateway provider API’lari oldida joylashadi va analytics, caching hamda nazoratlarni qo‘shish imkonini beradi.
 

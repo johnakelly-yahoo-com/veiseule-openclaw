@@ -1,5 +1,6 @@
 ---
-title: "BOOTSTRAP.md Template"---
+title: "BOOTSTRAP.md Template"
+---
 
 # BOOTSTRAP.md - Hello, World
 

@@ -1,6 +1,7 @@
 ---
 title: "العرض"
-description: "مشاريع OpenClaw الواقعية من المجتمع"---
+description: "مشاريع OpenClaw الواقعية من المجتمع"
+---
 
 # العرض
 

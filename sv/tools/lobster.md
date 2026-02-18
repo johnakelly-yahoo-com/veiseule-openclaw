@@ -1,6 +1,7 @@
 ---
 title: Lobster
-description: "Typad arbetsflödeskörning för OpenClaw — komponerbara pipelines med godkännandesteg."---
+description: "Typad arbetsflödeskörning för OpenClaw — komponerbara pipelines med godkännandesteg."
+---
 
 # Lobster
 

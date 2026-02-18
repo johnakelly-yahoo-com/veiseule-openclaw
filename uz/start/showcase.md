@@ -1,6 +1,7 @@
 ---
 title: "Ko‘rgazma"
-description: "Hamjamiyatdan real dunyodagi OpenClaw loyihalari"---
+description: "Hamjamiyatdan real dunyodagi OpenClaw loyihalari"
+---
 
 # Ko‘rgazma
 

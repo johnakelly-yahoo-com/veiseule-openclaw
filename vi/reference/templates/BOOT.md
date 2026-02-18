@@ -1,5 +1,6 @@
 ---
-title: "Mẫu BOOT.md"---
+title: "Mẫu BOOT.md"
+---
 
 # BOOT.md
 

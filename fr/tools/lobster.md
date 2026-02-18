@@ -1,6 +1,7 @@
 ---
 title: Lobster
-description: "Moteur d’exécution de workflows typé pour OpenClaw — pipelines composables avec des points d’approbation."---
+description: "Moteur d’exécution de workflows typé pour OpenClaw — pipelines composables avec des points d’approbation."
+---
 
 # Lobster
 

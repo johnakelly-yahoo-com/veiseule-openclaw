@@ -1,5 +1,6 @@
 ---
-title: "بوابة Vercel AI"---
+title: "بوابة Vercel AI"
+---
 
 # بوابة Vercel AI
 

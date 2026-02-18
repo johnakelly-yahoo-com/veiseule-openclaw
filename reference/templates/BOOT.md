@@ -1,5 +1,6 @@
 ---
-title: "BOOT.md Template"---
+title: "BOOT.md Template"
+---
 
 # BOOT.md
 

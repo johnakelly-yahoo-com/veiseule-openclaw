@@ -1,6 +1,7 @@
 ---
 title: "Tampok"
-description: "Mga totoong OpenClaw project mula sa komunidad"---
+description: "Mga totoong OpenClaw project mula sa komunidad"
+---
 
 # Tampok
 

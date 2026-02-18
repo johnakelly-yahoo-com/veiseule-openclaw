@@ -1,6 +1,7 @@
 ---
 title: Lobster
-description: "OpenClaw를 위한 타입드 워크플로 런타임 — 승인 게이트를 갖춘 조합형 파이프라인."---
+description: "OpenClaw를 위한 타입드 워크플로 런타임 — 승인 게이트를 갖춘 조합형 파이프라인."
+---
 
 # Lobster
 

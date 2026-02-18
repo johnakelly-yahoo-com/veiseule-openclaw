@@ -1,6 +1,7 @@
 ---
 title: "Projektbeispiele"
-description: "Praxisnahe OpenClaw-Projekte aus der Community"---
+description: "Praxisnahe OpenClaw-Projekte aus der Community"
+---
 
 # Projektbeispiele
 
