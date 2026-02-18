@@ -256,3 +256,4 @@ free -h
 - [Docker इंस्टॉल](/install/docker) — कंटेनर-आधारित सेटअप
 - [Tailscale](/gateway/tailscale) — सुरक्षित रिमोट एक्सेस
 - [Configuration](/gateway/configuration) — पूर्ण विन्यास संदर्भ
+

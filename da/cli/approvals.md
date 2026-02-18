@@ -44,3 +44,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` er som standard `"*"`, hvilket gælder for alle agenter.
 - Node-værten skal annoncere `system.execApprovals.get/set` (macOS-app eller headless node-vært).
 - Godkendelsesfiler gemmes pr. vært på `~/.openclaw/exec-approvals.json`.
+

@@ -68,3 +68,4 @@ openclaw nodes run --agent main --node <id|name|ip> --raw "git status"
 - `--raw <command>`: รันสตริงเชลล์(`/bin/sh -lc` หรือ `cmd.exe /c`)
 - `--agent <id>`: การอนุมัติ/รายการอนุญาตระดับเอเจนต์(ค่าเริ่มต้นตามเอเจนต์ที่กำหนดค่าไว้)
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: การแทนที่
+

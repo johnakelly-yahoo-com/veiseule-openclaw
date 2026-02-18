@@ -99,3 +99,4 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 Jeśli ręczne uruchomienie blokuje port, zatrzymaj ten proces (Ctrl+C). W ostateczności zakończ proces PID znaleziony powyżej.
+

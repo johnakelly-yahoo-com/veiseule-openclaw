@@ -109,3 +109,4 @@ Not: İkili dosya algılama macOS/Linux/Windows genelinde en iyi çaba ile yapı
 - Kapsam kuralları ilk eşleşme kazanır. `chatType`, `direct`, `group` veya `room` olarak normalize edilir.
 - CLI'nizin 0 koduyla çıkmasını ve düz metin yazdırmasını sağlayın; JSON çıktısı `jq -r .text` ile uyarlanmalıdır.
 - Yanıt kuyruğunu engellememek için zaman aşımlarını makul tutun (`timeoutSeconds`, varsayılan 60 sn).
+

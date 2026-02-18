@@ -134,3 +134,4 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
 - DMs کی حفاظت اور منظوریات: [Pairing](/channels/pairing)
 - مزید چینلز منسلک کریں: [Channels](/channels)
 - جدید ورک فلو اور سورس سے چلانا: [Setup](/start/setup)
+

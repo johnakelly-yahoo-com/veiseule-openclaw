@@ -403,3 +403,4 @@ WhatsApp skickar ljud som **röstmeddelanden** (PTT‑bubbla).
 
 - Bun är **inte rekommenderas**. WhatsApp (Baileys) och Telegram är opålitliga på Bun.
   Kör gateway med **Node**. (Se Kom igång runtime note.)
+

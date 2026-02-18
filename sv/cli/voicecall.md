@@ -28,3 +28,4 @@ openclaw voicecall unexpose
 ```
 
 Säkerhetsanteckning: exponera endast webhook slutpunkt för nätverk du litar på. Föredra Tailscale Servera över tratt när det är möjligt.
+

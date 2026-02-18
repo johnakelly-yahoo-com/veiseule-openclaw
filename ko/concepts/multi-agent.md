@@ -387,3 +387,4 @@ v2026.1.6 부터 각 에이전트는 자체 샌드박스와 도구 제한을 가
 그룹 대상 지정에는 `agents.list[].groupChat.mentionPatterns` 를 사용하여 @멘션이 의도한 에이전트로 깔끔하게 매핑되도록 하십시오.
 
 자세한 예시는 [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)를 참고하십시오.
+

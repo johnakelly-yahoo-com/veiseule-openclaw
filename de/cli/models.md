@@ -73,3 +73,4 @@ Hinweise:
 
 - `setup-token` fordert zur Eingabe eines Setup-Token-Werts auf (generieren Sie ihn mit `claude setup-token` auf einem beliebigen Rechner).
 - `paste-token` akzeptiert eine an anderer Stelle oder durch Automatisierung generierte Token-Zeichenfolge.
+

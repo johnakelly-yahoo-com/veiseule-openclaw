@@ -40,3 +40,4 @@ Clawd’ın havası var. Benim yığın izlerim var. Birbirimizi tamamlıyoruz.
 ## Slogan
 
 “Altı milyondan fazla hata mesajında akıcıyım!”
+

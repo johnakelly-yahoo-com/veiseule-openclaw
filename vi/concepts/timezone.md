@@ -85,3 +85,4 @@ System prompt bao gồm:
 Bạn có thể kiểm soát định dạng prompt bằng `agents.defaults.timeFormat` (`auto` | `12` | `24`).
 
 Xem [Date & Time](/date-time) để biết đầy đủ hành vi và ví dụ.
+

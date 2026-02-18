@@ -224,3 +224,4 @@ openclaw health --json   # gateway health snapshot (WS)
 - Windows اسٹیٹس: [Windows (WSL2)](/platforms/windows)
 - Linux اسٹیٹس: [Linux app](/platforms/linux)
 - سکیورٹی: [Security](/gateway/security)
+

@@ -471,3 +471,4 @@ Emojis podem ser unicode (ex.: `✅`) ou sintaxe de emoji personalizada como `<:
 - Trate o token do bot como uma senha; prefira a variável de ambiente `DISCORD_BOT_TOKEN` em hosts supervisionados ou restrinja as permissões do arquivo de configuração.
 - Conceda ao bot apenas as permissões necessárias (normalmente Ler/Enviar mensagens).
 - Se o bot travar ou estiver limitado por taxa, reinicie o gateway (`openclaw gateway --force`) após confirmar que nenhum outro processo possui a sessão do Discord.
+

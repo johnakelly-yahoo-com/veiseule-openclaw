@@ -795,3 +795,4 @@ Relaterade globala alternativ:
 - `messages.groupChat.mentionPatterns` (global fallback).
 - `commands.native` (standard är `"auto"` → on för Telegram/Discord, off för Slack), `commands.text`, `commands.useAccessGroups` (kommandobeteende). Åsidosätt med `channels.telegram.commands.native`.
 - `messages.responsePrefix`, `messages.ackReaction`, `messages.ackReactionScope`, `messages.removeAckAfterReply`.
+

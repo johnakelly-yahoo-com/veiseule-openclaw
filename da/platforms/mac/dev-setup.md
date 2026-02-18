@@ -99,3 +99,4 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 Hvis en manuel kørsel holder porten, skal du stoppe denne proces (Ctrl+C). Som en sidste udvej, dræbe den PID du fandt ovenfor.
+

@@ -36,3 +36,4 @@ title: "VPS‑хостинг"
 пока Gateway (шлюз) остаётся в облаке.
 
 Документация: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
+

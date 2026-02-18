@@ -271,3 +271,4 @@ ollama serve
 - [Model Providers](/concepts/model-providers) — обзор всех провайдеров
 - [Model Selection](/concepts/models) — как выбирать модели
 - [Configuration](/gateway/configuration) — полная справка по конфигурации
+

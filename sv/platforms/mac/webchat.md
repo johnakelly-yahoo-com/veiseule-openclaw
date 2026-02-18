@@ -39,3 +39,4 @@ ansluter till Gateway och är standard för **huvudsessionen** för den valda
 ## Kända begränsningar
 
 - UI:t är optimerat för chattsessioner (inte en fullständig webbläsar‑sandbox).
+

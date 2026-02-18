@@ -331,3 +331,4 @@ openclaw node run --host <gateway-host> --port 18789
 
 - macOS 選單列應用程式會以節點身分連線至 Gateway WS 伺服器（因此 `openclaw nodes …` 可針對這台 Mac 運作）。
 - 在遠端模式下，應用程式會為 Gateway 連接埠開啟 SSH 通道，並連線至 `localhost`。
+

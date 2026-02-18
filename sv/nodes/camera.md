@@ -150,3 +150,4 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 Noteringar:
 
 - Kräver macOS-behörigheten **Skärminspelning** (TCC).
+

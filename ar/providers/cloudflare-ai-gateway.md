@@ -64,3 +64,4 @@ openclaw onboard --non-interactive \
 ## ملاحظة حول البيئة
 
 إذا كانت البوابة تعمل كخدمة خلفية (launchd/systemd)، فتأكد من أن `CLOUDFLARE_AI_GATEWAY_API_KEY` متاح لتلك العملية (على سبيل المثال، في `~/.openclaw/.env` أو عبر `env.shellEnv`).
+

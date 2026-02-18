@@ -146,3 +146,4 @@ Detaljer: [Gateway-protokoll](/gateway/protocol), [Parning](/channels/pairing),
 - Exakt en Gateway kontrollerar en enskild Baileys-session per värd.
 - Handskakning är obligatorisk; alla icke‑JSON- eller icke‑connect‑första ramar stänger hårt.
 - Händelser spelas inte upp igen; klienter måste uppdatera vid glapp.
+

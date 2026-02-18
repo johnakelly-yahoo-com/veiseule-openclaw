@@ -224,3 +224,4 @@ Gợi ý starter cho `.gitignore`:
 [Định tuyến kênh](/channels/channel-routing) để cấu hình định tuyến.
 - Nếu `agents.defaults.sandbox` được bật, các phiên không phải chính có thể dùng workspace
   sandbox theo từng phiên dưới `agents.defaults.sandbox.workspaceRoot`.
+

@@ -128,3 +128,4 @@ Leyenda:
 
 - `sendMessageDraft`: burbuja de borrador de Telegram (no es un mensaje real).
 - `final reply`: envío normal de mensaje de Telegram.
+

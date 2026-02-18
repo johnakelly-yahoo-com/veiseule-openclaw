@@ -42,3 +42,4 @@ Binabasa ng About tab ang mga key na ito upang ipakita ang bersyon, petsa ng bui
 ## Bakit
 
 TCC permissions are tied to the bundle identifier _and_ code signature. 21. Ang mga unsigned debug build na may nagbabagong UUID ay nagiging sanhi upang makalimutan ng macOS ang mga grant pagkatapos ng bawat rebuild. Ang pag-sign sa mga binary (ad‑hoc bilang default) at pagpapanatili ng nakapirming bundle id/path (`dist/OpenClaw.app`) ay nagpapanatili ng mga grant sa pagitan ng mga build, na tumutugma sa approach ng VibeTunnel.
+

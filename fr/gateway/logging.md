@@ -107,3 +107,4 @@ Comportement :
 - **Les corps de messages WhatsApp** sont journalises au niveau `debug` (utilisez `--verbose` pour les voir)
 
 Cela permet de conserver des journaux de fichiers stables tout en rendant la sortie interactive facilement analysable.
+

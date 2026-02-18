@@ -59,3 +59,4 @@ Vem tar emot den:
 
 - Exponerar en redigerare för Wake Words i Inställningar.
 - Anropar `voicewake.set` via Gateway WS så att ändringar synkroniseras överallt.
+

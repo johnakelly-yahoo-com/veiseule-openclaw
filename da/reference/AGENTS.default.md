@@ -116,3 +116,4 @@ git commit -m "Add Clawd workspace"
 - Til browserbaseret verifikation: brug `openclaw browser` (faner/status/skærmbillede) med den OpenClaw-administrerede Chrome-profil.
 - Til DOM-inspektion: brug `openclaw browser eval|query|dom|snapshot` (og `--json`/`--out` når du har brug for maskinoutput).
 - Til interaktioner: brug `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` (klik/indtastning kræver snapshot-referencer; brug `evaluate` til CSS-selektorer).
+

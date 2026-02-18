@@ -84,3 +84,4 @@ Raw provider fields are preserved.
 7. Prompt formatini `agents.defaults.timeFormat` (`auto` | `12` | `24`) orqali boshqarishingiz mumkin.
 
 8. To‘liq xulq-atvor va misollar uchun [Date & Time](/date-time) bo‘limiga qarang.
+

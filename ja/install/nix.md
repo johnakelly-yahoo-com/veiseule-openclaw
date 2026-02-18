@@ -94,3 +94,4 @@ plist の決定論性が維持されます。 これにより、SwiftPM
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — 完全なセットアップガイド
 - [ウィザード](/start/wizard) — 非 Nix の CLI セットアップ
 - [Docker](/install/docker) — コンテナ化されたセットアップ
+

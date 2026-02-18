@@ -58,3 +58,4 @@ If you need longer retention, re‑capture from the client.
   in **debug** mode only.
 - If no hosts are found, open one of the host apps (Peekaboo.app or OpenClaw.app)
   and confirm permissions are granted.
+

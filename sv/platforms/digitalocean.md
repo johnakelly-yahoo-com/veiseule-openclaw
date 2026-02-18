@@ -256,3 +256,4 @@ free -h
 - [Docker-installation](/install/docker) — containerbaserad setup
 - [Tailscale](/gateway/tailscale) — säker fjärråtkomst
 - [Konfiguration](/gateway/configuration) — fullständig konfigreferens
+

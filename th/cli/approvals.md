@@ -45,3 +45,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` มีค่าเริ่มต้นเป็น `"*"` ซึ่งมีผลกับเอเจนต์ทั้งหมด
 - โฮสต์โหนดต้องโฆษณา `system.execApprovals.get/set` (แอปmacOSหรือโฮสต์โหนดแบบไม่ต้องมีหัว)
 - ไฟล์การอนุมัติจะถูกจัดเก็บแยกตามโฮสต์ที่ `~/.openclaw/exec-approvals.json`
+

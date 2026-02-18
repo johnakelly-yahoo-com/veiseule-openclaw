@@ -218,3 +218,4 @@ Tilsidesæt kun, hvis det er nødvendigt (almindeligt: absolut `command`-sti).
 - **Ingen session-kontinuitet**: sørg for, at `sessionArg` er sat, og at `sessionMode` ikke er
   `none` (Codex CLI kan i øjeblikket ikke genoptage med JSON-output).
 - **Billeder ignoreres**: sæt `imageArg` (og verificér, at CLI’en understøtter filstier).
+

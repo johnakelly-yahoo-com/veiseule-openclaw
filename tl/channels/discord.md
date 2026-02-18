@@ -468,3 +468,4 @@ Emoji can be unicode (e.g., `✅`) or custom emoji syntax like `<:party_blob:123
 - Ituring ang bot token na parang password; mas piliin ang `DISCORD_BOT_TOKEN` env var sa mga supervised host o higpitan ang mga pahintulot ng config file.
 - Ibigay lamang sa bot ang mga pahintulot na kailangan nito (karaniwan Read/Send Messages).
 - Kung ang bot ay na-stuck o na-rate limit, i-restart ang gateway (`openclaw gateway --force`) matapos tiyaking walang ibang prosesong may-ari ng Discord session.
+

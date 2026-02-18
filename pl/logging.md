@@ -344,3 +344,4 @@ Kolejki + sesje:
 - **Logi puste?** Sprawdź, czy Gateway działa i zapisuje do ścieżki pliku
   w `logging.file`.
 - **Potrzebujesz więcej szczegółów?** Ustaw `logging.level` na `debug` lub `trace` i spróbuj ponownie.
+

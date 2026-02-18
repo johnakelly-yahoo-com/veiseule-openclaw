@@ -392,3 +392,4 @@ Nach der Konfiguration von Multi-Agent-Sandbox und Werkzeugen:
 - [Multi-Agent-Routing](/concepts/multi-agent)
 - [Sandbox-Konfiguration](/gateway/configuration#agentsdefaults-sandbox)
 - [Sitzungsverwaltung](/concepts/session)
+

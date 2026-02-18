@@ -84,3 +84,4 @@ title: "4. Talk Rejimi"
 - `eleven_v3` uchun `stability` qiymati `0.0`, `0.5` yoki `1.0` ga tekshiriladi; boshqa modellar `0..1` oralig‘ini qabul qiladi.
 - Agar o‘rnatilgan bo‘lsa, `latency_tier` `0..4` oralig‘ida tekshiriladi.
 - Android past kechikishli AudioTrack streaming uchun `pcm_16000`, `pcm_22050`, `pcm_24000` va `pcm_44100` chiqish formatlarini qo‘llab-quvvatlaydi.
+

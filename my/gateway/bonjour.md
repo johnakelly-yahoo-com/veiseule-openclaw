@@ -159,3 +159,4 @@ Bonjour/DNS‑SD သည် service instance names များအတွင်း
 
 - Discovery policy နှင့် transport ရွေးချယ်မှု: [Discovery](/gateway/discovery)
 - Node pairing + approvals: [Gateway pairing](/gateway/pairing)
+

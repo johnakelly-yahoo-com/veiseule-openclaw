@@ -145,3 +145,4 @@ Canvas コマンド（フォアグラウンドのみ）：
 - `camera.clip`（mp4）
 
 パラメーターおよび CLI ヘルパーについては [Camera node](/nodes/camera) を参照してください。
+

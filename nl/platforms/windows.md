@@ -152,3 +152,4 @@ Volledige handleiding: [Aan de slag](/start/getting-started)
 
 We hebben nog geen Windows companion-app. Bijdragen zijn welkom als je wilt helpen
 om dit mogelijk te maken.
+

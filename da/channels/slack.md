@@ -569,3 +569,4 @@ For triage-flow: [/channels/troubleshooting](/channels/troubleshooting).
 - Advarsel: Hvis du tillader svar til andre bots (`channels.slack.allowBots=true` eller `channels.slack.channels.<id>.allowBots=true`), forhindre bot-to-bot svar loops med `requireMention`, `channels.slack.channels.<id>.users` tilladte og/eller klare guardrails i »AGENTS.md« og »SOUL.md«.
 - For Slack-værktøjet findes semantik for fjernelse af reaktioner i [/tools/reactions](/tools/reactions).
 - Vedhæftninger downloades til medielageret, når det er tilladt og under størrelsesgrænsen.
+

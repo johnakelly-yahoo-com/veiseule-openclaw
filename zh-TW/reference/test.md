@@ -48,3 +48,4 @@ This script drives the interactive wizard via a pseudo-tty, verifies config/work
 ```bash
 pnpm test:docker:qr
 ```
+

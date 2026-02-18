@@ -26,3 +26,4 @@ title: grammY
 - Valgfrie grammY-plugins (throttler), hvis vi rammer Bot API 429’er.
 - Tilføj flere strukturerede medietests (stickers, stemmenoter).
 - Gør webhook-lytteporten konfigurerbar (pt. fast til 8787, medmindre den kobles via gatewayen).
+

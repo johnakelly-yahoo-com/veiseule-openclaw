@@ -46,3 +46,4 @@ title: "المنصات"
 
 - macOS: LaunchAgent (`bot.molt.gateway` أو `bot.molt.<profile>`؛ القديم `com.openclaw.*`)
 - Linux/WSL2: خدمة مستخدم systemd (`openclaw-gateway[-<profile>].service`)
+

@@ -208,3 +208,4 @@ Notas:
 - Los plugins externos pueden desarrollarse y actualizarse sin acceso al código fuente del core.
 
 Docs relacionados: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
+

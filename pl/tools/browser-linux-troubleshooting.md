@@ -133,3 +133,4 @@ Uwagi:
 
 - Profil `chrome` używa, gdy to możliwe, **systemowej domyślnej przeglądarki Chromium**.
 - Lokalne profile `openclaw` automatycznie przypisują `cdpPort`/`cdpUrl`; ustawiaj je tylko dla zdalnego CDP.
+

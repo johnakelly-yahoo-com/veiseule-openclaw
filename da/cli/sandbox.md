@@ -148,3 +148,4 @@ Sandbox-indstillinger findes i `~/.openclaw/openclaw.json` under `agents.default
 - [Sandbox-dokumentation](/gateway/sandboxing)
 - [Agentkonfiguration](/concepts/agent-workspace)
 - [Doctor-kommando](/gateway/doctor) – Tjek sandbox-opsætning
+

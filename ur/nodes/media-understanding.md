@@ -373,3 +373,4 @@ If you omit `capabilities`, the entry is eligible for the list it appears in.
 
 - [Configuration](/gateway/configuration)
 - [Image & Media Support](/nodes/images)
+

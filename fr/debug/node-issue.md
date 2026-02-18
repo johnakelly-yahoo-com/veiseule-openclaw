@@ -82,3 +82,4 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Reproduire sur Node 22/24 pour confirmer une regression de Node 25.
 - Tester `tsx` nightly ou figer sur une version anterieure si une regression connue existe.
 - Si la reproduction se fait sur Node LTS, deposer un repro minimal en amont avec la trace de pile `__name`.
+

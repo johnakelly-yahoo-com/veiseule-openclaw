@@ -90,3 +90,4 @@ synthetic/hf:MiniMaxAI/MiniMax-M2.1
 - اگر آپ ماڈل اجازت فہرست (`agents.defaults.models`) فعال کرتے ہیں تو ہر وہ ماڈل شامل کریں
   جسے آپ استعمال کرنے کا ارادہ رکھتے ہیں۔
 - فراہم کنندہ کے قواعد کے لیے [Model providers](/concepts/model-providers) دیکھیں۔
+

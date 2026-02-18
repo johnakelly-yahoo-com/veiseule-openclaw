@@ -17,3 +17,4 @@ It does not define which tools exist; OpenClaw provides built-in tools internall
 - Text-to-speech: ovozni, mo‘ljallangan karnay/xonani va translyatsiya qilish kerakligini ko‘rsating.
 
 Assistent sizning mahalliy asboblar zanjiringiz haqida bilishini xohlagan boshqa hamma narsani qo‘shing.
+

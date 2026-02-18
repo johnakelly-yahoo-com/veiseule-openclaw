@@ -125,3 +125,4 @@ Telegram (private + topics)
 
 - `sendMessageDraft`: Telegram の下書きバブル（実際のメッセージではありません）。
 - `final reply`: 通常の Telegram メッセージ送信。
+

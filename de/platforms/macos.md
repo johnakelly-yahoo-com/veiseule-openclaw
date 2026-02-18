@@ -194,3 +194,4 @@ Für Einrichtungsschritte siehe [macOS‑Remotezugriff](/platforms/mac/remote). 
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS‑Berechtigungen](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
+

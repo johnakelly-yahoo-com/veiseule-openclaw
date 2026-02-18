@@ -155,3 +155,4 @@ Tệp mặc định:
 - Log luồng thô có thể bao gồm prompt đầy đủ, đầu ra công cụ và dữ liệu người dùng.
 - Giữ log cục bộ và xóa sau khi gỡ lỗi.
 - Nếu chia sẻ log, hãy loại bỏ bí mật và PII trước.
+

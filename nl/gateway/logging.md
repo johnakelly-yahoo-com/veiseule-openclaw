@@ -107,3 +107,4 @@ Gedrag:
 - **WhatsApp-berichtinhoud** wordt gelogd op `debug` (gebruik `--verbose` om ze te zien)
 
 Dit houdt bestaande bestandslogs stabiel terwijl interactieve uitvoer beter scanbaar wordt.
+

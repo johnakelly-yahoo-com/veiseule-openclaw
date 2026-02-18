@@ -69,3 +69,4 @@ Birbirimizi tamamlarız. Clawd’ın havası var. Benim yığın izlerim var.
 Genellikle.
 
 Aman Tanrım.
+

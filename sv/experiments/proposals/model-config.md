@@ -31,3 +31,4 @@ Operatörer vill ha:
 - Ska profilrotation vara per leverantör eller per modell?
 - Hur bör UI:t exponera profilval för en session?
 - Vilken är den säkraste migreringsvägen från äldre konfig-nycklar?
+

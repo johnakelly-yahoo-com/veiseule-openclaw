@@ -36,3 +36,4 @@ Yanıtlar (şekil)
 ## Notlar
 
 - Bu doküman, onboarding/yapılandırma için protokol yeniden düzenlemelerini takip etmek için tek yerdir.
+

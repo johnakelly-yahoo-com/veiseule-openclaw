@@ -52,3 +52,4 @@ title: "Mode eleve"
 
 - Les appels exec en mode eleve sont journalises au niveau info.
 - L’etat de la session inclut le mode eleve (par ex. `elevated=ask`, `elevated=full`).
+

@@ -144,3 +144,4 @@ Lệnh camera (chỉ foreground; yêu cầu quyền):
 - `camera.clip` (mp4)
 
 Xem [Camera node](/nodes/camera) để biết tham số và công cụ CLI hỗ trợ.
+

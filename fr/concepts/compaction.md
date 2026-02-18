@@ -54,3 +54,4 @@ Voir [/concepts/session-pruning](/concepts/session-pruning) pour les détails su
 - Utilisez `/compact` lorsque les sessions semblent obsolètes ou que le contexte est encombré.
 - Les sorties d’outils volumineuses sont déjà tronquées ; l’élagage peut réduire davantage l’accumulation des résultats d’outils.
 - Si vous avez besoin d’une page blanche, `/new` ou `/reset` démarre un nouvel identifiant de session.
+

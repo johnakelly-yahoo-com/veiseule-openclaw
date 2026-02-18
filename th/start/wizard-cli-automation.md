@@ -136,3 +136,4 @@ openclaw agents add work \
 - ศูนย์รวมการเริ่มต้นใช้งาน: [Onboarding Wizard (CLI)](/start/wizard)
 - เอกสารอ้างอิงฉบับเต็ม: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - เอกสารอ้างอิงคำสั่ง: [`openclaw onboard`](/cli/onboard)
+

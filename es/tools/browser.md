@@ -567,3 +567,4 @@ Cómo se mapea:
   - Si hay un nodo con capacidad de navegador conectado, la herramienta puede auto-enrutarse a él a menos que fije `target="host"` o `target="node"`.
 
 Esto mantiene al agente determinista y evita selectores frágiles.
+

@@ -369,3 +369,4 @@ De agent-systeemprompt bevat bij de eerste beurt van een nieuwe groepssessie een
 ## WhatsApp-specifiek
 
 Zie [Groepsberichten](/channels/group-messages) voor WhatsApp-specifiek gedrag (geschiedenis-injectie, details van mention-afhandeling).
+

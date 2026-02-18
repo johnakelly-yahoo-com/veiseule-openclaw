@@ -135,3 +135,4 @@ openclaw onboard --auth-choice kimi-code-api-key
 - หาก Moonshot เผยแพร่ขีดจำกัดคอนเท็กซ์ที่แตกต่างกันสำหรับโมเดลใด ให้ปรับ
   `contextWindow` ให้สอดคล้อง
 - ใช้ `https://api.moonshot.ai/v1` สำหรับเอ็นด์พอยต์สากล และ `https://api.moonshot.cn/v1` สำหรับเอ็นด์พอยต์ประเทศจีน
+

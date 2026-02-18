@@ -104,3 +104,4 @@ channels:
 - Telegram HTML တွင် tag အပြင်ဘက်ရှိ စာသားများကို escape မလုပ်ပါက markup ပျက်နိုင်သည်။
 - Signal style range များသည် UTF-16 offset များအပေါ် မူတည်သည်; code point offset များကို မအသုံးပြုပါ။
 - Fenced code block များအတွက် နောက်ဆုံး newline ကို ထိန်းသိမ်းထားပါ၊ ပိတ်သိမ်း marker များသည် ကိုယ်ပိုင်လိုင်းပေါ်တွင် ကျရောက်စေရန်။
+

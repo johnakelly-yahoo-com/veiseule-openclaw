@@ -74,3 +74,4 @@ through Perplexity’s direct API or via OpenRouter.
 - `perplexity/sonar-reasoning-pro` — 深度研究
 
 請參閱 [Web tools](/tools/web) 以取得完整的 web_search 設定。
+

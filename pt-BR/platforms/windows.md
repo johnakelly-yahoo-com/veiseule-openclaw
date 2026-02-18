@@ -152,3 +152,4 @@ Guia completo: [Primeiros passos](/start/getting-started)
 
 Ainda não temos um aplicativo complementar para Windows. Contribuições são bem-vindas se você quiser
 ajudar a tornar isso realidade.
+

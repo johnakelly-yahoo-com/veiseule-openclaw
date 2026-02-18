@@ -325,3 +325,4 @@ Windows‑Installationen sollten **WSL2** verwenden und dem obigen Linux‑syste
 
 - Stellen Sie die Nutzung von `openclaw gateway` und dem Legacy‑TCP‑Control‑Port ein.
 - Aktualisieren Sie Clients, sodass sie das WS‑Protokoll mit obligatorischem Connect und strukturierter Presence sprechen.
+

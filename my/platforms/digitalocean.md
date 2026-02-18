@@ -256,3 +256,4 @@ free -h
 - [Docker install](/install/docker) — containerized setup
 - [Tailscale](/gateway/tailscale) — လုံခြုံသော အဝေးမှ ဝင်ရောက်ခြင်း
 - [Configuration](/gateway/configuration) — config reference အပြည့်အစုံ
+

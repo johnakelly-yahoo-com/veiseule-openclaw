@@ -85,3 +85,4 @@ Voor externe Gateways kun je ook `openclaw logs --follow` gebruiken (zie [/cli/l
 - Als `logging.level` hoger is ingesteld dan `warn`, kunnen deze logs worden onderdrukt. De standaardwaarde `info` is prima.
 - Vlaggen zijn veilig om ingeschakeld te laten; ze beïnvloeden alleen het logvolume voor het specifieke subsysteem.
 - Gebruik [/logging](/logging) om logbestemmingen, niveaus en redactie te wijzigen.
+

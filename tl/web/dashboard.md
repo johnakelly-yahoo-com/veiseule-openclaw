@@ -41,3 +41,4 @@ Mas mainam ang localhost, Tailscale Serve, o isang SSH tunnel.
 - Tiyaking naaabot ang gateway (lokal: `openclaw status`; remote: SSH tunnel `ssh -N -L 18789:127.0.0.1:18789 user@host` pagkatapos ay buksan ang `http://127.0.0.1:18789/`).
 - Kunin ang token mula sa host ng Gateway: `openclaw config get gateway.auth.token` (o gumawa ng bago: `openclaw doctor --generate-gateway-token`).
 - Sa mga setting ng dashboard, i-paste ang token sa auth field, pagkatapos ay kumonek.
+

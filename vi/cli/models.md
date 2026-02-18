@@ -71,3 +71,4 @@ Ghi chú:
 
 - `setup-token` sẽ yêu cầu giá trị setup-token (tạo bằng `claude setup-token` trên bất kỳ máy nào).
 - `paste-token` chấp nhận một chuỗi token được tạo ở nơi khác hoặc từ tự động hóa.
+

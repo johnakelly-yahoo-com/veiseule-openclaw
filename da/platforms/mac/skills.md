@@ -27,3 +27,4 @@ macOS-appen viser OpenClaw Skills via gatewayen; den parser ikke Skills lokalt.
 ## Fjern-tilstand
 
 - Installation + konfigurationsopdateringer sker på gateway-værten (ikke den lokale Mac).
+

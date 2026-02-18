@@ -131,3 +131,4 @@ Skills kunnen `apiKey` opslaan in `skills.entries.<name>.apiKey`. Als een skill 
 API’s, kan dit kosten veroorzaken volgens de provider van de skill.
 
 Zie [Skills](/tools/skills).
+

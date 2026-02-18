@@ -53,3 +53,4 @@ Hvis du har brug for længere tilbageholdelse, genindfangning fra kunden.
 
 - Hvis `peekaboo` rapporterer “bridge client is not authorized”, skal du sikre, at klienten er korrekt signeret, eller køre hosten med `PEEKABOO_ALLOW_UNSIGNED_SOCKET_CLIENTS=1` i **debug**-tilstand (kun).
 - Hvis ingen hosts findes, så åbn en af host-appsene (Peekaboo.app eller OpenClaw.app) og bekræft, at tilladelser er givet.
+

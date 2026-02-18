@@ -109,3 +109,4 @@ integree) et mentionne egalement le miroir public, le depot source, le Discord c
 ClawHub (https://clawhub.com) pour la decouverte de skills. Le prompt indique au modele de consulter en priorite la documentation locale
 pour le comportement, les commandes, la configuration ou l’architecture d’OpenClaw, et d’executer
 `openclaw status` lui-meme lorsque possible (en demandant a l’utilisateur uniquement lorsqu’il n’y a pas acces).
+

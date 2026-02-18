@@ -148,3 +148,4 @@ Giden mesaj biçimlendirmesi `messages` içinde merkezileştirilmiştir:
 - `replyToMode` ve kanal başına varsayılanlar aracılığıyla yanıt dizileme
 
 Ayrıntılar: [Yapılandırma](/gateway/configuration#messages) ve kanal belgeleri.
+

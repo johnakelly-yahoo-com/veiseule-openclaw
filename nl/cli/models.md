@@ -73,3 +73,4 @@ Notities:
 
 - `setup-token` vraagt om een setup-tokenwaarde (genereer deze met `claude setup-token` op elke machine).
 - `paste-token` accepteert een tokenstring die elders of via automatisering is gegenereerd.
+

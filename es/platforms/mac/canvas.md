@@ -118,3 +118,4 @@ La app solicita confirmación a menos que se proporcione una clave válida.
 - El esquema de Canvas bloquea el recorrido de directorios; los archivos deben vivir bajo la raíz de la sesión.
 - El contenido local de Canvas usa un esquema personalizado (no se requiere un servidor de loopback).
 - Las URL externas `http(s)` solo se permiten cuando se navega explícitamente.
+

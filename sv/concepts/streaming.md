@@ -128,3 +128,4 @@ Legend:
 
 - `sendMessageDraft`: Telegram‑utkastbubbla (inte ett riktigt meddelande).
 - `final reply`: normalt Telegram‑meddelande.
+

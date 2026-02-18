@@ -218,3 +218,4 @@ Ne surchargez que si nécessaire (courant : chemin `command` absolu).
 - **Pas de continuité de session** : assurez‑vous que `sessionArg` est défini et que `sessionMode` n’est pas
   `none` (Codex CLI ne peut actuellement pas reprendre avec une sortie JSON).
 - **Images ignorées** : définissez `imageArg` (et vérifiez que la CLI prend en charge les chemins de fichiers).
+

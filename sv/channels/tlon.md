@@ -127,3 +127,4 @@ Använd dessa med `openclaw message send` eller cron-leverans:
 - Gruppsvar kräver ett omnämnande (t.ex. `~your-bot-ship`) för att svara.
 - Trådsvar: om inkommande meddelande är i en tråd svarar OpenClaw i tråden.
 - Media: `sendMedia` faller tillbaka till text + URL (ingen inbyggd uppladdning).
+

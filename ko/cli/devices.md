@@ -64,3 +64,4 @@ openclaw devices revoke --device <deviceId> --role node
 
 - 토큰 로테이션은 새 토큰(민감 정보)을 반환합니다. 비밀로 취급하십시오.
 - 이러한 명령에는 `operator.pairing` (또는 `operator.admin`) 스코프가 필요합니다.
+

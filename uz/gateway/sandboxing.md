@@ -184,3 +184,4 @@ Example (read-only source + docker socket):
 - 44. [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - 45. [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - 46. [Security](/gateway/security)
+

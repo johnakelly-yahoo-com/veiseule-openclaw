@@ -89,3 +89,4 @@ macOS app 會呈現 `system-presence` 的輸出，並根據最後一次更新的
   - 確認用戶端在 handshake 中送出穩定的 `client.instanceId`
   - 確認週期性 beacon 使用相同的 `instanceId`
   - 檢查是否有由連線衍生的項目缺少 `instanceId`（此情況下出現重複是預期的）
+

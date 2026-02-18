@@ -139,3 +139,4 @@ Xem [Gateway configuration](/gateway/configuration) để biết:
 - Định tuyến `agents.defaults.imageModel`
 
 Xem [Models](/concepts/models) để có cái nhìn tổng quan rộng hơn về việc chọn mô hình và dự phòng.
+

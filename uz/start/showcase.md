@@ -382,3 +382,4 @@ Have something to share? We'd love to feature it!
   <Step title="Include Details">U nima qilishi haqida ayting, repo/demo havolasini qo‘shing, agar bo‘lsa skrinshot ulashing</Step>
   <Step title="Get Featured">Biz ajralib turadigan loyihalarni ushbu sahifaga qo‘shamiz</Step>
 </Steps>
+

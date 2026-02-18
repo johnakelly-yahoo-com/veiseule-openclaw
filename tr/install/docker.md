@@ -572,3 +572,4 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
   çalıştırır; bu, `/etc/profile`’yi kaynak alır ve PATH’i sıfırlayabilir. Özel araç yollarınızı başa eklemek için `docker.env.PATH`’yi ayarlayın
   (örn., `/custom/bin:/usr/local/share/npm-global/bin`), ya da Dockerfile’ınızda `/etc/profile.d/` altında
   bir betik ekleyin.
+

@@ -343,3 +343,4 @@ Hàng đợi + phiên:
 - **Log trống?** Kiểm tra Gateway đang chạy và ghi vào đường dẫn tệp
   trong `logging.file`.
 - **Cần nhiều chi tiết hơn?** Đặt `logging.level` thành `debug` hoặc `trace` rồi thử lại.
+

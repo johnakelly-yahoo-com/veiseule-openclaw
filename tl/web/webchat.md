@@ -44,3 +44,4 @@ Kaugnay na mga global na opsyon:
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: WebSocket auth.
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: remote Gateway target.
 - `session.*`: session storage at mga default ng pangunahing key.
+

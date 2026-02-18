@@ -184,3 +184,4 @@ Tùy chọn nhiều tài khoản:
 - `channels.zalo.accounts.<id>``.webhookSecret`: webhook secret theo từng tài khoản.
 - `channels.zalo.accounts.<id>``.webhookPath`: đường dẫn webhook theo từng tài khoản.
 - `channels.zalo.accounts.<id>`.proxy\`: URL proxy theo từng tài khoản.
+

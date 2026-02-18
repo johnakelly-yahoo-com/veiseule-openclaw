@@ -136,3 +136,4 @@ openclaw plugins install ./extensions/nextcloud-talk
 - `channels.nextcloud-talk.blockStreaming`: اس چینل کے لیے بلاک اسٹریمنگ غیر فعال کریں۔
 - `channels.nextcloud-talk.blockStreamingCoalesce`: بلاک اسٹریمنگ کوالیس ٹیوننگ۔
 - `channels.nextcloud-talk.mediaMaxMb`: اِن باؤنڈ میڈیا حد (MB)۔
+

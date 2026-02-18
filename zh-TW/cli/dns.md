@@ -17,3 +17,4 @@ DNS helpers for wide-area discovery (Tailscale + CoreDNS). 用於廣域探索的
 openclaw dns setup
 openclaw dns setup --apply
 ```
+

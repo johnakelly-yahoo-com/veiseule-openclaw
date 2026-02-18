@@ -105,3 +105,4 @@ Ang `system.run` ay naka-gate ng mga lokal na exec approvals:
 - `~/.openclaw/exec-approvals.json`
 - [Exec approvals](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (i-edit mula sa Gateway)
+

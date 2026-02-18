@@ -117,3 +117,4 @@ SPOILER style ranges. Tinatrato ng ibang channel ang mga ito bilang plain text.
 - Kinakailangan ng Telegram HTML ang pag-escape ng text sa labas ng mga tag para maiwasan ang sirang markup.
 - Ang mga Signal style range ay umaasa sa UTF-16 offset; huwag gumamit ng code point offset.
 - Panatilihin ang mga trailing newline para sa mga fenced code block para mapunta ang mga closing marker sa sarili nilang linya.
+

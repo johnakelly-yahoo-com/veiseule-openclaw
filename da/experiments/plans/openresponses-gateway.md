@@ -120,3 +120,4 @@ Uddragne hovedpunkter:
 
 - Tilføj en ny docs-side for `/v1/responses`-brug og eksempler.
 - Opdatér `/gateway/openai-http-api` med en legacy-note og henvisning til `/v1/responses`.
+

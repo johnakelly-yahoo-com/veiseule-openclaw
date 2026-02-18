@@ -170,3 +170,4 @@ Intet er eksplicit uden for omfanget for denne trusselsmodel.
 ---
 
 _Denne trusselsmodel er et levende dokument. Rapportér sikkerhedsproblemer til security@openclaw.ai_
+

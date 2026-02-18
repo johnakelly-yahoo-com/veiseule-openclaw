@@ -28,3 +28,4 @@ Son güncelleme: 2025-12-11
 
 - Port _başka_ bir süreç tarafından kullanılıyorsa hata aynıdır; portu boşaltın veya `openclaw gateway --port <port>` ile başka bir port seçin.
 - macOS uygulaması, gateway’i başlatmadan önce kendi hafif PID korumasını sürdürür; çalışma zamanı kilidi WebSocket bağlaması tarafından zorlanır.
+

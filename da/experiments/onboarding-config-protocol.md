@@ -36,3 +36,4 @@ Svar (form)
 ## Noter
 
 - Dette dokument er det eneste sted at følge protokolrefaktoreringer for introduktion/konfiguration.
+

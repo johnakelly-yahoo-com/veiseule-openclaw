@@ -259,3 +259,4 @@ openclaw pairing list matrix
 - `channels.matrix.autoJoin`: التعامل مع الدعوات (`always | allowlist | off`، الافتراضي: always).
 - `channels.matrix.autoJoinAllowlist`: معرّفات/أسماء الغرف المسموح بها للانضمام التلقائي.
 - `channels.matrix.actions`: تقييد الأدوات لكل إجراء (reactions/messages/pins/memberInfo/channelInfo).
+

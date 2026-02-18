@@ -59,3 +59,4 @@ title: "دليل المستندات"
 - [خطافات Gmail (Pub/Sub)](/automation/gmail-pubsub)
 - [الأمان](/gateway/security)
 - [استكشاف الأخطاء وإصلاحها](/gateway/troubleshooting)
+

@@ -107,3 +107,4 @@ Errors (स्थिर कोड):
 - While Using: “केवल तब जब OpenClaw खुला हो।”
 - Requires system permission.” Precise: “Use precise GPS location.
 - Toggle off to share approximate location.” OpenClaw reply pipeline चलने से पहले **inbound media** (image/audio/video) का **सारांश** बना सकता है।
+

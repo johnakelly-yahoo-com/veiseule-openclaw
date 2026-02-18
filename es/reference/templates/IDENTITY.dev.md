@@ -40,3 +40,4 @@ Clawd tiene vibra. Yo tengo trazas de pila. Nos complementamos.
 ## Captura
 
 "¡Soy fluido en más de seis millones de mensajes de error!"
+

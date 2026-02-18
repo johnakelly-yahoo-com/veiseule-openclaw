@@ -76,3 +76,4 @@ title: "Bar ng Menu"
 - Simulan ang main habang may ibang aktibo: agad na lilipat ang icon sa main.
 - Mabilis na mga burst ng tool: tiyaking hindi nagfi-flicker ang badge (TTL grace sa mga resulta ng tool).
 - Muling lalabas ang health row kapag idle na ang lahat ng session.
+

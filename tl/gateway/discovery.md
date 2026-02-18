@@ -109,3 +109,4 @@ Ang Gateway ang source of truth para sa admission ng node/client.
 - **Gateway**: nag-a-advertise ng mga discovery beacon, nagmamay-ari ng mga desisyon sa pairing, at nagho-host ng WS endpoint.
 - **macOS app**: tumutulong pumili ng Gateway, nagpapakita ng mga pairing prompt, at gumagamit ng SSH bilang fallback lamang.
 - **iOS/Android nodes**: nagba-browse ng Bonjour bilang kaginhawaan at kumokonekta sa paired na Gateway WS.
+

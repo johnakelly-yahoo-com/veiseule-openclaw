@@ -30,3 +30,4 @@ Kurze Anleitung zur Überprüfung der Kanalkonnektivität ohne Rätselraten.
 ## Dedizierter „health“-Befehl
 
 `openclaw health --json` fordert vom laufenden Gateway dessen Zustands-Snapshot an (keine direkten Kanal-Sockets aus der CLI). Er meldet verknüpfte Anmeldedaten/Authentifizierungsalter, sofern verfügbar, Zusammenfassungen der kanalspezifischen Probes, eine Zusammenfassung des Sitzungsspeichers sowie die Dauer der Probe. Der Befehl beendet sich mit einem Nicht-Null-Exit-Code, wenn das Gateway nicht erreichbar ist oder die Probe fehlschlägt/timeoutet. Verwenden Sie `--timeout <ms>`, um den Standardwert von 10 s zu überschreiben.
+

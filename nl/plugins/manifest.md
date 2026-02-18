@@ -65,3 +65,4 @@ Optionele sleutels:
 - Als je plugin afhankelijk is van native modules, documenteer de buildstappen en eventuele
   vereisten voor een package-manager-allowlist (bijvoorbeeld pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
+

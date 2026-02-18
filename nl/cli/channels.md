@@ -73,3 +73,4 @@ Notities:
 
 - Gebruik `--kind user|group|auto` om het doeltype af te dwingen.
 - Resolutie geeft de voorkeur aan actieve matches wanneer meerdere vermeldingen dezelfde naam delen.
+

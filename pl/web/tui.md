@@ -156,3 +156,4 @@ Brak wyjścia po wysłaniu wiadomości:
 - `disconnected`: upewnij się, że Gateway działa i że Twoje `--url/--token/--password` są poprawne.
 - Brak agentów w selektorze: sprawdź `openclaw agents list` i konfigurację routingu.
 - Pusty selektor sesji: możesz być w zakresie globalnym lub nie mieć jeszcze żadnych sesji.
+

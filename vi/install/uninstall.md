@@ -123,3 +123,4 @@ Nếu bạn chạy từ một bản checkout của repo (`git clone` + `openclaw
 1. Gỡ dịch vụ Gateway **trước khi** xóa repo (dùng cách dễ ở trên hoặc gỡ dịch vụ thủ công).
 2. Xóa thư mục repo.
 3. Xóa trạng thái + workspace như đã nêu ở trên.
+

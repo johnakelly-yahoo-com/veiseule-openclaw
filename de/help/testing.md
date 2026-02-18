@@ -363,3 +363,4 @@ Wenn Sie ein in Live entdecktes Anbieter-/Modellproblem beheben:
 - Bevorzugen Sie die kleinste Ebene, die den Bug einfängt:
   - Anbieter-Request-Konvertierungs-/Replay-Bug → Direkt-Modelle-Test
   - Gateway-Sitzungs-/Verlaufs-/Tool-Pipeline-Bug → Gateway-Live-Smoke oder CI-sicherer Gateway-Mock-Test
+

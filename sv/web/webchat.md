@@ -44,3 +44,4 @@ Relaterade globala alternativ:
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: WebSocket-autentisering.
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: fjärr gateway-mål.
 - `session.*`: sessionslagring och standardvärden för huvudnyckel.
+

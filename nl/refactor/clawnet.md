@@ -411,3 +411,4 @@ Kies één vóór implementatie om drift te vermijden.
 - Pijn: goedkeuringen + duplicatie + twee stacks.
 - Voorstel: één WS-protocol met expliciete rollen + scopes, uniforme pairing + TLS-pinning, gateway-gehoste goedkeuringen, stabiele device-ID’s + leuke slugs.
 - Resultaat: eenvoudigere UX, sterkere beveiliging, minder duplicatie, betere mobiele routing.
+

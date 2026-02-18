@@ -380,3 +380,4 @@ Se voce precisar de limites por agente, use `agents.list[].tools` para negar `ex
 Para direcionamento de grupos, use `agents.list[].groupChat.mentionPatterns` para que @menções mapeiem corretamente para o agente pretendido.
 
 Veja [Sandbox & Ferramentas Multiagente](/tools/multi-agent-sandbox-tools) para exemplos detalhados.
+

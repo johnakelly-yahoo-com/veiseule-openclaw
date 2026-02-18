@@ -71,3 +71,4 @@ Beta and dev builds may **not** include a macOS app release. That’s OK:
 
 - Git tag và npm dist-tag vẫn có thể được phát hành.
 - Nêu rõ “không có bản build macOS cho bản beta này” trong ghi chú phát hành hoặc changelog.
+

@@ -52,3 +52,4 @@ Bitten Sie Ihren Agenten, „Skills zu aktualisieren“, oder starten Sie das Ga
 ## Geteilte Skills
 
 Sie können Skills auch auf [ClawHub](https://clawhub.com) durchsuchen und dazu beitragen.
+

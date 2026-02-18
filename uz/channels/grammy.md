@@ -26,3 +26,4 @@ Ochiq savollar
 - Agar Bot API 429 xatolariga duch kelsak, ixtiyoriy grammY plaginlari (throttler).
 - Add more structured media tests (stickers, voice notes).
 - Make webhook listen port configurable (currently fixed to 8787 unless wired through the gateway).
+

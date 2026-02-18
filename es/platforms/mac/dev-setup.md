@@ -99,3 +99,4 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 Si una ejecución manual está ocupando el puerto, detenga ese proceso (Ctrl+C). Como último recurso, finalice el PID que encontró arriba.
+

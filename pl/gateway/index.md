@@ -325,3 +325,4 @@ Instalacje na Windows powinny używać **WSL2** i postępować zgodnie z powyżs
 
 - Wycofaj użycia `openclaw gateway` oraz starszego portu sterowania TCP.
 - Zaktualizuj klientów, aby mówili protokołem WS z obowiązkowym connect i strukturalną obecnością.
+

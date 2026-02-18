@@ -51,3 +51,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - Entfernen Sie die Überschreibung: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`.
 - Optional führen Sie `sudo log config --reload` aus, um logd zu zwingen, die Überschreibung sofort zu verwerfen.
 - Denken Sie daran, dass diese Oberfläche Telefonnummern und Nachrichteninhalte enthalten kann; belassen Sie die plist nur so lange an Ort und Stelle, wie Sie die zusätzlichen Details aktiv benötigen.
+

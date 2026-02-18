@@ -170,3 +170,4 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 | `RunAtLoad`                          | 에이전트 로드 시 터널을 시작합니다                               |
 
 OpenClaw.app은 클라이언트 머신의 `ws://127.0.0.1:18789`에 연결합니다. SSH 터널은 해당 연결을 Gateway(게이트웨이)가 실행 중인 원격 머신의 포트 18789로 포워딩합니다.
+

@@ -148,3 +148,4 @@ Pełny przewodnik: [Getting Started](/start/getting-started)
 ## Aplikacja towarzysząca na Windows
 
 Obecnie nie mamy aplikacji towarzyszącej na Windows. Wkład społeczności jest mile widziany, jeśli chcesz pomóc w jej powstaniu.
+

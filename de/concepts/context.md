@@ -154,3 +154,4 @@ Doku: [Session](/concepts/session), [Compaction](/concepts/compaction), [Session
 - `System prompt (estimate)` = ad hoc berechnet, wenn kein Laufbericht existiert (oder bei Ausführung über ein CLI-Backend, das keinen Bericht erzeugt).
 
 In beiden Fällen meldet es Größen und Hauptverursacher; es gibt **nicht** den vollständigen System-Prompt oder Werkzeug-Schemas aus.
+

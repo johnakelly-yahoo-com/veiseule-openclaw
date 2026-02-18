@@ -110,3 +110,4 @@ To‘liq nosozliklarni bartaraf etish:
 | 42. Shifrlangan xonalar ishlamaydi                                | 43. Kripto modulini va shifrlash sozlamalarini tekshiring | 44. Shifrlash qo‘llab-quvvatlashini yoqing va xonaga qayta qo‘shiling/sinxronlashtiring. |
 
 45. To‘liq nosozliklarni bartaraf etish: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

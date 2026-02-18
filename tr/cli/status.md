@@ -20,3 +20,4 @@ Notlar:
 - Genel bakış, mevcut olduğunda Gateway + düğüm ana makinesi hizmeti kurulum/çalışma zamanı durumunu içerir.
 - Genel bakış, güncelleme kanalını + git SHA’yı (kaynak kurulumları için) içerir.
 - Güncelleme bilgileri Genel bakışta görünür; bir güncelleme mevcutsa durum, `openclaw update` çalıştırılması için bir ipucu yazdırır (bkz. [Güncelleme](/install/updating)).
+

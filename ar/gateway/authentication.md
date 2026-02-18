@@ -141,3 +141,4 @@ openclaw models status
 
 - اشتراك Claude Max أو Pro (لـ `claude setup-token`)
 - تثبيت Claude Code CLI (توفر أمر `claude`)
+

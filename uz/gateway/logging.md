@@ -103,3 +103,4 @@ Behavior:
 - **WhatsApp xabar matnlari** `debug` darajasida log qilinadi (ularni ko‘rish uchun `--verbose` dan foydalaning)
 
 This keeps existing file logs stable while making interactive output scannable.
+

@@ -79,3 +79,4 @@ Solo el número del propietario (de `channels.whatsapp.allowFrom`, o el E.164 de
 - La supresión de eco usa la cadena combinada del lote; si envía texto idéntico dos veces sin menciones, solo la primera obtendrá respuesta.
 - Las entradas del almacén de sesiones aparecerán como `agent:<agentId>:whatsapp:group:<jid>` en el almacén de sesiones (`~/.openclaw/agents/<agentId>/sessions/sessions.json` de forma predeterminada); una entrada faltante solo significa que el grupo aún no ha activado una ejecución.
 - Los indicadores de escritura en grupos siguen `agents.defaults.typingMode` (predeterminado: `message` cuando no hay mención).
+

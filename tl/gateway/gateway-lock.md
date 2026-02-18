@@ -28,3 +28,4 @@ Huling na-update: 2025-12-11
 
 - Kung ang port ay okupado ng _ibang_ proseso, pareho ang error; palayain ang port o pumili ng iba gamit ang `openclaw gateway --port <port>`.
 - Ang macOS app ay nagpapanatili pa rin ng sarili nitong magaan na PID guard bago i-spawn ang gateway; ang runtime lock ay ipinapatupad ng WebSocket bind.
+

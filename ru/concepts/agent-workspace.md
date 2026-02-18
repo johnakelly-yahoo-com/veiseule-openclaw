@@ -237,3 +237,4 @@ git push
   пространства для каждого агента. См. [Channel routing](/channels/channel-routing) для настройки маршрутизации.
 - Если включён `agents.defaults.sandbox`, неосновные сеансы могут использовать sandbox‑рабочие
   пространства для каждого сеанса под `agents.defaults.sandbox.workspaceRoot`.
+

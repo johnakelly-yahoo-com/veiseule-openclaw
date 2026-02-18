@@ -70,3 +70,4 @@ Wdrożenie prosi o uprawnienia TCC potrzebne do:
   co dzieje się na hoście gateway podczas pierwszego uruchomienia agenta.
 </Step>
 </Steps>
+

@@ -123,3 +123,4 @@ Legend:
 
 - `sendMessageDraft`: Telegram 초안 버블 (실제 메시지가 아님).
 - `final reply`: 일반 Telegram 메시지 전송.
+

@@ -34,3 +34,4 @@ Exit code များ:
 - `scripts/termux-sync-widget.sh`: Claude Code အထောက်အထားများကို OpenClaw သို့ sync လုပ်ခြင်း။
 
 ဖုန်း အလိုအလျောက်လုပ်ဆောင်မှု သို့မဟုတ် systemd timer များ မလိုအပ်ပါက ဤ script များကို ကျော်သွားနိုင်ပါသည်။
+

@@ -93,3 +93,4 @@ Outros ajustes de configuração que afetam a disponibilidade de ferramentas:
 - IDs de plugin usados em listas de permissões não devem entrar em conflito com nomes de ferramentas do núcleo.
 - Prefira `optional: true` para ferramentas que disparam efeitos colaterais ou exigem
   binários/credenciais extras.
+

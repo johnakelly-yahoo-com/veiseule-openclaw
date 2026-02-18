@@ -296,3 +296,4 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 - [Gateway configuration](/gateway/configuration) — barcha konfiguratsiya variantlari
 - [DigitalOcean guide](/platforms/digitalocean) — pullik + osonroq ro‘yxatdan o‘tish istasangiz
 - [Hetzner guide](/install/hetzner) — Docker asosidagi muqobil yechim
+

@@ -86,3 +86,4 @@ Diğer her şey şu hata ile kesin olarak başarısız olmalıdır: “Yapıland
 - Eklenti şeması eksik → eklenti yüklemesi açık bir hatayla engellenir.
 - Geçersiz yapılandırma → gateway (ağ geçidi) başlangıcı tanılama komutları dışında engellenir.
 - Doctor dry-run otomatik; `doctor --fix` düzeltilmiş yapılandırmayı yazar.
+

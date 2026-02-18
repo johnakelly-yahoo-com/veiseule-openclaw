@@ -34,3 +34,4 @@ machine.
 
 - macOS ایپ آن بورڈنگ: [Onboarding](/start/onboarding)
 - ورک اسپیس لے آؤٹ: [Agent workspace](/concepts/agent-workspace)
+

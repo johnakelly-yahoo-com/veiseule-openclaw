@@ -59,3 +59,4 @@ Pour une cartographie complète de la documentation, consultez les [Hubs de docu
 - [Hooks Gmail (Pub/Sub)](/automation/gmail-pubsub)
 - [Securite](/gateway/security)
 - [Depannage](/gateway/troubleshooting)
+

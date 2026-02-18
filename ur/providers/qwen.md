@@ -46,3 +46,4 @@ openclaw models set qwen-portal/coder-model
 - طے شدہ بیس URL: `https://portal.qwen.ai/v1` (اگر Qwen کوئی مختلف اینڈ پوائنٹ فراہم کرے تو
   `models.providers.qwen-portal.baseUrl` کے ساتھ اووررائیڈ کریں)۔
 - فراہم کنندہ سطح کے قواعد کے لیے [Model providers](/concepts/model-providers) دیکھیں۔
+

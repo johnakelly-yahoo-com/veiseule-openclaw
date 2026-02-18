@@ -227,3 +227,4 @@ git pull
 - `openclaw doctor` ni yana ishga tushiring va chiqishni diqqat bilan o‘qing (ko‘pincha yechimni aytadi).
 - Tekshiring: [Troubleshooting](/gateway/troubleshooting)
 - Discord’da so‘rang: [https://discord.gg/clawd](https://discord.gg/clawd)
+

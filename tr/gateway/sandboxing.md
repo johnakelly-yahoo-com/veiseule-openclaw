@@ -183,3 +183,4 @@ Her ajan sandbox + araçları geçersiz kılabilir:
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
+

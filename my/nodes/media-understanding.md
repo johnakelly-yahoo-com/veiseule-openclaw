@@ -369,3 +369,4 @@ Capability တစ်ခုချင်းစီအလိုက် `attachments` 
 
 - [Configuration](/gateway/configuration)
 - [Image & Media Support](/nodes/images)
+

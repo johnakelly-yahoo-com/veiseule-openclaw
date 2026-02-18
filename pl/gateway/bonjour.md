@@ -164,3 +164,4 @@ Bonjour/DNS‑SD często ucieka bajty w nazwach instancji usług jako dziesiętn
 
 - Polityka wykrywania i wybór transportu: [Discovery](/gateway/discovery)
 - Parowanie węzłów + zatwierdzenia: [Gateway pairing](/gateway/pairing)
+

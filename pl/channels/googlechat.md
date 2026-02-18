@@ -247,3 +247,4 @@ Powiązana dokumentacja:
 - [Konfiguracja Gateway](/gateway/configuration)
 - [Bezpieczeństwo](/gateway/security)
 - [Reakcje](/tools/reactions)
+

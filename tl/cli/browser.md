@@ -100,3 +100,4 @@ Buong gabay: [Chrome extension](/tools/chrome-extension)
 Gamitin ang `gateway.nodes.browser.mode` para kontrolin ang auto-routing at ang `gateway.nodes.browser.node` para i-pin ang isang partikular na node kung marami ang nakakonekta.
 
 Seguridad + remote na setup: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
+

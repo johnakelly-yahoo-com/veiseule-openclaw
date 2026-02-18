@@ -127,3 +127,4 @@ Agar vositalar allowlist’i ushbu vositalarni bloklasa, OpenProse dasturlari is
 `.prose` fayllarini kod kabi qabul qiling. Ishga tushirishdan oldin ko‘rib chiqing. Yon ta’sirlarni boshqarish uchun OpenClaw vosita allowlist’lari va tasdiqlash bosqichlaridan foydalaning.
 
 Deterministik va tasdiqlash bosqichlari bilan boshqariladigan ish jarayonlari uchun [Lobster](/tools/lobster) bilan taqqoslang.
+

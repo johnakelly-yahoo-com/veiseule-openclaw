@@ -227,3 +227,4 @@ git pull
 - Kør `openclaw doctor` igen og læs outputtet omhyggeligt (det fortæller ofte, hvad løsningen er).
 - Tjek: [Fejlfinding](/gateway/troubleshooting)
 - Spørg i Discord: [https://discord.gg/clawd](https://discord.gg/clawd)
+

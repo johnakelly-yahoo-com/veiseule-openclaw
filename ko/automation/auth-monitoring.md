@@ -34,3 +34,4 @@ openclaw models status --check
 - `scripts/termux-sync-widget.sh`: Claude Code 자격 증명 → OpenClaw 동기화.
 
 휴대폰 자동화나 systemd 타이머가 필요 없다면 이 스크립트들은 건너뛰십시오.
+

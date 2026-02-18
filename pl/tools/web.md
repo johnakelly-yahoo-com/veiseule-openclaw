@@ -251,3 +251,4 @@ Uwagi:
 - Odpowiedzi są buforowane (domyślnie 15 minut), aby ograniczyć powtarzane pobrania.
 - Jeśli używasz profili narzędzi/list dozwolonych, dodaj `web_search`/`web_fetch` lub `group:web`.
 - Jeśli brakuje klucza Brave, `web_search` zwraca krótką wskazówkę konfiguracji z linkiem do dokumentacji.
+

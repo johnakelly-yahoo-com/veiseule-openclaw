@@ -471,3 +471,4 @@ Emojis können Unicode sein (z. B. `✅`) oder benutzerdefinierte Emoji-Syntax
 - Behandeln Sie das Bot-Token wie ein Passwort; bevorzugen Sie die Env-Var `DISCORD_BOT_TOKEN` auf überwachten Hosts oder beschränken Sie die Dateiberechtigungen der Konfigurationsdatei.
 - Gewähren Sie dem Bot nur die Berechtigungen, die er benötigt (typischerweise Nachrichten lesen/senden).
 - Wenn der Bot festhängt oder rate-limitiert ist, starten Sie das Gateway (`openclaw gateway --force`) neu, nachdem Sie bestätigt haben, dass keine anderen Prozesse die Discord-Sitzung besitzen.
+

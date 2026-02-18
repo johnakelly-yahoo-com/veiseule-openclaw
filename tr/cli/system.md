@@ -54,3 +54,4 @@ Bayraklar:
 
 - Geçerli yapılandırmanız (yerel veya uzak) tarafından erişilebilir, çalışan bir Gateway gerektirir.
 - Sistem olayları geçicidir ve yeniden başlatmalar arasında kalıcı değildir.
+

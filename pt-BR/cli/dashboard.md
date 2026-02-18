@@ -10,3 +10,4 @@ Abra a UI de Controle usando sua autenticação atual.
 openclaw dashboard
 openclaw dashboard --no-open
 ```
+

@@ -63,3 +63,4 @@ Du kan åsidosätta läge eller kadens per session:
 - Heartbeats visar aldrig skrivning, oavsett läge.
 - `typingIntervalSeconds` kontrollerar **uppdatera kadens**, inte starttiden.
   Standard är 6 sekunder.
+

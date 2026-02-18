@@ -555,3 +555,4 @@ openclaw pairing list slack
 - 경고: 다른 봇에 대한 답글을 허용하는 경우 (`channels.slack.allowBots=true` 또는 `channels.slack.channels.<id>.allowBots=true`), `requireMention`, `channels.slack.channels.<id>.users` 허용 목록 및/또는 `AGENTS.md` 와 `SOUL.md` 의 명확한 가드레일로 봇 간 무한 답글 루프를 방지하십시오.
 - Slack 도구의 반응 제거 의미론은 [/tools/reactions](/tools/reactions) 를 참조하십시오.
 - 첨부 파일은 허용되고 크기 제한 내인 경우 미디어 저장소로 다운로드됩니다.
+

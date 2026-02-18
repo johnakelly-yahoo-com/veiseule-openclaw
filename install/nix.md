@@ -91,3 +91,4 @@ packaging and Nix builds (which do not rely on a full Xcode toolchain).
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — full setup guide
 - [Wizard](/start/wizard) — non-Nix CLI setup
 - [Docker](/install/docker) — containerized setup
+

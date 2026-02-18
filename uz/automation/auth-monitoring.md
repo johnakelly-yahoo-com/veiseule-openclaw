@@ -34,3 +34,4 @@ Bular `scripts/` ostida joylashgan va **ixtiyoriy**. Ular gateway xostiga SSH ki
 - `scripts/termux-sync-widget.sh`: Claude Code hisob ma’lumotlarini → OpenClaw’ga sinxronlash.
 
 Agar telefon avtomatlashtirish yoki systemd taymerlari kerak bo‘lmasa, bu skriptlarni o‘tkazib yuboring.
+

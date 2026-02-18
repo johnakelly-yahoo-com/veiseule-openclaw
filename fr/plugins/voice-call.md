@@ -276,3 +276,4 @@ Ce depot fournit une documentation de skill correspondante a `skills/voice-call/
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
+

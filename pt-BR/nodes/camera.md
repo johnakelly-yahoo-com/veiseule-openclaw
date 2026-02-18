@@ -150,3 +150,4 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 Notas:
 
 - Requer permissão de **Gravação de Tela** do macOS (TCC).
+

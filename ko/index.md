@@ -187,3 +187,4 @@ Gateway 가 시작된 후 브라우저에서 Control UI 를 엽니다.
     프로젝트의 기원, 기여자, 라이선스입니다.
   </Card>
 </Columns>
+

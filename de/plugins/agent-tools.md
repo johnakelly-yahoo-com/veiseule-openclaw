@@ -86,3 +86,4 @@ Weitere Konfigurationsoptionen, die die Verfügbarkeit von Werkzeugen beeinfluss
 - Werkzeugnamen dürfen **nicht** mit Namen von Kernwerkzeugen kollidieren; kollidierende Werkzeuge werden übersprungen.
 - In Allowlists verwendete Plugin-IDs dürfen nicht mit Namen von Kernwerkzeugen kollidieren.
 - Bevorzugen Sie `optional: true` für Werkzeuge, die Nebenwirkungen auslösen oder zusätzliche Binärdateien/Anmeldedaten erfordern.
+

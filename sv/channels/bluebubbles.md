@@ -336,3 +336,4 @@ Föredra `chat_guid` för stabil routning:
 - För status-/hälsoinformation: `openclaw status --all` eller `openclaw status --deep`.
 
 För allmän referens om kanalflöden, se [Kanaler](/channels) och guiden [Plugins](/tools/plugin).
+

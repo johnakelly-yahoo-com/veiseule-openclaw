@@ -43,3 +43,4 @@ openclaw onboard --non-interactive \
 Kung tumatakbo ang Gateway bilang daemon (launchd/systemd), tiyaking `AI_GATEWAY_API_KEY`
 ay available sa prosesong iyon (halimbawa, sa `~/.openclaw/.env` o sa pamamagitan ng
 `env.shellEnv`).
+

@@ -92,3 +92,4 @@ base URL ให้กำหนดทับ `models.providers.synthetic.baseUrl` 
 - หากคุณเปิดใช้งานรายการอนุญาตของโมเดล (`agents.defaults.models`) ให้เพิ่มทุกโมเดลที่คุณ
   วางแผนจะใช้งาน
 - ดู [Model providers](/concepts/model-providers) สำหรับกฎของผู้ให้บริการ
+

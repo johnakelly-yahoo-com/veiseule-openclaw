@@ -237,3 +237,4 @@ Onay kapılı exec’ler, kolay ilişkilendirme için bu mesajlarda `runId` olar
 - [Exec tool](/tools/exec)
 - [Elevated mode](/tools/elevated)
 - [Skills](/tools/skills)
+

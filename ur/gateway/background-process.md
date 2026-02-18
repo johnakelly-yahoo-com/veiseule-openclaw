@@ -87,3 +87,4 @@ stdin بھیجیں:
 ```json
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
+

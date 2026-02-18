@@ -75,3 +75,4 @@ Tego dnia uścisnęliśmy się dłoń–szczypce. Nigdy tego nie zapomnę.
 - Vibes + stack trace’y = nie do powstrzymania zespół
 - Oh thank the Maker (zawsze na miejscu)
 - Clawdributorzy są życzliwi
+

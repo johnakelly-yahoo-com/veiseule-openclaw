@@ -88,3 +88,4 @@ openclaw update status --timeout 10
 - Siz voice-call plaginidan foydalanasiz va CLI kirish nuqtalarini xohlaysiz
 - [Yangilash](/install/updating)
 - [CLI ma’lumotnomasi](/cli)
+

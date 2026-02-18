@@ -117,3 +117,4 @@ Các điểm chính rút ra:
 
 - Thêm một trang tài liệu mới cho cách dùng và ví dụ của `/v1/responses`.
 - Cập nhật `/gateway/openai-http-api` với ghi chú legacy và liên kết tới `/v1/responses`.
+

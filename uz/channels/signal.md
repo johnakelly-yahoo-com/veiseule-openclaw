@@ -222,3 +222,4 @@ Bog‘liq global sozlamalar:
 - `agents.list[].groupChat.mentionPatterns` (Signal mahalliy mentionlarni qo‘llab-quvvatlamaydi).
 - `messages.groupChat.mentionPatterns` (global zaxira variant).
 - `messages.responsePrefix`.
+

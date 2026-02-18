@@ -141,3 +141,4 @@ Siehe [Plugins](/tools/plugin#plugin-hooks) für die Hook-API und Registrierungs
 - AbortSignal (Abbrechen)
 - Gateway-Trennung oder RPC-Timeout
 - `agent.wait`-Timeout (nur Warten, stoppt den Agenten nicht)
+

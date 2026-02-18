@@ -93,3 +93,4 @@ Presence được thiết kế là tạm thời:
   - xác nhận client gửi một `client.instanceId` ổn định trong quá trình bắt tay
   - xác nhận các beacon định kỳ dùng cùng `instanceId`
   - kiểm tra xem mục phát sinh từ kết nối có thiếu `instanceId` hay không (trùng lặp là điều được dự đoán)
+

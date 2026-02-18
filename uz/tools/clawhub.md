@@ -244,3 +244,4 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: Override where the CLI stores the token/config.
 - `CLAWHUB_WORKDIR`: Standart ishchi katalogni almashtiradi.
 - `CLAWHUB_DISABLE_TELEMETRY=1`: `sync` jarayonida telemetriyani o‘chiradi.
+

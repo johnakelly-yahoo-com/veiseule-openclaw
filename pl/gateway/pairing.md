@@ -92,3 +92,4 @@ Uwagi dotyczące bezpieczeństwa:
 - Transport jest **bezstanowy**; nie przechowuje członkostwa.
 - Jeśli Gateway jest offline lub parowanie jest wyłączone, węzły nie mogą się parować.
 - Jeśli Gateway działa w trybie zdalnym, parowanie nadal odbywa się względem magazynu zdalnego Gateway.
+

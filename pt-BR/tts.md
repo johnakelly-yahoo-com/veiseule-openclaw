@@ -389,3 +389,4 @@ Métodos do Gateway:
 - `tts.convert`
 - `tts.setProvider`
 - `tts.providers`
+

@@ -50,3 +50,4 @@ Wanneer een locatie aanwezig is, worden deze velden toegevoegd aan `ctx`:
 - **Telegram**: locaties mappen naar `LocationName/LocationAddress`; live locaties gebruiken `live_period`.
 - **WhatsApp**: `locationMessage.comment` en `liveLocationMessage.caption` worden als bijschriftregel toegevoegd.
 - **Matrix**: `geo_uri` wordt geparseerd als een pinlocatie; hoogte wordt genegeerd en `LocationIsLive` is altijd false.
+

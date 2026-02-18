@@ -43,3 +43,4 @@ Obejście: przenieś pliki do obszaru roboczego OpenClaw (`~/.openclaw/workspace
 
 Jeśli testujesz uprawnienia, zawsze podpisuj aplikację prawdziwym certyfikatem. Kompilacje
 ad-hoc są akceptowalne wyłącznie do szybkich lokalnych uruchomień, w których uprawnienia nie mają znaczenia.
+

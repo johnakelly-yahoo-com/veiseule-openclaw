@@ -221,3 +221,4 @@ Kung gusto mo ng minimal pero kapaki-pakinabang na bersyon:
 - Mga konsepto ng Letta / MemGPT: “core memory blocks” + “archival memory” + tool-driven na self-editing memory.
 - Hindsight Technical Report: “retain / recall / reflect”, four-network memory, narrative fact extraction, opinion confidence evolution.
 - SuCo: arXiv 2411.14754 (2024): “Subspace Collision” approximate nearest neighbor retrieval.
+

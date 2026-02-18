@@ -570,3 +570,4 @@ Voor triageflow: [/channels/troubleshooting](/channels/troubleshooting).
 - Waarschuwing: als je antwoorden aan andere bots toestaat (`channels.slack.allowBots=true` of `channels.slack.channels.<id>.allowBots=true`), voorkom bot-tot-bot-antwoordlussen met `requireMention`, `channels.slack.channels.<id>.users`-allowlists en/of duidelijke guardrails in `AGENTS.md` en `SOUL.md`.
 - Voor de Slack-tool staan de semantiek voor het verwijderen van reacties in [/tools/reactions](/tools/reactions).
 - Bijlagen worden, wanneer toegestaan en onder de groottelimiet, gedownload naar de mediaopslag.
+

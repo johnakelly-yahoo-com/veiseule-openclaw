@@ -53,3 +53,4 @@ Mga flag:
 
 - Nangangailangan ng tumatakbong Gateway na maaabot ng iyong kasalukuyang config (local o remote).
 - Ang mga system event ay pansamantala at hindi pinapanatili sa pagitan ng mga restart.
+

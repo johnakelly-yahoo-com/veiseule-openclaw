@@ -118,3 +118,4 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - Cơ chế Canvas chặn truy cập vượt thư mục; tệp phải nằm dưới thư mục gốc của phiên.
 - Nội dung Canvas cục bộ dùng cơ chế tùy chỉnh (không cần máy chủ loopback).
 - Các URL `http(s)` bên ngoài chỉ được cho phép khi được điều hướng một cách rõ ràng.
+

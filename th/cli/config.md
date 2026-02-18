@@ -46,3 +46,4 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
 รีสตาร์ทGatewayหลังจากแก้ไขแล้ว
+

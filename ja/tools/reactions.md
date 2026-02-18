@@ -17,3 +17,4 @@ title: "リアクション"
 - **Telegram**: 空の `emoji` はボットのリアクションを削除します。`remove: true` もリアクションを削除しますが、ツールの検証のために非空の `emoji` が引き続き必要です。
 - **WhatsApp**: 空の `emoji` はボットのリアクションを削除します。`remove: true` は空の絵文字にマップされます（それでも `emoji` が必要です）。
 - **Signal**: `channels.signal.reactionNotifications` が有効な場合、受信したリアクション通知はシステムイベントを発行します。
+

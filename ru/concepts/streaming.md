@@ -128,3 +128,4 @@ Telegram (private + topics)
 
 - `sendMessageDraft`: черновой пузырёк Telegram (не реальное сообщение).
 - `final reply`: обычная отправка сообщения Telegram.
+

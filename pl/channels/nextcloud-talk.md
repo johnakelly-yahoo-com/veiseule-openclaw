@@ -136,3 +136,4 @@ Opcje dostawcy:
 - `channels.nextcloud-talk.blockStreaming`: wyłącz strumieniowanie blokowe dla tego kanału.
 - `channels.nextcloud-talk.blockStreamingCoalesce`: dostrajanie scalania strumieniowania blokowego.
 - `channels.nextcloud-talk.mediaMaxMb`: limit multimediów przychodzących (MB).
+

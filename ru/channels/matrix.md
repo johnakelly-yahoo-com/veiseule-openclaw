@@ -259,3 +259,4 @@ openclaw pairing list matrix
 - `channels.matrix.autoJoin`: обработка приглашений (`always | allowlist | off`, по умолчанию: always).
 - `channels.matrix.autoJoinAllowlist`: разрешённые ID/алиасы комнат для авто-вступления.
 - `channels.matrix.actions`: ограничение инструментов по действиям (reactions/messages/pins/memberInfo/channelInfo).
+

@@ -11,3 +11,4 @@ title: "Ağ modeli"
 - Düğümler, gerektikçe LAN, tailnet veya SSH üzerinden Gateway WS’ye bağlanır. Eski TCP köprüsü kullanım dışıdır.
 - Canvas ana makinesi, düğüm WebViews’leri için `/__openclaw__/canvas/` sunan, `canvasHost.port` üzerinde (varsayılan `18793`) bir HTTP dosya sunucusudur. [Gateway yapılandırması](/gateway/configuration) (`canvasHost`).
 - Uzaktan kullanım genellikle SSH tüneli veya tailnet VPN’dir. [Uzaktan erişim](/gateway/remote) ve [Keşif](/gateway/discovery).
+

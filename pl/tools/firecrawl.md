@@ -54,3 +54,4 @@ Kolejność ekstrakcji `web_fetch`:
 3. Podstawowe czyszczenie HTML (ostatnia rezerwa)
 
 Zobacz [Narzędzia webowe](/tools/web), aby zapoznać się z pełną konfiguracją narzędzi WWW.
+

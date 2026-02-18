@@ -184,3 +184,4 @@ Opties voor meerdere accounts:
 - `channels.zalo.accounts.<id>.webhookSecret`: per-account webhookgeheim.
 - `channels.zalo.accounts.<id>.webhookPath`: per-account webhookpad.
 - `channels.zalo.accounts.<id>.proxy`: per-account proxy-URL.
+

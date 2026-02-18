@@ -105,3 +105,4 @@ lokale OpenClaw-Dokumentationsverzeichnis verweist (entweder `docs/` im Repo-Wor
 Paket-Dokumente) und außerdem den öffentlichen Mirror, das Source-Repo, den Community-Discord und
 ClawHub ([https://clawhub.com](https://clawhub.com)) für die Skill-Discovery nennt. Der Prompt weist das Modell an, lokale Dokumente zuerst zu konsultieren
 für OpenClaw-Verhalten, Befehle, Konfiguration oder Architektur und, wenn möglich, `openclaw status` selbst auszuführen (den Benutzer nur zu fragen, wenn kein Zugriff besteht).
+

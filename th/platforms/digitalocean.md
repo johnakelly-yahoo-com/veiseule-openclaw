@@ -256,3 +256,4 @@ free -h
 - [การติดตั้ง Docker](/install/docker) — การตั้งค่าแบบคอนเทนเนอร์
 - [Tailscale](/gateway/tailscale) — การเข้าถึงระยะไกลอย่างปลอดภัย
 - [Configuration](/gateway/configuration) — เอกสารอ้างอิงคอนฟิกทั้งหมด
+

@@ -130,3 +130,4 @@ Outbound message formatting is centralized in `messages`:
 - `replyToMode` orqali javoblarni ipga bog‘lash va har bir kanal uchun sukut bo‘yicha sozlamalar
 
 Batafsil: [Konfiguratsiya](/gateway/configuration#messages) va kanal hujjatlari.
+

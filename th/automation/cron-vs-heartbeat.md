@@ -277,3 +277,4 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) - การกำหนดค่า heartbeat แบบครบถ้วน
 - [Cron jobs](/automation/cron-jobs) - เอกสารอ้างอิง CLI และ API ของ cron แบบครบถ้วน
 - [System](/cli/system) - system events และการควบคุม heartbeat
+

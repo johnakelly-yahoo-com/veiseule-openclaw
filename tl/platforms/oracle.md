@@ -296,3 +296,4 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 - [Gateway configuration](/gateway/configuration) — lahat ng opsyon sa config
 - [DigitalOcean guide](/platforms/digitalocean) — kung gusto mo ng paid + mas madaling signup
 - [Hetzner guide](/install/hetzner) — Docker-based na alternatibo
+

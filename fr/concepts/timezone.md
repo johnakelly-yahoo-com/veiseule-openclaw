@@ -85,3 +85,4 @@ L'invite systeme inclut :
 Vous pouvez controler le format de l'invite avec `agents.defaults.timeFormat` (`auto` | `12` | `24`).
 
 Voir [Date & Time](/date-time) pour le comportement complet et des exemples.
+

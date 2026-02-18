@@ -43,3 +43,4 @@ Workaround: ilipat ang mga file sa OpenClaw workspace (`~/.openclaw/workspace`) 
 
 Kung sinusubukan mo ang mga pahintulot, palaging pumirma gamit ang isang tunay na sertipiko. Ad-hoc
 builds are only acceptable for quick local runs where permissions do not matter.
+

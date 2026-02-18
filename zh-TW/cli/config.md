@@ -45,3 +45,4 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
 編輯後請重新啟動 gateway。
+

@@ -273,3 +273,4 @@ si el workspace aún no está bajo git.
 
 Vea [/concepts/agent-workspace](/concepts/agent-workspace) para una guía completa sobre la
 estructura del workspace y el respaldo con git (se recomienda GitHub o GitLab privados).
+

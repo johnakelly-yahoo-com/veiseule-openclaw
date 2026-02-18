@@ -154,3 +154,4 @@ Belgeler: [Session](/concepts/session), [Compaction](/concepts/compaction), [Ses
 - `System prompt (estimate)` = bir çalıştırma raporu yoksa (ya da rapor üretmeyen bir CLI arka ucu üzerinden çalıştırılıyorsa) anında hesaplanır.
 
 Her iki durumda da boyutları ve en büyük katkıda bulunanları raporlar; tam sistem istemini veya araç şemalarını **dökmez**.
+

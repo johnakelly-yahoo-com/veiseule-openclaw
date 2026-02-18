@@ -52,3 +52,4 @@ title: "Elevated Modu"
 
 - Yükseltilmiş exec çağrıları bilgi (info) seviyesinde günlüklenir.
 - Oturum durumu, yükseltilmiş modu içerir (örn. `elevated=ask`, `elevated=full`).
+

@@ -171,3 +171,4 @@ Notes:
 - صرف OpenAI/OpenAI Codex ماڈلز کے لیے دستیاب۔
 - ٹول پالیسی بدستور لاگو رہتی ہے؛ `allow: ["exec"]` بالواسطہ طور پر `apply_patch` کی اجازت دیتا ہے۔
 - کنفیگ `tools.exec.applyPatch` کے تحت موجود ہے۔
+

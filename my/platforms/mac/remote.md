@@ -78,3 +78,4 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 ယခုအခါ အက်ပ်တွင် အပြည်ပြည်ဆိုင်ရာ “default sound” toggle မရှိတော့ပါ; ခေါ်ယူသူများသည် တောင်းဆိုမှု တစ်ခုချင်းစီအလိုက် အသံတစ်ခု (သို့မဟုတ် မပါ) ကို ရွေးချယ်ရပါမည်။
+

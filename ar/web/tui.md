@@ -156,3 +156,4 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 - `disconnected`: تأكّد من أن Gateway يعمل وأن `--url/--token/--password` لديك صحيحة.
 - لا يوجد وكلاء في المنتقي: تحقّق من `openclaw agents list` وتهيئة التوجيه لديك.
 - منتقي الجلسات فارغ: قد تكون في النطاق العام أو لا توجد جلسات بعد.
+

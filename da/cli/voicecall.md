@@ -28,3 +28,4 @@ openclaw voicecall unexpose
 ```
 
 Sikkerhedsnote: Udsæt kun webhook endpoint til netværk, du stoler på. Foretræk Tailscale Serveres over Tragt, når det er muligt.
+

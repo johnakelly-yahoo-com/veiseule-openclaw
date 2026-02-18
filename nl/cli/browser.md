@@ -100,3 +100,4 @@ Als de Gateway op een andere machine draait dan de browser, voer dan een **node 
 Gebruik `gateway.nodes.browser.mode` om auto-routering te regelen en `gateway.nodes.browser.node` om een specifieke node vast te pinnen als er meerdere verbonden zijn.
 
 Beveiliging + externe installatie: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
+

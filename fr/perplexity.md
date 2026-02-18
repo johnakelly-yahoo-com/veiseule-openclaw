@@ -74,3 +74,4 @@ Si aucune URL de base n’est définie, OpenClaw choisit une valeur par défaut 
 - `perplexity/sonar-reasoning-pro` — recherche approfondie
 
 Voir [Outils Web](/tools/web) pour la configuration complète de web_search.
+

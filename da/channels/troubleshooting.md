@@ -110,3 +110,4 @@ Fuld fejlfinding: [/channels/signal#troubleshooting](/channels/signal#troublesho
 | Krypterede rum fejler                    | Bekræft kryptomodul og krypteringsindstillinger | Aktivér krypteringsunderstøttelse og tilslut/synkronisér rummet igen. |
 
 Fuld fejlfinding: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

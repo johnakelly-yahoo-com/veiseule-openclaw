@@ -143,3 +143,4 @@ Zachowaj `models.mode: "merge"`, aby modele hostowane pozostały dostępne jako 
 - Model LM Studio rozładowany? Załaduj ponownie; zimny start to częsta przyczyna „zawieszania”.
 - Błędy kontekstu? Obniż `contextWindow` lub zwiększ limit po stronie serwera.
 - Bezpieczeństwo: modele lokalne pomijają filtry po stronie dostawcy; utrzymuj wąski zakres agentów i włączoną kompakcję, aby ograniczyć promień rażenia prompt injection.
+

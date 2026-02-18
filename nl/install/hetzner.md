@@ -323,3 +323,4 @@ Alle langlevende status moet herstarts, herbuilds en reboots overleven.
 | Node-runtime        | Containerbestandssysteem          | Docker-image             | Opnieuw opgebouwd bij elke image-build |
 | OS-pakketten        | Containerbestandssysteem          | Docker-image             | Niet tijdens runtime installeren       |
 | Docker-container    | Efemeer                           | Herstartbaar             | Veilig om te vernietigen               |
+

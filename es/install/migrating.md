@@ -186,3 +186,4 @@ En la máquina nueva, confirme:
 - [Doctor](/gateway/doctor)
 - [Solución de problemas del Gateway](/gateway/troubleshooting)
 - [¿Dónde almacena OpenClaw sus datos?](/help/faq#where-does-openclaw-store-its-data)
+

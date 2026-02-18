@@ -38,3 +38,4 @@ openclaw agents add <name>
 <Note>
 `--json` не подразумевает неинтерактивный режим. Для скриптов используйте `--non-interactive`.
 </Note>
+

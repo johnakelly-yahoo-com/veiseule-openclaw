@@ -143,3 +143,4 @@ Houd `models.mode: "merge"` zodat gehoste modellen beschikbaar blijven als fallb
 - LM Studio-model ontladen? Opnieuw laden; cold start is een veelvoorkomende oorzaak van “hangen”.
 - Contextfouten? Verlaag `contextWindow` of verhoog je serverlimiet.
 - Veiligheid: lokale modellen slaan provider-side filters over; houd agents smal en compaction ingeschakeld om de impact van prompt-injectie te beperken.
+

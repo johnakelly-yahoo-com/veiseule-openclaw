@@ -369,3 +369,4 @@ otherwise -> reply
 ## WhatsApp 固有の注意点
 
 WhatsApp 専用の挙動（履歴注入、メンション処理の詳細）については、[グループメッセージ](/channels/group-messages) を参照してください。
+

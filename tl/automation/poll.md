@@ -63,3 +63,4 @@ Gamitin ang tool na `message` kasama ang aksyong `poll` (`to`, `pollQuestion`, `
 Tandaan: Walang “pick exactly N” mode ang Discord; ang `pollMulti` ay tumutugma sa multi-select.
 Ang mga Teams poll ay nirender bilang Adaptive Cards at nangangailangan na manatiling online ang gateway
 upang maitala ang mga boto sa `~/.openclaw/msteams-polls.json`.
+

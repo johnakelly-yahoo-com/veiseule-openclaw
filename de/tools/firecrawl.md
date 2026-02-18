@@ -54,3 +54,4 @@ mehr Credits verbrauchen kann als reines Basic-Scraping.
 3. Grundlegende HTML-Bereinigung (letzter Fallback)
 
 Siehe [Web tools](/tools/web) für die vollständige Einrichtung der Web-Tools.
+

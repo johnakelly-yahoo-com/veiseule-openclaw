@@ -570,3 +570,4 @@ Ajan, tarayıcı otomasyonu için **tek bir araç** alır:
   - Tarayıcı yetenekli bir node bağlıysa, `target="host"` veya `target="node"`’i sabitlemediğiniz sürece araç otomatik yönlendirme yapabilir.
 
 Bu, ajanı deterministik tutar ve kırılgan seçicilerden kaçınır.
+

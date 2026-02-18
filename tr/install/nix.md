@@ -91,3 +91,4 @@ paketleme ve Nix derlemeleri için (tam bir Xcode araç zincirine dayanmadıklar
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — tam kurulum kılavuzu
 - [Wizard](/start/wizard) — Nix olmayan CLI kurulumu
 - [Docker](/install/docker) — konteyner tabanlı kurulum
+

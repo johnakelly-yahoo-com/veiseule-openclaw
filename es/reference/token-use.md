@@ -104,3 +104,4 @@ agents:
 - Prefiera modelos más pequeños para trabajo exploratorio y verboso.
 
 Consulte [Skills](/tools/skills) para conocer la fórmula exacta de sobrecarga de la lista de skills.
+

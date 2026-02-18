@@ -115,3 +115,4 @@ Snoeien beperken tot specifieke tools:
 ```
 
 Zie configreferentie: [Gateway Configuration](/gateway/configuration)
+

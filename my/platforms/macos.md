@@ -189,3 +189,4 @@ setup လုပ်ရန် အဆင့်များအတွက် [macOS re
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS permissions](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
+

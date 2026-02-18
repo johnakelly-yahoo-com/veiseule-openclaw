@@ -78,3 +78,4 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 Não há mais uma opção global de “som padrão” no app; os chamadores escolhem um som (ou nenhum) por solicitação.
+

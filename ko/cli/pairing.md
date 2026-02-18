@@ -16,3 +16,4 @@ title: "페어링"
 openclaw pairing list whatsapp
 openclaw pairing approve whatsapp <code> --notify
 ```
+

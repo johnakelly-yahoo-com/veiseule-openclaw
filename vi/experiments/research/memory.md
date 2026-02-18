@@ -221,3 +221,4 @@ Nếu bạn muốn một phiên bản tối thiểu nhưng vẫn hữu ích:
 - Khái niệm Letta / MemGPT: “core memory blocks” + “archival memory” + bộ nhớ tự chỉnh sửa dựa trên công cụ.
 - Báo cáo kỹ thuật Hindsight: “retain / recall / reflect”, bộ nhớ bốn mạng, trích xuất fact tường thuật, tiến hóa độ tin cậy ý kiến.
 - SuCo: arXiv 2411.14754 (2024): “Subspace Collision” cho truy xuất láng giềng gần đúng.
+

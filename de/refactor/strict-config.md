@@ -86,3 +86,4 @@ Alles andere muss hart fehlschlagen mit: „Konfiguration ungültig. Führen Sie
 - Plugin ohne Schema → Plugin-Laden mit klarem Fehler blockiert.
 - Ungültige Konfiguration → Gateway-Start blockiert, außer Diagnosebefehle.
 - Doctor-Dry-Run automatisch; `doctor --fix` schreibt korrigierte Konfiguration.
+

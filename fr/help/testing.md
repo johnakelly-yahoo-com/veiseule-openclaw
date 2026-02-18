@@ -363,3 +363,4 @@ Lorsque vous corrigez un problème de fournisseur/modèle découvert en live :
 - Ciblez de préférence la couche la plus petite qui attrape le bug :
   - bug de conversion/relecture de requête fournisseur → test des modèles directs
   - bug du pipeline de session/historique/outils de la gateway → smoke live de la gateway ou test mock de la gateway compatible CI
+

@@ -30,3 +30,4 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - `OPENCODE_ZEN_API_KEY` 또한 지원됩니다.
 - Zen 에 로그인하여 결제 정보를 추가한 다음 API 키를 복사합니다.
 - OpenCode Zen 은 요청당 과금합니다. 자세한 내용은 OpenCode 대시보드를 확인하십시오.
+

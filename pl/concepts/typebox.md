@@ -281,3 +281,4 @@ surowy plik jest zazwyczaj dostępny pod:
 1. Zaktualizuj schematy TypeBox.
 2. Uruchom `pnpm protocol:check`.
 3. Zatwierdź zregenerowany schemat oraz modele Swift.
+

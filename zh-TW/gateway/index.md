@@ -328,3 +328,4 @@ Windows 安裝應使用 **WSL2**，並依照上述 Linux systemd 章節。
 
 - 淘汰 `openclaw gateway` 與舊版 TCP 控制連接埠的使用。
 - 更新客戶端以使用 WS 協定，並採用必要的 connect 與結構化 presence。
+

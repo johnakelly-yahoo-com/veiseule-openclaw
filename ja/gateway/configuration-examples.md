@@ -599,3 +599,4 @@ title: "設定例"
 - プロバイダーIDが異なります (電話番号、ユーザーID、チャンネルID)。 プロバイダドキュメントを使用してフォーマットを確認します。
 - 後から追加できるオプションのセクション: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`。
 - 詳細なセットアップの注記については、[Providers](/channels/whatsapp) および [Troubleshooting](/gateway/troubleshooting) を参照してください。
+

@@ -51,3 +51,4 @@ Orden de extracción de `web_fetch`:
 3. Limpieza básica de HTML (último respaldo)
 
 Consulte [Web tools](/tools/web) para la configuración completa de herramientas web.
+

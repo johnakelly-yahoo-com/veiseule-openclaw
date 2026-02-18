@@ -50,3 +50,4 @@ Meet here
 - **Telegram**：地點會對應到 `LocationName/LocationAddress`；即時位置使用 `live_period`。
 - **WhatsApp**：`locationMessage.comment` 與 `liveLocationMessage.caption` 會作為說明文字行附加。
 - **Matrix**：`geo_uri` 會解析為釘選位置；高度會被忽略，且 `LocationIsLive` 一律為 false。
+

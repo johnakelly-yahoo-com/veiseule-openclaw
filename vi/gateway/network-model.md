@@ -12,3 +12,4 @@ sở hữu các kết nối kênh và mặt phẳng điều khiển WebSocket.
 - Các node kết nối tới Gateway WS qua LAN, tailnet hoặc SSH khi cần. Cầu TCP cũ đã bị ngừng hỗ trợ.
 - Canvas host là một máy chủ tệp HTTP tại `canvasHost.port` (mặc định `18793`) phục vụ `/__openclaw__/canvas/` cho WebView của node. Xem [Gateway configuration](/gateway/configuration) (`canvasHost`).
 - Sử dụng từ xa thường là đường hầm SSH hoặc VPN tailnet. Xem [Remote access](/gateway/remote) và [Discovery](/gateway/discovery).
+

@@ -39,3 +39,4 @@ Notas:
 - `memory status --deep --index` ejecuta una reindexación si el almacén está sucio.
 - `memory index --verbose` imprime detalles por fase (proveedor, modelo, fuentes, actividad por lotes).
 - `memory status` incluye cualquier ruta adicional configurada mediante `memorySearch.extraPaths`.
+

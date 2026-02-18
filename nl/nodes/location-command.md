@@ -107,3 +107,4 @@ Notities:
 - Tijdens gebruik: “Alleen wanneer OpenClaw open is.”
 - Altijd: “Achtergrondlocatie toestaan. Vereist systeempermissie.”
 - Nauwkeurig: “Gebruik nauwkeurige GPS-locatie. Schakel uit om een benaderende locatie te delen.”
+

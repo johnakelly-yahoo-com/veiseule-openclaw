@@ -252,3 +252,4 @@ Notas:
 - Las respuestas se almacenan en caché (predeterminado: 15 minutos) para reducir obtenciones repetidas.
 - Si usa perfiles/listas de permitidos de herramientas, agregue `web_search`/`web_fetch` o `group:web`.
 - Si falta la clave de Brave, `web_search` devuelve una breve sugerencia de configuración con un enlace a la documentación.
+

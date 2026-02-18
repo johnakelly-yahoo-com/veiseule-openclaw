@@ -156,3 +156,4 @@ Walang output matapos magpadala ng mensahe:
 - `disconnected`: tiyaking tumatakbo ang Gateway at tama ang iyong `--url/--token/--password`.
 - Walang agent sa picker: suriin ang `openclaw agents list` at ang iyong routing config.
 - Walang laman ang session picker: maaaring nasa global scope ka o wala ka pang mga session.
+

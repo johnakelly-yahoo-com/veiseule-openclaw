@@ -192,3 +192,4 @@ All session state is **owned by the gateway** (the “master” OpenClaw). UI cl
 - 13. `accountId`: provayder hisob identifikatori (ko‘p hisobli bo‘lsa)
 - 14. `threadId`: kanal qo‘llab-quvvatlaganda mavzu/ip identifikatori
       Kelib chiqish maydonlari to‘g‘ridan-to‘g‘ri xabarlar, kanallar va guruhlar uchun to‘ldiriladi. 15. Agar ulagich faqat yetkazib berish marshrutlashini yangilasa (masalan, DM asosiy sessiyasini yangilab turish uchun), sessiya o‘zining tushuntiruvchi metama’lumotlarini saqlab qolishi uchun baribir kiruvchi kontekstni taqdim etishi kerak. 16. Kengaytmalar buni kiruvchi kontekstda `ConversationLabel`, `GroupSubject`, `GroupChannel`, `GroupSpace` va `SenderName` yuborish hamda `recordSessionMetaFromInbound` ni chaqirish (yoki xuddi shu kontekstni `updateLastRoute` ga uzatish) orqali bajarishi mumkin.
+

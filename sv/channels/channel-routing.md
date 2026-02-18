@@ -109,3 +109,4 @@ Inkommande svar inkluderar:
 - Citerad kontext läggs till i `Body` som ett `[Replying to ...]`‑block.
 
 Detta är konsekvent över kanaler.
+

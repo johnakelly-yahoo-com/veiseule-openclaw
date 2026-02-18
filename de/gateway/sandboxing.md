@@ -188,3 +188,4 @@ Siehe [Multi‑Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) zur Prio
 - [Sandbox‑Konfiguration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi‑Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Sicherheit](/gateway/security)
+

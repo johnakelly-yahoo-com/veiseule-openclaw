@@ -646,3 +646,4 @@ export default function (api) {
 
 - 리포지토리 내 플러그인은 `src/**` 아래에 Vitest 테스트를 둘 수 있습니다(예: `src/plugins/voice-call.plugin.test.ts`).
 - 별도로 게시된 플러그인은 자체 CI(lint/build/test)를 실행하고 `openclaw.extensions` 가 빌드된 엔트리포인트(`dist/index.js`)를 가리키는지 검증해야 합니다.
+

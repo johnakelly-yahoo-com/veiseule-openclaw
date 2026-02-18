@@ -225,3 +225,4 @@ Iminungkahing `.gitignore` starter:
   workspace na ito ay hindi pa isang repo, patakbuhin: Maaaring gumamit ang multi-agent routing ng magkakaibang workspace kada agent.
 - Kung naka-enable ang `agents.defaults.sandbox`, ang mga non-main na session ay maaaring gumamit ng per-session sandbox
   workspace sa ilalim ng `agents.defaults.sandbox.workspaceRoot`.
+

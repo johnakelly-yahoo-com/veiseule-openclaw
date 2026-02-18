@@ -85,3 +85,4 @@ For fjern-gateways kan du også bruge `openclaw logs --follow` (se [/cli/logs](/
 - Hvis `logging.level` er sat højere end `warn`, kan disse logs undertrykkes. Standard `info` er fint.
 - Flag er sikre at lade være aktiveret; de påvirker kun logmængden for det specifikke subsystem.
 - Brug [/logging](/logging) til at ændre logdestinationer, niveauer og redigering.
+

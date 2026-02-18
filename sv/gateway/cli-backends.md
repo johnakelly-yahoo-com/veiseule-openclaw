@@ -218,3 +218,4 @@ OpenClaw levereras också med ett standardval för `codex-cli`:
 - **Ingen sessionskontinuitet**: säkerställ att `sessionArg` är satt och att `sessionMode` inte är
   `none` (Codex CLI kan för närvarande inte återuppta med JSON-utdata).
 - **Bilder ignoreras**: sätt `imageArg` (och verifiera att CLI:t stöder filsökvägar).
+

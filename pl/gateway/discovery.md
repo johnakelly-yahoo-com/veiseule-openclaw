@@ -109,3 +109,4 @@ Gateway jest źródłem prawdy w zakresie dopuszczania węzłów/klientów.
 - **Gateway**: reklamuje beacony wykrywania, podejmuje decyzje parowania i hostuje punkt końcowy WS.
 - **Aplikacja macOS**: pomaga wybrać Gateway, pokazuje monity parowania i używa SSH wyłącznie jako rozwiązania awaryjnego.
 - **Węzły iOS/Android**: przeglądają Bonjour jako udogodnienie i łączą się z sparowanym Gateway WS.
+

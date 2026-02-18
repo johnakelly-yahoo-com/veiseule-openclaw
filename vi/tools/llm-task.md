@@ -109,3 +109,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Không có công cụ nào được cung cấp cho mô hình trong lần chạy này.
 - Hãy coi đầu ra là không đáng tin cậy trừ khi bạn xác thực bằng `schema`.
 - Đặt các bước phê duyệt trước bất kỳ bước nào gây tác dụng phụ (send, post, exec).
+

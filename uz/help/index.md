@@ -15,3 +15,4 @@ Agar tezkor “tiqilib qolishdan chiqish” oqimini xohlasangiz, shu yerdan bosh
 Agar konseptual savollarni izlayotgan bo‘lsangiz (“nimadir buzildi” emas):
 
 - [FAQ (tushunchalar)](/help/faq)
+

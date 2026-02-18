@@ -122,3 +122,4 @@ Før udgivelsen 2026.1.22 anvendte OpenClaw flere lag af transskript-hygiejne:
 Denne kompleksitet forårsagede regressioner på tværs af udbydere (især `openai-responses`
 `call_idřfc_id` parring). Oprydningen af 2026.1.22 fjernede udvidelsen, centraliseret
 logik i løberen, og gjorde OpenAI **no-touch** ud over billeddesinficering.
+

@@ -570,3 +570,4 @@ Sådan kortlægges det:
   - Hvis en browser-kompatibel node er forbundet, kan værktøjet automatisk route til den, medmindre du fastlåser `target="host"` eller `target="node"`.
 
 Dette holder agenten deterministisk og undgår skrøbelige selektorer.
+

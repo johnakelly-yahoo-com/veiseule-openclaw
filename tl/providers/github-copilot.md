@@ -64,3 +64,4 @@ openclaw models set github-copilot/gpt-4o
 - Nangangailangan ng interactive TTY; patakbuhin ito nang direkta sa isang terminal.
 - Ang availability ng Copilot model ay depende sa iyong plano; kung may model na ma-reject, subukan ang ibang ID (halimbawa `github-copilot/gpt-4.1`).
 - Ang login ay nag-iimbak ng GitHub token sa auth profile store at ine-exchange ito para sa isang Copilot API token kapag tumatakbo ang OpenClaw.
+

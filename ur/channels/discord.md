@@ -471,3 +471,4 @@ Emoji can be unicode (e.g., `✅`) or custom emoji syntax like `<:party_blob:123
 - بوٹ ٹوکن کو پاس ورڈ کی طرح محفوظ رکھیں؛ نگرانی شدہ ہوسٹس پر `DISCORD_BOT_TOKEN` env var کو ترجیح دیں یا کنفیگ فائل کی اجازتیں محدود کریں۔
 - بوٹ کو صرف اتنی ہی اجازتیں دیں جتنی درکار ہوں (عموماً Read/Send Messages)۔
 - اگر بوٹ اٹک جائے یا rate limited ہو تو Discord سیشن پر کسی اور پروسیس کی ملکیت کی تصدیق کے بعد gateway (`openclaw gateway --force`) ری اسٹارٹ کریں۔
+

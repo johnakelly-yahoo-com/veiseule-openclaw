@@ -44,3 +44,4 @@ Các tùy chọn toàn cục liên quan:
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: xác thực WebSocket.
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: đích gateway từ xa.
 - `session.*`: lưu trữ phiên và các giá trị mặc định của khóa chính.
+

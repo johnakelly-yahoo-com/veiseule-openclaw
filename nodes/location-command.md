@@ -107,3 +107,4 @@ Notes:
 - While Using: “Only when OpenClaw is open.”
 - Always: “Allow background location. Requires system permission.”
 - Precise: “Use precise GPS location. Toggle off to share approximate location.”
+

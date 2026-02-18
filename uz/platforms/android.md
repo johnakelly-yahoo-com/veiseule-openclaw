@@ -144,3 +144,4 @@ Pairing tafsilotlari: [Gateway pairing](/gateway/pairing).
 - 26. `camera.clip` (mp4)
 
 27. Parametrlar va CLI yordamchilari uchun [Camera node](/nodes/camera) ga qarang.
+

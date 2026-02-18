@@ -227,3 +227,4 @@ git pull
 - 再次執行 `openclaw doctor`，並仔細閱讀輸出（通常會告訴你修正方式）。
 - 查看：[疑難排解](/gateway/troubleshooting)
 - 到 Discord 詢問：[https://discord.gg/clawd](https://discord.gg/clawd)
+

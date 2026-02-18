@@ -74,3 +74,4 @@ does **not** inherit the host `process.env`.
 - 將環境變數烘焙進你的自訂沙箱映像
 
 全域的 `env` 與 `skills.entries.<skill>.env/apiKey` 僅適用於 **主機** 執行。
+

@@ -76,3 +76,4 @@ title: "Menü Çubuğu"
 - Diğeri aktifken anayı başlatın: simge anında ana’ya döner.
 - Hızlı araç patlamaları: rozetin titremediğinden emin olun (araç sonuçlarında TTL toleransı).
 - Tüm oturumlar boşta olduğunda sağlık satırı yeniden görünür.
+

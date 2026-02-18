@@ -142,3 +142,4 @@ Consulte [Configuración del Gateway](/gateway/configuration) para:
 - enrutamiento `agents.defaults.imageModel`
 
 Consulte [Modelos](/concepts/models) para una visión general más amplia de la selección de modelos y el fallback.
+

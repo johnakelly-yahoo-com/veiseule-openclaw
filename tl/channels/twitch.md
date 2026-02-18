@@ -374,3 +374,4 @@ Halimbawa:
 - **500 karakter** bawat mensahe (awtomatikong hina-hati sa word boundaries)
 - Tinatanggal ang Markdown bago ang chunking
 - Walang rate limiting (ginagamit ang built-in na rate limits ng Twitch)
+

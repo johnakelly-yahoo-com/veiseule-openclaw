@@ -146,3 +146,4 @@ Detalhes: [Gateway protocol](/gateway/protocol), [Pairing](/channels/pairing),
 - Exatamente um Gateway controla uma única sessão Baileys por host.
 - O handshake é obrigatório; qualquer primeiro frame não‑JSON ou não‑connect resulta em fechamento imediato.
 - Eventos não são reproduzidos; clientes devem atualizar em caso de lacunas.
+

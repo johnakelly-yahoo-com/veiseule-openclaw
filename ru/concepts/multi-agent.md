@@ -380,3 +380,4 @@ openclaw agents list --bindings
 Для таргетинга групп используйте `agents.list[].groupChat.mentionPatterns`, чтобы @упоминания корректно сопоставлялись с нужным агентом.
 
 [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) для подробных примеров.
+

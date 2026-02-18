@@ -109,3 +109,4 @@ Gateway serwuje pliki statyczne z `dist/control-ui`. Zbuduj je poleceniem:
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
+

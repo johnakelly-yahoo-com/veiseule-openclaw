@@ -51,3 +51,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - Usuń nadpisanie: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`.
 - Opcjonalnie uruchom `sudo log config --reload`, aby wymusić natychmiastowe usunięcie nadpisania przez logd.
 - Pamiętaj, że ta powierzchnia może zawierać numery telefonów i treści wiadomości; pozostawiaj plist tylko tak długo, jak aktywnie potrzebujesz dodatkowych szczegółów.
+

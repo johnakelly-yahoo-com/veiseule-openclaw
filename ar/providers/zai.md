@@ -28,3 +28,4 @@ openclaw onboard --zai-api-key "$ZAI_API_KEY"
 - تتوفّر نماذج GLM على هيئة `zai/<model>` (مثال: `zai/glm-4.7`).
 - راجع [/providers/glm](/providers/glm) للاطّلاع على نظرة عامة على عائلة النماذج.
 - يستخدم Z.AI مصادقة Bearer مع مفتاح API الخاص بك.
+

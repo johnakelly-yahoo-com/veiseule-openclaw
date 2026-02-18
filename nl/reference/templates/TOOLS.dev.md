@@ -17,3 +17,4 @@ Het definieert niet welke tools bestaan; OpenClaw levert intern ingebouwde tools
 - Tekst-naar-spraak: specificeer stem, doelspeaker/-ruimte en of er gestreamd moet worden.
 
 Voeg toe wat je maar wilt dat de assistent moet weten over je lokale toolchain.
+

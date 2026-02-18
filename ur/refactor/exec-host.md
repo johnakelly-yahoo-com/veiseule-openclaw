@@ -309,3 +309,4 @@ Agent -> Gateway -> Bridge -> Node Service (TS)
 - [Exec منظوریوں](/tools/exec-approvals)
 - [نوڈز](/nodes)
 - [بلند اختیاراتی موڈ](/tools/elevated)
+

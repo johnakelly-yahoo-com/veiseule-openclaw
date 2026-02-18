@@ -653,3 +653,4 @@ Les plugins peuvent (et doivent) fournir des tests :
 
 - Les plugins dans le dépôt peuvent conserver des tests Vitest sous `src/**` (exemple : `src/plugins/voice-call.plugin.test.ts`).
 - Les plugins publiés séparément doivent exécuter leur propre CI (lint/build/test) et valider que `openclaw.extensions` pointe vers le point d’entrée compilé (`dist/index.js`).
+

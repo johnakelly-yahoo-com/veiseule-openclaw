@@ -335,3 +335,4 @@ Notities:
 
 - De macOS-menubalk-app maakt verbinding met de Gateway-WS-server als een node (zodat `openclaw nodes …` tegen deze Mac werkt).
 - In externe modus opent de app een SSH-tunnel voor de Gateway-poort en verbindt met `localhost`.
+

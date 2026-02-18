@@ -99,3 +99,4 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 Wenn ein manueller Lauf den Port belegt, beenden Sie diesen Prozess (Ctrl+C). Als letzte Maßnahme beenden Sie die oben gefundene PID.
+

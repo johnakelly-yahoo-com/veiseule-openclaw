@@ -64,3 +64,4 @@ Hãy truyền `--token` hoặc `--password` một cách tường minh. Thiếu t
 
 - Xoay vòng token trả về một token mới (nhạy cảm). Hãy coi nó như một bí mật.
 - Các lệnh này yêu cầu phạm vi `operator.pairing` (hoặc `operator.admin`).
+

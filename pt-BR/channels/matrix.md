@@ -259,3 +259,4 @@ Opções do provedor:
 - `channels.matrix.autoJoin`: tratamento de convites (`always | allowlist | off`, padrão: sempre).
 - `channels.matrix.autoJoinAllowlist`: IDs/aliases de salas permitidos para auto-join.
 - `channels.matrix.actions`: controle de ferramentas por ação (reações/mensagens/pins/memberInfo/channelInfo).
+

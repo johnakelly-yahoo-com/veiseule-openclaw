@@ -15,3 +15,4 @@ Hızlı bir “takılıp kalmaktan kurtulma” akışı istiyorsanız, buradan b
 Kavramsal sorular arıyorsanız (“bir şeyler bozuldu” değilse):
 
 - [SSS (kavramlar)](/help/faq)
+

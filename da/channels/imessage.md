@@ -334,3 +334,4 @@ Relaterede globale indstillinger:
 
 - `agents.list[].groupChat.mentionPatterns` (eller `messages.groupChat.mentionPatterns`).
 - `messages.responsePrefix`.
+

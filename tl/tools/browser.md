@@ -561,3 +561,4 @@ Paano ito nagma-map:
   - Kung may nakakonektang browser-capable na node, maaaring auto-route ang tool papunta rito maliban kung i-pin mo ang `target="host"` o `target="node"`.
 
 Pinananatili nitong deterministiko ang agent at iniiwasan ang marurupok na selector.
+

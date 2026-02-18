@@ -173,3 +173,4 @@ Noter:
 - Kun tilgængelig for OpenAI/OpenAI Codex-modeller.
 - Værktøjspolitik gælder stadig; `allow: ["exec"]` tillader implicit `apply_patch`.
 - Konfigurationen ligger under `tools.exec.applyPatch`.
+

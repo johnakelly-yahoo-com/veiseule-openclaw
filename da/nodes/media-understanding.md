@@ -373,3 +373,4 @@ Dette viser udfald pr. kapabilitet og den valgte udbyder/model, når relevant.
 
 - [Konfiguration](/gateway/configuration)
 - [Billede- og mediesupport](/nodes/images)
+

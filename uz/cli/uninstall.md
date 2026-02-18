@@ -11,3 +11,4 @@ title: "1. o‘chirish"
 openclaw uninstall --all --yes
 openclaw uninstall --dry-run
 ```
+

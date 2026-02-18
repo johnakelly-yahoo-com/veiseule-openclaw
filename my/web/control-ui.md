@@ -202,3 +202,4 @@ http://localhost:5173/?gatewayUrl=wss://<gateway-host>:18789&token=<gateway-toke
 ```
 
 Remote ဝင်ရောက်မှု တပ်ဆင်ခြင်း အသေးစိတ်: [Remote access](/gateway/remote)။
+

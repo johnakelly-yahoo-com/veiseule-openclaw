@@ -222,3 +222,4 @@ openclaw pairing list signal
 - `agents.list[].groupChat.mentionPatterns`（Signal はネイティブのメンションをサポートしません）。
 - `messages.groupChat.mentionPatterns`（グローバルフォールバック）。
 - `messages.responsePrefix`。
+

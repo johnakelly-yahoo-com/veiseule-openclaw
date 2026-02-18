@@ -109,3 +109,4 @@ Bemærk: Binær registrering er best-effort på tværs af macOS/Linux/Windows; s
 - Anvendelsesregler bruger førsteklasses gevinster. `chatType` er normaliseret til `direct`, `group`, eller `room`.
 - Sørg for, at din CLI afslutter med status 0 og udskriver ren tekst; JSON skal tilpasses via `jq -r .text`.
 - Hold timeouts rimelige (`timeoutSeconds`, standard 60s) for at undgå at blokere svarkøen.
+

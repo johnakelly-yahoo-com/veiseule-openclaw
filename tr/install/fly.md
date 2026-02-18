@@ -484,3 +484,4 @@ ngrok tüneli konteyner içinde çalışır ve Fly uygulamasını açığa çık
 - Ücretsiz katman belirli bir kullanım hakkı içerir
 
 Ayrıntılar için [Fly.io fiyatlandırması](https://fly.io/docs/about/pricing/) sayfasına bakın.
+

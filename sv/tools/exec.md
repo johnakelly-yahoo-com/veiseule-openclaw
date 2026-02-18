@@ -173,3 +173,4 @@ Noteringar:
 - Endast tillgängligt för OpenAI/OpenAI Codex-modeller.
 - Verktygspolicy gäller fortfarande; `allow: ["exec"]` tillåter implicit `apply_patch`.
 - Konfig finns under `tools.exec.applyPatch`.
+

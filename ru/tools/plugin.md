@@ -658,3 +658,4 @@ export default function (api) {
 - Плагины внутри репозитория могут хранить тесты Vitest под `src/**` (пример: `src/plugins/voice-call.plugin.test.ts`).
 - Плагины, публикуемые отдельно, должны запускать собственный CI (lint/build/test) и проверять,
   что `openclaw.extensions` указывает на собранную точку входа (`dist/index.js`).
+

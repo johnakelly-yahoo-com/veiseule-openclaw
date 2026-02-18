@@ -224,3 +224,4 @@ Provider options:
 - `agents.list[].groupChat.mentionPatterns` (Signal သည် native mentions ကို မပံ့ပိုးပါ)။
 - `messages.groupChat.mentionPatterns` (global fallback)။
 - `messages.responsePrefix`။
+

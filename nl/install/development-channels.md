@@ -69,3 +69,4 @@ Beta- en dev-builds bevatten mogelijk **geen** macOS-apprelease. Dat is oké:
 
 - De git-tag en npm dist-tag kunnen nog steeds worden gepubliceerd.
 - Vermeld “geen macOS-build voor deze beta” in release-opmerkingen of de changelog.
+

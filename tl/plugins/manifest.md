@@ -63,3 +63,4 @@ Mga opsyonal na key:
 - Kung ang plugin mo ay umaasa sa mga native module, idokumento ang mga hakbang sa build at anumang
   allowlist na kinakailangan ng package-manager (halimbawa, pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
+

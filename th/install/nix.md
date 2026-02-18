@@ -93,3 +93,4 @@ apps/macos/Sources/OpenClaw/Resources/Info.plist
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — คู่มือการตั้งค่าแบบเต็ม
 - [Wizard](/start/wizard) — การตั้งค่า CLI แบบไม่ใช้ Nix
 - [Docker](/install/docker) — การตั้งค่าแบบคอนเทนเนอร์
+

@@ -163,3 +163,4 @@ openclaw models list
   aktuelle Fähigkeiten.
 - Wenn Sie einen verwalteten Schlüsselablauf bevorzugen, können Sie auch einen OpenAI‑kompatiblen
   Proxy vor Bedrock platzieren und ihn stattdessen als OpenAI-Anbieter konfigurieren.
+

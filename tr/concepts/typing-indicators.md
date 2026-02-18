@@ -63,3 +63,4 @@ Oturum bazında modu veya aralığı geçersiz kılabilirsiniz:
 - Heartbeat’ler, moddan bağımsız olarak asla yazma göstermez.
 - `typingIntervalSeconds`, **yenileme aralığını** kontrol eder, başlangıç zamanını değil.
   Varsayılan 6 saniyedir.
+

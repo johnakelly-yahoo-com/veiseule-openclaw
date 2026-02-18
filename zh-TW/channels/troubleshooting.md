@@ -110,3 +110,4 @@ openclaw channels status --probe
 | 加密房間失敗                           | 驗證加密模組與加密設定                        | 啟用加密支援並重新加入／同步房間。         |
 
 完整疑難排解：[/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

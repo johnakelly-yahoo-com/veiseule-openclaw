@@ -667,3 +667,4 @@ Wtyczki mogą (i powinny) dostarczać testy:
 
 - Wtyczki w repozytorium mogą trzymać testy Vitest pod `src/**` (przykład: `src/plugins/voice-call.plugin.test.ts`).
 - Wtyczki publikowane osobno powinny uruchamiać własne CI (lint/build/test) i weryfikować, że `openclaw.extensions` wskazuje na zbudowany punkt wejścia (`dist/index.js`).
+

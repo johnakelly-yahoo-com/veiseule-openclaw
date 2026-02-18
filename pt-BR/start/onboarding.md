@@ -66,3 +66,4 @@ A integração inicial solicita permissões TCC necessárias para:
   Após a configuração, o app abre uma sessão de chat dedicada à integração inicial para que o agente possa se apresentar e orientar os próximos passos. Isso mantém a orientação da primeira execução separada da sua conversa normal. Veja [Bootstrapping](/start/bootstrapping) para entender o que acontece no host do gateway durante a primeira execução do agente.
 </Step>
 </Steps>
+

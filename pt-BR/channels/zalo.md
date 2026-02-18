@@ -184,3 +184,4 @@ Opções de múltiplas contas:
 - `channels.zalo.accounts.<id>.webhookSecret`: segredo de webhook por conta.
 - `channels.zalo.accounts.<id>.webhookPath`: caminho de webhook por conta.
 - `channels.zalo.accounts.<id>.proxy`: URL de proxy por conta.
+

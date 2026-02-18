@@ -70,3 +70,4 @@ Use una de las siguientes opciones:
 - integrar las variables de entorno en su imagen personalizada de sandbox
 
 Los `env` y `skills.entries.<skill>.env/apiKey` globales se aplican solo a ejecuciones en el **host**.
+

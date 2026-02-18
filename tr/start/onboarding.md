@@ -79,3 +79,4 @@ Onboarding, aşağıdakiler için gerekli TCC izinlerini ister:
   için [Bootstrapping](/start/bootstrapping) bölümüne bakın.
 </Step>
 </Steps>
+

@@ -1025,3 +1025,4 @@ Opcje:
 - `--message <text>`
 - `--timeout-ms <ms>` (domyślnie `agents.defaults.timeoutSeconds`)
 - `--history-limit <n>`
+

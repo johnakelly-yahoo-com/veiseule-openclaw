@@ -143,3 +143,4 @@ Barındırılan modellerin yedek olarak kullanılabilir kalması için `models.m
 - LM Studio modeli boşaltıldı mı? Yeniden yükleyin; soğuk başlangıç “takılı kalma”nın yaygın bir nedenidir.
 - Bağlam hataları mı? `contextWindow`’ü düşürün veya sunucu limitinizi yükseltin.
 - Güvenli kullanım: yerel modeller sağlayıcı tarafı filtreleri atlar; prompt injection etki alanını sınırlamak için ajanları dar tutun ve sıkıştırmayı açık bırakın.
+

@@ -10,3 +10,4 @@ title: "لوحة التحكم"
 openclaw dashboard
 openclaw dashboard --no-open
 ```
+

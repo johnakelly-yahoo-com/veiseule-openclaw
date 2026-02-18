@@ -599,3 +599,4 @@ Wenn mehr als eine Person Ihrem Bot eine Direktnachricht senden kann (mehrere Ei
 - Anbieter-IDs unterscheiden sich (Telefonnummern, Benutzer-IDs, Kanal-IDs). Prüfen Sie das Format in der Anbieter-Dokumentation.
 - Optionale Abschnitte zum späteren Hinzufügen: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Siehe [Providers](/channels/whatsapp) und [Fehlerbehebung](/gateway/troubleshooting) für weiterführende Einrichtungshinweise.
+

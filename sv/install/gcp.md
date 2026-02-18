@@ -497,3 +497,4 @@ Se [https://cloud.google.com/iam/docs/understanding-roles](https://cloud.google.
 - Sätt upp meddelandekanaler: [Channels](/channels)
 - Para lokala enheter som noder: [Nodes](/nodes)
 - Konfigurera Gateway: [Gateway configuration](/gateway/configuration)
+

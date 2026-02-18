@@ -411,3 +411,4 @@ Vælg én før implementering for at undgå drift.
 - Smerter: godkendelser + duplikering + to stacks.
 - Forslag: én WS-protokol med eksplicitte roller + scopes, samlet parring + TLS-pinning, gateway-hostede godkendelser, stabile device ID’er + søde slugs.
 - Resultat: enklere UX, stærkere sikkerhed, mindre duplikering, bedre mobil routing.
+

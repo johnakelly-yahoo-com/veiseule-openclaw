@@ -127,3 +127,4 @@ Hvis dit værktøj tillader blokering af disse værktøjer, vil OpenProse progra
 Behandl `.prose` filer som kode. Gennemgå før kørsel. Brug OpenClaw værktøj tillader lister og godkendelsesporte til at kontrollere bivirkninger.
 
 For deterministiske workflows med godkendelsesporte kan du sammenligne med [Lobster](/tools/lobster).
+

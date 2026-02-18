@@ -336,3 +336,4 @@ Tùy chọn toàn cục liên quan:
 - Thông tin trạng thái/sức khỏe: `openclaw status --all` hoặc `openclaw status --deep`.
 
 Để tham khảo quy trình kênh nói chung, xem [Channels](/channels) và hướng dẫn [Plugins](/tools/plugin).
+

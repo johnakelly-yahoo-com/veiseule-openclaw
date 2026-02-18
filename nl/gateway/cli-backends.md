@@ -216,3 +216,4 @@ Overschrijf alleen indien nodig (gebruikelijk: absoluut `command`-pad).
 - **Geen sessiecontinuïteit**: zorg dat `sessionArg` is ingesteld en `sessionMode` niet
   `none` is (Codex CLI kan momenteel niet hervatten met JSON-uitvoer).
 - **Afbeeldingen genegeerd**: stel `imageArg` in (en verifieer dat de CLI bestandspaden ondersteunt).
+

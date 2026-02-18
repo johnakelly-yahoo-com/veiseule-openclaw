@@ -59,3 +59,4 @@ Sino ang tumatanggap nito:
 
 - Nag-e-expose ng Wake Words editor sa Settings.
 - Tumatawag sa `voicewake.set` sa Gateway WS para mag-sync ang mga edit sa lahat.
+

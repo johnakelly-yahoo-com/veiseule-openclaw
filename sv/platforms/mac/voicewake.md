@@ -62,3 +62,4 @@ Härdning:
 
 - Slå på push‑to‑talk, håll Cmd+Fn, tala, släpp: överlägget ska visa partialer och sedan skicka.
 - Medan du håller ska menyradens ”öron” vara förstorade (använder `triggerVoiceEars(ttl:nil)`); de faller tillbaka efter släpp.
+

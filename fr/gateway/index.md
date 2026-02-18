@@ -325,3 +325,4 @@ Les installations Windows doivent utiliser **WSL2** et suivre la section systemd
 
 - Retirer les usages de `openclaw gateway` et de l’ancien port de contrôle TCP.
 - Mettre à jour les clients pour parler le protocole WS avec connexion obligatoire et présence structurée.
+

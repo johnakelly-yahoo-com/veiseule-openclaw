@@ -74,3 +74,4 @@ Jeśli nie ustawiono bazowego URL, OpenClaw wybiera domyślny na podstawie źró
 - `perplexity/sonar-reasoning-pro` — dogłębne badania
 
 Zobacz [Narzędzia web](/tools/web), aby uzyskać pełną konfigurację web_search.
+

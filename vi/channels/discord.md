@@ -469,3 +469,4 @@ Emoji có thể là unicode (ví dụ: `✅`) hoặc cú pháp emoji tùy chỉn
 - Hãy coi bot token như mật khẩu; ưu tiên biến môi trường `DISCORD_BOT_TOKEN` trên các máy chủ được giám sát hoặc khóa chặt quyền của tệp cấu hình.
 - Chỉ cấp cho bot các quyền cần thiết (thường là Read/Send Messages).
 - Nếu bot bị kẹt hoặc bị giới hạn tốc độ, hãy khởi động lại gateway (`openclaw gateway --force`) sau khi xác nhận không có tiến trình nào khác đang sở hữu phiên Discord.
+

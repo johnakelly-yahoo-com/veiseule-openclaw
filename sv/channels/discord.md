@@ -468,3 +468,4 @@ Emoji kan vara unicode (t.ex., `✅`) eller anpassad emoji-syntax som `<:party_b
 - Behandla bottoken som ett lösenord; föredra `DISCORD_BOT_TOKEN`-miljövariabeln på övervakade värdar eller lås ned filbehörigheter för konfigfilen.
 - Ge endast boten de behörigheter den behöver (vanligtvis Läs/Skicka meddelanden).
 - Om boten fastnar eller blir rate-limitad, starta om gatewayen (`openclaw gateway --force`) efter att ha bekräftat att inga andra processer äger Discord-sessionen.
+

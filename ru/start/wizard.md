@@ -102,3 +102,4 @@ RPC API и полного списка полей конфига, которые
 - Справочник команд CLI: [`openclaw onboard`](/cli/onboard)
 - Онбординг приложения для macOS: [Onboarding](/start/onboarding)
 - Ритуал первого запуска агента: [Agent Bootstrapping](/start/bootstrapping)
+

@@ -240,3 +240,4 @@ Relacionado:
 - [Herramienta Exec](/tools/exec)
 - [Modo elevado](/tools/elevated)
 - [Habilidades](/tools/skills)
+

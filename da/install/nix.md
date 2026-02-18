@@ -91,3 +91,4 @@ emballage og Nix bygger (som ikke er afhængig af en fuld Xcode værktøjskæde)
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — fuld opsætningsguide
 - [Wizard](/start/wizard) — CLI-opsætning uden Nix
 - [Docker](/install/docker) — containeriseret opsætning
+

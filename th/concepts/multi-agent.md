@@ -376,3 +376,4 @@ openclaw agents list --bindings
     หมายเหตุ: `tools.elevated`เป็นแบบ**ส่วนกลาง**และอิงผู้ส่ง ไม่สามารถตั้งค่าต่อเอเจนต์ได้ หากต้องการขอบเขตต่อเอเจนต์ ให้ใช้`agents.list[].tools`เพื่อปฏิเสธ`exec` สำหรับการกำหนดเป้าหมายกลุ่ม ให้ใช้`agents.list[].groupChat.mentionPatterns`เพื่อให้@mentionแมปไปยังเอเจนต์ที่ตั้งใจได้อย่างชัดเจน
 
 ดู[Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)สำหรับตัวอย่างโดยละเอียด
+

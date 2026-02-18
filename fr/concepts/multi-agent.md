@@ -381,3 +381,4 @@ Si vous avez besoin de frontières par agent, utilisez `agents.list[].tools` pou
 Pour le ciblage de groupe, utilisez `agents.list[].groupChat.mentionPatterns` afin que les @mentions correspondent clairement à l’agent prévu.
 
 Voir [Sandbox et outils multi-agent](/tools/multi-agent-sandbox-tools) pour des exemples détaillés.
+

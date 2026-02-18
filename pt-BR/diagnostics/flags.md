@@ -85,3 +85,4 @@ Para gateways remotos, você também pode usar `openclaw logs --follow` (veja [/
 - Se `logging.level` estiver definido mais alto que `warn`, esses logs podem ser suprimidos. O padrão `info` é adequado.
 - É seguro deixar as flags habilitadas; elas afetam apenas o volume de logs do subsistema específico.
 - Use [/logging](/logging) para alterar destinos de log, níveis e redação.
+

@@ -653,3 +653,4 @@ Plugin có thể (và nên) đi kèm kiểm thử:
 
 - Plugin trong repo có thể đặt kiểm thử Vitest dưới `src/**` (ví dụ: `src/plugins/voice-call.plugin.test.ts`).
 - Plugin phát hành riêng nên chạy CI riêng (lint/build/test) và xác thực `openclaw.extensions` trỏ tới entrypoint đã build (`dist/index.js`).
+

@@ -115,3 +115,4 @@ Pruning auf bestimmte Werkzeuge beschränken:
 ```
 
 Siehe Konfigurationsreferenz: [Gateway Configuration](/gateway/configuration)
+

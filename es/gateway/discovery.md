@@ -109,3 +109,4 @@ El Gateway es la fuente de la verdad para la admisión de nodos/clientes.
 - **Gateway**: anuncia beacons de descubrimiento, toma decisiones de emparejamiento y aloja el endpoint WS.
 - **app de macOS**: le ayuda a elegir un Gateway, muestra solicitudes de emparejamiento y usa SSH solo como alternativa.
 - **nodos iOS/Android**: exploran Bonjour como conveniencia y se conectan al Gateway WS emparejado.
+

@@ -152,3 +152,4 @@ Varsayılan dosya:
 - Ham akış günlükleri tam istemleri, araç çıktısını ve kullanıcı verilerini içerebilir.
 - Günlükleri yerel tutun ve hata ayıklamadan sonra silin.
 - Günlükleri paylaşırsanız, önce sırları ve PII'yi temizleyin.
+

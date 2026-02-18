@@ -56,3 +56,4 @@ Agent -> Gateway -> Node Service (WS)
 - 所有通訊皆維持僅限本地；不暴露任何網路通訊端。
 - TCC 提示僅由 GUI 應用程式 bundle 發起；重建時請保持已簽署的 bundle ID 穩定。
 - IPC 強化：socket 模式 `0600`、權杖、對等 UID 檢查、HMAC 挑戰／回應、短 TTL。
+

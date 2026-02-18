@@ -471,3 +471,4 @@ Emoji’ler unicode (ör. `✅`) veya `<:party_blob:1234567890>` gibi özel emoj
 - Bot belirtecini parola gibi ele alın; denetimli ana makinelerde `DISCORD_BOT_TOKEN` ortam değişkenini tercih edin veya yapılandırma dosyası izinlerini kilitleyin.
 - Bota yalnızca ihtiyaç duyduğu izinleri verin (genellikle Mesajları Oku/Gönder).
 - Bot takılı kalırsa veya oran sınırlamasına girerse, Discord oturumuna başka süreçlerin sahip olmadığını doğruladıktan sonra gateway’i yeniden başlatın (`openclaw gateway --force`).
+

@@ -143,3 +143,4 @@ Hangi profilin süresinin dolduğunu doğrulamak için `openclaw models status` 
 
 - Claude Max veya Pro aboneliği (`claude setup-token` için)
 - Claude Code CLI yüklü (`claude` komutu mevcut)
+

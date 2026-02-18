@@ -187,3 +187,4 @@ Yapılandırma `~/.openclaw/openclaw.json` konumunda bulunur.
     Projenin kökenleri, katkıda bulunanlar ve lisans.
   </Card>
 </Columns>
+

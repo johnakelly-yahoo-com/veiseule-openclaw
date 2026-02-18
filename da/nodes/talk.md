@@ -84,3 +84,4 @@ Standarder:
 - `stability` for `eleven_v3` valideres til `0.0`, `0.5` eller `1.0`; andre modeller accepterer `0..1`.
 - `latency_tier` valideres til `0..4`, når den er sat.
 - Android understøtter `pcm_16000`, `pcm_22050`, `pcm_24000` og `pcm_44100` outputformater til lav-latenstid AudioTrack-streaming.
+

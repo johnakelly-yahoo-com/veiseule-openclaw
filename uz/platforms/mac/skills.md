@@ -28,3 +28,4 @@ Bir nechta variant berilganda, gateway faqat bitta afzal installer-ni ko‘rsata
 ## `skills.update` `enabled`, `apiKey` va `env` ni yangilaydi.
 
 - Masofaviy rejim
+

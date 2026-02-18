@@ -58,3 +58,4 @@ Daha uzun süreli saklama gerekiyorsa, istemciden yeniden yakalayın.
   `PEEKABOO_ALLOW_UNSIGNED_SOCKET_CLIENTS=1` ile çalıştırın.
 - Hiç host bulunamazsa, host uygulamalarından birini (Peekaboo.app veya OpenClaw.app)
   açın ve izinlerin verildiğini doğrulayın.
+

@@ -222,3 +222,4 @@ openclaw pairing list signal
 - `agents.list[].groupChat.mentionPatterns`（Signal 不支援原生提及）。
 - `messages.groupChat.mentionPatterns`（全域回退）。
 - `messages.responsePrefix`。
+

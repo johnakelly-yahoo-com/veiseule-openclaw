@@ -109,3 +109,4 @@ empacotada do npm) e também observa o espelho público, o repo de origem, o Dis
 ClawHub ([https://clawhub.com](https://clawhub.com)) para descoberta de skills. O prompt instrui o modelo a consultar primeiro a documentação local
 para comportamento, comandos, configuração ou arquitetura do OpenClaw, e a executar
 `openclaw status` por conta própria quando possível (pedindo ao usuário apenas quando não tiver acesso).
+

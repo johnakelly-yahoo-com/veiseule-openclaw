@@ -38,3 +38,4 @@ openclaw agents add <name>
 <Note>
 `--json` etkileşimsiz modu ifade etmez. Betikler için `--non-interactive` kullanın.
 </Note>
+

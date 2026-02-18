@@ -135,3 +135,4 @@ openclaw onboard --auth-choice kimi-code-api-key
 - اگر Moonshot کسی ماڈل کے لیے مختلف سیاقی حدود شائع کرے تو
   `contextWindow` کو اسی کے مطابق ایڈجسٹ کریں۔
 - بین الاقوامی اینڈپوائنٹ کے لیے `https://api.moonshot.ai/v1` استعمال کریں، اور چین اینڈپوائنٹ کے لیے `https://api.moonshot.cn/v1` استعمال کریں۔
+

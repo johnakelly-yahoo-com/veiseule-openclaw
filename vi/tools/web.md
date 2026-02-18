@@ -254,3 +254,4 @@ Ghi chú:
 - Phản hồi được cache (mặc định 15 phút) để giảm tải việc tải lặp lại.
 - Nếu bạn dùng hồ sơ công cụ/danh sách cho phép, hãy thêm `web_search`/`web_fetch` hoặc `group:web`.
 - Nếu thiếu khóa Brave, `web_search` sẽ trả về gợi ý thiết lập ngắn kèm liên kết tài liệu.
+

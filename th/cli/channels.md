@@ -73,3 +73,4 @@ openclaw channels resolve --channel matrix "Project Room"
 
 - ใช้ `--kind user|group|auto` เพื่อบังคับประเภทเป้าหมาย
 - การแก้ไขชื่อจะให้ความสำคัญกับรายการที่กำลังใช้งานเมื่อมีหลายรายการใช้ชื่อเดียวกัน
+

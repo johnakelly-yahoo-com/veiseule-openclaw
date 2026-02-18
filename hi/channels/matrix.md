@@ -259,3 +259,4 @@ openclaw pairing list matrix
 - `channels.matrix.autoJoin`: आमंत्रण हैंडलिंग (`always | allowlist | off`, डिफ़ॉल्ट: always)।
 - `channels.matrix.autoJoinAllowlist`: ऑटो-जॉइन के लिए अनुमत रूम IDs/उपनाम।
 - `channels.matrix.actions`: प्रति-एक्शन टूल गेटिंग (reactions/messages/pins/memberInfo/channelInfo)।
+

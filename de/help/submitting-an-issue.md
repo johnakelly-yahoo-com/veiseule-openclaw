@@ -149,3 +149,4 @@ _Vermeiden Sie Geheimnisse/Exploit-Details in der Öffentlichkeit. Bei sensiblen
 ### Ein Fix-PR einreichen
 
 Ein Issue vor dem PR ist optional. Wenn Sie es überspringen, fügen Sie die Details im PR hinzu. Halten Sie den PR fokussiert, nennen Sie die Issue-Nummer, fügen Sie Tests hinzu oder erklären Sie deren Fehlen, dokumentieren Sie Verhaltensänderungen/Risiken, fügen Sie bereinigte Logs/Screenshots als Nachweis bei und führen Sie vor dem Einreichen die korrekte Validierung aus.
+

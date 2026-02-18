@@ -45,3 +45,4 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
 Düzenlemelerden sonra gateway (ağ geçidi) yeniden başlatın.
+

@@ -86,3 +86,4 @@ Allt annat måste vara svårt att misslyckas med: ”Konfigurera ogiltigt. Kör 
 - Plugin saknar schema → plugininläsning blockeras med tydligt fel.
 - Ogiltig konfig → gateway-start blockeras förutom diagnostiska kommandon.
 - Doctor dry-run automatiskt; `doctor --fix` skriver korrigerad konfig.
+

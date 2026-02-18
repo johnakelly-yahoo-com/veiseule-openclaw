@@ -100,3 +100,4 @@ openclaw browser extension path
 使用 `gateway.nodes.browser.mode` 來控制自動路由，並在多個節點連線時使用 `gateway.nodes.browser.node` 來固定特定節點。
 
 安全性與遠端設定：[Browser tool](/tools/browser)、[Remote access](/gateway/remote)、[Tailscale](/gateway/tailscale)、[Security](/gateway/security)
+

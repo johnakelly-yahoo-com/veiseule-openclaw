@@ -43,3 +43,4 @@ openclaw onboard --non-interactive \
 Gateway 가 데몬 (launchd/systemd) 으로 실행되는 경우, `AI_GATEWAY_API_KEY` 가
 해당 프로세스에서 사용 가능해야 합니다 (예: `~/.openclaw/.env` 에서 또는
 `env.shellEnv` 를 통해).
+

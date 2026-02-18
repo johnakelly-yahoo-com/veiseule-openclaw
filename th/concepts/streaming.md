@@ -128,3 +128,4 @@ Telegram (private + topics)
 
 - `sendMessageDraft`: บับเบิลแบบร่างของ Telegram (ไม่ใช่ข้อความจริง)
 - `final reply`: การส่งข้อความ Telegram แบบปกติ
+

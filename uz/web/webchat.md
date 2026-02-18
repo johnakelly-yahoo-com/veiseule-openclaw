@@ -45,3 +45,4 @@ Tegishli global opsiyalar:
 - `gateway.auth.mode: "trusted-proxy"`: brauzer mijozlari uchun reverse-proxy autentifikatsiyasi (qarang [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: masofaviy gateway manzili.
 - `session.*`: sessiya saqlash va asosiy kalit (main key) uchun sukut bo‘yicha sozlamalar.
+

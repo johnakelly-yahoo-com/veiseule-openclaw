@@ -256,3 +256,4 @@ free -h
 - [Установка Docker](/install/docker) — контейнеризированная настройка
 - [Tailscale](/gateway/tailscale) — безопасный удалённый доступ
 - [Конфигурация](/gateway/configuration) — полный справочник по конфигу
+

@@ -145,3 +145,4 @@ mangler, skal du omdirigere `claude setup-token` og indsætte token igen.
 
 - Claude Max- eller Pro‑abonnement (for `claude setup-token`)
 - Claude Code CLI installeret (`claude`‑kommando tilgængelig)
+

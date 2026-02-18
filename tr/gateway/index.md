@@ -324,3 +324,4 @@ Windows kurulumları **WSL2** kullanmalı ve yukarıdaki Linux systemd bölümü
 
 - `openclaw gateway` ve eski TCP kontrol portu kullanımını bırakın.
 - İstemcileri, zorunlu bağlanma ve yapılandırılmış presence ile WS protokolünü konuşacak şekilde güncelleyin.
+

@@ -56,3 +56,4 @@ Doelgroep: macOS-appbijdragers. Doel: de spraakoverlay voorspelbaar houden wanne
 3. Refactor `VoicePushToTalk` om bestaande sessies te adopteren en bij loslaten `endCapture` aan te roepen; pas runtime-cooldown toe.
 4. Verbind `VoiceWakeOverlayController` met de publisher; verwijder directe aanroepen vanuit runtime/PTT.
 5. Voeg integratietests toe voor sessie-adoptie, cooldown en sluiten bij lege tekst.
+

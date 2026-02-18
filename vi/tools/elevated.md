@@ -52,3 +52,4 @@ title: "Chế độ Elevated"
 
 - Các lệnh exec elevated được ghi log ở mức info.
 - Trạng thái phiên bao gồm chế độ elevated (ví dụ: `elevated=ask`, `elevated=full`).
+

@@ -109,3 +109,4 @@ Tala: Best‑effort ang binary detection sa macOS/Linux/Windows; tiyaking nasa `
 - Scope rules use first-match wins. `chatType` is normalized to `direct`, `group`, or `room`.
 - Tiyaking nag-e-exit ang iyong CLI na may 0 at nagpi-print ng plain text; ang JSON ay kailangang ayusin sa pamamagitan ng `jq -r .text`.
 - Panatilihing makatwiran ang mga timeout (`timeoutSeconds`, default 60s) para maiwasang ma-block ang reply queue.
+

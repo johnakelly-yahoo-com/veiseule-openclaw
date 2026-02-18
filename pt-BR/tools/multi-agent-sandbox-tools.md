@@ -392,3 +392,4 @@ Após configurar sandbox e ferramentas multiagente:
 - [Roteamento Multiagente](/concepts/multi-agent)
 - [Configuração de Sandbox](/gateway/configuration#agentsdefaults-sandbox)
 - [Gerenciamento de Sessões](/concepts/session)
+

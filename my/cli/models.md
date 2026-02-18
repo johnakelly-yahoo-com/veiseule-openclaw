@@ -69,3 +69,4 @@ openclaw models auth paste-token
 
 - `setup-token` သည် setup-token တန်ဖိုးကို မေးမြန်းသည် (မည်သည့် စက်တွင်မဆို `claude setup-token` ဖြင့် ထုတ်လုပ်နိုင်သည်)။
 - `paste-token` သည် အခြားနေရာမှ ထုတ်လုပ်ထားသော သို့မဟုတ် automation မှ ရလာသော token စာကြောင်းကို လက်ခံသည်။
+

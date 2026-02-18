@@ -124,3 +124,4 @@ Fix-it-sleutels (kies er één):
 ### “Ik dacht dat dit main was, waarom is het gesandboxed?”
 
 In de modus `"non-main"` zijn groep-/kanaalsleutels _niet_ main. Gebruik de main-sessiesleutel (getoond door `sandbox explain`) of schakel de modus om naar `"off"`.
+

@@ -80,3 +80,4 @@ Commit the updated `appcast.xml` alongside the release assets (zip + dSYM) when 
   - 在先前的公開版本中，從「關於」分頁執行「檢查更新…」，並確認 Sparkle 能順利安裝新版本。
 
 完成定義：已發佈已簽署的 app 與 appcast、可從較舊的已安裝版本完成更新流程，且發行資產已附加至 GitHub 發行頁。
+

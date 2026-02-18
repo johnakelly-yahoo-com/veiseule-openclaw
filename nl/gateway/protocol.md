@@ -214,3 +214,4 @@ De Gateway behandelt deze als **claims** en handhaaft server-side allowlists.
 Dit protocol stelt de **volledige gateway-API** bloot (status, kanalen, modellen, chat,
 agent, sessies, nodes, goedkeuringen, enz.). Het exacte oppervlak wordt gedefinieerd door de
 TypeBox-schema’s in `src/gateway/protocol/schema.ts`.
+

@@ -60,3 +60,4 @@ Har bir sessiya uchun rejim yoki chastotani alohida o‘zgartirishingiz mumkin:
 - Heartbeats rejimdan qat’i nazar, hech qachon yozishni ko‘rsatmaydi.
 - `typingIntervalSeconds` boshlanish vaqtini emas, **yangilanish tezligini** boshqaradi.
   Standart qiymat — 6 soniya.
+

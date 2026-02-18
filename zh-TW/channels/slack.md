@@ -573,3 +573,4 @@ openclaw pairing list slack
 - 警告：若你允許回覆其他機器人（`channels.slack.allowBots=true` 或 `channels.slack.channels.<id>.allowBots=true`），請使用 `requireMention`、`channels.slack.channels.<id>.users` 允許清單，及／或在 `AGENTS.md` 與 `SOUL.md` 中設定明確的護欄，以避免機器人互相回覆形成迴圈。
 - Slack 工具的反應移除語意請見 [/tools/reactions](/tools/reactions)。
 - 在允許且未超過大小限制時，附件會下載至媒體儲存區。
+

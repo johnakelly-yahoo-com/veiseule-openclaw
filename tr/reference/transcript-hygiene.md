@@ -117,3 +117,4 @@ Uygulama:
 Bu karmaşıklık, sağlayıcılar arası gerilemelere neden oldu (özellikle `openai-responses`
 `call_id|fc_id` eşleştirmesi). 2026.1.22 temizliği uzantıyı kaldırdı, mantığı çalıştırıcıda merkezileştirdi
 ve OpenAI’yi görsel temizleme dışında **dokunulmaz** hâle getirdi.
+

@@ -403,3 +403,4 @@ WhatsApp ऑडियो को **वॉयस नोट्स** (PTT बबल)
 
 - Bun is **not recommended**. WhatsApp (Baileys) and Telegram are unreliable on Bun.
   Run the gateway with **Node**. (See Getting Started runtime note.)
+

@@ -599,3 +599,4 @@ title: "구성 예시"
 - 프로바이더 ID 는 서로 다릅니다(전화번호, 사용자 ID, 채널 ID). 형식은 프로바이더 문서를 사용해 확인하십시오.
 - 나중에 추가할 수 있는 선택 섹션: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - 더 자세한 설정 노트는 [Providers](/channels/whatsapp) 및 [Troubleshooting](/gateway/troubleshooting)을 참고하십시오.
+

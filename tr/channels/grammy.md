@@ -26,3 +26,4 @@ Açık sorular
 - Bot API 429’larına takılırsak isteğe bağlı grammY eklentileri (throttler).
 - Daha yapılandırılmış medya testleri eklemek (sticker’lar, sesli notlar).
 - Webhook dinleme portunu yapılandırılabilir yapmak (şu anda gateway üzerinden bağlanmadıkça 8787’ye sabit).
+

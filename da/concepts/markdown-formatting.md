@@ -123,3 +123,4 @@ SPOILER-stilområder. Andre kanaler behandler dem som almindelig tekst.
 - Signal style ranges afhænger af UTF-16-offsets; brug ikke kodepunkt-offsets.
 - Bevar afsluttende linjeskift for fenced code blocks, så afsluttende markører
   lander på deres egen linje.
+

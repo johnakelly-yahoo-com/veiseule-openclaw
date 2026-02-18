@@ -134,3 +134,4 @@ Konti kort til zca profiler. Eksempel:
 
 - `openclaw channels status --probe`
 - Log ind igen: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
+

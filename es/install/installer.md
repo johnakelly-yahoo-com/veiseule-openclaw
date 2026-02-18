@@ -386,3 +386,4 @@ Use flags/variables de entorno no interactivos para ejecuciones predecibles.
     Normalmente es un problema de PATH. Consulte [Solución de problemas de Node.js](/install/node#troubleshooting).
   </Accordion>
 </AccordionGroup>
+

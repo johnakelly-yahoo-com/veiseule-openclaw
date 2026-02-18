@@ -110,3 +110,4 @@ openclaw channels status --probe
 | ห้องที่เข้ารหัสล้มเหลว             | ยืนยันโมดูลคริปโตและการตั้งค่าการเข้ารหัส | เปิดใช้งานการรองรับการเข้ารหัสและเข้าร่วมห้องใหม่/ซิงก์ |
 
 การแก้ไขปัญหาแบบครบถ้วน: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

@@ -498,3 +498,4 @@ IAM رولز کی تفصیلات کے لیے دیکھیں:
 - میسجنگ چینلز سیٹ اپ کریں: [Channels](/channels)
 - مقامی ڈیوائسز کو نوڈز کے طور پر جوڑیں: [Nodes](/nodes)
 - Gateway کنفیگر کریں: [Gateway configuration](/gateway/configuration)
+

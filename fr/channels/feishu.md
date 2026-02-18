@@ -574,3 +574,4 @@ Options clés :
 - ✅ Fichiers
 - ✅ Audio
 - ⚠️ Texte enrichi (prise en charge partielle)
+

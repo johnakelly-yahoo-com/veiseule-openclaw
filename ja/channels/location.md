@@ -50,3 +50,4 @@ Meet here
 - **Telegram**: 会場は `LocationName/LocationAddress` にマップされます。ライブ位置情報は `live_period` を使用します。
 - **WhatsApp**: `locationMessage.comment` と `liveLocationMessage.caption` はキャプション行として追記されます。
 - **Matrix**: `geo_uri` はピン位置として解析されます。高度は無視され、`LocationIsLive` は常に false です。
+

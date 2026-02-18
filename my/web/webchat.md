@@ -44,3 +44,4 @@ title: "WebChat"
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: WebSocket auth။
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: အဝေးမှ gateway ပစ်မှတ်။
 - `session.*`: ဆက်ရှင် သိမ်းဆည်းမှုနှင့် အဓိက ကီး မူလတန်ဖိုးများ။
+

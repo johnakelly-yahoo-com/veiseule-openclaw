@@ -910,3 +910,4 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 - [README de Hooks Incluídos](https://github.com/openclaw/openclaw/tree/main/src/hooks/bundled)
 - [Webhook Hooks](/automation/webhook)
 - [Configuração](/gateway/configuration#hooks)
+

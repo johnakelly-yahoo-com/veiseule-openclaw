@@ -73,3 +73,4 @@ Notas:
 
 - Use `--kind user|group|auto` para forzar el tipo de destino.
 - La resolución prefiere coincidencias activas cuando varias entradas comparten el mismo nombre.
+

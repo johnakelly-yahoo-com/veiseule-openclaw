@@ -35,3 +35,4 @@ Ginagamit ng OpenClaw ang Brave Search bilang default na provider para sa `web_s
 - Nagbibigay ang Brave ng libreng tier pati mga bayad na plano; tingnan ang Brave API portal para sa kasalukuyang mga limitasyon.
 
 Tingnan ang [Web tools](/tools/web) para sa kumpletong konpigurasyon ng web_search.
+

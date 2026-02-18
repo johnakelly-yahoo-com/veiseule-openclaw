@@ -86,3 +86,4 @@ title: "嚴格設定驗證"
 - OpenClaw 為代理使用專用的工作區目錄。
 - 設定無效 → 封鎖 Gateway 啟動，僅允許診斷指令。
 - Doctor 預設 dry-run；`doctor --fix` 會寫入修正後的設定。
+

@@ -70,3 +70,4 @@ Użyj jednego z poniższych:
 - wbuduj zmienne środowiskowe w niestandardowy obraz sandbox
 
 Globalne `env` oraz `skills.entries.<skill>.env/apiKey` mają zastosowanie wyłącznie do uruchomień na **hoście**.
+

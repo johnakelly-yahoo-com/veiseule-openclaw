@@ -217,3 +217,4 @@ Yalnızca gerektiğinde geçersiz kılın (yaygın: mutlak `command` yolu).
 - **Oturum sürekliliği yok**: `sessionArg`’in ayarlı olduğundan ve `sessionMode`’un
   `none` olmadığından emin olun (Codex CLI şu anda JSON çıktısıyla devam edemez).
 - **Görüntüler yok sayılıyor**: `imageArg`’i ayarlayın (ve CLI’nin dosya yollarını desteklediğini doğrulayın).
+

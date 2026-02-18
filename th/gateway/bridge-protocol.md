@@ -82,3 +82,4 @@ These are mapped to system events in the gateway. (Legacy nodes may still emit `
 Bridgeปัจจุบันเป็น**v1โดยนัย**(ไม่มีการเจรจา min/max) คาดว่าจะคงความเข้ากันได้ย้อนหลัง
 ควรเพิ่มฟิลด์เวอร์ชันโปรโตคอลBridgeก่อนการเปลี่ยนแปลงที่ทำให้เข้ากันไม่ได้ Backward‑compat
 is expected; add a bridge protocol version field before any breaking changes.
+

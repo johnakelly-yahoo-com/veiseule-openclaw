@@ -73,3 +73,4 @@ Notes:
 
 - Use `--kind user|group|auto` to force the target type.
 - Resolution prefers active matches when multiple entries share the same name.
+

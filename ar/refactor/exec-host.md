@@ -309,3 +309,4 @@ Agent -> Gateway -> Bridge -> Node Service (TS)
 - [موافقات Exec](/tools/exec-approvals)
 - [العُقد](/nodes)
 - [الوضع المُرفَع](/tools/elevated)
+

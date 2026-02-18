@@ -153,3 +153,4 @@ To‘liq qo‘llanma: [Boshlash](/start/getting-started)
 
 Hozircha Windows uchun hamroh ilova mavjud emas. Agar buni amalga oshirishga
 hissa qo‘shmoqchi bo‘lsangiz, hissalar mamnuniyat bilan qabul qilinadi.
+

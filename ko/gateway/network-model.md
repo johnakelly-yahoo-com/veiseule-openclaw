@@ -11,3 +11,4 @@ title: "네트워크 모델"
 - 노드는 필요에 따라 LAN, tailnet, 또는 SSH 를 통해 Gateway WS 에 연결합니다. 레거시 TCP 브리지는 더 이상 사용되지 않습니다.
 - 캔버스 호스트는 `canvasHost.port` (기본값 `18793`)에서 동작하는 HTTP 파일 서버로, 노드 WebView 를 위해 `/__openclaw__/canvas/`를 제공합니다. [Gateway configuration](/gateway/configuration) (`canvasHost`)을 참고하십시오.
 - 원격 사용은 일반적으로 SSH 터널 또는 tailnet VPN 입니다. [Remote access](/gateway/remote)와 [Discovery](/gateway/discovery)를 참고하십시오.
+

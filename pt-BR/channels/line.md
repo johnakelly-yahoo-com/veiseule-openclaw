@@ -168,3 +168,4 @@ O plugin do LINE também inclui um comando `/card` para predefinições de mensa
 - **Falha na verificação do webhook:** garanta que a URL do webhook seja HTTPS e que `channelSecret` corresponda ao console do LINE.
 - **Nenhum evento de entrada:** confirme que o caminho do webhook corresponde a `channels.line.webhookPath` e que o gateway esteja acessível a partir do LINE.
 - **Erros no download de mídia:** aumente `channels.line.mediaMaxMb` se a mídia exceder o limite padrão.
+

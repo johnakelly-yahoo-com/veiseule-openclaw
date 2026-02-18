@@ -64,3 +64,4 @@ openclaw devices revoke --device <deviceId> --role node
 
 - Token rotation သည် token အသစ် (sensitive) ကို ပြန်ပေးသည်။ ၎င်းကို secret အဖြစ် ဆက်ဆံပါ။
 - ဤအမိန့်များကို အသုံးပြုရန် `operator.pairing` (သို့မဟုတ် `operator.admin`) scope လိုအပ်ပါသည်။
+

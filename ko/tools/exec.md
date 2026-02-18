@@ -171,3 +171,4 @@ Gateway(게이트웨이) 는 시스템 이벤트 (`Exec finished` / `Exec denied
 - OpenAI/OpenAI Codex 모델에서만 사용 가능합니다.
 - 도구 정책은 계속 적용되며, `allow: ["exec"]` 는 암묵적으로 `apply_patch` 를 허용합니다.
 - Config 는 `tools.exec.applyPatch` 아래에 위치합니다.
+

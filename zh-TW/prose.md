@@ -128,3 +128,4 @@ OpenProse 程式會對應到 OpenClaw 的基元：
 將 `.prose` 檔案視同程式碼處理。執行前請先審查。使用 OpenClaw 工具允許清單與核准閘門來控制副作用。
 
 若需具備決定性、以核准為閘的工作流程，請與 [Lobster](/tools/lobster) 比較。
+

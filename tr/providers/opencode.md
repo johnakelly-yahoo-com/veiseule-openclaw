@@ -30,3 +30,4 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - `OPENCODE_ZEN_API_KEY` de desteklenmektedir.
 - Zen’e giriş yapar, faturalandırma ayrıntılarını eklersiniz ve API anahtarınızı kopyalarsınız.
 - OpenCode Zen istek başına faturalandırır; ayrıntılar için OpenCode panosunu kontrol edin.
+

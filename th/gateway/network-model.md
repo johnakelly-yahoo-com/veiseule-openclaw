@@ -11,3 +11,4 @@ title: "โมเดลเครือข่าย"
 - โหนดเชื่อมต่อกับGateway WSผ่านLAN, tailnetหรือSSHตามความจำเป็นบริดจ์TCPแบบเดิมถูกเลิกใช้งานแล้ว บริดจ์ TCP แบบเดิมเลิกใช้งานแล้ว
 - โฮสต์แคนวาสเป็นเซิร์ฟเวอร์ไฟล์HTTPที่`canvasHost.port`(ค่าเริ่มต้น`18793`)ให้บริการ`/__openclaw__/canvas/`สำหรับWebViewของโหนดดู[Gateway configuration](/gateway/configuration)(`canvasHost`) ดู [Gateway configuration](/gateway/configuration) (`canvasHost`)
 - การใช้งานจากระยะไกลมักเป็นอุโมงค์SSHหรือVPNแบบtailnetดู[Remote access](/gateway/remote)และ[Discovery](/gateway/discovery) ดู [Remote access](/gateway/remote) และ [Discovery](/gateway/discovery)
+

@@ -497,3 +497,4 @@ Veja [https://cloud.google.com/iam/docs/understanding-roles](https://cloud.googl
 - Configurar canais de mensagens: [Channels](/channels)
 - Parear dispositivos locais como nós: [Nodes](/nodes)
 - Configurar o Gateway: [Gateway configuration](/gateway/configuration)
+

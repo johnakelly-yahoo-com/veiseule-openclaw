@@ -118,3 +118,4 @@ Som minimum skal du sætte:
 ---
 
 _Næste: [Group Chats](/channels/group-messages)_ 🦞
+

@@ -78,3 +78,4 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 ขณะนี้ไม่มีสวิตช์ “default sound” แบบรวมในแอปอีกต่อไป ผู้เรียกจะเลือกเสียง(หรือไม่เลือกเสียง)เป็นรายคำขอ
+

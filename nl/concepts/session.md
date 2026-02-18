@@ -199,3 +199,4 @@ Elke sessievermelding registreert waar deze vandaan komt (best-effort) in `origi
   `GroupSubject`, `GroupChannel`, `GroupSpace` en `SenderName` in de inkomende
   context te sturen en `recordSessionMetaFromInbound` aan te roepen (of dezelfde context door te geven
   aan `updateLastRoute`).
+

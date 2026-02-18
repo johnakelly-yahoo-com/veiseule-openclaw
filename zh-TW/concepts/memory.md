@@ -548,3 +548,4 @@ agents: {
 - `remote.*` 的優先順序高於 `models.providers.openai.*`。
 - `remote.headers` 會與 OpenAI 標頭合併；發生金鑰衝突時以遠端為準。
   省略 `remote.headers` 可使用 OpenAI 的預設值。 Omit `remote.headers` to use the OpenAI defaults.
+

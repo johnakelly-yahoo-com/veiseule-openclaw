@@ -73,3 +73,4 @@ openclaw channels resolve --channel matrix "Project Room"
 
 - 대상 유형을 강제하려면 `--kind user|group|auto` 를 사용하십시오.
 - 동일한 이름을 공유하는 여러 항목이 있는 경우, 활성 일치를 우선하여 해석합니다.
+

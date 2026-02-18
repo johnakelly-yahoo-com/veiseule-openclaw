@@ -51,3 +51,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - Удалите переопределение: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`.
 - При необходимости выполните `sudo log config --reload`, чтобы принудительно заставить logd немедленно сбросить переопределение.
 - Помните, что этот механизм может включать номера телефонов и тела сообщений; держите plist на месте только пока вам действительно нужна дополнительная детализация.
+

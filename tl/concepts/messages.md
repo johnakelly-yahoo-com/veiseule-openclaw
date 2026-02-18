@@ -146,3 +146,4 @@ Ang pag-format ng outbound na mensahe ay sentralisado sa `messages`:
 - Reply threading sa pamamagitan ng `replyToMode` at mga per-channel default
 
 Mga detalye: [Configuration](/gateway/configuration#messages) at mga docs ng channel.
+

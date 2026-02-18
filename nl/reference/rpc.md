@@ -37,3 +37,4 @@ Zie [iMessage](/channels/imessage) voor legacy installatie en adressering (`chat
 - Gateway beheert het proces (start/stop gekoppeld aan de provider-lifecycle).
 - Houd RPC-clients robuust: time-outs, herstart bij beëindigen.
 - Geef de voorkeur aan stabiele ID's (bijv. `chat_id`) boven weergavestrings.
+

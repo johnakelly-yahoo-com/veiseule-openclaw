@@ -578,3 +578,4 @@ Exemplo:
   `sh -lc` (login shell), que carrega `/etc/profile` e pode redefinir o PATH. Defina `docker.env.PATH` para prefixar os caminhos das suas ferramentas personalizadas
   (por exemplo, `/custom/bin:/usr/local/share/npm-global/bin`), ou adicione
   um script em `/etc/profile.d/` no seu Dockerfile.
+

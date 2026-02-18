@@ -164,3 +164,4 @@ sekvenser (f.eks. mellemrum bliver `\032`).
 
 - Discovery-politik og transportvalg: [Discovery](/gateway/discovery)
 - Node-parring + godkendelser: [Gateway pairing](/gateway/pairing)
+

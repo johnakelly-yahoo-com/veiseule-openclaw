@@ -534,3 +534,4 @@ Ghi chú:
 
 - `remote.*` có ưu tiên cao hơn `models.providers.openai.*`.
 - `remote.headers` được hợp nhất với header của OpenAI; remote sẽ thắng khi trùng khóa. Omit `remote.headers` to use the OpenAI defaults.
+

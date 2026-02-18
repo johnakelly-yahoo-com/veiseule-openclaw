@@ -67,3 +67,4 @@ openclaw nodes run --agent main --node <id|name|ip> --raw "git status"
 - `--raw <command>`: تشغيل سلسلة صدفة (`/bin/sh -lc` أو `cmd.exe /c`).
 - `--agent <id>`: موافقات/قوائم سماح بنطاق الوكيل (الافتراضي إلى الوكيل المُهيأ).
 - `--ask <off|on-miss|always>`، `--security <deny|allowlist|full>`: تجاوزات.
+

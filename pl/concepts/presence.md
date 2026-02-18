@@ -95,3 +95,4 @@ Aplikacja na macOS renderuje wynik `system-presence` i stosuje niewielki wskaźn
   - potwierdź, że klienci wysyłają stabilny `client.instanceId` podczas uściśnięcia dłoni
   - potwierdź, że okresowe sygnały używają tego samego `instanceId`
   - sprawdź, czy wpis pochodzący z połączenia nie ma `instanceId` (duplikaty są wówczas oczekiwane)
+

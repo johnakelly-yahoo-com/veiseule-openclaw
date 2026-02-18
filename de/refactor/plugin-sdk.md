@@ -208,3 +208,4 @@ Hinweise:
 - Externe Plugins können ohne Zugriff auf den Core-Quellcode entwickelt und aktualisiert werden.
 
 Zugehörige Dokumente: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
+

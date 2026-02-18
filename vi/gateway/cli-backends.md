@@ -217,3 +217,4 @@ vẫn có thể chạy bộ công cụ agent riêng của họ.
 - **Không duy trì được phiên**: đảm bảo `sessionArg` được đặt và `sessionMode` không phải
   `none` (Codex CLI hiện không thể resume với đầu ra JSON).
 - **Hình ảnh bị bỏ qua**: đặt `imageArg` (và xác minh CLI hỗ trợ đường dẫn tệp).
+

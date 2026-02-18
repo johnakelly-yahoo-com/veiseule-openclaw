@@ -27,3 +27,4 @@ O app do macOS apresenta as Skills do OpenClaw via o gateway; ele não analisa S
 ## Modo remoto
 
 - Instalação e atualizações de configuração acontecem no host do Gateway (não no Mac local).
+

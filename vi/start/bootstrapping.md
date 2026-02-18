@@ -34,3 +34,4 @@ máy chủ gateway (ví dụ: `user@gateway-host:~/.openclaw/workspace`).
 
 - Onboarding ứng dụng macOS: [Onboarding](/start/onboarding)
 - Bố cục không gian làm việc: [Agent workspace](/concepts/agent-workspace)
+

@@ -212,3 +212,4 @@ Cel: Być pomocnym, nie irytującym. Odzywać się kilka razy dziennie, wykonywa
 ## Uczyń to swoim
 
 To punkt wyjścia. Dodawaj własne konwencje, styl i zasady, gdy odkryjesz, co działa najlepiej.
+

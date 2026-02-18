@@ -23,3 +23,4 @@ Eslatmalar:
 
 - Ushbu faylni ish maydonining ildiziga `IDENTITY.md` nomi bilan saqlang.
 - Avatarlar uchun `avatars/openclaw.png` kabi ish maydoniga nisbiy yo‘ldan foydalaning.
+

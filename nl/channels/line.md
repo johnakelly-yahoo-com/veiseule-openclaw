@@ -180,3 +180,4 @@ De LINE-plugin levert ook een `/card`-opdracht voor Flex-berichtpresets:
   `channels.line.webhookPath` en dat de Gateway bereikbaar is vanuit LINE.
 - **Fouten bij media downloaden:** verhoog `channels.line.mediaMaxMb` als media de
   standaardlimiet overschrijdt.
+

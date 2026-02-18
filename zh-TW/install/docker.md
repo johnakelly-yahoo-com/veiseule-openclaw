@@ -549,3 +549,4 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
 - 沙箱中的權限錯誤：將 `docker.user` 設為符合你掛載之工作區擁有權的 UID:GID（或對工作區資料夾執行 chown）。
 - Custom tools not found: OpenClaw runs commands with `sh -lc` (login shell), which
   sources `/etc/profile` and may reset PATH. 找不到自訂工具：OpenClaw 以 `sh -lc`（登入殼層）執行命令，會載入 `/etc/profile` 並可能重設 PATH。請設定 `docker.env.PATH` 以在前置加入你的自訂工具路徑（例如 `/custom/bin:/usr/local/share/npm-global/bin`），或在 Dockerfile 中於 `/etc/profile.d/` 下新增腳本。
+

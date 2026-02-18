@@ -564,3 +564,4 @@ openclaw pairing list slack
 - تحذير: إذا سمحت بالرد على بوتات أخرى (`channels.slack.allowBots=true` أو `channels.slack.channels.<id>.allowBots=true`)، فامنع حلقات ردود بوت-إلى-بوت باستخدام قوائم السماح `requireMention` و`channels.slack.channels.<id>.users`، و/أو أزل الحواجز في `AGENTS.md` و`SOUL.md`.
 - لأداة Slack، دلالات إزالة التفاعلات موجودة في [/tools/reactions](/tools/reactions).
 - تُنزَّل المرفقات إلى مخزن الوسائط عند السماح وتحت حد الحجم.
+

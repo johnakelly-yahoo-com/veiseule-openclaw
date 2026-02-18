@@ -100,3 +100,4 @@ openclaw browser extension path
 آٹو روٹنگ کو کنٹرول کرنے کے لیے `gateway.nodes.browser.mode` استعمال کریں اور اگر متعدد nodes منسلک ہوں تو کسی مخصوص node کو پن کرنے کے لیے `gateway.nodes.browser.node` استعمال کریں۔
 
 سکیورٹی + ریموٹ سیٹ اپ: [Browser tool](/tools/browser)، [Remote access](/gateway/remote)، [Tailscale](/gateway/tailscale)، [Security](/gateway/security)
+

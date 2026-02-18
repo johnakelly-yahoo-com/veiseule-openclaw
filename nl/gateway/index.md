@@ -326,3 +326,4 @@ Windows-installaties moeten **WSL2** gebruiken en de Linux systemd-sectie hierbo
 
 - Beëindig gebruik van `openclaw gateway` en de legacy TCP control-poort.
 - Werk clients bij om het WS-protocol te spreken met verplichte connect en gestructureerde presence.
+

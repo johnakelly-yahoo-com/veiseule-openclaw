@@ -115,3 +115,4 @@ Budamayı belirli araçlarla sınırla:
 ```
 
 Yapılandırma başvurusuna bakın: [Gateway Yapılandırması](/gateway/configuration)
+

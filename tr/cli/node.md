@@ -102,3 +102,4 @@ Node ana makinesi, node kimliğini, belirtecini, görünen adını ve gateway ba
 - `~/.openclaw/exec-approvals.json`
 - [Exec onayları](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (Gateway’den düzenleyin)
+

@@ -335,3 +335,4 @@ Noter:
 
 - macOS-menulinje-appen forbinder til Gateway WS-serveren som en node (så `openclaw nodes …` virker mod denne Mac).
 - I fjern-tilstand åbner appen en SSH-tunnel til Gateway-porten og forbinder til `localhost`.
+

@@ -50,3 +50,4 @@ Når en placering er til stede, tilføjes disse felter til `ctx`:
 - **Telegram**: venues kortlægges til `LocationName/LocationAddress`; live-placeringer bruger `live_period`.
 - **WhatsApp**: `locationMessage.comment` og `liveLocationMessage.caption` tilføjes som billedtekstlinjen.
 - **Matrix**: `geo_uri` parses som en nåleplacering; højde ignoreres, og `LocationIsLive` er altid false.
+

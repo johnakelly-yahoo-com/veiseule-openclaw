@@ -110,3 +110,4 @@ Solução completa: [/channels/signal#troubleshooting](/channels/signal#troubles
 | Salas criptografadas falham          | Verifique o módulo de criptografia e as configurações de criptografia | Ative o suporte à criptografia e reentre/sincronize a sala. |
 
 Solução completa: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

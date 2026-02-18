@@ -156,3 +156,4 @@ användartjänst (ingen kvardröjande behövs). Se [Gateway runbook](/gateway) f
 - [Discord](/channels/discord) och [Telegram](/channels/telegram) (svarstaggar + replyToMode‑inställningar)
 - [Installation av OpenClaw-assistenten](/start/openclaw)
 - [macOS‑app](/platforms/macos) (gatewayns livscykel)
+

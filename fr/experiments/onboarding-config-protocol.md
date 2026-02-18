@@ -36,3 +36,4 @@ Réponses (forme)
 ## Remarques
 
 - Ce document est l’unique référence pour suivre les refactorisations de protocole liées à la prise en main et à la configuration.
+

@@ -67,3 +67,4 @@ WhatsApp kanalı **Baileys Web** üzerinden çalışır. Bu belge, gönderim, ga
 - Görsel/ses/belge durumları için gönderim + yanıt akışlarını kapsayın.
 - Görseller için yeniden sıkıştırmayı (boyut sınırı) ve ses için sesli not bayrağını doğrulayın.
 - Çoklu medya yanıtlarının ardışık gönderimler olarak yayılmasını sağlayın.
+

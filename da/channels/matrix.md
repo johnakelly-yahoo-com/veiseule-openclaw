@@ -259,3 +259,4 @@ Udbyderindstillinger:
 - `channels.matrix.autoJoin`: invitationshåndtering (`always | allowlist | off`, standard: altid).
 - `channels.matrix.autoJoinAllowlist`: tilladte rum-id’er/aliaser for auto-tilslutning.
 - `channels.matrix.actions`: per-handling værktøjs-gating (reaktioner/beskeder/pins/memberInfo/channelInfo).
+

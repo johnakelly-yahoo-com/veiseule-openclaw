@@ -127,3 +127,4 @@ Sử dụng các đích này với `openclaw message send` hoặc gửi qua cron
 - Phản hồi trong nhóm yêu cầu mention (ví dụ: `~your-bot-ship`) để trả lời.
 - Trả lời theo luồng: nếu tin nhắn đến nằm trong một luồng, OpenClaw sẽ trả lời trong luồng đó.
 - Media: `sendMedia` sẽ chuyển sang dự phòng văn bản + URL (không tải lên gốc).
+

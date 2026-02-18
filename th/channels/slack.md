@@ -574,3 +574,4 @@ openclaw pairing list slack
 - คำเตือน: หากอนุญาตให้ตอบบอตอื่น (`channels.slack.allowBots=true` หรือ `channels.slack.channels.<id>.allowBots=true`) ให้ป้องกันลูปบอตต่อบอตด้วยรายการอนุญาต `requireMention`, `channels.slack.channels.<id>.users` และ/หรือเคลียร์การ์ดเรลใน `AGENTS.md` และ `SOUL.md`
 - สำหรับเครื่องมือ Slack ความหมายของการลบรีแอ็กชันอยู่ที่ [/tools/reactions](/tools/reactions)
 - ไฟล์แนบจะถูกดาวน์โหลดไปยังคลังสื่อเมื่อได้รับอนุญาตและมีขนาดไม่เกินขีดจำกัด
+

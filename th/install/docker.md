@@ -572,3 +572,4 @@ Two knobs:
   ซึ่งจะ source `/etc/profile` และอาจรีเซ็ต PATH ให้ตั้งค่า `docker.env.PATH`
   เพื่อ prepend พาธของเครื่องมือคุณ (เช่น `/custom/bin:/usr/local/share/npm-global/bin`) หรือเพิ่มสคริปต์ไว้ใต้
   `/etc/profile.d/` ใน Dockerfile ของคุณ
+

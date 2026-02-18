@@ -48,3 +48,4 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: वर्बोज़ स्तर स्थायी रखें
 - `--timeout <seconds>`: एजेंट टाइमआउट ओवरराइड
 - `--json`: संरचित JSON आउटपुट
+

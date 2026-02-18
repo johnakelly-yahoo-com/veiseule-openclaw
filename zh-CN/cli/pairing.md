@@ -23,3 +23,4 @@ x-i18n:
 openclaw pairing list whatsapp
 openclaw pairing approve whatsapp <code> --notify
 ```
+

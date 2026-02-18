@@ -148,3 +148,4 @@ Thiết lập sandbox nằm trong `~/.openclaw/openclaw.json` dưới `agents.de
 - [Tài liệu Sandbox](/gateway/sandboxing)
 - [Cấu hình Tác tử](/concepts/agent-workspace)
 - [Lệnh Doctor](/gateway/doctor) - Kiểm tra thiết lập sandbox
+

@@ -136,3 +136,4 @@ OpenClaw 會自動提供本地安裝路徑。
 - `channels.nextcloud-talk.blockStreaming`：停用此頻道的區塊串流。
 - `channels.nextcloud-talk.blockStreamingCoalesce`：區塊串流合併調校。
 - `channels.nextcloud-talk.mediaMaxMb`：進站媒體上限（MB）。
+

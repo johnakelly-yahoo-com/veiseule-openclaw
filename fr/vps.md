@@ -36,3 +36,4 @@ Vous pouvez conserver le Gateway dans le cloud et associer des **nodes** sur vos
 pendant que le Gateway reste dans le cloud.
 
 Docs : [Nodes](/nodes), [Nodes CLI](/cli/nodes)
+

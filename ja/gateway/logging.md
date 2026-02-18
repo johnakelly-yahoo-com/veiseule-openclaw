@@ -104,3 +104,4 @@ openclaw gateway --verbose --ws-log full
 - **WhatsApp のメッセージ本文** は `debug` でログされます（表示するには `--verbose` を使用）
 
 これにより、既存のファイルログを安定したまま維持しつつ、対話的な出力をスキャンしやすくします。
+

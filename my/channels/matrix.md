@@ -259,3 +259,4 @@ Provider ရွေးချယ်စရာများ:
 - `channels.matrix.autoJoin`: invite ကို ကိုင်တွယ်ပုံ (`always | allowlist | off`, မူလ: always)။
 - `channels.matrix.autoJoinAllowlist`: auto-join အတွက် ခွင့်ပြုထားသော room IDs/aliases။
 - `channels.matrix.actions`: action တစ်ခုချင်းစီအလိုက် tool gating (reactions/messages/pins/memberInfo/channelInfo)။
+

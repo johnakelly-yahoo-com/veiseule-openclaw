@@ -63,3 +63,4 @@ Du kan tilsidesætte tilstand eller kadence pr. session:
 - Heartbeats viser aldrig skriveindikator, uanset tilstand.
 - `typingIntervalSeconds` styrer **refresh cadence**, ikke starttidspunktet.
   Standard er 6 sekunder.
+

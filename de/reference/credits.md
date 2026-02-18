@@ -22,3 +22,4 @@ OpenClaw = CLAW + TARDIS, denn jeder Weltraumhummer braucht eine Zeit- und Raumm
 MIT – Frei wie ein Hummer im Ozean.
 
 > „Wir spielen alle nur mit unseren eigenen Prompts.“ (Eine KI, wahrscheinlich tokenhigh) (Eine KI, wahrscheinlich hoch bei Tokens)
+

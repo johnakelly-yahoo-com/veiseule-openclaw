@@ -68,3 +68,4 @@ Beta ve dev derlemeler **macOS uygulaması sürümü içermeyebilir**. Bu sorun 
 
 - Git etiketi ve npm dist-tag yine de yayımlanabilir.
 - Sürüm notlarında veya değişiklik günlüğünde “bu beta için macOS derlemesi yok” ifadesini belirtin.
+

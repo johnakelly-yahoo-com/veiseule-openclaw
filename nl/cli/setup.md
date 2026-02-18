@@ -23,3 +23,4 @@ Om de wizard via setup te starten:
 ```bash
 openclaw setup --wizard
 ```
+

@@ -567,3 +567,4 @@ Cách ánh xạ:
   - Nếu có node có khả năng trình duyệt được kết nối, công cụ có thể tự động định tuyến tới nó trừ khi bạn ghim `target="host"` hoặc `target="node"`.
 
 Điều này giúp tác tử mang tính quyết định và tránh các selector mong manh.
+

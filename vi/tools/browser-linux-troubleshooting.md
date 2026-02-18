@@ -134,3 +134,4 @@ Ghi chú:
 
 - Profile `chrome` sử dụng **trình duyệt Chromium mặc định của hệ thống** khi có thể.
 - Các profile `openclaw` cục bộ tự động gán `cdpPort`/`cdpUrl`; chỉ đặt các giá trị đó cho CDP từ xa.
+

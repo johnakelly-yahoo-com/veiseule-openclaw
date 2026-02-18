@@ -1026,3 +1026,4 @@ Opções:
 - `--message <text>`
 - `--timeout-ms <ms>` (padrão `agents.defaults.timeoutSeconds`)
 - `--history-limit <n>`
+

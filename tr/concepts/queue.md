@@ -84,3 +84,4 @@ Varsayılanlar: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 
 - Komutlar takılı gibi görünüyorsa, ayrıntılı günlükleri etkinleştirin ve kuyruğun boşaldığını doğrulamak için “queued for …ms” satırlarını arayın.
 - Kuyruk derinliğine ihtiyaç duyuyorsanız, ayrıntılı günlükleri etkinleştirin ve kuyruk zamanlama satırlarını izleyin.
+

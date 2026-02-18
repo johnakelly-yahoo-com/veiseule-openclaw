@@ -79,3 +79,4 @@ Confirme el `appcast.xml` actualizado junto con los activos del lanzamiento (zip
   - En una compilación pública anterior, ejecute “Buscar actualizaciones…” desde la pestaña Acerca de y verifique que Sparkle instale la nueva compilación correctamente.
 
 Definición de terminado: la app firmada y el appcast están publicados, el flujo de actualización funciona desde una versión instalada anterior y los activos del lanzamiento están adjuntos al lanzamiento de GitHub.
+

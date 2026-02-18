@@ -83,3 +83,4 @@ description: "追蹤外發工作階段鏡像重構的說明、決策、測試與
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
+

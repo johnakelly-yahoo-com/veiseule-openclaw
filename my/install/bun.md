@@ -52,3 +52,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## သတိပြုရန်အချက်များ
 
 - အချို့ scripts များသည် pnpm ကို hardcode လုပ်ထားဆဲဖြစ်ပါသည် (ဥပမာ `docs:build`, `ui:*`, `protocol:check`)။ ယခုအချိန်အတွက် ထိုအရာများကို pnpm ဖြင့် chạy လုပ်ပါ။
+

@@ -560,3 +560,4 @@ Ejemplo:
   obtiene `/etc/profile` y puede restablecer PATH. Configure `docker.env.PATH` para anteponer las rutas de sus
   herramientas personalizadas (por ejemplo, `/custom/bin:/usr/local/share/npm-global/bin`), o agregue
   un script bajo `/etc/profile.d/` en su Dockerfile.
+

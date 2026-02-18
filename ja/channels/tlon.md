@@ -126,3 +126,4 @@ openclaw plugins install ./extensions/tlon
 - グループでの返信にはメンション（例: `~your-bot-ship`）が必要です。
 - スレッド返信: 受信メッセージがスレッド内の場合、OpenClaw はスレッド内で返信します。
 - メディア: `sendMedia` はテキスト + URL にフォールバックします（ネイティブアップロードはありません）。
+

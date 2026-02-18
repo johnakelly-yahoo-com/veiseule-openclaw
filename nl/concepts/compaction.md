@@ -55,3 +55,4 @@ Zie [/concepts/session-pruning](/concepts/session-pruning) voor details over pru
 - Gebruik `/compact` wanneer sessies muf aanvoelen of de context opgeblazen is.
 - Grote tooluitvoer wordt al afgekapt; pruning kan de opstapeling van toolresultaten verder verminderen.
 - Als je een schone lei nodig hebt, starten `/new` of `/reset` een nieuwe sessie-id.
+

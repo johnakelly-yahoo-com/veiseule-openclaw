@@ -17,3 +17,4 @@ Geniş alan keşfi için DNS yardımcıları (Tailscale + CoreDNS). Şu anda mac
 openclaw dns setup
 openclaw dns setup --apply
 ```
+

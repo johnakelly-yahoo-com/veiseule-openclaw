@@ -102,3 +102,4 @@ RPC API ve sihirbazın yazdığı yapılandırma alanlarının tam listesi için
 - CLI komut başvurusu: [`openclaw onboard`](/cli/onboard)
 - macOS uygulaması katılımı: [Onboarding](/start/onboarding)
 - Ajan ilk çalıştırma ritüeli: [Agent Bootstrapping](/start/bootstrapping)
+

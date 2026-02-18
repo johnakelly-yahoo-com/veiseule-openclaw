@@ -175,3 +175,4 @@ openclaw pairing approve line <CODE>
   وأن الـ Gateway قابل للوصول من LINE.
 - **أخطاء تنزيل الوسائط:** ارفع قيمة `channels.line.mediaMaxMb` إذا تجاوزت الوسائط
   الحد الافتراضي.
+

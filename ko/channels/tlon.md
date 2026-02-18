@@ -124,3 +124,4 @@ openclaw plugins install ./extensions/tlon
 - 그룹 응답에는 응답을 위해 멘션(예: `~your-bot-ship`) 이 필요합니다.
 - 스레드 답글: 수신 메시지가 스레드에 있는 경우 OpenClaw 는 스레드 내로 답장합니다.
 - 미디어: `sendMedia` 는 텍스트 + URL 로 폴백됩니다(네이티브 업로드 없음).
+

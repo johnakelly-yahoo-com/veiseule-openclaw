@@ -247,3 +247,4 @@ Relaterede dokumenter:
 - [Gateway-konfiguration](/gateway/configuration)
 - [Sikkerhed](/gateway/security)
 - [Reaktioner](/tools/reactions)
+

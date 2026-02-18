@@ -114,3 +114,4 @@ Aplikacja prosi o potwierdzenie, chyba że zostanie podany prawidłowy klucz.
 - Schemat Canvas blokuje przechodzenie po katalogach; pliki muszą znajdować się pod katalogiem głównym sesji.
 - Lokalna zawartość Canvas używa niestandardowego schematu (serwer loopback nie jest wymagany).
 - Zewnętrzne adresy URL `http(s)` są dozwolone tylko przy jawnej nawigacji.
+

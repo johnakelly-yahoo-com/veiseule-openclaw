@@ -109,3 +109,4 @@ To customize, set `tools.media.audio.models`.
 - Scope rules use first-match wins. `chatType` is normalized to `direct`, `group`, or `room`.
 - یقینی بنائیں کہ آپ کا CLI 0 کے ساتھ ایگزٹ کرے اور سادہ متن پرنٹ کرے؛ JSON کو `jq -r .text` کے ذریعے درست کرنا ہوگا۔
 - جوابی قطار کو بلاک ہونے سے بچانے کے لیے ٹائم آؤٹس مناسب رکھیں (`timeoutSeconds`، بطورِ طے شدہ 60s)۔
+

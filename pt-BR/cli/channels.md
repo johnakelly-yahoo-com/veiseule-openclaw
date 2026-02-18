@@ -73,3 +73,4 @@ Notas:
 
 - Use `--kind user|group|auto` para forçar o tipo de destino.
 - A resolução prioriza correspondências ativas quando várias entradas compartilham o mesmo nome.
+

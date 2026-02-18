@@ -15,3 +15,4 @@ Als je snel weer verder wilt (“vastgelopen” oplossen), begin hier:
 Zoek je conceptuele vragen (niet “er is iets stuk”):
 
 - [FAQ (concepten)](/help/faq)
+

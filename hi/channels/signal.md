@@ -222,3 +222,4 @@ openclaw pairing list signal
 - `agents.list[].groupChat.mentionPatterns` (Signal मूल मेंशन का समर्थन नहीं करता)।
 - `messages.groupChat.mentionPatterns` (वैश्विक फ़ॉलबैक)।
 - `messages.responsePrefix`।
+

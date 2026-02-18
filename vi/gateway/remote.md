@@ -124,3 +124,4 @@ Phiên bản ngắn gọn: **giữ Gateway chỉ bind loopback** trừ khi bạn
 - Hãy coi điều khiển qua trình duyệt như quyền operator: chỉ trong tailnet + ghép cặp node có chủ đích.
 
 Phân tích chi tiết: [Security](/gateway/security).
+

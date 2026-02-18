@@ -100,3 +100,4 @@ openclaw browser extension path
 استخدم `gateway.nodes.browser.mode` للتحكم في التوجيه التلقائي و `gateway.nodes.browser.node` لتثبيت عُقدة محددة إذا كان هناك عدة عُقد متصلة.
 
 الأمان + الإعداد عن بُعد: [Browser tool](/tools/browser)، [Remote access](/gateway/remote)، [Tailscale](/gateway/tailscale)، [Security](/gateway/security)
+

@@ -43,3 +43,4 @@ Tillfällig lösning: flytta filer till OpenClaw-arbetsytan (`~/.openclaw/worksp
 
 Om du testar behörigheter, underteckna alltid med ett riktigt certifikat. Ad-hoc
 bygger är endast acceptabla för snabba lokala körningar där behörigheter inte spelar någon roll.
+

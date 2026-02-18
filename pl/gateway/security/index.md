@@ -797,3 +797,4 @@ Znalazłeś podatność w OpenClaw? Zgłoś ją odpowiedzialnie:
 _„Bezpieczeństwo to proces, nie produkt. I nie ufaj homarom z dostępem do powłoki.”_ — Ktoś mądry, pewnie
 
 🦞🔐
+

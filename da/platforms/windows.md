@@ -153,3 +153,4 @@ Fuld vejledning: [Kom godt i gang](/start/getting-started)
 
 Vi har ikke en Windows følgesvend app endnu. Bidrag er velkomne, hvis du vil have
 bidrag til at få det til at ske.
+

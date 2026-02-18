@@ -146,3 +146,4 @@ Szczegóły: [Gateway protocol](/gateway/protocol), [Pairing](/channels/pairing)
 - Dokładnie jeden Gateway kontroluje jedną sesję Baileys na hosta.
 - Uzgodnienie jest obowiązkowe; każda pierwsza ramka nie‑JSON lub inna niż connect skutkuje natychmiastowym zamknięciem.
 - Zdarzenia nie są odtwarzane; klienci muszą odświeżać stan po wystąpieniu luk.
+

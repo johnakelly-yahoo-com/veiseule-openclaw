@@ -336,3 +336,4 @@ Prefiera `chat_guid` para un enrutamiento estable:
 - Para información de estado/salud: `openclaw status --all` o `openclaw status --deep`.
 
 Para una referencia general del flujo de trabajo de canales, consulte [Channels](/channels) y la guía de [Plugins](/tools/plugin).
+

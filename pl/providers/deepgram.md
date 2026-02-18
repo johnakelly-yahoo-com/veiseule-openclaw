@@ -87,3 +87,4 @@ Przykład z opcjami Deepgram:
 - Uwierzytelnianie odbywa się zgodnie ze standardową kolejnością uwierzytelniania dostawców; `DEEPGRAM_API_KEY` to najprostsza ścieżka.
 - Nadpisuj punkty końcowe lub nagłówki za pomocą `tools.media.audio.baseUrl` i `tools.media.audio.headers` podczas korzystania z proxy.
 - Wyjście podlega tym samym zasadom audio co u innych dostawców (limity rozmiaru, limity czasu, wstrzykiwanie transkryptu).
+

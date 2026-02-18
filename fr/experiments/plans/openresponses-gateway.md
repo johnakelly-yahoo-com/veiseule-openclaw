@@ -118,3 +118,4 @@ Points clés extraits :
 
 - Ajouter une nouvelle page de documentation pour l’utilisation et les exemples de `/v1/responses`.
 - Mettre à jour `/gateway/openai-http-api` avec une note « hérité » et un pointeur vers `/v1/responses`.
+

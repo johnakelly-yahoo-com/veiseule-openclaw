@@ -86,3 +86,4 @@ DEEPGRAM_API_KEY=dg_...
 - 身分驗證遵循標準提供者驗證順序；`DEEPGRAM_API_KEY` 是最簡單的途徑。
 - 使用代理時，可透過 `tools.media.audio.baseUrl` 與 `tools.media.audio.headers` 覆寫端點或標頭。
 - 輸出遵循與其他提供者相同的音訊規則（大小上限、逾時、轉錄注入）。
+

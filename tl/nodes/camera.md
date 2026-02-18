@@ -150,3 +150,4 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 Mga tala:
 
 - Nangangailangan ng pahintulot na macOS **Screen Recording** (TCC).
+

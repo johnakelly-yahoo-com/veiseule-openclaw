@@ -35,3 +35,4 @@ OpenClaw は、`web_search` のデフォルトプロバイダーとして Brave 
 - Brave は無料枠と有料プランを提供しています。現在の制限については Brave API ポータルを確認してください。
 
 web_search の完全な設定については、[Web tools](/tools/web) を参照してください。
+

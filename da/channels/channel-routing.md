@@ -109,3 +109,4 @@ Indgående svar indeholder:
 - Citeret kontekst føjes til `Body` som en `[Replying to ...]`‑blok.
 
 Dette er konsistent på tværs af kanaler.
+

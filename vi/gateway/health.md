@@ -30,3 +30,4 @@ Hướng dẫn ngắn để xác minh kết nối kênh mà không cần đoán 
 ## Lệnh "health" chuyên dụng
 
 `openclaw health --json` asks the running Gateway for its health snapshot (no direct channel sockets from the CLI). It reports linked creds/auth age when available, per-channel probe summaries, session-store summary, and a probe duration. Lệnh sẽ thoát với mã khác 0 nếu Gateway không thể truy cập hoặc phép thăm dò thất bại/hết thời gian. Dùng `--timeout <ms>` để ghi đè mặc định 10s.
+

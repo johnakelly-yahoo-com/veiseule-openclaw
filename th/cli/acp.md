@@ -163,3 +163,4 @@ openclaw acp --session agent:qa:bug-123
 - `--server-args <args...>`: อาร์กิวเมนต์เพิ่มเติมที่ส่งให้เซิร์ฟเวอร์ACP
 - `--server-verbose`: เปิดใช้การล็อกแบบละเอียดบนเซิร์ฟเวอร์ACP
 - `--verbose, -v`: การล็อกฝั่งไคลเอนต์แบบละเอียด
+

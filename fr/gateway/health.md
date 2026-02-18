@@ -30,3 +30,4 @@ Guide court pour vérifier la connectivité des canaux sans tâtonner.
 ## Commande « health » dédiée
 
 `openclaw health --json` demande à la Gateway (passerelle) en cours d’exécution son instantané d’état (pas de sockets de canal directes depuis le CLI). Elle rapporte, lorsque disponibles, les identifiants liés/l’ancienneté de l’authentification, des résumés de sondes par canal, un résumé du stockage de sessions et une durée de sonde. Elle se termine avec un code non nul si la Gateway (passerelle) est injoignable ou si la sonde échoue/expire. Utilisez `--timeout <ms>` pour remplacer la valeur par défaut de 10 s.
+

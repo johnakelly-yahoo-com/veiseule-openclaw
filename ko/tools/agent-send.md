@@ -48,3 +48,4 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: verbose 레벨 유지
 - `--timeout <seconds>`: 에이전트 타임아웃 재정의
 - `--json`: 구조화된 JSON 출력
+

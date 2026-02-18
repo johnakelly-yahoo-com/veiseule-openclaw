@@ -373,3 +373,4 @@ Ipinapakita nito ang kinalabasan kada capability at ang napiling provider/model 
 
 - [Configuration](/gateway/configuration)
 - [Image & Media Support](/nodes/images)
+

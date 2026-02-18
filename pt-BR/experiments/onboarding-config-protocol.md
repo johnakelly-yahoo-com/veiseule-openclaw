@@ -36,3 +36,4 @@ Respostas (formato)
 ## Notas
 
 - Este documento é o único lugar para acompanhar refatorações de protocolo para integração inicial/configuração.
+

@@ -876,3 +876,4 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 - [捆绑 Hooks README](https://github.com/openclaw/openclaw/tree/main/src/hooks/bundled)
 - [Webhook Hooks](/automation/webhook)
 - [配置](/gateway/configuration#hooks)
+

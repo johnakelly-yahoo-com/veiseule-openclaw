@@ -74,3 +74,4 @@ title: "Perplexity Sonar"
 - `perplexity/sonar-reasoning-pro` — بحث معمّق
 
 انظر [أدوات الويب](/tools/web) للاطلاع على التهيئة الكاملة لـ web_search.
+

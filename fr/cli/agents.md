@@ -70,3 +70,4 @@ Exemple de configuration :
   },
 }
 ```
+

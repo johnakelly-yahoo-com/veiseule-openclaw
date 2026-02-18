@@ -102,3 +102,4 @@ openclaw agents add <name>
 - مرجع أوامر CLI: [`openclaw onboard`](/cli/onboard)
 - التهيئة الأولية لتطبيق macOS: [التهيئة الأولية](/start/onboarding)
 - طقس التشغيل الأول للوكيل: [تهيئة الوكيل الأولية](/start/bootstrapping)
+

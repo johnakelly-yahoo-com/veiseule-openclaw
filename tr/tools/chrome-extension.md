@@ -171,3 +171,4 @@ Bu güçlü ve risklidir. Model’e “tarayıcınız üzerinde eller” vermek 
 - Tarayıcı aracı genel bakış: [Browser](/tools/browser)
 - Güvenlik denetimi: [Security](/gateway/security)
 - Tailscale kurulumu: [Tailscale](/gateway/tailscale)
+

@@ -214,3 +214,4 @@ git push
   [Channel routing](/channels/channel-routing) สำหรับการกำหนดค่าการ routing 31. ดู
   [Channel routing](/channels/channel-routing) สำหรับการตั้งค่าการกำหนดเส้นทาง
 - หากเปิดใช้ `agents.defaults.sandbox` เซสชันที่ไม่ใช่หลักสามารถใช้เวิร์กสเปซ sandbox แบบต่อเซสชันภายใต้ `agents.defaults.sandbox.workspaceRoot`
+

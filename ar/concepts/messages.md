@@ -145,3 +145,4 @@ Inbound message
 - ترابط الردود عبر `replyToMode` وافتراضات كل قناة
 
 التفاصيل: [التهيئة](/gateway/configuration#messages) ووثائق القنوات.
+

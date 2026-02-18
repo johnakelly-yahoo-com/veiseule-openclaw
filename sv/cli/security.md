@@ -20,3 +20,4 @@ openclaw security audit --fix
 
 Granskningen varnar när flera DM-avsändare delar huvudsessionen och rekommenderar **säkert DM-läge**: `session.dmScope="per-channel-peer"` (eller `per-account-peer` för multi-account kanaler) för delade inkorgar.
 Den varnar också när små modeller (`<=300B`) används utan sandlåda och med webb-/webbläsarverktyg aktiverade.
+

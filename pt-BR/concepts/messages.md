@@ -146,3 +146,4 @@ A formatação de mensagens de saída é centralizada em `messages`:
 - Encadeamento de respostas via `replyToMode` e padrões por canal
 
 Detalhes: [Configuração](/gateway/configuration#messages) e documentação dos canais.
+

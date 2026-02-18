@@ -73,3 +73,4 @@ openclaw channels resolve --channel matrix "Project Room"
 
 - 対象タイプを強制するには `--kind user|group|auto` を使用します。
 - 同名のエントリが複数ある場合、解決はアクティブな一致を優先します。
+

@@ -331,3 +331,4 @@ Mga tala:
 
 - Ang macOS menubar app ay kumokonekta sa Gateway WS server bilang isang node (kaya gumagana ang `openclaw nodes …` laban sa Mac na ito).
 - Sa remote mode, nagbubukas ang app ng SSH tunnel para sa Gateway port at kumokonekta sa `localhost`.
+

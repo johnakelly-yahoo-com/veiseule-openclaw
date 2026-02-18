@@ -333,3 +333,4 @@ Notes :
 
 - L’app macOS de la barre de menus se connecte au serveur WS de la Gateway en tant que nœud (ainsi `openclaw nodes …` fonctionne sur ce Mac).
 - En mode distant, l’app ouvre un tunnel SSH pour le port de la Gateway et se connecte à `localhost`.
+

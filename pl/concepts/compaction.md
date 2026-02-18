@@ -54,3 +54,4 @@ Szczegóły przycinania znajdziesz w [/concepts/session-pruning](/concepts/sessi
 - Użyj `/compact`, gdy sesje wydają się „zastałe” lub kontekst jest nadmiernie rozdmuchany.
 - Duże wyjścia narzędzi są już obcinane; przycinanie może dodatkowo zmniejszyć narastanie wyników narzędzi.
 - Jeśli potrzebujesz czystej karty, `/new` lub `/reset` rozpoczyna nowy identyfikator sesji.
+

@@ -256,3 +256,4 @@ free -h
 - [تثبيت Docker](/install/docker) — إعداد بالحاويات
 - [Tailscale](/gateway/tailscale) — وصول آمن عن بُعد
 - [التهيئة](/gateway/configuration) — مرجع التهيئة الكامل
+

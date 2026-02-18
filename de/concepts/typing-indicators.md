@@ -63,3 +63,4 @@ Sie können Modus oder Taktung pro Sitzung überschreiben:
 - Heartbeats zeigen niemals Tippen an, unabhängig vom Modus.
 - `typingIntervalSeconds` steuert die **Aktualisierungstaktung**, nicht den Startzeitpunkt.
   Der Standardwert beträgt 6 Sekunden.
+

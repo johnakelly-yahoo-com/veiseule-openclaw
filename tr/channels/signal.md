@@ -222,3 +222,4 @@ Sağlayıcı seçenekleri:
 - `agents.list[].groupChat.mentionPatterns` (Signal yerel mention’ları desteklemez).
 - `messages.groupChat.mentionPatterns` (küresel geri dönüş).
 - `messages.responsePrefix`.
+

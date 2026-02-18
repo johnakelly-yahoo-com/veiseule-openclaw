@@ -157,3 +157,4 @@ Paste (မူလအားဖြင့် bracketed):
 - OpenAI/OpenAI Codex မော်ဒယ်များအတွက်သာ ရရှိနိုင်ပါသည်။
 - Tool policy သည် ဆက်လက် သက်ရောက်နေပြီး `allow: ["exec"]` သည် `apply_patch` ကို အလိုအလျောက် ခွင့်ပြုပါသည်။
 - Config သည် `tools.exec.applyPatch` အောက်တွင် ရှိပါသည်။
+

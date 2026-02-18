@@ -54,3 +54,4 @@ Ordem de extração do `web_fetch`:
 3. Limpeza básica de HTML (último fallback)
 
 Veja [Ferramentas web](/tools/web) para a configuração completa das ferramentas web.
+

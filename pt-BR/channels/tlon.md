@@ -127,3 +127,4 @@ Use estes com `openclaw message send` ou entrega via cron:
 - Respostas em grupo exigem uma menção (por exemplo, `~your-bot-ship`) para responder.
 - Respostas em threads: se a mensagem de entrada estiver em uma thread, o OpenClaw responde na própria thread.
 - Mídia: `sendMedia` faz fallback para texto + URL (sem upload nativo).
+

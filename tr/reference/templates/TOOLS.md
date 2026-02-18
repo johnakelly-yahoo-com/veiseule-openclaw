@@ -40,3 +40,4 @@ Skills paylaşımlıdır. Kurulumunuz size aittir. Ayrı tutmak, notlarınızı 
 ---
 
 İşinizi yapmanıza yardımcı olacak her şeyi ekleyin. Bu sizin kısa notlarınız.
+

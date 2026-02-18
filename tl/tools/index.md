@@ -506,3 +506,4 @@ Inilalantad ang mga tool sa dalawang magkatulad na channel:
 
 38) Ibig sabihin nito, nakikita ng agent ang parehong “kung anong mga tool ang umiiral” at “kung paano tawagin ang mga ito.” 39. Kung ang isang tool
     ay hindi lumalabas sa system prompt o sa schema, hindi ito maaaring tawagin ng modelo.
+

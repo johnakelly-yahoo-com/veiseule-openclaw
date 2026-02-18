@@ -143,3 +143,4 @@ Se [Gateway‑konfiguration](/gateway/configuration) for:
 - `agents.defaults.imageModel` routing
 
 Se [Modeller](/concepts/models) for et bredere overblik over modelvalg og fallback.
+

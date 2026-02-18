@@ -379,3 +379,4 @@ Ajan başına sınırlar gerekiyorsa, `agents.list[].tools` kullanarak `exec`’
 Grup hedefleme için, @bahsetmelerin doğru ajana temiz biçimde eşlenmesi amacıyla `agents.list[].groupChat.mentionPatterns` kullanın.
 
 Ayrıntılı örnekler için [Çoklu Ajan Sandbox & Araçlar](/tools/multi-agent-sandbox-tools) bölümüne bakın.
+

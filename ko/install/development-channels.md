@@ -67,3 +67,4 @@ openclaw update --channel dev
 
 - git 태그와 npm dist-tag 는 여전히 게시할 수 있습니다.
 - 릴리스 노트 또는 변경 로그에 '이 베타에는 macOS 빌드가 없음' 을 명시하십시오.
+

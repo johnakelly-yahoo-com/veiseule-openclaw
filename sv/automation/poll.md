@@ -63,3 +63,4 @@ Använd verktyget `message` med åtgärden `poll` (`to`, `pollQuestion`, `pollOp
 Obs: Discord har inget ”pick exactly N”-läge; `pollMulti`-kartor för multi-select.
 Lag omröstningar renderas som Adaptive Cards och kräver att porten stannar online
 för att spela in röster i `~/.openclaw/msteams-polls.json`.
+

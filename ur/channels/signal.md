@@ -222,3 +222,4 @@ openclaw pairing list signal
 - `agents.list[].groupChat.mentionPatterns` (Signal مقامی مینشنز سپورٹ نہیں کرتا)۔
 - `messages.groupChat.mentionPatterns` (عالمی فال بیک)۔
 - `messages.responsePrefix`۔
+

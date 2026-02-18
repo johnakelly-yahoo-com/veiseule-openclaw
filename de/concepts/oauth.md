@@ -137,3 +137,4 @@ Verwandte Dokumente:
 
 - [/concepts/model-failover](/concepts/model-failover) (Rotation + Cooldown-Regeln)
 - [/tools/slash-commands](/tools/slash-commands) (Befehlsschnittstelle)
+

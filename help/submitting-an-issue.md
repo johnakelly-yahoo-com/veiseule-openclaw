@@ -149,3 +149,4 @@ _Avoid secrets/exploit details in public. For sensitive issues, minimize detail 
 ### Submitting a fix PR
 
 Issue before PR is optional. Include details in PR if skipping. Keep the PR focused, note issue number, add tests or explain absence, document behavior changes/risks, include redacted logs/screenshots as proof, and run proper validation before submitting.
+

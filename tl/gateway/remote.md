@@ -124,3 +124,4 @@ Itakda ito sa `false` kung mas gusto mong gumamit ng mga token/password sa halip
 - Ituring ang browser control na parang operator access: tailnet-only + sinadyang node pairing.
 
 Mas malalim na talakayan: [Security](/gateway/security).
+

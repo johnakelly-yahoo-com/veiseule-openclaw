@@ -41,3 +41,4 @@ Prefiera localhost, Tailscale Serve o un túnel SSH.
 - Asegúrese de que el gateway sea alcanzable (local: `openclaw status`; remoto: túnel SSH `ssh -N -L 18789:127.0.0.1:18789 user@host` y luego abra `http://127.0.0.1:18789/`).
 - Recupere el token del host del Gateway: `openclaw config get gateway.auth.token` (o genere uno: `openclaw doctor --generate-gateway-token`).
 - En la configuración del dashboard, pegue el token en el campo de autenticación y luego conéctese.
+

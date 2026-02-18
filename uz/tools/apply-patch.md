@@ -44,3 +44,4 @@ Vosita bitta `input` satrini qabul qiladi, u bir yoki bir nechta fayl amallarini
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
+

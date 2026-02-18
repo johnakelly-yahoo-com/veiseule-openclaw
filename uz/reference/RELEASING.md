@@ -110,3 +110,4 @@ Joriy npm plugin ro‘yxati (zaruratga ko‘ra yangilang):
 - @openclaw/zalouser
 
 Reliz eslatmalarida, shuningdek, **sukut bo‘yicha yoqilmagan yangi ixtiyoriy bundle qilingan plugin’lar** ham alohida qayd etilishi kerak (masalan: `tlon`).
+

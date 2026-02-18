@@ -85,3 +85,4 @@ Der System-Prompt enthält:
 Sie können das Prompt-Format mit `agents.defaults.timeFormat` steuern (`auto` | `12` | `24`).
 
 Siehe [Date & Time](/date-time) für das vollständige Verhalten und Beispiele.
+

@@ -59,3 +59,4 @@ OpenClaw 는 **웨이크 워드를 Gateway(게이트웨이)** 가 소유하는 *
 
 - 설정에서 Wake Words 편집기를 제공합니다.
 - Gateway WS 를 통해 `voicewake.set` 을 호출하여 편집 내용이 전체에 동기화되도록 합니다.
+

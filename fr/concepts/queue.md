@@ -84,3 +84,4 @@ Valeurs par défaut : `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 
 - Si des commandes semblent bloquées, activez les journaux verbeux et recherchez les lignes « queued for …ms » pour confirmer que la file se vide.
 - Si vous avez besoin de la profondeur de file, activez les journaux verbeux et surveillez les lignes de temporisation de la file.
+

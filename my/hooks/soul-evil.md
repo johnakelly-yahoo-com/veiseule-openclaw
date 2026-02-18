@@ -59,3 +59,4 @@ openclaw hooks enable soul-evil
 ## ဆက်စပ်ကြည့်ရှုရန်
 
 - [ဟုခ်များ](/automation/hooks)
+

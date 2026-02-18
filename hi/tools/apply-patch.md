@@ -44,3 +44,4 @@ or multi-hunk edits where a single `edit` call would be brittle.
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
+

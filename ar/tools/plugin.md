@@ -654,3 +654,4 @@ export default function (api) {
 
 - يمكن للإضافات داخل المستودع الاحتفاظ باختبارات Vitest ضمن `src/**` (مثال: `src/plugins/voice-call.plugin.test.ts`).
 - يجب على الإضافات المنشورة بشكل منفصل تشغيل CI خاص بها (lint/build/test) والتحقق من أن `openclaw.extensions` يشير إلى نقطة الإدخال المبنية (`dist/index.js`).
+

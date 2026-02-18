@@ -120,3 +120,4 @@ openclaw health
 ```
 
 Guide: [Opdatering](/install/updating)
+

@@ -66,3 +66,4 @@ Beta va dev buildlarida macOS ilovasi relizi **bo‘lmasligi** mumkin. Bu muammo
 
 - Git tegi va npm dist-tagi baribir nashr qilinishi mumkin.
 - Reliz eslatmalari yoki changelog’da “bu beta uchun macOS build yo‘q” deb ko‘rsating.
+

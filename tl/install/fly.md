@@ -484,3 +484,4 @@ Sa inirerekomendang config (`shared-cpu-2x`, 2GB RAM):
 - May kasamang ilang allowance ang free tier
 
 Tingnan ang [Fly.io pricing](https://fly.io/docs/about/pricing/) para sa mga detalye.
+

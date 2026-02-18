@@ -56,3 +56,4 @@ title: "語音覆蓋層"
 3. 重構 `VoicePushToTalk`，以採用既有工作階段，並在放開時呼叫 `endCapture`；套用執行環境冷卻。
 4. 將 `VoiceWakeOverlayController` 接線至發布者；移除執行環境／按鍵通話的直接呼叫。
 5. 為工作階段接管、冷卻時間，以及空文字關閉新增整合測試。
+

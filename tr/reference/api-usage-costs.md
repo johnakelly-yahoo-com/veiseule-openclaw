@@ -128,3 +128,4 @@ Skills, `apiKey`’ü `skills.entries.<name>.apiKey` içinde saklayabilir. Bir s
 API’ler için kullanırsa, skill’in sağlayıcısına göre maliyet oluşturabilir.
 
 [Skills](/tools/skills).
+

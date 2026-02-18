@@ -38,3 +38,4 @@ Gateway-host en zijn afgestemd op systemd + Termux.
 - `scripts/termux-sync-widget.sh`: synchroniseer Claude Code-inloggegevens → OpenClaw.
 
 Als je geen telefoonautomatisering of systemd-timers nodig hebt, sla deze scripts over.
+

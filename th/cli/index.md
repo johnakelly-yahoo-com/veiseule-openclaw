@@ -1028,3 +1028,4 @@ CLIควบคุมเบราว์เซอร์ (Chrome/Brave/Edge/Chromi
 - `--message <text>`
 - `--timeout-ms <ms>` (ค่าเริ่มต้นเป็น `agents.defaults.timeoutSeconds`)
 - `--history-limit <n>`
+

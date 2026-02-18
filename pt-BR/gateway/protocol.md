@@ -212,3 +212,4 @@ O Gateway trata isso como **reivindicações** e aplica listas de permissões no
 Este protocolo expõe a **API completa do gateway** (status, canais, modelos, chat,
 agente, sessões, nós, aprovações, etc.). A superfície exata é definida pelos
 esquemas TypeBox em `src/gateway/protocol/schema.ts`.
+

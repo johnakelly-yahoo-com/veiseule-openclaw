@@ -156,3 +156,4 @@ sequences (hal. ang mga space ay nagiging `\032`).
 
 - Discovery policy at pagpili ng transport: [Discovery](/gateway/discovery)
 - Node pairing + approvals: [Gateway pairing](/gateway/pairing)
+

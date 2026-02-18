@@ -23,3 +23,4 @@ Notities:
 
 - Sla dit bestand op in de werkruimteroot als `IDENTITY.md`.
 - Gebruik voor avatars een werkruimte-relatief pad zoals `avatars/openclaw.png`.
+

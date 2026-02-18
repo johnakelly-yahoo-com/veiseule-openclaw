@@ -68,3 +68,4 @@ openclaw update --channel dev
 
 - ยังสามารถเผยแพร่ git tag และ npm dist-tag ได้.
 - ระบุว่า “ไม่มีบิลด์ macOS สำหรับ beta นี้” ในบันทึกรีลีสหรือ changelog.
+

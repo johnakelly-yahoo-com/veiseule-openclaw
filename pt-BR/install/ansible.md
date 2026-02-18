@@ -201,3 +201,4 @@ Para arquitetura de segurança detalhada e solução de problemas:
 - [Docker](/install/docker) — configuração de gateway containerizado
 - [Sandboxing](/gateway/sandboxing) — configuração de sandbox de agentes
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — isolamento por agente
+

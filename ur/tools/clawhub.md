@@ -250,3 +250,4 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: CLI ٹوکن/کنفیگ کہاں محفوظ کرے اسے اوور رائڈ کریں۔
 - `CLAWHUB_WORKDIR`: ڈیفالٹ workdir اوور رائڈ کریں۔
 - `CLAWHUB_DISABLE_TELEMETRY=1`: `sync` پر ٹیلی میٹری غیر فعال کریں۔
+

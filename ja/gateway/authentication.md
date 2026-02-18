@@ -133,3 +133,4 @@ openclaw models status
 
 - Claude Max または Pro のサブスクリプション（`claude setup-token` 用）
 - Claude Code CLI がインストールされていること（`claude` コマンドが利用可能）
+

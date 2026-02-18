@@ -30,3 +30,4 @@ Les operateurs souhaitent :
 - La rotation des profils doit-elle etre par fournisseur ou par modele ?
 - Comment l'interface utilisateur doit-elle exposer la selection de profil pour une session ?
 - Quel est le chemin de migration le plus sûr à partir des clés de configuration héritées?
+

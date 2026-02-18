@@ -127,3 +127,4 @@ Bunları `openclaw message send` veya cron teslimi ile kullanın:
 - Grup yanıtları, yanıt vermek için bir bahsetme gerektirir (ör. `~your-bot-ship`).
 - Konu (thread) yanıtları: gelen mesaj bir konu içindeyse, OpenClaw konu içinde yanıtlar.
 - Medya: `sendMedia` metin + URL’ye geri döner (yerel yükleme yok).
+

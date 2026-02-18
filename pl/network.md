@@ -47,3 +47,4 @@ Zaufanie lokalne:
 - [Referencja konfiguracji Gateway](/gateway/configuration)
 - [Rozwiązywanie problemów](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
+

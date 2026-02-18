@@ -36,3 +36,4 @@ These live under `scripts/` and are **optional**. یہ گیٹ وے ہوسٹ تک
 - `scripts/termux-sync-widget.sh`: Claude Code اسناد → OpenClaw ہم وقت سازی۔
 
 اگر آپ کو فون خودکاری یا systemd ٹائمرز کی ضرورت نہیں، تو ان اسکرپٹس کو چھوڑ دیں۔
+

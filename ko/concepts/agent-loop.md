@@ -140,3 +140,4 @@ OpenClaw 에는 두 가지 훅 시스템이 있습니다:
 - AbortSignal (취소)
 - Gateway 연결 해제 또는 RPC 타임아웃
 - `agent.wait` 타임아웃 (대기 전용, 에이전트는 중단하지 않음)
+

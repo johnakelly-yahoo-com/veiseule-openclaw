@@ -36,3 +36,4 @@ Antworten (Struktur)
 ## Hinweise
 
 - Dieses Dokument ist der zentrale Ort zur Nachverfolgung von Protokoll-Refactorings für Onboarding/Konfiguration.
+

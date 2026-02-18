@@ -122,3 +122,4 @@ Legend:
 
 - `sendMessageDraft`: Telegram draft bubble (တကယ့် မက်ဆေ့ချ် မဟုတ်ပါ)။
 - `final reply`: ပုံမှန် Telegram မက်ဆေ့ချ် ပို့ခြင်း။
+

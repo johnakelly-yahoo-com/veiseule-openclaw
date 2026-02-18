@@ -134,3 +134,4 @@ estiver ausente, execute novamente `claude setup-token` e cole o token outra vez
 
 - Assinatura Claude Max ou Pro (para `claude setup-token`)
 - Claude Code CLI instalada (comando `claude` disponível)
+

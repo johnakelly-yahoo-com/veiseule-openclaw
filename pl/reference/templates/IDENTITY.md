@@ -23,3 +23,4 @@ Uwagi:
 
 - Zapisz ten plik w katalogu głównym obszaru roboczego jako `IDENTITY.md`.
 - Dla awatarów użyj ścieżki względnej względem obszaru roboczego, np. `avatars/openclaw.png`.
+

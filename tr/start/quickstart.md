@@ -16,3 +16,4 @@ Hızlı Başlangıç artık [Başlarken](/start/getting-started) bölümünün b
     Kapsamlı CLI sihirbazı başvurusu ve gelişmiş seçenekler.
   </Card>
 </Columns>
+

@@ -64,3 +64,4 @@ Hinweis: Wenn Sie `--url` setzen, greift die CLI nicht auf Konfigurations- oder 
 
 - Die Token-Rotation gibt ein neues Token zurück (sensibel). Behandeln Sie es wie ein Geheimnis.
 - Diese Befehle erfordern den Scope `operator.pairing` (oder `operator.admin`).
+

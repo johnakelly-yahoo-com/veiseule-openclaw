@@ -205,3 +205,4 @@ OpenClaw には `codex-cli` のデフォルトも同梱されています。
 - **モデル名が不正**：`modelAliases` を使用して、`provider/model` → CLI モデルにマッピングしてください。
 - **セッションが継続しない**：`sessionArg` が設定され、`sessionMode` が `none` でないことを確認してください（Codex CLI は現在、JSON 出力での再開に対応していません）。
 - **画像が無視される**：`imageArg` を設定し、CLI がファイルパスをサポートしていることを確認してください。
+

@@ -23,3 +23,4 @@ Mga tala:
 
 - I-save ang file na ito sa root ng workspace bilang `IDENTITY.md`.
 - Para sa mga avatar, gumamit ng workspace-relative na path tulad ng `avatars/openclaw.png`.
+

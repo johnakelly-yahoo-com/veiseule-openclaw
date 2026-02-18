@@ -123,3 +123,4 @@ SPOILER style ranges. Other channels treat them as plain text.
 - Signal style ranges depend on UTF-16 offsets; do not use code point offsets.
 - Preserve trailing newlines for fenced code blocks so closing markers land on
   their own line.
+

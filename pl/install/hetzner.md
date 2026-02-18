@@ -323,3 +323,4 @@ Cały długotrwały stan musi przetrwać restarty, przebudowy i rebooty.
 | Runtime Node                    | System plików kontenera           | Obraz Dockera         | Odbudowywane przy każdym buildzie  |
 | Pakiety systemowe               | System plików kontenera           | Obraz Dockera         | Nie instalować w czasie działania  |
 | Kontener Dockera                | Efemeryczny                       | Restartowalny         | Bezpieczny do zniszczenia          |
+

@@ -70,3 +70,4 @@ La incorporación solicita permisos TCC necesarios para:
   saber qué sucede en el host del Gateway durante la primera ejecución del agente.
 </Step>
 </Steps>
+

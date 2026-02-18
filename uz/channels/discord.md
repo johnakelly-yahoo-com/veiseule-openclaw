@@ -465,3 +465,4 @@ Discord message ids are surfaced in the injected context (`[discord message id: 
 - 49. Bot tokenini parol kabi saqlang; nazorat ostidagi xostlarda `DISCORD_BOT_TOKEN` muhit o‘zgaruvchisini afzal ko‘ring yoki konfiguratsiya fayli ruxsatlarini qat’iy cheklang.
 - Only grant the bot permissions it needs (typically Read/Send Messages).
 - 50. Agar bot tiqilib qolgan bo‘lsa yoki tezlik chekloviga uchragan bo‘lsa, Discord sessiyasiga boshqa jarayonlar egalik qilmayotganini tasdiqlagach, shlyuzni qayta ishga tushiring (`openclaw gateway --force`).
+

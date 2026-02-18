@@ -599,3 +599,4 @@ title: "設定範例"
 - 提供者 ID 的格式各異（電話號碼、使用者 ID、頻道 ID）。請參閱各提供者文件以確認格式。 Use the provider docs to confirm the format.
 - 可於之後新增的選用區段：`web`、`browser`、`ui`、`discovery`、`canvasHost`、`talk`、`signal`、`imessage`。
 - 更深入的設定說明，請參閱 [Providers](/channels/whatsapp) 與 [Troubleshooting](/gateway/troubleshooting)。
+

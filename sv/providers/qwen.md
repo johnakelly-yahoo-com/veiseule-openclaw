@@ -47,3 +47,4 @@ från `~/.qwen/oauth_creds.json` när den laddar auth butiken. Du behöver fortf
 - Standard-bas-URL: `https://portal.qwen.ai/v1` (åsidosätt med
   `models.providers.qwen-portal.baseUrl` om Qwen tillhandahåller en annan slutpunkt).
 - Se [Model providers](/concepts/model-providers) för leverantörsövergripande regler.
+

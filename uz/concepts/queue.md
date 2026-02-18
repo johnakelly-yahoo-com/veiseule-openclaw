@@ -82,3 +82,4 @@ title: "34. Buyruqlar navbati"
 
 - 31. Agar buyruqlar tiqilib qolgandek ko‘rinsa, batafsil loglarni yoqing va navbat bo‘shayotganini tasdiqlash uchun “queued for …ms” qatorlarini qidiring.
 - 32. Agar navbat chuqurligi kerak bo‘lsa, batafsil loglarni yoqing va navbat vaqtlariga oid qatorlarni kuzating.
+

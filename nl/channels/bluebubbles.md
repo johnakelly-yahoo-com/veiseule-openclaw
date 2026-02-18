@@ -336,3 +336,4 @@ Geef de voorkeur aan `chat_guid` voor stabiele routering:
 - Voor status-/gezondheidsinfo: `openclaw status --all` of `openclaw status --deep`.
 
 Voor algemene referentie over kanaalworkflows, zie [Kanalen](/channels) en de handleiding [Plugins](/tools/plugin).
+

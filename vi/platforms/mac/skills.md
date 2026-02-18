@@ -27,3 +27,4 @@ title: "Kỹ năng"
 ## Chế độ từ xa
 
 - Việc cài đặt + cập nhật cấu hình diễn ra trên máy chủ gateway (không phải máy Mac cục bộ).
+

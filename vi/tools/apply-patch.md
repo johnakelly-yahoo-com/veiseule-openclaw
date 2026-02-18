@@ -44,3 +44,4 @@ Công cụ chấp nhận một chuỗi `input` duy nhất, bao bọc một hoặ
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
+

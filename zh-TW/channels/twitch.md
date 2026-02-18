@@ -374,3 +374,4 @@ Access token refreshed for user 123456 (expires in 14400s)
 - 每則訊息 **500 個字元**（在字詞邊界自動分段）
 - 分段前會移除 Markdown
 - 無額外速率限制（使用 Twitch 內建的速率限制）
+

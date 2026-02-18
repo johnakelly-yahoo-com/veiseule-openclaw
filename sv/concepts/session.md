@@ -199,3 +199,4 @@ Varje sessionspost registrerar var den kom ifrån (bästa möjliga) i `origin`:
   `GroupSubject`, `GroupChannel`, `GroupSpace`, och `SenderName` i det inkommande
   sammanhanget och ringer `recordSessionMetaFromInbound` (eller skickar samma kontext
   till `updateLastRoute`).
+

@@ -106,3 +106,4 @@ com o gateway em `~/.openclaw/node.json`.
 - `~/.openclaw/exec-approvals.json`
 - [Aprovações de exec](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (editar pelo Gateway)
+

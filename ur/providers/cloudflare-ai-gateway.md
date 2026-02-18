@@ -64,3 +64,4 @@ openclaw onboard --non-interactive \
 ## ماحول سے متعلق نوٹ
 
 اگر Gateway بطور ڈیمَن چل رہا ہو (launchd/systemd)، تو یقینی بنائیں کہ `CLOUDFLARE_AI_GATEWAY_API_KEY` اس عمل کے لیے دستیاب ہو (مثال کے طور پر `~/.openclaw/.env` میں یا `env.shellEnv` کے ذریعے)۔
+

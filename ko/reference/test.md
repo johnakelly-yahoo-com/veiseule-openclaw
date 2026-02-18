@@ -48,3 +48,4 @@ Docker 에서 Node 22+ 환경에서 `qrcode-terminal` 가 로드되는지 확인
 ```bash
 pnpm test:docker:qr
 ```
+

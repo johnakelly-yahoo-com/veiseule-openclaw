@@ -568,3 +568,4 @@ openclaw pairing list slack
 - Предупреждение: если вы разрешаете ответы другим ботам (`channels.slack.allowBots=true` или `channels.slack.channels.<id>.allowBots=true`), предотвращайте циклы ответов ботов с помощью allowlist `requireMention`, `channels.slack.channels.<id>.users` и/или жёстких ограничений в `AGENTS.md` и `SOUL.md`.
 - Для инструмента Slack семантика удаления реакций описана в [/tools/reactions](/tools/reactions).
 - Вложения загружаются в хранилище медиа при наличии разрешений и если размер не превышает лимит.
+

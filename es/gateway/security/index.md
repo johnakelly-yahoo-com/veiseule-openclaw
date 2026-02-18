@@ -800,3 +800,4 @@ flowchart TB
 _“La seguridad es un proceso, no un producto. Además, no confíe en langostas con acceso al shell.”_ — Alguien sabio, probablemente
 
 🦞🔐
+

@@ -26,3 +26,4 @@ title: "44. GLM modellari"
 - GLM versiyalari va mavjudligi o‘zgarishi mumkin; eng so‘nggi ma’lumotlar uchun Z.AI hujjatlarini tekshiring.
 - Model ID’lariga `glm-4.7` va `glm-4.6` misol bo‘la oladi.
 - Provayder tafsilotlari uchun [/providers/zai](/providers/zai) sahifasiga qarang.
+

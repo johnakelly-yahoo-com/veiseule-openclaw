@@ -79,3 +79,4 @@ Indsend den opdaterede `appcast.xml` ved siden af udgivelsesaktiverne (zip + dSY
   - På en tidligere offentlig build: kør “Check for Updates…” fra Om-fanen og bekræft, at Sparkle installerer den nye build korrekt.
 
 Definition of done: signeret app + appcast er udgivet, opdateringsflowet virker fra en ældre installeret version, og release-aktiver er vedhæftet GitHub-udgivelsen.
+

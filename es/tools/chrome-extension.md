@@ -171,3 +171,4 @@ Relacionado:
 - Descripción general de la herramienta de navegador: [Browser](/tools/browser)
 - Auditoría de seguridad: [Security](/gateway/security)
 - Configuración de Tailscale: [Tailscale](/gateway/tailscale)
+

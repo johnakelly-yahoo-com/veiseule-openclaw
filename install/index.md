@@ -207,3 +207,4 @@ Then open a new terminal (or `rehash` in zsh / `hash -r` in bash).
     Remove OpenClaw completely.
   </Card>
 </CardGroup>
+

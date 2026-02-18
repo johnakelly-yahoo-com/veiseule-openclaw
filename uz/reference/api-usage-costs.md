@@ -131,3 +131,4 @@ Skills `skills.entries.<name>.apiKey` da `apiKey` saqlashi mumkin. Agar skill us
 API’lar uchun foydalansa, skill provayderi shartlariga ko‘ra xarajatlar yuzaga kelishi mumkin.
 
 Qarang: [Skills](/tools/skills).
+

@@ -503,3 +503,4 @@ agents: {
 
 - `remote.*` は `models.providers.openai.*` より優先されます。
 - `remote.headers` は OpenAI ヘッダーとマージされ、キー競合時はリモートが優先されます。OpenAI のデフォルトを使用するには `remote.headers` を省略してください。 `remote.headers` を省略して、OpenAI のデフォルトを使用します。
+

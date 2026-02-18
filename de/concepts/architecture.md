@@ -146,3 +146,4 @@ Details: [Gateway-Protokoll](/gateway/protocol), [Pairing](/channels/pairing),
 - Genau ein Gateway steuert eine einzelne Baileys-Sitzung pro Host.
 - Der Handshake ist verpflichtend; jeder nicht-JSON- oder nicht-Connect-Erstframe führt zu einem harten Close.
 - Events werden nicht erneut abgespielt; Clients müssen bei Lücken aktualisieren.
+

@@ -102,3 +102,4 @@ l’API RPC et la liste complete des champs de configuration que l’assistant e
 - Reference des commandes CLI : [`openclaw onboard`](/cli/onboard)
 - Prise en main de l’app macOS : [Onboarding](/start/onboarding)
 - Rituel du premier demarrage de l’agent : [Agent Bootstrapping](/start/bootstrapping)
+

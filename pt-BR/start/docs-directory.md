@@ -59,3 +59,4 @@ Para um mapa completo da documentação, veja [Hubs de documentação](/start/hu
 - [Ganchos do Gmail (Pub/Sub)](/automation/gmail-pubsub)
 - [Segurança](/gateway/security)
 - [Solução de problemas](/gateway/troubleshooting)
+

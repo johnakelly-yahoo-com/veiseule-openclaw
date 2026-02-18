@@ -490,3 +490,4 @@ Emoji can be unicode (e.g., `✅`) or custom emoji syntax like `<:party_blob:123
 - Bot token ကို စကားဝှက်ကဲ့သို့ ဆက်ဆံပါ; supervised hosts များတွင် `DISCORD_BOT_TOKEN` env var ကို ဦးစားပေးအသုံးပြုပါ သို့မဟုတ် config ဖိုင် ခွင့်ပြုချက်များကို တင်းကြပ်စွာ သတ်မှတ်ပါ။
 - ဘော့တ်အတွက် လိုအပ်သလောက်သာ ခွင့်ပြုချက်များ ပေးပါ (ပုံမှန်အားဖြင့် Read/Send Messages)။
 - ဘော့တ်သည် အတက်အကျ ရပ်တန့်နေပါက သို့မဟုတ် rate limited ဖြစ်ပါက Discord session ကို အခြား process များက မပိုင်ဆိုင်ကြောင်း အတည်ပြုပြီးနောက် Gateway (`openclaw gateway --force`) ကို ပြန်စတင်ပါ။
+

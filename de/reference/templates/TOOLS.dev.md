@@ -17,3 +17,4 @@ Sie definiert nicht, welche Werkzeuge existieren; OpenClaw stellt intern integri
 - Text-to-Speech: Geben Sie Stimme, Ziel-Lautsprecher/-Raum und an, ob gestreamt werden soll.
 
 Fügen Sie alles Weitere hinzu, was der Assistent über Ihre lokale Toolchain wissen soll.
+

@@ -197,3 +197,4 @@ protokołu: [Gateway protocol](/gateway/protocol).
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [Uprawnienia macOS](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
+

@@ -26,3 +26,4 @@ Perguntas em aberto
 - Plugins opcionais do grammY (throttler) se começarmos a receber 429 da API de Bots.
 - Adicionar mais testes estruturados de mídia (figurinhas, mensagens de voz).
 - Tornar a porta de escuta do webhook configurável (atualmente fixa em 8787, a menos que seja conectada via gateway).
+

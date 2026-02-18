@@ -48,3 +48,4 @@ title: "Características"
 Se han eliminado las rutas heredadas de Claude, Codex, Gemini y Opencode. Pi es la única
 ruta de agente de codificación.
 </Note>
+

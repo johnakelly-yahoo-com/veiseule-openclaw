@@ -54,3 +54,4 @@ Ang pagkakasunod-sunod ng extraction ng `web_fetch`:
 3. Basic HTML cleanup (huling fallback)
 
 Tingnan ang [Web tools](/tools/web) para sa kumpletong setup ng web tool.
+

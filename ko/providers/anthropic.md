@@ -145,3 +145,4 @@ openclaw onboard --auth-choice setup-token
 - 다른 Anthropic 프로파일을 추가하거나 쿨다운이 끝날 때까지 기다리십시오.
 
 추가 정보: [/gateway/troubleshooting](/gateway/troubleshooting) 및 [/help/faq](/help/faq).
+

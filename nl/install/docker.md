@@ -571,3 +571,4 @@ Voorbeeld:
   (login shell), die `/etc/profile` sourced en mogelijk PATH reset. Stel `docker.env.PATH`
   in om je aangepaste toolpaden vooraan toe te voegen (bijv. `/custom/bin:/usr/local/share/npm-global/bin`), of voeg
   een script toe onder `/etc/profile.d/` in je Dockerfile.
+

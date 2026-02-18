@@ -61,3 +61,4 @@ Tingnan ang [Cron jobs](/automation/cron-jobs) para sa normalized na hugis at mg
 
 - Dapat bang tanggapin ng `cron.add` ang tahasang `state` mula sa mga client (kasalukuyang hindi pinapayagan ng schema)?
 - Dapat ba nating payagan ang `webchat` bilang isang tahasang delivery provider (kasalukuyang sinasala sa delivery resolution)?
+

@@ -93,3 +93,4 @@ Andere config-opties die de beschikbaarheid van tools beïnvloeden:
 - Plugin-id’s die in toegestane lijsten worden gebruikt, mogen niet botsen met namen van kern-tools.
 - Geef de voorkeur aan `optional: true` voor tools die neveneffecten veroorzaken of extra
   binaries/referenties vereisen.
+

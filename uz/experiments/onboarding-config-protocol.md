@@ -36,3 +36,4 @@ Javoblar (tuzilishi)
 ## Eslatmalar
 
 - Bu hujjat onboarding/konfiguratsiya uchun protokol refaktorlarini kuzatishdagi yagona joydir.
+

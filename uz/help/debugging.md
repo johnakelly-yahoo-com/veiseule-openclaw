@@ -146,3 +146,4 @@ Standart fayl:
 - Raw stream loglari to‘liq promptlar, asbob chiqishi va foydalanuvchi ma’lumotlarini o‘z ichiga olishi mumkin.
 - Loglarni lokal saqlang va debuggingdan keyin o‘chiring.
 - Agar loglarni ulashsangiz, avval maxfiy kalitlar va PII ma’lumotlarini tozalang.
+

@@ -107,3 +107,4 @@ Hành vi:
 - **Nội dung tin nhắn WhatsApp** được ghi log ở mức `debug` (dùng `--verbose` để xem)
 
 Điều này giữ cho log tệp hiện có ổn định trong khi làm cho đầu ra tương tác dễ quét hơn.
+

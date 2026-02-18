@@ -147,3 +147,4 @@ openclaw onboard --auth-choice setup-token
 - 別の Anthropic プロファイルを追加するか、クールダウンが終了するまで待ってください。
 
 詳細: [/gateway/troubleshooting](/gateway/troubleshooting) および [/help/faq](/help/faq)。
+

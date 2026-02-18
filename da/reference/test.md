@@ -48,3 +48,4 @@ Sikrer, at `qrcode-terminal` indlæses under Node 22+ i Docker:
 ```bash
 pnpm test:docker:qr
 ```
+

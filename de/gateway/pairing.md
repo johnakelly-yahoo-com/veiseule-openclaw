@@ -87,3 +87,4 @@ Sicherheitshinweise:
 - Der Transport ist **zustandslos**; er speichert keine Mitgliedschaften.
 - Wenn das Gateway offline ist oder Pairing deaktiviert ist, können Nodes kein Pairing durchführen.
 - Befindet sich das Gateway im Remote-Modus, erfolgt das Pairing weiterhin gegen den Store des entfernten Gateways.
+

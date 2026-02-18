@@ -217,3 +217,4 @@ Ejemplo:
 ```
 
 Detalles de configuración de acceso remoto: [Acceso remoto](/gateway/remote).
+

@@ -29,3 +29,4 @@ title: "健康檢查"
 ## 不確定時
 
 - 你仍可使用 [Gateway health](/gateway/health) 中的 CLI 流程（`openclaw status`、`openclaw status --deep`、`openclaw health --json`），並追蹤 `/tmp/openclaw/openclaw-*.log` 以查看 `web-heartbeat`／`web-reconnect`。
+

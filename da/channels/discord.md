@@ -471,3 +471,4 @@ Emoji kan være unicode (f.eks. `✅`) eller brugerdefineret emoji syntaks som `
 - Behandl bot-tokenet som en adgangskode; foretræk `DISCORD_BOT_TOKEN`-env var på overvågede værter, eller lås konfigurationsfilens tilladelser ned.
 - Giv kun botten de tilladelser, den har brug for (typisk Read/Send Messages).
 - Hvis botten sidder fast eller er rate limited, genstart gateway’en (`openclaw gateway --force`) efter at have bekræftet, at ingen andre processer ejer Discord-sessionen.
+

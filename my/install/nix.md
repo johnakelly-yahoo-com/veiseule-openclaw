@@ -90,3 +90,4 @@ packaging and Nix builds (which do not rely on a full Xcode toolchain).
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — setup လမ်းညွှန်အပြည့်အစုံ
 - [Wizard](/start/wizard) — Nix မဟုတ်သော CLI setup
 - [Docker](/install/docker) — ကွန်တိန်နာအခြေပြု တပ်ဆင်မှု
+

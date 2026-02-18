@@ -149,3 +149,4 @@ _Evite secretos/detalles de explotación en público. Para issues sensibles, min
 ### Envío de un PR de corrección
 
 El issue previo al PR es opcional. Incluya los detalles en el PR si lo omite. Mantenga el PR enfocado, indique el número del issue, agregue pruebas o explique su ausencia, documente cambios de comportamiento/riesgos, incluya registros/capturas redactados como prueba y ejecute la validación adecuada antes de enviar.
+

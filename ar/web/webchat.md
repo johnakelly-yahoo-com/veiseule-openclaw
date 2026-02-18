@@ -44,3 +44,4 @@ title: "WebChat"
 - `gateway.auth.mode` و`gateway.auth.token` و`gateway.auth.password`: مصادقة WebSocket.
 - `gateway.remote.url` و`gateway.remote.token` و`gateway.remote.password`: هدف Gateway البعيد.
 - `session.*`: تخزين الجلسات والإعدادات الافتراضية للمفتاح الرئيسي.
+

@@ -48,3 +48,4 @@ openclaw models set qwen-portal/coder-model
 - 預設基礎 URL：`https://portal.qwen.ai/v1`（若 Qwen 提供不同的端點，請使用
   `models.providers.qwen-portal.baseUrl` 覆寫）。
 - 提供者層級的規則請參閱［模型提供者］(/concepts/model-providers)。
+

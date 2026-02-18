@@ -227,3 +227,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Nur Direktnachrichten (keine Gruppenchats).
 - Keine Medienanhänge.
 - Nur NIP-04 (NIP-17 Gift-Wrap geplant).
+

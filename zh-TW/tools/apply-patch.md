@@ -42,3 +42,4 @@ Apply file changes using a structured patch format. 13. 這非常適合多檔案
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
+

@@ -184,3 +184,4 @@ Mga opsyon sa multi-account:
 - `channels.zalo.accounts.<id>.webhookSecret`: per-account webhook secret.
 - `channels.zalo.accounts.<id>1. `.webhookPath\`: webhook path kada account.
 - 2. `channels.zalo.accounts.<id>`3. `.proxy`: proxy URL kada account.
+

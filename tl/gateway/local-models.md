@@ -144,3 +144,4 @@ Panatilihin ang `models.mode: "merge"` para manatiling available ang hosted mode
 - 41. Naabot ba ng Gateway ang proxy? 42. Na-unload ba ang LM Studio model?
 - May context errors? Ibaba ang `contextWindow` o taasan ang limit ng iyong server.
 - Safety: nilalaktawan ng local models ang provider-side filters; panatilihing makitid ang agents at naka-on ang compaction para limitahan ang blast radius ng prompt injection.
+

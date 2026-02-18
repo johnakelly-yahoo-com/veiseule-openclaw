@@ -386,3 +386,4 @@ TTY မရှိဘဲ install နည်းလမ်းကို မသတ်မ
     ပုံမှန်အားဖြင့် PATH ပြဿနာ ဖြစ်တတ်ပါသည်။ [Node.js troubleshooting](/install/node#troubleshooting) ကို ကြည့်ပါ။
   </Accordion>
 </AccordionGroup>
+

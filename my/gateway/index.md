@@ -322,3 +322,4 @@ Windows တွင် ထည့်သွင်းပါက **WSL2** ကို အ
 
 - `openclaw gateway` နှင့် legacy TCP control port အသုံးပြုမှုများကို ရပ်တန့်ပါ။
 - clients များကို mandatory connect နှင့် structured presence ပါဝင်သော WS protocol ကို အသုံးပြုအောင် update လုပ်ပါ။
+

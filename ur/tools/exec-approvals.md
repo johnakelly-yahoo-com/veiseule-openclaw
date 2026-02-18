@@ -240,3 +240,4 @@ Approval-gated execs reuse the approval id as the `runId` in these messages for 
 - [Exec tool](/tools/exec)
 - [Elevated mode](/tools/elevated)
 - [Skills](/tools/skills)
+

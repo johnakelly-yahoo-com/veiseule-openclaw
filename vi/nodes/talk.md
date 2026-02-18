@@ -84,3 +84,4 @@ Mặc định:
 - `stability` cho `eleven_v3` được xác thực thành `0.0`, `0.5`, hoặc `1.0`; các mô hình khác chấp nhận `0..1`.
 - `latency_tier` được xác thực thành `0..4` khi được đặt.
 - Android hỗ trợ các định dạng đầu ra `pcm_16000`, `pcm_22050`, `pcm_24000` và `pcm_44100` cho phát AudioTrack độ trễ thấp.
+

@@ -325,3 +325,4 @@ Cài đặt trên Windows nên dùng **WSL2** và làm theo phần systemd Linux
 
 - Ngừng sử dụng `openclaw gateway` và cổng điều khiển TCP cũ.
 - Cập nhật client để nói chuyện giao thức WS với connect bắt buộc và hiện diện có cấu trúc.
+

@@ -62,3 +62,4 @@ Versteviging:
 
 - Schakel push-to-talk in, houd Cmd+Fn vast, spreek, laat los: de overlay moet partials tonen en vervolgens verzenden.
 - Tijdens vasthouden moeten de menubalk-oren vergroot blijven (gebruikt `triggerVoiceEars(ttl:nil)`); na loslaten krimpen ze.
+

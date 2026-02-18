@@ -117,3 +117,4 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - Canvas 配置會阻擋目錄穿越；檔案必須位於工作階段根目錄之下。
 - 本機 Canvas 內容使用自訂通訊協定（不需要迴路伺服器）。
 - 外部 `http(s)` URL 僅在明確導向時才允許。
+

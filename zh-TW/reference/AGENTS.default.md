@@ -116,3 +116,4 @@ git commit -m "Add Clawd workspace"
 - 需要以瀏覽器驅動的驗證時，請使用 `openclaw browser`（分頁／狀態／螢幕截圖）並搭配 OpenClaw 管理的 Chrome 設定檔。
 - 進行 DOM 檢視時，請使用 `openclaw browser eval|query|dom|snapshot`（需要機器輸出時使用 `--json`／`--out`）。
 - 互動操作請使用 `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run`（點擊／輸入需要快照參考；CSS 選擇器請使用 `evaluate`）。
+

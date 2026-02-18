@@ -27,3 +27,4 @@ macOS-appen exponerar OpenClaw Skills via gatewayn; den tolkar inte skills lokal
 ## Fjärrläge
 
 - Installation och konfigurationsuppdateringar sker på gateway-värden (inte på den lokala Macen).
+

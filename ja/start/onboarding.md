@@ -74,3 +74,4 @@ sidebarTitle: "オンボーディング：macOSアプリ"
 [Bootstrapping](/start/bootstrapping) を参照してください。
 </Step>
 </Steps>
+

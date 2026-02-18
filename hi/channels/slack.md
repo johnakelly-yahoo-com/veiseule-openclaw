@@ -553,3 +553,4 @@ triage flow के लिए: [/channels/troubleshooting](/channels/troubleshoot
 - चेतावनी: यदि आप अन्य बॉट्स को जवाब देने की अनुमति देते हैं (`channels.slack.allowBots=true` या `channels.slack.channels.<id>.allowBots=true`), तो `requireMention`, `channels.slack.channels.<id>.users` allowlists, और/या `AGENTS.md` और `SOUL.md` में स्पष्ट गार्डरेल्स के साथ बॉट-टू-बॉट रिप्लाई लूप्स को रोकें।
 - Slack टूल के लिए, reaction removal semantics [/tools/reactions](/tools/reactions) में हैं।
 - संलग्नक (attachments) अनुमति होने पर और आकार सीमा के भीतर होने पर media store में डाउनलोड किए जाते हैं।
+

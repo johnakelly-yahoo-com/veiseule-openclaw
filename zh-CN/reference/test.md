@@ -52,3 +52,4 @@ scripts/e2e/onboard-docker.sh
 ```bash
 pnpm test:docker:qr
 ```
+

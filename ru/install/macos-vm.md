@@ -273,3 +273,4 @@ lume run openclaw --no-display
 - [Lume CLI Reference](https://cua.ai/docs/lume/reference/cli-reference)
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (для продвинутых)
 - [Docker Sandboxing](/install/docker) (альтернативный подход к изоляции)
+

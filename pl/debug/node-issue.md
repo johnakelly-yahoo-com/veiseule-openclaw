@@ -82,3 +82,4 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Reprodukcja na Node 22/24 w celu potwierdzenia regresji w Node 25.
 - Test `tsx` nightly lub przypięcie do wcześniejszej wersji, jeśli istnieje znana regresja.
 - Jeśli odtwarza się na Node LTS, zgłoszenie minimalnej reprodukcji upstream z `__name` stack trace.
+

@@ -243,3 +243,4 @@ Exec с подтверждением использует идентификат
 - [Exec tool](/tools/exec)
 - [Elevated mode](/tools/elevated)
 - [Skills](/tools/skills)
+

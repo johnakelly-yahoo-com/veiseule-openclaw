@@ -551,3 +551,4 @@ Misol:
 - 3. Konteyner ishlamayapti: u sessiya uchun talab bo‘yicha avtomatik yaratiladi.
 - 4. Sandbox’dagi ruxsat xatolari: `docker.user` ni siz ulanayotgan workspace egaligiga mos UID:GID ga o‘rnating (yoki workspace papkasini chown qiling).
 - 5. Maxsus vositalar topilmadi: OpenClaw buyruqlarni `sh -lc` (login shell) bilan ishga tushiradi, bu esa `/etc/profile` ni yuklaydi va PATH ni qayta o‘rnatishi mumkin. 6. `docker.env.PATH` ni sozlab, maxsus vosita yo‘llarini oldindan qo‘shing (masalan, `/custom/bin:/usr/local/share/npm-global/bin`), yoki Dockerfile’ingizda `/etc/profile.d/` ostiga skript qo‘shing.
+

@@ -149,3 +149,4 @@ Tam kılavuz: [Başlarken](/start/getting-started)
 
 Henüz bir Windows yardımcı uygulamamız yok. Bunu hayata geçirmek için katkıda bulunmak
 isterseniz katkılar memnuniyetle karşılanır.
+

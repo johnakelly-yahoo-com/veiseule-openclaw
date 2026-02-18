@@ -570,3 +570,4 @@ Para sa triage flow: [/channels/troubleshooting](/channels/troubleshooting).
 - Warning: If you allow replies to other bots (`channels.slack.allowBots=true` or `channels.slack.channels.<id>.allowBots=true`), prevent bot-to-bot reply loops with `requireMention`, `channels.slack.channels.<id>.users` allowlist, at/o malinaw na mga guardrail sa `AGENTS.md` at `SOUL.md`.
 - Para sa Slack tool, ang semantics ng reaction removal ay nasa [/tools/reactions](/tools/reactions).
 - Ang mga attachment ay dina-download sa media store kapag pinahihintulutan at nasa ilalim ng size limit.
+

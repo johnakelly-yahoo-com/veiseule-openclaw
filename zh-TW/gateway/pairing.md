@@ -89,3 +89,4 @@ openclaw nodes rename --node <id|name|ip> --name "Living Room iPad"
 - The transport is **stateless**; it does not store membership.
 - 若 Gateway 離線或停用配對，節點將無法配對。
 - 若 Gateway 處於遠端模式，配對仍會針對遠端 Gateway 的儲存區進行。
+

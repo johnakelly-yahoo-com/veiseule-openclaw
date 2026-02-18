@@ -49,3 +49,4 @@ Legacy Claude, Codex, Gemini, and Opencode paths have been removed.
 เส้นทางLegacyของClaude,Codex,GeminiและOpencodeถูกนำออกแล้ว Piเป็นเส้นทางเอเจนต์สำหรับการเขียนโค้ดเพียงตัวเดียว
 
 </Note>
+

@@ -157,3 +157,4 @@ curl -X POST http://127.0.0.1:18789/hooks/gmail \
 - Les charges utiles des hooks sont traitées comme non fiables et enveloppées par des limites de sécurité par défaut.
   Si vous devez désactiver cela pour un hook spécifique, définissez `allowUnsafeExternalContent: true`
   dans le mappage de ce hook (dangereux).
+

@@ -284,3 +284,4 @@ offentliggjorte råfil er typisk tilgængelig på:
 1. Opdatér TypeBox-skemaerne.
 2. Kør `pnpm protocol:check`.
 3. Commit det regenererede skema + Swift-modeller.
+

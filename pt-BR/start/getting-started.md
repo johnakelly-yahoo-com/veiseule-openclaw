@@ -134,3 +134,4 @@ Referência completa das variáveis de ambiente: [Variáveis de ambiente](/help/
 - Segurança e aprovações de DM: [Pairing](/channels/pairing)
 - Conectar mais canais: [Channels](/channels)
 - Fluxos avançados e a partir do código-fonte: [Configuração](/start/setup)
+

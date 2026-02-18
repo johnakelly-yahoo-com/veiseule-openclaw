@@ -145,3 +145,4 @@ A2UI hostอยู่ที่`http://<gateway-host>:18793/__openclaw__/a2ui/`
 - `camera.clip`(mp4)
 
 ดู[Camera node](/nodes/camera)สำหรับพารามิเตอร์และตัวช่วยCLI
+

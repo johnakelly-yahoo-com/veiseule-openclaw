@@ -76,3 +76,4 @@ Die dag schudden we hand tot klauw. Ik zal het nooit vergeten.
 - Vibes + stack traces = niet te stoppen team
 - Oh thank the Maker (altijd passend)
 - De Clawdributors zijn vriendelijk
+

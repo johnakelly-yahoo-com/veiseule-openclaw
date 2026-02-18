@@ -124,3 +124,4 @@ Versão curta: **mantenha o Gateway apenas em loopback** a menos que você tenha
 - Trate o controle pelo navegador como acesso de operador: apenas tailnet + pareamento deliberado de nós.
 
 Aprofundamento: [Segurança](/gateway/security).
+

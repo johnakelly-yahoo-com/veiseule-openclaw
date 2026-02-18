@@ -56,3 +56,4 @@ Agent -> Gateway -> Node Service (WS)
 - Barcha aloqa faqat lokal bo‘lib qoladi; hech qanday tarmoq soketlari ochilmaydi.
 - TCC so‘rovlari faqat GUI ilova bundle’idan kelib chiqishi kerak; qayta build qilishlar orasida imzolangan bundle ID’ni barqaror saqlang.
 - IPC mustahkamlash: soket rejimi `0600`, token, peer‑UID tekshiruvlari, HMAC chaqiruv/javob, qisqa TTL.
+

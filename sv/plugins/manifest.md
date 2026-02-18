@@ -65,3 +65,4 @@ Valfria nycklar:
 - Om ditt plugin är beroende av native-moduler, dokumentera byggstegen och eventuella
   krav på tillåtelselista för pakethanterare (till exempel pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
+

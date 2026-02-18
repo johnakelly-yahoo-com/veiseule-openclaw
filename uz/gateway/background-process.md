@@ -87,3 +87,4 @@ Environment overrides:
 ```json
 30. { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
+

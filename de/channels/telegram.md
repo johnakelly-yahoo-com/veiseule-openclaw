@@ -795,3 +795,4 @@ Zugehörige globale Optionen:
 - `messages.groupChat.mentionPatterns` (globaler Fallback).
 - `commands.native` (Standard: `"auto"` → an für Telegram/Discord, aus für Slack), `commands.text`, `commands.useAccessGroups` (Befehlsverhalten). Überschreiben mit `channels.telegram.commands.native`.
 - `messages.responsePrefix`, `messages.ackReaction`, `messages.ackReactionScope`, `messages.removeAckAfterReply`.
+

@@ -170,3 +170,4 @@ openclaw models list
   current capabilities.
 - If you prefer a managed key flow, you can also place an OpenAI‑compatible
   proxy in front of Bedrock and configure it as an OpenAI provider instead.
+

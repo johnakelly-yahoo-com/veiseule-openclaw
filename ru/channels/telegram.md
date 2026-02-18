@@ -794,3 +794,4 @@ Block streaming по умолчанию выключен и требует `chan
 - `messages.groupChat.mentionPatterns` (глобальный fallback).
 - `commands.native` (по умолчанию `"auto"` → включено для Telegram/Discord, выключено для Slack), `commands.text`, `commands.useAccessGroups` (поведение команд). Переопределяется через `channels.telegram.commands.native`.
 - `messages.responsePrefix`, `messages.ackReaction`, `messages.ackReactionScope`, `messages.removeAckAfterReply`.
+

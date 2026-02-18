@@ -39,3 +39,4 @@ openclaw memory index --agent main --verbose
 - `memory status --deep --index` يُجري إعادة فهرسة إذا كان المخزن متسخًا.
 - `memory index --verbose` يطبع تفاصيل لكل مرحلة (الموفّر، النموذج، المصادر، نشاط الدُفعات).
 - `memory status` يتضمن أي مسارات إضافية مهيأة عبر `memorySearch.extraPaths`.
+

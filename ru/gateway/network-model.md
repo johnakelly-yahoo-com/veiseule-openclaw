@@ -12,3 +12,4 @@ title: "Сетевая модель"
 - Узлы подключаются к WS Gateway (шлюза) по LAN, tailnet или SSH по мере необходимости. Устаревший TCP-мост помечен как deprecated.
 - Хост canvas — это HTTP‑сервер файлов на `canvasHost.port` (по умолчанию `18793`), обслуживающий `/__openclaw__/canvas/` для WebView узлов. См. См. [Gateway configuration](/gateway/configuration) (`canvasHost`).
 - Удалённое использование обычно осуществляется через SSH‑туннель или VPN tailnet. [Remote access](/gateway/remote) и [Discovery](/gateway/discovery).
+

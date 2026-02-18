@@ -557,3 +557,4 @@ openclaw pairing list slack
 - 注意: 他のボットへの返信を許可する場合（`channels.slack.allowBots=true` または `channels.slack.channels.<id>.allowBots=true`）、`requireMention`、`channels.slack.channels.<id>.users` の許可リスト、および／または `AGENTS.md` と `SOUL.md` のガードレールを調整して、ボット同士の返信ループを防止してください。
 - Slack ツールにおけるリアクション削除の仕様については [/tools/reactions](/tools/reactions) を参照してください。
 - 添付ファイルは、許可されておりサイズ制限内の場合、メディアストアにダウンロードされます。
+

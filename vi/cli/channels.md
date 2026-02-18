@@ -73,3 +73,4 @@ Ghi chú:
 
 - Dùng `--kind user|group|auto` để ép kiểu mục tiêu.
 - Việc phân giải ưu tiên các kết quả đang hoạt động khi nhiều mục trùng tên.
+

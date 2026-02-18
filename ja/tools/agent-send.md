@@ -48,3 +48,4 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: verbose レベルを永続化
 - `--timeout <seconds>`: エージェントのタイムアウトを上書き
 - `--json`: 構造化 JSON を出力
+

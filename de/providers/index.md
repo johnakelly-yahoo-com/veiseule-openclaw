@@ -56,3 +56,4 @@ Siehe [Venice AI](/providers/venice).
 - [Claude Max API Proxy](/providers/claude-max-api-proxy) – Verwenden Sie ein Claude-Max/Pro-Abonnement als OpenAI-kompatiblen API-Endpunkt
 
 Für den vollständigen Anbieterkatalog (xAI, Groq, Mistral usw.) und erweiterte Konfigurationen siehe [Modellanbieter](/concepts/model-providers).
+

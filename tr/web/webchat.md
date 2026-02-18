@@ -44,3 +44,4 @@ Kanal seçenekleri:
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: WebSocket kimlik doğrulaması.
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: uzak gateway hedefi.
 - `session.*`: oturum depolama ve ana anahtar varsayılanları.
+

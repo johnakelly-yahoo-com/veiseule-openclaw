@@ -32,3 +32,4 @@ sidebarTitle: "التهيئة الأولية"
 
 - تهيئة تطبيق macOS: [Onboarding](/start/onboarding)
 - تخطيط مساحة العمل: [Agent workspace](/concepts/agent-workspace)
+

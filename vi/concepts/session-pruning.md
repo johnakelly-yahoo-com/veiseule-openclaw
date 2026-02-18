@@ -115,3 +115,4 @@ Giới hạn cắt tỉa cho các công cụ cụ thể:
 ```
 
 Xem tham chiếu cấu hình: [Gateway Configuration](/gateway/configuration)
+

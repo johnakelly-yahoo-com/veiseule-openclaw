@@ -599,3 +599,4 @@ Als meer dan één persoon je bot een DM kan sturen (meerdere vermeldingen in `a
 - Provider-ID’s verschillen (telefoonnummers, gebruikers-ID’s, kanaal-ID’s). Gebruik de documentatie van de provider om het formaat te bevestigen.
 - Optionele secties om later toe te voegen: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Zie [Providers](/channels/whatsapp) en [Problemen oplossen](/gateway/troubleshooting) voor diepgaandere installatie-informatie.
+

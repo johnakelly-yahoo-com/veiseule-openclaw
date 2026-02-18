@@ -334,3 +334,4 @@ imsg chats --limit 20
 
 - `agents.list[].groupChat.mentionPatterns` (или `messages.groupChat.mentionPatterns`).
 - `messages.responsePrefix`.
+

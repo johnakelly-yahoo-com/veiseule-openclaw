@@ -78,3 +78,4 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 Ứng dụng không còn công tắc “âm thanh mặc định” toàn cục; bên gọi sẽ chọn âm thanh (hoặc không) cho từng yêu cầu.
+

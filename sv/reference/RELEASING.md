@@ -112,3 +112,4 @@ Aktuell lista över npm-plugins (uppdatera vid behov):
 
 Release notes måste också lyfta **nya valfria bundlade plugins** som **inte är påslagna
 som standard** (exempel: `tlon`).
+

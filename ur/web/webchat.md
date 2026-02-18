@@ -44,3 +44,4 @@ title: "WebChat"
 - `gateway.auth.mode`، `gateway.auth.token`، `gateway.auth.password`: WebSocket تصدیق۔
 - `gateway.remote.url`، `gateway.remote.token`، `gateway.remote.password`: ریموٹ gateway ہدف۔
 - `session.*`: سیشن اسٹوریج اور مرکزی کلید کے طے شدہ اقدار۔
+

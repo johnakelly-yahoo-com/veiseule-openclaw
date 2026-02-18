@@ -336,3 +336,4 @@ OpenClaw อาจแสดง message ID แบบ _สั้น_ (เช่น
 - สำหรับข้อมูลสถานะ/สุขภาพระบบ: `openclaw status --all` หรือ `openclaw status --deep`
 
 สำหรับภาพรวมเวิร์กโฟลว์ของช่องทางทั่วไป ดู [Channels](/channels) และคู่มือ [Plugins](/tools/plugin)
+

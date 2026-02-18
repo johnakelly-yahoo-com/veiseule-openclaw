@@ -109,3 +109,4 @@ Let op: Detectie van binaries is best-effort op macOS/Linux/Windows; zorg dat de
 - Scoperegels gebruiken first-match-wins. `chatType` wordt genormaliseerd naar `direct`, `group` of `room`.
 - Zorg dat je CLI met exitcode 0 afsluit en platte tekst print; JSON moet worden aangepast via `jq -r .text`.
 - Houd time-outs redelijk (`timeoutSeconds`, standaard 60s) om blokkeren van de antwoordwachtrij te voorkomen.
+

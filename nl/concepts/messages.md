@@ -148,3 +148,4 @@ Uitgaande berichtopmaak is gecentraliseerd in `messages`:
 - Antwoord-threading via `replyToMode` en per-kanaalstandaarden
 
 Details: [Configuratie](/gateway/configuration#messages) en kanaaldocumentatie.
+

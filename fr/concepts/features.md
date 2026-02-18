@@ -48,3 +48,4 @@ title: "Fonctionnalites"
 Les chemins herites Claude, Codex, Gemini et Opencode ont ete supprimes. Pi est le seul
 chemin d’agent de codage.
 </Note>
+

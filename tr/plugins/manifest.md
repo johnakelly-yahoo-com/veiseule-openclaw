@@ -63,3 +63,4 @@ Gerekli anahtarlar:
 - Eklentiniz yerel (native) modüllere bağımlıysa, derleme adımlarını ve
   paket yöneticisi izin listesi gereksinimlerini belgelendirin (örneğin, pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
+

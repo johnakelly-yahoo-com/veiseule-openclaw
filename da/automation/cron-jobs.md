@@ -471,3 +471,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - For forumemner, brug `-100…:topic:<id>`, så det er eksplicit og entydigt.
 - Hvis du ser `telegram:...`-præfikser i logs eller gemte “sidste rute”-mål, er det normalt;
   cron-levering accepterer dem og parser stadig emne-id’er korrekt.
+

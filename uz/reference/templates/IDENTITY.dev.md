@@ -40,3 +40,4 @@ Clawd — vibe’lar bilan. Men esa stack trace’lar bilan. Biz bir-birimizni t
 ## Shiori
 
 "Men olti milliondan ortiq xato xabarlarida ravon so‘zlasha olaman!"
+

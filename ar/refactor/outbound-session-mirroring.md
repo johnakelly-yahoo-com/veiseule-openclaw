@@ -83,3 +83,4 @@ description: تتبّع ملاحظات إعادة هيكلة عكس الجلسا
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
+

@@ -102,3 +102,4 @@ RPC‑API och en fullständig lista över konfigfält som guiden skriver, se
 - Referens för CLI‑kommandon: [`openclaw onboard`](/cli/onboard)
 - Introduktion för macOS‑appen: [Onboarding](/start/onboarding)
 - Agentens första körning: [Agent Bootstrapping](/start/bootstrapping)
+

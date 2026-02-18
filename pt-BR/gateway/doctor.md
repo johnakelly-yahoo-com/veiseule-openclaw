@@ -271,3 +271,4 @@ backup se o workspace ainda não estiver sob git.
 
 Veja [/concepts/agent-workspace](/concepts/agent-workspace) para um guia completo sobre
 estrutura de workspace e backup com git (recomendado GitHub ou GitLab privados).
+

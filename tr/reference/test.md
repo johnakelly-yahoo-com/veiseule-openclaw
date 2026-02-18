@@ -48,3 +48,4 @@ Docker’da Node 22+ altında `qrcode-terminal`’in yüklendiğinden emin olur:
 ```bash
 pnpm test:docker:qr
 ```
+

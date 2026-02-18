@@ -122,3 +122,4 @@ Vor dem Release 2026.1.22 wendete OpenClaw mehrere Ebenen der Transkript-Hygiene
 Diese Komplexität verursachte providerübergreifende Regressionen (insbesondere bei der Zuordnung von `openai-responses`
 `call_id|fc_id`). Die Bereinigung 2026.1.22 entfernte die Extension, zentralisierte die Logik
 im Runner und machte OpenAI über die Bildbereinigung hinaus **no-touch**.
+

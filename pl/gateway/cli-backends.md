@@ -218,3 +218,4 @@ Nadpisuj tylko w razie potrzeby (częste: bezwzględna ścieżka `command`).
 - **Brak ciągłości sesji**: upewnij się, że ustawiono `sessionArg` oraz że `sessionMode` nie jest
   `none` (Codex CLI obecnie nie może wznawiać z wyjściem JSON).
 - **Obrazy ignorowane**: ustaw `imageArg` (i sprawdź, czy CLI obsługuje ścieżki plików).
+

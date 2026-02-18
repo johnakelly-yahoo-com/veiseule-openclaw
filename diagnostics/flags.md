@@ -85,3 +85,4 @@ For remote gateways, you can also use `openclaw logs --follow` (see [/cli/logs](
 - If `logging.level` is set higher than `warn`, these logs may be suppressed. Default `info` is fine.
 - Flags are safe to leave enabled; they only affect log volume for the specific subsystem.
 - Use [/logging](/logging) to change log destinations, levels, and redaction.
+

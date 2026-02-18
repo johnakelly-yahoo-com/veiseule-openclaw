@@ -87,3 +87,4 @@ macOS ilovasi quyidagi hollarda ixtiyoriy ravishda **jim tasdiqlash**ga urinishi
 - 12. Transport **holatsiz**; u a’zolikni saqlamaydi.
 - 13. Agar Gateway oflayn bo‘lsa yoki juftlash o‘chirilgan bo‘lsa, tugunlar juftlasha olmaydi.
 - 14. Agar Gateway masofaviy rejimda bo‘lsa, juftlash baribir masofaviy Gateway omboriga qarshi amalga oshiriladi.
+

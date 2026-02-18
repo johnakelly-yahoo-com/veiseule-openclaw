@@ -53,3 +53,4 @@ Flaggor:
 
 - Kräver en körande Gateway (nätverksgateway) som är nåbar via din nuvarande konfig (lokal eller fjärr).
 - Systemhändelser är flyktiga och sparas inte över omstarter.
+

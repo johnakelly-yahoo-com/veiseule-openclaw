@@ -31,3 +31,4 @@ openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPEN
 - Ang mga model ref ay `openrouter/<provider>/<model>`.
 - Para sa higit pang opsyon sa model/provider, tingnan ang [/concepts/model-providers](/concepts/model-providers).
 - Gumagamit ang OpenRouter ng Bearer token kasama ang iyong API key sa ilalim ng hood.
+

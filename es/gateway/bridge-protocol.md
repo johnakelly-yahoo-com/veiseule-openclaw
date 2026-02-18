@@ -81,3 +81,4 @@ Campos del payload (todos opcionales salvo que se indique lo contrario):
 ## Versionado
 
 El Bridge es actualmente **v1 implícita** (sin negociación de mínimo/máximo). Se espera compatibilidad hacia atrás; agregue un campo de versión del protocolo Bridge antes de cualquier cambio incompatible.
+

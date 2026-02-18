@@ -133,3 +133,4 @@ Skillsสามารถจัดเก็บ `apiKey` ใน `skills.entries.<n
 APIภายนอก อาจเกิดค่าใช้จ่ายตามผู้ให้บริการของSkillนั้น
 
 ดู[Skills](/tools/skills)
+

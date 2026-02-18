@@ -109,3 +109,4 @@ Gateway обслуживает статические файлы из `dist/cont
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
+

@@ -12,3 +12,4 @@ title: "نیٹ ورک ماڈل"
 - Nodes ضرورت کے مطابق LAN، tailnet، یا SSH کے ذریعے Gateway WS سے منسلک ہوتے ہیں۔ پرانا TCP bridge اب متروک قرار دیا جا چکا ہے۔
 - Canvas host is an HTTP file server on `canvasHost.port` (default `18793`) serving `/__openclaw__/canvas/` for node WebViews. See [Gateway configuration](/gateway/configuration) (`canvasHost`).
 - Remote use is typically SSH tunnel or tailnet VPN. See [Remote access](/gateway/remote) and [Discovery](/gateway/discovery).
+

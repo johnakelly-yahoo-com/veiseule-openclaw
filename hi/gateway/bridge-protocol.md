@@ -78,3 +78,4 @@ Gateway → क्लाइंट:
 
 34. Bridge वर्तमान में **implicit v1** है (कोई min/max negotiation नहीं)। 35. Backward‑compat
     अपेक्षित है; किसी भी breaking changes से पहले bridge protocol version field जोड़ें।
+

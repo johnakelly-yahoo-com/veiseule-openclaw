@@ -109,3 +109,4 @@ Gatewayn är sanningskällan för nod-/klientantagning.
 - **Gateway**: annonserar discovery-beacons, äger parningsbeslut och är värd för WS-ändpunkten.
 - **macOS-app**: hjälper dig att välja en gateway, visar parningsuppmaningar och använder SSH endast som fallback.
 - **iOS/Android-noder**: bläddrar i Bonjour som en bekvämlighet och ansluter till den parade Gateway WS.
+

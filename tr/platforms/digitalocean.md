@@ -256,3 +256,4 @@ free -h
 - [Docker kurulumu](/install/docker) — konteynerli kurulum
 - [Tailscale](/gateway/tailscale) — güvenli uzaktan erişim
 - [Yapılandırma](/gateway/configuration) — tam yapılandırma referansı
+

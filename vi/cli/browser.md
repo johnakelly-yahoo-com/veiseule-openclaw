@@ -100,3 +100,4 @@ Nếu Gateway chạy trên một máy khác với trình duyệt, hãy chạy **
 Dùng `gateway.nodes.browser.mode` để kiểm soát định tuyến tự động và `gateway.nodes.browser.node` để ghim một node cụ thể nếu có nhiều node được kết nối.
 
 Bảo mật + thiết lập từ xa: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
+

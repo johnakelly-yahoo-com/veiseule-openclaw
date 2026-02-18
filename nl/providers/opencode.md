@@ -30,3 +30,4 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - `OPENCODE_ZEN_API_KEY` wordt ook ondersteund.
 - Je meldt je aan bij Zen, voegt factureringsgegevens toe en kopieert je API-sleutel.
 - OpenCode Zen rekent per aanvraag; raadpleeg het OpenCode-dashboard voor details.
+

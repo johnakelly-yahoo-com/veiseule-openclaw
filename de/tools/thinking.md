@@ -69,3 +69,4 @@ title: "Denkstufen"
 - Der Denkstufen-Selektor im Web-Chat spiegelt beim Laden der Seite die im eingehenden Sitzungsstore/der Konfiguration gespeicherte Sitzungsstufe wider.
 - Die Auswahl einer anderen Stufe gilt nur für die nächste Nachricht (`thinkingOnce`); nach dem Senden springt der Selektor wieder auf die gespeicherte Sitzungsstufe zurück.
 - Um den Sitzungsstandard zu ändern, senden Sie wie zuvor eine `/think:<level>`-Direktive; der Selektor spiegelt dies nach dem nächsten Neuladen wider.
+

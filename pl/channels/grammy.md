@@ -26,3 +26,4 @@ Otwarte pytania
 - Opcjonalne wtyczki grammY (ogranicznik) w przypadku napotkania 429 z Bot API.
 - Dodanie bardziej ustrukturyzowanych testów mediów (naklejki, notatki głosowe).
 - Umożliwienie konfiguracji portu nasłuchu webhooka (obecnie na sztywno 8787, o ile nie jest poprowadzony przez gateway).
+

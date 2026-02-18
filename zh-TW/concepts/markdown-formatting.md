@@ -112,3 +112,4 @@ SPOILER style ranges. Other channels treat them as plain text.
 - Signal 的樣式範圍依賴 UTF-16 位移量；請勿使用程式碼點位移。
 - Preserve trailing newlines for fenced code blocks so closing markers land on
   their own line.
+

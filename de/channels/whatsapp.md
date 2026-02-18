@@ -403,3 +403,4 @@ WhatsApp sendet Audio als **Sprachnachrichten** (PTT-Blase).
 
 - Bun wird **nicht empfohlen**. WhatsApp (Baileys) und Telegram sind unter Bun unzuverlässig.
   Führen Sie das Gateway mit **Node** aus. (Siehe Hinweis zur Runtime in Erste Schritte.)
+

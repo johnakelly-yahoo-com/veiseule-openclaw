@@ -20,3 +20,4 @@ openclaw security audit --fix
 
 Bản audit cảnh báo khi nhiều người gửi DM chia sẻ cùng phiên chính và khuyến nghị **chế độ DM an toàn**: `session.dmScope="per-channel-peer"` (hoặc `per-account-channel-peer` cho các kênh đa tài khoản) cho các hộp thư đến dùng chung.
 Xếp hàng một sự kiện hệ thống vào phiên **main**.
+

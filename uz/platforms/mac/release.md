@@ -79,3 +79,4 @@ Nashr etishda yangilangan `appcast.xml` ni reliz aktivlari (zip + dSYM) bilan bi
   - Oldingi ommaviy buildda, About bo‘limidan “Check for Updates…” ni ishga tushiring va Sparkle yangi buildni toza o‘rnatishini tekshiring.
 
 Bajarilganlik ta’rifi: imzolangan ilova + appcast nashr etilgan, yangilanish oqimi eski o‘rnatilgan versiyadan ishlaydi va reliz aktivlari GitHub reliziga biriktirilgan.
+

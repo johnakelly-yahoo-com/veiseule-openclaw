@@ -403,3 +403,4 @@ WhatsApp သည် audio ကို **voice notes** (PTT bubble) အဖြစ် 
 
 - Bun is **not recommended**. WhatsApp (Baileys) and Telegram are unreliable on Bun.
   Run the gateway with **Node**. (See Getting Started runtime note.)
+

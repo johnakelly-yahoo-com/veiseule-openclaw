@@ -40,3 +40,4 @@ localhost, Tailscale Serve veya bir SSH tünelini tercih edin.
 - Gateway’in erişilebilir olduğundan emin olun (yerel: `openclaw status`; uzak: SSH tüneli `ssh -N -L 18789:127.0.0.1:18789 user@host` ardından `http://127.0.0.1:18789/` adresini açın).
 - Belirteci gateway ana makinesinden alın: `openclaw config get gateway.auth.token` (veya bir tane oluşturun: `openclaw doctor --generate-gateway-token`).
 - Kontrol paneli ayarlarında, belirteci kimlik doğrulama alanına yapıştırın ve bağlanın.
+

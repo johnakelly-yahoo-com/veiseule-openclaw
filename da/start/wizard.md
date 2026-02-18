@@ -102,3 +102,4 @@ RPC API og en fuld liste over konfigurationsfelter, som guiden skriver, se
 - CLI-kommandooversigt: [`openclaw onboard`](/cli/onboard)
 - macOS-app introduktion: [Onboarding](/start/onboarding)
 - Agentens første opstartsritual: [Agent Bootstrapping](/start/bootstrapping)
+

@@ -172,3 +172,4 @@ CLI ตั้งใจ **ไม่**แสดงพาธ `node_modules`. ให
 - ภาพรวมเครื่องมือเบราว์เซอร์: [Browser](/tools/browser)
 - การตรวจสอบความปลอดภัย: [Security](/gateway/security)
 - การตั้งค่า Tailscale: [Tailscale](/gateway/tailscale)
+

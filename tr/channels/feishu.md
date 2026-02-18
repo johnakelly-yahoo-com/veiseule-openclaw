@@ -574,3 +574,4 @@ Temel seçenekler:
 - ✅ Dosyalar
 - ✅ Ses
 - ⚠️ Zengin metin (kısmi destek)
+

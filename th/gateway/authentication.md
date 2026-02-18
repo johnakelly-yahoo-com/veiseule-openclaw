@@ -137,3 +137,4 @@ is missing, rerun `claude setup-token` and paste the token again.
 
 - การสมัครสมาชิก Claude Max หรือ Pro (สำหรับ `claude setup-token`)
 - ติดตั้ง Claude Code CLI แล้ว (มีคำสั่ง `claude` ให้ใช้งาน)
+

@@ -51,3 +51,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - Geçersiz kılmayı kaldırın: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`.
 - İsteğe bağlı olarak, logd’un geçersiz kılmayı hemen bırakmasını zorlamak için `sudo log config --reload` çalıştırın.
 - Bu yüzey telefon numaraları ve mesaj gövdeleri içerebilir; ek ayrıntıya aktif olarak ihtiyaç duyduğunuz süre boyunca plist’i yerinde tutun.
+

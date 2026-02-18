@@ -47,3 +47,4 @@ O destino do serviço depende do SO:
 
 - macOS: LaunchAgent (`bot.molt.gateway` ou `bot.molt.<profile>`; legado `com.openclaw.*`)
 - Linux/WSL2: serviço de usuário systemd (`openclaw-gateway[-<profile>].service`)
+

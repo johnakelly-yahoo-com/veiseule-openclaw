@@ -83,3 +83,4 @@ Wysyłki wychodzące były lustrzanie odwzorowywane do _bieżącej_ sesji agenta
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
+

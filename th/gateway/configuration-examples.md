@@ -599,3 +599,4 @@ Examples below are aligned with the current config schema. ตัวอย่า
 - รหัสผู้ให้บริการแตกต่างกัน (หมายเลขโทรศัพท์, รหัสผู้ใช้, รหัสช่องทาง) โปรดใช้เอกสารของผู้ให้บริการเพื่อยืนยันรูปแบบ Use the provider docs to confirm the format.
 - ส่วนที่เป็นตัวเลือกซึ่งสามารถเพิ่มภายหลังได้: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`
 - ดู [Providers](/channels/whatsapp) และ [Troubleshooting](/gateway/troubleshooting) สำหรับหมายเหตุการตั้งค่าเชิงลึกเพิ่มเติม
+

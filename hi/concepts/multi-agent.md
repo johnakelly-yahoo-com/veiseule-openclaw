@@ -381,3 +381,4 @@ If you need per-agent boundaries, use `agents.list[].tools` to deny `exec`.
 For group targeting, use `agents.list[].groupChat.mentionPatterns` so @mentions map cleanly to the intended agent.
 
 विस्तृत उदाहरणों के लिए [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) देखें।
+

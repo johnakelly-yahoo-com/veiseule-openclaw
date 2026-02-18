@@ -293,3 +293,4 @@ Siehe [Skills config](/tools/skills-config) für das vollständige Konfiguration
 Stöbern Sie unter [https://clawhub.com](https://clawhub.com).
 
 ---
+

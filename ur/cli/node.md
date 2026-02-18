@@ -103,3 +103,4 @@ openclaw nodes approve <requestId>
 - `~/.openclaw/exec-approvals.json`
 - [ایگزیکٹو منظوریات](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (Gateway سے ترمیم کریں)
+

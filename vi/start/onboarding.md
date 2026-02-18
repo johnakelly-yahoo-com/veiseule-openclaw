@@ -69,3 +69,4 @@ Hướng dẫn ban đầu yêu cầu các quyền TCC cần thiết cho:
   Sau khi thiết lập, ứng dụng sẽ mở một phiên chat onboarding riêng để agent tự giới thiệu và hướng dẫn các bước tiếp theo. Điều này giúp tách hướng dẫn lần chạy đầu khỏi các cuộc trò chuyện thông thường của bạn. Xem [Bootstrapping](/start/bootstrapping) để biết điều gì xảy ra trên máy chủ gateway trong lần chạy agent đầu tiên.
 </Step>
 </Steps>
+

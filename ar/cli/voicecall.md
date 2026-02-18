@@ -28,3 +28,4 @@ openclaw voicecall unexpose
 ```
 
 ملاحظة أمنية: لا تُعرِّض نقطة نهاية webhook إلا للشبكات التي تثق بها. يُفضَّل استخدام Tailscale Serve بدل Funnel كلما أمكن.
+

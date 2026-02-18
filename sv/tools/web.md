@@ -254,3 +254,4 @@ Noteringar:
 - Svar cachas (standard 15 minuter) för att minska upprepade hämtningar.
 - Om du använder verktygsprofiler/tillåtelselistor, lägg till `web_search`/`web_fetch` eller `group:web`.
 - Om Brave-nyckeln saknas returnerar `web_search` en kort installationshint med en dokumentationslänk.
+

@@ -12,3 +12,4 @@ process na may-ari ng mga channel connection at ng WebSocket control plane.
 - Kumokonekta ang mga node sa Gateway WS sa pamamagitan ng LAN, tailnet, o SSH kung kinakailangan. Ang legacy na TCP bridge ay hindi na suportado.
 - Ang Canvas host ay isang HTTP file server sa `canvasHost.port` (default `18793`) na nagsisilbi ng `/__openclaw__/canvas/` para sa mga node WebView. Tingnan ang [Gateway configuration](/gateway/configuration) (`canvasHost`).
 - Ang remote na paggamit ay karaniwang SSH tunnel o tailnet VPN. Tingnan ang [Remote access](/gateway/remote) at [Discovery](/gateway/discovery).
+

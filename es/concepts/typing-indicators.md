@@ -63,3 +63,4 @@ Puede sobrescribir el modo o la cadencia por sesión:
 - Los heartbeats nunca muestran escritura, independientemente del modo.
 - `typingIntervalSeconds` controla la **cadencia de actualización**, no el momento de inicio.
   El valor predeterminado es 6 segundos.
+

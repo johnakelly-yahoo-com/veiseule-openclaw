@@ -76,3 +76,4 @@ title: "Barre de menus"
 - Démarrer la principale alors qu’une autre est active : l’icône bascule instantanément vers la principale.
 - Rafales rapides d’outils : s’assurer que le badge ne scintille pas (délai de grâce TTL sur les résultats d’outils).
 - La ligne de santé réapparaît une fois toutes les sessions inactives.
+

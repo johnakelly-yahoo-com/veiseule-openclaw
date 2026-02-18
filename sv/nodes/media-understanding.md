@@ -373,3 +373,4 @@ Detta visar utfall per kapacitet samt vald leverantör/modell när tillämpligt.
 
 - [Konfiguration](/gateway/configuration)
 - [Bild- och mediastöd](/nodes/images)
+

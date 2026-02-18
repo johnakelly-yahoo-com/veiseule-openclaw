@@ -154,3 +154,4 @@ Tài liệu: [Session](/concepts/session), [Compaction](/concepts/compaction), [
 - `System prompt (estimate)` = được tính động khi không có báo cáo lần chạy (hoặc khi chạy qua backend CLI không tạo báo cáo).
 
 Dù theo cách nào, nó báo cáo kích thước và các yếu tố đóng góp lớn nhất; nó **không** đổ toàn bộ system prompt hay các schema công cụ.
+

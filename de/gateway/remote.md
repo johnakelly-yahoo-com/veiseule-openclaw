@@ -124,3 +124,4 @@ Kurzfassung: **Halten Sie das Gateway loopback-only**, sofern Sie nicht sicher s
 - Behandeln Sie Browser-Steuerung wie Operator-Zugriff: nur Tailnet + bewusstes Node-Pairing.
 
 Deep Dive: [Security](/gateway/security).
+

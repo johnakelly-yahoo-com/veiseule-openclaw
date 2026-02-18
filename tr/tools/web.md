@@ -251,3 +251,4 @@ Notlar:
 - Yanıtlar, tekrar eden getirmeleri azaltmak için önbelleğe alınır (varsayılan 15 dakika).
 - Araç profilleri/izin listeleri kullanıyorsanız, `web_search`/`web_fetch` veya `group:web` ekleyin.
 - Brave anahtarı eksikse, `web_search` belgeler bağlantısı içeren kısa bir kurulum ipucu döndürür.
+

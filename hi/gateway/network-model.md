@@ -12,3 +12,4 @@ title: "नेटवर्क मॉडल"
 - Nodes आवश्यकता अनुसार LAN, tailnet, या SSH के माध्यम से Gateway WS से कनेक्ट होते हैं। लेगेसी TCP ब्रिज अप्रचलित (deprecated) है।
 - Canvas host `canvasHost.port` (डिफ़ॉल्ट `18793`) पर एक HTTP फ़ाइल सर्वर है, जो node WebViews के लिए `/__openclaw__/canvas/` सर्व करता है। [Gateway configuration](/gateway/configuration) (`canvasHost`) देखें।
 - रिमोट उपयोग सामान्यतः SSH टनल या tailnet VPN होता है। [Remote access](/gateway/remote) और [Discovery](/gateway/discovery) देखें।
+

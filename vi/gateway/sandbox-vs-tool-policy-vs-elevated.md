@@ -124,3 +124,4 @@ Khóa để sửa (chọn một):
 ### “Tôi tưởng đây là main, sao lại bị sandbox?”
 
 Trong chế độ `"non-main"`, các khóa nhóm/kênh _không_ phải là main. Sử dụng khóa phiên main (hiển thị bởi `sandbox explain`) hoặc chuyển chế độ sang `"off"`.
+

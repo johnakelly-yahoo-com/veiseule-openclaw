@@ -19,3 +19,4 @@ Urdu · Uzbek · Vietnamese · Chinese (Simplified) · Chinese (Traditional)
 ## Contributing
 
 Translations are managed on [Crowdin](https://crowdin.com/project/openclaw).
+

@@ -323,3 +323,4 @@ Todo el estado de larga duración debe sobrevivir reinicios, reconstrucciones y 
 | Runtime de Node                      | Sistema de archivos del contenedor | Imagen Docker                 | Se reconstruye en cada build                |
 | Paquetes del SO                      | Sistema de archivos del contenedor | Imagen Docker                 | No instalar en tiempo de ejecución          |
 | Contenedor Docker                    | Efímero                            | Reiniciable                   | Seguro de destruir                          |
+

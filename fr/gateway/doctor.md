@@ -273,3 +273,4 @@ si l’espace de travail n’est pas deja sous git.
 
 Voir [/concepts/agent-workspace](/concepts/agent-workspace) pour un guide complet de la structure de l’espace de travail
 et de la sauvegarde git (recommandee via GitHub ou GitLab prives).
+

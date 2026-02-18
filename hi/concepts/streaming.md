@@ -122,3 +122,4 @@ Legend:
 
 - `sendMessageDraft`: Telegram ड्राफ्ट बबल (वास्तविक संदेश नहीं)।
 - `final reply`: सामान्य Telegram संदेश भेजना।
+

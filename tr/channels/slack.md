@@ -563,3 +563,4 @@ Triyaj akışı için: [/channels/troubleshooting](/channels/troubleshooting).
 - Uyarı: Diğer botlara yanıt vermeye izin verirseniz (`channels.slack.allowBots=true` veya `channels.slack.channels.<id>.allowBots=true`), botlar arası yanıt döngülerini `requireMention`, `channels.slack.channels.<id>.users` izin listeleri ve/veya `AGENTS.md` ile `SOUL.md` içindeki koruyucu sınırları temizleyerek önleyin.
 - Slack aracı için tepki kaldırma semantiklerine [/tools/reactions](/tools/reactions) bölümünde bakın.
 - Ekler, izin verildiğinde ve boyut sınırı altındaysa medya deposuna indirilir.
+

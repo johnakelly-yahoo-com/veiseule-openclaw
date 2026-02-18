@@ -326,3 +326,4 @@ Windows-installationer bør bruge **WSL2** og følge Linux systemd-afsnittet ove
 
 - Udfas brug af `openclaw gateway` og den gamle TCP-kontrolport.
 - Opdatér klienter til at tale WS-protokollen med obligatorisk connect og struktureret presence.
+

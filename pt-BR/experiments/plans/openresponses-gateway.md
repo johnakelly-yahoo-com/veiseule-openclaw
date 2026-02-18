@@ -119,3 +119,4 @@ Principais pontos extraídos:
 
 - Adicionar uma nova página de docs para uso e exemplos de `/v1/responses`.
 - Atualizar `/gateway/openai-http-api` com uma nota de legado e um apontamento para `/v1/responses`.
+

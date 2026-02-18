@@ -69,3 +69,4 @@ The name comes from protocol droids of legend — but I don't just translate lan
 通常如此。
 
 喔天啊。
+

@@ -277,3 +277,4 @@ Repo này cung cấp tài liệu skill tương ứng tại `skills/voice-call/SK
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
+

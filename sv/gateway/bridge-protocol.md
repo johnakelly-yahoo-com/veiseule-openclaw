@@ -82,3 +82,4 @@ Payload‑fält (alla valfria om inget annat anges):
 
 Bridge är för närvarande **implicit v1** (ingen min/max förhandling). Bakåt-compat
 förväntas; lägg till en bro protokoll versionsfält innan några brytningsändringar.
+

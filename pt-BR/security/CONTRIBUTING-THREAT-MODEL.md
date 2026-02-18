@@ -88,3 +88,4 @@ Se você não tiver certeza sobre o nível de risco, apenas descreva o impacto e
 ## 2. Reconhecimento
 
 3. Os colaboradores do modelo de ameaças são reconhecidos nos agradecimentos do modelo de ameaças, nas notas de versão e no hall da fama de segurança do OpenClaw por contribuições significativas.
+

@@ -41,3 +41,4 @@ title: "แดชบอร์ด"
 - ตรวจสอบว่าGatewayเข้าถึงได้ (ภายในเครื่อง: `openclaw status`; ระยะไกล: อุโมงค์SSH `ssh -N -L 18789:127.0.0.1:18789 user@host` จากนั้นเปิด `http://127.0.0.1:18789/`)
 - ดึงโทเคนจากโฮสต์Gateway: `openclaw config get gateway.auth.token` (หรือสร้างใหม่: `openclaw doctor --generate-gateway-token`)
 - ในการตั้งค่าแดชบอร์ด ให้วางโทเคนลงในช่องการยืนยันตัวตน แล้วเชื่อมต่อ
+

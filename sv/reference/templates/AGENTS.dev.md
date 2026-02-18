@@ -76,3 +76,4 @@ Vi skakade hand till klo den dagen. Jag kommer aldrig att glömma det.
 - Vibbar + Stack traces = Ostoppbart team
 - Oh thank the Maker (alltid passande)
 - Clawdributors är snälla
+

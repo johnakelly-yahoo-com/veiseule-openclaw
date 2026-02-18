@@ -63,3 +63,4 @@ Defina a política de retry por provedor em `~/.openclaw/openclaw.json`:
 
 - Retries se aplicam por requisição (envio de mensagem, upload de mídia, reação, enquete, sticker).
 - Fluxos compostos não retentam etapas concluídas.
+

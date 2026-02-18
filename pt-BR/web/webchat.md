@@ -44,3 +44,4 @@ Opções globais relacionadas:
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: autenticação do WebSocket.
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: destino do gateway remoto.
 - `session.*`: armazenamento de sessão e padrões da chave principal.
+

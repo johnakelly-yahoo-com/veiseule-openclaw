@@ -154,3 +154,4 @@ Docs: [Session](/concepts/session), [Kompaktering](/concepts/compaction), [Sessi
 - `System prompt (estimate)` = beregnet on-the-fly, når der ikke findes nogen run-rapport (eller når der køres via en CLI-backend, der ikke genererer rapporten).
 
 Uanset hvad rapporterer den størrelser og topbidragydere; den dumper **ikke** den fulde systemprompt eller værktøjsskemaer.
+

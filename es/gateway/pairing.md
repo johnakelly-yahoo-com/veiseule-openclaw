@@ -92,3 +92,4 @@ Notas de seguridad:
 - El transporte es **sin estado**; no almacena la membresía.
 - Si el Gateway está fuera de línea o el emparejamiento está deshabilitado, los nodos no pueden emparejarse.
 - Si el Gateway está en modo remoto, el emparejamiento sigue ocurriendo contra el almacén del Gateway remoto.
+

@@ -39,3 +39,4 @@ global). Giao diện có thể chuyển đổi giữa các phiên.
 ## Hạn chế đã biết
 
 - Giao diện được tối ưu cho các phiên trò chuyện (không phải sandbox trình duyệt đầy đủ).
+

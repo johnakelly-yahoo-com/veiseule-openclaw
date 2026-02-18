@@ -134,3 +134,4 @@ title: "بدء الاستخدام"
 - أمان الرسائل المباشرة والموافقات: [Pairing](/channels/pairing)
 - توصيل المزيد من القنوات: [Channels](/channels)
 - سير عمل متقدم والعمل من المصدر: [Setup](/start/setup)
+

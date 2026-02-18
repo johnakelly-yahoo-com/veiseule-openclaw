@@ -84,3 +84,4 @@ Defaults: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 
 - Commands များ ပိတ်နေသကဲ့သို့ ထင်ရပါက verbose logs ကို ဖွင့်ပြီး queue သည် ထုတ်လုပ်လုပ်ဆောင်နေကြောင်း အတည်ပြုရန် “queued for …ms” စာကြောင်းများကို ကြည့်ပါ။
 - Queue အနက်ကို သိလိုပါက verbose logs ကို ဖွင့်ပြီး queue timing စာကြောင်းများကို စောင့်ကြည့်ပါ။
+

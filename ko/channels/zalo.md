@@ -184,3 +184,4 @@ Zalo 는 베트남 중심의 메시징 앱입니다. Bot API 를 통해 Gateway(
 - `channels.zalo.accounts.<id>.webhookSecret`: 계정별 웹훅 시크릿.
 - `channels.zalo.accounts.<id>.webhookPath`: 계정별 웹훅 경로.
 - `channels.zalo.accounts.<id>.proxy`: 계정별 프록시 URL.
+

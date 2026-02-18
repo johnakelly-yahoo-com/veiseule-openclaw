@@ -570,3 +570,4 @@ Para fluxo de triagem: [/channels/troubleshooting](/channels/troubleshooting).
 - Aviso: Se você permitir respostas a outros bots (`channels.slack.allowBots=true` ou `channels.slack.channels.<id>.allowBots=true`), evite loops de bot-para-bot com allowlists `requireMention`, `channels.slack.channels.<id>.users` e/ou proteções claras em `AGENTS.md` e `SOUL.md`.
 - Para a ferramenta do Slack, a semântica de remoção de reações está em [/tools/reactions](/tools/reactions).
 - Anexos são baixados para o repositório de mídia quando permitido e abaixo do limite de tamanho.
+

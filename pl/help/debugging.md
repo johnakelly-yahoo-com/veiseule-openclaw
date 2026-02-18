@@ -155,3 +155,4 @@ Plik domyślny:
 - Surowe logi strumieni mogą zawierać pełne prompty, wyjście narzędzi oraz dane użytkowników.
 - Przechowuj logi lokalnie i usuwaj je po zakończeniu debugowania.
 - Jeśli udostępniasz logi, najpierw usuń sekrety i dane osobowe (PII).
+

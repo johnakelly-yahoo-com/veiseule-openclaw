@@ -574,3 +574,4 @@ Kluczowe opcje:
 - ✅ Pliki
 - ✅ Audio
 - ⚠️ Tekst sformatowany (częściowe wsparcie)
+

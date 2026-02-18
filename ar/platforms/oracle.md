@@ -296,3 +296,4 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 - [تهيئة Gateway](/gateway/configuration) — جميع خيارات التهيئة
 - [دليل DigitalOcean](/platforms/digitalocean) — إذا كنت تريد خيارًا مدفوعًا مع تسجيل أسهل
 - [دليل Hetzner](/install/hetzner) — بديل قائم على Docker
+

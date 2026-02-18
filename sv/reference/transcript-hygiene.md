@@ -122,3 +122,4 @@ Före version 2026.1.22 tillämpade OpenClaw flera lager av transkripthygien:
 Denna komplexitet orsakade cross-provider regressioner (särskilt `openai-responses`
 `call_id<unk> fc_id` parning). 2026.1.22 rensningen tog bort tillägget, centraliserad
 logik i löparen och gjorde OpenAI **no-touch** bortom bildsanering.
+

@@ -69,3 +69,4 @@ Tingnan ang [Sandboxing](/gateway/sandboxing). 12. OK lang iyon:
 
 - Maaari pa ring i-publish ang git tag at npm dist-tag.
 - Banggitin ang “walang macOS build para sa beta na ito” sa mga release note o changelog.
+

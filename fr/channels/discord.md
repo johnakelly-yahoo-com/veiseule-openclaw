@@ -471,3 +471,4 @@ Les emojis peuvent etre unicode (par ex., `✅`) ou utiliser la syntaxe d’emoj
 - Traitez le jeton du bot comme un mot de passe ; privilegiez la variable d’environnement `DISCORD_BOT_TOKEN` sur des hôtes supervises ou verrouillez les permissions du fichier de configuration.
 - N’accordez au bot que les permissions necessaires (generalement Lire/Envoyer des messages).
 - Si le bot est bloque ou limite par le debit, redemarrez la Gateway (passerelle) (`openclaw gateway --force`) apres avoir confirme qu’aucun autre processus ne detient la session Discord.
+

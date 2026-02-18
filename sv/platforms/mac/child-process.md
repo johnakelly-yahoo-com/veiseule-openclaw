@@ -64,3 +64,4 @@ fjärrvärd och ansluter över den tunneln.
 
 Om ett äkta barnprocess‑läge någon gång behövs igen bör det dokumenteras som ett
 separat, uttryckligt läge endast för utveckling.
+

@@ -110,3 +110,4 @@ Gateway serverer statiske filer fra `dist/control-ui`. Byg dem med:
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
+

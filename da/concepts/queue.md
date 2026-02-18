@@ -84,3 +84,4 @@ Standard: `debounceMs: 1000`, `cap: 20`, `drop: summaris`.
 
 - Hvis kommandoer ser ud til at sidde fast, aktivér udførlige logs og kig efter linjer med “queued for …ms” for at bekræfte, at køen drænes.
 - Hvis du har brug for kødybde, aktivér udførlige logs og hold øje med linjer om køtiming.
+

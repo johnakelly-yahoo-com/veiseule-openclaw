@@ -201,3 +201,4 @@ Xavfsizlik arxitekturasi va muammolarni bartaraf etish bo‘yicha batafsil ma’
 - [Docker](/install/docker) — konteyner asosidagi gateway sozlamasi
 - [Sandboxing](/gateway/sandboxing) — agent sandbox sozlamalari
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — har bir agent uchun izolyatsiya
+

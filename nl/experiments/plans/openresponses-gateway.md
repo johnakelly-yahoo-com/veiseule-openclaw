@@ -120,3 +120,4 @@ Belangrijkste punten:
 
 - Voeg een nieuwe documentatiepagina toe voor `/v1/responses`-gebruik en voorbeelden.
 - Werk `/gateway/openai-http-api` bij met een legacy-opmerking en een verwijzing naar `/v1/responses`.
+

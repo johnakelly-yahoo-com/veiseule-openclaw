@@ -386,3 +386,4 @@ title: "متدرب المثبت"
     غالبًا ما تكون مشكلة PATH. راجع [استكشاف أخطاء Node.js وإصلاحها](/install/node#troubleshooting).
   </Accordion>
 </AccordionGroup>
+

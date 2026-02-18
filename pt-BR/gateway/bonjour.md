@@ -164,3 +164,4 @@ decimais `\DDD` (por exemplo, espaços viram `\032`).
 
 - Política de descoberta e seleção de transporte: [Discovery](/gateway/discovery)
 - Pareamento de nós + aprovações: [Gateway pairing](/gateway/pairing)
+

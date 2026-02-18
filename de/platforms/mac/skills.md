@@ -27,3 +27,4 @@ Die macOS-App stellt OpenClaw Skills über das Gateway bereit; sie wertet Skills
 ## Remote-Modus
 
 - Installation und Konfigurationsaktualisierungen erfolgen auf dem Gateway-Host (nicht auf dem lokalen Mac).
+

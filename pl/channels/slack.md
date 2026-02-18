@@ -570,3 +570,4 @@ Schemat triage: [/channels/troubleshooting](/channels/troubleshooting).
 - Ostrzeżenie: jeśli zezwolisz na odpowiedzi do innych botów (`channels.slack.allowBots=true` lub `channels.slack.channels.<id>.allowBots=true`), zapobiegaj pętlom odpowiedzi bot–bot za pomocą list dozwolonych `requireMention`, `channels.slack.channels.<id>.users` i/lub wyraźnych barier w `AGENTS.md` oraz `SOUL.md`.
 - Dla narzędzia Slack semantyka usuwania reakcji jest opisana w [/tools/reactions](/tools/reactions).
 - Załączniki są pobierane do magazynu multimediów, gdy jest to dozwolone i mieszczą się w limicie rozmiaru.
+

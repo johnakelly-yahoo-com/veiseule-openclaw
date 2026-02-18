@@ -74,3 +74,4 @@ Onboarding vraagt TCC-rechten aan die nodig zijn voor:
   wat er gebeurt op de Gateway-host tijdens de eerste agentrun.
 </Step>
 </Steps>
+

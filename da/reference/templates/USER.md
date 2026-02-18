@@ -17,3 +17,4 @@ _(Hvad bekymrer de sig om? Hvilke projekter arbejder de på? Hvad irriterer dem?
 ---
 
 Jo mere du ved, jo bedre kan du hjælpe. Men husk — du lærer om en person, ikke opbygge en sag. Respekter forskellen.
+

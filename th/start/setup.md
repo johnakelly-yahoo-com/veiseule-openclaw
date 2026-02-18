@@ -160,3 +160,4 @@ user service (ไม่ต้องใช้ lingering) ดูหมายเห
 - [Discord](/channels/discord) และ [Telegram](/channels/telegram) (แท็กการตอบกลับ + การตั้งค่า replyToMode)
 - [OpenClaw assistant setup](/start/openclaw)
 - [macOS app](/platforms/macos) (วงจรชีวิต gateway)
+

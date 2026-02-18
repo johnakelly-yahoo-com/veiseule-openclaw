@@ -22,3 +22,4 @@ OpenClaw = CLAW + TARDIS, dahil bawat space lobster ay nangangailangan ng makina
 MIT - Malaya tulad ng isang lobster sa karagatan.
 
 > "Lahat tayo ay naglalaro lamang sa sarili nating mga prompt." (Isang AI, marahil ay high sa tokens)
+

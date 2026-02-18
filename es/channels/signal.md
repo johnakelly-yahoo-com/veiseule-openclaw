@@ -222,3 +222,4 @@ Opciones globales relacionadas:
 - `agents.list[].groupChat.mentionPatterns` (Signal no admite menciones nativas).
 - `messages.groupChat.mentionPatterns` (respaldo global).
 - `messages.responsePrefix`.
+

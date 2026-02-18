@@ -109,3 +109,4 @@ Nota: La detección de binarios es de mejor esfuerzo en macOS/Linux/Windows; ase
 - Las reglas de alcance usan “primera coincidencia gana”. `chatType` se normaliza a `direct`, `group` o `room`.
 - Asegúrese de que su CLI termine con código 0 e imprima texto plano; el JSON debe ajustarse mediante `jq -r .text`.
 - Mantenga tiempos de espera razonables (`timeoutSeconds`, predeterminado 60s) para evitar bloquear la cola de respuestas.
+

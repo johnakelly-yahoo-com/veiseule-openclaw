@@ -63,3 +63,4 @@ Gebruik de `message`-tool met de `poll`-actie (`to`, `pollQuestion`, `pollOption
 Let op: Discord heeft geen modus “exact N kiezen”; `pollMulti` komt overeen met multi-select.
 Teams-polls worden weergegeven als Adaptive Cards en vereisen dat de gateway online blijft
 om stemmen vast te leggen in `~/.openclaw/msteams-polls.json`.
+

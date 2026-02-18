@@ -59,3 +59,4 @@ Ajan çalışma alanı kökünde (`SOUL.md` dosyasının yanında) `SOUL_EVIL.md
 ## Ayrıca Bakınız
 
 - [Hooks](/automation/hooks)
+

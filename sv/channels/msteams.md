@@ -765,3 +765,4 @@ Botar har begränsat stöd i privata kanaler:
 - [RSC-behörighetsreferens](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
 - [Teams bot-filhantering](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4) (kanal/grupp kräver Graph)
 - [Proaktiva meddelanden](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages)
+

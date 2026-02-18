@@ -109,3 +109,4 @@ Eslatma: Binar aniqlash macOS/Linux/Windows bo‘ylab best-effort; CLI `PATH` da
 - Scope rules use first-match wins. `chatType` is normalized to `direct`, `group`, or `room`.
 - Ensure your CLI exits 0 and prints plain text; JSON needs to be massaged via `jq -r .text`.
 - Keep timeouts reasonable (`timeoutSeconds`, default 60s) to avoid blocking the reply queue.
+

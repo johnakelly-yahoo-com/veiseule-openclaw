@@ -43,3 +43,4 @@ openclaw onboard --non-interactive \
 如果 Gateway 閘道器 以常駐服務（launchd/systemd）執行，請確保 `AI_GATEWAY_API_KEY`
 可供該程序使用（例如在 `~/.openclaw/.env` 中，或透過
 `env.shellEnv`）。
+

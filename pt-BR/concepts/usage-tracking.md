@@ -29,3 +29,4 @@ title: "Rastreamento de uso"
 - **z.ai**: chave de API via variáveis de ambiente/configuração/armazenamento de autenticação.
 
 O uso fica oculto se não existirem credenciais OAuth/API correspondentes.
+

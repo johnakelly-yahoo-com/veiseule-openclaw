@@ -48,3 +48,4 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: lưu bền mức verbose
 - `--timeout <seconds>`: ghi đè thời gian chờ của agent
 - `--json`: xuất JSON có cấu trúc
+

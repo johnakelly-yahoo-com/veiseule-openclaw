@@ -58,3 +58,4 @@ openclaw onboard --auth-choice xiaomi-api-key --xiaomi-api-key "$XIAOMI_API_KEY"
 - Model ref: `xiaomi/mimo-v2-flash`။
 - `XIAOMI_API_KEY` ကို သတ်မှတ်ထားပါက (သို့မဟုတ် auth profile တစ်ခု ရှိပါက) provider ကို အလိုအလျောက် ထည့်သွင်းပေးသည်။
 - Provider စည်းမျဉ်းများအတွက် [/concepts/model-providers](/concepts/model-providers) ကို ကြည့်ပါ။
+

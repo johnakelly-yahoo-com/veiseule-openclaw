@@ -343,3 +343,4 @@ Wachtrijen + sessies:
 - **Logs leeg?** Controleer of de Gateway draait en schrijft naar het bestandspad
   in `logging.file`.
 - **Meer detail nodig?** Stel `logging.level` in op `debug` of `trace` en probeer opnieuw.
+

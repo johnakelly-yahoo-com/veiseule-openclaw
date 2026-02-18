@@ -15,3 +15,4 @@ Kung gusto mo ng mabilis na daloy para “makalabas sa pagkaka-stuck,” magsimu
 Kung ang hinahanap mo ay mga konseptuwal na tanong (hindi “may nasira”):
 
 - [FAQ (mga konsepto)](/help/faq)
+

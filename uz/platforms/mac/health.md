@@ -29,3 +29,4 @@ Menyu paneli ilovasi orqali ulangan kanal sog‘lom ekanligini qanday ko‘rish 
 ## 8. Ikki yo‘l qolsa
 
 - 9. Siz hali ham [Gateway health](/gateway/health) dagi CLI oqimidan (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) foydalanishingiz va `web-heartbeat` / `web-reconnect` uchun `/tmp/openclaw/openclaw-*.log` ni tail qilishingiz mumkin.
+

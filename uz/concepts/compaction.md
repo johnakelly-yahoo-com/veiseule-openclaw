@@ -54,3 +54,4 @@ Pruning tafsilotlari uchun [/concepts/session-pruning](/concepts/session-pruning
 - Sessiyalar eskirib qolgan yoki kontekst shishib ketgandek tuyulganda `/compact` dan foydalaning.
 - Katta asbob chiqishlari allaqachon qisqartiriladi; pruning asbob natijalari to‘planishini yanada kamaytirishi mumkin.
 - Agar sizga butunlay yangi boshlash kerak bo‘lsa, `/new` yoki `/reset` yangi sessiya identifikatorini boshlaydi.
+

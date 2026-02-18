@@ -214,3 +214,4 @@ The Gateway treats these as **claims** and enforces server-side allowlists.
 This protocol exposes the **full gateway API** (status, channels, models, chat,
 agent, sessions, nodes, approvals, etc.). The exact surface is defined by the
 TypeBox schemas in `src/gateway/protocol/schema.ts`.
+

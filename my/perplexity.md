@@ -73,3 +73,4 @@ Base URL ကို မသတ်မှတ်ထားပါက OpenClaw သည်
 - `perplexity/sonar-reasoning-pro` — အနက်ရှိုင်းသော သုတေသန
 
 web_search ဖွဲ့စည်းပြင်ဆင်မှု အပြည့်အစုံအတွက် [Web tools](/tools/web) ကို ကြည့်ရှုပါ။
+

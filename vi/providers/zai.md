@@ -29,3 +29,4 @@ openclaw onboard --zai-api-key "$ZAI_API_KEY"
 - Các mô hình GLM có sẵn dưới dạng `zai/<model>` (ví dụ: `zai/glm-4.7`).
 - Xem [/providers/glm](/providers/glm) để biết tổng quan về họ mô hình.
 - Z.AI sử dụng xác thực Bearer với khóa API của bạn.
+

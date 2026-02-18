@@ -155,3 +155,4 @@ Standarddatei:
 - Rohe Stream-Logs können vollständige Prompts, Werkzeugausgaben und Benutzerdaten enthalten.
 - Bewahren Sie Logs lokal auf und löschen Sie sie nach dem Debugging.
 - Wenn Sie Logs teilen, entfernen Sie zuvor Geheimnisse und personenbezogene Daten (PII).
+

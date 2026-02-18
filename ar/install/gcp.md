@@ -497,3 +497,4 @@ gcloud compute instances start openclaw-gateway --zone=us-central1-a
 - إعداد قنوات المراسلة: [Channels](/channels)
 - إقران الأجهزة المحلية كعُقد: [Nodes](/nodes)
 - تهيئة Gateway: [Gateway configuration](/gateway/configuration)
+

@@ -75,3 +75,4 @@ openclaw directory peers list --channel zalouser --query "name"
 Tên công cụ: `zalouser`
 
 Hành động: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
+

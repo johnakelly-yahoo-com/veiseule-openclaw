@@ -122,3 +122,4 @@ Jeśli uruchamiasz z checkoutu repozytorium (`git clone` + `openclaw ...` / `bun
 1. Odinstaluj usługę gateway **przed** usunięciem repozytorium (użyj łatwej ścieżki powyżej lub ręcznego usunięcia usługi).
 2. Usuń katalog repozytorium.
 3. Usuń stan + obszar roboczy, jak pokazano powyżej.
+

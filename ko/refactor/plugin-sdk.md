@@ -208,3 +208,4 @@ title: "플러그인 SDK 리팩터링"
 - 외부 플러그인은 코어 소스 접근 없이 개발 및 업데이트할 수 있습니다.
 
 관련 문서: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
+

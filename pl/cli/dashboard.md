@@ -10,3 +10,4 @@ Otwórz interfejs sterowania, używając bieżącego uwierzytelnienia.
 openclaw dashboard
 openclaw dashboard --no-open
 ```
+

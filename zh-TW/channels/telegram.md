@@ -799,3 +799,4 @@ Telegram 的反應會以 **獨立的 `message_reaction` 事件** 到達，而非
 - `commands.native`（預設為 `"auto"` → Telegram／Discord 開啟、Slack 關閉）、`commands.text`、`commands.useAccessGroups`（指令行為）。可用 `channels.telegram.commands.native` 覆寫。 依預設，沙箱容器 **沒有網路**。
   可使用 `channels.telegram.commands.native` 覆寫。
 - `messages.responsePrefix`、`messages.ackReaction`、`messages.ackReactionScope`、`messages.removeAckAfterReply`。
+

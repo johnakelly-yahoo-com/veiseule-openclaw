@@ -60,3 +60,4 @@ Siehe [Cron jobs](/automation/cron-jobs) für die normalisierte Struktur und Bei
 
 - Sollte `cron.add` explizite `state` von Clients akzeptieren (derzeit durch das Schema untersagt)?
 - Sollten wir `webchat` als expliziten Zustellanbieter zulassen (derzeit in der Zustellauflösung gefiltert)?
+

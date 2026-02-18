@@ -28,3 +28,4 @@ openclaw voicecall unexpose
 ```
 
 Güvenlik notu: webhook uç noktasını yalnızca güvendiğiniz ağlara açın. Mümkün olduğunda Funnel yerine Tailscale Serve'ü tercih edin.
+

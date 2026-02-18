@@ -39,3 +39,4 @@ geselecteerde agent (met een sessiewisselaar voor andere sessies).
 ## Bekende beperkingen
 
 - De UI is geoptimaliseerd voor chatsessies (geen volledige browser‑sandbox).
+

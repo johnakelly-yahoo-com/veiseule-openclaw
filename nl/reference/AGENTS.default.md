@@ -116,3 +116,4 @@ git commit -m "Add Clawd workspace"
 - Gebruik voor browsergestuurde verificatie `openclaw browser` (tabbladen/status/screenshot) met het door OpenClaw beheerde Chrome-profiel.
 - Gebruik voor DOM-inspectie `openclaw browser eval|query|dom|snapshot` (en `--json`/`--out` wanneer je machine-uitvoer nodig hebt).
 - Gebruik voor interacties `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` (klikken/typen vereist snapshot-referenties; gebruik `evaluate` voor CSS-selectors).
+

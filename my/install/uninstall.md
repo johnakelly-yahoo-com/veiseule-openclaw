@@ -122,3 +122,4 @@ repo checkout (`git clone` + `openclaw ...` / `bun run openclaw ...`) မှ လ
 1. repo ကို မဖျက်မီ **Gateway service ကို အရင် ဖယ်ရှားပါ** (အပေါ်ပါ လွယ်ကူသော လမ်းကြောင်း သို့မဟုတ် service ကို လက်ဖြင့် ဖယ်ရှားခြင်း ကို အသုံးပြုပါ)။
 2. repo directory ကို ဖျက်ပါ။
 3. အပေါ်တွင် ဖော်ပြထားသည့်အတိုင်း state + workspace ကို ဖယ်ရှားပါ။
+

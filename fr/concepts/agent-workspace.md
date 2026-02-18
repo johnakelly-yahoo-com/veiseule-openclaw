@@ -233,3 +233,4 @@ Modele de demarrage `.gitignore` suggere :
   [Channel routing](/channels/channel-routing) pour la configuration du routage.
 - Si `agents.defaults.sandbox` est active, les sessions non principales peuvent utiliser des espaces de
   travail en sandbox par session sous `agents.defaults.sandbox.workspaceRoot`.
+

@@ -386,3 +386,4 @@ Her şeyin yerel bir önek altında olmasını (varsayılan `~/.openclaw`) ve si
     Genellikle bir PATH sorunudur. [Node.js sorun giderme](/install/node#troubleshooting) bölümüne bakın.
   </Accordion>
 </AccordionGroup>
+

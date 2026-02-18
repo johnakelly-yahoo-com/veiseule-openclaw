@@ -353,3 +353,4 @@ Filas + sessões:
   do arquivo em `logging.file`.
 - **Precisa de mais detalhes?** Defina `logging.level` como `debug` ou
   `trace` e tente novamente.
+

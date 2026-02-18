@@ -47,3 +47,4 @@ Lokal tillid:
 - [Gateway konfigurationsreference](/gateway/configuration)
 - [Fejlfinding](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
+

@@ -42,3 +42,4 @@ La pestaña Acerca de lee estas claves para mostrar la versión, la fecha de com
 ## Por qué
 
 Los permisos de TCC están vinculados al identificador del paquete _y_ a la firma de código. Las compilaciones de depuración sin firmar con UUID cambiantes estaban haciendo que macOS olvidara las concesiones después de cada recompilación. Firmar los binarios (ad‑hoc de forma predeterminada) y mantener un id/ruta de paquete fijo (`dist/OpenClaw.app`) conserva las concesiones entre compilaciones, igualando el enfoque de VibeTunnel.
+

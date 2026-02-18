@@ -92,3 +92,4 @@ Notas de segurança:
 - O transporte é **sem estado**; ele não armazena associação.
 - Se o Gateway estiver offline ou o pareamento estiver desativado, os nós não conseguem parear.
 - Se o Gateway estiver em modo remoto, o pareamento ainda ocorre contra o armazenamento do Gateway remoto.
+

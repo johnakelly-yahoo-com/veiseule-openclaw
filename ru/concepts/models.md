@@ -202,3 +202,4 @@ openclaw models status
 Пользовательские провайдеры в `models.providers` записываются в `models.json`
 в каталоге агента (по умолчанию `~/.openclaw/agents/<agentId>/models.json`). Этот файл
 объединяется по умолчанию, если только `models.mode` не установлен в `replace`.
+

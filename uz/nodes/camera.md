@@ -150,3 +150,4 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # MEDIA:<path
 Eslatmalar:
 
 - macOS’da **Screen Recording** ruxsati (TCC) talab qilinadi.
+

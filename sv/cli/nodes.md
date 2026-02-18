@@ -67,3 +67,4 @@ Flaggor:
 - `--raw <command>`: kör en shell-sträng (`/bin/sh -lc` eller `cmd.exe /c`).
 - `--agent <id>`: agentomfångade godkännanden/tillåtelselistor (standard är konfigurerad agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: åsidosättningar.
+

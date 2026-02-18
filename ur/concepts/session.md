@@ -199,3 +199,4 @@ UI کلائنٹس (macOS ایپ، WebChat، وغیرہ) 31. UI کلائنٹس (m
   `GroupSubject`, `GroupChannel`, `GroupSpace`, اور `SenderName` کو اِن باؤنڈ
   کانٹیکسٹ میں بھیج کر اور `recordSessionMetaFromInbound` کال کر کے (یا وہی کانٹیکسٹ
   `updateLastRoute` کو پاس کر کے) کر سکتی ہیں۔ **بلاک اسٹریمنگ (چینلز):** اسسٹنٹ کے لکھتے ہی مکمل **بلاکس** خارج کریں۔
+

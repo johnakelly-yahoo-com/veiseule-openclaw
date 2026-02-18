@@ -147,3 +147,4 @@ Udgående meddelelsesformatering er centraliseret i `messages`:
 - Svartrådning via `replyToMode` og pr. kanal‑standarder
 
 Detaljer: [Konfiguration](/gateway/configuration#messages) og kanal‑dokumentation.
+

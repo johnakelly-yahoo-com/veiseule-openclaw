@@ -27,3 +27,4 @@ The macOS app surfaces OpenClaw skills via the gateway; it does not parse skills
 ## Remote mode
 
 - Install + config updates happen on the gateway host (not the local Mac).
+

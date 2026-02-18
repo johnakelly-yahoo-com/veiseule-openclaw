@@ -110,3 +110,4 @@ Fullständig felsökning: [/channels/signal#troubleshooting](/channels/signal#tr
 | Krypterade rum misslyckas              | Verifiera kryptomodul och krypteringsinställningar | Aktivera krypteringsstöd och gå med/synka rummet igen. |
 
 Fullständig felsökning: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

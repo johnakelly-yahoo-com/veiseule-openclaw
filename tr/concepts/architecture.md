@@ -145,3 +145,4 @@ Ayrıntılar: [Gateway protokolü](/gateway/protocol), [Eşleştirme](/channels/
 - Her ana makinede tek bir Gateway, tek bir Baileys oturumunu kontrol eder.
 - El sıkışma zorunludur; JSON olmayan veya ilk çerçevesi connect olmayan her şey sert kapatma ile sonuçlanır.
 - Olaylar tekrar oynatılmaz; boşluklarda istemciler yenileme yapmalıdır.
+

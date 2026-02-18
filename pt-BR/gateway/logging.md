@@ -107,3 +107,4 @@ Comportamento:
 - **Corpos de mensagens do WhatsApp** são registrados em `debug` (use `--verbose` para vê-los)
 
 Isso mantém os logs em arquivo existentes estáveis enquanto torna a saída interativa fácil de examinar.
+

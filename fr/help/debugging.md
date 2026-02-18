@@ -156,3 +156,4 @@ Fichier par défaut :
 - Les journaux de flux bruts peuvent inclure des invites complètes, la sortie des outils et des données utilisateur.
 - Conservez les journaux en local et supprimez-les après le débogage.
 - Si vous partagez des journaux, expurgez d’abord les secrets et les PII.
+

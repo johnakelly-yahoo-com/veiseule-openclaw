@@ -92,3 +92,4 @@ Wysoki poziom:
 - [Kanały rozwojowe](/install/development-channels)
 - [Aktualizacja](/install/updating)
 - [Dokumentacja CLI](/cli)
+

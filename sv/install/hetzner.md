@@ -323,3 +323,4 @@ Alla långlivade tillstånd måste överleva omstarter, återuppbygga och starta
 | Node‑runtime                        | Containerfilsystem                | Docker‑image         | Byggs om vid varje image‑build     |
 | OS‑paket                            | Containerfilsystem                | Docker‑image         | Installera inte vid runtime        |
 | Docker‑container                    | Flyktig                           | Omstartbar           | Säker att förstöra                 |
+

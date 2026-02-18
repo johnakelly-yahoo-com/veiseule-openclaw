@@ -76,3 +76,4 @@ title: "Barra de menús"
 - Inicie la principal mientras otra está activa: el ícono cambia a la principal al instante.
 - Ráfagas rápidas de herramientas: asegúrese de que la insignia no parpadee (gracia de TTL en resultados de herramientas).
 - La fila de salud reaparece cuando todas las sesiones están inactivas.
+

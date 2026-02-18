@@ -44,3 +44,4 @@ title: "WebChat"
 - `gateway.auth.mode`、`gateway.auth.token`、`gateway.auth.password`：WebSocket 身分驗證。
 - `gateway.remote.url`、`gateway.remote.token`、`gateway.remote.password`：遠端 Gateway 閘道器目標。
 - `session.*`：工作階段儲存與主要金鑰預設值。
+

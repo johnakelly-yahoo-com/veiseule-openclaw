@@ -54,3 +54,4 @@ Om proxy utelämnas, är Firecrawl standard `auto`. `auto` försöker med stealt
 3. Grundläggande HTML-rensning (sista reserv)
 
 Se [Web tools](/tools/web) för den fullständiga konfigurationen av webbverktyg.
+

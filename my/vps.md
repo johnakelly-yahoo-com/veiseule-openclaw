@@ -35,3 +35,4 @@ title: "VPS ဟို့စ်တင်ခြင်း"
 Gateway ကို cloud တွင်ထားပြီး local devices (Mac/iOS/Android/headless) များတွင် **nodes** ကို pair လုပ်ထားနိုင်ပါသည်။ Nodes များသည် Gateway ကို cloud တွင်ထားစဉ် local screen/camera/canvas နှင့် `system.run` စွမ်းဆောင်ရည်များကို ပံ့ပိုးပေးပါသည်။
 
 စာရွက်စာတမ်းများ: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
+

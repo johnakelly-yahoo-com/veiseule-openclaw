@@ -351,3 +351,4 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Hetzner guide](/install/hetzner) — Docker-opsætning
 - [Tailscale](/gateway/tailscale) — fjernadgang
 - [Nodes](/nodes) — par din laptop/telefon med Pi-gatewayen
+

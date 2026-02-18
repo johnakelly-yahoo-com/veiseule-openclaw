@@ -278,3 +278,4 @@ flush-logik ligger på Gateway-siden i dag.
   - kompakteringsindstillinger (`reserveTokens` for høj i forhold til modelvinduet kan give tidligere kompaktering)
   - tool-result-bloat: aktivér/justér session pruning
 - Lydløs bliver utæt? Bekræft svaret starter med `NO_REPLY` (eksakt token), og du er på en bygning, der omfatter streaming suppression fix.
+

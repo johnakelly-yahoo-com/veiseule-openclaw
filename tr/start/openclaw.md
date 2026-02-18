@@ -225,3 +225,4 @@ Günlükler `/tmp/openclaw/` altında bulunur (varsayılan: `openclaw-YYYY-MM-DD
 - Windows durumu: [Windows (WSL2)](/platforms/windows)
 - Linux durumu: [Linux app](/platforms/linux)
 - Güvenlik: [Security](/gateway/security)
+

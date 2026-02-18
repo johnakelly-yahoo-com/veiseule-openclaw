@@ -76,3 +76,4 @@ title: "„Menüleiste“"
 - Hauptsitzung starten, während eine andere aktiv ist: Symbol wechselt sofort zur Hauptsitzung.
 - Schnelle Werkzeug-Bursts: sicherstellen, dass das Badge nicht flackert (TTL‑Schonfrist bei Werkzeugergebnissen).
 - Die Gesundheitszeile erscheint wieder, sobald alle Sitzungen inaktiv sind.
+

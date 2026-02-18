@@ -144,3 +144,4 @@ Kamera-kommandoer (kun foreground; tilladelsesstyret):
 - `camera.clip` (mp4)
 
 Se [Camera node](/nodes/camera) for parametre og CLI-hjælpere.
+

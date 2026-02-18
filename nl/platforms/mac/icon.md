@@ -26,3 +26,4 @@ Gedragsnotities
 
 - Geen externe CLI-/broker-schakelaar voor oren/werken; houd dit intern aan de eigen signalen van de app om onbedoeld flapperen te voorkomen.
 - Houd TTL’s kort (&lt;10 s) zodat het pictogram snel terugkeert naar de basislijn als een taak vastloopt.
+

@@ -110,3 +110,4 @@ Vollständige Fehlerbehebung: [/channels/signal#troubleshooting](/channels/signa
 | Verschlüsselte Räume schlagen fehl          | Kryptomodul und Verschlüsselungseinstellungen prüfen | Verschlüsselungsunterstützung aktivieren und Raum erneut beitreten/synchronisieren. |
 
 Vollständige Fehlerbehebung: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

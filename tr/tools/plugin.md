@@ -634,3 +634,4 @@ Eklentiler testlerle birlikte gönderilebilir (ve gönderilmelidir):
 
 - Depo içi eklentiler, Vitest testlerini `src/**` altında tutabilir (örnek: `src/plugins/voice-call.plugin.test.ts`).
 - Ayrı yayımlanan eklentiler kendi CI’larını (lint/build/test) çalıştırmalı ve `openclaw.extensions`’nın derlenmiş giriş noktasını işaret ettiğini doğrulamalıdır (`dist/index.js`).
+

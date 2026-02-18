@@ -34,3 +34,4 @@ arbetsytefiler på gateway‑värden (till exempel `user@gateway-host:~/.opencla
 
 - Introduktion för macOS‑appen: [Onboarding](/start/onboarding)
 - Arbetsytans layout: [Agent workspace](/concepts/agent-workspace)
+

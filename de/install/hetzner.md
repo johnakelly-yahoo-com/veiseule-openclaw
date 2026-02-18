@@ -323,3 +323,4 @@ Jeglicher langlebige Zustand muss Neustarts, Rebuilds und Reboots überstehen.
 | Node‑Runtime           | Container‑Dateisystem             | Docker‑Image           | Bei jedem Image‑Build neu gebaut         |
 | OS‑Pakete              | Container‑Dateisystem             | Docker‑Image           | Nicht zur Laufzeit installieren          |
 | Docker‑Container       | Ephemer                           | Neustartbar            | Sicher zu zerstören                      |
+

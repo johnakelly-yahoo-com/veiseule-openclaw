@@ -222,3 +222,4 @@ openclaw pairing list signal
 - `agents.list[].groupChat.mentionPatterns` (Signal не поддерживает нативные упоминания).
 - `messages.groupChat.mentionPatterns` (глобальный откат).
 - `messages.responsePrefix`.
+

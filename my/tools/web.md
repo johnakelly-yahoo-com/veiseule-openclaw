@@ -253,3 +253,4 @@ Notes:
 - ထပ်ခါတလဲလဲ fetch များကို လျှော့ချရန် တုံ့ပြန်ချက်များကို cache လုပ်ထားပါသည် (ပုံမှန် ၁၅ မိနစ်)။
 - Tool profiles/allowlists ကို အသုံးပြုပါက `web_search`/`web_fetch` သို့မဟုတ် `group:web` ကို ထည့်ပါ။
 - Brave key မရှိပါက `web_search` သည် docs link ပါဝင်သော setup hint အတိုချုံးကို ပြန်ပို့ပါသည်။
+

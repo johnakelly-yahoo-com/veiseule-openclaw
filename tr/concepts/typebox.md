@@ -280,3 +280,4 @@ Bilinmeyen çerçeve türleri, ileriye dönük uyumluluk için ham payload’lar
 1. TypeBox şemalarını güncelleyin.
 2. `pnpm protocol:check` çalıştırın.
 3. Yeniden üretilmiş şemayı + Swift modellerini commit edin.
+

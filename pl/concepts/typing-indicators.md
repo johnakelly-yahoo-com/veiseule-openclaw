@@ -63,3 +63,4 @@ Możesz nadpisać tryb lub częstotliwość odświeżania dla danej sesji:
 - Heartbeat nigdy nie pokazuje wskaźników pisania, niezależnie od trybu.
 - `typingIntervalSeconds` kontroluje **częstotliwość odświeżania**, a nie moment rozpoczęcia.
   Wartość domyślna to 6 sekund.
+

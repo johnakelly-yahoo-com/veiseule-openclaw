@@ -330,3 +330,4 @@ Windows へのインストールは **WSL2** を使用し、上記の Linux syst
 
 - `openclaw gateway` および旧来の TCP 制御ポートの使用を廃止してください。
 - 必須の connect と構造化された presence を備えた WS プロトコルを話すよう、クライアントを更新してください。
+

@@ -156,3 +156,4 @@ Geen uitvoer na het verzenden van een bericht:
 - `disconnected`: zorg dat de Gateway draait en je `--url/--token/--password` correct zijn.
 - Geen agents in de picker: controleer `openclaw agents list` en je routeringsconfiguratie.
 - Lege sessiepikker: je bevindt je mogelijk in globaal bereik of hebt nog geen sessies.
+

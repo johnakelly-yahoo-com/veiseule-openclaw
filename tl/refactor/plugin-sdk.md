@@ -208,3 +208,4 @@ Mga tala:
 - Maaaring idevelop at i-update ang mga external plugin nang walang access sa core source.
 
 Kaugnay na docs: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
+

@@ -47,3 +47,4 @@ Sử dụng một trong các cách sau (đều được hỗ trợ):
 
 - macOS: LaunchAgent (`bot.molt.gateway` hoặc `bot.molt.<profile>`; phiên bản cũ `com.openclaw.*`)
 - Linux/WSL2: dịch vụ systemd người dùng (`openclaw-gateway[-<profile>].service`)
+

@@ -48,3 +48,4 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: تثبيت مستوى التفصيل
 - `--timeout <seconds>`: تجاوز مهلة الوكيل
 - `--json`: إخراج JSON مُهيكل
+

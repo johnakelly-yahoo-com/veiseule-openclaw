@@ -471,3 +471,4 @@ Emoji kunnen unicode zijn (bijv. `✅`) of aangepaste emoji-syntaxis zoals `<:pa
 - Behandel de bot-token als een wachtwoord; geef de voorkeur aan de `DISCORD_BOT_TOKEN` env-var op beheerde hosts of vergrendel de bestandsrechten van de config.
 - Geef de bot alleen de rechten die hij nodig heeft (meestal Berichten lezen/verzenden).
 - Als de bot vastloopt of rate limited is, herstart de Gateway (`openclaw gateway --force`) nadat je hebt bevestigd dat geen andere processen de Discord-sessie bezitten.
+

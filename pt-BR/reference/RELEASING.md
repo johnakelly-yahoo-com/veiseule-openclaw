@@ -112,3 +112,4 @@ Lista atual de plugins npm (atualize conforme necessário):
 
 As notas de lançamento também devem destacar **novos plugins empacotados opcionais** que **não
 ficam ativados por padrão** (exemplo: `tlon`).
+

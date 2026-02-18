@@ -506,3 +506,4 @@ Las herramientas se exponen en dos canales paralelos:
 
 Esto significa que el agente ve tanto “qué herramientas existen” como “cómo llamarlas”. Si una herramienta
 no aparece en el prompt del sistema ni en el esquema, el modelo no puede llamarla.
+

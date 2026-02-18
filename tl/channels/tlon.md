@@ -125,3 +125,4 @@ Gamitin ang mga ito kasama ng `openclaw message send` o cron delivery:
 - Ang mga reply sa group ay nangangailangan ng mention (hal. `~your-bot-ship`) para tumugon.
 - Thread replies: kung ang papasok na mensahe ay nasa isang thread, sasagot ang OpenClaw sa loob ng thread.
 - Media: ang `sendMedia` ay bumabagsak sa text + URL (walang native upload).
+

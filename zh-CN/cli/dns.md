@@ -24,3 +24,4 @@ x-i18n:
 openclaw dns setup
 openclaw dns setup --apply
 ```
+

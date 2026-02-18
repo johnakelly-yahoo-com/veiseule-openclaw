@@ -64,3 +64,4 @@ Kung pinagana mo ang Gateway authentication sa Cloudflare, idagdag ang `cf-aig-a
 ## Tala sa environment
 
 Kung tumatakbo ang Gateway bilang daemon (launchd/systemd), tiyaking available ang `CLOUDFLARE_AI_GATEWAY_API_KEY` sa prosesong iyon (halimbawa, sa `~/.openclaw/.env` o sa pamamagitan ng `env.shellEnv`).
+

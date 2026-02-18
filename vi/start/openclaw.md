@@ -226,3 +226,4 @@ Log nằm tại `/tmp/openclaw/` (mặc định: `openclaw-YYYY-MM-DD.log`).
 - Trạng thái Windows: [Windows (WSL2)](/platforms/windows)
 - Trạng thái Linux: [Linux app](/platforms/linux)
 - Bảo mật: [Security](/gateway/security)
+

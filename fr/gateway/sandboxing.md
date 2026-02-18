@@ -189,3 +189,4 @@ Voir [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) pour la pri
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
+

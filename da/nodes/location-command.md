@@ -107,3 +107,4 @@ Noter:
 - Mens i brug: “Kun når OpenClaw er åben.”
 - Altid: “Tillad baggrunds placering. Kræver systemtilladelse.”
 - Præcis “Brug præcis GPS-placering. Slå fra for at dele omtrentlige placering.”
+

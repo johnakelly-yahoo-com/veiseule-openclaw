@@ -566,3 +566,4 @@ Wie es kartiert:
   - Wenn ein browserfähiger Node verbunden ist, kann das Werkzeug automatisch dorthin routen, sofern Sie `target="host"` oder `target="node"` nicht anheften.
 
 Dies hält den Agenten deterministisch und vermeidet fragile Selektoren.
+

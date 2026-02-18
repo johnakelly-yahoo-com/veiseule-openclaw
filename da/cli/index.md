@@ -1025,3 +1025,4 @@ Indstillinger:
 - `--message <text>`
 - `--timeout-ms <ms>` (standard til `agents.defaults.timeoutSeconds`)
 - `--history-limit <n>`
+

@@ -17,3 +17,4 @@ Nie definiuje on, jakie narzędzia istnieją; OpenClaw udostępnia wbudowane nar
 - Zamiana tekstu na mowę: określ głos, docelowego mówcę/pokój oraz czy strumieniować.
 
 Dodaj wszystko, co chcesz, aby asystent wiedział o Twoim lokalnym toolchainie.
+

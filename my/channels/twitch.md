@@ -374,3 +374,4 @@ Access token refreshed for user 123456 (expires in 14400s)
 - မက်ဆေ့ချ်တစ်ခုလျှင် **စာလုံး 500** (စကားလုံး အစွန်းအထင်းများအလိုက် အလိုအလျောက် ခွဲပို့သည်)
 - Chunking မလုပ်မီ Markdown ကို ဖယ်ရှားပါသည်
 - Rate limiting မရှိပါ (Twitch ၏ built-in rate limits ကို အသုံးပြုသည်)
+

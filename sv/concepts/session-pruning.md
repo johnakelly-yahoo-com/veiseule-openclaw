@@ -115,3 +115,4 @@ Begränsa rensning till specifika verktyg:
 ```
 
 Se konfigreferens: [Gateway-konfiguration](/gateway/configuration)
+

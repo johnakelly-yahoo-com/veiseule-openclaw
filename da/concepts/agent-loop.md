@@ -141,3 +141,4 @@ Se [Plugins](/tools/plugin#plugin-hooks) for hook-API’et og registreringsdetal
 - AbortSignal (annullér)
 - Gateway-frakobling eller RPC-timeout
 - `agent.wait`-timeout (kun vent, stopper ikke agenten)
+

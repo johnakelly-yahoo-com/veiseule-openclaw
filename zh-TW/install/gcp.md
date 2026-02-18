@@ -500,3 +500,4 @@ IAM 角色細節請參考
 - 設定訊息頻道：[Channels](/channels)
 - 將本地裝置配對為節點：[Nodes](/nodes)
 - 設定 Gateway：[Gateway configuration](/gateway/configuration)
+

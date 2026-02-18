@@ -29,3 +29,4 @@ openclaw voicecall unexpose
 
 Ưu tiên Tailscale Serve hơn Funnel khi có thể. Vòng lặp agentic là lần chạy “thực” đầy đủ của một agent: tiếp nhận → lắp ráp ngữ cảnh → suy luận mô hình →
 thực thi công cụ → phản hồi dạng stream → lưu trữ.
+

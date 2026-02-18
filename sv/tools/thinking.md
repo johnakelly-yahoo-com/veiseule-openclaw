@@ -69,3 +69,4 @@ title: "Tänknivåer"
 - Webbchattens tänkväljare speglar sessionens lagrade nivå från den inkommande sessionslagringen/konfigen när sidan laddas.
 - Att välja en annan nivå gäller endast för nästa meddelande (`thinkingOnce`); efter skickande hoppar väljaren tillbaka till den lagrade sessionsnivån.
 - För att ändra sessionsstandarden, skicka ett `/think:<level>`-direktiv (som tidigare); väljaren återspeglar detta efter nästa omladdning.
+

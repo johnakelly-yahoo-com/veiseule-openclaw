@@ -610,3 +610,4 @@ pi 통합 및 그 확장을 다루는 모든 기존 테스트:
 - `src/agents/pi-tools.policy.test.ts`
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
+

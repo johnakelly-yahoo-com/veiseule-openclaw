@@ -256,3 +256,4 @@ free -h
 - [Docker-Installation](/install/docker) — containerisiertes Setup
 - [Tailscale](/gateway/tailscale) — sicherer Remote-Zugriff
 - [Konfiguration](/gateway/configuration) — vollständige Konfigurationsreferenz
+

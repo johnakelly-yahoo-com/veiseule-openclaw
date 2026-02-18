@@ -406,3 +406,4 @@ WhatsApp 會將音訊以**語音備忘**（PTT 氣泡）送出。
 - Bun is **not recommended**. **不建議** 使用 Bun。WhatsApp（Baileys）與 Telegram 在 Bun 上不穩定。
   請以 **Node** 執行 Gateway 閘道器。（請見 入門指南 的執行環境說明。）
   Run the gateway with **Node**. (See Getting Started runtime note.)
+

@@ -39,3 +39,4 @@ gateway host and are tuned for systemd + Termux.
 - `scripts/termux-sync-widget.sh`：同步 Claude Code 憑證 → OpenClaw。
 
 如果您不需要手機自動化或 systemd 計時器，可以跳過這些腳本。
+

@@ -173,3 +173,4 @@ Notities:
 - Alleen beschikbaar voor OpenAI/OpenAI Codex-modellen.
 - Toolbeleid blijft van toepassing; `allow: ["exec"]` staat impliciet `apply_patch` toe.
 - Configuratie bevindt zich onder `tools.exec.applyPatch`.
+

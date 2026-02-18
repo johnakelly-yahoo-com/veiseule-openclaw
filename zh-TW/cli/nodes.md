@@ -67,3 +67,4 @@ Invoke 旗標：
 - `--raw <command>`：執行 shell 字串（`/bin/sh -lc` 或 `cmd.exe /c`）。
 - `--agent <id>`：代理程式範圍的核准／允許清單（預設為已設定的代理程式）。
 - `--ask <off|on-miss|always>`、`--security <deny|allowlist|full>`：覆寫。
+

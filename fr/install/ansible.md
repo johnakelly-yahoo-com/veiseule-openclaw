@@ -201,3 +201,4 @@ Pour une architecture de securite detaillee et le depannage :
 - [Docker](/install/docker) — configuration de la Gateway (passerelle) conteneurisee
 - [Sandboxing](/gateway/sandboxing) — configuration des sandboxes d'agents
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — isolation par agent
+

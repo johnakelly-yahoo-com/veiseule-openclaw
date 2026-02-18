@@ -222,3 +222,4 @@ openclaw pairing list signal
 - `agents.list[].groupChat.mentionPatterns` (Signal ไม่รองรับการกล่าวถึงแบบเนทีฟ)
 - `messages.groupChat.mentionPatterns` (ตัวสำรองส่วนกลาง)
 - `messages.responsePrefix`
+

@@ -78,3 +78,4 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 Wala nang global na toggle para sa “default sound” sa app; ang mga tumatawag ang pumipili ng tunog (o wala) kada request.
+

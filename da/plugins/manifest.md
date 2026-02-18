@@ -65,3 +65,4 @@ Valgfrie nøgler:
 - Hvis dit plugin afhænger af native moduler, skal du dokumentere build-trin og eventuelle
   krav til allowlist i pakkehåndteringen (for eksempel pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
+

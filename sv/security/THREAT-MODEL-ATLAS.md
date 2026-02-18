@@ -164,3 +164,4 @@ Inget är uttryckligen utanför omfattningen för denna hotmodell.
 | **Rekommendationer**    | Överväg slumpmässig variation av svarstider                       |
 
 ---
+

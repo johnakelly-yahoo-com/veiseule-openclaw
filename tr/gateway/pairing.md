@@ -89,3 +89,4 @@ Güvenlik notları:
 - Taşıma **durumsuzdur**; üyeliği saklamaz.
 - Gateway çevrimdışıysa veya eşleştirme devre dışıysa, düğümler eşleştirilemez.
 - Gateway uzak moddaysa, eşleştirme yine uzak Gateway’nin deposuna karşı gerçekleşir.
+

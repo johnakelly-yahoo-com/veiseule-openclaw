@@ -338,3 +338,4 @@ OPENCLAW_DIAGNOSTICS=telegram.http,telegram.payload
 - **記錄是空的？** 請確認 Gateway 閘道器 正在執行，並且正在寫入
   `logging.file` 中指定的檔案路徑。
 - **需要更多細節？** 將 `logging.level` 設為 `debug` 或 `trace` 後再試一次。
+

@@ -226,3 +226,4 @@ git pull
 - `openclaw doctor` دوبارہ چلائیں اور آؤٹ پٹ غور سے پڑھیں (اکثر یہ حل بتا دیتا ہے)۔
 - دیکھیں: [خرابیوں کا ازالہ](/gateway/troubleshooting)
 - Discord میں پوچھیں: [https://discord.gg/clawd](https://discord.gg/clawd)
+

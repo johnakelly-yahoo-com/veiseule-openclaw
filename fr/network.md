@@ -46,3 +46,4 @@ Confiance locale :
 - [Reference de configuration de la Gateway (passerelle)](/gateway/configuration)
 - [Depannage](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
+

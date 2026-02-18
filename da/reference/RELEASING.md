@@ -112,3 +112,4 @@ Aktuel liste over npm-plugins (opdatér efter behov):
 
 Release-noter skal også fremhæve **nye valgfrie bundtede plugins**, der **ikke er
 slået til som standard** (eksempel: `tlon`).
+

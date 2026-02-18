@@ -100,3 +100,4 @@ Jeśli Gateway działa na innej maszynie niż przeglądarka, uruchom **host węz
 Użyj `gateway.nodes.browser.mode` do kontrolowania automatycznego routingu oraz `gateway.nodes.browser.node` do przypięcia konkretnego węzła, jeśli podłączonych jest wiele.
 
 Bezpieczeństwo + konfiguracja zdalna: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
+

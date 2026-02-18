@@ -82,3 +82,4 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Repro op Node 22/24 om een Node 25-regressie te bevestigen.
 - Test `tsx` nightly of pin naar een eerdere versie als er een bekende regressie bestaat.
 - Als het ook op Node LTS reproduceert, dien een minimale repro upstream in met de `__name`-stacktrace.
+

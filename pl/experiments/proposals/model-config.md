@@ -31,3 +31,4 @@ Operatorzy chcą:
 - Czy rotacja profili powinna być per dostawca czy per model?
 - Jak interfejs użytkownika powinien prezentować wybór profilu dla sesji?
 - Jaka jest najbezpieczniejsza ścieżka migracji z kluczy konfiguracji starszego typu?
+

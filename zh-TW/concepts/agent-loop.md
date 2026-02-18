@@ -142,3 +142,4 @@ OpenClaw 有兩套掛鉤系統：
 - AbortSignal（取消）
 - Gateway 斷線或 RPC 逾時
 - `agent.wait` 逾時（僅等待，不會停止 agent）
+

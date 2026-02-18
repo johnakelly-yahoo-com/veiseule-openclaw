@@ -246,3 +246,4 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: โอเวอร์ไรด์ตำแหน่งที่ CLI จัดเก็บโทเคน/คอนฟิก
 - `CLAWHUB_WORKDIR`: โอเวอร์ไรด์ workdir ค่าเริ่มต้น
 - `CLAWHUB_DISABLE_TELEMETRY=1`: ปิดเทเลเมทรีบน `sync`
+

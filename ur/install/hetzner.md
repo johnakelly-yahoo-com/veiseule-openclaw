@@ -323,3 +323,4 @@ All long-lived state must survive restarts, rebuilds, and reboots.
 | Node رن ٹائم         | کنٹینر فائل سسٹم                  | Docker امیج           | ہر امیج بلڈ پر ری بلڈ        |
 | OS پیکجز             | کنٹینر فائل سسٹم                  | Docker امیج           | رن ٹائم پر انسٹال نہ کریں    |
 | Docker کنٹینر        | عارضی                             | قابلِ ری اسٹارٹ       | ختم کرنا محفوظ ہے            |
+

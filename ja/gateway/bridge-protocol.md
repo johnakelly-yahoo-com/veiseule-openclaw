@@ -79,3 +79,4 @@ TLS が有効な場合、検出 TXT レコードには `bridgeTls=1` と
 ## Versioning
 
 Bridge is currently **implicit v1** (no min/max negotiation). ブリッジは現在 **暗黙の v1**（最小/最大のネゴシエーションなし）です。後方互換性が期待されます。破壊的変更の前には、ブリッジ プロトコルの バージョン フィールドを追加してください。
+

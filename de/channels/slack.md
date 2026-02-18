@@ -569,3 +569,4 @@ Für den Triage-Ablauf: [/channels/troubleshooting](/channels/troubleshooting).
 - Warnung: Wenn Sie Antworten an andere Bots zulassen (`channels.slack.allowBots=true` oder `channels.slack.channels.<id>.allowBots=true`), verhindern Sie Bot-zu-Bot-Antwortschleifen mit `requireMention`, `channels.slack.channels.<id>.users`-Allowlists und/oder klaren Guardrails in `AGENTS.md` und `SOUL.md`.
 - Für das Slack-Werkzeug sind die Semantiken zum Entfernen von Reaktionen unter [/tools/reactions](/tools/reactions) beschrieben.
 - Anhänge werden bei Erlaubnis und unterhalb des Größenlimits in den Medienspeicher heruntergeladen.
+

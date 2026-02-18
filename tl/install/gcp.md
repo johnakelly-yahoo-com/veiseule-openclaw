@@ -497,3 +497,4 @@ Tingnan ang [https://cloud.google.com/iam/docs/understanding-roles](https://clou
 - I-set up ang mga messaging channel: [Channels](/channels)
 - I-pair ang mga lokal na device bilang mga node: [Nodes](/nodes)
 - I-configure ang Gateway: [Gateway configuration](/gateway/configuration)
+

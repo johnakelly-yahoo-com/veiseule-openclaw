@@ -30,3 +30,4 @@ Kort guide til at verificere kanalforbindelse uden at gætte.
 ## Dedikeret "health"-kommando
 
 `openclaw sundhed --json` spørger den løbende Gateway for sin sundhed snapshot (ingen direkte kanal stikkontakter fra CLI). Det rapporterer linket creds/auth alder når tilgængelig, per-kanal probe resuméer, session-store resumé, og en sonde varighed. Den afslutter ikke nul, hvis porten ikke kan nås eller sonden svigter/timeouts. Brug `--timeout <ms>` for at tilsidesætte 10s standard.
+

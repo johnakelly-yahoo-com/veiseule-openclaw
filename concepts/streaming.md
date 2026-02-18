@@ -129,3 +129,4 @@ Legend:
 
 - `preview message`: temporary Telegram message updated during generation.
 - `final edit`: in-place edit on the same preview message (text-only).
+

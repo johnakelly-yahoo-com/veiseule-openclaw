@@ -564,3 +564,4 @@ channels/signal.md
 - Avertissement : si vous autorisez les reponses a d’autres bots (`channels.slack.allowBots=true` ou `channels.slack.channels.<id>.allowBots=true`), evitez les boucles de reponse bot-a-bot avec des listes d’autorisation `requireMention`, `channels.slack.channels.<id>.users`, et/ou des garde-fous clairs dans `AGENTS.md` et `SOUL.md`.
 - Pour l’outil Slack, la semantique de suppression de reactions est decrite dans [/tools/reactions](/tools/reactions).
 - Les pieces jointes sont telechargees vers le stockage media lorsque cela est autorise et en dessous de la limite de taille.
+

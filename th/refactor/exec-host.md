@@ -309,3 +309,4 @@ Agent -> Gateway -> Bridge -> Node Service (TS)
 - [การอนุมัติ Exec](/tools/exec-approvals)
 - [โหนด](/nodes)
 - [โหมดยกระดับ](/tools/elevated)
+

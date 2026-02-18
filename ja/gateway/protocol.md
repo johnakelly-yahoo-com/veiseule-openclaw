@@ -205,3 +205,4 @@ Gateway はこれらを **クレーム** として扱い、サーバー側の許
 
 このプロトコルは **完全な Gateway API**（ステータス、チャンネル、モデル、チャット、エージェント、セッション、ノード、承認など）を公開します。正確な API サーフェスは、`src/gateway/protocol/schema.ts` にある TypeBox スキーマによって定義されています。 正確なサーフェスは `src/gateway/protocol/schema.ts` の
 TypeBox スキーマによって定義されます。
+

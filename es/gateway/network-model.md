@@ -12,3 +12,4 @@ proceso de larga duración que posee las conexiones de canales y el plano de con
 - Los nodos se conectan al WS del Gateway por LAN, tailnet o SSH según sea necesario. El puente TCP heredado está obsoleto.
 - El host del canvas es un servidor de archivos HTTP en `canvasHost.port` (predeterminado `18793`) que sirve `/__openclaw__/canvas/` para las WebViews de los nodos. Consulte [Gateway configuration](/gateway/configuration) (`canvasHost`).
 - El uso remoto suele ser mediante túnel SSH o VPN de tailnet. Consulte [Remote access](/gateway/remote) y [Discovery](/gateway/discovery).
+

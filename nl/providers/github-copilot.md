@@ -67,3 +67,4 @@ openclaw models set github-copilot/gpt-4o
   wordt geweigerd, probeer een andere ID (bijvoorbeeld `github-copilot/gpt-4.1`).
 - De aanmelding slaat een GitHub-token op in de opslag voor authenticatieprofielen
   en wisselt dit om voor een Copilot API-token wanneer OpenClaw wordt uitgevoerd.
+

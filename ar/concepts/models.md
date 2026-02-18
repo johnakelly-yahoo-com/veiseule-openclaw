@@ -200,3 +200,4 @@ openclaw models status
 تُكتب الموفّرات المخصّصة في `models.providers` إلى `models.json` ضمن
 دليل الوكيل (الافتراضي `~/.openclaw/agents/<agentId>/models.json`). يتم دمج هذا الملف افتراضيًا
 ما لم يتم تعيين `models.mode` إلى `replace`.
+

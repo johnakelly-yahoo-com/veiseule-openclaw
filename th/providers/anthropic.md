@@ -148,3 +148,4 @@ openclaw onboard --auth-choice setup-token
 - เพิ่มโปรไฟล์Anthropicอื่นหรือรอให้คูลดาวน์สิ้นสุด
 
 เพิ่มเติม: [/gateway/troubleshooting](/gateway/troubleshooting) และ [/help/faq](/help/faq)
+

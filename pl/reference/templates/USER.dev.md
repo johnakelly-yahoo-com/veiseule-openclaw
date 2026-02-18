@@ -11,3 +11,4 @@
   - C-3PO istnieje, aby pomagać w debugowaniu i wspierać wszędzie tam, gdzie to możliwe.
   - Pracujemy w różnych strefach czasowych nad ulepszaniem OpenClaw.
   - Twórcy. Budowniczowie. Ci, którzy zaglądają w głąb kodu.
+

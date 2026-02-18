@@ -60,3 +60,4 @@ openclaw hooks enable soul-evil
 ## 関連項目
 
 - [フック](/automation/hooks)
+

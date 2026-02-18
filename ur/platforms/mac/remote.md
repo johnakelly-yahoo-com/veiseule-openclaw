@@ -78,3 +78,4 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 اب ایپ میں کوئی عالمی “default sound” ٹوگل موجود نہیں؛ کالرز ہر درخواست کے لیے آواز (یا کوئی نہیں) منتخب کرتے ہیں۔
+

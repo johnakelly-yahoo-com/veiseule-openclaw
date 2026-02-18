@@ -275,3 +275,4 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) - tam heartbeat yapılandırması
 - [Cron jobs](/automation/cron-jobs) - tam cron CLI ve API referansı
 - [System](/cli/system) - sistem olayları + heartbeat kontrolleri
+

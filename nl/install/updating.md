@@ -226,3 +226,4 @@ git pull
 - Draai `openclaw doctor` opnieuw en lees de uitvoer zorgvuldig (vaak staat de oplossing erin).
 - Bekijk: [Problemen oplossen](/gateway/troubleshooting)
 - Vraag het in Discord: [https://discord.gg/clawd](https://discord.gg/clawd)
+

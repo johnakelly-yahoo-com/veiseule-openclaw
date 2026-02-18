@@ -47,3 +47,4 @@ entrée `models.providers.qwen-portal` (utilisez la commande de connexion ci-des
 - URL de base par défaut : `https://portal.qwen.ai/v1` (remplacez-la avec
   `models.providers.qwen-portal.baseUrl` si Qwen fournit un point de terminaison différent).
 - Consultez [Model providers](/concepts/model-providers) pour les règles applicables à l’ensemble des fournisseurs.
+

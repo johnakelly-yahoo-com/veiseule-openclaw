@@ -142,3 +142,4 @@ El formato de los mensajes salientes se centraliza en `messages`:
 - Encadenamiento de respuestas mediante `replyToMode` y valores predeterminados por canal
 
 Detalles: [Configuration](/gateway/configuration#messages) y la documentación de los canales.
+

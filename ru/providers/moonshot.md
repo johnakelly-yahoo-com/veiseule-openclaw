@@ -135,3 +135,4 @@ openclaw onboard --auth-choice kimi-code-api-key
 - Если Moonshot публикует иные ограничения контекста для модели, скорректируйте
   `contextWindow` соответствующим образом.
 - Используйте `https://api.moonshot.ai/v1` для международного эндпоинта и `https://api.moonshot.cn/v1` для эндпоинта в Китае.
+

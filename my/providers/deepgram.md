@@ -84,3 +84,4 @@ Deepgram options များနှင့် ဥပမာ—
 - Authentication သည် ပံ့ပိုးသူများ၏ စံ auth အစီအစဉ်အတိုင်း လိုက်နာပြီး; `DEEPGRAM_API_KEY` သည် အလွယ်ကူဆုံး လမ်းကြောင်းဖြစ်သည်။
 - proxy ကို အသုံးပြုသည့်အခါ `tools.media.audio.baseUrl` နှင့် `tools.media.audio.headers` ဖြင့် endpoint သို့မဟုတ် header များကို override လုပ်နိုင်သည်။
 - Output သည် အခြား provider များကဲ့သို့ အသံဆိုင်ရာ စည်းမျဉ်းများ (အရွယ်အစား ကန့်သတ်ချက်များ၊ timeout များ၊ transcript ထည့်သွင်းမှု) ကို လိုက်နာသည်။
+

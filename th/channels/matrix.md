@@ -266,3 +266,4 @@ openclaw pairing list matrix
 - `channels.matrix.autoJoin`: การจัดการคำเชิญ (`always | allowlist | off`, ค่าเริ่มต้น: always)
 - `channels.matrix.autoJoinAllowlist`: room IDs/aliases ที่อนุญาตสำหรับการเข้าร่วมอัตโนมัติ
 - `channels.matrix.actions`: การควบคุมเครื่องมือตามการกระทำ (reactions/messages/pins/memberInfo/channelInfo)
+

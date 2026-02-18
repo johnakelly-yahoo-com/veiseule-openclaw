@@ -78,3 +78,4 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 لم يعد هناك مفتاح «صوت افتراضي» عام في التطبيق؛ يختار المستدعون صوتًا (أو بدون صوت) لكل طلب.
+

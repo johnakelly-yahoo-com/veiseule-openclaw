@@ -128,3 +128,4 @@ Legenda:
 
 - `sendMessageDraft`: Telegram-conceptbubbel (geen echt bericht).
 - `final reply`: normaal Telegram-bericht verzenden.
+

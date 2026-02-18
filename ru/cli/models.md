@@ -73,3 +73,4 @@ openclaw models auth paste-token
 
 - `setup-token` запрашивает значение setup-token (сгенерируйте его с помощью `claude setup-token` на любой машине).
 - `paste-token` принимает строку токена, сгенерированную в другом месте или с помощью автоматизации.
+

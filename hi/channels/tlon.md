@@ -127,3 +127,4 @@ DM allowlist (खाली = सभी को अनुमति):
 - Group replies require a mention (e.g. `~your-bot-ship`) to respond.
 - थ्रेड उत्तर: यदि इनबाउंड संदेश किसी थ्रेड में है, तो OpenClaw उसी थ्रेड में उत्तर देता है।
 - मीडिया: `sendMedia` पाठ + URL पर फ़ॉलबैक करता है (मूल अपलोड नहीं)।
+

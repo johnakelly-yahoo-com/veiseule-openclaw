@@ -56,3 +56,4 @@ Agent -> Gateway -> Node Service (WS)
 - ဆက်သွယ်မှုအားလုံးသည် local-only ဖြစ်ပြီး network socket များကို မဖော်ပြပါ။
 - TCC မေးမြန်းချက်များသည် GUI အက်ပ် bundle မှသာ စတင်လာသည်။ signed bundle ID ကို rebuild များကြားတွင် တည်ငြိမ်အောင် ထိန်းထားပါ။
 - IPC hardening: socket mode `0600`, token, peer-UID စစ်ဆေးမှုများ, HMAC challenge/response, short TTL။
+

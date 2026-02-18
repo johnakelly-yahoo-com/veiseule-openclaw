@@ -152,3 +152,4 @@ Vollständige Anleitung: [Erste Schritte](/start/getting-started)
 
 Wir haben derzeit noch keine Windows‑Companion‑App. Beiträge sind willkommen, wenn Sie
 mithelfen möchten, dies zu ermöglichen.
+

@@ -67,3 +67,4 @@ WhatsApp-kanalen kører via **Baileys Web**. Dette dokument indfanger de aktuell
 - Dæk send- og svarflows for billed-/lyd-/dokument-tilfælde.
 - Valider recomprimering for billeder (størrelsesgrænse) og stemmenote-flag for lyd.
 - Sikr, at svar med flere medier fordeles som sekventielle sendelser.
+

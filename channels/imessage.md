@@ -345,3 +345,4 @@ imsg send <handle> "test"
 - [Gateway configuration](/gateway/configuration)
 - [Pairing](/channels/pairing)
 - [BlueBubbles](/channels/bluebubbles)
+

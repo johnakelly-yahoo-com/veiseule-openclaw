@@ -44,3 +44,4 @@ title: "WebChat"
 - `gateway.auth.mode`、`gateway.auth.token`、`gateway.auth.password`：WebSocket 認証。
 - `gateway.remote.url`、`gateway.remote.token`、`gateway.remote.password`：リモートゲートウェイのターゲット。
 - `session.*`：セッションストレージおよびメインキーの既定値。
+

@@ -336,3 +336,4 @@ Prefira `chat_guid` para roteamento estável:
 - Para informações de status/saúde: `openclaw status --all` ou `openclaw status --deep`.
 
 Para referência geral do fluxo de canais, veja [Channels](/channels) e o guia de [Plugins](/tools/plugin).
+

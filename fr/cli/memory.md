@@ -39,3 +39,4 @@ Notes :
 - `memory status --deep --index` relance une reindexation si le stockage est marque comme sale.
 - `memory index --verbose` affiche les details par phase (fournisseur, modele, sources, activite par lot).
 - `memory status` inclut tous les chemins supplementaires configures via `memorySearch.extraPaths`.
+

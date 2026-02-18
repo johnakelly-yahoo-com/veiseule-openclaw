@@ -82,3 +82,4 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Repro på Node 22/24 för att bekräfta regression i Node 25.
 - Testa `tsx` nightly eller lås till en tidigare version om en känd regression finns.
 - Om det reproduceras på Node LTS, skapa ett minimalt repro uppströms med `__name`-stackspåret.
+

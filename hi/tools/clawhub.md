@@ -248,3 +248,4 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: CLI टोकन/कॉन्फ़िग कहाँ संग्रहीत करे, इसे ओवरराइड करें।
 - `CLAWHUB_WORKDIR`: डिफ़ॉल्ट workdir ओवरराइड करें।
 - `CLAWHUB_DISABLE_TELEMETRY=1`: `sync` पर टेलीमेट्री अक्षम करें।
+

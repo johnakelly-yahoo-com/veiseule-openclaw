@@ -471,3 +471,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Dla tematów forum użyj `-100…:topic:<id>`, aby było to jawne i jednoznaczne.
 - Jeśli w logach lub zapisanych celach „ostatniej trasy” widzisz prefiksy `telegram:...`, to normalne;
   dostarczanie cron je akceptuje i nadal poprawnie parsuje identyfikatory tematów.
+

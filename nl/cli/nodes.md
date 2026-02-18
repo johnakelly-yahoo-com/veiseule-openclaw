@@ -67,3 +67,4 @@ Vlaggen:
 - `--raw <command>`: voer een shell-string uit (`/bin/sh -lc` of `cmd.exe /c`).
 - `--agent <id>`: agent-gebonden goedkeuringen/toegestane lijsten (standaard de geconfigureerde agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: overschrijvingen.
+

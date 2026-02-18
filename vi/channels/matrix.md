@@ -259,3 +259,4 @@ Tùy chọn nhà cung cấp:
 - `channels.matrix.autoJoin`: xử lý lời mời (`always | allowlist | off`, mặc định: luôn).
 - `channels.matrix.autoJoinAllowlist`: room ID/alias được phép để tự động tham gia.
 - `channels.matrix.actions`: kiểm soát công cụ theo từng hành động (reactions/messages/pins/memberInfo/channelInfo).
+

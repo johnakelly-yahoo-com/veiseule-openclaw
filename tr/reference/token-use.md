@@ -110,3 +110,4 @@ agents:
 - Ayrıntılı, keşif amaçlı çalışmalar için daha küçük modelleri tercih edin.
 
 Tam skill listesi ek yükü formülü için [Skills](/tools/skills) bölümüne bakın.
+

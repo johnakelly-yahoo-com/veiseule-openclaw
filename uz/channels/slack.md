@@ -557,3 +557,4 @@ Triage jarayoni uchun: [/channels/troubleshooting](/channels/troubleshooting).
 - 6. Slack vositasi uchun reaksiya olib tashlash semantikasi [/tools/reactions](/tools/reactions) da keltirilgan..allowBots=true`), prevent bot-to-bot reply loops with `requireMention`, `channels.slack.channels.&lt;id&gt;8. Telegram bot qo‘llab-quvvatlash holati, imkoniyatlari va sozlamalari
 - 9. Telegram funksiyalari yoki webhooklar ustida ishlash
 - 10. Telegram
+

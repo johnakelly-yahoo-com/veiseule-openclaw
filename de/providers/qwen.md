@@ -47,3 +47,4 @@ dennoch einen `models.providers.qwen-portal`-Eintrag (verwenden Sie den obigen L
 - Standard-Basis-URL: `https://portal.qwen.ai/v1` (überschreiben Sie diese mit
   `models.providers.qwen-portal.baseUrl`, falls Qwen einen anderen Endpunkt bereitstellt).
 - Siehe [Model providers](/concepts/model-providers) für anbieterweite Regeln.
+

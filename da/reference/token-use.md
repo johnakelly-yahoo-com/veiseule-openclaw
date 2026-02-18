@@ -106,3 +106,4 @@ agents:
 - Foretræk mindre modeller til ordrigt, eksplorativt arbejde.
 
 Se [Skills](/tools/skills) for den præcise formel for overhead fra Skills‑listen.
+

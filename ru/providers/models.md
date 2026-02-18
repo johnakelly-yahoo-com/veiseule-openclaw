@@ -44,3 +44,4 @@ Venice — наша рекомендуемая конфигурация Venice A
 - [Qianfan](/providers/qianfan)
 
 Полный каталог провайдеров (xAI, Groq, Mistral и т. д.) и расширенную конфигурацию см. в разделе [Model providers](/concepts/model-providers).
+

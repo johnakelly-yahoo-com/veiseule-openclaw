@@ -22,3 +22,4 @@ Skrypty monitorowania uwierzytelniania są opisane tutaj:
 
 - Utrzymuj skrypty w wąskim zakresie i dokumentuj je.
 - Dodaj krótki wpis w odpowiedniej dokumentacji (lub utwórz ją, jeśli jej brakuje).
+

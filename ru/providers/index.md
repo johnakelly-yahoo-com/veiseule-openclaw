@@ -58,3 +58,4 @@ Venice — это рекомендуемая нами настройка Venice 
 
 Полный каталог провайдеров (xAI, Groq, Mistral и т. д.) и расширенную конфигурацию
 см. в разделе [Model providers](/concepts/model-providers).
+

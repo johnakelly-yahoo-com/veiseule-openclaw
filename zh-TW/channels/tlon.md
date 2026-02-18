@@ -127,3 +127,4 @@ openclaw plugins install ./extensions/tlon
 - 群組回覆需要提及（例如 `~your-bot-ship`）才會回應。
 - 串內回覆：若傳入訊息位於討論串中，OpenClaw 會在串內回覆。
 - 媒體：`sendMedia` 會退回為文字＋URL（不支援原生上傳）。
+

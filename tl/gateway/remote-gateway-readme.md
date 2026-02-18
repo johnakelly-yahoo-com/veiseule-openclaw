@@ -170,3 +170,4 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 | `RunAtLoad`                          | Sinisimulan ang tunnel kapag nag-load ang agent                                         |
 
 Kumokonekta ang OpenClaw.app sa `ws://127.0.0.1:18789` sa iyong client machine. Ipinapasa ng SSH tunnel ang koneksyong iyon sa port 18789 sa remote machine kung saan tumatakbo ang Gateway.
+

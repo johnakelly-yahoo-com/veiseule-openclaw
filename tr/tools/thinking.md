@@ -69,3 +69,4 @@ title: "Thinking Düzeyleri"
 - Web sohbet thinking seçici, sayfa yüklendiğinde gelen oturum deposu/yapılandırmasından saklanan oturum düzeyini yansıtır.
 - Başka bir düzey seçmek yalnızca bir sonraki mesaja uygulanır (`thinkingOnce`); gönderimden sonra seçici, saklanan oturum düzeyine geri döner.
 - Oturum varsayılanını değiştirmek için daha önce olduğu gibi bir `/think:<level>` direktifi gönderin; seçici bir sonraki yeniden yüklemeden sonra bunu yansıtacaktır.
+

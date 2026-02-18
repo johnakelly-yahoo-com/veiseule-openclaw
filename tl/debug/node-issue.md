@@ -82,3 +82,4 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Mag-repro sa Node 22/24 upang makumpirma ang Node 25 regression.
 - Subukan ang `tsx` nightly o i-pin sa mas naunang bersyon kung may kilalang regression.
 - Kung mare-repro sa Node LTS, magsumite ng minimal repro upstream kasama ang `__name` stack trace.
+

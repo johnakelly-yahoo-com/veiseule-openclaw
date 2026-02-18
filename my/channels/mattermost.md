@@ -132,3 +132,4 @@ Mattermost သည် `channels.mattermost.accounts` အောက်တွင် 
 - ချန်နယ်များတွင် တုံ့ပြန်မှု မရှိပါက: ဘော့တ်ကို ချန်နယ်အတွင်း ထည့်ထားပြီး mention လုပ်ထားကြောင်း (oncall) သေချာပါစေ၊ trigger prefix (onchar) ကို အသုံးပြုပါ၊ သို့မဟုတ် `chatmode: "onmessage"` ကို သတ်မှတ်ပါ။
 - Auth အမှားများ: bot token၊ base URL နှင့် အကောင့်ကို ဖွင့်ထားခြင်းရှိမရှိ စစ်ဆေးပါ။
 - Multi-account ပြဿနာများ: env vars များသည် `default` အကောင့်အတွက်သာ သက်ရောက်ပါသည်။
+

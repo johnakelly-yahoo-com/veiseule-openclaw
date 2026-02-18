@@ -47,3 +47,4 @@ title: "network.md"
 - [Справочник конфигурации Gateway (шлюза)](/gateway/configuration)
 - [Устранение неполадок](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
+

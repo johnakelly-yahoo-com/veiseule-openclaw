@@ -765,3 +765,4 @@ Boty mają ograniczone wsparcie w kanałach prywatnych:
 - [Referencja uprawnień RSC](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
 - [Obsługa plików botów Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4) (kanały/grupy wymagają Graph)
 - [Wiadomości proaktywne](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages)
+

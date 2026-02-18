@@ -165,3 +165,4 @@ Bonjour/DNS‑SD escaped häufig Bytes in Service‑Instanznamen als dezimale
 
 - Discovery‑Richtlinie und Transportauswahl: [Discovery](/gateway/discovery)
 - Node‑Pairing + Genehmigungen: [Gateway pairing](/gateway/pairing)
+

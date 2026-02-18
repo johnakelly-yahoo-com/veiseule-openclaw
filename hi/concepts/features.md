@@ -48,3 +48,4 @@ title: "विशेषताएँ"
 50. Legacy Claude, Codex, Gemini, और Opencode paths हटा दिए गए हैं। Pi एकमात्र
 कोडिंग एजेंट पाथ है।
 </Note>
+

@@ -29,3 +29,4 @@ Så ser du om den länkade kanalen är frisk från menyfältsappen.
 ## Vid tveksamhet
 
 - Du kan fortfarande använda CLI-flödet i [Gateway health](/gateway/health) (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) och tail `/tmp/openclaw/openclaw-*.log` för `web-heartbeat` / `web-reconnect`.
+

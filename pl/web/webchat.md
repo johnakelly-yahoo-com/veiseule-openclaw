@@ -44,3 +44,4 @@ Powiązane opcje globalne:
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: uwierzytelnianie WebSocket.
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: docelowy gateway zdalny.
 - `session.*`: magazyn sesji oraz domyślne klucze główne.
+

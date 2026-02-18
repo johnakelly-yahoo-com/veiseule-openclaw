@@ -570,3 +570,4 @@ För triage-flöde: [/channels/troubleshooting](/channels/troubleshooting).
 - Varning: Om du tillåter svar på andra robotar (`channels.slack.allowBots=true` eller `channels.slack.channels.<id>.allowBots=true`), förhindra bot-to-bot svarsloopar med `requireMention`, `channels.slack.channels.<id>.users` tillåter listor, och/eller klara skyddsräcken i `AGENTS.md` och `SOUL.md`.
 - För Slack-verktyget finns semantiken för borttagning av reaktioner i [/tools/reactions](/tools/reactions).
 - Bilagor laddas ned till medielagret när det är tillåtet och under storleksgränsen.
+

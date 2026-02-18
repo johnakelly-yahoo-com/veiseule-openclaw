@@ -250,3 +250,4 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: Ghi đè nơi CLI lưu token/cấu hình.
 - `CLAWHUB_WORKDIR`: Ghi đè workdir mặc định.
 - `CLAWHUB_DISABLE_TELEMETRY=1`: Tắt telemetry trên `sync`.
+

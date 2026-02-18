@@ -107,3 +107,4 @@ Notlar:
 - Kullanım Sırasında: “Yalnızca OpenClaw açıkken.”
 - Her Zaman: “Arka plan konumuna izin ver. Sistem izni gerektirir.”
 - Hassas: “Hassas GPS konumu kullan. Yaklaşık konum paylaşmak için kapatın.”
+

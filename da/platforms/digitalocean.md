@@ -256,3 +256,4 @@ free -h
 - [Docker-installation](/install/docker) — containeriseret opsætning
 - [Tailscale](/gateway/tailscale) — sikker fjernadgang
 - [Konfiguration](/gateway/configuration) — fuld konfigurationsreference
+

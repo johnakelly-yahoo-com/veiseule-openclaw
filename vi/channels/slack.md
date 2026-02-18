@@ -565,3 +565,4 @@ Luồng xử lý triage: [/channels/troubleshooting](/channels/troubleshooting).
 - Warning: If you allow replies to other bots (`channels.slack.allowBots=true` or `channels.slack.channels.<id>.allowBots=true`), prevent bot-to-bot reply loops with `requireMention`, `channels.slack.channels.<id>.users` allowlists, and/or clear guardrails in `AGENTS.md` and `SOUL.md`.
 - Với công cụ Slack, ngữ nghĩa xóa phản ứng nằm tại [/tools/reactions](/tools/reactions).
 - Tệp đính kèm được tải xuống kho media khi được phép và dưới giới hạn kích thước.
+

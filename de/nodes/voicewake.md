@@ -59,3 +59,4 @@ Wer es erhält:
 
 - Stellt in den Einstellungen einen Editor für Aktivierungswörter bereit.
 - Ruft `voicewake.set` über das Gateway-WS auf, damit Änderungen überall synchronisiert werden.
+

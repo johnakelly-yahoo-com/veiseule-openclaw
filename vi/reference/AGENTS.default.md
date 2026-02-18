@@ -116,3 +116,4 @@ git commit -m "Add Clawd workspace"
 - Với xác minh dựa trên trình duyệt, dùng `openclaw browser` (tab/trạng thái/ảnh chụp màn hình) với profile Chrome do OpenClaw quản lý.
 - Để kiểm tra DOM, dùng `openclaw browser eval|query|dom|snapshot` (và `--json`/`--out` khi cần đầu ra cho máy).
 - Đối với tương tác, dùng `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` (click/type yêu cầu tham chiếu snapshot; dùng `evaluate` cho CSS selector).
+

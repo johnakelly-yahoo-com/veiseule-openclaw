@@ -584,3 +584,4 @@ Exemple :
   (login shell), qui source `/etc/profile` et peut réinitialiser PATH. Définissez
   `docker.env.PATH` pour préfixer vos chemins d’outils personnalisés (par exemple,
   `/custom/bin:/usr/local/share/npm-global/bin`), ou ajoutez un script sous `/etc/profile.d/` dans votre Dockerfile.
+

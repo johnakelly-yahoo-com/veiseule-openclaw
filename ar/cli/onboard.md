@@ -38,3 +38,4 @@ openclaw agents add <name>
 <Note>
 `--json` لا يعني وضعًا غير تفاعلي. استخدم `--non-interactive` للبرامج النصية.
 </Note>
+

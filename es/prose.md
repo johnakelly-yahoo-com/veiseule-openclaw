@@ -127,3 +127,4 @@ Si su lista de permitidos de herramientas bloquea estas herramientas, los progra
 Trate los archivos `.prose` como código. Revise antes de ejecutar. Use listas de permitidos de herramientas de OpenClaw y compuertas de aprobación para controlar efectos secundarios.
 
 Para flujos de trabajo deterministas y con aprobación, compare con [Lobster](/tools/lobster).
+

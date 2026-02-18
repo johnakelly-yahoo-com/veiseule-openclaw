@@ -84,3 +84,4 @@ Varsayılanlar:
 - `eleven_v3` için `stability`, `0.0`, `0.5` veya `1.0` olarak doğrulanır; diğer modeller `0..1`’ü kabul eder.
 - `latency_tier`, ayarlandığında `0..4` olarak doğrulanır.
 - Android, düşük gecikmeli AudioTrack akışı için `pcm_16000`, `pcm_22050`, `pcm_24000` ve `pcm_44100` çıktı biçimlerini destekler.
+

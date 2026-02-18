@@ -141,3 +141,4 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude-max-api.plist
 
 - [Fournisseur Anthropic](/providers/anthropic) – Integration native OpenClaw avec configuration par setup-token ou cles d’API
 - [Fournisseur OpenAI](/providers/openai) – Pour les abonnements OpenAI/Codex
+

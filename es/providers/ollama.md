@@ -271,3 +271,4 @@ Si habilitó manualmente el streaming y experimenta este problema:
 - [Proveedores de modelos](/concepts/model-providers) - Descripción general de todos los proveedores
 - [Selección de modelos](/concepts/models) - Cómo elegir modelos
 - [Configuración](/gateway/configuration) - Referencia completa de configuración
+

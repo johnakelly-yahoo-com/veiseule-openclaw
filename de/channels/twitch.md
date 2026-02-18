@@ -374,3 +374,4 @@ Beispiel:
 - **500 Zeichen** pro Nachricht (automatisch an Wortgrenzen aufgeteilt)
 - Markdown wird vor dem Aufteilen entfernt
 - Keine eigene Ratenbegrenzung (verwendet die integrierten Twitch-Ratenlimits)
+

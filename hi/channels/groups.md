@@ -371,3 +371,4 @@ When `channels.whatsapp.groups`, `channels.telegram.groups`, or `channels.imessa
 ## WhatsApp विशेषताएँ
 
 WhatsApp-विशिष्ट व्यवहार (इतिहास इंजेक्शन, मेंशन हैंडलिंग विवरण) के लिए [Group messages](/channels/group-messages) देखें।
+

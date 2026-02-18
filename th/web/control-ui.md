@@ -215,3 +215,4 @@ http://localhost:5173/?gatewayUrl=wss://<gateway-host>:18789&token=<gateway-toke
 ```
 
 รายละเอียดการตั้งค่าการเข้าถึงระยะไกล: [Remote access](/gateway/remote).
+

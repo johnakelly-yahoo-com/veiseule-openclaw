@@ -44,3 +44,4 @@ Relaterede globale indstillinger:
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: WebSocket-autentificering.
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: fjern gateway-mål.
 - `session.*`: sessionslager og standarder for hovednøgle.
+

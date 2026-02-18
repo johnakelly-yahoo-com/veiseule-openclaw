@@ -78,3 +78,4 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 應用程式已不再提供全域「預設音效」切換；呼叫端需為每個請求選擇音效（或不選）。
+

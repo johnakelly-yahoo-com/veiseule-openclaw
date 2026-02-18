@@ -142,3 +142,4 @@ sequenceDiagram
 - 每台主機僅有一個 Gateway 閘道器控制單一 Baileys 工作階段。
 - 交握為必要；任何非 JSON 或非 connect 的第一個訊框都會被強制關閉。
 - 事件不會重播；客戶端在發生間隙時必須重新整理。
+

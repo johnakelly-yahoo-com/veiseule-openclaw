@@ -67,3 +67,4 @@ Optionen:
 - `--raw <command>`: eine Shell-Zeichenkette ausführen (`/bin/sh -lc` oder `cmd.exe /c`).
 - `--agent <id>`: agentenbezogene Genehmigungen/Allowlists (Standard: konfigurierter Agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: Überschreibungen.
+

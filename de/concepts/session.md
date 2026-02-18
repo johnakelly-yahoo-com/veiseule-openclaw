@@ -198,3 +198,4 @@ Jeder Sitzungseintrag erfasst bestmöglich, woher er stammt, in `origin`:
   Sitzung ihre erklärenden Metadaten behält. Erweiterungen können dies tun, indem sie
   `ConversationLabel`, `GroupSubject`, `GroupChannel`, `GroupSpace` und `SenderName` im eingehenden
   Kontext senden und `recordSessionMetaFromInbound` aufrufen (oder denselben Kontext an `updateLastRoute` übergeben).
+

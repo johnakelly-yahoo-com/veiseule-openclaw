@@ -259,3 +259,4 @@ Leverantörsalternativ:
 - `channels.matrix.autoJoin`: hantering av inbjudningar (`always | allowlist | off`, standard: alltid).
 - `channels.matrix.autoJoinAllowlist`: tillåtna rum-ID:n/alias för auto-anslutning.
 - `channels.matrix.actions`: per-åtgärd-verktygsspärr (reaktioner/meddelanden/pins/memberInfo/channelInfo).
+

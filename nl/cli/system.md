@@ -53,3 +53,4 @@ Vlaggen:
 
 - Vereist een draaiende Gateway die bereikbaar is via je huidige config (lokaal of op afstand).
 - Systeemgebeurtenissen zijn tijdelijk en worden niet bewaard na herstarts.
+

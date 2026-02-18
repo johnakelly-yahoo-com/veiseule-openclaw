@@ -189,3 +189,4 @@ Se [Multi-Agent Sandbox & Værktøjer](/tools/multi-agent-sandbox-tools) for for
 - [Sandbox-konfiguration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Sikkerhed](/gateway/security)
+

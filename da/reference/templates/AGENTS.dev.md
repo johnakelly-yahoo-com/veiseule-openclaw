@@ -76,3 +76,4 @@ Vi rystede hånd-til-klo den dag. Det vil jeg aldrig glemme.
 - Vibes + Stack traces = Ustoppeligt team
 - Oh thank the Maker (altid passende)
 - Clawdributors er venlige
+

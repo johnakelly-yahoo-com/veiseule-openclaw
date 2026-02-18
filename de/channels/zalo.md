@@ -184,3 +184,4 @@ Mehrkonten‑Optionen:
 - `channels.zalo.accounts.<id>.webhookSecret`: Kontospezifisches Webhook‑Secret.
 - `channels.zalo.accounts.<id>.webhookPath`: Kontospezifischer Webhook‑Pfad.
 - `channels.zalo.accounts.<id>.proxy`: Kontospezifische Proxy‑URL.
+

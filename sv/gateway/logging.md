@@ -107,3 +107,4 @@ Beteende:
 - **WhatsApp-meddelandekroppar** loggas på `debug` (använd `--verbose` för att se dem)
 
 Detta håller befintliga filloggar stabila samtidigt som interaktiv utdata blir lätt att skanna.
+

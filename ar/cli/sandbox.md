@@ -147,3 +147,4 @@ openclaw sandbox recreate --agent alfred
 - [توثيق Sandbox](/gateway/sandboxing)
 - [تهيئة الوكيل](/concepts/agent-workspace)
 - [أمر Doctor](/gateway/doctor) - التحقق من إعداد sandbox
+

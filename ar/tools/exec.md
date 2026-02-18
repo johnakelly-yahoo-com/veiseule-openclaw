@@ -173,3 +173,4 @@ openclaw config set agents.list[0].tools.exec.node "node-id-or-name"
 - متاحة فقط لنماذج OpenAI/OpenAI Codex.
 - تظل سياسة الأدوات سارية؛ إذ يسمح `allow: ["exec"]` ضمنيًا بـ `apply_patch`.
 - تقع التهيئة تحت `tools.exec.applyPatch`.
+

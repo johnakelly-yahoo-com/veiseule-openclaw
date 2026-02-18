@@ -38,3 +38,4 @@ Kondig aan in een specifiek kanaal:
 ```bash
 openclaw cron edit <job-id> --announce --channel slack --to "channel:C1234567890"
 ```
+

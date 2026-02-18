@@ -281,3 +281,4 @@ Swift 생성기는 다음을 출력합니다:
 1. TypeBox 스키마를 업데이트합니다.
 2. `pnpm protocol:check` 를 실행합니다.
 3. 재생성된 스키마와 Swift 모델을 커밋합니다.
+

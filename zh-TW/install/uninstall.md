@@ -124,3 +124,4 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 1. 在刪除儲存庫**之前**，先解除安裝 gateway 服務（使用上述簡易方式或手動移除服務）。
 2. 如上所示移除狀態資料 + 工作區。
 3. 依照上述說明移除狀態 + 工作區。
+

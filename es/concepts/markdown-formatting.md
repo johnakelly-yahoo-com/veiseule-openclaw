@@ -122,3 +122,4 @@ rangos de estilo SPOILER. Otros canales los tratan como texto plano.
 - Los rangos de estilo de Signal dependen de desplazamientos UTF-16; no use desplazamientos por puntos de código.
 - Preserve las nuevas líneas finales para los bloques de código cercados para que los marcadores de cierre
   queden en su propia línea.
+

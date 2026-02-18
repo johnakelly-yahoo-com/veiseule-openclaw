@@ -797,3 +797,4 @@ Een kwetsbaarheid in OpenClaw gevonden? Meld dit verantwoord:
 _"Beveiliging is een proces, geen product. Vertrouw ook geen kreeften met shelltoegang."_ — Iemand wijs, waarschijnlijk
 
 🦞🔐
+

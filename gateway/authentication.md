@@ -139,3 +139,4 @@ is missing, rerun `claude setup-token` and paste the token again.
 
 - Claude Max or Pro subscription (for `claude setup-token`)
 - Claude Code CLI installed (`claude` command available)
+

@@ -110,3 +110,4 @@ openclaw channels status --probe
 | فشل الغرف المُشفَّرة                    | تحقّق من وحدة التشفير وإعداداته    | فعّل دعم التشفير وأعد الانضمام/المزامنة للغرفة.     |
 
 استكشاف الأخطاء الكامل: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

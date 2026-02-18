@@ -136,3 +136,4 @@ Bog‘liq hujjatlar:
 
 - [/concepts/model-failover](/concepts/model-failover) (rotatsiya + cooldown qoidalari)
 - [/tools/slash-commands](/tools/slash-commands) (buyruqlar yuzasi)
+

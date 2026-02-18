@@ -100,3 +100,4 @@ openclaw browser extension path
 Используйте `gateway.nodes.browser.mode` для управления автоматической маршрутизацией и `gateway.nodes.browser.node` для закрепления конкретного узла, если подключено несколько.
 
 Безопасность и удалённая настройка: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
+

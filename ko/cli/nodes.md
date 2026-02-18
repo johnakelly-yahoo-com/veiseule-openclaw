@@ -67,3 +67,4 @@ Invoke 플래그:
 - `--raw <command>`: 셸 문자열 실행 (`/bin/sh -lc` 또는 `cmd.exe /c`).
 - `--agent <id>`: 에이전트 범위 승인/허용 목록 (구성된 에이전트가 기본값).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: 오버라이드.
+

@@ -27,3 +27,4 @@ openclaw onboard --auth-choice zai-api-key
 - Phiên bản và mức độ khả dụng của GLM có thể thay đổi; hãy kiểm tra tài liệu của Z.AI để biết thông tin mới nhất.
 - Ví dụ ID mô hình bao gồm `glm-4.7` và `glm-4.6`.
 - Để biết chi tiết về nhà cung cấp, xem [/providers/zai](/providers/zai).
+

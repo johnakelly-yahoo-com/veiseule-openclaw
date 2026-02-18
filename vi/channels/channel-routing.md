@@ -108,3 +108,4 @@ Phản hồi đến bao gồm:
 - Ngữ cảnh trích dẫn được nối vào `Body` như một khối `[Replying to ...]`.
 
 Điều này nhất quán trên các kênh.
+

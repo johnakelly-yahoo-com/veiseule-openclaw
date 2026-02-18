@@ -59,3 +59,4 @@ Kto je otrzymuje:
 
 - Udostępnia edytor Słów wybudzania w Ustawieniach.
 - Wywołuje `voicewake.set` przez Gateway WS, aby edycje synchronizowały się wszędzie.
+

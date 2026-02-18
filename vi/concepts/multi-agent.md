@@ -375,3 +375,4 @@ Lưu ý: `tools.elevated` là **toàn cục** và dựa trên người gửi; kh
 Đối với nhắm mục tiêu theo nhóm, hãy dùng `agents.list[].groupChat.mentionPatterns` để các @mention ánh xạ chính xác tới agent mong muốn.
 
 Xem [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) để có ví dụ chi tiết.
+

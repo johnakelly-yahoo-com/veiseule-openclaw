@@ -192,3 +192,4 @@ Hinweise:
   - Telegram: `telegram:slash:<userId>` (zielt über `CommandTargetSessionKey` auf die Chat-Sitzung)
 - **`/stop`** zielt auf die aktive Chat-Sitzung, sodass der aktuelle Lauf abgebrochen werden kann.
 - **Slack:** `channels.slack.slashCommand` wird weiterhin für einen einzelnen `/openclaw`-artigen Befehl unterstützt. Wenn Sie `commands.native` aktivieren, müssen Sie einen Slack-Slash-Befehl pro eingebautem Befehl erstellen (gleiche Namen wie `/help`). Befehlsargument-Menüs für Slack werden als ephemere Block-Kit-Buttons ausgeliefert.
+

@@ -186,3 +186,4 @@ openclaw doctor
 - [Doctor](/gateway/doctor)
 - [Gateway การแก้ไขปัญหา](/gateway/troubleshooting)
 - [OpenClaw เก็บข้อมูลไว้ที่ไหน?](/help/faq#where-does-openclaw-store-its-data)
+

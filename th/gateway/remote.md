@@ -127,3 +127,4 @@ Runbook: [macOS remote access](/platforms/mac/remote)
 - ปฏิบัติต่อการควบคุมผ่านเบราว์เซอร์เหมือนการเข้าถึงของผู้ปฏิบัติงาน: จำกัดเฉพาะ tailnet + การจับคู่โหนดอย่างรอบคอบ
 
 เจาะลึก: [Security](/gateway/security)
+

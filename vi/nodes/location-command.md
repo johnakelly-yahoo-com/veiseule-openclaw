@@ -107,3 +107,4 @@ Ghi chú:
 - Khi đang dùng: “Chỉ khi OpenClaw đang mở.”
 - Always: “Cho phép vị trí nền. Yêu cầu quyền hệ thống.”
 - Precise: “Sử dụng vị trí GPS chính xác. Tắt để chia sẻ vị trí xấp xỉ.”
+

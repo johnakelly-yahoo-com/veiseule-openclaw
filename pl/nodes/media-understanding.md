@@ -373,3 +373,4 @@ Pokazuje to wyniki per‑możliwość oraz wybranego dostawcę/model, gdy ma to 
 
 - [Konfiguracja](/gateway/configuration)
 - [Obsługa obrazów i mediów](/nodes/images)
+

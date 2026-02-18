@@ -222,3 +222,4 @@ Zugehörige globale Optionen:
 - `agents.list[].groupChat.mentionPatterns` (Signal unterstützt keine nativen Erwähnungen).
 - `messages.groupChat.mentionPatterns` (globaler Fallback).
 - `messages.responsePrefix`.
+

@@ -259,3 +259,4 @@ Sağlayıcı seçenekleri:
 - `channels.matrix.autoJoin`: davet işleme (`always | allowlist | off`, varsayılan: her zaman).
 - `channels.matrix.autoJoinAllowlist`: otomatik katılım için izin verilen oda kimlikleri/takma adları.
 - `channels.matrix.actions`: per-action tool gating (reactions/messages/pins/memberInfo/channelInfo).
+

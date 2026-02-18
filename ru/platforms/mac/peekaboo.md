@@ -58,3 +58,4 @@ export PEEKABOO_BRIDGE_SOCKET=/path/to/bridge.sock
   **только** в режиме **debug**.
 - Если хосты не обнаружены, откройте одно из хост‑приложений (Peekaboo.app или OpenClaw.app)
   и подтвердите, что разрешения предоставлены.
+

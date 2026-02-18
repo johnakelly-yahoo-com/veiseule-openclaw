@@ -156,3 +156,4 @@ user service (no lingering needed). See [Gateway runbook](/gateway) for the syst
 - [Discord](/channels/discord) and [Telegram](/channels/telegram) (reply tags + replyToMode settings)
 - [OpenClaw assistant setup](/start/openclaw)
 - [macOS app](/platforms/macos) (gateway lifecycle)
+

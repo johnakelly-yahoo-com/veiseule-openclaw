@@ -22,3 +22,4 @@ OpenClaw = CLAW + TARDIS, क्योंकि हर स्पेस लॉब
 MIT - समुद्र में लॉब्स्टर जितना स्वतंत्र।
 
 > macOS कंपैनियन ऐप **Instances** UI में Apple डिवाइस के फ्रेंडली मॉडल नाम दिखाता है, इसके लिए Apple मॉडल identifiers (जैसे `iPad16,6`, `Mac16,6`) को human-readable नामों से मैप किया जाता है। OpenClaw JSON-RPC के माध्यम से बाहरी CLIs को इंटीग्रेट करता है।
+

@@ -80,3 +80,4 @@ SPARKLE_PRIVATE_KEY_FILE=/path/to/ed25519-private-key scripts/make_appcast.sh di
   - 以前の公開ビルドで、「Check for Updates…」を About タブから実行し、Sparkle が新しいビルドを問題なくインストールすることを確認してください。
 
 完了の定義: 署名済みアプリと appcast が公開され、古いインストール済みバージョンからのアップデートフローが正常に動作し、リリースアセットが GitHub リリースに添付されていること。
+

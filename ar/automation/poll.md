@@ -63,3 +63,4 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 ملاحظة: لا يوفّر Discord وضع «اختيار عدد محدد N»؛ إذ يتم ربط `pollMulti` بالتحديد المتعدد.
 تُعرَض استطلاعات Teams كبطاقات تكيّفية وتتطلب بقاء Gateway متصلًا
 لتسجيل الأصوات في `~/.openclaw/msteams-polls.json`.
+

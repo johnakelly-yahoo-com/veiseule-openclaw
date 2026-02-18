@@ -65,3 +65,4 @@ Pass `--token` or `--password` explicitly. Missing explicit credentials is an er
 
 - 權杖輪替會回傳新的權杖（敏感資訊）。請將其視為機密妥善保管。
 - 這些指令需要 `operator.pairing`（或 `operator.admin`）範圍。
+

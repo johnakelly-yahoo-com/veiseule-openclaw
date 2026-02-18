@@ -39,3 +39,4 @@ agente seleccionado (con un selector de sesiones para otras sesiones).
 ## Limitaciones conocidas
 
 - La UI está optimizada para sesiones de chat (no es un sandbox de navegador completo).
+

@@ -48,3 +48,4 @@ title: "Functies"
 Verouderde paden voor Claude, Codex, Gemini en Opencode zijn verwijderd. Pi is het enige
 pad voor codeeragents.
 </Note>
+

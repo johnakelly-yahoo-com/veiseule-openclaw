@@ -47,3 +47,4 @@ title: "الشبكة"
 - [مرجع تهيئة Gateway](/gateway/configuration)
 - [استكشاف الأخطاء وإصلاحها](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
+

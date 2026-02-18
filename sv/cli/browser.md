@@ -100,3 +100,4 @@ Om Gateway körs på en annan maskin än webbläsaren, kör en **nod värd** på
 Använd `gateway.nodes.browser.mode` för att styra automatisk routning och `gateway.nodes.browser.node` för att låsa till en specifik nod om flera är anslutna.
 
 Säkerhet + fjärrkonfiguration: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
+

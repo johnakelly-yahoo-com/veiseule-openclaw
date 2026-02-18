@@ -334,3 +334,4 @@ Sağlayıcı seçenekleri:
 
 - `agents.list[].groupChat.mentionPatterns` (veya `messages.groupChat.mentionPatterns`).
 - `messages.responsePrefix`.
+

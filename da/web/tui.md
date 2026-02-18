@@ -156,3 +156,4 @@ Intet output efter afsendelse af en besked:
 - `disconnected`: sørg for, at Gateway kører, og at dine `--url/--token/--password` er korrekte.
 - Ingen agenter i vælgeren: tjek `openclaw agents list` og din routing-konfiguration.
 - Tom sessionsvælger: du er muligvis i globalt omfang eller har endnu ingen sessioner.
+

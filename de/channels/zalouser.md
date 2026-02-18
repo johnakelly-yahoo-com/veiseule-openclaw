@@ -134,3 +134,4 @@ Konten werden auf zca-Profile abgebildet. Beispiel:
 
 - `openclaw channels status --probe`
 - Erneut anmelden: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
+

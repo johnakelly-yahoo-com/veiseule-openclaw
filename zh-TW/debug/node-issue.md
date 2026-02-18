@@ -82,3 +82,4 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - 在 Node 22/24 上重現以確認是否為 Node 25 的回歸問題。
 - 測試 `tsx` nightly，或在確認存在已知回歸時固定到較早版本。
 - 若在 Node LTS 上也可重現，請以上游提交最小重現，並附上 `__name` 的堆疊追蹤。
+

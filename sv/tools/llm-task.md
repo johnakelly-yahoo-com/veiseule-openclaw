@@ -109,3 +109,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Inga verktyg exponeras för modellen under denna körning.
 - Behandla utdata som opålitlig om du inte validerar med `schema`.
 - Lägg godkännanden före alla steg som har bieffekter (skicka, posta, exekvera).
+

@@ -109,3 +109,4 @@ Subsystem loggers keep output grouped and scannable.
 - **เนื้อความข้อความ WhatsApp** จะถูกบันทึกที่ระดับ `debug` (ใช้ `--verbose` เพื่อดู)
 
 สิ่งนี้ช่วยคงเสถียรภาพของล็อกไฟล์เดิม ขณะทำให้ออกพุตเชิงโต้ตอบสแกนได้ง่าย
+

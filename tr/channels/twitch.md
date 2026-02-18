@@ -374,3 +374,4 @@ Ajan, şu eylemle `twitch` çağrısı yapabilir:
 - Mesaj başına **500 karakter** (kelime sınırlarında otomatik parçalama)
 - Markdown, parçalamadan önce kaldırılır
 - Hız sınırlaması yoktur (Twitch’in yerleşik hız sınırları kullanılır)
+

@@ -222,3 +222,4 @@ openclaw pairing list signal
 - `agents.list[].groupChat.mentionPatterns` (لا يدعم Signal الإشارات الأصلية).
 - `messages.groupChat.mentionPatterns` (الاحتياطي العام).
 - `messages.responsePrefix`.
+

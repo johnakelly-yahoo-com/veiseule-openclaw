@@ -112,3 +112,4 @@ RPC API และรายการฟิลด์คอนฟิกทั้ง
 - อ้างอิงคำสั่งCLI: [`openclaw onboard`](/cli/onboard)
 - การเริ่มต้นใช้งานแอปmacOS: [Onboarding](/start/onboarding)
 - พิธีการรันครั้งแรกของเอเจนต์: [Agent Bootstrapping](/start/bootstrapping)
+

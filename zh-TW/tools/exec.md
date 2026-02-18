@@ -181,3 +181,4 @@ Paste (bracketed by default):
 - 僅適用於 OpenAI／OpenAI Codex 模型。
 - 工具政策仍然適用；`allow: ["exec"]` 會隱含允許 `apply_patch`。
 - 設定位於 `tools.exec.applyPatch` 之下。
+

@@ -65,3 +65,4 @@ openclaw devices revoke --device <deviceId> --role node
 
 - トークンローテーションは新しいトークンを返します(敏感)。 秘密のように扱いなさい。
 - これらのコマンドには `operator.pairing`（または `operator.admin`）スコープが必要です。
+

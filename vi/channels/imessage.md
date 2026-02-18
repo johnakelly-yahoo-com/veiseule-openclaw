@@ -334,3 +334,4 @@ Tùy chọn toàn cục liên quan:
 
 - `agents.list[].groupChat.mentionPatterns` (hoặc `messages.groupChat.mentionPatterns`).
 - `messages.responsePrefix`.
+

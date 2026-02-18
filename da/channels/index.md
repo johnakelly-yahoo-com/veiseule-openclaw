@@ -40,3 +40,4 @@ Tekst understøttes overalt; medier og reaktioner varierer fra kanal.
 - Telegram-internals: [grammY-noter](/channels/grammy).
 - Fejlfinding: [Kanal-fejlfinding](/channels/troubleshooting).
 - Modeludbydere dokumenteres separat; se [Modeludbydere](/providers/models).
+

@@ -52,3 +52,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## सीमाएँ और सावधानियाँ
 
 - अभी के लिए उन्हें pnpm के ज़रिए चलाएँ। **dev**: `main` का moving head (git)।
+

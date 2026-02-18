@@ -147,3 +147,4 @@ Sandbox ayarları `~/.openclaw/openclaw.json` içinde `agents.defaults.sandbox` 
 - [Sandbox Dokümantasyonu](/gateway/sandboxing)
 - [Ajan Yapılandırması](/concepts/agent-workspace)
 - [Doctor Command](/gateway/doctor) - Sandbox kurulumunu kontrol edin
+

@@ -342,3 +342,4 @@ Kuyruklar + oturumlar:
 - **Gateway’e ulaşılamıyor mu?** Önce `openclaw doctor` çalıştırın.
 - **Günlükler boş mu?** Gateway’in çalıştığını ve `logging.file` içindeki dosya yoluna yazdığını kontrol edin.
 - **Daha fazla ayrıntı mı gerekli?** `logging.level`’yi `debug` veya `trace` olarak ayarlayın ve yeniden deneyin.
+

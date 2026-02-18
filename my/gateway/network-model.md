@@ -11,3 +11,4 @@ title: "ကွန်ယက် မော်ဒယ်"
 - Node များသည် လိုအပ်သလို LAN၊ tailnet သို့မဟုတ် SSH မှတစ်ဆင့် Gateway WS သို့ ချိတ်ဆက်သည်။ Legacy TCP bridge ကို မထောက်ပံ့တော့ပါ (deprecated)။
 - Canvas host သည် `canvasHost.port` (ပုံမှန် `18793`) တွင် `/__openclaw__/canvas/` ကို node WebViews အတွက် ပေးဆောင်သော HTTP file server ဖြစ်သည်။ [Gateway configuration](/gateway/configuration) (`canvasHost`) ကို ကြည့်ပါ။
 - Remote အသုံးပြုမှုအတွက် ပုံမှန်အားဖြင့် SSH tunnel သို့မဟုတ် tailnet VPN ကို အသုံးပြုသည်။ [Remote access](/gateway/remote) နှင့် [Discovery](/gateway/discovery) ကို ကြည့်ပါ။
+

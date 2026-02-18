@@ -47,3 +47,4 @@ Yerel güven:
 - [Gateway yapılandırma başvuru dokümanı](/gateway/configuration)
 - [Sorun Giderme](/gateway/troubleshooting)
 - [Doktor](/gateway/doctor)
+

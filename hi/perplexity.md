@@ -72,3 +72,4 @@ title: "Perplexity Sonar"
 - `perplexity/sonar-reasoning-pro` — गहन शोध
 
 पूर्ण web_search विन्यास के लिए [Web tools](/tools/web) देखें।
+

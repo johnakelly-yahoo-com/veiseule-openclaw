@@ -26,3 +26,4 @@ Mga bukas na tanong
 - Mga opsyonal na grammY plugin (throttler) kung makaranas tayo ng Bot API 429s.
 - Magdagdag ng mas structured na media tests (stickers, voice notes).
 - Gawing configurable ang webhook listen port (kasalukuyang naka-fix sa 8787 maliban kung i-wire sa pamamagitan ng Gateway).
+

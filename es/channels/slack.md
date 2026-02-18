@@ -570,3 +570,4 @@ Para el flujo de triaje: [/channels/troubleshooting](/channels/troubleshooting).
 - Advertencia: si permite respuestas a otros bots (`channels.slack.allowBots=true` o `channels.slack.channels.<id>.allowBots=true`), evite bucles de respuestas entre bots con listas de permitidos `requireMention`, `channels.slack.channels.<id>.users` y/o eliminando guardas en `AGENTS.md` y `SOUL.md`.
 - Para la herramienta de Slack, la semántica de eliminación de reacciones está en [/tools/reactions](/tools/reactions).
 - Los adjuntos se descargan al almacén de medios cuando está permitido y por debajo del límite de tamaño.
+

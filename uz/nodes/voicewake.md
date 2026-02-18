@@ -59,3 +59,4 @@ Kimlar qabul qiladi:
 
 - Exposes a Wake Words editor in Settings.
 - Tahrirlar hamma joyda sinxron bo‘lishi uchun Gateway WS orqali `voicewake.set`ni chaqiradi.
+

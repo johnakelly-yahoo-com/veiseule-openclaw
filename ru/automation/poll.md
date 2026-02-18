@@ -63,3 +63,4 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 Примечание: в Discord отсутствует режим «выбрать ровно N»; `pollMulti` сопоставляется с множественным выбором.
 Опросы в Teams отображаются как Adaptive Cards и требуют, чтобы Gateway (шлюз) оставался онлайн
 для записи голосов в `~/.openclaw/msteams-polls.json`.
+

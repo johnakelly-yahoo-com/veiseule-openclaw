@@ -190,3 +190,4 @@ macOS アプリが **Remote** モードで実行される場合、ローカル U
 - [Gateway（macOS）](/platforms/mac/bundled-gateway)
 - [macOS permissions](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
+

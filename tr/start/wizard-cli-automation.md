@@ -134,3 +134,4 @@ Notlar:
 - Onboarding merkezi: [Onboarding Wizard (CLI)](/start/wizard)
 - Tam referans: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - Komut referansı: [`openclaw onboard`](/cli/onboard)
+

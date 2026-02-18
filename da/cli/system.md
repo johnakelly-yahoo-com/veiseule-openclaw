@@ -53,3 +53,4 @@ Flag:
 
 - Kræver en kørende Gateway, som kan nås via din nuværende konfiguration (lokal eller fjern).
 - Systemhændelser er flygtige og gemmes ikke på tværs af genstarter.
+

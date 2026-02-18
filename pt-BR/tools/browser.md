@@ -570,3 +570,4 @@ Como mapeia:
   - Se um nó com capacidade de navegador estiver conectado, a ferramenta pode rotear automaticamente para ele, a menos que você fixe `target="host"` ou `target="node"`.
 
 Isso mantém o agente determinístico e evita seletores frágeis.
+

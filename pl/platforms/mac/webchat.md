@@ -37,3 +37,4 @@ Aplikacja na macOS w pasku menu osadza interfejs WebChat jako natywny widok Swif
 ## Znane ograniczenia
 
 - Interfejs użytkownika jest zoptymalizowany pod sesje czatu (nie jest to pełny sandbox przeglądarki).
+

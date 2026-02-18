@@ -217,3 +217,4 @@ http://localhost:5173/?gatewayUrl=wss://<gateway-host>:18789&token=<gateway-toke
 ```
 
 تفاصيل إعداد الوصول البعيد: [الوصول البعيد](/gateway/remote).
+

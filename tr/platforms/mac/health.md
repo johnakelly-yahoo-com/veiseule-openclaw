@@ -29,3 +29,4 @@ Menü çubuğu uygulamasından bağlı kanalın sağlıklı olup olmadığını 
 ## Şüphede kalındığında
 
 - [Gateway health](/gateway/health) içindeki CLI akışını (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) hâlâ kullanabilir ve `web-heartbeat` / `web-reconnect` için `/tmp/openclaw/openclaw-*.log`’i takip edebilirsiniz.
+

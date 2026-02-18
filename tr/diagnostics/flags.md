@@ -85,3 +85,4 @@ Uzak gateway’ler için ayrıca `openclaw logs --follow`’ü kullanabilirsiniz
 - `logging.level`, `warn`’ten daha yüksek ayarlanırsa bu günlükler bastırılabilir. Varsayılan `info` uygundur.
 - Bayrakları etkin bırakmak güvenlidir; yalnızca ilgili alt sistem için günlük hacmini etkiler.
 - Günlük hedeflerini, seviyeleri ve maskelemeyi değiştirmek için [/logging](/logging) sayfasını kullanın.
+

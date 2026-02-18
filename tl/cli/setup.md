@@ -23,3 +23,4 @@ Para patakbuhin ang wizard sa pamamagitan ng setup:
 ```bash
 openclaw setup --wizard
 ```
+

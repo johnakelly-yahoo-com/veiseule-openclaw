@@ -198,3 +198,4 @@ ayrıntıları için [Gateway protocol](/gateway/protocol) bölümüne bakın.
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS permissions](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
+

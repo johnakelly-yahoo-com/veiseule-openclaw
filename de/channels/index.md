@@ -40,3 +40,4 @@ Text wird überall unterstützt; Medien und Reaktionen variieren je nach Kanal.
 - Telegram-Interna: [grammY-Hinweise](/channels/grammy).
 - Fehlerbehebung: [Kanal-Fehlerbehebung](/channels/troubleshooting).
 - Modellanbieter sind separat dokumentiert; siehe [Model Providers](/providers/models).
+

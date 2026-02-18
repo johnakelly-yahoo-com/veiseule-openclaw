@@ -225,3 +225,4 @@ git pull
 - Uruchom ponownie `openclaw doctor` i uważnie przeczytaj wyjście (często podaje rozwiązanie).
 - Sprawdź: [Rozwiązywanie problemów](/gateway/troubleshooting)
 - Zapytaj na Discordzie: [https://discord.gg/clawd](https://discord.gg/clawd)
+

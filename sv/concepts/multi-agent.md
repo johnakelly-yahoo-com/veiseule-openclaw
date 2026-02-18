@@ -381,3 +381,4 @@ Om du behöver gränser per agent, använd `agents.list[].tools` för att neka `
 För gruppinriktning, använd `agents.list[].groupChat.mentionPatterns` så @nämner karta rent till den avsedda agenten.
 
 Se [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) för detaljerade exempel.
+

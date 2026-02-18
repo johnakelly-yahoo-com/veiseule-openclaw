@@ -56,3 +56,4 @@ Målgrupp: macOS app bidragsgivare. Mål: hålla rösten överlappande förutsä
 3. Refaktorera `VoicePushToTalk` för att ta över befintliga sessioner och anropa `endCapture` vid släpp; tillämpa runtime-cooldown.
 4. Koppla `VoiceWakeOverlayController` till publiceraren; ta bort direkta anrop från runtime/PTT.
 5. Lägg till integrationstester för session-övertagande, cooldown och avstängning vid tom text.
+

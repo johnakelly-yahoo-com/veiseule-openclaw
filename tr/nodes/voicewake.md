@@ -59,3 +59,4 @@ Kimler alır:
 
 - Ayarlar’da bir Uyandırma Sözcükleri düzenleyicisi sunar.
 - Düzenlemelerin her yerde senkronize olması için Gateway WS üzerinden `voicewake.set` çağrısını yapar.
+

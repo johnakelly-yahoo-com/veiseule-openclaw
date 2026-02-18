@@ -148,3 +148,4 @@ Gateway’s container naming and avoids mismatches when scope/session keys chang
 - [Sandbox Documentation](/gateway/sandboxing)
 - [Agent Configuration](/concepts/agent-workspace)
 - [Doctor Command](/gateway/doctor) - سینڈباکس سیٹ اپ کی جانچ کریں
+

@@ -213,3 +213,4 @@ OpenClaw 는 또한 `codex-cli` 에 대한 기본값을 제공합니다:
 - **세션 연속성 없음**: `sessionArg` 이 설정되어 있고 `sessionMode` 가
   `none` 이 아닌지 확인하십시오 (Codex CLI 는 현재 JSON 출력으로 재개할 수 없습니다).
 - **이미지가 무시됨**: `imageArg` 을 설정하고 CLI 가 파일 경로를 지원하는지 확인하십시오.
+

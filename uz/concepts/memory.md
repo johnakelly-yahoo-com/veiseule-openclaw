@@ -526,3 +526,4 @@ agents: {
 
 - 33. `remote.*` `models.providers.openai.*`dan ustun turadi.
 - 34. `remote.headers` OpenAI headerlari bilan birlashtiriladi; kalitlar to‘qnashganda remote ustun bo‘ladi. 35. OpenAI sukut bo‘yicha qiymatlaridan foydalanish uchun `remote.headers`ni tashlab yuboring.
+

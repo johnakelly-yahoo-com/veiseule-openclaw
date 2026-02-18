@@ -124,3 +124,4 @@ Legende:
 
 - `sendMessageDraft`: Telegram-Entwurfsblase (keine echte Nachricht).
 - `final reply`: normales Senden einer Telegram-Nachricht.
+

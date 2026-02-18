@@ -37,3 +37,4 @@ Je kunt de Gateway in de cloud houden en **nodes** koppelen op je lokale apparat
 mogelijkheden terwijl de Gateway in de cloud blijft.
 
 Documentatie: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
+

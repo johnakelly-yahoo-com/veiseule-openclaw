@@ -69,3 +69,4 @@ Eslatmalar:
 
 - `setup-token` setup-token qiymatini so‘raydi (uni istalgan mashinada `claude setup-token` bilan yarating).
 - `paste-token` boshqa joyda yoki avtomatlashtirish orqali yaratilgan token satrini qabul qiladi.
+

@@ -48,3 +48,4 @@ title: "Funkcje"
 Starsze ścieżki Claude, Codex, Gemini oraz Opencode zostały usunięte. Pi jest jedyną
 ścieżką agenta kodującego.
 </Note>
+

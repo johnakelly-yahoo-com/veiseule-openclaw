@@ -392,3 +392,4 @@ agents.list[].sandbox.prune.* > agents.defaults.sandbox.prune.*
 - [Multi-Agent Routing](/concepts/multi-agent)
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Session Management](/concepts/session)
+

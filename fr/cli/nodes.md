@@ -67,3 +67,4 @@ Drapeaux :
 - `--raw <command>` : executer une chaine shell (`/bin/sh -lc` ou `cmd.exe /c`).
 - `--agent <id>` : approbations/listes d’autorisations portees a l’agent (par defaut l’agent configure).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>` : remplacements.
+

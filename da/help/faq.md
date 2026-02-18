@@ -2852,3 +2852,4 @@ Du kan tilføje indstillinger som `debounce:2s cap:25 drop:summarize` for opføl
 ---
 
 Stadig fast? Spørg i [Discord](https://discord.com/invite/clawd) eller åbn en [GitHub diskussion](https://github.com/openclaw/openclaw/discussions).
+

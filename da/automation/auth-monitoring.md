@@ -38,3 +38,4 @@ gateway vært og er indstillet til systemd + Termux.
 - `scripts/termux-sync-widget.sh`: synkroniser Claude Code-legitimationsoplysninger → OpenClaw.
 
 Hvis du ikke har brug for telefonaautomatisering eller systemd-timere, kan du springe disse scripts over.
+

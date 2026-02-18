@@ -109,3 +109,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - No se exponen herramientas al modelo para esta ejecución.
 - Trate la salida como no confiable a menos que valide con `schema`.
 - Coloque aprobaciones antes de cualquier paso con efectos secundarios (enviar, publicar, ejecutar).
+

@@ -47,3 +47,4 @@ La cible du service dépend de l’OS :
 
 - macOS : LaunchAgent (`bot.molt.gateway` ou `bot.molt.<profile>` ; legacy `com.openclaw.*`)
 - Linux/WSL2 : service utilisateur systemd (`openclaw-gateway[-<profile>].service`)
+

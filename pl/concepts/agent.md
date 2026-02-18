@@ -118,3 +118,4 @@ Co najmniej ustaw:
 ---
 
 _Następnie: [Czaty grupowe](/channels/group-messages)_ 🦞
+

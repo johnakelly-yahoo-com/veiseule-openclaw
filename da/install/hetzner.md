@@ -323,3 +323,4 @@ Alle langlivede stater skal overleve genstarter, genopbygger og genstarter.
 | Node-runtime                   | Container-filsystem               | Docker-image               | Genopbygges ved hvert image-build  |
 | OS-pakker                      | Container-filsystem               | Docker-image               | Installer ikke ved runtime         |
 | Docker-container               | Flygtig                           | Genstartbar                | Sikker at slette                   |
+

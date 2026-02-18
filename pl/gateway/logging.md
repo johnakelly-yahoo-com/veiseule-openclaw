@@ -107,3 +107,4 @@ Zachowanie:
 - **Treści wiadomości WhatsApp** są logowane na poziomie `debug` (użyj `--verbose`, aby je zobaczyć)
 
 Pozwala to zachować stabilność istniejących logów plikowych, jednocześnie czyniąc interaktywne wyjście czytelnym.
+

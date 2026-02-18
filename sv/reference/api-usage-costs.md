@@ -131,3 +131,4 @@ Färdigheter kan lagra `apiKey` i `skills.entries.<name>.apiKey`. Om en färdigh
 API:er, kan det medföra kostnader enligt kompetensleverantören.
 
 Se [Skills](/tools/skills).
+

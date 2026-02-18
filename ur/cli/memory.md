@@ -39,3 +39,4 @@ openclaw memory index --agent main --verbose
 - `memory status --deep --index` اگر اسٹور ڈرٹی ہو تو ری انڈیکس چلاتا ہے۔
 - `memory index --verbose` ہر مرحلے کی تفصیلات پرنٹ کرتا ہے (فراہم کنندہ، ماڈل، ذرائع، بیچ سرگرمی)۔
 - `memory status` وہ تمام اضافی راستے شامل کرتا ہے جو `memorySearch.extraPaths` کے ذریعے کنفیگر کیے گئے ہوں۔
+

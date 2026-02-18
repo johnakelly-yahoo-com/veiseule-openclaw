@@ -323,3 +323,4 @@ Windows 설치는 **WSL2**를 사용하고 위의 Linux systemd 섹션을 따르
 
 - `openclaw gateway` 및 레거시 TCP 제어 포트 사용을 중단하십시오.
 - 필수 연결과 구조화된 presence를 사용하는 WS 프로토콜을 사용하도록 클라이언트를 업데이트하십시오.
+

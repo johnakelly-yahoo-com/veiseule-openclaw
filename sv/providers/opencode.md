@@ -30,3 +30,4 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - `OPENCODE_ZEN_API_KEY` stöds också.
 - Du loggar in på Zen, lägger till faktureringsuppgifter och kopierar din API-nyckel.
 - OpenCode Zen debiterar per begäran; kontrollera OpenCode-instrumentpanelen för detaljer.
+

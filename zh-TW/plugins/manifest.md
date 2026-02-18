@@ -63,3 +63,4 @@ config validation.
   discovery + validation.
 - 如果你的外掛相依於原生模組，請記錄建置步驟以及任何套件管理器允許清單需求（例如：pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`）。
+

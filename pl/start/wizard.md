@@ -102,3 +102,4 @@ API RPC oraz pełną listę pól konfiguracji zapisywanych przez kreator, zobacz
 - Referencja poleceń CLI: [`openclaw onboard`](/cli/onboard)
 - Wdrażanie aplikacji na macOS: [Onboarding](/start/onboarding)
 - Rytuał pierwszego uruchomienia agenta: [Agent Bootstrapping](/start/bootstrapping)
+

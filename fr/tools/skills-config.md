@@ -70,3 +70,4 @@ Utilisez l’une des options suivantes :
 - intégrer (« bake ») les variables d’environnement dans votre image de sandbox personnalisée
 
 Les `env` et `skills.entries.<skill>.env/apiKey` globaux s’appliquent uniquement aux exécutions **hôte**.
+

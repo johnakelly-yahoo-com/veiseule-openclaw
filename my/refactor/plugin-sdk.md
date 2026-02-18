@@ -208,3 +208,4 @@ title: "Plugin SDK ပြန်လည်ဖွဲ့စည်းခြင်း"
 - အပြင်ဘက် plugin များကို core source access မရှိဘဲ ဖန်တီး၊ အပ်ဒိတ် ပြုလုပ်နိုင်ရမည်။
 
 ဆက်စပ်စာရွက်စာတမ်းများ: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration)
+

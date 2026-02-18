@@ -208,3 +208,4 @@ Notities:
 - Externe plugins kunnen worden ontwikkeld en bijgewerkt zonder toegang tot de core-broncode.
 
 Gerelateerde documentatie: [Plugins](/tools/plugin), [Kanalen](/channels/index), [Configuratie](/gateway/configuration).
+

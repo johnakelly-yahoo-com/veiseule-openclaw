@@ -125,3 +125,4 @@ Elevated **不會** 授予額外工具；它只影響 `exec`。
 ### 「我以為這是 main，為什麼會被沙箱隔離？」
 
 In `"non-main"` mode, group/channel keys are _not_ main. Use the main session key (shown by `sandbox explain`) or switch mode to `"off"`.
+

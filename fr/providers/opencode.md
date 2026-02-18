@@ -30,3 +30,4 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - `OPENCODE_ZEN_API_KEY` est egalement pris en charge.
 - Vous vous connectez a Zen, ajoutez des informations de facturation et copiez votre cle API.
 - OpenCode Zen facture par requete ; consultez le tableau de bord OpenCode pour plus de details.
+

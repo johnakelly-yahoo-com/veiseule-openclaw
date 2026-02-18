@@ -16,3 +16,4 @@ Der Schnellstart ist jetzt Teil von [Erste Schritte](/start/getting-started).
     Vollständige CLI-Assistentenreferenz und erweiterte Optionen.
   </Card>
 </Columns>
+

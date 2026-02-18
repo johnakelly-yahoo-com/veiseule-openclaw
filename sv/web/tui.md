@@ -156,3 +156,4 @@ Ingen utdata efter att ha skickat ett meddelande:
 - `disconnected`: säkerställ att Gateway körs och att dina `--url/--token/--password` är korrekta.
 - Inga agenter i väljaren: kontrollera `openclaw agents list` och din routningskonfig.
 - Tom sessionsväljare: du kan vara i globalt omfång eller sakna sessioner ännu.
+

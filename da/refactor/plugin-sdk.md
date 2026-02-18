@@ -208,3 +208,4 @@ Noter:
 - Eksterne plugins kan udvikles og opdateres uden adgang til core-kildekode.
 
 Relaterede dokumenter: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
+

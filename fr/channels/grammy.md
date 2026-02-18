@@ -26,3 +26,4 @@ Questions ouvertes
 - Plugins grammY optionnels (limiteur) si nous rencontrons des 429 de l’API Bot.
 - Ajouter davantage de tests media structures (stickers, messages vocaux).
 - Rendre le port d’ecoute du webhook configurable (actuellement fixe a 8787 sauf s’il est raccorde via la gateway).
+

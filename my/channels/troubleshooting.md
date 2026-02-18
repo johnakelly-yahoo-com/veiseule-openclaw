@@ -110,3 +110,4 @@ openclaw channels status --probe
 | Encryption ပါသော room များ မအောင်မြင်                 | crypto module နှင့် encryption ဆက်တင်များကို စစ်ဆေးပါ | encryption အထောက်အပံ့ကို ဖွင့်ပြီး room ကို ပြန်လည် join/sync လုပ်ပါ။ |
 
 ပြည့်စုံသော ပြဿနာဖြေရှင်းခြင်း: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

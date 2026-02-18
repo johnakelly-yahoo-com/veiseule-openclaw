@@ -56,3 +56,4 @@ title: "음성 오버레이"
 3. `VoicePushToTalk`를 리팩터링하여 기존 세션을 채택하고 해제 시 `endCapture`을 호출하도록 하며, 런타임 쿨다운을 적용합니다.
 4. `VoiceWakeOverlayController`를 퍼블리셔에 연결하고, 런타임/PTT 에서의 직접 호출을 제거합니다.
 5. 세션 채택, 쿨다운, 빈 텍스트 닫기에 대한 통합 테스트를 추가합니다.
+

@@ -381,3 +381,4 @@ Hvis du har brug for per-agent grænser, brug `agents.list[].tools` at benægte 
 For gruppemål, brug `agents.list[].groupChat.mentionPatterns` så @nævner kort rent til den tilsigtede agent.
 
 Se [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) for detaljerede eksempler.
+

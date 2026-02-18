@@ -16,3 +16,4 @@ O Início rápido agora faz parte de [Primeiros passos](/start/getting-started).
     Referência completa do assistente da CLI e opções avançadas.
   </Card>
 </Columns>
+

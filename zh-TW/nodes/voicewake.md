@@ -59,3 +59,4 @@ OpenClaw 將**喚醒詞視為由 Gateway 擁有的單一全域清單**。
 
 - 在設定中提供喚醒詞編輯器。
 - 透過 Gateway WS 呼叫 `voicewake.set`，讓編輯結果在各處同步。
+

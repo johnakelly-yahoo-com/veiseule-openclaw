@@ -122,3 +122,4 @@ des plages de style SPOILER. Les autres canaux les traitent comme du texte brut.
 - Les plages de styles Signal dépendent des décalages UTF-16 ; n’utilisez pas des décalages en points de code.
 - Préserver les retours à la ligne finaux pour les blocs de code délimités afin que les marqueurs de fermeture
   se retrouvent sur leur propre ligne.
+

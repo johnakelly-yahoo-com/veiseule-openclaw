@@ -135,3 +135,4 @@ openclaw agents add work \
 - Центр онбординга: [Onboarding Wizard (CLI)](/start/wizard)
 - Полный справочник: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - Справочник команд: [`openclaw onboard`](/cli/onboard)
+

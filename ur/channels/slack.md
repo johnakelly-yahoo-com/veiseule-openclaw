@@ -560,3 +560,4 @@ openclaw pairing list slack
 - Warning: If you allow replies to other bots (`channels.slack.allowBots=true` or `channels.slack.channels.<id>.allowBots=true`), prevent bot-to-bot reply loops with `requireMention`, `channels.slack.channels.<id>.users` allowlists, and/or clear guardrails in `AGENTS.md` and `SOUL.md`.
 - Slack ٹول کے لیے، ری ایکشن ہٹانے کی معنویت [/tools/reactions](/tools/reactions) میں ہے۔
 - اٹیچمنٹس اجازت ملنے اور سائز حد کے اندر ہونے پر میڈیا اسٹور میں ڈاؤن لوڈ کی جاتی ہیں۔
+

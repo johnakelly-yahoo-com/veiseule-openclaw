@@ -75,3 +75,4 @@ openclaw directory peers list --channel zalouser --query "name"
 Vosita nomi: `zalouser`
 
 Amallar: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
+

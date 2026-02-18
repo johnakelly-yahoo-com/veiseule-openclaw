@@ -109,3 +109,4 @@ Uwaga: Wykrywanie binariów jest „best‑effort” na macOS/Linux/Windows; upe
 - Zasady zakresu działają na zasadzie „pierwsze dopasowanie wygrywa”. `chatType` jest normalizowane do `direct`, `group` lub `room`.
 - Upewnij się, że Twoje CLI kończy działanie kodem 0 i wypisuje zwykły tekst; JSON wymaga obróbki przez `jq -r .text`.
 - Utrzymuj rozsądne timeouty (`timeoutSeconds`, domyślnie 60 s), aby nie blokować kolejki odpowiedzi.
+

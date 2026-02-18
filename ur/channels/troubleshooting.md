@@ -110,3 +110,4 @@ openclaw channels status --probe
 | مرموز کمروں میں ناکامی              | کرپٹو ماڈیول اور انکرپشن سیٹنگز کی تصدیق کریں | انکرپشن سپورٹ فعال کریں اور روم دوبارہ جوائن/سنک کریں۔ |
 
 مکمل خرابیوں کا ازالہ: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

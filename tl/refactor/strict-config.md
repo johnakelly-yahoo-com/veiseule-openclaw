@@ -86,3 +86,4 @@ Ang lahat ng iba pa ay dapat mag-hard-fail na may mensaheng: “Hindi wasto ang 
 - Nawawalang schema ng plugin → na-block ang pag-load ng plugin na may malinaw na error.
 - Hindi wastong config → na-block ang startup ng Gateway maliban sa mga diagnostic na command.
 - Doctor dry-run auto; isinusulat ng `doctor --fix` ang naitama na config.
+

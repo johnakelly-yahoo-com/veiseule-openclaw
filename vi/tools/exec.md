@@ -173,3 +173,4 @@ Ghi chú:
 - Chỉ khả dụng cho các mô hình OpenAI/OpenAI Codex.
 - Chính sách công cụ vẫn áp dụng; `allow: ["exec"]` ngầm cho phép `apply_patch`.
 - Cấu hình nằm dưới `tools.exec.applyPatch`.
+

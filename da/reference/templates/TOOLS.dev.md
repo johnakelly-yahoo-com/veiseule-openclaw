@@ -17,3 +17,4 @@ Det definerer ikke, hvilke værktøjer der findes; OpenClaw giver indbyggede væ
 - Tekst-til-tale: angiv stemme, mål-højttaler/-rum og om der skal streames.
 
 Tilføj hvad som helst andet, du vil have assistenten til at vide om din lokale værktøjskæde.
+

@@ -200,3 +200,4 @@ rejimda standart qiymatlarni qabul qilish uchun `--yes` ni bering.
 `models.providers` dagi maxsus provayderlar agent katalogidagi `models.json` fayliga
 yoziladi (standart: `~/.openclaw/agents/<agentId>/models.json`). Agar `models.mode`
 `replace` ga o‘rnatilmagan bo‘lsa, bu fayl odatiy holatda merge qilinadi.
+

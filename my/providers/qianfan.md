@@ -32,3 +32,4 @@ openclaw onboard --auth-choice qianfan-api-key
 - [မော်ဒယ် ပံ့ပိုးသူများ](/concepts/model-providers)
 - [အေးဂျင့် တပ်ဆင်ခြင်း](/concepts/agent)
 - [Qianfan API စာရွက်စာတမ်းများ](https://cloud.baidu.com/doc/qianfan-api/s/3m7of64lb)
+

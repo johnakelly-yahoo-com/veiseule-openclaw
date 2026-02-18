@@ -122,3 +122,4 @@ Bir depo kopyasından çalıştırıyorsanız (`git clone` + `openclaw ...` / `b
 1. Depoyu silmeden **önce** gateway servisini kaldırın (yukarıdaki kolay yolu veya manuel servis kaldırmayı kullanın).
 2. Depo dizinini silin.
 3. Yukarıda gösterildiği gibi durum + çalışma alanını kaldırın.
+

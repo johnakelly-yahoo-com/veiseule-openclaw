@@ -69,3 +69,4 @@ title: "Các mức Thinking"
 - Bộ chọn thinking trên web chat phản chiếu mức đã lưu của phiên từ kho phiên/cấu hình đầu vào khi trang tải.
 - Chọn một mức khác chỉ áp dụng cho tin nhắn kế tiếp (`thinkingOnce`); sau khi gửi, bộ chọn sẽ quay lại mức đã lưu của phiên.
 - Để thay đổi mặc định theo phiên, gửi một chỉ thị `/think:<level>` (như trước); bộ chọn sẽ phản ánh sau lần tải lại tiếp theo.
+

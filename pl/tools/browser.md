@@ -569,3 +569,4 @@ Mapowanie:
   - Jeśli podłączony jest węzeł z obsługą przeglądarki, narzędzie może automatycznie kierować do niego, chyba że przypniesz `target="host"` lub `target="node"`.
 
 Zapewnia to deterministykę agenta i unika kruchych selektorów.
+

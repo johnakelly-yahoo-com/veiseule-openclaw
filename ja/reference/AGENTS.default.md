@@ -116,3 +116,4 @@ git commit -m "Add Clawd workspace"
 - ブラウザー駆動の検証には、OpenClaw 管理の Chrome プロファイルで `openclaw browser`（タブ／ステータス／スクリーンショット）を使用してください。
 - DOM 検査には `openclaw browser eval|query|dom|snapshot` を使用してください（機械出力が必要な場合は `--json`/`--out`）。
 - インタラクションには `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` を使用してください（クリック／入力にはスナップショット参照が必要です。CSS セレクターには `evaluate` を使用します）。
+

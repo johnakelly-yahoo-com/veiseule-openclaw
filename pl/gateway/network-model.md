@@ -12,3 +12,4 @@ proces, który zarządza połączeniami kanałów oraz płaszczyzną sterowania 
 - Węzły łączą się z WS Gateway przez LAN, tailnet lub SSH — w zależności od potrzeb. Starszy most TCP jest wycofywany.
 - Host canvas to serwer plików HTTP na `canvasHost.port` (domyślnie `18793`), udostępniający `/__openclaw__/canvas/` dla WebView węzłów. Zobacz [Gateway configuration](/gateway/configuration) (`canvasHost`).
 - Zdalne użycie odbywa się zazwyczaj przez tunel SSH lub VPN tailnet. Zobacz [Remote access](/gateway/remote) oraz [Discovery](/gateway/discovery).
+

@@ -116,3 +116,4 @@ git commit -m "Add Clawd workspace"
 - للتحقق المعتمد على المتصفح، استخدم `openclaw browser` (علامات التبويب/الحالة/لقطة شاشة) مع ملف Chrome المُدار من OpenClaw.
 - لفحص DOM، استخدم `openclaw browser eval|query|dom|snapshot` (و`--json`/`--out` عندما تحتاج إلى مخرجات آلية).
 - للتفاعلات، استخدم `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` (يتطلّب النقر/الكتابة مراجع لقطات؛ استخدم `evaluate` لمحدّدات CSS).
+

@@ -26,3 +26,4 @@ title: grammY
 - Valfria grammY-plugins (throttler) om vi stöter på Bot API 429:or.
 - Lägg till mer strukturerade medietester (klistermärken, röstmeddelanden).
 - Gör webhookens lyssningsport konfigurerbar (för närvarande låst till 8787 om den inte kopplas via gatewayn).
+

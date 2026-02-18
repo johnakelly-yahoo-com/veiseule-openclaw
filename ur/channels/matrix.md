@@ -255,3 +255,4 @@ Provider options:
 - `channels.matrix.autoJoin`: دعوت ہینڈلنگ (`always | allowlist | off`, ڈیفالٹ: always)۔
 - `channels.matrix.autoJoinAllowlist`: خودکار جوائن کے لیے مجاز کمرہ IDs/aliases۔
 - `channels.matrix.actions`: فی ایکشن ٹول gating (reactions/messages/pins/memberInfo/channelInfo)۔
+

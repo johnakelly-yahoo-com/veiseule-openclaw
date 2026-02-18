@@ -73,3 +73,4 @@ openclaw models auth paste-token
 
 - `setup-token` 는 설정 토큰 값을 요청합니다 (어떤 머신에서든 `claude setup-token` 로 생성하십시오).
 - `paste-token` 는 다른 곳에서 생성되었거나 자동화에서 생성된 토큰 문자열을 허용합니다.
+

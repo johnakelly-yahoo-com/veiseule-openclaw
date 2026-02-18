@@ -795,3 +795,4 @@ Mga kaugnay na global na opsyon:
 - `messages.groupChat.mentionPatterns` (global fallback).
 - `commands.native` (default ay `"auto"` → naka-on para sa Telegram/Discord, naka-off para sa Slack), `commands.text`, `commands.useAccessGroups` (ugali ng mga command). I-override gamit ang `channels.telegram.commands.native`.
 - `messages.responsePrefix`, `messages.ackReaction`, `messages.ackReactionScope`, `messages.removeAckAfterReply`.
+

@@ -156,3 +156,4 @@ sudo loginctl enable-linger $USER
 - [Discord](/channels/discord) و [Telegram](/channels/telegram) (وسوم الرد + إعدادات replyToMode)
 - [إعداد مساعد OpenClaw](/start/openclaw)
 - [تطبيق macOS](/platforms/macos) (دورة حياة البوابة)
+

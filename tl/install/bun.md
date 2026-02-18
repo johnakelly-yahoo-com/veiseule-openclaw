@@ -53,3 +53,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## Mga caveat
 
 - **dev**: gumagalaw na head ng `main` (git). 8. Patakbuhin muna ang mga iyon gamit ang pnpm sa ngayon.
+

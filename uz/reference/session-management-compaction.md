@@ -277,3 +277,4 @@ flush logikasi hozircha Gateway tomonida joylashgan.
   - kompaktatsiya sozlamalari (`reserveTokens` model oynasiga nisbatan juda yuqori bo‘lsa, erta kompaktatsiya bo‘lishi mumkin)
   - tool-result hajmi: session pruning’ni yoqing/moslang
 - Jim turn’lar chiqib ketayaptimi? Javob aynan `NO_REPLY` bilan boshlanishini va streaming bostirish tuzatmasi mavjud build’dan foydalanayotganingizni tekshiring.
+

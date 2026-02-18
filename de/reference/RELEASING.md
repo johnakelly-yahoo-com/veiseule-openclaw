@@ -111,3 +111,4 @@ Aktuelle npm-Plugin-Liste (bei Bedarf aktualisieren):
 - @openclaw/zalouser
 
 Release Notes müssen außerdem **neue optionale gebündelte Plugins** hervorheben, die **nicht standardmäßig aktiviert** sind (Beispiel: `tlon`).
+

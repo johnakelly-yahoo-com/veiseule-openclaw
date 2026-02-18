@@ -30,3 +30,4 @@ Maikling gabay para i-verify ang connectivity ng channel nang hindi nanghuhula.
 ## Dedikadong "health" command
 
 `openclaw health --json` ay humihingi sa tumatakbong Gateway ng health snapshot nito (walang direktang channel socket mula sa CLI). Ipinapakita nito ang edad ng naka-link na creds/auth kapag available, mga per-channel probe summary, buod ng session-store, at tagal ng probe. It exits non-zero if the Gateway is unreachable or the probe fails/timeouts. Gamitin ang `--timeout <ms>` upang i-override ang default na 10s.
+

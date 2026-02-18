@@ -80,3 +80,4 @@ Pola ładunku (wszystkie opcjonalne, o ile nie zaznaczono inaczej):
 ## Wersjonowanie
 
 Bridge jest obecnie **implicit v1** (brak negocjacji min/max). Oczekiwana jest zgodność wsteczna; przed jakimikolwiek zmianami niezgodnymi wstecz należy dodać pole wersji protokołu Bridge.
+

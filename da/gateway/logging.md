@@ -107,3 +107,4 @@ Adfærd:
 - **WhatsApp-meddelelsesindhold** logges ved `debug` (brug `--verbose` for at se dem)
 
 Dette holder eksisterende fillogs stabile, mens interaktivt output bliver let at skimme.
+

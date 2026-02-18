@@ -34,3 +34,4 @@ Dateien auf dem Gateway-Host (zum Beispiel `user@gateway-host:~/.openclaw/worksp
 
 - macOS‑App‑Onboarding: [Onboarding](/start/onboarding)
 - Workspace‑Layout: [Agent-Workspace](/concepts/agent-workspace)
+

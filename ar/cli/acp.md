@@ -161,3 +161,4 @@ openclaw acp --session agent:qa:bug-123
 - `--server-args <args...>`: وسيطات إضافية تُمرَّر إلى خادم ACP.
 - `--server-verbose`: تمكين التسجيل المُفصّل على خادم ACP.
 - `--verbose, -v`: تسجيل مُفصّل للعميل.
+

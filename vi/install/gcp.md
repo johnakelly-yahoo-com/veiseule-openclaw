@@ -497,3 +497,4 @@ Xem [https://cloud.google.com/iam/docs/understanding-roles](https://cloud.google
 - Thiết lập các kênh nhắn tin: [Channels](/channels)
 - Ghép nối thiết bị cục bộ làm node: [Nodes](/nodes)
 - Cấu hình Gateway: [Gateway configuration](/gateway/configuration)
+

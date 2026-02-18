@@ -201,3 +201,4 @@ openclaw channels login
 - [Docker](/install/docker) — контейнеризованная настройка Gateway (шлюза)
 - [Sandboxing](/gateway/sandboxing) — конфигурация sandbox‑окружений агентов
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — изоляция для каждого агента
+

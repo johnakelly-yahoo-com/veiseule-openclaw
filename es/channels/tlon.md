@@ -127,3 +127,4 @@ Use estos con `openclaw message send` o con entrega por cron:
 - Las respuestas en grupos requieren una mención (p. ej., `~your-bot-ship`) para responder.
 - Respuestas en hilos: si el mensaje entrante está en un hilo, OpenClaw responde dentro del hilo.
 - Medios: `sendMedia` usa un respaldo a texto + URL (sin carga nativa).
+

@@ -73,3 +73,4 @@ Mga tala:
 
 - Gamitin ang `--kind user|group|auto` para pilitin ang target type.
 - Mas pinipili ng resolution ang mga aktibong tugma kapag maraming entry ang may parehong pangalan.
+

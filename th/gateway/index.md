@@ -330,3 +330,4 @@ sudo systemctl enable --now openclaw-gateway[-<profile>].service
 
 - เลิกใช้ `openclaw gateway` และพอร์ตควบคุม TCP เดิม
 - อัปเดตไคลเอนต์ให้พูดโปรโตคอลWSพร้อมการเชื่อมต่อที่บังคับและ presence แบบมีโครงสร้าง
+

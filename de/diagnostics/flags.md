@@ -85,3 +85,4 @@ Für entfernte Gateways können Sie außerdem `openclaw logs --follow` verwenden
 - Wenn `logging.level` höher gesetzt ist als `warn`, können diese Logs unterdrückt werden. Der Standardwert `info` ist in Ordnung.
 - Flags können bedenkenlos aktiviert bleiben; sie beeinflussen lediglich das Log-Volumen des jeweiligen Subsystems.
 - Verwenden Sie [/logging](/logging), um Log-Ziele, -Level und Maskierung zu ändern.
+

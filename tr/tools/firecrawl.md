@@ -51,3 +51,4 @@ Proxy belirtilmezse, Firecrawl varsayılan olarak `auto`’a geçer. `auto`, tem
 3. Temel HTML temizleme (son yedek)
 
 Web araçlarının tam kurulumu için [Web tools](/tools/web) bölümüne bakın.
+

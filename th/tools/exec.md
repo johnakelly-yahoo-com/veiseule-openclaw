@@ -172,3 +172,4 @@ Gateway จะปล่อยอีเวนต์ระบบ (`Exec finished` 
 - ใช้ได้เฉพาะกับโมเดล OpenAI/OpenAI Codex เท่านั้น.
 - นโยบายเครื่องมือยังคงมีผล; `allow: ["exec"]` อนุญาต `apply_patch` โดยปริยาย.
 - คอนฟิกอยู่ภายใต้ `tools.exec.applyPatch`.
+

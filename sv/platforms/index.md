@@ -47,3 +47,4 @@ Tjänstemålet beror på OS:
 
 - macOS: LaunchAgent (`bot.molt.gateway` eller `bot.molt.<profile>`; äldre `com.openclaw.*`)
 - Linux/WSL2: systemd-användartjänst (`openclaw-gateway[-<profile>].service`)
+

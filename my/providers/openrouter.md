@@ -31,3 +31,4 @@ openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPEN
 - မော်ဒယ် ရည်ညွှန်းချက်များသည် `openrouter/<provider>/<model>` ဖြစ်ပါသည်။
 - မော်ဒယ်/ပံ့ပိုးသူ ရွေးချယ်စရာများ ပိုမိုကြည့်ရှုရန် [/concepts/model-providers](/concepts/model-providers) ကို ကြည့်ပါ။
 - OpenRouter သည် အတွင်းပိုင်းတွင် သင်၏ API key ကို Bearer token အဖြစ် အသုံးပြုပါသည်။
+

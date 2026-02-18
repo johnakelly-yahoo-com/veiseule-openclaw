@@ -104,3 +104,4 @@ openclaw nodes approve <requestId>
 - `~/.openclaw/exec-approvals.json`
 - [執行核准](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>`（從 Gateway 編輯）
+

@@ -502,3 +502,4 @@ Vositalar ikki parallel kanalda ochiladi:
 2. **Vosita sxemasi**: model API’ga yuboriladigan tuzilgan funksiya ta’riflari.
 
 Bu shuni anglatadiki, agent ham “qaysi vositalar mavjud”ligini, ham “ularni qanday chaqirish”ni ko‘radi. Agar biror vosita
+

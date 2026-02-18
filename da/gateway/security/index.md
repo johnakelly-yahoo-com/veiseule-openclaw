@@ -831,3 +831,4 @@ Fundet en sårbarhed i OpenClaw? Rapporter venligst ansvarligt:
 _"Sikkerhed er en proces, ikke et produkt. Også, ikke stole hummere med shell adgang."_ - Nogen klog, sandsynligvis
 
 🦞🔐
+

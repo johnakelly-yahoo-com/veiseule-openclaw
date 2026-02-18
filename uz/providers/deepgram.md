@@ -96,3 +96,4 @@ models: [{ provider: "deepgram", model: "nova-3", language: "en" }],
 - Autentifikatsiya provayderning standart tartibiga amal qiladi; `DEEPGRAM_API_KEY` eng sodda yo‘ldir.
 - 5. Proksi ishlatilganda `tools.media.audio.baseUrl` va `tools.media.audio.headers` orqali endpointlar yoki sarlavhalarni almashtiring.
 - Chiqish boshqa provayderlardagi audio qoidalariga (hajm cheklovlari, vaqt tugashlari, transkript qo‘shilishi) muvofiq amalga oshiriladi.
+

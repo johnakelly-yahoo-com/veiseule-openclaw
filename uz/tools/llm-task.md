@@ -106,3 +106,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Ushbu ishga tushirishda modelga hech qanday asboblar ochilmaydi.
 - `schema` bilan tekshirmaguningizcha chiqishni ishonchsiz deb hisoblang.
 - Har qanday yon ta’sirli qadamdan (yuborish, joylash, bajarish) oldin tasdiqlarni qo‘ying.
+

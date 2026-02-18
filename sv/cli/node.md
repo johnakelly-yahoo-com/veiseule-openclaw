@@ -106,3 +106,4 @@ Node‑värden lagrar sitt node‑id, token, visningsnamn och gateway‑anslutni
 - `~/.openclaw/exec-approvals.json`
 - [Körningsgodkännanden](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (redigera från Gateway)
+

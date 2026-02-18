@@ -86,3 +86,4 @@ Todo lo demás debe fallar de forma contundente con: “Configuración inválida
 - Plugin sin esquema → carga del plugin bloqueada con error claro.
 - Configuración inválida → inicio del Gateway bloqueado excepto comandos de diagnóstico.
 - Doctor en dry-run automático; `doctor --fix` escribe la configuración corregida.
+
