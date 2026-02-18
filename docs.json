@@ -19,8 +19,14 @@
   "navbar": {
     "links": [
       {
-        "label": "Veiseule",
-        "href": "https://veiseule.ai"
+        "label": "GitHub",
+        "href": "https://github.com/openclaw/openclaw",
+        "icon": "github"
+      },
+      {
+        "label": "Crowdin",
+        "href": "https://crowdin.com/project/openclaw",
+        "icon": "languages"
       }
     ]
   },
@@ -10462,11 +10468,11 @@
     }
   },
   "announcement": {
-    "content": "Community translations powered by <a href=\"https://veiseule.ai\">veiseule.ai</a>"
+    "content": "Community translations powered by <a href=\"https://www.veiseule.ai\">veiseule.ai</a>"
   },
   "topbarCtaButton": {
     "name": "veiseule.ai",
-    "url": "https://veiseule.ai"
+    "url": "https://www.veiseule.ai"
   },
   "redirects": [
     {
