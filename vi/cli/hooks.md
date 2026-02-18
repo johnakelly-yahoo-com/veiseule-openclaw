@@ -4,78 +4,78 @@ title: "hooks"
 
 # `openclaw hooks`
 
-Quản lý hook tác tử (tự động hóa theo sự kiện cho các lệnh như `/new`, `/reset` và khi gateway khởi động).
+Manage agent hooks (event-driven automations for commands like `/new`, `/reset`, and gateway startup).
 
-Liên quan:
+Related:
 
-- Hook: [Hook](/automation/hooks)
-- Hook plugin: [Plugins](/tools/plugin#plugin-hooks)
+- Hooks: [Hooks](/automation/hooks)
+- Plugin hooks: [Plugins](/tools/plugin#plugin-hooks)
 
-## Liệt kê tất cả Hook
+## List All Hooks
 
 ```bash
 openclaw hooks list
 ```
 
-Liệt kê tất cả các hook được phát hiện từ các thư mục workspace, managed và bundled.
+List all discovered hooks from workspace, managed, and bundled directories.
 
-**Tùy chọn:**
+**Options:**
 
-- `--eligible`: Chỉ hiển thị các hook đủ điều kiện (đáp ứng yêu cầu)
-- `--json`: Xuất dưới dạng JSON
-- `-v, --verbose`: Hiển thị thông tin chi tiết bao gồm các yêu cầu còn thiếu
+- `--eligible`: Show only eligible hooks (requirements met)
+- `--json`: Output as JSON
+- `-v, --verbose`: Show detailed information including missing requirements
 
-**Ví dụ đầu ra:**
+**Example output:**
 
 ```
 Hooks (4/4 ready)
 
 Ready:
   🚀 boot-md ✓ - Run BOOT.md on gateway startup
+  📎 bootstrap-extra-files ✓ - Inject extra workspace bootstrap files during agent bootstrap
   📝 command-logger ✓ - Log all command events to a centralized audit file
   💾 session-memory ✓ - Save session context to memory when /new command is issued
-  😈 soul-evil ✓ - Swap injected SOUL content during a purge window or by random chance
 ```
 
-**Ví dụ (chi tiết):**
+**Example (verbose):**
 
 ```bash
 openclaw hooks list --verbose
 ```
 
-Hiển thị các yêu cầu còn thiếu đối với các hook không đủ điều kiện.
+Shows missing requirements for ineligible hooks.
 
-**Ví dụ (JSON):**
+**Example (JSON):**
 
 ```bash
 openclaw hooks list --json
 ```
 
-Trả về JSON có cấu trúc để sử dụng theo cách lập trình.
+Returns structured JSON for programmatic use.
 
-## Lấy thông tin Hook
+## Get Hook Information
 
 ```bash
 openclaw hooks info <name>
 ```
 
-Hiển thị thông tin chi tiết về một hook cụ thể.
+Show detailed information about a specific hook.
 
-**Đối số:**
+**Arguments:**
 
-- `<name>`: Tên hook (ví dụ: `session-memory`)
+- `<name>`: Hook name (e.g., `session-memory`)
 
-**Tùy chọn:**
+**Options:**
 
-- `--json`: Xuất dưới dạng JSON
+- `--json`: Output as JSON
 
-**Ví dụ:**
+**Example:**
 
 ```bash
 openclaw hooks info session-memory
 ```
 
-**Đầu ra:**
+**Output:**
 
 ```
 💾 session-memory ✓ Ready
@@ -86,26 +86,26 @@ Details:
   Source: openclaw-bundled
   Path: /path/to/openclaw/hooks/bundled/session-memory/HOOK.md
   Handler: /path/to/openclaw/hooks/bundled/session-memory/handler.ts
-  Homepage: https://docs.openclaw.ai/hooks#session-memory
+  Homepage: https://docs.openclaw.ai/automation/hooks#session-memory
   Events: command:new
 
 Requirements:
   Config: ✓ workspace.dir
 ```
 
-## Kiểm tra điều kiện Hook
+## Check Hooks Eligibility
 
 ```bash
 openclaw hooks check
 ```
 
-Hiển thị tóm tắt trạng thái đủ điều kiện của hook (bao nhiêu sẵn sàng so với chưa sẵn sàng).
+Show summary of hook eligibility status (how many are ready vs. not ready).
 
-**Tùy chọn:**
+**Options:**
 
-- `--json`: Xuất dưới dạng JSON
+- `--json`: Output as JSON
 
-**Ví dụ đầu ra:**
+**Example output:**
 
 ```
 Hooks Status
@@ -115,92 +115,95 @@ Ready: 4
 Not ready: 0
 ```
 
-## Bật một Hook
+## Enable a Hook
 
 ```bash
 openclaw hooks enable <name>
 ```
 
-Bật một hook cụ thể bằng cách thêm nó vào cấu hình của bạn (`~/.openclaw/config.json`).
+Enable a specific hook by adding it to your config (`~/.openclaw/config.json`).
 
-**Lưu ý:** Các hook do plugin quản lý sẽ hiển thị `plugin:<id>` trong `openclaw hooks list` và
-không thể bật/tắt tại đây. Thay vào đó, hãy bật/tắt plugin.
+**Note:** Hooks managed by plugins show `plugin:<id>` in `openclaw hooks list` and
+can’t be enabled/disabled here. Enable/disable the plugin instead.
 
-**Đối số:**
+**Arguments:**
 
-- `<name>`: Tên hook (ví dụ: `session-memory`)
+- `<name>`: Hook name (e.g., `session-memory`)
 
-**Ví dụ:**
+**Example:**
 
 ```bash
 openclaw hooks enable session-memory
 ```
 
-**Đầu ra:**
+**Output:**
 
 ```
 ✓ Enabled hook: 💾 session-memory
 ```
 
-**Những gì lệnh thực hiện:**
+**What it does:**
 
-- Kiểm tra xem hook có tồn tại và đủ điều kiện hay không
-- Cập nhật \`hooks.internal.entries.<name>Trang này mô tả hành vi CLI hiện tại.
-- Lưu cấu hình xuống đĩa
+- Checks if hook exists and is eligible
+- Updates `hooks.internal.entries.<name>.enabled = true` in your config
+- Saves config to disk
 
-**Sau khi bật:**
+**After enabling:**
 
-- Khởi động lại gateway để hook được tải lại (khởi động lại ứng dụng menu bar trên macOS, hoặc khởi động lại tiến trình gateway trong môi trường dev).
+- Restart the gateway so hooks reload (menu bar app restart on macOS, or restart your gateway process in dev).
 
-## Tắt một Hook
+## Disable a Hook
 
 ```bash
 openclaw hooks disable <name>
 ```
 
-Tắt một hook cụ thể bằng cách cập nhật cấu hình của bạn.
+Disable a specific hook by updating your config.
 
-**Đối số:**
+**Arguments:**
 
-- `<name>`: Tên hook (ví dụ: `command-logger`)
+- `<name>`: Hook name (e.g., `command-logger`)
 
-**Ví dụ:**
+**Example:**
 
 ```bash
 openclaw hooks disable command-logger
 ```
 
-**Đầu ra:**
+**Output:**
 
 ```
 ⏸ Disabled hook: 📝 command-logger
 ```
 
-**Sau khi tắt:**
+**After disabling:**
 
-- Khởi động lại gateway để hook được tải lại
+- Restart the gateway so hooks reload
 
-## Cài đặt Hook
+## Install Hooks
 
 ```bash
 openclaw hooks install <path-or-spec>
 ```
 
-Cài đặt một gói hook từ thư mục/tệp nén cục bộ hoặc từ npm.
+Install a hook pack from a local folder/archive or npm.
 
-**Những gì lệnh thực hiện:**
+Npm specs are **registry-only** (package name + optional version/tag). Git/URL/file
+specs are rejected. Dependency installs run with `--ignore-scripts` for safety.
 
-- Sao chép gói hook vào `~/.openclaw/hooks/<id>`
-- Bật các hook đã cài đặt trong `hooks.internal.entries.*`
-- Ghi nhận việc cài đặt dưới `hooks.internal.installs`
+**What it does:**
 
-**Tùy chọn:**
+- Copies the hook pack into `~/.openclaw/hooks/<id>`
+- Enables the installed hooks in `hooks.internal.entries.*`
+- Records the install under `hooks.internal.installs`
 
-- `-l, --link`: Liên kết một thư mục cục bộ thay vì sao chép (thêm nó vào `hooks.internal.load.extraDirs`)
+**Options:**
 
-**Các định dạng lưu trữ được hỗ trợ:** `.zip`, `.tgz`, `.tar.gz`, `.tar`
+- `-l, --link`: Link a local directory instead of copying (adds it to `hooks.internal.load.extraDirs`)
 
-**Ví dụ:**
+**Supported archives:** `.zip`, `.tgz`, `.tar.gz`, `.tar`
+
+**Examples:**
 
 ```bash
 # Local directory
@@ -216,49 +219,61 @@ openclaw hooks install @openclaw/my-hook-pack
 openclaw hooks install -l ./my-hook-pack
 ```
 
-## Cập nhật Hook
+## Update Hooks
 
 ```bash
 openclaw hooks update <id>
 openclaw hooks update --all
 ```
 
-Cập nhật các gói hook đã cài đặt (chỉ áp dụng cho cài đặt từ npm).
+Update installed hook packs (npm installs only).
 
-**Tùy chọn:**
+**Options:**
 
-- `--all`: Cập nhật tất cả các gói hook đang được theo dõi
-- `--dry-run`: Hiển thị những thay đổi sẽ xảy ra mà không ghi ra đĩa
+- `--all`: Update all tracked hook packs
+- `--dry-run`: Show what would change without writing
 
-## Hook đi kèm
+## Bundled Hooks
 
 ### session-memory
 
-Lưu ngữ cảnh phiên vào bộ nhớ khi bạn thực hiện `/new`.
+Saves session context to memory when you issue `/new`.
 
-**Bật:**
+**Enable:**
 
 ```bash
 openclaw hooks enable session-memory
 ```
 
-**Đầu ra:** `~/.openclaw/workspace/memory/YYYY-MM-DD-slug.md`
+**Output:** `~/.openclaw/workspace/memory/YYYY-MM-DD-slug.md`
 
-**Xem:** [tài liệu session-memory](/automation/hooks#session-memory)
+**See:** [session-memory documentation](/automation/hooks#session-memory)
+
+### bootstrap-extra-files
+
+Injects additional bootstrap files (for example monorepo-local `AGENTS.md` / `TOOLS.md`) during `agent:bootstrap`.
+
+**Enable:**
+
+```bash
+openclaw hooks enable bootstrap-extra-files
+```
+
+**See:** [bootstrap-extra-files documentation](/automation/hooks#bootstrap-extra-files)
 
 ### command-logger
 
-Ghi log tất cả các sự kiện lệnh vào một tệp audit tập trung.
+Logs all command events to a centralized audit file.
 
-**Bật:**
+**Enable:**
 
 ```bash
 openclaw hooks enable command-logger
 ```
 
-**Đầu ra:** `~/.openclaw/logs/commands.log`
+**Output:** `~/.openclaw/logs/commands.log`
 
-**Xem log:**
+**View logs:**
 
 ```bash
 # Recent commands
@@ -271,32 +286,20 @@ cat ~/.openclaw/logs/commands.log | jq .
 grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 ```
 
-**Xem:** [tài liệu command-logger](/automation/hooks#command-logger)
-
-### soul-evil
-
-Hoán đổi nội dung `SOUL.md` được chèn bằng `SOUL_EVIL.md` trong một khoảng purge hoặc ngẫu nhiên.
-
-**Bật:**
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**Xem:** [SOUL Evil Hook](/hooks/soul-evil)
+**See:** [command-logger documentation](/automation/hooks#command-logger)
 
 ### boot-md
 
-Chạy `BOOT.md` khi gateway khởi động (sau khi các kênh khởi động).
+Runs `BOOT.md` when the gateway starts (after channels start).
 
-**Sự kiện**: `gateway:startup`
+**Events**: `gateway:startup`
 
-**Bật**:
+**Enable**:
 
 ```bash
 openclaw hooks enable boot-md
 ```
 
-**Xem:** [tài liệu boot-md](/automation/hooks#boot-md)
+**See:** [boot-md documentation](/automation/hooks#boot-md)
 
 

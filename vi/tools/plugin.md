@@ -1,71 +1,76 @@
 ---
-title: "Plugin"
+title: "Plugins"
 ---
 
-# Plugin (Extension)
+# Plugins (Extensions)
 
-## Khởi động nhanh (mới làm quen với plugin?)
+## Quick start (new to plugins?)
 
-Plugin chỉ là một **mô-đun mã nhỏ** giúp mở rộng OpenClaw với các
-tính năng bổ sung (lệnh, công cụ và RPC của Gateway).
+A plugin is just a **small code module** that extends OpenClaw with extra
+features (commands, tools, and Gateway RPC).
 
-Phần lớn thời gian, bạn sẽ dùng plugin khi cần một tính năng chưa có
-trong OpenClaw lõi (hoặc bạn muốn giữ các tính năng tùy chọn nằm ngoài
-bản cài đặt chính).
+Most of the time, you’ll use plugins when you want a feature that’s not built
+into core OpenClaw yet (or you want to keep optional features out of your main
+install).
 
-Lộ trình nhanh:
+Fast path:
 
-1. Xem những gì đang được tải:
+1. See what’s already loaded:
 
 ```bash
 openclaw plugins list
 ```
 
-2. Cài một plugin chính thức (ví dụ: Voice Call):
+2. Install an official plugin (example: Voice Call):
 
 ```bash
 openclaw plugins install @openclaw/voice-call
 ```
 
-3. 22. Khởi động lại Gateway, sau đó cấu hình dưới `plugins.entries.<id>`..config\`.
+Npm specs are **registry-only** (package name + optional version/tag). Git/URL/file
+specs are rejected.
 
-Xem [Voice Call](/plugins/voice-call) để có một ví dụ plugin cụ thể.
+3. Restart the Gateway, then configure under `plugins.entries.<id>.config`.
 
-## Plugin khả dụng (chính thức)
+See [Voice Call](/plugins/voice-call) for a concrete example plugin.
 
-- Microsoft Teams chỉ có dưới dạng plugin kể từ 2026.1.15; cài `@openclaw/msteams` nếu bạn dùng Teams.
-- Memory (Core) — plugin tìm kiếm bộ nhớ đi kèm (bật mặc định qua `plugins.slots.memory`)
-- Memory (LanceDB) — plugin bộ nhớ dài hạn đi kèm (tự động gọi lại/ghi nhận; đặt `plugins.slots.memory = "memory-lancedb"`)
+## Available plugins (official)
+
+- Microsoft Teams is plugin-only as of 2026.1.15; install `@openclaw/msteams` if you use Teams.
+- Memory (Core) — bundled memory search plugin (enabled by default via `plugins.slots.memory`)
+- Memory (LanceDB) — bundled long-term memory plugin (auto-recall/capture; set `plugins.slots.memory = "memory-lancedb"`)
 - [Voice Call](/plugins/voice-call) — `@openclaw/voice-call`
 - [Zalo Personal](/plugins/zalouser) — `@openclaw/zalouser`
 - [Matrix](/channels/matrix) — `@openclaw/matrix`
 - [Nostr](/channels/nostr) — `@openclaw/nostr`
 - [Zalo](/channels/zalo) — `@openclaw/zalo`
 - [Microsoft Teams](/channels/msteams) — `@openclaw/msteams`
-- Google Antigravity OAuth (xác thực nhà cung cấp) — đi kèm dưới dạng `google-antigravity-auth` (tắt theo mặc định)
-- Gemini CLI OAuth (xác thực nhà cung cấp) — đi kèm dưới dạng `google-gemini-cli-auth` (tắt theo mặc định)
-- Qwen OAuth (xác thực nhà cung cấp) — đi kèm dưới dạng `qwen-portal-auth` (tắt theo mặc định)
-- Copilot Proxy (xác thực nhà cung cấp) — cầu nối Copilot Proxy cục bộ cho VS Code; khác với đăng nhập thiết bị `github-copilot` tích hợp sẵn (đi kèm, tắt theo mặc định)
+- Google Antigravity OAuth (provider auth) — bundled as `google-antigravity-auth` (disabled by default)
+- Gemini CLI OAuth (provider auth) — bundled as `google-gemini-cli-auth` (disabled by default)
+- Qwen OAuth (provider auth) — bundled as `qwen-portal-auth` (disabled by default)
+- Copilot Proxy (provider auth) — local VS Code Copilot Proxy bridge; distinct from built-in `github-copilot` device login (bundled, disabled by default)
 
-OpenClaw plugins are **TypeScript modules** loaded at runtime via jiti. 24. **Xác thực cấu hình không thực thi mã plugin**; nó sử dụng manifest plugin và JSON Schema thay vào đó. 25. Xem [Plugin manifest](/plugins/manifest).
+OpenClaw plugins are **TypeScript modules** loaded at runtime via jiti. **Config
+validation does not execute plugin code**; it uses the plugin manifest and JSON
+Schema instead. See [Plugin manifest](/plugins/manifest).
 
-Plugin có thể đăng ký:
+Plugins can register:
 
-- Phương thức RPC của Gateway
-- Trình xử lý HTTP của Gateway
-- Công cụ tác tử
-- Lệnh CLI
-- Dịch vụ nền
-- Xác thực cấu hình tùy chọn
-- **Skills** (bằng cách liệt kê các thư mục `skills` trong manifest plugin)
-- **Lệnh trả lời tự động** (thực thi mà không gọi tác tử AI)
+- Gateway RPC methods
+- Gateway HTTP handlers
+- Agent tools
+- CLI commands
+- Background services
+- Optional config validation
+- **Skills** (by listing `skills` directories in the plugin manifest)
+- **Auto-reply commands** (execute without invoking the AI agent)
 
-26. Plugin chạy **in‑process** cùng Gateway, vì vậy hãy coi chúng là mã đáng tin cậy.
-27. Hướng dẫn viết công cụ: [Plugin agent tools](/plugins/agent-tools).
+Plugins run **in‑process** with the Gateway, so treat them as trusted code.
+Tool authoring guide: [Plugin agent tools](/plugins/agent-tools).
 
-## Trợ giúp lúc chạy
+## Runtime helpers
 
-Các plugin có thể truy cập các helper lõi đã chọn thông qua `api.runtime`. Đối với TTS trong viễn thông:
+Plugins can access selected core helpers via `api.runtime`. For telephony TTS:
 
 ```ts
 const result = await api.runtime.tts.textToSpeechTelephony({
@@ -74,48 +79,48 @@ const result = await api.runtime.tts.textToSpeechTelephony({
 });
 ```
 
-Ghi chú:
+Notes:
 
-- Dùng cấu hình lõi `messages.tts` (OpenAI hoặc ElevenLabs).
-- Trả về bộ đệm âm thanh PCM + tần số lấy mẫu. Plugin phải lấy mẫu lại/mã hóa để tương thích với nhà cung cấp.
-- Edge TTS không được hỗ trợ cho thoại.
+- Uses core `messages.tts` configuration (OpenAI or ElevenLabs).
+- Returns PCM audio buffer + sample rate. Plugins must resample/encode for providers.
+- Edge TTS is not supported for telephony.
 
-## Khám phá & thứ tự ưu tiên
+## Discovery & precedence
 
-OpenClaw quét theo thứ tự:
+OpenClaw scans, in order:
 
-1. Đường dẫn cấu hình
+1. Config paths
 
-- `plugins.load.paths` (tệp hoặc thư mục)
+- `plugins.load.paths` (file or directory)
 
-2. Extension trong workspace
+2. Workspace extensions
 
 - `<workspace>/.openclaw/extensions/*.ts`
 - `<workspace>/.openclaw/extensions/*/index.ts`
 
-3. Extension toàn cục
+3. Global extensions
 
 - `~/.openclaw/extensions/*.ts`
 - `~/.openclaw/extensions/*/index.ts`
 
-4. Extension đi kèm (phát hành cùng OpenClaw, **tắt theo mặc định**)
+4. Bundled extensions (shipped with OpenClaw, **disabled by default**)
 
 - `<openclaw>/extensions/*`
 
-Các plugin đi kèm phải được bật rõ ràng thông qua `plugins.entries.<id>.enabled`
+Bundled plugins must be enabled explicitly via `plugins.entries.<id>.enabled`
 or `openclaw plugins enable <id>`. Installed plugins are enabled by default,
 but can be disabled the same way.
 
-Mỗi plugin phải bao gồm một tệp `openclaw.plugin.json` trong thư mục gốc của nó. Nếu một đường dẫn
+Each plugin must include a `openclaw.plugin.json` file in its root. If a path
 points at a file, the plugin root is the file's directory and must contain the
 manifest.
 
-Nếu nhiều plugin trùng id, bản khớp đầu tiên theo thứ tự trên sẽ thắng
-và các bản có ưu tiên thấp hơn sẽ bị bỏ qua.
+If multiple plugins resolve to the same id, the first match in the order above
+wins and lower-precedence copies are ignored.
 
-### Gói pack
+### Package packs
 
-Một thư mục plugin có thể chứa `package.json` với `openclaw.extensions`:
+A plugin directory may include a `package.json` with `openclaw.extensions`:
 
 ```json
 {
@@ -126,18 +131,22 @@ Một thư mục plugin có thể chứa `package.json` với `openclaw.extensio
 }
 ```
 
-Mỗi mục sẽ trở thành một plugin. Nếu gói liệt kê nhiều tiện ích mở rộng, id của plugin
+Each entry becomes a plugin. If the pack lists multiple extensions, the plugin id
 becomes `name/<fileBase>`.
 
-Nếu plugin của bạn nhập phụ thuộc npm, hãy cài chúng trong thư mục đó để
-`node_modules` khả dụng (`npm install` / `pnpm install`).
+If your plugin imports npm deps, install them in that directory so
+`node_modules` is available (`npm install` / `pnpm install`).
 
-### Metadata danh mục kênh
+Security note: `openclaw plugins install` installs plugin dependencies with
+`npm install --ignore-scripts` (no lifecycle scripts). Keep plugin dependency
+trees "pure JS/TS" and avoid packages that require `postinstall` builds.
+
+### Channel catalog metadata
 
 Channel plugins can advertise onboarding metadata via `openclaw.channel` and
-install hints via `openclaw.install`. 40. Điều này giúp dữ liệu danh mục lõi không chứa dữ liệu.
+install hints via `openclaw.install`. This keeps the core catalog data-free.
 
-Ví dụ:
+Example:
 
 ```json
 {
@@ -163,25 +172,28 @@ Ví dụ:
 }
 ```
 
-41. OpenClaw cũng có thể hợp nhất **các danh mục kênh bên ngoài** (ví dụ: một bản xuất registry MPM). 42. Thả một tệp JSON vào một trong các vị trí:
+OpenClaw can also merge **external channel catalogs** (for example, an MPM
+registry export). Drop a JSON file at one of:
 
 - `~/.openclaw/mpm/plugins.json`
 - `~/.openclaw/mpm/catalog.json`
 - `~/.openclaw/plugins/catalog.json`
 
-43. Hoặc trỏ `OPENCLAW_PLUGIN_CATALOG_PATHS` (hoặc `OPENCLAW_MPM_CATALOG_PATHS`) tới một hoặc nhiều tệp JSON (phân tách bằng dấu phẩy/chấm phẩy/`PATH`). 44. Mỗi tệp nên chứa `{ "entries": [ { "name": "@scope/pkg", "openclaw": { "channel": {...}, "install": {...} } } ] }`.
+Or point `OPENCLAW_PLUGIN_CATALOG_PATHS` (or `OPENCLAW_MPM_CATALOG_PATHS`) at
+one or more JSON files (comma/semicolon/`PATH`-delimited). Each file should
+contain `{ "entries": [ { "name": "@scope/pkg", "openclaw": { "channel": {...}, "install": {...} } } ] }`.
 
-## ID plugin
+## Plugin IDs
 
-ID plugin mặc định:
+Default plugin ids:
 
-- Gói pack: `package.json` `name`
-- Tệp độc lập: tên cơ sở của tệp (`~/.../voice-call.ts` → `voice-call`)
+- Package packs: `package.json` `name`
+- Standalone file: file base name (`~/.../voice-call.ts` → `voice-call`)
 
-Nếu plugin xuất `id`, OpenClaw sẽ dùng nó nhưng cảnh báo khi không khớp
-với id đã cấu hình.
+If a plugin exports `id`, OpenClaw uses it but warns when it doesn’t match the
+configured id.
 
-## Cấu hình
+## Config
 
 ```json5
 {
@@ -197,26 +209,26 @@ với id đã cấu hình.
 }
 ```
 
-Các trường:
+Fields:
 
-- `enabled`: công tắc tổng (mặc định: true)
-- `allow`: danh sách cho phép (tùy chọn)
-- `deny`: danh sách chặn (tùy chọn; chặn được ưu tiên)
-- `load.paths`: tệp/thư mục plugin bổ sung
-- 46. \`entries.<id>\`\`: per‑plugin toggles + config
+- `enabled`: master toggle (default: true)
+- `allow`: allowlist (optional)
+- `deny`: denylist (optional; deny wins)
+- `load.paths`: extra plugin files/dirs
+- `entries.<id>`: per‑plugin toggles + config
 
-Thay đổi cấu hình **yêu cầu khởi động lại gateway**.
+Config changes **require a gateway restart**.
 
-Quy tắc xác thực (nghiêm ngặt):
+Validation rules (strict):
 
-- ID plugin không xác định trong `entries`, `allow`, `deny` hoặc `slots` là **lỗi**.
+- Unknown plugin ids in `entries`, `allow`, `deny`, or `slots` are **errors**.
 - Unknown `channels.<id>` keys are **errors** unless a plugin manifest declares
   the channel id.
-- Cấu hình plugin được xác thực bằng JSON Schema nhúng trong
+- Plugin config is validated using the JSON Schema embedded in
   `openclaw.plugin.json` (`configSchema`).
-- Nếu plugin bị tắt, cấu hình của nó vẫn được giữ và phát ra **cảnh báo**.
+- If a plugin is disabled, its config is preserved and a **warning** is emitted.
 
-## Khe plugin (danh mục độc quyền)
+## Plugin slots (exclusive categories)
 
 Some plugin categories are **exclusive** (only one active at a time). Use
 `plugins.slots` to select which plugin owns the slot:
@@ -234,20 +246,20 @@ Some plugin categories are **exclusive** (only one active at a time). Use
 If multiple plugins declare `kind: "memory"`, only the selected one loads. Others
 are disabled with diagnostics.
 
-## Control UI (schema + nhãn)
+## Control UI (schema + labels)
 
-Control UI dùng `config.schema` (JSON Schema + `uiHints`) để hiển thị biểu mẫu tốt hơn.
+The Control UI uses `config.schema` (JSON Schema + `uiHints`) to render better forms.
 
-OpenClaw bổ sung `uiHints` lúc chạy dựa trên các plugin được phát hiện:
+OpenClaw augments `uiHints` at runtime based on discovered plugins:
 
 - Adds per-plugin labels for `plugins.entries.<id>` / `.enabled` / `.config`
 - Merges optional plugin-provided config field hints under:
   `plugins.entries.<id>.config.<field>`
 
-Nếu bạn muốn các trường cấu hình plugin hiển thị nhãn/placeholder tốt (và đánh dấu bí mật là nhạy cảm),
-hãy cung cấp `uiHints` cùng JSON Schema trong manifest plugin.
+If you want your plugin config fields to show good labels/placeholders (and mark secrets as sensitive),
+provide `uiHints` alongside your JSON Schema in the plugin manifest.
 
-Ví dụ:
+Example:
 
 ```json
 {
@@ -285,23 +297,23 @@ openclaw plugins disable <id>
 openclaw plugins doctor
 ```
 
-`plugins update` chỉ hoạt động với các cài đặt npm được theo dõi dưới `plugins.installs`.
+`plugins update` only works for npm installs tracked under `plugins.installs`.
 
-Plugin cũng có thể đăng ký các lệnh cấp cao riêng (ví dụ: `openclaw voicecall`).
+Plugins may also register their own top‑level commands (example: `openclaw voicecall`).
 
-## API plugin (tổng quan)
+## Plugin API (overview)
 
-Plugin xuất một trong hai:
+Plugins export either:
 
 - A function: `(api) => { ... }`
 - An object: `{ id, name, configSchema, register(api) { ... } }`
 
-## Hook plugin
+## Plugin hooks
 
 Plugins can ship hooks and register them at runtime. This lets a plugin bundle
 event-driven automation without a separate hook pack install.
 
-### Ví dụ
+### Example
 
 ```
 import { registerPluginHooksFromDir } from "openclaw/plugin-sdk";
@@ -311,24 +323,24 @@ export default function register(api) {
 }
 ```
 
-Ghi chú:
+Notes:
 
-- Thư mục hook tuân theo cấu trúc hook thông thường (`HOOK.md` + `handler.ts`).
-- Quy tắc đủ điều kiện của hook vẫn áp dụng (OS/bins/env/yêu cầu cấu hình).
-- Hook do plugin quản lý xuất hiện trong `openclaw hooks list` với `plugin:<id>`.
-- Bạn không thể bật/tắt hook do plugin quản lý qua `openclaw hooks`; hãy bật/tắt plugin thay thế.
+- Hook directories follow the normal hook structure (`HOOK.md` + `handler.ts`).
+- Hook eligibility rules still apply (OS/bins/env/config requirements).
+- Plugin-managed hooks show up in `openclaw hooks list` with `plugin:<id>`.
+- You cannot enable/disable plugin-managed hooks via `openclaw hooks`; enable/disable the plugin instead.
 
-## Plugin nhà cung cấp (xác thực mô hình)
+## Provider plugins (model auth)
 
-Plugin có thể đăng ký luồng **xác thực nhà cung cấp mô hình** để người dùng chạy OAuth hoặc
-thiết lập khóa API ngay trong OpenClaw (không cần script bên ngoài).
+Plugins can register **model provider auth** flows so users can run OAuth or
+API-key setup inside OpenClaw (no external scripts needed).
 
 Register a provider via `api.registerProvider(...)`. Each provider exposes one
 or more auth methods (OAuth, API key, device code, etc.). These methods power:
 
 - `openclaw models auth login --provider <id> [--method <id>]`
 
-Ví dụ:
+Example:
 
 ```ts
 api.registerProvider({
@@ -362,14 +374,14 @@ api.registerProvider({
 });
 ```
 
-Ghi chú:
+Notes:
 
-- `run` nhận một `ProviderAuthContext` với các helper `prompter`, `runtime`,
-  `openUrl` và `oauth.createVpsAwareHandlers`.
-- Trả về `configPatch` khi bạn cần thêm mô hình mặc định hoặc cấu hình nhà cung cấp.
-- Trả về `defaultModel` để `--set-default` có thể cập nhật mặc định tác tử.
+- `run` receives a `ProviderAuthContext` with `prompter`, `runtime`,
+  `openUrl`, and `oauth.createVpsAwareHandlers` helpers.
+- Return `configPatch` when you need to add default models or provider config.
+- Return `defaultModel` so `--set-default` can update agent defaults.
 
-### Đăng ký kênh nhắn tin
+### Register a messaging channel
 
 Plugins can register **channel plugins** that behave like built‑in channels
 (WhatsApp, Telegram, etc.). Channel config lives under `channels.<id>` and is
@@ -405,48 +417,48 @@ export default function (api) {
 }
 ```
 
-Ghi chú:
+Notes:
 
 - Put config under `channels.<id>` (not `plugins.entries`).
-- `meta.label` được dùng làm nhãn trong danh sách CLI/UI.
-- `meta.aliases` thêm các id thay thế cho chuẩn hóa và đầu vào CLI.
-- `meta.preferOver` liệt kê các id kênh để bỏ qua tự động bật khi cả hai được cấu hình.
-- `meta.detailLabel` và `meta.systemImage` cho phép UI hiển thị nhãn/biểu tượng kênh phong phú hơn.
+- `meta.label` is used for labels in CLI/UI lists.
+- `meta.aliases` adds alternate ids for normalization and CLI inputs.
+- `meta.preferOver` lists channel ids to skip auto-enable when both are configured.
+- `meta.detailLabel` and `meta.systemImage` let UIs show richer channel labels/icons.
 
-### Viết kênh nhắn tin mới (từng bước)
+### Write a new messaging channel (step‑by‑step)
 
-Use this when you want a **new chat surface** (a “messaging channel”), not a model provider.
+Use this when you want a **new chat surface** (a "messaging channel"), not a model provider.
 Model provider docs live under `/providers/*`.
 
-1. Chọn id + hình dạng cấu hình
+1. Pick an id + config shape
 
 - All channel config lives under `channels.<id>`.
 - Prefer `channels.<id>.accounts.<accountId>` for multi‑account setups.
 
-2. Định nghĩa metadata kênh
+2. Define the channel metadata
 
-- `meta.label`, `meta.selectionLabel`, `meta.docsPath`, `meta.blurb` điều khiển danh sách CLI/UI.
-- `meta.docsPath` nên trỏ tới trang tài liệu như `/channels/<id>`.
-- `meta.preferOver` cho phép plugin thay thế một kênh khác (tự động bật sẽ ưu tiên nó).
-- `meta.detailLabel` và `meta.systemImage` được UI dùng cho văn bản/biểu tượng chi tiết.
+- `meta.label`, `meta.selectionLabel`, `meta.docsPath`, `meta.blurb` control CLI/UI lists.
+- `meta.docsPath` should point at a docs page like `/channels/<id>`.
+- `meta.preferOver` lets a plugin replace another channel (auto-enable prefers it).
+- `meta.detailLabel` and `meta.systemImage` are used by UIs for detail text/icons.
 
-3. Triển khai các adapter bắt buộc
+3. Implement the required adapters
 
 - `config.listAccountIds` + `config.resolveAccount`
-- `capabilities` (kiểu chat, media, luồng, v.v.)
-- `outbound.deliveryMode` + `outbound.sendText` (cho gửi cơ bản)
+- `capabilities` (chat types, media, threads, etc.)
+- `outbound.deliveryMode` + `outbound.sendText` (for basic send)
 
-4. Thêm adapter tùy chọn khi cần
+4. Add optional adapters as needed
 
-- `setup` (wizard), `security` (chính sách DM), `status` (tình trạng/chẩn đoán)
+- `setup` (wizard), `security` (DM policy), `status` (health/diagnostics)
 - `gateway` (start/stop/login), `mentions`, `threading`, `streaming`
-- `actions` (hành động tin nhắn), `commands` (hành vi lệnh gốc)
+- `actions` (message actions), `commands` (native command behavior)
 
-5. Đăng ký kênh trong plugin của bạn
+5. Register the channel in your plugin
 
 - `api.registerChannel({ plugin })`
 
-Ví dụ cấu hình tối thiểu:
+Minimal config example:
 
 ```json5
 {
@@ -460,7 +472,7 @@ Ví dụ cấu hình tối thiểu:
 }
 ```
 
-Plugin kênh tối thiểu (chỉ outbound):
+Minimal channel plugin (outbound‑only):
 
 ```ts
 const plugin = {
@@ -498,11 +510,11 @@ export default function (api) {
 Load the plugin (extensions dir or `plugins.load.paths`), restart the gateway,
 then configure `channels.<id>` in your config.
 
-### Công cụ tác tử
+### Agent tools
 
-Xem hướng dẫn riêng: [Plugin agent tools](/plugins/agent-tools).
+See the dedicated guide: [Plugin agent tools](/plugins/agent-tools).
 
-### Đăng ký phương thức RPC của gateway
+### Register a gateway RPC method
 
 ```ts
 export default function (api) {
@@ -512,7 +524,7 @@ export default function (api) {
 }
 ```
 
-### Đăng ký lệnh CLI
+### Register CLI commands
 
 ```ts
 export default function (api) {
@@ -527,7 +539,7 @@ export default function (api) {
 }
 ```
 
-### Đăng ký lệnh trả lời tự động
+### Register auto-reply commands
 
 Plugins can register custom slash commands that execute **without invoking the
 AI agent**. This is useful for toggle commands, status checks, or quick actions
@@ -545,24 +557,24 @@ export default function (api) {
 }
 ```
 
-Ngữ cảnh xử lý lệnh:
+Command handler context:
 
-- `senderId`: ID người gửi (nếu có)
-- `channel`: Kênh nơi lệnh được gửi
-- `isAuthorizedSender`: Người gửi có được ủy quyền hay không
-- `args`: Đối số truyền sau lệnh (nếu `acceptsArgs: true`)
-- `commandBody`: Toàn bộ văn bản lệnh
-- `config`: Cấu hình OpenClaw hiện tại
+- `senderId`: The sender's ID (if available)
+- `channel`: The channel where the command was sent
+- `isAuthorizedSender`: Whether the sender is an authorized user
+- `args`: Arguments passed after the command (if `acceptsArgs: true`)
+- `commandBody`: The full command text
+- `config`: The current OpenClaw config
 
-Tùy chọn lệnh:
+Command options:
 
-- `name`: Tên lệnh (không có ký tự `/` ở đầu)
-- `description`: Văn bản trợ giúp hiển thị trong danh sách lệnh
-- `acceptsArgs`: Whether the command accepts arguments (default: false). 48. Nếu là false và có tham số được cung cấp, lệnh sẽ không khớp và thông điệp sẽ rơi xuống các handler khác
-- `requireAuth`: Có yêu cầu người gửi được ủy quyền hay không (mặc định: true)
-- `handler`: Hàm trả về `{ text: string }` (có thể async)
+- `name`: Command name (without the leading `/`)
+- `description`: Help text shown in command lists
+- `acceptsArgs`: Whether the command accepts arguments (default: false). If false and arguments are provided, the command won't match and the message falls through to other handlers
+- `requireAuth`: Whether to require authorized sender (default: true)
+- `handler`: Function that returns `{ text: string }` (can be async)
 
-Ví dụ có ủy quyền và đối số:
+Example with authorization and arguments:
 
 ```ts
 api.registerCommand({
@@ -578,16 +590,16 @@ api.registerCommand({
 });
 ```
 
-Ghi chú:
+Notes:
 
-- Lệnh plugin được xử lý **trước** lệnh tích hợp sẵn và tác tử AI
-- Lệnh được đăng ký toàn cục và hoạt động trên mọi kênh
-- Tên lệnh không phân biệt hoa/thường (`/MyStatus` khớp `/mystatus`)
-- Tên lệnh phải bắt đầu bằng chữ cái và chỉ chứa chữ cái, số, dấu gạch nối và gạch dưới
-- 49. Tên lệnh được dành riêng (như `help`, `status`, `reset`, v.v.) cannot be overridden by plugins
-- Đăng ký trùng lệnh giữa các plugin sẽ thất bại với lỗi chẩn đoán
+- Plugin commands are processed **before** built-in commands and the AI agent
+- Commands are registered globally and work across all channels
+- Command names are case-insensitive (`/MyStatus` matches `/mystatus`)
+- Command names must start with a letter and contain only letters, numbers, hyphens, and underscores
+- Reserved command names (like `help`, `status`, `reset`, etc.) cannot be overridden by plugins
+- Duplicate command registration across plugins will fail with a diagnostic error
 
-### Đăng ký dịch vụ nền
+### Register background services
 
 ```ts
 export default function (api) {
@@ -599,11 +611,11 @@ export default function (api) {
 }
 ```
 
-## Quy ước đặt tên
+## Naming conventions
 
-- Phương thức Gateway: `pluginId.action` (ví dụ: `voicecall.status`)
-- Công cụ: `snake_case` (ví dụ: `voice_call`)
-- Lệnh CLI: kebab hoặc camel, nhưng tránh trùng với lệnh lõi
+- Gateway methods: `pluginId.action` (example: `voicecall.status`)
+- Tools: `snake_case` (example: `voice_call`)
+- CLI commands: kebab or camel, but avoid clashing with core commands
 
 ## Skills
 
@@ -611,47 +623,47 @@ Plugins can ship a skill in the repo (`skills/<name>/SKILL.md`).
 Enable it with `plugins.entries.<id>.enabled` (or other config gates) and ensure
 it’s present in your workspace/managed skills locations.
 
-## Phân phối (npm)
+## Distribution (npm)
 
-Đóng gói khuyến nghị:
+Recommended packaging:
 
-- Gói chính: `openclaw` (repo này)
-- Plugin: các gói npm riêng dưới `@openclaw/*` (ví dụ: `@openclaw/voice-call`)
+- Main package: `openclaw` (this repo)
+- Plugins: separate npm packages under `@openclaw/*` (example: `@openclaw/voice-call`)
 
-Hợp đồng phát hành:
+Publishing contract:
 
-- `package.json` của plugin phải bao gồm `openclaw.extensions` với một hoặc nhiều tệp entry.
-- Tệp entry có thể là `.js` hoặc `.ts` (jiti tải TS lúc chạy).
-- `openclaw plugins install <npm-spec>` dùng `npm pack`, giải nén vào `~/.openclaw/extensions/<id>/`, và bật trong cấu hình.
-- Tính ổn định khóa cấu hình: các gói có scope được chuẩn hóa về id **không scope** cho `plugins.entries.*`.
+- Plugin `package.json` must include `openclaw.extensions` with one or more entry files.
+- Entry files can be `.js` or `.ts` (jiti loads TS at runtime).
+- `openclaw plugins install <npm-spec>` uses `npm pack`, extracts into `~/.openclaw/extensions/<id>/`, and enables it in config.
+- Config key stability: scoped packages are normalized to the **unscoped** id for `plugins.entries.*`.
 
-## Plugin ví dụ: Voice Call
+## Example plugin: Voice Call
 
-Repo này bao gồm plugin gọi thoại (Twilio hoặc fallback ghi log):
+This repo includes a voice‑call plugin (Twilio or log fallback):
 
-- Mã nguồn: `extensions/voice-call`
+- Source: `extensions/voice-call`
 - Skill: `skills/voice-call`
 - CLI: `openclaw voicecall start|status`
-- Công cụ: `voice_call`
+- Tool: `voice_call`
 - RPC: `voicecall.start`, `voicecall.status`
-- Cấu hình (twilio): `provider: "twilio"` + `twilio.accountSid/authToken/from` (tùy chọn `statusCallbackUrl`, `twimlUrl`)
-- Cấu hình (dev): `provider: "log"` (không mạng)
+- Config (twilio): `provider: "twilio"` + `twilio.accountSid/authToken/from` (optional `statusCallbackUrl`, `twimlUrl`)
+- Config (dev): `provider: "log"` (no network)
 
-Xem [Voice Call](/plugins/voice-call) và `extensions/voice-call/README.md` để thiết lập và sử dụng.
+See [Voice Call](/plugins/voice-call) and `extensions/voice-call/README.md` for setup and usage.
 
-## Ghi chú an toàn
+## Safety notes
 
-3. Plugin chạy trong cùng tiến trình với Gateway. 4. Hãy coi chúng là mã đáng tin cậy:
+Plugins run in-process with the Gateway. Treat them as trusted code:
 
-- Chỉ cài plugin bạn tin tưởng.
-- Ưu tiên danh sách cho phép `plugins.allow`.
-- Khởi động lại Gateway sau khi thay đổi.
+- Only install plugins you trust.
+- Prefer `plugins.allow` allowlists.
+- Restart the Gateway after changes.
 
-## Kiểm thử plugin
+## Testing plugins
 
-Plugin có thể (và nên) đi kèm kiểm thử:
+Plugins can (and should) ship tests:
 
-- Plugin trong repo có thể đặt kiểm thử Vitest dưới `src/**` (ví dụ: `src/plugins/voice-call.plugin.test.ts`).
-- Plugin phát hành riêng nên chạy CI riêng (lint/build/test) và xác thực `openclaw.extensions` trỏ tới entrypoint đã build (`dist/index.js`).
+- In-repo plugins can keep Vitest tests under `src/**` (example: `src/plugins/voice-call.plugin.test.ts`).
+- Separately published plugins should run their own CI (lint/build/test) and validate `openclaw.extensions` points at the built entrypoint (`dist/index.js`).
 
 

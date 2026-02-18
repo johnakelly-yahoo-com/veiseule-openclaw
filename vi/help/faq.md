@@ -4,291 +4,292 @@ title: "FAQ"
 
 # FAQ
 
-Câu trả lời nhanh kèm hướng dẫn khắc phục sự cố chuyên sâu cho các thiết lập thực tế (local dev, VPS, multi-agent, OAuth/API keys, model failover). Để chẩn đoán khi chạy, xem [Troubleshooting](/gateway/troubleshooting). Để xem tài liệu cấu hình đầy đủ, xem [Configuration](/gateway/configuration).
+Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS, multi-agent, OAuth/API keys, model failover). For runtime diagnostics, see [Troubleshooting](/gateway/troubleshooting). For the full config reference, see [Configuration](/gateway/configuration).
 
-## Mục lục
+## Table of contents
 
-- [Khởi động nhanh và thiết lập lần đầu]
-  - [Tôi bị kẹt, cách nhanh nhất để thoát là gì?](#im-stuck-whats-the-fastest-way-to-get-unstuck)
-  - [Cách cài đặt và thiết lập OpenClaw được khuyến nghị là gì?](#whats-the-recommended-way-to-install-and-set-up-openclaw)
-  - [Làm sao mở dashboard sau khi onboarding?](#how-do-i-open-the-dashboard-after-onboarding)
-  - [Xác thực dashboard (token) trên localhost so với remote thế nào?](#how-do-i-authenticate-the-dashboard-token-on-localhost-vs-remote)
-  - [Cần runtime gì?](#what-runtime-do-i-need)
-  - [Có chạy trên Raspberry Pi không?](#does-it-run-on-raspberry-pi)
-  - [Mẹo nào cho cài đặt Raspberry Pi?](#any-tips-for-raspberry-pi-installs)
-  - 45. [Nó bị kẹt ở "wake up my friend" / onboarding không khởi tạo được. What now?](#it-is-stuck-on-wake-up-my-friend-onboarding-will-not-hatch-what-now)
-  - [Có thể chuyển setup sang máy mới (Mac mini) mà không làm lại onboarding không?](#can-i-migrate-my-setup-to-a-new-machine-mac-mini-without-redoing-onboarding)
-  - [Xem điểm mới trong phiên bản mới nhất ở đâu?](#where-do-i-see-what-is-new-in-the-latest-version)
-  - [I can't access docs.openclaw.ai (SSL error). 46. Giờ phải làm gì?](#i-cant-access-docsopenclawai-ssl-error-what-now)
-  - [Khác nhau giữa stable và beta là gì?](#whats-the-difference-between-stable-and-beta)
-  - [Cài bản beta thế nào, và beta khác dev ra sao?](#how-do-i-install-the-beta-version-and-whats-the-difference-between-beta-and-dev)
-  - [Làm sao thử các bản mới nhất?](#how-do-i-try-the-latest-bits)
-  - [Cài đặt và onboarding thường mất bao lâu?](#how-long-does-install-and-onboarding-usually-take)
-  - [Trình cài đặt bị treo? Làm sao để xem thêm thông tin phản hồi?](#installer-stuck-how-do-i-get-more-feedback)
-  - [Windows báo git không tìm thấy hoặc openclaw không nhận diện](#windows-install-says-git-not-found-or-openclaw-not-recognized)
-  - [Docs không trả lời được câu hỏi của tôi — làm sao có câu trả lời tốt hơn?](#the-docs-didnt-answer-my-question-how-do-i-get-a-better-answer)
-  - [Cài OpenClaw trên Linux thế nào?](#how-do-i-install-openclaw-on-linux)
-  - [Cài OpenClaw trên VPS thế nào?](#how-do-i-install-openclaw-on-a-vps)
-  - [Hướng dẫn cài cloud/VPS ở đâu?](#where-are-the-cloudvps-install-guides)
-  - [Có thể yêu cầu OpenClaw tự cập nhật không?](#can-i-ask-openclaw-to-update-itself)
-  - [Trình hướng dẫn onboarding thực sự làm gì?](#what-does-the-onboarding-wizard-actually-do)
-  - [Có cần gói Claude hay OpenAI để chạy không?](#do-i-need-a-claude-or-openai-subscription-to-run-this)
-  - [Dùng gói Claude Max không cần API key được không](#can-i-use-claude-max-subscription-without-an-api-key)
-  - [Xác thực Anthropic “setup-token” hoạt động ra sao?](#how-does-anthropic-setuptoken-auth-work)
-  - [Tìm Anthropic setup-token ở đâu?](#where-do-i-find-an-anthropic-setuptoken)
-  - [Có hỗ trợ xác thực thuê bao Claude (Pro hoặc Max) không?](#do-you-support-claude-subscription-auth-claude-pro-or-max)
-  - [Vì sao tôi thấy `HTTP 429: rate_limit_error` từ Anthropic?](#why-am-i-seeing-http-429-ratelimiterror-from-anthropic)
-  - [Có hỗ trợ AWS Bedrock không?](#is-aws-bedrock-supported)
-  - [Xác thực Codex hoạt động thế nào?](#how-does-codex-auth-work)
-  - [Có hỗ trợ xác thực thuê bao OpenAI (Codex OAuth) không?](#do-you-support-openai-subscription-auth-codex-oauth)
-  - [Thiết lập Gemini CLI OAuth thế nào](#how-do-i-set-up-gemini-cli-oauth)
-  - [Mô hình cục bộ có ổn cho chat thông thường không?](#is-a-local-model-ok-for-casual-chats)
-  - [Giữ lưu lượng mô hình hosted trong một vùng cụ thể thế nào?](#how-do-i-keep-hosted-model-traffic-in-a-specific-region)
-  - [Có phải mua Mac Mini để cài không?](#do-i-have-to-buy-a-mac-mini-to-install-this)
-  - [Có cần Mac mini để hỗ trợ iMessage không?](#do-i-need-a-mac-mini-for-imessage-support)
-  - [Nếu mua Mac mini chạy OpenClaw, có kết nối với MacBook Pro được không?](#if-i-buy-a-mac-mini-to-run-openclaw-can-i-connect-it-to-my-macbook-pro)
-  - [Dùng Bun được không?](#can-i-use-bun)
-  - [Telegram: `allowFrom` điền gì?](#telegram-what-goes-in-allowfrom)
-  - [Nhiều người có thể dùng chung một số WhatsApp với các instance OpenClaw khác nhau không?](#can-multiple-people-use-one-whatsapp-number-with-different-openclaw-instances)
-  - [Chạy một tác tử “chat nhanh” và một tác tử “Opus cho coding” được không?](#can-i-run-a-fast-chat-agent-and-an-opus-for-coding-agent)
-  - [Homebrew có chạy trên Linux không?](#does-homebrew-work-on-linux)
-  - [Khác nhau giữa cài hackable (git) và npm là gì?](#whats-the-difference-between-the-hackable-git-install-and-npm-install)
-  - [Có thể chuyển qua lại giữa cài npm và git sau này không?](#can-i-switch-between-npm-and-git-installs-later)
-  - [Nên chạy Gateway trên laptop hay VPS?](#should-i-run-the-gateway-on-my-laptop-or-a-vps)
-  - [Quan trọng thế nào khi chạy OpenClaw trên máy chuyên dụng?](#how-important-is-it-to-run-openclaw-on-a-dedicated-machine)
-  - [Yêu cầu VPS tối thiểu và OS khuyến nghị là gì?](#what-are-the-minimum-vps-requirements-and-recommended-os)
-  - [Có thể chạy OpenClaw trong VM không và yêu cầu ra sao](#can-i-run-openclaw-in-a-vm-and-what-are-the-requirements)
-- [OpenClaw là gì?](#what-is-openclaw)
-  - [OpenClaw là gì, gói gọn trong một đoạn?](#what-is-openclaw-in-one-paragraph)
-  - [Giá trị cốt lõi là gì?](#whats-the-value-proposition)
-  - [Tôi vừa cài xong, nên làm gì trước?](#i-just-set-it-up-what-should-i-do-first)
-  - [Năm trường hợp dùng hằng ngày hàng đầu cho OpenClaw là gì](#what-are-the-top-five-everyday-use-cases-for-openclaw)
-  - [OpenClaw có giúp lead gen, quảng cáo và blog cho SaaS không](#can-openclaw-help-with-lead-gen-outreach-ads-and-blogs-for-a-saas)
-  - [Ưu điểm so với Claude Code cho phát triển web là gì?](#what-are-the-advantages-vs-claude-code-for-web-development)
-- [Skills và tự động hóa](#skills-and-automation)
-  - [Tùy biến skills mà không làm bẩn repo thế nào?](#how-do-i-customize-skills-without-keeping-the-repo-dirty)
-  - [Có thể tải skills từ thư mục tùy chỉnh không?](#can-i-load-skills-from-a-custom-folder)
-  - [Dùng mô hình khác nhau cho các tác vụ khác nhau thế nào?](#how-can-i-use-different-models-for-different-tasks)
-  - 47. [Bot bị treo khi đang thực hiện công việc nặng. How do I offload that?](#the-bot-freezes-while-doing-heavy-work-how-do-i-offload-that)
-  - [Cron hoặc lời nhắc không chạy. Tôi nên kiểm tra điều gì?](#cron-or-reminders-do-not-fire-what-should-i-check)
-  - [Cài skills trên Linux thế nào?](#how-do-i-install-skills-on-linux)
-  - [OpenClaw có chạy tác vụ theo lịch hoặc liên tục nền không?](#can-openclaw-run-tasks-on-a-schedule-or-continuously-in-the-background)
-  - [Chạy skills chỉ dành cho macOS từ Linux được không?](#can-i-run-apple-macos-only-skills-from-linux)
-  - [Có tích hợp Notion hoặc HeyGen không?](#do-you-have-a-notion-or-heygen-integration)
-  - [Cài Chrome extension để takeover trình duyệt thế nào?](#how-do-i-install-the-chrome-extension-for-browser-takeover)
-- [Sandboxing và bộ nhớ](#sandboxing-and-memory)
-  - [Có tài liệu riêng về sandboxing không?](#is-there-a-dedicated-sandboxing-doc)
-  - [Gắn thư mục host vào sandbox thế nào?](#how-do-i-bind-a-host-folder-into-the-sandbox)
-  - [Bộ nhớ hoạt động ra sao?](#how-does-memory-work)
-  - 48. [Bộ nhớ cứ quên mọi thứ. How do I make it stick?](#memory-keeps-forgetting-things-how-do-i-make-it-stick)
-  - 49. [Bộ nhớ có tồn tại vĩnh viễn không? What are the limits?](#does-memory-persist-forever-what-are-the-limits)
-  - [Tìm kiếm bộ nhớ ngữ nghĩa có cần API key OpenAI không?](#does-semantic-memory-search-require-an-openai-api-key)
-- [Vị trí dữ liệu trên đĩa](#where-things-live-on-disk)
-  - [Mọi dữ liệu dùng với OpenClaw đều lưu cục bộ không?](#is-all-data-used-with-openclaw-saved-locally)
-  - [OpenClaw lưu dữ liệu ở đâu?](#where-does-openclaw-store-its-data)
-  - [AGENTS.md / SOUL.md / USER.md / MEMORY.md nên nằm ở đâu?](#where-should-agentsmd-soulmd-usermd-memorymd-live)
-  - [Chiến lược sao lưu khuyến nghị là gì?](#whats-the-recommended-backup-strategy)
-  - [Gỡ cài đặt OpenClaw hoàn toàn thế nào?](#how-do-i-completely-uninstall-openclaw)
-  - [Tác tử có thể làm việc ngoài workspace không?](#can-agents-work-outside-the-workspace)
-  - [Tôi ở chế độ remote — kho phiên nằm ở đâu?](#im-in-remote-mode-where-is-the-session-store)
-- [Cơ bản về cấu hình](#config-basics)
-  - [Cấu hình có định dạng gì? Nó nằm ở đâu?](#what-format-is-the-config-where-is-it)
-  - [Tôi đặt `gateway.bind: "lan"` (hoặc `"tailnet"`) và giờ không có gì lắng nghe / UI báo unauthorized](#i-set-gatewaybind-lan-or-tailnet-and-now-nothing-listens-the-ui-says-unauthorized)
-  - [Vì sao giờ localhost cũng cần token?](#why-do-i-need-a-token-on-localhost-now)
-  - [Có cần khởi động lại sau khi đổi cấu hình không?](#do-i-have-to-restart-after-changing-config)
-  - [Bật web search (và web fetch) thế nào?](#how-do-i-enable-web-search-and-web-fetch)
-  - 50. [config.apply đã xóa cấu hình của tôi. How do I recover and avoid this?](#configapply-wiped-my-config-how-do-i-recover-and-avoid-this)
-  - [Chạy một Gateway trung tâm với các worker chuyên biệt trên nhiều thiết bị thế nào?](#how-do-i-run-a-central-gateway-with-specialized-workers-across-devices)
-  - [Trình duyệt OpenClaw chạy headless được không?](#can-the-openclaw-browser-run-headless)
-  - [Dùng Brave để điều khiển trình duyệt thế nào?](#how-do-i-use-brave-for-browser-control)
-- [Gateway và node từ xa](#remote-gateways-and-nodes)
-  - [Lệnh đi qua Telegram, gateway và node thế nào?](#how-do-commands-propagate-between-telegram-the-gateway-and-nodes)
-  - [Tác tử truy cập máy tôi thế nào nếu Gateway host ở xa?](#how-can-my-agent-access-my-computer-if-the-gateway-is-hosted-remotely)
-  - Tailscale đã kết nối nhưng tôi không nhận được phản hồi. What now?](#tailscale-is-connected-but-i-get-no-replies-what-now)
-  - [Hai instance OpenClaw có nói chuyện với nhau không (local + VPS)?](#can-two-openclaw-instances-talk-to-each-other-local-vps)
-  - [Có cần VPS riêng cho nhiều tác tử không](#do-i-need-separate-vpses-for-multiple-agents)
-  - [Dùng node trên laptop cá nhân có lợi hơn SSH từ VPS không?](#is-there-a-benefit-to-using-a-node-on-my-personal-laptop-instead-of-ssh-from-a-vps)
-  - [Node có chạy dịch vụ gateway không?](#do-nodes-run-a-gateway-service)
-  - [Có API / RPC để áp dụng cấu hình không?](#is-there-an-api-rpc-way-to-apply-config)
-  - [Cấu hình “tối thiểu hợp lý” cho cài lần đầu là gì?](#whats-a-minimal-sane-config-for-a-first-install)
-  - [Thiết lập Tailscale trên VPS và kết nối từ Mac thế nào?](#how-do-i-set-up-tailscale-on-a-vps-and-connect-from-my-mac)
-  - [Kết nối node Mac tới Gateway remote (Tailscale Serve) thế nào?](#how-do-i-connect-a-mac-node-to-a-remote-gateway-tailscale-serve)
-  - [Nên cài trên laptop thứ hai hay chỉ thêm node?](#should-i-install-on-a-second-laptop-or-just-add-a-node)
-- [Biến môi trường và tải .env](#env-vars-and-env-loading)
-  - [OpenClaw tải biến môi trường thế nào?](#how-does-openclaw-load-environment-variables)
-  - ["Tôi khởi động Gateway qua dịch vụ và các biến env của tôi đã biến mất." What now?](#i-started-the-gateway-via-the-service-and-my-env-vars-disappeared-what-now)
-  - [Tôi đã đặt `COPILOT_GITHUB_TOKEN`, nhưng trạng thái models hiển thị "Shell env: off." Why?](#i-set-copilotgithubtoken-but-models-status-shows-shell-env-off-why)
-- [Phiên và nhiều cuộc chat](#sessions-and-multiple-chats)
-  - [Bắt đầu cuộc trò chuyện mới thế nào?](#how-do-i-start-a-fresh-conversation)
-  - [Phiên có tự reset nếu tôi không gửi `/new` không?](#do-sessions-reset-automatically-if-i-never-send-new)
-  - [Có cách nào tạo đội OpenClaw một CEO và nhiều agent không](#is-there-a-way-to-make-a-team-of-openclaw-instances-one-ceo-and-many-agents)
-  - [Vì sao ngữ cảnh bị cắt giữa chừng khi đang làm tác vụ? Làm thế nào để ngăn chặn điều đó?](#why-did-context-get-truncated-midtask-how-do-i-prevent-it)
-  - [Reset hoàn toàn OpenClaw nhưng vẫn giữ cài đặt thế nào?](#how-do-i-completely-reset-openclaw-but-keep-it-installed)
-  - [Lỗi "context too large" — reset hoặc nén thế nào?](#im-getting-context-too-large-errors-how-do-i-reset-or-compact)
-  - [Vì sao tôi thấy "LLM request rejected: messages.N.content.X.tool_use.input: Field required"?](#why-am-i-seeing-llm-request-rejected-messagesncontentxtooluseinput-field-required)
-  - [Vì sao tôi nhận heartbeat mỗi 30 phút?](#why-am-i-getting-heartbeat-messages-every-30-minutes)
-  - [Có cần thêm "tài khoản bot" vào nhóm WhatsApp không?](#do-i-need-to-add-a-bot-account-to-a-whatsapp-group)
-  - [Lấy JID của nhóm WhatsApp thế nào?](#how-do-i-get-the-jid-of-a-whatsapp-group)
-  - [Vì sao OpenClaw không trả lời trong nhóm?](#why-doesnt-openclaw-reply-in-a-group)
-  - [Nhóm/thread có chia sẻ ngữ cảnh với DM không?](#do-groupsthreads-share-context-with-dms)
-  - [Tạo được bao nhiêu workspace và agent?](#how-many-workspaces-and-agents-can-i-create)
-  - [Chạy nhiều bot hoặc chat cùng lúc (Slack) được không, và nên thiết lập thế nào?](#can-i-run-multiple-bots-or-chats-at-the-same-time-slack-and-how-should-i-set-that-up)
-- [Mô hình: mặc định, chọn, alias, chuyển đổi](#models-defaults-selection-aliases-switching)
-  - [“Mô hình mặc định” là gì?](#what-is-the-default-model)
-  - [Khuyến nghị mô hình nào?](#what-model-do-you-recommend)
-  - [Chuyển mô hình mà không xóa cấu hình thế nào?](#how-do-i-switch-models-without-wiping-my-config)
-  - [Dùng mô hình tự host (llama.cpp, vLLM, Ollama) được không?](#can-i-use-selfhosted-models-llamacpp-vllm-ollama)
-  - [OpenClaw, Flawd và Krill dùng mô hình gì?](#what-do-openclaw-flawd-and-krill-use-for-models)
-  - [Chuyển mô hình tức thì (không restart) thế nào?](#how-do-i-switch-models-on-the-fly-without-restarting)
-  - [Dùng GPT 5.2 cho việc hằng ngày và Codex 5.3 cho coding được không](#can-i-use-gpt-52-for-daily-tasks-and-codex-53-for-coding)
-  - [Tại sao tôi thấy "Model … is not allowed" and then no reply?](#why-do-i-see-model-is-not-allowed-and-then-no-reply)
-  - [Vì sao thấy "Unknown model: minimax/MiniMax-M2.1"?](#why-do-i-see-unknown-model-minimaxminimaxm21)
-  - [Dùng MiniMax làm mặc định và OpenAI cho tác vụ phức tạp được không?](#can-i-use-minimax-as-my-default-and-openai-for-complex-tasks)
-  - [opus / sonnet / gpt có phải shortcut tích hợp sẵn không?](#are-opus-sonnet-gpt-builtin-shortcuts)
-  - [Định nghĩa/ghi đè alias mô hình thế nào?](#how-do-i-defineoverride-model-shortcuts-aliases)
-  - [Thêm mô hình từ nhà cung cấp khác như OpenRouter hoặc Z.AI thế nào?](#how-do-i-add-models-from-other-providers-like-openrouter-or-zai)
-- [Failover mô hình và “All models failed”](#model-failover-and-all-models-failed)
-  - [Failover hoạt động thế nào?](#how-does-failover-work)
-  - [Lỗi này nghĩa là gì?](#what-does-this-error-mean)
-  - [Danh sách sửa lỗi cho `No credentials found for profile "anthropic:default"`](#fix-checklist-for-no-credentials-found-for-profile-anthropicdefault)
-  - [Vì sao nó cũng thử Google Gemini rồi thất bại?](#why-did-it-also-try-google-gemini-and-fail)
-- [Auth profile: là gì và quản lý thế nào](#auth-profiles-what-they-are-and-how-to-manage-them)
-  - [Auth profile là gì?](#what-is-an-auth-profile)
-  - [ID profile thường gặp là gì?](#what-are-typical-profile-ids)
-  - [Có kiểm soát profile nào được thử trước không?](#can-i-control-which-auth-profile-is-tried-first)
-  - [OAuth vs API key: khác nhau gì?](#oauth-vs-api-key-whats-the-difference)
-- [Gateway: cổng, “already running”, và chế độ remote](#gateway-ports-already-running-and-remote-mode)
-  - [Gateway dùng cổng nào?](#what-port-does-the-gateway-use)
-  - [Vì sao `openclaw gateway status` nói `Runtime: running` nhưng `RPC probe: failed`?](#why-does-openclaw-gateway-status-say-runtime-running-but-rpc-probe-failed)
-  - [Vì sao `openclaw gateway status` hiển thị `Config (cli)` và `Config (service)` khác nhau?](#why-does-openclaw-gateway-status-show-config-cli-and-config-service-different)
-  - [“another gateway instance is already listening” nghĩa là gì?](#what-does-another-gateway-instance-is-already-listening-mean)
-  - [Chạy OpenClaw ở chế độ remote (client kết nối Gateway ở nơi khác) thế nào?](#how-do-i-run-openclaw-in-remote-mode-client-connects-to-a-gateway-elsewhere)
-  - [Giao diện Control UI hiển thị "unauthorized" (hoặc liên tục kết nối lại). Bây giờ phải làm gì?](#the-control-ui-says-unauthorized-or-keeps-reconnecting-what-now)
-  - [Tôi đặt `gateway.bind: "tailnet"` nhưng không bind được / không có gì lắng nghe](#i-set-gatewaybind-tailnet-but-it-cant-bind-nothing-listens)
-  - [Chạy nhiều Gateway trên cùng host được không?](#can-i-run-multiple-gateways-on-the-same-host)
-  - [“invalid handshake” / mã 1008 nghĩa là gì?](#what-does-invalid-handshake-code-1008-mean)
-- [Ghi log và debug](#logging-and-debugging)
-  - [Log ở đâu?](#where-are-logs)
-  - [Bắt đầu/dừng/khởi động lại Gateway service thế nào?](#how-do-i-startstoprestart-the-gateway-service)
-  - [Đóng terminal trên Windows rồi — khởi động lại OpenClaw thế nào?](#i-closed-my-terminal-on-windows-how-do-i-restart-openclaw)
-  - [Gateway đang chạy nhưng phản hồi không bao giờ tới. Tôi nên kiểm tra những gì?](#the-gateway-is-up-but-replies-never-arrive-what-should-i-check)
-  - ["Disconnected from gateway: no reason" — giờ sao?](#disconnected-from-gateway-no-reason-what-now)
-  - [Telegram setMyCommands thất bại với lỗi mạng. What should I check?](#telegram-setmycommands-fails-with-network-errors-what-should-i-check)
-  - [TUI không hiển thị đầu ra. What should I check?](#tui-shows-no-output-what-should-i-check)
-  - [Dừng hẳn rồi khởi động lại Gateway thế nào?](#how-do-i-completely-stop-then-start-the-gateway)
-  - [Giải thích như cho trẻ 5 tuổi: `openclaw gateway restart` so với `openclaw gateway`](#eli5-openclaw-gateway-restart-vs-openclaw-gateway)
-  - [Cách nhanh nhất để có thêm chi tiết khi lỗi?](#whats-the-fastest-way-to-get-more-details-when-something-fails)
-- [Media và tệp đính kèm](#media-and-attachments)
-  - [Skill tạo ảnh/PDF nhưng không gửi gì](#my-skill-generated-an-imagepdf-but-nothing-was-sent)
-- [Bảo mật và kiểm soát truy cập](#security-and-access-control)
-  - [Có an toàn khi mở OpenClaw cho DM đến không?](#is-it-safe-to-expose-openclaw-to-inbound-dms)
-  - [Prompt injection chỉ là vấn đề với bot công khai?](#is-prompt-injection-only-a-concern-for-public-bots)
-  - [Bot có nên có email/tài khoản GitHub/số điện thoại riêng không](#should-my-bot-have-its-own-email-github-account-or-phone-number)
-  - [Có thể cho bot tự chủ với tin nhắn của tôi không và có an toàn không](#can-i-give-it-autonomy-over-my-text-messages-and-is-that-safe)
-  - [Dùng mô hình rẻ hơn cho trợ lý cá nhân được không?](#can-i-use-cheaper-models-for-personal-assistant-tasks)
-  - [Tôi chạy `/start` trong Telegram nhưng không nhận mã ghép đôi](#i-ran-start-in-telegram-but-didnt-get-a-pairing-code)
-  - [WhatsApp: nó có nhắn tin cho các liên hệ của tôi không? Cơ chế ghép cặp hoạt động như thế nào?](#whatsapp-will-it-message-my-contacts-how-does-pairing-work)
-- [Lệnh chat, hủy tác vụ, và “nó không dừng”](#chat-commands-aborting-tasks-and-it-wont-stop)
-  - [Ẩn thông điệp hệ thống nội bộ khỏi chat thế nào](#how-do-i-stop-internal-system-messages-from-showing-in-chat)
-  - [Dừng/hủy một tác vụ đang chạy thế nào?](#how-do-i-stopcancel-a-running-task)
-  - [Làm thế nào để gửi tin nhắn Discord từ Telegram? ("Cross-context messaging denied")](#how-do-i-send-a-discord-message-from-telegram-crosscontext-messaging-denied)
-  - [Vì sao bot có vẻ “phớt lờ” tin nhắn dồn dập?](#why-does-it-feel-like-the-bot-ignores-rapidfire-messages)
+- [Quick start and first-run setup]
+  - [Im stuck whats the fastest way to get unstuck?](#im-stuck-whats-the-fastest-way-to-get-unstuck)
+  - [What's the recommended way to install and set up OpenClaw?](#whats-the-recommended-way-to-install-and-set-up-openclaw)
+  - [How do I open the dashboard after onboarding?](#how-do-i-open-the-dashboard-after-onboarding)
+  - [How do I authenticate the dashboard (token) on localhost vs remote?](#how-do-i-authenticate-the-dashboard-token-on-localhost-vs-remote)
+  - [What runtime do I need?](#what-runtime-do-i-need)
+  - [Does it run on Raspberry Pi?](#does-it-run-on-raspberry-pi)
+  - [Any tips for Raspberry Pi installs?](#any-tips-for-raspberry-pi-installs)
+  - [It is stuck on "wake up my friend" / onboarding will not hatch. What now?](#it-is-stuck-on-wake-up-my-friend-onboarding-will-not-hatch-what-now)
+  - [Can I migrate my setup to a new machine (Mac mini) without redoing onboarding?](#can-i-migrate-my-setup-to-a-new-machine-mac-mini-without-redoing-onboarding)
+  - [Where do I see what is new in the latest version?](#where-do-i-see-what-is-new-in-the-latest-version)
+  - [I can't access docs.openclaw.ai (SSL error). What now?](#i-cant-access-docsopenclawai-ssl-error-what-now)
+  - [What's the difference between stable and beta?](#whats-the-difference-between-stable-and-beta)
+  - [How do I install the beta version, and what's the difference between beta and dev?](#how-do-i-install-the-beta-version-and-whats-the-difference-between-beta-and-dev)
+  - [How do I try the latest bits?](#how-do-i-try-the-latest-bits)
+  - [How long does install and onboarding usually take?](#how-long-does-install-and-onboarding-usually-take)
+  - [Installer stuck? How do I get more feedback?](#installer-stuck-how-do-i-get-more-feedback)
+  - [Windows install says git not found or openclaw not recognized](#windows-install-says-git-not-found-or-openclaw-not-recognized)
+  - [The docs didn't answer my question - how do I get a better answer?](#the-docs-didnt-answer-my-question-how-do-i-get-a-better-answer)
+  - [How do I install OpenClaw on Linux?](#how-do-i-install-openclaw-on-linux)
+  - [How do I install OpenClaw on a VPS?](#how-do-i-install-openclaw-on-a-vps)
+  - [Where are the cloud/VPS install guides?](#where-are-the-cloudvps-install-guides)
+  - [Can I ask OpenClaw to update itself?](#can-i-ask-openclaw-to-update-itself)
+  - [What does the onboarding wizard actually do?](#what-does-the-onboarding-wizard-actually-do)
+  - [Do I need a Claude or OpenAI subscription to run this?](#do-i-need-a-claude-or-openai-subscription-to-run-this)
+  - [Can I use Claude Max subscription without an API key](#can-i-use-claude-max-subscription-without-an-api-key)
+  - [How does Anthropic "setup-token" auth work?](#how-does-anthropic-setuptoken-auth-work)
+  - [Where do I find an Anthropic setup-token?](#where-do-i-find-an-anthropic-setuptoken)
+  - [Do you support Claude subscription auth (Claude Pro or Max)?](#do-you-support-claude-subscription-auth-claude-pro-or-max)
+  - [Why am I seeing `HTTP 429: rate_limit_error` from Anthropic?](#why-am-i-seeing-http-429-ratelimiterror-from-anthropic)
+  - [Is AWS Bedrock supported?](#is-aws-bedrock-supported)
+  - [How does Codex auth work?](#how-does-codex-auth-work)
+  - [Do you support OpenAI subscription auth (Codex OAuth)?](#do-you-support-openai-subscription-auth-codex-oauth)
+  - [How do I set up Gemini CLI OAuth](#how-do-i-set-up-gemini-cli-oauth)
+  - [Is a local model OK for casual chats?](#is-a-local-model-ok-for-casual-chats)
+  - [How do I keep hosted model traffic in a specific region?](#how-do-i-keep-hosted-model-traffic-in-a-specific-region)
+  - [Do I have to buy a Mac Mini to install this?](#do-i-have-to-buy-a-mac-mini-to-install-this)
+  - [Do I need a Mac mini for iMessage support?](#do-i-need-a-mac-mini-for-imessage-support)
+  - [If I buy a Mac mini to run OpenClaw, can I connect it to my MacBook Pro?](#if-i-buy-a-mac-mini-to-run-openclaw-can-i-connect-it-to-my-macbook-pro)
+  - [Can I use Bun?](#can-i-use-bun)
+  - [Telegram: what goes in `allowFrom`?](#telegram-what-goes-in-allowfrom)
+  - [Can multiple people use one WhatsApp number with different OpenClaw instances?](#can-multiple-people-use-one-whatsapp-number-with-different-openclaw-instances)
+  - [Can I run a "fast chat" agent and an "Opus for coding" agent?](#can-i-run-a-fast-chat-agent-and-an-opus-for-coding-agent)
+  - [Does Homebrew work on Linux?](#does-homebrew-work-on-linux)
+  - [What's the difference between the hackable (git) install and npm install?](#whats-the-difference-between-the-hackable-git-install-and-npm-install)
+  - [Can I switch between npm and git installs later?](#can-i-switch-between-npm-and-git-installs-later)
+  - [Should I run the Gateway on my laptop or a VPS?](#should-i-run-the-gateway-on-my-laptop-or-a-vps)
+  - [How important is it to run OpenClaw on a dedicated machine?](#how-important-is-it-to-run-openclaw-on-a-dedicated-machine)
+  - [What are the minimum VPS requirements and recommended OS?](#what-are-the-minimum-vps-requirements-and-recommended-os)
+  - [Can I run OpenClaw in a VM and what are the requirements](#can-i-run-openclaw-in-a-vm-and-what-are-the-requirements)
+- [What is OpenClaw?](#what-is-openclaw)
+  - [What is OpenClaw, in one paragraph?](#what-is-openclaw-in-one-paragraph)
+  - [What's the value proposition?](#whats-the-value-proposition)
+  - [I just set it up what should I do first](#i-just-set-it-up-what-should-i-do-first)
+  - [What are the top five everyday use cases for OpenClaw](#what-are-the-top-five-everyday-use-cases-for-openclaw)
+  - [Can OpenClaw help with lead gen outreach ads and blogs for a SaaS](#can-openclaw-help-with-lead-gen-outreach-ads-and-blogs-for-a-saas)
+  - [What are the advantages vs Claude Code for web development?](#what-are-the-advantages-vs-claude-code-for-web-development)
+- [Skills and automation](#skills-and-automation)
+  - [How do I customize skills without keeping the repo dirty?](#how-do-i-customize-skills-without-keeping-the-repo-dirty)
+  - [Can I load skills from a custom folder?](#can-i-load-skills-from-a-custom-folder)
+  - [How can I use different models for different tasks?](#how-can-i-use-different-models-for-different-tasks)
+  - [The bot freezes while doing heavy work. How do I offload that?](#the-bot-freezes-while-doing-heavy-work-how-do-i-offload-that)
+  - [Cron or reminders do not fire. What should I check?](#cron-or-reminders-do-not-fire-what-should-i-check)
+  - [How do I install skills on Linux?](#how-do-i-install-skills-on-linux)
+  - [Can OpenClaw run tasks on a schedule or continuously in the background?](#can-openclaw-run-tasks-on-a-schedule-or-continuously-in-the-background)
+  - [Can I run Apple macOS-only skills from Linux?](#can-i-run-apple-macos-only-skills-from-linux)
+  - [Do you have a Notion or HeyGen integration?](#do-you-have-a-notion-or-heygen-integration)
+  - [How do I install the Chrome extension for browser takeover?](#how-do-i-install-the-chrome-extension-for-browser-takeover)
+- [Sandboxing and memory](#sandboxing-and-memory)
+  - [Is there a dedicated sandboxing doc?](#is-there-a-dedicated-sandboxing-doc)
+  - [How do I bind a host folder into the sandbox?](#how-do-i-bind-a-host-folder-into-the-sandbox)
+  - [How does memory work?](#how-does-memory-work)
+  - [Memory keeps forgetting things. How do I make it stick?](#memory-keeps-forgetting-things-how-do-i-make-it-stick)
+  - [Does memory persist forever? What are the limits?](#does-memory-persist-forever-what-are-the-limits)
+  - [Does semantic memory search require an OpenAI API key?](#does-semantic-memory-search-require-an-openai-api-key)
+- [Where things live on disk](#where-things-live-on-disk)
+  - [Is all data used with OpenClaw saved locally?](#is-all-data-used-with-openclaw-saved-locally)
+  - [Where does OpenClaw store its data?](#where-does-openclaw-store-its-data)
+  - [Where should AGENTS.md / SOUL.md / USER.md / MEMORY.md live?](#where-should-agentsmd-soulmd-usermd-memorymd-live)
+  - [What's the recommended backup strategy?](#whats-the-recommended-backup-strategy)
+  - [How do I completely uninstall OpenClaw?](#how-do-i-completely-uninstall-openclaw)
+  - [Can agents work outside the workspace?](#can-agents-work-outside-the-workspace)
+  - [I'm in remote mode - where is the session store?](#im-in-remote-mode-where-is-the-session-store)
+- [Config basics](#config-basics)
+  - [What format is the config? Where is it?](#what-format-is-the-config-where-is-it)
+  - [I set `gateway.bind: "lan"` (or `"tailnet"`) and now nothing listens / the UI says unauthorized](#i-set-gatewaybind-lan-or-tailnet-and-now-nothing-listens-the-ui-says-unauthorized)
+  - [Why do I need a token on localhost now?](#why-do-i-need-a-token-on-localhost-now)
+  - [Do I have to restart after changing config?](#do-i-have-to-restart-after-changing-config)
+  - [How do I enable web search (and web fetch)?](#how-do-i-enable-web-search-and-web-fetch)
+  - [config.apply wiped my config. How do I recover and avoid this?](#configapply-wiped-my-config-how-do-i-recover-and-avoid-this)
+  - [How do I run a central Gateway with specialized workers across devices?](#how-do-i-run-a-central-gateway-with-specialized-workers-across-devices)
+  - [Can the OpenClaw browser run headless?](#can-the-openclaw-browser-run-headless)
+  - [How do I use Brave for browser control?](#how-do-i-use-brave-for-browser-control)
+- [Remote gateways and nodes](#remote-gateways-and-nodes)
+  - [How do commands propagate between Telegram, the gateway, and nodes?](#how-do-commands-propagate-between-telegram-the-gateway-and-nodes)
+  - [How can my agent access my computer if the Gateway is hosted remotely?](#how-can-my-agent-access-my-computer-if-the-gateway-is-hosted-remotely)
+  - [Tailscale is connected but I get no replies. What now?](#tailscale-is-connected-but-i-get-no-replies-what-now)
+  - [Can two OpenClaw instances talk to each other (local + VPS)?](#can-two-openclaw-instances-talk-to-each-other-local-vps)
+  - [Do I need separate VPSes for multiple agents](#do-i-need-separate-vpses-for-multiple-agents)
+  - [Is there a benefit to using a node on my personal laptop instead of SSH from a VPS?](#is-there-a-benefit-to-using-a-node-on-my-personal-laptop-instead-of-ssh-from-a-vps)
+  - [Do nodes run a gateway service?](#do-nodes-run-a-gateway-service)
+  - [Is there an API / RPC way to apply config?](#is-there-an-api-rpc-way-to-apply-config)
+  - [What's a minimal "sane" config for a first install?](#whats-a-minimal-sane-config-for-a-first-install)
+  - [How do I set up Tailscale on a VPS and connect from my Mac?](#how-do-i-set-up-tailscale-on-a-vps-and-connect-from-my-mac)
+  - [How do I connect a Mac node to a remote Gateway (Tailscale Serve)?](#how-do-i-connect-a-mac-node-to-a-remote-gateway-tailscale-serve)
+  - [Should I install on a second laptop or just add a node?](#should-i-install-on-a-second-laptop-or-just-add-a-node)
+- [Env vars and .env loading](#env-vars-and-env-loading)
+  - [How does OpenClaw load environment variables?](#how-does-openclaw-load-environment-variables)
+  - ["I started the Gateway via the service and my env vars disappeared." What now?](#i-started-the-gateway-via-the-service-and-my-env-vars-disappeared-what-now)
+  - [I set `COPILOT_GITHUB_TOKEN`, but models status shows "Shell env: off." Why?](#i-set-copilotgithubtoken-but-models-status-shows-shell-env-off-why)
+- [Sessions and multiple chats](#sessions-and-multiple-chats)
+  - [How do I start a fresh conversation?](#how-do-i-start-a-fresh-conversation)
+  - [Do sessions reset automatically if I never send `/new`?](#do-sessions-reset-automatically-if-i-never-send-new)
+  - [Is there a way to make a team of OpenClaw instances one CEO and many agents](#is-there-a-way-to-make-a-team-of-openclaw-instances-one-ceo-and-many-agents)
+  - [Why did context get truncated mid-task? How do I prevent it?](#why-did-context-get-truncated-midtask-how-do-i-prevent-it)
+  - [How do I completely reset OpenClaw but keep it installed?](#how-do-i-completely-reset-openclaw-but-keep-it-installed)
+  - [I'm getting "context too large" errors - how do I reset or compact?](#im-getting-context-too-large-errors-how-do-i-reset-or-compact)
+  - [Why am I seeing "LLM request rejected: messages.N.content.X.tool_use.input: Field required"?](#why-am-i-seeing-llm-request-rejected-messagesncontentxtooluseinput-field-required)
+  - [Why am I getting heartbeat messages every 30 minutes?](#why-am-i-getting-heartbeat-messages-every-30-minutes)
+  - [Do I need to add a "bot account" to a WhatsApp group?](#do-i-need-to-add-a-bot-account-to-a-whatsapp-group)
+  - [How do I get the JID of a WhatsApp group?](#how-do-i-get-the-jid-of-a-whatsapp-group)
+  - [Why doesn't OpenClaw reply in a group?](#why-doesnt-openclaw-reply-in-a-group)
+  - [Do groups/threads share context with DMs?](#do-groupsthreads-share-context-with-dms)
+  - [How many workspaces and agents can I create?](#how-many-workspaces-and-agents-can-i-create)
+  - [Can I run multiple bots or chats at the same time (Slack), and how should I set that up?](#can-i-run-multiple-bots-or-chats-at-the-same-time-slack-and-how-should-i-set-that-up)
+- [Models: defaults, selection, aliases, switching](#models-defaults-selection-aliases-switching)
+  - [What is the "default model"?](#what-is-the-default-model)
+  - [What model do you recommend?](#what-model-do-you-recommend)
+  - [How do I switch models without wiping my config?](#how-do-i-switch-models-without-wiping-my-config)
+  - [Can I use self-hosted models (llama.cpp, vLLM, Ollama)?](#can-i-use-selfhosted-models-llamacpp-vllm-ollama)
+  - [What do OpenClaw, Flawd, and Krill use for models?](#what-do-openclaw-flawd-and-krill-use-for-models)
+  - [How do I switch models on the fly (without restarting)?](#how-do-i-switch-models-on-the-fly-without-restarting)
+  - [Can I use GPT 5.2 for daily tasks and Codex 5.3 for coding](#can-i-use-gpt-52-for-daily-tasks-and-codex-53-for-coding)
+  - [Why do I see "Model … is not allowed" and then no reply?](#why-do-i-see-model-is-not-allowed-and-then-no-reply)
+  - [Why do I see "Unknown model: minimax/MiniMax-M2.1"?](#why-do-i-see-unknown-model-minimaxminimaxm21)
+  - [Can I use MiniMax as my default and OpenAI for complex tasks?](#can-i-use-minimax-as-my-default-and-openai-for-complex-tasks)
+  - [Are opus / sonnet / gpt built-in shortcuts?](#are-opus-sonnet-gpt-builtin-shortcuts)
+  - [How do I define/override model shortcuts (aliases)?](#how-do-i-defineoverride-model-shortcuts-aliases)
+  - [How do I add models from other providers like OpenRouter or Z.AI?](#how-do-i-add-models-from-other-providers-like-openrouter-or-zai)
+- [Model failover and "All models failed"](#model-failover-and-all-models-failed)
+  - [How does failover work?](#how-does-failover-work)
+  - [What does this error mean?](#what-does-this-error-mean)
+  - [Fix checklist for `No credentials found for profile "anthropic:default"`](#fix-checklist-for-no-credentials-found-for-profile-anthropicdefault)
+  - [Why did it also try Google Gemini and fail?](#why-did-it-also-try-google-gemini-and-fail)
+- [Auth profiles: what they are and how to manage them](#auth-profiles-what-they-are-and-how-to-manage-them)
+  - [What is an auth profile?](#what-is-an-auth-profile)
+  - [What are typical profile IDs?](#what-are-typical-profile-ids)
+  - [Can I control which auth profile is tried first?](#can-i-control-which-auth-profile-is-tried-first)
+  - [OAuth vs API key: what's the difference?](#oauth-vs-api-key-whats-the-difference)
+- [Gateway: ports, "already running", and remote mode](#gateway-ports-already-running-and-remote-mode)
+  - [What port does the Gateway use?](#what-port-does-the-gateway-use)
+  - [Why does `openclaw gateway status` say `Runtime: running` but `RPC probe: failed`?](#why-does-openclaw-gateway-status-say-runtime-running-but-rpc-probe-failed)
+  - [Why does `openclaw gateway status` show `Config (cli)` and `Config (service)` different?](#why-does-openclaw-gateway-status-show-config-cli-and-config-service-different)
+  - [What does "another gateway instance is already listening" mean?](#what-does-another-gateway-instance-is-already-listening-mean)
+  - [How do I run OpenClaw in remote mode (client connects to a Gateway elsewhere)?](#how-do-i-run-openclaw-in-remote-mode-client-connects-to-a-gateway-elsewhere)
+  - [The Control UI says "unauthorized" (or keeps reconnecting). What now?](#the-control-ui-says-unauthorized-or-keeps-reconnecting-what-now)
+  - [I set `gateway.bind: "tailnet"` but it can't bind / nothing listens](#i-set-gatewaybind-tailnet-but-it-cant-bind-nothing-listens)
+  - [Can I run multiple Gateways on the same host?](#can-i-run-multiple-gateways-on-the-same-host)
+  - [What does "invalid handshake" / code 1008 mean?](#what-does-invalid-handshake-code-1008-mean)
+- [Logging and debugging](#logging-and-debugging)
+  - [Where are logs?](#where-are-logs)
+  - [How do I start/stop/restart the Gateway service?](#how-do-i-startstoprestart-the-gateway-service)
+  - [I closed my terminal on Windows - how do I restart OpenClaw?](#i-closed-my-terminal-on-windows-how-do-i-restart-openclaw)
+  - [The Gateway is up but replies never arrive. What should I check?](#the-gateway-is-up-but-replies-never-arrive-what-should-i-check)
+  - ["Disconnected from gateway: no reason" - what now?](#disconnected-from-gateway-no-reason-what-now)
+  - [Telegram setMyCommands fails with network errors. What should I check?](#telegram-setmycommands-fails-with-network-errors-what-should-i-check)
+  - [TUI shows no output. What should I check?](#tui-shows-no-output-what-should-i-check)
+  - [How do I completely stop then start the Gateway?](#how-do-i-completely-stop-then-start-the-gateway)
+  - [ELI5: `openclaw gateway restart` vs `openclaw gateway`](#eli5-openclaw-gateway-restart-vs-openclaw-gateway)
+  - [What's the fastest way to get more details when something fails?](#whats-the-fastest-way-to-get-more-details-when-something-fails)
+- [Media and attachments](#media-and-attachments)
+  - [My skill generated an image/PDF, but nothing was sent](#my-skill-generated-an-imagepdf-but-nothing-was-sent)
+- [Security and access control](#security-and-access-control)
+  - [Is it safe to expose OpenClaw to inbound DMs?](#is-it-safe-to-expose-openclaw-to-inbound-dms)
+  - [Is prompt injection only a concern for public bots?](#is-prompt-injection-only-a-concern-for-public-bots)
+  - [Should my bot have its own email GitHub account or phone number](#should-my-bot-have-its-own-email-github-account-or-phone-number)
+  - [Can I give it autonomy over my text messages and is that safe](#can-i-give-it-autonomy-over-my-text-messages-and-is-that-safe)
+  - [Can I use cheaper models for personal assistant tasks?](#can-i-use-cheaper-models-for-personal-assistant-tasks)
+  - [I ran `/start` in Telegram but didn't get a pairing code](#i-ran-start-in-telegram-but-didnt-get-a-pairing-code)
+  - [WhatsApp: will it message my contacts? How does pairing work?](#whatsapp-will-it-message-my-contacts-how-does-pairing-work)
+- [Chat commands, aborting tasks, and "it won't stop"](#chat-commands-aborting-tasks-and-it-wont-stop)
+  - [How do I stop internal system messages from showing in chat](#how-do-i-stop-internal-system-messages-from-showing-in-chat)
+  - [How do I stop/cancel a running task?](#how-do-i-stopcancel-a-running-task)
+  - [How do I send a Discord message from Telegram? ("Cross-context messaging denied")](#how-do-i-send-a-discord-message-from-telegram-crosscontext-messaging-denied)
+  - [Why does it feel like the bot "ignores" rapid-fire messages?](#why-does-it-feel-like-the-bot-ignores-rapidfire-messages)
 
-## 60 giây đầu nếu có gì đó hỏng
+## First 60 seconds if something's broken
 
-1. **Trạng thái nhanh (kiểm tra đầu tiên)**
+1. **Quick status (first check)**
 
    ```bash
    openclaw status
    ```
 
-   Tóm tắt nhanh cục bộ: OS + cập nhật, khả năng truy cập gateway/service, agents/sessions, cấu hình nhà cung cấp + sự cố runtime (khi gateway truy cập được).
+   Fast local summary: OS + update, gateway/service reachability, agents/sessions, provider config + runtime issues (when gateway is reachable).
 
-2. **Báo cáo có thể dán (an toàn để chia sẻ)**
+2. **Pasteable report (safe to share)**
 
    ```bash
    openclaw status --all
    ```
 
-   Chẩn đoán chỉ đọc kèm tail log (đã ẩn token).
+   Read-only diagnosis with log tail (tokens redacted).
 
-3. **Trạng thái daemon + cổng**
+3. **Daemon + port state**
 
    ```bash
    openclaw gateway status
    ```
 
-   Hiển thị runtime của supervisor so với khả năng RPC, URL probe, và cấu hình mà service có thể đã dùng.
+   Shows supervisor runtime vs RPC reachability, the probe target URL, and which config the service likely used.
 
-4. **Probe sâu**
+4. **Deep probes**
 
    ```bash
    openclaw status --deep
    ```
 
-   Chạy kiểm tra tình trạng gateway + thăm dò provider (yêu cầu gateway có thể truy cập được). Xem [Health](/gateway/health).
+   Runs gateway health checks + provider probes (requires a reachable gateway). See [Health](/gateway/health).
 
-5. **Theo dõi log mới nhất**
+5. **Tail the latest log**
 
    ```bash
    openclaw logs --follow
    ```
 
-   Nếu RPC down, dùng tạm:
+   If RPC is down, fall back to:
 
    ```bash
    tail -f "$(ls -t /tmp/openclaw/openclaw-*.log | head -1)"
    ```
 
-   Log file tách biệt với log service; xem [Logging](/logging) và [Troubleshooting](/gateway/troubleshooting).
+   File logs are separate from service logs; see [Logging](/logging) and [Troubleshooting](/gateway/troubleshooting).
 
-6. **Chạy doctor (sửa chữa)**
+6. **Run the doctor (repairs)**
 
    ```bash
    openclaw doctor
    ```
 
-   Sửa chữa/di chuyển cấu hình/trạng thái + chạy kiểm tra sức khỏe. Xem [Doctor](/gateway/doctor).
+   Repairs/migrates config/state + runs health checks. See [Doctor](/gateway/doctor).
 
-7. **Snapshot Gateway**
+7. **Gateway snapshot**
 
    ```bash
    openclaw health --json
    openclaw health --verbose   # shows the target URL + config path on errors
    ```
 
-   Yêu cầu gateway đang chạy cung cấp một ảnh chụp đầy đủ (chỉ WS). Xem [Health](/gateway/health).
+   Asks the running gateway for a full snapshot (WS-only). See [Health](/gateway/health).
 
-## Khởi động nhanh và thiết lập lần đầu
+## Quick start and first-run setup
 
-### Tôi bị kẹt, cách nhanh nhất để thoát khỏi tình trạng này là gì
+### Im stuck whats the fastest way to get unstuck
 
-Sử dụng một agent AI cục bộ có thể **nhìn thấy máy của bạn**. Cách này hiệu quả hơn nhiều so với việc hỏi
-trong Discord, vì hầu hết các trường hợp "tôi bị kẹt" là **vấn đề cấu hình hoặc môi trường cục bộ** mà
-những người hỗ trợ từ xa không thể kiểm tra.
+Use a local AI agent that can **see your machine**. That is far more effective than asking
+in Discord, because most "I'm stuck" cases are **local config or environment issues** that
+remote helpers cannot inspect.
 
 - **Claude Code**: [https://www.anthropic.com/claude-code/](https://www.anthropic.com/claude-code/)
 - **OpenAI Codex**: [https://openai.com/codex/](https://openai.com/codex/)
 
-Các công cụ này có thể đọc repo, chạy lệnh, kiểm tra log và giúp sửa thiết lập
-ở cấp máy của bạn (PATH, dịch vụ, quyền, tệp xác thực). Hãy cung cấp cho họ **toàn bộ bản checkout mã nguồn** thông qua
-cài đặt hackable (git):
+These tools can read the repo, run commands, inspect logs, and help fix your machine-level
+setup (PATH, services, permissions, auth files). Give them the **full source checkout** via
+the hackable (git) install:
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash -s -- --install-method git
 ```
 
-Cách này cài đặt OpenClaw **từ một git checkout**, để agent có thể đọc mã + tài liệu và
-lý luận chính xác về phiên bản bạn đang chạy. Bạn luôn có thể chuyển lại bản ổn định sau bằng cách chạy lại trình cài đặt mà không dùng `--install-method git`.
+This installs OpenClaw **from a git checkout**, so the agent can read the code + docs and
+reason about the exact version you are running. You can always switch back to stable later
+by re-running the installer without `--install-method git`.
 
-Mẹo: hãy yêu cầu agent **lập kế hoạch và giám sát** việc sửa lỗi (từng bước), sau đó chỉ thực thi
-những lệnh thực sự cần thiết. Điều đó giúp thay đổi ít hơn và dễ kiểm tra hơn.
+Tip: ask the agent to **plan and supervise** the fix (step-by-step), then execute only the
+necessary commands. That keeps changes small and easier to audit.
 
-Nếu phát hiện bug thật hoặc có bản sửa, vui lòng tạo issue hoặc PR trên GitHub:
+If you discover a real bug or fix, please file a GitHub issue or send a PR:
 [https://github.com/openclaw/openclaw/issues](https://github.com/openclaw/openclaw/issues)
 [https://github.com/openclaw/openclaw/pulls](https://github.com/openclaw/openclaw/pulls)
 
-Bắt đầu với các lệnh này (chia sẻ output khi xin trợ giúp):
+Start with these commands (share outputs when asking for help):
 
 ```bash
 openclaw status
@@ -296,98 +297,101 @@ openclaw models status
 openclaw doctor
 ```
 
-Ý nghĩa:
+What they do:
 
-- `openclaw status`: snapshot nhanh tình trạng gateway/agent + cấu hình cơ bản.
-- `openclaw models status`: kiểm tra xác thực nhà cung cấp + khả dụng mô hình.
-- `openclaw doctor`: xác thực và sửa các lỗi cấu hình/trạng thái thường gặp.
+- `openclaw status`: quick snapshot of gateway/agent health + basic config.
+- `openclaw models status`: checks provider auth + model availability.
+- `openclaw doctor`: validates and repairs common config/state issues.
 
-Các kiểm tra CLI hữu ích khác: `openclaw status --all`, `openclaw logs --follow`,
+Other useful CLI checks: `openclaw status --all`, `openclaw logs --follow`,
 `openclaw gateway status`, `openclaw health --verbose`.
 
-Vòng debug nhanh: [60 giây đầu tiên khi có gì đó bị hỏng](#first-60-seconds-if-somethings-broken).
-Tài liệu cài đặt: [Install](/install), [Installer flags](/install/installer), [Updating](/install/updating).
+Quick debug loop: [First 60 seconds if something's broken](#first-60-seconds-if-somethings-broken).
+Install docs: [Install](/install), [Installer flags](/install/installer), [Updating](/install/updating).
 
-### Cách được khuyến nghị để cài đặt và thiết lập OpenClaw là gì
+### What's the recommended way to install and set up OpenClaw
 
-Repo khuyến nghị chạy từ mã nguồn và dùng trình hướng dẫn onboarding:
+The repo recommends running from source and using the onboarding wizard:
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
 openclaw onboard --install-daemon
 ```
 
-Trình hướng dẫn cũng có thể tự động build các asset UI. Sau khi onboarding, bạn thường chạy Gateway trên cổng **18789**.
+The wizard can also build UI assets automatically. After onboarding, you typically run the Gateway on port **18789**.
 
-Từ mã nguồn (contributors/dev):
+From source (contributors/dev):
 
 ```bash
 git clone https://github.com/openclaw/openclaw.git
 cd openclaw
 pnpm install
 pnpm build
-pnpm ui:build # tự động cài đặt các phụ thuộc UI ở lần chạy đầu
+pnpm ui:build # auto-installs UI deps on first run
 openclaw onboard
 ```
 
-Nếu bạn chưa cài đặt toàn cục, hãy chạy bằng `pnpm openclaw onboard`.
+If you don't have a global install yet, run it via `pnpm openclaw onboard`.
 
-### Làm thế nào để mở dashboard sau khi onboarding
+### How do I open the dashboard after onboarding
 
-Trình hướng dẫn sẽ mở trình duyệt của bạn với URL dashboard sạch (không có token) ngay sau khi onboarding và cũng in liên kết đó trong phần tóm tắt. Hãy giữ tab đó mở; nếu nó không tự mở, hãy copy/paste URL đã in trên cùng một máy.
+The wizard opens your browser with a clean (non-tokenized) dashboard URL right after onboarding and also prints the link in the summary. Keep that tab open; if it didn't launch, copy/paste the printed URL on the same machine.
 
-### Làm thế nào để xác thực token dashboard trên localhost so với từ xa
+### How do I authenticate the dashboard token on localhost vs remote
 
-**Localhost (cùng máy):**
+**Localhost (same machine):**
 
-- Mở `http://127.0.0.1:18789/`.
-- Nếu nó yêu cầu xác thực, hãy dán token từ `gateway.auth.token` (hoặc `OPENCLAW_GATEWAY_TOKEN`) vào phần cài đặt Control UI.
-- Lấy nó từ máy chủ gateway: `openclaw config get gateway.auth.token` (hoặc tạo một cái: `openclaw doctor --generate-gateway-token`).
+- Open `http://127.0.0.1:18789/`.
+- If it asks for auth, paste the token from `gateway.auth.token` (or `OPENCLAW_GATEWAY_TOKEN`) into Control UI settings.
+- Retrieve it from the gateway host: `openclaw config get gateway.auth.token` (or generate one: `openclaw doctor --generate-gateway-token`).
 
-**Không phải localhost:**
+**Not on localhost:**
 
-- **Tailscale Serve** (khuyến nghị): giữ bind loopback, chạy `openclaw gateway --tailscale serve`, mở `https://<magicdns>/`. Nếu `gateway.auth.allowTailscale` là `true`, các header danh tính sẽ đáp ứng xác thực (không cần token).
-- **Tailnet bind**: chạy `openclaw gateway --bind tailnet --token "<token>"`, mở `http://<tailscale-ip>:18789/`, dán token vào phần cài đặt dashboard.
-- **SSH tunnel**: `ssh -N -L 18789:127.0.0.1:18789 user@host` rồi mở `http://127.0.0.1:18789/` và dán token trong cài đặt Control UI.
+- **Tailscale Serve** (recommended): keep bind loopback, run `openclaw gateway --tailscale serve`, open `https://<magicdns>/`. If `gateway.auth.allowTailscale` is `true`, identity headers satisfy auth (no token).
+- **Tailnet bind**: run `openclaw gateway --bind tailnet --token "<token>"`, open `http://<tailscale-ip>:18789/`, paste token in dashboard settings.
+- **SSH tunnel**: `ssh -N -L 18789:127.0.0.1:18789 user@host` then open `http://127.0.0.1:18789/` and paste the token in Control UI settings.
 
-Xem [Dashboard](/web/dashboard) và [Web surfaces](/web) để biết các chế độ bind và chi tiết xác thực.
+See [Dashboard](/web/dashboard) and [Web surfaces](/web) for bind modes and auth details.
 
-### Tôi cần runtime nào
+### What runtime do I need
 
-Yêu cầu Node **>= 22**. `pnpm` được khuyến nghị. Bun **không được khuyến nghị** cho Gateway.
+Node **>= 22** is required. `pnpm` is recommended. Bun is **not recommended** for the Gateway.
 
-### Nó có chạy trên Raspberry Pi không
+### Does it run on Raspberry Pi
 
-Có. Gateway rất nhẹ — tài liệu liệt kê **512MB-1GB RAM**, **1 lõi**, và khoảng **500MB** dung lượng đĩa là đủ cho sử dụng cá nhân, và lưu ý rằng **Raspberry Pi 4 có thể chạy được**.
+Yes. The Gateway is lightweight - docs list **512MB-1GB RAM**, **1 core**, and about **500MB**
+disk as enough for personal use, and note that a **Raspberry Pi 4 can run it**.
 
-Nếu bạn muốn dư địa thêm (log, media, dịch vụ khác), **khuyến nghị 2GB**, nhưng đó không phải là mức tối thiểu cứng.
+If you want extra headroom (logs, media, other services), **2GB is recommended**, but it's
+not a hard minimum.
 
-Mẹo: một Pi/VPS nhỏ có thể host Gateway, và bạn có thể ghép cặp **nodes** trên laptop/điện thoại để dùng màn hình/camera/canvas cục bộ hoặc thực thi lệnh. Xem [Nodes](/nodes).
+Tip: a small Pi/VPS can host the Gateway, and you can pair **nodes** on your laptop/phone for
+local screen/camera/canvas or command execution. See [Nodes](/nodes).
 
-### Có mẹo nào cho việc cài đặt trên Raspberry Pi không
+### Any tips for Raspberry Pi installs
 
-Bản ngắn gọn: chạy được, nhưng hãy chờ đợi một số trục trặc.
+Short version: it works, but expect rough edges.
 
-- 1. Sử dụng hệ điều hành **64-bit** và giữ Node >= 22.
-- 2. Ưu tiên **cài đặt dạng hackable (git)** để bạn có thể xem log và cập nhật nhanh.
-- 3. Bắt đầu mà không có kênh/kỹ năng, sau đó thêm từng cái một.
-- Nếu bạn gặp các vấn đề nhị phân kỳ lạ, thì thường đó là vấn đề **tương thích ARM**.
+- Use a **64-bit** OS and keep Node >= 22.
+- Prefer the **hackable (git) install** so you can see logs and update fast.
+- Start without channels/skills, then add them one by one.
+- If you hit weird binary issues, it is usually an **ARM compatibility** problem.
 
-5. Tài liệu: [Linux](/platforms/linux), [Install](/install).
+Docs: [Linux](/platforms/linux), [Install](/install).
 
-### Nó bị kẹt ở bước wake up my friend, onboarding không chịu nở, bây giờ phải làm gì
+### It is stuck on wake up my friend onboarding will not hatch What now
 
-Màn hình đó phụ thuộc vào việc Gateway có thể truy cập được và đã xác thực hay chưa. TUI cũng tự động gửi
-"Wake up, my friend!" ở lần hatch đầu tiên. 9. Nếu bạn thấy dòng đó với **không có phản hồi**
-và token vẫn ở mức 0, thì agent chưa bao giờ chạy.
+That screen depends on the Gateway being reachable and authenticated. The TUI also sends
+"Wake up, my friend!" automatically on first hatch. If you see that line with **no reply**
+and tokens stay at 0, the agent never ran.
 
-1. Khởi động lại Gateway:
+1. Restart the Gateway:
 
 ```bash
 openclaw gateway restart
 ```
 
-2. 10. Kiểm tra trạng thái + xác thực:
+2. Check status + auth:
 
 ```bash
 openclaw status
@@ -395,32 +399,32 @@ openclaw models status
 openclaw logs --follow
 ```
 
-3. Nếu vẫn bị treo, hãy chạy:
+3. If it still hangs, run:
 
 ```bash
 openclaw doctor
 ```
 
-Nếu Gateway ở xa, hãy đảm bảo tunnel/kết nối Tailscale đang hoạt động và UI
-được trỏ tới đúng Gateway. Xem [Remote access](/gateway/remote).
+If the Gateway is remote, ensure the tunnel/Tailscale connection is up and that the UI
+is pointed at the right Gateway. See [Remote access](/gateway/remote).
 
-### Tôi có thể di chuyển thiết lập của mình sang một máy mới (Mac mini) mà không phải làm lại onboarding không
+### Can I migrate my setup to a new machine Mac mini without redoing onboarding
 
-Có. Copy the **state directory** and **workspace**, then run Doctor once. This
+Yes. Copy the **state directory** and **workspace**, then run Doctor once. This
 keeps your bot "exactly the same" (memory, session history, auth, and channel
 state) as long as you copy **both** locations:
 
-1. Cài đặt OpenClaw trên máy mới.
-2. Sao chép `$OPENCLAW_STATE_DIR` (mặc định: `~/.openclaw`) từ máy cũ.
+1. Install OpenClaw on the new machine.
+2. Copy `$OPENCLAW_STATE_DIR` (default: `~/.openclaw`) from the old machine.
 3. Copy your workspace (default: `~/.openclaw/workspace`).
-4. 20. Chạy `openclaw doctor` và khởi động lại dịch vụ Gateway.
+4. Run `openclaw doctor` and restart the Gateway service.
 
 That preserves config, auth profiles, WhatsApp creds, sessions, and memory. If you're in
 remote mode, remember the gateway host owns the session store and workspace.
 
-23. **Quan trọng:** nếu bạn chỉ commit/push workspace của mình lên GitHub, bạn đang sao lưu
-    **bộ nhớ + các tệp bootstrap**, nhưng **không** phải lịch sử phiên hay xác thực. 24. Những thứ đó nằm
-    trong `~/.openclaw/` (ví dụ `~/.openclaw/agents/<agentId>/sessions/`).
+**Important:** if you only commit/push your workspace to GitHub, you're backing
+up **memory + bootstrap files**, but **not** session history or auth. Those live
+under `~/.openclaw/` (for example `~/.openclaw/agents/<agentId>/sessions/`).
 
 Related: [Migrating](/install/migrating), [Where things live on disk](/help/faq#where-does-openclaw-store-its-data),
 [Agent workspace](/concepts/agent-workspace), [Doctor](/gateway/doctor),
@@ -432,10 +436,10 @@ Check the GitHub changelog:
 [https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
 
 Newest entries are at the top. If the top section is marked **Unreleased**, the next dated
-section is the latest shipped version. 30. Các mục được nhóm theo **Highlights**, **Changes** và
-**Fixes** (kèm theo docs/các mục khác khi cần).
+section is the latest shipped version. Entries are grouped by **Highlights**, **Changes**, and
+**Fixes** (plus docs/other sections when needed).
 
-### 31. Tôi không thể truy cập docs.openclaw.ai, gặp lỗi SSL. Giờ phải làm gì
+### I cant access docs.openclaw.ai SSL error What now
 
 Some Comcast/Xfinity connections incorrectly block `docs.openclaw.ai` via Xfinity
 Advanced Security. Disable it or allowlist `docs.openclaw.ai`, then retry. More
@@ -445,21 +449,21 @@ Please help us unblock it by reporting here: [https://spa.xfinity.com/check_url_
 If you still can't reach the site, the docs are mirrored on GitHub:
 [https://github.com/openclaw/openclaw/tree/main/docs](https://github.com/openclaw/openclaw/tree/main/docs)
 
-### 37. Sự khác biệt giữa stable và beta là gì
+### What's the difference between stable and beta
 
 **Stable** and **beta** are **npm dist-tags**, not separate code lines:
 
 - `latest` = stable
 - `beta` = early build for testing
 
-41. Chúng tôi phát hành các bản build lên **beta**, kiểm thử chúng, và khi một bản build ổn định chúng tôi sẽ **nâng cấp
-    chính phiên bản đó lên `latest`**. That's why beta and stable can point at the
-    **same version**.
+We ship builds to **beta**, test them, and once a build is solid we **promote
+that same version to `latest`**. That's why beta and stable can point at the
+**same version**.
 
 See what changed:
 [https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
 
-### 44. Làm thế nào để cài đặt phiên bản beta và sự khác biệt giữa beta và dev là gì
+### How do I install the beta version and whats the difference between beta and dev
 
 **Beta** is the npm dist-tag `beta` (may match `latest`).
 **Dev** is the moving head of `main` (git); when published, it uses the npm dist-tag `dev`.
@@ -467,15 +471,15 @@ See what changed:
 One-liners (macOS/Linux):
 
 ```bash
-48. curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --beta
+curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --beta
 ```
 
 ```bash
 curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --install-method git
 ```
 
-50. Trình cài đặt Windows (PowerShell):
-    [https://openclaw.ai/install.ps1](https://openclaw.ai/install.ps1)
+Windows installer (PowerShell):
+[https://openclaw.ai/install.ps1](https://openclaw.ai/install.ps1)
 
 More detail: [Development channels](/install/development-channels) and [Installer flags](/install/installer).
 
@@ -484,10 +488,10 @@ More detail: [Development channels](/install/development-channels) and [Installe
 Rough guide:
 
 - **Install:** 2-5 minutes
-- **Onboarding:** 5–15 phút tùy thuộc vào số kênh/mô hình bạn cấu hình
+- **Onboarding:** 5-15 minutes depending on how many channels/models you configure
 
-Nếu bị treo, hãy dùng [Trình cài đặt bị kẹt](/help/faq#installer-stuck-how-do-i-get-more-feedback)
-và vòng lặp debug nhanh trong [Tôi bị kẹt](/help/faq#im-stuck--whats-the-fastest-way-to-get-unstuck).
+If it hangs, use [Installer stuck](/help/faq#installer-stuck-how-do-i-get-more-feedback)
+and the fast debug loop in [Im stuck](/help/faq#im-stuck--whats-the-fastest-way-to-get-unstuck).
 
 ### How do I try the latest bits
 
@@ -523,7 +527,7 @@ Docs: [Update](/cli/update), [Development channels](/install/development-channel
 
 ### Installer stuck How do I get more feedback
 
-Chạy lại trình cài đặt với **đầu ra chi tiết (verbose)**:
+Re-run the installer with **verbose output**:
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash -s -- --verbose
@@ -541,63 +545,70 @@ For a hackable (git) install:
 curl -fsSL https://openclaw.ai/install.sh | bash -s -- --install-method git --verbose
 ```
 
-Tùy chọn khác: [Installer flags](/install/installer).
+Windows (PowerShell) equivalent:
 
-### Cài đặt trên Windows báo không tìm thấy git hoặc không nhận ra openclaw
+```powershell
+# install.ps1 has no dedicated -Verbose flag yet.
+Set-PSDebug -Trace 1
+& ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
+Set-PSDebug -Trace 0
+```
+
+More options: [Installer flags](/install/installer).
+
+### Windows install says git not found or openclaw not recognized
 
 Two common Windows issues:
 
 **1) npm error spawn git / git not found**
 
 - Install **Git for Windows** and make sure `git` is on your PATH.
-- Đóng và mở lại PowerShell, sau đó chạy lại trình cài đặt.
+- Close and reopen PowerShell, then re-run the installer.
 
 **2) openclaw is not recognized after install**
 
-- Thư mục bin toàn cục của npm chưa có trong PATH.
-
-- Kiểm tra đường dẫn:
+- Your npm global bin folder is not on PATH.
+- Check the path:
 
   ```powershell
   npm config get prefix
   ```
 
-- Đảm bảo `<prefix>\\bin` nằm trong PATH (trên hầu hết hệ thống là `%AppData%\\npm`).
+- Ensure `<prefix>\\bin` is on PATH (on most systems it is `%AppData%\\npm`).
+- Close and reopen PowerShell after updating PATH.
 
-- Đóng và mở lại PowerShell sau khi cập nhật PATH.
-
-Nếu bạn muốn thiết lập Windows mượt nhất, hãy dùng **WSL2** thay vì Windows native.
+If you want the smoothest Windows setup, use **WSL2** instead of native Windows.
 Docs: [Windows](/platforms/windows).
 
-### Tài liệu không trả lời câu hỏi của tôi – làm sao để có câu trả lời tốt hơn
+### The docs didnt answer my question how do I get a better answer
 
-Hãy dùng **cài đặt hackable (git)** để có toàn bộ mã nguồn và tài liệu ở máy local, sau đó hỏi
-bot của bạn (hoặc Claude/Codex) _từ thư mục đó_ để nó có thể đọc repo và trả lời chính xác.
+Use the **hackable (git) install** so you have the full source and docs locally, then ask
+your bot (or Claude/Codex) _from that folder_ so it can read the repo and answer precisely.
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash -s -- --install-method git
 ```
 
-Chi tiết hơn: [Install](/install) và [Installer flags](/install/installer).
+More detail: [Install](/install) and [Installer flags](/install/installer).
 
-### Làm thế nào để cài OpenClaw trên Linux
+### How do I install OpenClaw on Linux
 
-Câu trả lời ngắn gọn: làm theo hướng dẫn Linux, sau đó chạy trình hướng dẫn onboarding.
+Short answer: follow the Linux guide, then run the onboarding wizard.
 
-- Đường nhanh Linux + cài dạng service: [Linux](/platforms/linux).
-- Hướng dẫn đầy đủ: [Getting Started](/start/getting-started).
-- Trình cài đặt + cập nhật: [Install & updates](/install/updating).
+- Linux quick path + service install: [Linux](/platforms/linux).
+- Full walkthrough: [Getting Started](/start/getting-started).
+- Installer + updates: [Install & updates](/install/updating).
 
-### Làm thế nào để cài OpenClaw trên VPS
+### How do I install OpenClaw on a VPS
 
-Bất kỳ VPS Linux nào cũng dùng được. Cài đặt trên máy chủ, sau đó dùng SSH/Tailscale để truy cập Gateway.
+Any Linux VPS works. Install on the server, then use SSH/Tailscale to reach the Gateway.
 
-Hướng dẫn: [exe.dev](/install/exe-dev), [Hetzner](/install/hetzner), [Fly.io](/install/fly).
-Truy cập từ xa: [Gateway remote](/gateway/remote).
+Guides: [exe.dev](/install/exe-dev), [Hetzner](/install/hetzner), [Fly.io](/install/fly).
+Remote access: [Gateway remote](/gateway/remote).
 
-### Các hướng dẫn cài đặt cloudVPS ở đâu
+### Where are the cloudVPS install guides
 
-We keep a **hosting hub** with the common providers. Chọn một và làm theo hướng dẫn:
+We keep a **hosting hub** with the common providers. Pick one and follow the guide:
 
 - [VPS hosting](/vps) (all providers in one place)
 - [Fly.io](/install/fly)
@@ -605,8 +616,8 @@ We keep a **hosting hub** with the common providers. Chọn một và làm theo 
 - [exe.dev](/install/exe-dev)
 
 How it works in the cloud: the **Gateway runs on the server**, and you access it
-from your laptop/phone via the Control UI (or Tailscale/SSH). Trạng thái + workspace của bạn
-nằm trên máy chủ, vì vậy hãy coi máy chủ là nguồn sự thật và sao lưu nó.
+from your laptop/phone via the Control UI (or Tailscale/SSH). Your state + workspace
+live on the server, so treat the host as the source of truth and back it up.
 
 You can pair **nodes** (Mac/iOS/Android/headless) to that cloud Gateway to access
 local screen/camera/canvas or run commands on your laptop while keeping the
@@ -615,13 +626,13 @@ Gateway in the cloud.
 Hub: [Platforms](/platforms). Remote access: [Gateway remote](/gateway/remote).
 Nodes: [Nodes](/nodes), [Nodes CLI](/cli/nodes).
 
-### Tôi có thể yêu cầu OpenClaw tự cập nhật không
+### Can I ask OpenClaw to update itself
 
-Câu trả lời ngắn gọn: **có thể, nhưng không khuyến nghị**. Quy trình cập nhật có thể khởi động lại
-Gateway (làm rớt phiên đang hoạt động), có thể cần một git checkout sạch, và
-có thể yêu cầu xác nhận. Safer: run updates from a shell as the operator.
+Short answer: **possible, not recommended**. The update flow can restart the
+Gateway (which drops the active session), may need a clean git checkout, and
+can prompt for confirmation. Safer: run updates from a shell as the operator.
 
-Dùng CLI:
+Use the CLI:
 
 ```bash
 openclaw update
@@ -642,42 +653,43 @@ Docs: [Update](/cli/update), [Updating](/install/updating).
 
 ### What does the onboarding wizard actually do
 
-**Thiết lập model/xác thực** (khuyến nghị Anthropic **setup-token** cho các gói thuê bao Claude, hỗ trợ OpenAI Codex OAuth, API key là tùy chọn, hỗ trợ mô hình cục bộ LM Studio) Trong **chế độ local** nó sẽ hướng dẫn bạn:
+`openclaw onboard` is the recommended setup path. In **local mode** it walks you through:
 
-- Tôi có cần đăng ký Claude hoặc OpenAI để chạy cái này không
+- **Model/auth setup** (Anthropic **setup-token** recommended for Claude subscriptions, OpenAI Codex OAuth supported, API keys optional, LM Studio local models supported)
 - **Workspace** location + bootstrap files
 - **Gateway settings** (bind/port/auth/tailscale)
-- **Nhà cung cấp** (WhatsApp, Telegram, Discord, Mattermost (plugin), Signal, iMessage)
-- **Cài đặt daemon** (LaunchAgent trên macOS; systemd user unit trên Linux/WSL2)
-- **Kiểm tra sức khỏe** và lựa chọn **skills**
+- **Providers** (WhatsApp, Telegram, Discord, Mattermost (plugin), Signal, iMessage)
+- **Daemon install** (LaunchAgent on macOS; systemd user unit on Linux/WSL2)
+- **Health checks** and **skills** selection
 
-Nó cũng cảnh báo nếu model bạn cấu hình là không xác định hoặc thiếu xác thực.
+It also warns if your configured model is unknown or missing auth.
 
-### Quan trọng: bạn phải xác minh với&#xA;Anthropic rằng cách sử dụng này được phép theo chính sách và điều khoản thuê bao của họ.
+### Do I need a Claude or OpenAI subscription to run this
 
-Không. Bạn có thể chạy OpenClaw với **API key** (Anthropic/OpenAI/khác) hoặc với
-**model chỉ chạy cục bộ** để dữ liệu của bạn nằm trên thiết bị. Subscriptions (Claude
+No. You can run OpenClaw with **API keys** (Anthropic/OpenAI/others) or with
+**local-only models** so your data stays on your device. Subscriptions (Claude
 Pro/Max or OpenAI Codex) are optional ways to authenticate those providers.
 
 Docs: [Anthropic](/providers/anthropic), [OpenAI](/providers/openai),
 [Local models](/gateway/local-models), [Models](/concepts/models).
 
-### Tôi có thể dùng gói Claude Max mà không cần API key không
+### Can I use Claude Max subscription without an API key
 
-Có. You can authenticate with a **setup-token**
+Yes. You can authenticate with a **setup-token**
 instead of an API key. This is the subscription path.
 
 Claude Pro/Max subscriptions **do not include an API key**, so this is the
-correct approach for subscription accounts. Bộ nhớ đệm xác thực runtime (được quản lý tự động)
+correct approach for subscription accounts. Important: you must verify with
+Anthropic that this usage is allowed under their subscription policy and terms.
 If you want the most explicit, supported path, use an Anthropic API key.
 
 ### How does Anthropic setuptoken auth work
 
-`claude setup-token` generates a **token string** via the Claude Code CLI (it is not available in the web console). You can run it on **any machine**. Chọn **Anthropic token (dán setup-token)** trong wizard hoặc dán bằng `openclaw models auth paste-token --provider anthropic`. Token được lưu như một hồ sơ xác thực cho nhà cung cấp **anthropic** và được dùng như API key (không tự làm mới). Chi tiết hơn: [OAuth](/concepts/oauth).
+`claude setup-token` generates a **token string** via the Claude Code CLI (it is not available in the web console). You can run it on **any machine**. Choose **Anthropic token (paste setup-token)** in the wizard or paste it with `openclaw models auth paste-token --provider anthropic`. The token is stored as an auth profile for the **anthropic** provider and used like an API key (no auto-refresh). More detail: [OAuth](/concepts/oauth).
 
 ### Where do I find an Anthropic setuptoken
 
-It is **not** in the Anthropic Console. setup-token được tạo bởi **Claude Code CLI** trên **bất kỳ máy nào**:
+It is **not** in the Anthropic Console. The setup-token is generated by the **Claude Code CLI** on **any machine**:
 
 ```bash
 claude setup-token
@@ -685,7 +697,7 @@ claude setup-token
 
 Copy the token it prints, then choose **Anthropic token (paste setup-token)** in the wizard. If you want to run it on the gateway host, use `openclaw models auth setup-token --provider anthropic`. If you ran `claude setup-token` elsewhere, paste it on the gateway host with `openclaw models auth paste-token --provider anthropic`. See [Anthropic](/providers/anthropic).
 
-### Bạn có hỗ trợ xác thực thuê bao Claude (Claude Pro hoặc Max) không
+### Do you support Claude subscription auth (Claude Pro or Max)
 
 Yes - via **setup-token**. OpenClaw no longer reuses Claude Code CLI OAuth tokens; use a setup-token or an Anthropic API key. Generate the token anywhere and paste it on the gateway host. See [Anthropic](/providers/anthropic) and [OAuth](/concepts/oauth).
 
@@ -701,17 +713,17 @@ for usage/billing and raise limits as needed.
 Tip: set a **fallback model** so OpenClaw can keep replying while a provider is rate-limited.
 See [Models](/cli/models) and [OAuth](/concepts/oauth).
 
-### AWS Bedrock có được hỗ trợ không
+### Is AWS Bedrock supported
 
-Yes - via pi-ai's **Amazon Bedrock (Converse)** provider with **manual config**. You must supply AWS credentials/region on the gateway host and add a Bedrock provider entry in your models config. See [Amazon Bedrock](/providers/bedrock) and [Model providers](/providers/models). Nếu bạn предпоч thích một luồng khóa được quản lý, một proxy tương thích OpenAI đặt trước Bedrock vẫn là một lựa chọn hợp lệ.
+Yes - via pi-ai's **Amazon Bedrock (Converse)** provider with **manual config**. You must supply AWS credentials/region on the gateway host and add a Bedrock provider entry in your models config. See [Amazon Bedrock](/providers/bedrock) and [Model providers](/providers/models). If you prefer a managed key flow, an OpenAI-compatible proxy in front of Bedrock is still a valid option.
 
 ### How does Codex auth work
 
-OpenClaw hỗ trợ **OpenAI Code (Codex)** thông qua OAuth (đăng nhập ChatGPT). Trình hướng dẫn có thể chạy luồng OAuth và sẽ đặt mô hình mặc định thành `openai-codex/gpt-5.3-codex` khi phù hợp. See [Model providers](/concepts/model-providers) and [Wizard](/start/wizard).
+OpenClaw supports **OpenAI Code (Codex)** via OAuth (ChatGPT sign-in). The wizard can run the OAuth flow and will set the default model to `openai-codex/gpt-5.3-codex` when appropriate. See [Model providers](/concepts/model-providers) and [Wizard](/start/wizard).
 
-### Bạn có hỗ trợ xác thực thuê bao OpenAI Codex OAuth không
+### Do you support OpenAI subscription auth Codex OAuth
 
-Có. OpenClaw fully supports **OpenAI Code (Codex) subscription OAuth**. The onboarding wizard
+Yes. OpenClaw fully supports **OpenAI Code (Codex) subscription OAuth**. The onboarding wizard
 can run the OAuth flow for you.
 
 See [OAuth](/concepts/oauth), [Model providers](/concepts/model-providers), and [Wizard](/start/wizard).
@@ -723,13 +735,13 @@ Gemini CLI uses a **plugin auth flow**, not a client id or secret in `openclaw.j
 Steps:
 
 1. Enable the plugin: `openclaw plugins enable google-gemini-cli-auth`
-2. Đăng nhập: `openclaw models auth login --provider google-gemini-cli --set-default`
+2. Login: `openclaw models auth login --provider google-gemini-cli --set-default`
 
 This stores OAuth tokens in auth profiles on the gateway host. Details: [Model providers](/concepts/model-providers).
 
-### Mô hình cục bộ có ổn cho các cuộc trò chuyện thông thường không
+### Is a local model OK for casual chats
 
-Usually no. OpenClaw cần ngữ cảnh lớn + an toàn mạnh; các card nhỏ sẽ bị cắt ngắn và rò rỉ. If you must, run the **largest** MiniMax M2.1 build you can locally (LM Studio) and see [/gateway/local-models](/gateway/local-models). Smaller/quantized models increase prompt-injection risk - see [Security](/gateway/security).
+Usually no. OpenClaw needs large context + strong safety; small cards truncate and leak. If you must, run the **largest** MiniMax M2.1 build you can locally (LM Studio) and see [/gateway/local-models](/gateway/local-models). Smaller/quantized models increase prompt-injection risk - see [Security](/gateway/security).
 
 ### How do I keep hosted model traffic in a specific region
 
@@ -737,7 +749,7 @@ Pick region-pinned endpoints. OpenRouter exposes US-hosted options for MiniMax, 
 
 ### Do I have to buy a Mac Mini to install this
 
-Không. OpenClaw runs on macOS or Linux (Windows via WSL2). A Mac mini is optional - some people
+No. OpenClaw runs on macOS or Linux (Windows via WSL2). A Mac mini is optional - some people
 buy one as an always-on host, but a small VPS, home server, or Raspberry Pi-class box works too.
 
 You only need a Mac **for macOS-only tools**. For iMessage, use [BlueBubbles](/channels/bluebubbles) (recommended) - the BlueBubbles server runs on any Mac, and the Gateway can run on Linux or elsewhere. If you want other macOS-only tools, run the Gateway on a Mac or pair a macOS node.
@@ -749,7 +761,7 @@ Docs: [BlueBubbles](/channels/bluebubbles), [Nodes](/nodes), [Mac remote mode](/
 You need **some macOS device** signed into Messages. It does **not** have to be a Mac mini -
 any Mac works. **Use [BlueBubbles](/channels/bluebubbles)** (recommended) for iMessage - the BlueBubbles server runs on macOS, while the Gateway can run on Linux or elsewhere.
 
-Các thiết lập phổ biến:
+Common setups:
 
 - Run the Gateway on Linux/VPS, and run the BlueBubbles server on any Mac signed into Messages.
 - Run everything on the Mac if you want the simplest single‑machine setup.
@@ -757,9 +769,9 @@ Các thiết lập phổ biến:
 Docs: [BlueBubbles](/channels/bluebubbles), [Nodes](/nodes),
 [Mac remote mode](/platforms/mac/remote).
 
-### Nếu tôi mua một Mac mini để chạy OpenClaw thì tôi có thể kết nối nó với MacBook Pro của mình không
+### If I buy a Mac mini to run OpenClaw can I connect it to my MacBook Pro
 
-Có. The **Mac mini can run the Gateway**, and your MacBook Pro can connect as a
+Yes. The **Mac mini can run the Gateway**, and your MacBook Pro can connect as a
 **node** (companion device). Nodes don't run the Gateway - they provide extra
 capabilities like screen/camera/canvas and `system.run` on that device.
 
@@ -769,9 +781,9 @@ Common pattern:
 - MacBook Pro runs the macOS app or a node host and pairs to the Gateway.
 - Use `openclaw nodes status` / `openclaw nodes list` to see it.
 
-Tài liệu: [Nodes](/nodes), [Nodes CLI](/cli/nodes).
+Docs: [Nodes](/nodes), [Nodes CLI](/cli/nodes).
 
-### Tôi có thể dùng Bun không
+### Can I use Bun
 
 Bun is **not recommended**. We see runtime bugs, especially with WhatsApp and Telegram.
 Use **Node** for stable gateways.
@@ -781,9 +793,11 @@ without WhatsApp/Telegram.
 
 ### Telegram what goes in allowFrom
 
-24. `channels.telegram.allowFrom` là **ID người gửi Telegram của con người** (dạng số, khuyến nghị) hoặc `@username`. It is not the bot username.
+`channels.telegram.allowFrom` is **the human sender's Telegram user ID** (numeric). It is not the bot username.
 
-An toàn hơn (không dùng bot bên thứ ba):
+The onboarding wizard accepts `@username` input and resolves it to a numeric ID, but OpenClaw authorization uses numeric IDs only.
+
+Safer (no third-party bot):
 
 - DM your bot, then run `openclaw logs --follow` and read `from.id`.
 
@@ -791,23 +805,23 @@ Official Bot API:
 
 - DM your bot, then call `https://api.telegram.org/bot<bot_token>/getUpdates` and read `message.from.id`.
 
-Bên thứ ba (ít riêng tư hơn):
+Third-party (less private):
 
 - DM `@userinfobot` or `@getidsbot`.
 
 See [/channels/telegram](/channels/telegram#access-control-dms--groups).
 
-### 31. Nhiều người có thể dùng chung một số WhatsApp với các instance OpenClaw khác nhau không
+### Can multiple people use one WhatsApp number with different OpenClaw instances
 
 Yes, via **multi-agent routing**. Bind each sender's WhatsApp **DM** (peer `kind: "direct"`, sender E.164 like `+15551234567`) to a different `agentId`, so each person gets their own workspace and session store. Replies still come from the **same WhatsApp account**, and DM access control (`channels.whatsapp.dmPolicy` / `channels.whatsapp.allowFrom`) is global per WhatsApp account. See [Multi-Agent Routing](/concepts/multi-agent) and [WhatsApp](/channels/whatsapp).
 
-### 36. Tôi có thể chạy một chat agent nhanh và một agent Opus để code không
+### Can I run a fast chat agent and an Opus for coding agent
 
-Có. 37. Dùng multi-agent routing: cho mỗi agent một model mặc định riêng, sau đó gắn các tuyến inbound (tài khoản nhà cung cấp hoặc các peer cụ thể) với từng agent. Example config lives in [Multi-Agent Routing](/concepts/multi-agent). 39. Xem thêm [Models](/concepts/models) và [Configuration](/gateway/configuration).
+Yes. Use multi-agent routing: give each agent its own default model, then bind inbound routes (provider account or specific peers) to each agent. Example config lives in [Multi-Agent Routing](/concepts/multi-agent). See also [Models](/concepts/models) and [Configuration](/gateway/configuration).
 
 ### Does Homebrew work on Linux
 
-Có. Homebrew supports Linux (Linuxbrew). Thiết lập nhanh:
+Yes. Homebrew supports Linux (Linuxbrew). Quick setup:
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -816,10 +830,10 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 brew install <formula>
 ```
 
-43. Nếu bạn chạy OpenClaw qua systemd, hãy đảm bảo PATH của service bao gồm `/home/linuxbrew/.linuxbrew/bin` (hoặc brew prefix của bạn) để các công cụ cài bằng `brew` được resolve trong các non-login shell.
-44. Các bản build gần đây cũng prepend các thư mục bin người dùng phổ biến trên Linux cho systemd services (ví dụ `~/.local/bin`, `~/.npm-global/bin`, `~/.local/share/pnpm`, `~/.bun/bin`) và tôn trọng `PNPM_HOME`, `NPM_CONFIG_PREFIX`, `BUN_INSTALL`, `VOLTA_HOME`, `ASDF_DATA_DIR`, `NVM_DIR`, và `FNM_DIR` khi được thiết lập.
+If you run OpenClaw via systemd, ensure the service PATH includes `/home/linuxbrew/.linuxbrew/bin` (or your brew prefix) so `brew`-installed tools resolve in non-login shells.
+Recent builds also prepend common user bin dirs on Linux systemd services (for example `~/.local/bin`, `~/.npm-global/bin`, `~/.local/share/pnpm`, `~/.bun/bin`) and honor `PNPM_HOME`, `NPM_CONFIG_PREFIX`, `BUN_INSTALL`, `VOLTA_HOME`, `ASDF_DATA_DIR`, `NVM_DIR`, and `FNM_DIR` when set.
 
-### 45. Sự khác nhau giữa bản cài hackable bằng git và bản cài npm là gì
+### What's the difference between the hackable git install and npm install
 
 - **Hackable (git) install:** full source checkout, editable, best for contributors.
   You run builds locally and can patch code/docs.
@@ -830,7 +844,7 @@ Docs: [Getting started](/start/getting-started), [Updating](/install/updating).
 
 ### Can I switch between npm and git installs later
 
-Có. Install the other flavor, then run Doctor so the gateway service points at the new entrypoint.
+Yes. Install the other flavor, then run Doctor so the gateway service points at the new entrypoint.
 This **does not delete your data** - it only changes the OpenClaw code install. Your state
 (`~/.openclaw`) and workspace (`~/.openclaw/workspace`) stay untouched.
 
@@ -869,108 +883,108 @@ lowest friction and you're okay with sleep/restarts, run it locally.
 
 **VPS / cloud**
 
-- **Ưu điểm:** luôn bật, mạng ổn định, không gặp vấn đề laptop ngủ, dễ duy trì chạy liên tục.
-- **Nhược điểm:** thường chạy headless (dùng ảnh chụp màn hình), chỉ truy cập file từ xa, bạn phải SSH để cập nhật.
+- **Pros:** always-on, stable network, no laptop sleep issues, easier to keep running.
+- **Cons:** often run headless (use screenshots), remote file access only, you must SSH for updates.
 
-**OpenClaw-specific note:** WhatsApp/Telegram/Slack/Mattermost (plugin)/Discord all work fine from a VPS. Điểm đánh đổi thực sự duy nhất là **trình duyệt headless** so với cửa sổ hiển thị. Xem [Browser](/tools/browser).
+**OpenClaw-specific note:** WhatsApp/Telegram/Slack/Mattermost (plugin)/Discord all work fine from a VPS. The only real trade-off is **headless browser** vs a visible window. See [Browser](/tools/browser).
 
-**Mặc định khuyến nghị:** VPS nếu trước đây bạn từng gặp lỗi gateway bị ngắt kết nối. Local rất tốt khi bạn đang chủ động dùng Mac và muốn truy cập file cục bộ hoặc tự động hóa UI với trình duyệt hiển thị.
+**Recommended default:** VPS if you had gateway disconnects before. Local is great when you're actively using the Mac and want local file access or UI automation with a visible browser.
 
-### Việc chạy OpenClaw trên một máy chuyên dụng quan trọng đến mức nào
+### How important is it to run OpenClaw on a dedicated machine
 
-Không bắt buộc, nhưng **được khuyến nghị để đảm bảo độ tin cậy và cách ly**.
+Not required, but **recommended for reliability and isolation**.
 
 - **Dedicated host (VPS/Mac mini/Pi):** always-on, fewer sleep/reboot interruptions, cleaner permissions, easier to keep running.
-- **Laptop/desktop dùng chung:** hoàn toàn ổn cho thử nghiệm và sử dụng chủ động, nhưng hãy chấp nhận việc bị tạm dừng khi máy ngủ hoặc cập nhật.
+- **Shared laptop/desktop:** totally fine for testing and active use, but expect pauses when the machine sleeps or updates.
 
-If you want the best of both worlds, keep the Gateway on a dedicated host and pair your laptop as a **node** for local screen/camera/exec tools. Xem [Nodes](/nodes).
-Để biết hướng dẫn bảo mật, đọc [Security](/gateway/security).
+If you want the best of both worlds, keep the Gateway on a dedicated host and pair your laptop as a **node** for local screen/camera/exec tools. See [Nodes](/nodes).
+For security guidance, read [Security](/gateway/security).
 
-### Yêu cầu VPS tối thiểu và hệ điều hành khuyến nghị là gì
+### What are the minimum VPS requirements and recommended OS
 
-OpenClaw rất nhẹ. Với một Gateway cơ bản + một kênh chat:
+OpenClaw is lightweight. For a basic Gateway + one chat channel:
 
 - **Absolute minimum:** 1 vCPU, 1GB RAM, ~500MB disk.
-- **Khuyến nghị:** 1–2 vCPU, 2GB RAM trở lên để có dư địa (log, media, nhiều kênh). Các công cụ node và tự động hóa trình duyệt có thể tiêu tốn nhiều tài nguyên.
+- **Recommended:** 1-2 vCPU, 2GB RAM or more for headroom (logs, media, multiple channels). Node tools and browser automation can be resource hungry.
 
-OS: use **Ubuntu LTS** (or any modern Debian/Ubuntu). Lộ trình cài đặt trên Linux được kiểm thử tốt nhất.
+OS: use **Ubuntu LTS** (or any modern Debian/Ubuntu). The Linux install path is best tested there.
 
-Tài liệu: [Linux](/platforms/linux), [VPS hosting](/vps).
+Docs: [Linux](/platforms/linux), [VPS hosting](/vps).
 
-### Tôi có thể chạy OpenClaw trong VM không và yêu cầu là gì
+### Can I run OpenClaw in a VM and what are the requirements
 
-Có. Hãy coi VM giống như VPS: cần luôn bật, có thể truy cập được, và có đủ
-RAM cho Gateway và bất kỳ kênh nào bạn bật.
+Yes. Treat a VM the same as a VPS: it needs to be always on, reachable, and have enough
+RAM for the Gateway and any channels you enable.
 
-Hướng dẫn cơ bản:
+Baseline guidance:
 
-- **Tối thiểu tuyệt đối:** 1 vCPU, 1GB RAM.
+- **Absolute minimum:** 1 vCPU, 1GB RAM.
 - **Recommended:** 2GB RAM or more if you run multiple channels, browser automation, or media tools.
 - **OS:** Ubuntu LTS or another modern Debian/Ubuntu.
 
 If you are on Windows, **WSL2 is the easiest VM style setup** and has the best tooling
-compatibility. Xem [Windows](/platforms/windows), [VPS hosting](/vps).
-Nếu bạn chạy macOS trong VM, xem [macOS VM](/install/macos-vm).
+compatibility. See [Windows](/platforms/windows), [VPS hosting](/vps).
+If you are running macOS in a VM, see [macOS VM](/install/macos-vm).
 
-## OpenClaw là gì?
+## What is OpenClaw?
 
-### OpenClaw là gì trong một đoạn
+### What is OpenClaw in one paragraph
 
-OpenClaw là một trợ lý AI cá nhân mà bạn chạy trên chính thiết bị của mình. It replies on the messaging surfaces you already use (WhatsApp, Telegram, Slack, Mattermost (plugin), Discord, Google Chat, Signal, iMessage, WebChat) and can also do voice + a live Canvas on supported platforms. **Gateway** là mặt phẳng điều khiển luôn bật; trợ lý là sản phẩm.
+OpenClaw is a personal AI assistant you run on your own devices. It replies on the messaging surfaces you already use (WhatsApp, Telegram, Slack, Mattermost (plugin), Discord, Google Chat, Signal, iMessage, WebChat) and can also do voice + a live Canvas on supported platforms. The **Gateway** is the always-on control plane; the assistant is the product.
 
-### Giá trị cốt lõi là gì
+### What's the value proposition
 
-OpenClaw không chỉ là "một wrapper cho Claude." Đó là một **mặt phẳng điều khiển ưu tiên local** cho phép bạn chạy một
-trợ lý mạnh mẽ trên **phần cứng của chính bạn**, có thể truy cập từ các ứng dụng chat bạn đã dùng, với
-phiên làm việc có trạng thái, bộ nhớ và công cụ – mà không giao quyền kiểm soát quy trình làm việc của bạn cho một
-SaaS được lưu trữ.
+OpenClaw is not "just a Claude wrapper." It's a **local-first control plane** that lets you run a
+capable assistant on **your own hardware**, reachable from the chat apps you already use, with
+stateful sessions, memory, and tools - without handing control of your workflows to a hosted
+SaaS.
 
-Điểm nổi bật:
+Highlights:
 
-- **Thiết bị của bạn, dữ liệu của bạn:** chạy Gateway ở bất cứ đâu bạn muốn (Mac, Linux, VPS) và giữ
-  workspace + lịch sử phiên làm việc ở local.
-- **Kênh thực, không phải web sandbox:** WhatsApp/Telegram/Slack/Discord/Signal/iMessage/etc,
-  cùng với giọng nói di động và Canvas trên các nền tảng được hỗ trợ.
-- **Không phụ thuộc mô hình:** dùng Anthropic, OpenAI, MiniMax, OpenRouter, v.v., với định tuyến theo từng agent
-  và cơ chế dự phòng.
-- **Tùy chọn chỉ-local:** chạy mô hình local để **toàn bộ dữ liệu có thể ở lại trên thiết bị của bạn** nếu bạn muốn.
-- **Định tuyến đa agent:** tách agent theo kênh, tài khoản, hoặc tác vụ, mỗi agent có
-  workspace và mặc định riêng.
-- **Mã nguồn mở và dễ hack:** kiểm tra, mở rộng và tự host mà không bị khóa nhà cung cấp.
+- **Your devices, your data:** run the Gateway wherever you want (Mac, Linux, VPS) and keep the
+  workspace + session history local.
+- **Real channels, not a web sandbox:** WhatsApp/Telegram/Slack/Discord/Signal/iMessage/etc,
+  plus mobile voice and Canvas on supported platforms.
+- **Model-agnostic:** use Anthropic, OpenAI, MiniMax, OpenRouter, etc., with per-agent routing
+  and failover.
+- **Local-only option:** run local models so **all data can stay on your device** if you want.
+- **Multi-agent routing:** separate agents per channel, account, or task, each with its own
+  workspace and defaults.
+- **Open source and hackable:** inspect, extend, and self-host without vendor lock-in.
 
 Docs: [Gateway](/gateway), [Channels](/channels), [Multi-agent](/concepts/multi-agent),
 [Memory](/concepts/memory).
 
-### Tôi vừa cài xong thì nên làm gì trước
+### I just set it up what should I do first
 
-Các dự án đầu tiên tốt:
+Good first projects:
 
-- Xây dựng một website (WordPress, Shopify, hoặc site tĩnh đơn giản).
-- Tạo nguyên mẫu app di động (phác thảo, màn hình, kế hoạch API).
+- Build a website (WordPress, Shopify, or a simple static site).
+- Prototype a mobile app (outline, screens, API plan).
 - Organize files and folders (cleanup, naming, tagging).
-- Kết nối Gmail và tự động hóa tóm tắt hoặc follow up.
+- Connect Gmail and automate summaries or follow ups.
 
-Nó có thể xử lý các tác vụ lớn, nhưng hoạt động hiệu quả nhất khi bạn chia nhỏ thành các giai đoạn và
-sử dụng sub agent cho công việc song song.
+It can handle large tasks, but it works best when you split them into phases and
+use sub agents for parallel work.
 
-### Năm trường hợp sử dụng hằng ngày hàng đầu của OpenClaw là gì
+### What are the top five everyday use cases for OpenClaw
 
 Everyday wins usually look like:
 
-- **Bản tin cá nhân:** tóm tắt hộp thư, lịch và tin tức bạn quan tâm.
+- **Personal briefings:** summaries of inbox, calendar, and news you care about.
 - **Research and drafting:** quick research, summaries, and first drafts for emails or docs.
-- **Nhắc nhở và theo dõi:** các nhắc nhở và checklist được kích hoạt bởi cron hoặc heartbeat.
-- **Tự động hóa trình duyệt:** điền form, thu thập dữ liệu và lặp lại các tác vụ web.
+- **Reminders and follow ups:** cron or heartbeat driven nudges and checklists.
+- **Browser automation:** filling forms, collecting data, and repeating web tasks.
 - **Cross device coordination:** send a task from your phone, let the Gateway run it on a server, and get the result back in chat.
 
-### OpenClaw có thể giúp lead gen, outreach, ads và blog cho một SaaS không
+### Can OpenClaw help with lead gen outreach ads and blogs for a SaaS
 
-Có, cho **nghiên cứu, sàng lọc và soạn thảo**. Nó có thể quét website, xây dựng danh sách ngắn,
-tóm tắt khách hàng tiềm năng và viết bản nháp nội dung outreach hoặc quảng cáo.
+Yes for **research, qualification, and drafting**. It can scan sites, build shortlists,
+summarize prospects, and write outreach or ad copy drafts.
 
 For **outreach or ad runs**, keep a human in the loop. Avoid spam, follow local laws and
-platform policies, and review anything before it is sent. Mẫu an toàn nhất là để
-OpenClaw soạn thảo và bạn phê duyệt.
+platform policies, and review anything before it is sent. The safest pattern is to let
+OpenClaw draft and you approve.
 
 Docs: [Security](/gateway/security).
 
@@ -998,7 +1012,7 @@ Use managed overrides instead of editing the repo copy. Put your changes in `~/.
 
 ### Can I load skills from a custom folder
 
-Có. Add extra directories via `skills.load.extraDirs` in `~/.openclaw/openclaw.json` (lowest precedence). Default precedence remains: `<workspace>/skills` → `~/.openclaw/skills` → bundled → `skills.load.extraDirs`. `clawhub` installs into `./skills` by default, which OpenClaw treats as `<workspace>/skills`.
+Yes. Add extra directories via `skills.load.extraDirs` in `~/.openclaw/openclaw.json` (lowest precedence). Default precedence remains: `<workspace>/skills` → `~/.openclaw/skills` → bundled → `skills.load.extraDirs`. `clawhub` installs into `./skills` by default, which OpenClaw treats as `<workspace>/skills`.
 
 ### How can I use different models for different tasks
 
@@ -1028,7 +1042,7 @@ Docs: [Sub-agents](/tools/subagents).
 Cron runs inside the Gateway process. If the Gateway is not running continuously,
 scheduled jobs will not run.
 
-Danh sách kiểm tra:
+Checklist:
 
 - Confirm cron is enabled (`cron.enabled`) and `OPENCLAW_SKIP_CRON` is not set.
 - Check the Gateway is running 24/7 (no sleep/restarts).
@@ -1048,7 +1062,7 @@ Docs: [Cron jobs](/automation/cron-jobs), [Cron vs Heartbeat](/automation/cron-v
 Use **ClawHub** (CLI) or drop skills into your workspace. The macOS Skills UI isn't available on Linux.
 Browse skills at [https://clawhub.com](https://clawhub.com).
 
-Cài đặt ClawHub CLI (chọn một trình quản lý gói):
+Install the ClawHub CLI (pick one package manager):
 
 ```bash
 npm i -g clawhub
@@ -1060,7 +1074,7 @@ pnpm add -g clawhub
 
 ### Can OpenClaw run tasks on a schedule or continuously in the background
 
-Có. Use the Gateway scheduler:
+Yes. Use the Gateway scheduler:
 
 - **Cron jobs** for scheduled or recurring tasks (persist across restarts).
 - **Heartbeat** for "main session" periodic checks.
@@ -1084,7 +1098,7 @@ Run the Gateway on Linux, pair a macOS node (menubar app), and set **Node Run Co
 **Option C - proxy macOS binaries over SSH (advanced).**
 Keep the Gateway on Linux, but make the required CLI binaries resolve to SSH wrappers that run on a Mac. Then override the skill to allow Linux so it stays eligible.
 
-1. Tạo một SSH wrapper cho binary (ví dụ: `memo` cho Apple Notes):
+1. Create an SSH wrapper for the binary (example: `memo` for Apple Notes):
 
    ```bash
    #!/usr/bin/env bash
@@ -1092,44 +1106,44 @@ Keep the Gateway on Linux, but make the required CLI binaries resolve to SSH wra
    exec ssh -T user@mac-host /opt/homebrew/bin/memo "$@"
    ```
 
-2. 1. Đặt wrapper vào `PATH` trên máy chủ Linux (ví dụ `~/bin/memo`).
-
-3. 2. Ghi đè metadata của skill (workspace hoặc `~/.openclaw/skills`) để cho phép Linux:
+2. Put the wrapper on `PATH` on the Linux host (for example `~/bin/memo`).
+3. Override the skill metadata (workspace or `~/.openclaw/skills`) to allow Linux:
 
    ```markdown
-   3. ---
+   ---
    name: apple-notes
-   description: Quản lý Apple Notes thông qua CLI memo trên macOS.
+   description: Manage Apple Notes via the memo CLI on macOS.
    metadata: { "openclaw": { "os": ["darwin", "linux"], "requires": { "bins": ["memo"] } } }
    ---
    ```
 
-4. 4. Bắt đầu một phiên mới để snapshot skill được làm mới.
+4. Start a new session so the skills snapshot refreshes.
 
-### 5) Bạn có tích hợp Notion hoặc HeyGen không
+### Do you have a Notion or HeyGen integration
 
-6. Hiện tại chưa có tích hợp sẵn.
+Not built-in today.
 
-Tùy chọn:
+Options:
 
-- 7. **Skill / plugin tùy chỉnh:** tốt nhất cho truy cập API đáng tin cậy (Notion/HeyGen đều có API).
-- 8. **Tự động hóa trình duyệt:** hoạt động không cần code nhưng chậm hơn và dễ lỗi hơn.
+- **Custom skill / plugin:** best for reliable API access (Notion/HeyGen both have APIs).
+- **Browser automation:** works without code but is slower and more fragile.
 
-9. Nếu bạn muốn giữ ngữ cảnh theo từng khách hàng (quy trình agency), một mẫu đơn giản là:
+If you want to keep context per client (agency workflows), a simple pattern is:
 
-- 10. Một trang Notion cho mỗi khách hàng (ngữ cảnh + tùy chọn + công việc đang hoạt động).
-- 11. Yêu cầu agent lấy trang đó khi bắt đầu một phiên.
+- One Notion page per client (context + preferences + active work).
+- Ask the agent to fetch that page at the start of a session.
 
-12. Nếu bạn muốn tích hợp gốc, hãy mở một yêu cầu tính năng hoặc xây dựng một skill nhắm tới các API đó.
+If you want a native integration, open a feature request or build a skill
+targeting those APIs.
 
 Install skills:
 
 ```bash
-13. clawhub install <skill-slug>
+clawhub install <skill-slug>
 clawhub update --all
 ```
 
-ClawHub installs into `./skills` under your current directory (or falls back to your configured OpenClaw workspace); OpenClaw treats that as `<workspace>/skills` on the next session. 14. Đối với các skill dùng chung giữa nhiều agent, hãy đặt chúng trong `~/.openclaw/skills/<name>/SKILL.md`. 15. Một số skill yêu cầu cài đặt binary qua Homebrew; trên Linux điều đó có nghĩa là Linuxbrew (xem mục Homebrew Linux FAQ ở trên). See [Skills](/tools/skills) and [ClawHub](/tools/clawhub).
+ClawHub installs into `./skills` under your current directory (or falls back to your configured OpenClaw workspace); OpenClaw treats that as `<workspace>/skills` on the next session. For shared skills across agents, place them in `~/.openclaw/skills/<name>/SKILL.md`. Some skills expect binaries installed via Homebrew; on Linux that means Linuxbrew (see the Homebrew Linux FAQ entry above). See [Skills](/tools/skills) and [ClawHub](/tools/clawhub).
 
 ### How do I install the Chrome extension for browser takeover
 
@@ -1140,31 +1154,32 @@ openclaw browser extension install
 openclaw browser extension path
 ```
 
-16. Sau đó Chrome → `chrome://extensions` → bật "Developer mode" → "Load unpacked" → chọn thư mục đó.
+Then Chrome → `chrome://extensions` → enable "Developer mode" → "Load unpacked" → pick that folder.
 
-17. Hướng dẫn đầy đủ (bao gồm Gateway từ xa + ghi chú bảo mật): [Chrome extension](/tools/chrome-extension)
+Full guide (including remote Gateway + security notes): [Chrome extension](/tools/chrome-extension)
 
-18. Nếu Gateway chạy trên cùng một máy với Chrome (thiết lập mặc định), bạn thường **không** cần thêm bất cứ thứ gì.
-    Nếu Gateway chạy ở nơi khác, hãy chạy một node host trên máy có trình duyệt để Gateway có thể proxy các hành động trình duyệt.
-19. Bạn vẫn cần nhấp nút extension trên tab mà bạn muốn điều khiển (nó không tự động gắn).
+If the Gateway runs on the same machine as Chrome (default setup), you usually **do not** need anything extra.
+If the Gateway runs elsewhere, run a node host on the browser machine so the Gateway can proxy browser actions.
+You still need to click the extension button on the tab you want to control (it doesn't auto-attach).
 
-## 20. Sandbox và bộ nhớ
+## Sandboxing and memory
 
-### 21. Có tài liệu sandboxing riêng không
+### Is there a dedicated sandboxing doc
 
-Có. See [Sandboxing](/gateway/sandboxing). For Docker-specific setup (full gateway in Docker or sandbox images), see [Docker](/install/docker).
+Yes. See [Sandboxing](/gateway/sandboxing). For Docker-specific setup (full gateway in Docker or sandbox images), see [Docker](/install/docker).
 
 ### Docker feels limited How do I enable full features
 
-22. Image mặc định ưu tiên bảo mật và chạy dưới user `node`, vì vậy nó không bao gồm các gói hệ thống, Homebrew hoặc trình duyệt được đóng gói sẵn. For a fuller setup:
+The default image is security-first and runs as the `node` user, so it does not
+include system packages, Homebrew, or bundled browsers. For a fuller setup:
 
 - Persist `/home/node` with `OPENCLAW_HOME_VOLUME` so caches survive.
 - Bake system deps into the image with `OPENCLAW_DOCKER_APT_PACKAGES`.
-- 23. Cài đặt các trình duyệt Playwright qua CLI đi kèm:
-      `node /app/node_modules/playwright-core/cli.js install chromium`
+- Install Playwright browsers via the bundled CLI:
+  `node /app/node_modules/playwright-core/cli.js install chromium`
 - Set `PLAYWRIGHT_BROWSERS_PATH` and ensure the path is persisted.
 
-24. Tài liệu: [Docker](/install/docker), [Browser](/tools/browser).
+Docs: [Docker](/install/docker), [Browser](/tools/browser).
 
 **Can I keep DMs personal but make groups public sandboxed with one agent**
 
@@ -1172,83 +1187,106 @@ Yes - if your private traffic is **DMs** and your public traffic is **groups**.
 
 Use `agents.defaults.sandbox.mode: "non-main"` so group/channel sessions (non-main keys) run in Docker, while the main DM session stays on-host. Then restrict what tools are available in sandboxed sessions via `tools.sandbox.tools`.
 
-25. Hướng dẫn thiết lập + cấu hình ví dụ: [Groups: DM cá nhân + nhóm công khai](/channels/groups#pattern-personal-dms-public-groups-single-agent)
+Setup walkthrough + example config: [Groups: personal DMs + public groups](/channels/groups#pattern-personal-dms-public-groups-single-agent)
 
 Key config reference: [Gateway configuration](/gateway/configuration#agentsdefaultssandbox)
 
 ### How do I bind a host folder into the sandbox
 
-Set `agents.defaults.sandbox.docker.binds` to `["host:path:mode"]` (e.g., `"/home/user/src:/src:ro"`). 26. Liên kết (binds) toàn cục + theo agent được gộp; các bind theo agent sẽ bị bỏ qua khi `scope: "shared"`. Use `:ro` for anything sensitive and remember binds bypass the sandbox filesystem walls. 27. Xem [Sandboxing](/gateway/sandboxing#custom-bind-mounts) và [Sandbox vs Tool Policy vs Elevated](/gateway/sandbox-vs-tool-policy-vs-elevated#bind-mounts-security-quick-check) để biết ví dụ và lưu ý an toàn.
+Set `agents.defaults.sandbox.docker.binds` to `["host:path:mode"]` (e.g., `"/home/user/src:/src:ro"`). Global + per-agent binds merge; per-agent binds are ignored when `scope: "shared"`. Use `:ro` for anything sensitive and remember binds bypass the sandbox filesystem walls. See [Sandboxing](/gateway/sandboxing#custom-bind-mounts) and [Sandbox vs Tool Policy vs Elevated](/gateway/sandbox-vs-tool-policy-vs-elevated#bind-mounts-security-quick-check) for examples and safety notes.
 
-### 28. Bộ nhớ hoạt động như thế nào
+### How does memory work
 
-Bộ nhớ OpenClaw chỉ là các tệp Markdown trong workspace của agent:
+OpenClaw memory is just Markdown files in the agent workspace:
 
-- Ghi chú hằng ngày trong `memory/YYYY-MM-DD.md`
-- Ghi chú dài hạn đã được tuyển chọn trong `MEMORY.md` (chỉ các phiên chính/riêng tư)
+- Daily notes in `memory/YYYY-MM-DD.md`
+- Curated long-term notes in `MEMORY.md` (main/private sessions only)
 
-OpenClaw cũng chạy một **đợt xả bộ nhớ tiền nén im lặng** để nhắc mô hình 29. Điều này chỉ chạy khi workspace có thể ghi (sandbox chỉ đọc sẽ bỏ qua). Xem [Memory](/concepts/memory).
+OpenClaw also runs a **silent pre-compaction memory flush** to remind the model
+to write durable notes before auto-compaction. This only runs when the workspace
+is writable (read-only sandboxes skip it). See [Memory](/concepts/memory).
 
-### 30. Bộ nhớ cứ quên mọi thứ — làm sao để nó ghi nhớ lâu
+### Memory keeps forgetting things How do I make it stick
 
-Bộ nhớ cứ quên mọi thứ Làm sao để nó nhớ lâu Hãy yêu cầu bot **ghi sự thật vào bộ nhớ**.
+Ask the bot to **write the fact to memory**. Long-term notes belong in `MEMORY.md`,
+short-term context goes into `memory/YYYY-MM-DD.md`.
 
-Ghi chú dài hạn thuộc về `MEMORY.md`, 31. Việc nhắc mô hình lưu trữ ký ức sẽ hữu ích; nó sẽ biết phải làm gì. Đây vẫn là lĩnh vực chúng tôi đang cải thiện.
+This is still an area we are improving. It helps to remind the model to store memories;
+it will know what to do. If it keeps forgetting, verify the Gateway is using the same
+workspace on every run.
 
-Việc nhắc mô hình lưu bộ nhớ sẽ hữu ích;
+Docs: [Memory](/concepts/memory), [Agent workspace](/concepts/agent-workspace).
 
-### 32. Tìm kiếm bộ nhớ ngữ nghĩa có yêu cầu khóa OpenAI API không
+### Does semantic memory search require an OpenAI API key
 
-Nếu nó vẫn quên, hãy kiểm tra Gateway có đang dùng cùng một 33. Codex OAuth bao phủ chat/completions và **không** cấp quyền truy cập embeddings, vì vậy **đăng nhập bằng Codex (OAuth hoặc đăng nhập Codex CLI)** không giúp cho tìm kiếm bộ nhớ ngữ nghĩa. 34. Embeddings của OpenAI vẫn cần một API key thực (`OPENAI_API_KEY` hoặc `models.providers.openai.apiKey`).
+Only if you use **OpenAI embeddings**. Codex OAuth covers chat/completions and
+does **not** grant embeddings access, so **signing in with Codex (OAuth or the
+Codex CLI login)** does not help for semantic memory search. OpenAI embeddings
+still need a real API key (`OPENAI_API_KEY` or `models.providers.openai.apiKey`).
 
-Tìm kiếm bộ nhớ ngữ nghĩa có cần khóa OpenAI API không
-Chỉ khi bạn dùng **OpenAI embeddings**. 35. Nếu không có khóa nào khả dụng, tìm kiếm bộ nhớ sẽ bị vô hiệu hóa cho đến khi bạn cấu hình nó. 36. Nếu bạn có đường dẫn mô hình cục bộ được cấu hình và tồn tại, OpenClaw sẽ ưu tiên `local`.
+If you don't set a provider explicitly, OpenClaw auto-selects a provider when it
+can resolve an API key (auth profiles, `models.providers.*.apiKey`, or env vars).
+It prefers OpenAI if an OpenAI key resolves, otherwise Gemini if a Gemini key
+resolves. If neither key is available, memory search stays disabled until you
+configure it. If you have a local model path configured and present, OpenClaw
+prefers `local`.
 
-Codex CLI login)\*\* không giúp ích cho tìm kiếm bộ nhớ ngữ nghĩa. 37. Nếu bạn muốn embeddings của Gemini, hãy đặt `memorySearch.provider = "gemini"` và cung cấp `GEMINI_API_KEY` (hoặc `memorySearch.remote.apiKey`). vẫn cần một khóa API thực (`OPENAI_API_KEY` hoặc `models.providers.openai.apiKey`).
+If you'd rather stay local, set `memorySearch.provider = "local"` (and optionally
+`memorySearch.fallback = "none"`). If you want Gemini embeddings, set
+`memorySearch.provider = "gemini"` and provide `GEMINI_API_KEY` (or
+`memorySearch.remote.apiKey`). We support **OpenAI, Gemini, or local** embedding
+models - see [Memory](/concepts/memory) for the setup details.
 
-### 38. Bộ nhớ có tồn tại vĩnh viễn không? Giới hạn là gì
+### Does memory persist forever What are the limits
 
-Các tệp bộ nhớ nằm trên đĩa và tồn tại cho đến khi bạn xóa chúng. Nó ưu tiên OpenAI nếu có khóa OpenAI, nếu không thì Gemini nếu có khóa Gemini. Nếu không có khóa nào, tìm kiếm bộ nhớ sẽ bị vô hiệu hóa cho đến khi bạn 40. Đó là lý do tại sao có tìm kiếm bộ nhớ — nó chỉ kéo những phần liên quan trở lại ngữ cảnh.
+Memory files live on disk and persist until you delete them. The limit is your
+storage, not the model. The **session context** is still limited by the model
+context window, so long conversations can compact or truncate. That is why
+memory search exists - it pulls only the relevant parts back into context.
 
-Nếu bạn có đường dẫn mô hình cục bộ được cấu hình và tồn tại, OpenClaw
+Docs: [Memory](/concepts/memory), [Context](/concepts/context).
 
-## sẽ ưu tiên `local`.
+## Where things live on disk
 
-### 41. Có phải tất cả dữ liệu được dùng với OpenClaw đều được lưu cục bộ không
+### Is all data used with OpenClaw saved locally
 
-42. Không — **trạng thái của OpenClaw là cục bộ**, nhưng **các dịch vụ bên ngoài vẫn thấy những gì bạn gửi cho họ**.
+No - **OpenClaw's state is local**, but **external services still see what you send them**.
 
-- 43. **Mặc định là cục bộ:** các phiên, tệp bộ nhớ, cấu hình và workspace nằm trên máy chủ Gateway (`~/.openclaw` + thư mục workspace của bạn).
-- `memorySearch.provider = "gemini"` và cung cấp `GEMINI_API_KEY` (hoặc `memorySearch.remote.apiKey`). Chúng tôi hỗ trợ **OpenAI, Gemini, hoặc local** cho các mô hình embedding
-- - xem [Memory](/concepts/memory) để biết chi tiết thiết lập.
+- **Local by default:** sessions, memory files, config, and workspace live on the Gateway host
+  (`~/.openclaw` + your workspace directory).
+- **Remote by necessity:** messages you send to model providers (Anthropic/OpenAI/etc.) go to
+  their APIs, and chat platforms (WhatsApp/Telegram/Slack/etc.) store message data on their
+  servers.
+- **You control the footprint:** using local models keeps prompts on your machine, but channel
+  traffic still goes through the channel's servers.
 
-Bộ nhớ có tồn tại mãi mãi không Các giới hạn là gì
+Related: [Agent workspace](/concepts/agent-workspace), [Memory](/concepts/memory).
 
-### Các tệp bộ nhớ nằm trên đĩa và tồn tại cho đến khi bạn xóa chúng.
+### Where does OpenClaw store its data
 
-Giới hạn là
+Everything lives under `$OPENCLAW_STATE_DIR` (default: `~/.openclaw`):
 
-| dung lượng lưu trữ của bạn, không phải mô hình.                            | Mục đích                                                                                                                         |
-| ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| **Ngữ cảnh phiên** vẫn bị giới hạn bởi                                                     | cửa sổ ngữ cảnh của mô hình, vì vậy các cuộc trò chuyện dài có thể bị nén hoặc cắt bớt.                          |
-| Đó là lý do                                                                                | 44. Nhập OAuth kế thừa (được sao chép vào hồ sơ xác thực khi sử dụng lần đầu)          |
-| 45. `$OPENCLAW_STATE_DIR/agents/<agentId>/agent/auth-profiles.json` | Mọi thứ nằm ở đâu trên đĩa                                                                                                       |
-| Tất cả dữ liệu dùng với OpenClaw có được lưu cục bộ không                                  | Một Gateway có thể lưu trữ nhiều agent, mỗi agent có workspace, giá trị mặc định model và định tuyến riêng.      |
-| `$OPENCLAW_STATE_DIR/credentials/`                                                         | 47. Trạng thái nhà cung cấp (ví dụ: `whatsapp/<accountId>/creds.json`) |
-| `$OPENCLAW_STATE_DIR/agents/`                                                              | 48. Trạng thái theo agent (agentDir + sessions)                                        |
-| 49. `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`                | Lịch sử & trạng thái hội thoại (theo từng agent)                                          |
-| 50. `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/sessions.json`   | Session metadata (per agent)                                                                                  |
+| Path                                                            | Purpose                                                      |
+| --------------------------------------------------------------- | ------------------------------------------------------------ |
+| `$OPENCLAW_STATE_DIR/openclaw.json`                             | Main config (JSON5)                                          |
+| `$OPENCLAW_STATE_DIR/credentials/oauth.json`                    | Legacy OAuth import (copied into auth profiles on first use) |
+| `$OPENCLAW_STATE_DIR/agents/<agentId>/agent/auth-profiles.json` | Auth profiles (OAuth + API keys)                             |
+| `$OPENCLAW_STATE_DIR/agents/<agentId>/agent/auth.json`          | Runtime auth cache (managed automatically)                   |
+| `$OPENCLAW_STATE_DIR/credentials/`                              | Provider state (e.g. `whatsapp/<accountId>/creds.json`)      |
+| `$OPENCLAW_STATE_DIR/agents/`                                   | Per-agent state (agentDir + sessions)                        |
+| `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`                | Conversation history & state (per agent)                     |
+| `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/sessions.json`   | Session metadata (per agent)                                 |
 
-Đường dẫn legacy cho agent đơn: `~/.openclaw/agent/*` (được migrate bởi `openclaw doctor`).
+Legacy single-agent path: `~/.openclaw/agent/*` (migrated by `openclaw doctor`).
 
-Your **workspace** (AGENTS.md, memory files, skills, etc.) là tách biệt và được cấu hình qua `agents.defaults.workspace` (mặc định: `~/.openclaw/workspace`).
+Your **workspace** (AGENTS.md, memory files, skills, etc.) is separate and configured via `agents.defaults.workspace` (default: `~/.openclaw/workspace`).
 
-### AGENTSmd SOULmd USERmd MEMORYmd nên đặt ở đâu
+### Where should AGENTSmd SOULmd USERmd MEMORYmd live
 
 These files live in the **agent workspace**, not `~/.openclaw`.
 
-- **Workspace (theo từng agent)**: `AGENTS.md`, `SOUL.md`, `IDENTITY.md`, `USER.md`,
-  `MEMORY.md` (hoặc `memory.md`), `memory/YYYY-MM-DD.md`, tùy chọn `HEARTBEAT.md`.
+- **Workspace (per agent)**: `AGENTS.md`, `SOUL.md`, `IDENTITY.md`, `USER.md`,
+  `MEMORY.md` (or `memory.md`), `memory/YYYY-MM-DD.md`, optional `HEARTBEAT.md`.
 - **State dir (`~/.openclaw`)**: config, credentials, auth profiles, sessions, logs,
   and shared skills (`~/.openclaw/skills`).
 
@@ -1260,19 +1298,19 @@ Default workspace is `~/.openclaw/workspace`, configurable via:
 }
 ```
 
-Nếu bot "quên" sau khi khởi động lại, hãy xác nhận Gateway đang dùng cùng một
-workspace ở mỗi lần chạy (và nhớ rằng: chế độ remote dùng **workspace của máy chủ gateway**,
-không phải laptop cục bộ của bạn).
+If the bot "forgets" after a restart, confirm the Gateway is using the same
+workspace on every launch (and remember: remote mode uses the **gateway host's**
+workspace, not your local laptop).
 
 Tip: if you want a durable behavior or preference, ask the bot to **write it into
 AGENTS.md or MEMORY.md** rather than relying on chat history.
 
-Xem [Agent workspace](/concepts/agent-workspace) và [Memory](/concepts/memory).
+See [Agent workspace](/concepts/agent-workspace) and [Memory](/concepts/memory).
 
-### Chiến lược sao lưu được khuyến nghị là gì
+### What's the recommended backup strategy
 
-Đặt **agent workspace** của bạn trong một repo git **riêng tư** và sao lưu nó ở nơi
-riêng tư (ví dụ GitHub private). This captures memory + AGENTS/SOUL/USER
+Put your **agent workspace** in a **private** git repo and back it up somewhere
+private (for example GitHub private). This captures memory + AGENTS/SOUL/USER
 files, and lets you restore the assistant's "mind" later.
 
 Do **not** commit anything under `~/.openclaw` (credentials, sessions, tokens).
@@ -1281,20 +1319,21 @@ separately (see the migration question above).
 
 Docs: [Agent workspace](/concepts/agent-workspace).
 
-### Làm thế nào để gỡ cài đặt OpenClaw hoàn toàn
+### How do I completely uninstall OpenClaw
 
-Xem hướng dẫn riêng: [Uninstall](/install/uninstall).
+See the dedicated guide: [Uninstall](/install/uninstall).
 
-### Agent có thể hoạt động ngoài workspace không
+### Can agents work outside the workspace
 
-Có. The workspace is the **default cwd** and memory anchor, not a hard sandbox.
-Đường dẫn tương đối sẽ được resolve bên trong workspace, nhưng đường dẫn tuyệt đối có thể truy cập các vị trí khác trên host trừ khi bật sandboxing. Nếu bạn cần cách ly, hãy dùng
-[`agents.defaults.sandbox`](/gateway/sandboxing) hoặc cài đặt sandbox theo từng agent. If you
+Yes. The workspace is the **default cwd** and memory anchor, not a hard sandbox.
+Relative paths resolve inside the workspace, but absolute paths can access other
+host locations unless sandboxing is enabled. If you need isolation, use
+[`agents.defaults.sandbox`](/gateway/sandboxing) or per-agent sandbox settings. If you
 want a repo to be the default working directory, point that agent's
 `workspace` to the repo root. The OpenClaw repo is just source code; keep the
 workspace separate unless you intentionally want the agent to work inside it.
 
-Ví dụ (repo làm cwd mặc định):
+Example (repo as default cwd):
 
 ```json5
 {
@@ -1306,15 +1345,15 @@ Ví dụ (repo làm cwd mặc định):
 }
 ```
 
-### Tôi đang ở chế độ remote, kho lưu phiên ở đâu
+### Im in remote mode where is the session store
 
-Trạng thái phiên thuộc về **máy chủ gateway**. Nếu bạn đang ở chế độ remote, kho lưu phiên mà bạn quan tâm nằm trên máy từ xa, không phải laptop cục bộ của bạn. See [Session management](/concepts/session).
+Session state is owned by the **gateway host**. If you're in remote mode, the session store you care about is on the remote machine, not your local laptop. See [Session management](/concepts/session).
 
 ## Config basics
 
-### Cấu hình có định dạng gì và nó nằm ở đâu
+### What format is the config Where is it
 
-OpenClaw đọc một file cấu hình **JSON5** tùy chọn từ `$OPENCLAW_CONFIG_PATH` (mặc định: `~/.openclaw/openclaw.json`):
+OpenClaw reads an optional **JSON5** config from `$OPENCLAW_CONFIG_PATH` (default: `~/.openclaw/openclaw.json`):
 
 ```
 $OPENCLAW_CONFIG_PATH
@@ -1338,7 +1377,7 @@ Non-loopback binds **require auth**. Configure `gateway.auth.mode` + `gateway.au
 }
 ```
 
-Ghi chú:
+Notes:
 
 - `gateway.remote.token` is for **remote CLI calls** only; it does not enable local gateway auth.
 - The Control UI authenticates via `connect.params.auth.token` (stored in app/UI settings). Avoid putting tokens in URLs.
@@ -1360,7 +1399,8 @@ The Gateway watches the config and supports hot-reload:
 
 `web_fetch` works without an API key. `web_search` requires a Brave Search API
 key. **Recommended:** run `openclaw configure --section web` to store it in
-`tools.web.search.apiKey`. Phương án môi trường: đặt `BRAVE_API_KEY` cho tiến trình Gateway.
+`tools.web.search.apiKey`. Environment alternative: set `BRAVE_API_KEY` for the
+Gateway process.
 
 ```json5
 {
@@ -1379,10 +1419,10 @@ key. **Recommended:** run `openclaw configure --section web` to store it in
 }
 ```
 
-Ghi chú:
+Notes:
 
 - If you use allowlists, add `web_search`/`web_fetch` or `group:web`.
-- `web_fetch` được bật theo mặc định (trừ khi bị tắt rõ ràng).
+- `web_fetch` is enabled by default (unless explicitly disabled).
 - Daemons read env vars from `~/.openclaw/.env` (or the service environment).
 
 Docs: [Web tools](/tools/web).
@@ -1399,9 +1439,9 @@ The common pattern is **one Gateway** (e.g. Raspberry Pi) plus **nodes** and **a
 
 Docs: [Nodes](/nodes), [Remote access](/gateway/remote), [Multi-Agent Routing](/concepts/multi-agent), [Sub-agents](/tools/subagents), [TUI](/web/tui).
 
-### Trình duyệt OpenClaw có thể chạy ở chế độ headless không
+### Can the OpenClaw browser run headless
 
-Có. Đó là một tùy chọn cấu hình:
+Yes. It's a config option:
 
 ```json5
 {
@@ -1414,116 +1454,118 @@ Có. Đó là một tùy chọn cấu hình:
 }
 ```
 
-Mặc định là `false` (có giao diện). Chế độ headless có khả năng kích hoạt các kiểm tra chống bot trên một số trang web cao hơn. Xem [Browser](/tools/browser).
+Default is `false` (headful). Headless is more likely to trigger anti-bot checks on some sites. See [Browser](/tools/browser).
 
-Headless sử dụng **cùng một engine Chromium** và hoạt động cho hầu hết các tác vụ tự động hóa (biểu mẫu, nhấp chuột, thu thập dữ liệu, đăng nhập). Các khác biệt chính:
+Headless uses the **same Chromium engine** and works for most automation (forms, clicks, scraping, logins). The main differences:
 
 - No visible browser window (use screenshots if you need visuals).
-- Một số trang web nghiêm ngặt hơn với tự động hóa ở chế độ headless (CAPTCHA, chống bot).
-  Ví dụ, X/Twitter thường chặn các phiên headless.
+- Some sites are stricter about automation in headless mode (CAPTCHAs, anti-bot).
+  For example, X/Twitter often blocks headless sessions.
 
-### Làm thế nào để tôi sử dụng Brave cho việc điều khiển trình duyệt
+### How do I use Brave for browser control
 
 Set `browser.executablePath` to your Brave binary (or any Chromium-based browser) and restart the Gateway.
-Xem các ví dụ cấu hình đầy đủ tại [Browser](/tools/browser#use-brave-or-another-chromium-based-browser).
+See the full config examples in [Browser](/tools/browser#use-brave-or-another-chromium-based-browser).
 
-## Gateway và node từ xa
+## Remote gateways and nodes
 
 ### How do commands propagate between Telegram the gateway and nodes
 
-Tin nhắn Telegram được xử lý bởi **gateway**. The gateway runs the agent and
+Telegram messages are handled by the **gateway**. The gateway runs the agent and
 only then calls nodes over the **Gateway WebSocket** when a node tool is needed:
 
 Telegram → Gateway → Agent → `node.*` → Node → Gateway → Telegram
 
-Các node không thấy lưu lượng từ nhà cung cấp đi vào; chúng chỉ nhận các lời gọi RPC của node.
+Nodes don't see inbound provider traffic; they only receive node RPC calls.
 
-### Làm thế nào agent của tôi có thể truy cập máy tính của tôi nếu Gateway được lưu trữ từ xa
+### How can my agent access my computer if the Gateway is hosted remotely
 
-Short answer: **pair your computer as a node**. Gateway chạy ở nơi khác, nhưng nó có thể
-call các công cụ `node.*` (màn hình, camera, hệ thống) trên máy cục bộ của bạn qua Gateway WebSocket.
+Short answer: **pair your computer as a node**. The Gateway runs elsewhere, but it can
+call `node.*` tools (screen, camera, system) on your local machine over the Gateway WebSocket.
 
 Typical setup:
 
 1. Run the Gateway on the always-on host (VPS/home server).
-2. Đặt host Gateway + máy tính của bạn trong cùng một tailnet.
-3. Đảm bảo Gateway WS có thể truy cập được (tailnet bind hoặc SSH tunnel).
-4. Mở ứng dụng macOS tại máy cục bộ và kết nối ở chế độ **Remote over SSH** (hoặc tailnet trực tiếp)
-   để nó có thể đăng ký làm một node.
-5. Phê duyệt node trên Gateway:
+2. Put the Gateway host + your computer on the same tailnet.
+3. Ensure the Gateway WS is reachable (tailnet bind or SSH tunnel).
+4. Open the macOS app locally and connect in **Remote over SSH** mode (or direct tailnet)
+   so it can register as a node.
+5. Approve the node on the Gateway:
 
    ```bash
    openclaw nodes pending
    openclaw nodes approve <requestId>
    ```
 
-Không cần cầu nối TCP riêng; các node kết nối qua Gateway WebSocket.
+No separate TCP bridge is required; nodes connect over the Gateway WebSocket.
 
-Nhắc nhở bảo mật: ghép cặp một node macOS cho phép `system.run` trên máy đó. Only
+Security reminder: pairing a macOS node allows `system.run` on that machine. Only
 pair devices you trust, and review [Security](/gateway/security).
 
-Tài liệu: [Nodes](/nodes), [Gateway protocol](/gateway/protocol), [macOS remote mode](/platforms/mac/remote), [Security](/gateway/security).
+Docs: [Nodes](/nodes), [Gateway protocol](/gateway/protocol), [macOS remote mode](/platforms/mac/remote), [Security](/gateway/security).
 
-### Tailscale đã kết nối nhưng tôi không nhận được phản hồi Phải làm gì bây giờ
+### Tailscale is connected but I get no replies What now
 
-Kiểm tra những điều cơ bản:
+Check the basics:
 
-- Gateway đang chạy: `openclaw gateway status`
-- Tình trạng Gateway: `openclaw status`
-- Tình trạng kênh: `openclaw channels status`
+- Gateway is running: `openclaw gateway status`
+- Gateway health: `openclaw status`
+- Channel health: `openclaw channels status`
 
-Sau đó xác minh xác thực và định tuyến:
+Then verify auth and routing:
 
-- Nếu bạn dùng Tailscale Serve, hãy đảm bảo `gateway.auth.allowTailscale` được đặt đúng.
-- Nếu bạn kết nối qua SSH tunnel, hãy xác nhận tunnel cục bộ đang hoạt động và trỏ đúng cổng.
-- Xác nhận các allowlist (DM hoặc nhóm) có bao gồm tài khoản của bạn.
+- If you use Tailscale Serve, make sure `gateway.auth.allowTailscale` is set correctly.
+- If you connect via SSH tunnel, confirm the local tunnel is up and points at the right port.
+- Confirm your allowlists (DM or group) include your account.
 
-Tài liệu: [Tailscale](/gateway/tailscale), [Remote access](/gateway/remote), [Channels](/channels).
+Docs: [Tailscale](/gateway/tailscale), [Remote access](/gateway/remote), [Channels](/channels).
 
-### Hai instance OpenClaw có thể nói chuyện với nhau trên VPS cục bộ không
+### Can two OpenClaw instances talk to each other local VPS
 
-Có. There is no built-in "bot-to-bot" bridge, but you can wire it up in a few
+Yes. There is no built-in "bot-to-bot" bridge, but you can wire it up in a few
 reliable ways:
 
-**Đơn giản nhất:** dùng một kênh chat thông thường mà cả hai bot đều truy cập được (Telegram/Slack/WhatsApp).
-Cho Bot A gửi tin nhắn tới Bot B, sau đó để Bot B trả lời như bình thường.
+**Simplest:** use a normal chat channel both bots can access (Telegram/Slack/WhatsApp).
+Have Bot A send a message to Bot B, then let Bot B reply as usual.
 
-**Cầu nối CLI (chung):** chạy một script gọi Gateway còn lại với
-`openclaw agent --message ... --deliver`, nhắm tới một cuộc trò chuyện nơi bot kia
-lắng nghe. Nếu một bot nằm trên VPS từ xa, hãy trỏ CLI của bạn tới Gateway từ xa đó
-qua SSH/Tailscale (xem [Remote access](/gateway/remote)).
+**CLI bridge (generic):** run a script that calls the other Gateway with
+`openclaw agent --message ... --deliver`, targeting a chat where the other bot
+listens. If one bot is on a remote VPS, point your CLI at that remote Gateway
+via SSH/Tailscale (see [Remote access](/gateway/remote)).
 
-Mẫu ví dụ (chạy từ một máy có thể truy cập Gateway mục tiêu):
+Example pattern (run from a machine that can reach the target Gateway):
 
 ```bash
 openclaw agent --message "Hello from local bot" --deliver --channel telegram --reply-to <chat-id>
 ```
 
-Mẹo: thêm một hàng rào bảo vệ để hai bot không lặp vô hạn (chỉ-đề-cập, allowlist kênh, hoặc quy tắc "không trả lời tin nhắn của bot").
+Tip: add a guardrail so the two bots do not loop endlessly (mention-only, channel
+allowlists, or a "do not reply to bot messages" rule).
 
 Docs: [Remote access](/gateway/remote), [Agent CLI](/cli/agent), [Agent send](/tools/agent-send).
 
-### Tôi có cần các VPS riêng cho nhiều agent không
+### Do I need separate VPSes for multiple agents
 
-Không. Nếu không, hãy giữ một Gateway và
-sử dụng nhiều agent hoặc sub-agent. That is the normal setup and it is much cheaper and simpler than running
+No. One Gateway can host multiple agents, each with its own workspace, model defaults,
+and routing. That is the normal setup and it is much cheaper and simpler than running
 one VPS per agent.
 
 Use separate VPSes only when you need hard isolation (security boundaries) or very
-different configs that you do not want to share. Chạy `openclaw agents add <id>` và cấu hình xác thực trong quá trình wizard.
+different configs that you do not want to share. Otherwise, keep one Gateway and
+use multiple agents or sub-agents.
 
-### Có lợi ích gì khi dùng một node trên laptop cá nhân thay vì SSH từ một VPS không
+### Is there a benefit to using a node on my personal laptop instead of SSH from a VPS
 
-Có – node là cách hạng nhất để truy cập laptop của bạn từ Gateway từ xa, và chúng
-mở khóa nhiều hơn là chỉ truy cập shell. The Gateway runs on macOS/Linux (Windows via WSL2) and is
+Yes - nodes are the first-class way to reach your laptop from a remote Gateway, and they
+unlock more than shell access. The Gateway runs on macOS/Linux (Windows via WSL2) and is
 lightweight (a small VPS or Raspberry Pi-class box is fine; 4 GB RAM is plenty), so a common
 setup is an always-on host plus your laptop as a node.
 
-- **Không cần SSH inbound.** Node kết nối ra Gateway WebSocket và sử dụng ghép cặp thiết bị.
-- **Kiểm soát thực thi an toàn hơn.** `system.run` được kiểm soát bởi allowlist/phê duyệt node trên laptop đó.
+- **No inbound SSH required.** Nodes connect out to the Gateway WebSocket and use device pairing.
+- **Safer execution controls.** `system.run` is gated by node allowlists/approvals on that laptop.
 - **More device tools.** Nodes expose `canvas`, `camera`, and `screen` in addition to `system.run`.
-- **Tự động hóa trình duyệt cục bộ.** Giữ Gateway trên VPS, nhưng chạy Chrome cục bộ và chuyển tiếp điều khiển
-  bằng tiện ích mở rộng Chrome + một node host trên laptop.
+- **Local browser automation.** Keep the Gateway on a VPS, but run Chrome locally and relay control
+  with the Chrome extension + a node host on the laptop.
 
 SSH is fine for ad-hoc shell access, but nodes are simpler for ongoing agent workflows and
 device automation.
@@ -1542,7 +1584,7 @@ Docs: [Nodes](/nodes), [Nodes CLI](/cli/nodes), [Multiple gateways](/gateway/mul
 
 ### Do nodes run a gateway service
 
-Không. Only **one gateway** should run per host unless you intentionally run isolated profiles (see [Multiple gateways](/gateway/multiple-gateways)). Nodes are peripherals that connect
+No. Only **one gateway** should run per host unless you intentionally run isolated profiles (see [Multiple gateways](/gateway/multiple-gateways)). Nodes are peripherals that connect
 to the gateway (iOS/Android nodes, or macOS "node mode" in the menubar app). For headless node
 hosts and CLI control, see [Node host CLI](/cli/node).
 
@@ -1550,7 +1592,7 @@ A full restart is required for `gateway`, `discovery`, and `canvasHost` changes.
 
 ### Is there an API RPC way to apply config
 
-Có. `config.apply` validates + writes the full config and restarts the Gateway as part of the operation.
+Yes. `config.apply` validates + writes the full config and restarts the Gateway as part of the operation.
 
 ### configapply wiped my config How do I recover and avoid this
 
@@ -1595,10 +1637,8 @@ Minimal steps:
 
 2. **Install + login on your Mac**
    - Use the Tailscale app and sign in to the same tailnet.
-
 3. **Enable MagicDNS (recommended)**
    - In the Tailscale admin console, enable MagicDNS so the VPS has a stable name.
-
 4. **Use the tailnet hostname**
    - SSH: `ssh user@your-vps.tailnet-xxxx.ts.net`
    - Gateway WS: `ws://your-vps.tailnet-xxxx.ts.net:18789`
@@ -1620,7 +1660,7 @@ Recommended setup:
 1. **Make sure the VPS + Mac are on the same tailnet**.
 2. **Use the macOS app in Remote mode** (SSH target can be the tailnet hostname).
    The app will tunnel the Gateway port and connect as a node.
-3. Nếu không, hãy giữ một Gateway và
+3. **Approve the node** on the gateway:
 
    ```bash
    openclaw nodes pending
@@ -1629,7 +1669,7 @@ Recommended setup:
 
 Docs: [Gateway protocol](/gateway/protocol), [Discovery](/gateway/discovery), [macOS remote mode](/platforms/mac/remote).
 
-## dùng nhiều agent hoặc sub-agent.
+## Env vars and .env loading
 
 ### How does OpenClaw load environment variables
 
@@ -1643,14 +1683,19 @@ Neither `.env` file overrides existing env vars.
 You can also define inline env vars in config (applied only if missing from the process env):
 
 ```json5
-**Phê duyệt node** trên gateway:
+{
+  env: {
+    OPENROUTER_API_KEY: "sk-or-...",
+    vars: { GROQ_API_KEY: "gsk-..." },
+  },
+}
 ```
 
 See [/environment](/help/environment) for full precedence and sources.
 
 ### I started the Gateway via the service and my env vars disappeared What now
 
-Biến môi trường và tải .env
+Two common fixes:
 
 1. Put the missing keys in `~/.openclaw/.env` so they're picked up even when the service doesn't inherit your shell env.
 2. Enable shell import (opt-in convenience):
@@ -1678,22 +1723,16 @@ your login shell automatically.
 If the Gateway runs as a service (launchd/systemd), it won't inherit your shell
 environment. Fix by doing one of these:
 
-1. {
-   env: {
-   OPENROUTER_API_KEY: "sk-or-...",
-   vars: { GROQ_API_KEY: "gsk-..." },
-   },
-   }
+1. Put the token in `~/.openclaw/.env`:
 
    ```
    COPILOT_GITHUB_TOKEN=...
    ```
 
 2. Or enable shell import (`env.shellEnv.enabled: true`).
-
 3. Or add it to your config `env` block (applies only if missing).
 
-Hai cách khắc phục phổ biến:
+Then restart the gateway and recheck:
 
 ```bash
 openclaw models status
@@ -1710,7 +1749,7 @@ Send `/new` or `/reset` as a standalone message. See [Session management](/conce
 
 ### Do sessions reset automatically if I never send new
 
-Có. Sessions expire after `session.idleMinutes` (default **60**). The **next**
+Yes. Sessions expire after `session.idleMinutes` (default **60**). The **next**
 message starts a fresh session id for that chat key. This does not delete
 transcripts - it just starts a new session.
 
@@ -1727,7 +1766,8 @@ transcripts - it just starts a new session.
 Yes, via **multi-agent routing** and **sub-agents**. You can create one coordinator
 agent and several worker agents with their own workspaces and models.
 
-That said, this is best seen as a **fun experiment**. Đặt token vào `~/.openclaw/.env`: The typical model we
+That said, this is best seen as a **fun experiment**. It is token heavy and often
+less efficient than using one bot with separate sessions. The typical model we
 envision is one bot you talk to, with different sessions for parallel work. That
 bot can also spawn sub-agents when needed.
 
@@ -1742,7 +1782,7 @@ What helps:
 
 - Ask the bot to summarize the current state and write it to a file.
 - Use `/compact` before long tasks, and `/new` when switching topics.
-- Sau đó khởi động lại gateway và kiểm tra lại:
+- Keep important context in the workspace and ask the bot to read it back.
 - Use sub-agents for long or parallel work so the main chat stays smaller.
 - Pick a model with a larger context window if this happens often.
 
@@ -1766,75 +1806,77 @@ Then re-run onboarding:
 openclaw onboard --install-daemon
 ```
 
-Ghi chú:
+Notes:
 
-- The onboarding wizard also offers **Reset** if it sees an existing config. Nó tiêu tốn nhiều token và thường
-  kém hiệu quả hơn so với việc dùng một bot với các phiên riêng biệt.
+- The onboarding wizard also offers **Reset** if it sees an existing config. See [Wizard](/start/wizard).
 - If you used profiles (`--profile` / `OPENCLAW_PROFILE`), reset each state dir (defaults are `~/.openclaw-<profile>`).
 - Dev reset: `openclaw gateway --dev --reset` (dev-only; wipes dev config + credentials + sessions + workspace).
 
-### Tôi đang gặp lỗi context quá lớn, làm sao để reset hoặc compact
+### Im getting context too large errors how do I reset or compact
 
-Dùng một trong các cách sau:
+Use one of these:
 
-- 1. **Thu gọn** (giữ cuộc trò chuyện nhưng tóm tắt các lượt cũ hơn):
+- **Compact** (keeps the conversation but summarizes older turns):
 
   ```
-  2. /compact
+  /compact
   ```
 
-  hoặc `/compact <instructions>` để hướng dẫn cách tóm tắt.
+  or `/compact <instructions>` to guide the summary.
 
-- 3. **Đặt lại** (ID phiên mới cho cùng một khóa chat):
+- **Reset** (fresh session ID for the same chat key):
 
   ```
   /new
   /reset
   ```
 
-Nếu vẫn 계속 xảy ra:
+If it keeps happening:
 
-- Bật hoặc tinh chỉnh **session pruning** (`agents.defaults.contextPruning`) để cắt bớt output tool cũ.
-- 4. Sử dụng mô hình có cửa sổ ngữ cảnh lớn hơn.
+- Enable or tune **session pruning** (`agents.defaults.contextPruning`) to trim old tool output.
+- Use a model with a larger context window.
 
-5. Tài liệu: [Compaction](/concepts/compaction), [Session pruning](/concepts/session-pruning), [Session management](/concepts/session).
+Docs: [Compaction](/concepts/compaction), [Session pruning](/concepts/session-pruning), [Session management](/concepts/session).
 
-### 6. Tại sao tôi thấy thông báo LLM request rejected messagesNcontentXtooluseinput Field required
+### Why am I seeing LLM request rejected messagesNcontentXtooluseinput Field required
 
-Giữ ngữ cảnh quan trọng trong workspace và yêu cầu bot đọc lại. Điều này thường có nghĩa là lịch sử phiên đã cũ hoặc bị hỏng (thường sau các thread dài hoặc khi thay đổi tool/schema).
+This is a provider validation error: the model emitted a `tool_use` block without the required
+`input`. It usually means the session history is stale or corrupted (often after long threads
+or a tool/schema change).
 
-8. Cách khắc phục: bắt đầu một phiên mới với `/new` (tin nhắn độc lập).
+Fix: start a fresh session with `/new` (standalone message).
 
-### Vì sao tôi nhận được thông báo heartbeat mỗi 30 phút
+### Why am I getting heartbeat messages every 30 minutes
 
-Heartbeat chạy mỗi **30m** theo mặc định. 9. Điều chỉnh hoặc vô hiệu hóa chúng:
+Heartbeats run every **30m** by default. Tune or disable them:
 
 ```json5
-10. {
+{
   agents: {
     defaults: {
       heartbeat: {
-        every: "2h", // hoặc "0m" để vô hiệu hóa
+        every: "2h", // or "0m" to disable
       },
     },
   },
 }
 ```
 
-11. Nếu `HEARTBEAT.md` tồn tại nhưng thực chất trống (chỉ có dòng trống và các tiêu đề markdown như `# Heading`), OpenClaw sẽ bỏ qua lần chạy heartbeat để tiết kiệm lượt gọi API.
-    Nếu tệp bị thiếu, heartbeat vẫn chạy và mô hình tự quyết định làm gì.
+If `HEARTBEAT.md` exists but is effectively empty (only blank lines and markdown
+headers like `# Heading`), OpenClaw skips the heartbeat run to save API calls.
+If the file is missing, the heartbeat still runs and the model decides what to do.
 
-12. Ghi đè theo từng agent sử dụng `agents.list[].heartbeat`. Tài liệu: [Heartbeat](/gateway/heartbeat).
+Per-agent overrides use `agents.list[].heartbeat`. Docs: [Heartbeat](/gateway/heartbeat).
 
-### 13. Tôi có cần thêm một tài khoản bot vào nhóm WhatsApp không
+### Do I need to add a bot account to a WhatsApp group
 
-Không. 14. OpenClaw chạy trên **chính tài khoản của bạn**, vì vậy nếu bạn ở trong nhóm, OpenClaw có thể thấy nó.
-Theo mặc định, trả lời trong nhóm bị chặn cho đến khi bạn cho phép người gửi (`groupPolicy: "allowlist"`).
+No. OpenClaw runs on **your own account**, so if you're in the group, OpenClaw can see it.
+By default, group replies are blocked until you allow senders (`groupPolicy: "allowlist"`).
 
-15. Nếu bạn chỉ muốn **bạn** có thể kích hoạt phản hồi trong nhóm:
+If you want only **you** to be able to trigger group replies:
 
 ```json5
-16. {
+{
   channels: {
     whatsapp: {
       groupPolicy: "allowlist",
@@ -1844,87 +1886,89 @@ Theo mặc định, trả lời trong nhóm bị chặn cho đến khi bạn cho
 }
 ```
 
-### Làm sao để lấy JID của một nhóm WhatsApp
+### How do I get the JID of a WhatsApp group
 
-Cách 1 (nhanh nhất): theo dõi logs và gửi một tin nhắn thử trong nhóm:
+Option 1 (fastest): tail logs and send a test message in the group:
 
 ```bash
-17. openclaw logs --follow --json
+openclaw logs --follow --json
 ```
 
-Xem [Wizard](/start/wizard).
+Look for `chatId` (or `from`) ending in `@g.us`, like:
+`1234567890-1234567890@g.us`.
 
-Cách 2 (nếu đã cấu hình/allowlist): liệt kê các nhóm từ cấu hình:
+Option 2 (if already configured/allowlisted): list groups from config:
 
 ```bash
 openclaw directory groups list --channel whatsapp
 ```
 
-19. Tài liệu: [WhatsApp](/channels/whatsapp), [Directory](/cli/directory), [Logs](/cli/logs).
+Docs: [WhatsApp](/channels/whatsapp), [Directory](/cli/directory), [Logs](/cli/logs).
 
-### Vì sao OpenClaw không trả lời trong nhóm
+### Why doesnt OpenClaw reply in a group
 
-Hai nguyên nhân phổ biến:
+Two common causes:
 
-- 20. Kiểm soát bằng đề cập (mention gating) đang bật (mặc định). Bạn phải @mention bot (hoặc khớp `mentionPatterns`).
-- 21. Bạn đã cấu hình `channels.whatsapp.groups` mà không có `"*"` và nhóm đó không nằm trong allowlist.
+- Mention gating is on (default). You must @mention the bot (or match `mentionPatterns`).
+- You configured `channels.whatsapp.groups` without `"*"` and the group isn't allowlisted.
 
-22. Xem [Groups](/channels/groups) và [Group messages](/channels/group-messages).
+See [Groups](/channels/groups) and [Group messages](/channels/group-messages).
 
-### 23. Các nhóm/luồng có chia sẻ ngữ cảnh với DM không
+### Do groupsthreads share context with DMs
 
-24. Trò chuyện trực tiếp mặc định sẽ gộp vào phiên chính. 25. Nhóm/kênh có khóa phiên riêng, và các chủ đề Telegram / luồng Discord là các phiên riêng biệt. Xem [Groups](/channels/groups) và [Group messages](/channels/group-messages).
+Direct chats collapse to the main session by default. Groups/channels have their own session keys, and Telegram topics / Discord threads are separate sessions. See [Groups](/channels/groups) and [Group messages](/channels/group-messages).
 
-### 26. Tôi có thể tạo bao nhiêu workspace và agent
+### How many workspaces and agents can I create
 
-27. Không có giới hạn cứng. Hàng chục (thậm chí hàng trăm) đều ổn, nhưng hãy chú ý:
+No hard limits. Dozens (even hundreds) are fine, but watch for:
 
-- 1. **Tăng dung lượng đĩa:** các session + transcript nằm dưới `~/.openclaw/agents/<agentId>/sessions/`.
-- 28. **Chi phí token:** nhiều agent hơn nghĩa là sử dụng mô hình đồng thời nhiều hơn.
-- 3. **Chi phí vận hành:** hồ sơ xác thực, workspace và định tuyến kênh theo từng agent.
+- **Disk growth:** sessions + transcripts live under `~/.openclaw/agents/<agentId>/sessions/`.
+- **Token cost:** more agents means more concurrent model usage.
+- **Ops overhead:** per-agent auth profiles, workspaces, and channel routing.
 
-Mẹo:
+Tips:
 
-- 29. Giữ một workspace **đang hoạt động** cho mỗi agent (`agents.defaults.workspace`).
-- 30. Dọn dẹp các phiên cũ (xóa JSONL hoặc các mục lưu trữ) nếu dung lượng đĩa tăng.
-- 31. Sử dụng `openclaw doctor` để phát hiện các workspace lạc và sai lệch cấu hình hồ sơ.
+- Keep one **active** workspace per agent (`agents.defaults.workspace`).
+- Prune old sessions (delete JSONL or store entries) if disk grows.
+- Use `openclaw doctor` to spot stray workspaces and profile mismatches.
 
-### 32. Tôi có thể chạy nhiều bot hoặc nhiều cuộc chat cùng lúc trên Slack không và nên thiết lập thế nào
+### Can I run multiple bots or chats at the same time Slack and how should I set that up
 
-Có. Đây là lỗi xác thực nhà cung cấp: mô hình đã phát ra một khối `tool_use` mà không có
-`input` bắt buộc. 34. Slack được hỗ trợ như một kênh và có thể gắn với các agent cụ thể.
+Yes. Use **Multi-Agent Routing** to run multiple isolated agents and route inbound messages by
+channel/account/peer. Slack is supported as a channel and can be bound to specific agents.
 
-35. Truy cập trình duyệt rất mạnh nhưng không phải là "làm được mọi thứ như con người" — chống bot, CAPTCHA và MFA vẫn có thể chặn tự động hóa. 36. Để điều khiển trình duyệt đáng tin cậy nhất, hãy dùng relay của tiện ích Chrome trên máy chạy trình duyệt (và có thể đặt Gateway ở bất kỳ đâu).
+Browser access is powerful but not "do anything a human can" - anti-bot, CAPTCHAs, and MFA can
+still block automation. For the most reliable browser control, use the Chrome extension relay
+on the machine that runs the browser (and keep the Gateway anywhere).
 
-37. Thiết lập theo thực tiễn tốt nhất:
+Best-practice setup:
 
-- 38. Máy chủ Gateway luôn bật (VPS/Mac mini).
-- 39. Mỗi agent cho một vai trò (bindings).
-- 40. Kênh Slack được gắn với các agent đó.
-- 41. Trình duyệt cục bộ qua relay tiện ích (hoặc một node) khi cần.
+- Always-on Gateway host (VPS/Mac mini).
+- One agent per role (bindings).
+- Slack channel(s) bound to those agents.
+- Local browser via extension relay (or a node) when needed.
 
-Tìm `chatId` (hoặc `from`) kết thúc bằng `@g.us`, như:
-`1234567890-1234567890@g.us`.
+Docs: [Multi-Agent Routing](/concepts/multi-agent), [Slack](/channels/slack),
+[Browser](/tools/browser), [Chrome extension](/tools/chrome-extension), [Nodes](/nodes).
 
-## 43. Mô hình: mặc định, lựa chọn, bí danh, chuyển đổi
+## Models: defaults, selection, aliases, switching
 
-### 44. Mô hình mặc định là gì
+### What is the default model
 
-45. Mô hình mặc định của OpenClaw là bất cứ mô hình nào bạn đặt là:
+OpenClaw's default model is whatever you set as:
 
 ```
 agents.defaults.model.primary
 ```
 
-46. Mô hình được tham chiếu dưới dạng `provider/model` (ví dụ: `anthropic/claude-opus-4-6`). 47. Nếu bạn bỏ qua provider, OpenClaw hiện giả định `anthropic` như một phương án tạm thời trong giai đoạn loại bỏ dần — nhưng bạn vẫn nên **chỉ định rõ ràng** `provider/model`.
+Models are referenced as `provider/model` (example: `anthropic/claude-opus-4-6`). If you omit the provider, OpenClaw currently assumes `anthropic` as a temporary deprecation fallback - but you should still **explicitly** set `provider/model`.
 
-### Sử dụng **Multi-Agent Routing** để chạy nhiều agent cô lập và định tuyến các tin nhắn đến theo&#xA;kênh/tài khoản/đối tác.
+### What model do you recommend
 
-49. **Mặc định được khuyến nghị:** `anthropic/claude-opus-4-6`.
-    Tài liệu: [Multi-Agent Routing](/concepts/multi-agent), [Slack](/channels/slack),
-    [Browser](/tools/browser), [Chrome extension](/tools/chrome-extension), [Nodes](/nodes).
-    **Reliable (less character):** `openai/gpt-5.2` - nearly as good as Opus, just less personality.
-    **Budget:** `zai/glm-4.7`.
+**Recommended default:** `anthropic/claude-opus-4-6`.
+**Good alternative:** `anthropic/claude-sonnet-4-5`.
+**Reliable (less character):** `openai/gpt-5.2` - nearly as good as Opus, just less personality.
+**Budget:** `zai/glm-4.7`.
 
 MiniMax M2.1 has its own docs: [MiniMax](/providers/minimax) and
 [Local models](/gateway/local-models).
@@ -1934,19 +1978,23 @@ model for routine chat or summaries. You can route models per agent and use sub-
 parallelize long tasks (each sub-agent consumes tokens). See [Models](/concepts/models) and
 [Sub-agents](/tools/subagents).
 
-32. Cảnh báo mạnh: các mô hình yếu hơn hoặc bị quantize quá mức dễ bị tấn công prompt injection và hành vi không an toàn hơn. 33. Xem [Security](/gateway/security).
+Strong warning: weaker/over-quantized models are more vulnerable to prompt
+injection and unsafe behavior. See [Security](/gateway/security).
 
-34. Thêm ngữ cảnh: [Models](/concepts/models).
+More context: [Models](/concepts/models).
 
 ### Can I use selfhosted models llamacpp vLLM Ollama
 
-Có. If your local server exposes an OpenAI-compatible API, you can point a
+Yes. If your local server exposes an OpenAI-compatible API, you can point a
 custom provider at it. Ollama is supported directly and is the easiest path.
 
-38. Lưu ý về bảo mật: các mô hình nhỏ hoặc bị quantize mạnh dễ bị prompt injection hơn. We strongly recommend **large models** for any bot that can use tools.
-    If you still want small models, enable sandboxing and strict tool allowlists.
+Security note: smaller or heavily quantized models are more vulnerable to prompt
+injection. We strongly recommend **large models** for any bot that can use tools.
+If you still want small models, enable sandboxing and strict tool allowlists.
 
-Bạn khuyến nghị mô hình nào
+Docs: [Ollama](/providers/ollama), [Local models](/gateway/local-models),
+[Model providers](/concepts/model-providers), [Security](/gateway/security),
+[Sandboxing](/gateway/sandboxing).
 
 ### How do I switch models without wiping my config
 
@@ -1954,8 +2002,8 @@ Use **model commands** or edit only the **model** fields. Avoid full config repl
 
 Safe options:
 
-- 46. `/model` trong chat (nhanh, theo từng session)
-- 47. `openclaw models set ...` (chỉ cập nhật cấu hình model)
+- `/model` in chat (quick, per-session)
+- `openclaw models set ...` (updates just model config)
 - `openclaw configure --section model` (interactive)
 - edit `agents.defaults.model` in `~/.openclaw/openclaw.json`
 
@@ -2003,7 +2051,7 @@ It also shows the configured provider endpoint (`baseUrl`) and API mode (`api`) 
 
 **How do I unpin a profile I set with profile**
 
-**Lựa chọn thay thế tốt:** `anthropic/claude-sonnet-4-5`.
+Re-run `/model` **without** the `@profile` suffix:
 
 ```
 /model anthropic/claude-opus-4-6
@@ -2014,7 +2062,7 @@ Use `/model status` to confirm which auth profile is active.
 
 ### Can I use GPT 5.2 for daily tasks and Codex 5.3 for coding
 
-Có. Set one as default and switch as needed:
+Yes. Set one as default and switch as needed:
 
 - **Quick switch (per session):** `/model gpt-5.2` for daily tasks, `/model gpt-5.3-codex` for coding.
 - **Default + switch:** set `agents.defaults.model.primary` to `openai/gpt-5.2`, then switch to `openai-codex/gpt-5.3-codex` when coding (or the other way around).
@@ -2059,7 +2107,7 @@ See [MiniMax](/providers/minimax) and [Models](/concepts/models).
 
 ### Can I use MiniMax as my default and OpenAI for complex tasks
 
-Có. Use **MiniMax as the default** and switch models **per session** when needed.
+Yes. Use **MiniMax as the default** and switch models **per session** when needed.
 Fallbacks are for **errors**, not "hard tasks," so use `/model` or a separate agent.
 
 **Option A: switch per session**
@@ -2079,7 +2127,7 @@ Fallbacks are for **errors**, not "hard tasks," so use `/model` or a separate ag
 }
 ```
 
-Sau đó:
+Then:
 
 ```
 /model gpt
@@ -2093,9 +2141,9 @@ Sau đó:
 
 Docs: [Models](/concepts/models), [Multi-Agent Routing](/concepts/multi-agent), [MiniMax](/providers/minimax), [OpenAI](/providers/openai).
 
-### Tài liệu: [Ollama](/providers/ollama), [Local models](/gateway/local-models),&#xA;[Model providers](/concepts/model-providers), [Security](/gateway/security),&#xA;[Sandboxing](/gateway/sandboxing).
+### Are opus sonnet gpt builtin shortcuts
 
-Có. OpenClaw ships a few default shorthands (only applied when the model exists in `agents.defaults.models`):
+Yes. OpenClaw ships a few default shorthands (only applied when the model exists in `agents.defaults.models`):
 
 - `opus` → `anthropic/claude-opus-4-6`
 - `sonnet` → `anthropic/claude-sonnet-4-5`
@@ -2104,11 +2152,11 @@ Có. OpenClaw ships a few default shorthands (only applied when the model exists
 - `gemini` → `google/gemini-3-pro-preview`
 - `gemini-flash` → `google/gemini-3-flash-preview`
 
-Nếu bạn tự đặt alias trùng tên, giá trị của bạn sẽ được ưu tiên.
+If you set your own alias with the same name, your value wins.
 
-### Làm thế nào để định nghĩa/ghi đè các alias phím tắt của model
+### How do I defineoverride model shortcuts aliases
 
-Alias đến từ `agents.defaults.models.<modelId>`.alias\`. Ví dụ:
+Aliases come from `agents.defaults.models.<modelId>.alias`. Example:
 
 ```json5
 {
@@ -2125,11 +2173,11 @@ Alias đến từ `agents.defaults.models.<modelId>`.alias\`. Ví dụ:
 }
 ```
 
-Chạy lại `/model` **không** có hậu tố `@profile`:
+Then `/model sonnet` (or `/<alias>` when supported) resolves to that model ID.
 
-### Làm thế nào để thêm model từ các nhà cung cấp khác như OpenRouter hoặc ZAI
+### How do I add models from other providers like OpenRouter or ZAI
 
-OpenRouter (trả tiền theo token; nhiều model):
+OpenRouter (pay-per-token; many models):
 
 ```json5
 {
@@ -2143,7 +2191,7 @@ OpenRouter (trả tiền theo token; nhiều model):
 }
 ```
 
-Z.AI (các model GLM):
+Z.AI (GLM models):
 
 ```json5
 {
@@ -2157,159 +2205,159 @@ Z.AI (các model GLM):
 }
 ```
 
-Nếu bạn tham chiếu tới một provider/model nhưng thiếu khóa provider tương ứng, bạn sẽ gặp lỗi xác thực lúc chạy (ví dụ: `No API key found for provider "zai"`).
+If you reference a provider/model but the required provider key is missing, you'll get a runtime auth error (e.g. `No API key found for provider "zai"`).
 
-**Không tìm thấy API key cho provider sau khi thêm agent mới**
+**No API key found for provider after adding a new agent**
 
-opus sonnet gpt có phải là các phím tắt tích hợp sẵn không Xác thực là theo từng agent và
-được lưu tại:
+This usually means the **new agent** has an empty auth store. Auth is per-agent and
+stored in:
 
 ```
 ~/.openclaw/agents/<agentId>/agent/auth-profiles.json
 ```
 
-Các cách khắc phục:
+Fix options:
 
-- Để nó soạn thảo, sau đó **phê duyệt trước khi gửi**.
-- Hoặc sao chép `auth-profiles.json` từ `agentDir` của agent chính sang `agentDir` của agent mới.
+- Run `openclaw agents add <id>` and configure auth during the wizard.
+- Or copy `auth-profiles.json` from the main agent's `agentDir` into the new agent's `agentDir`.
 
-KHÔNG dùng chung `agentDir` giữa các agent; việc này gây xung đột xác thực/phiên.
+Do **not** reuse `agentDir` across agents; it causes auth/session collisions.
 
-## Điều này thường có nghĩa là **agent mới** có kho xác thực trống.
+## Model failover and "All models failed"
 
-### Chạy `openclaw agents add <id>` và cấu hình xác thực trong trình hướng dẫn.
+### How does failover work
 
-Failover diễn ra theo hai giai đoạn:
+Failover happens in two stages:
 
-1. **Luân phiên auth profile** trong cùng một provider.
-2. **Dự phòng mô hình** sang mô hình tiếp theo trong `agents.defaults.model.fallbacks`.
+1. **Auth profile rotation** within the same provider.
+2. **Model fallback** to the next model in `agents.defaults.model.fallbacks`.
 
-Cooldown áp dụng cho các profile bị lỗi (backoff theo cấp số nhân), vì vậy OpenClaw vẫn có thể tiếp tục phản hồi ngay cả khi provider bị giới hạn tốc độ hoặc tạm thời gặp sự cố.
+Cooldowns apply to failing profiles (exponential backoff), so OpenClaw can keep responding even when a provider is rate-limited or temporarily failing.
 
-### Lỗi này có nghĩa là gì
+### What does this error mean
 
 ```
 No credentials found for profile "anthropic:default"
 ```
 
-Điều này có nghĩa là hệ thống đã cố sử dụng ID auth profile `anthropic:default`, nhưng không tìm thấy thông tin xác thực cho nó trong kho xác thực dự kiến.
+It means the system attempted to use the auth profile ID `anthropic:default`, but could not find credentials for it in the expected auth store.
 
-### Failover mô hình và "All models failed"
+### Fix checklist for No credentials found for profile anthropicdefault
 
-- **Xác nhận vị trí lưu auth profiles** (đường dẫn mới so với legacy)
-  - Hiện tại: `~/.openclaw/agents/<agentId>/agent/auth-profiles.json`
-  - Failover hoạt động như thế nào
-- **Xác nhận biến môi trường của bạn được Gateway nạp**
-  - Nếu bạn đặt `ANTHROPIC_API_KEY` trong shell nhưng chạy Gateway qua systemd/launchd, nó có thể không được kế thừa. Đặt nó trong `~/.openclaw/.env` hoặc bật `env.shellEnv`.
-- **Đảm bảo bạn đang chỉnh sửa đúng agent**
-  - Thiết lập multi-agent có nghĩa là có thể tồn tại nhiều file `auth-profiles.json`.
-- **Kiểm tra nhanh trạng thái model/xác thực**
-  - Dùng `openclaw models status` để xem các model đã cấu hình và liệu các provider đã được xác thực hay chưa.
+- **Confirm where auth profiles live** (new vs legacy paths)
+  - Current: `~/.openclaw/agents/<agentId>/agent/auth-profiles.json`
+  - Legacy: `~/.openclaw/agent/*` (migrated by `openclaw doctor`)
+- **Confirm your env var is loaded by the Gateway**
+  - If you set `ANTHROPIC_API_KEY` in your shell but run the Gateway via systemd/launchd, it may not inherit it. Put it in `~/.openclaw/.env` or enable `env.shellEnv`.
+- **Make sure you're editing the correct agent**
+  - Multi-agent setups mean there can be multiple `auth-profiles.json` files.
+- **Sanity-check model/auth status**
+  - Use `openclaw models status` to see configured models and whether providers are authenticated.
 
-Checklist khắc phục cho No credentials found for profile anthropicdefault
+**Fix checklist for No credentials found for profile anthropic**
 
-Điều này có nghĩa là lần chạy bị ghim (pinned) vào một auth profile của Anthropic, nhưng Gateway
-không tìm thấy nó trong kho xác thực.
+This means the run is pinned to an Anthropic auth profile, but the Gateway
+can't find it in its auth store.
 
-- **Sử dụng setup-token**
-  - 1. Chạy `claude setup-token`, sau đó dán nó bằng `openclaw models auth setup-token --provider anthropic`.
-  - Nếu token được tạo trên máy khác, dùng `openclaw models auth paste-token --provider anthropic`.
-
-- 3. **Nếu bạn muốn dùng API key thay thế**
-  - Đặt `ANTHROPIC_API_KEY` trong `~/.openclaw/.env` trên **máy chủ gateway**.
-  - Cũ (Legacy): `~/.openclaw/agent/*` (được di chuyển bởi `openclaw doctor`)
+- **Use a setup-token**
+  - Run `claude setup-token`, then paste it with `openclaw models auth setup-token --provider anthropic`.
+  - If the token was created on another machine, use `openclaw models auth paste-token --provider anthropic`.
+- **If you want to use an API key instead**
+  - Put `ANTHROPIC_API_KEY` in `~/.openclaw/.env` on the **gateway host**.
+  - Clear any pinned order that forces a missing profile:
 
     ```bash
-    6. openclaw models auth order clear --provider anthropic
+    openclaw models auth order clear --provider anthropic
     ```
 
-- 7. **Xác nhận rằng bạn đang chạy lệnh trên máy gateway**
-  - **Checklist khắc phục cho No credentials found for profile anthropic**
+- **Confirm you're running commands on the gateway host**
+  - In remote mode, auth profiles live on the gateway machine, not your laptop.
 
-### Vì sao nó cũng thử Google Gemini và bị lỗi
+### Why did it also try Google Gemini and fail
 
-Nếu cấu hình model của bạn bao gồm Google Gemini như một fallback (hoặc bạn chuyển sang shorthand Gemini), OpenClaw sẽ thử nó trong quá trình fallback model. Nếu bạn chưa cấu hình thông tin xác thực Google, bạn sẽ thấy `No API key found for provider "google"`.
+If your model config includes Google Gemini as a fallback (or you switched to a Gemini shorthand), OpenClaw will try it during model fallback. If you haven't configured Google credentials, you'll see `No API key found for provider "google"`.
 
-Cách khắc phục: либо cung cấp xác thực Google, hoặc loại bỏ/tránh các model Google trong `agents.defaults.model.fallbacks` / aliases để fallback không chuyển hướng sang đó.
+Fix: either provide Google auth, or remove/avoid Google models in `agents.defaults.model.fallbacks` / aliases so fallback doesn't route there.
 
 **LLM request rejected message thinking signature required google antigravity**
 
-Nguyên nhân: lịch sử phiên chứa **các thinking blocks không có chữ ký** (thường do stream bị hủy/không hoàn tất). Google Antigravity yêu cầu chữ ký cho các thinking blocks.
+Cause: the session history contains **thinking blocks without signatures** (often from
+an aborted/partial stream). Google Antigravity requires signatures for thinking blocks.
 
-Cách khắc phục: OpenClaw hiện đã loại bỏ các thinking blocks không có chữ ký cho Google Antigravity Claude. Nếu vẫn còn xuất hiện, hãy bắt đầu **phiên mới** hoặc đặt `/thinking off` cho agent đó.
+Fix: OpenClaw now strips unsigned thinking blocks for Google Antigravity Claude. If it still appears, start a **new session** or set `/thinking off` for that agent.
 
-## 18. Auth profile: chúng là gì và cách quản lý
+## Auth profiles: what they are and how to manage them
 
-Liên quan: [/concepts/oauth](/concepts/oauth) (luồng OAuth, lưu trữ token, mô hình đa tài khoản)
+Related: [/concepts/oauth](/concepts/oauth) (OAuth flows, token storage, multi-account patterns)
 
-### Auth profile là gì
+### What is an auth profile
 
-Auth profile là một bản ghi thông tin xác thực được đặt tên (OAuth hoặc API key) gắn với một provider. 22. Các profile nằm tại:
+An auth profile is a named credential record (OAuth or API key) tied to a provider. Profiles live in:
 
 ```
 ~/.openclaw/agents/<agentId>/agent/auth-profiles.json
 ```
 
-### Các ID profile thường gặp là gì
+### What are typical profile IDs
 
-24. OpenClaw sử dụng các ID có tiền tố theo nhà cung cấp như:
+OpenClaw uses provider-prefixed IDs like:
 
-- 25. `anthropic:default` (phổ biến khi không tồn tại danh tính email)
-- `anthropic:<email>` cho các danh tính OAuth
-- 27. các ID tùy chỉnh do bạn chọn (ví dụ: `anthropic:work`)
+- `anthropic:default` (common when no email identity exists)
+- `anthropic:<email>` for OAuth identities
+- custom IDs you choose (e.g. `anthropic:work`)
 
-### 28. Tôi có thể kiểm soát auth profile nào được thử trước không
+### Can I control which auth profile is tried first
 
-Có. 29. Cấu hình hỗ trợ metadata tùy chọn cho profile và thứ tự theo từng nhà cung cấp (\`auth.order.<provider>\`\`). Xóa mọi thứ tự ghim buộc vào một profile bị thiếu:
+Yes. Config supports optional metadata for profiles and an ordering per provider (`auth.order.<provider>`). This does **not** store secrets; it maps IDs to provider/mode and sets rotation order.
 
-32. OpenClaw có thể tạm thời bỏ qua một profile nếu nó đang ở trạng thái **cooldown** ngắn (giới hạn tốc độ/timeouts/lỗi xác thực) hoặc trạng thái **disabled** dài hơn (thanh toán/không đủ tín dụng). Để kiểm tra, chạy `openclaw models status --json` và xem `auth.unusableProfiles`. 34. Tinh chỉnh: `auth.cooldowns.billingBackoffHours*`.
+OpenClaw may temporarily skip a profile if it's in a short **cooldown** (rate limits/timeouts/auth failures) or a longer **disabled** state (billing/insufficient credits). To inspect this, run `openclaw models status --json` and check `auth.unusableProfiles`. Tuning: `auth.cooldowns.billingBackoffHours*`.
 
-35. Bạn cũng có thể đặt ghi đè thứ tự **theo từng agent** (được lưu trong `auth-profiles.json` của agent đó) thông qua CLI:
+You can also set a **per-agent** order override (stored in that agent's `auth-profiles.json`) via the CLI:
 
 ```bash
-36. # Mặc định là agent mặc định đã cấu hình (bỏ qua --agent)
+# Defaults to the configured default agent (omit --agent)
 openclaw models auth order get --provider anthropic
 
-# Khóa xoay vòng vào một profile duy nhất (chỉ thử profile này)
+# Lock rotation to a single profile (only try this one)
 openclaw models auth order set --provider anthropic anthropic:default
 
-# Hoặc đặt thứ tự rõ ràng (fallback trong cùng nhà cung cấp)
+# Or set an explicit order (fallback within provider)
 openclaw models auth order set --provider anthropic anthropic:work anthropic:default
 
-# Xóa ghi đè (quay về auth.order trong cấu hình / round-robin)
+# Clear override (fall back to config auth.order / round-robin)
 openclaw models auth order clear --provider anthropic
 ```
 
-Để nhắm tới một agent cụ thể:
+To target a specific agent:
 
 ```bash
-38. openclaw models auth order set --provider anthropic --agent main anthropic:default
+openclaw models auth order set --provider anthropic --agent main anthropic:default
 ```
 
-### OAuth so với API key khác nhau như thế nào
+### OAuth vs API key whats the difference
 
 OpenClaw supports both:
 
 - **OAuth** often leverages subscription access (where applicable).
 - **API keys** use pay-per-token billing.
 
-43. Trình hướng dẫn hỗ trợ rõ ràng Anthropic setup-token và OpenAI Codex OAuth và có thể lưu API key cho bạn.
+The wizard explicitly supports Anthropic setup-token and OpenAI Codex OAuth and can store API keys for you.
 
-## 44. Gateway: cổng, "đã chạy", và chế độ remote
+## Gateway: ports, "already running", and remote mode
 
 ### What port does the Gateway use
 
-46. `gateway.port` điều khiển cổng ghép kênh duy nhất cho WebSocket + HTTP (UI điều khiển, hooks, v.v.).
+`gateway.port` controls the single multiplexed port for WebSocket + HTTP (Control UI, hooks, etc.).
 
-Thứ tự ưu tiên:
+Precedence:
 
 ```
-47. --port > OPENCLAW_GATEWAY_PORT > gateway.port > mặc định 18789
+--port > OPENCLAW_GATEWAY_PORT > gateway.port > default 18789
 ```
 
 ### Why does openclaw gateway status say Runtime running but RPC probe failed
 
-49. Vì "running" là góc nhìn của **supervisor** (launchd/systemd/schtasks). The RPC probe is the CLI actually connecting to the gateway WebSocket and calling `status`.
+Because "running" is the **supervisor's** view (launchd/systemd/schtasks). The RPC probe is the CLI actually connecting to the gateway WebSocket and calling `status`.
 
 Use `openclaw gateway status` and trust these lines:
 
@@ -2352,7 +2400,7 @@ Set `gateway.mode: "remote"` and point to a remote WebSocket URL, optionally wit
 }
 ```
 
-Ghi chú:
+Notes:
 
 - `openclaw gateway` only starts when `gateway.mode` is `local` (or you pass the override flag).
 - The macOS app watches the config file and switches modes live when these values change.
@@ -2408,41 +2456,42 @@ Full guide: [Multiple gateways](/gateway/multiple-gateways).
 ### What does invalid handshake code 1008 mean
 
 The Gateway is a **WebSocket server**, and it expects the very first message to
-be a `connect` frame. 2. Nếu nó nhận được bất kỳ thứ gì khác, nó sẽ đóng kết nối với **mã 1008** (vi phạm chính sách).
+be a `connect` frame. If it receives anything else, it closes the connection
+with **code 1008** (policy violation).
 
 Common causes:
 
 - You opened the **HTTP** URL in a browser (`http://...`) instead of a WS client.
 - You used the wrong port or path.
-- 6. Một proxy hoặc tunnel đã loại bỏ header xác thực hoặc gửi một yêu cầu không phải Gateway.
+- A proxy or tunnel stripped auth headers or sent a non-Gateway request.
 
-7. Cách khắc phục nhanh:
+Quick fixes:
 
-1. 8. Dùng URL WS: `ws://<host>:18789` (hoặc `wss://...` nếu dùng HTTPS).
+1. Use the WS URL: `ws://<host>:18789` (or `wss://...` if HTTPS).
 2. Don't open the WS port in a normal browser tab.
 3. If auth is on, include the token/password in the `connect` frame.
 
-11) Nếu bạn đang dùng CLI hoặc TUI, URL sẽ trông như sau:
+If you're using the CLI or TUI, the URL should look like:
 
 ```
 openclaw tui --url ws://<host>:18789 --token <token>
 ```
 
-13. Chi tiết giao thức: [Gateway protocol](/gateway/protocol).
+Protocol details: [Gateway protocol](/gateway/protocol).
 
-## 14. Ghi log và gỡ lỗi
+## Logging and debugging
 
-### 15. Log nằm ở đâu
+### Where are logs
 
-16. Log file (có cấu trúc):
+File logs (structured):
 
 ```
 /tmp/openclaw/openclaw-YYYY-MM-DD.log
 ```
 
-17. Bạn có thể đặt đường dẫn cố định thông qua `logging.file`. 18. Mức log của file được điều khiển bởi `logging.level`. Console verbosity is controlled by `--verbose` and `logging.consoleLevel`.
+You can set a stable path via `logging.file`. File log level is controlled by `logging.level`. Console verbosity is controlled by `--verbose` and `logging.consoleLevel`.
 
-20. Cách xem log nhanh nhất:
+Fastest log tail:
 
 ```bash
 openclaw logs --follow
@@ -2450,33 +2499,33 @@ openclaw logs --follow
 
 Service/supervisor logs (when the gateway runs via launchd/systemd):
 
-- 22. macOS: `$OPENCLAW_STATE_DIR/logs/gateway.log` và `gateway.err.log` (mặc định: `~/.openclaw/logs/...`; các profile dùng `~/.openclaw-<profile>/logs/...`)
+- macOS: `$OPENCLAW_STATE_DIR/logs/gateway.log` and `gateway.err.log` (default: `~/.openclaw/logs/...`; profiles use `~/.openclaw-<profile>/logs/...`)
 - Linux: `journalctl --user -u openclaw-gateway[-<profile>].service -n 200 --no-pager`
-- 24. Windows: `schtasks /Query /TN "OpenClaw Gateway (<profile>)" /V /FO LIST`
+- Windows: `schtasks /Query /TN "OpenClaw Gateway (<profile>)" /V /FO LIST`
 
 See [Troubleshooting](/gateway/troubleshooting#log-locations) for more.
 
 ### How do I startstoprestart the Gateway service
 
-27. Dùng các helper của gateway:
+Use the gateway helpers:
 
 ```bash
 openclaw gateway status
 openclaw gateway restart
 ```
 
-29. Nếu bạn chạy gateway thủ công, `openclaw gateway --force` có thể giành lại cổng. 30. Xem [Gateway](/gateway).
+If you run the gateway manually, `openclaw gateway --force` can reclaim the port. See [Gateway](/gateway).
 
 ### I closed my terminal on Windows how do I restart OpenClaw
 
 There are **two Windows install modes**:
 
-33. **1) WSL2 (khuyến nghị):** Gateway chạy bên trong Linux.
+**1) WSL2 (recommended):** the Gateway runs inside Linux.
 
-34. Mở PowerShell, vào WSL, rồi khởi động lại:
+Open PowerShell, enter WSL, then restart:
 
 ```powershell
-35. wsl
+wsl
 openclaw gateway status
 openclaw gateway restart
 ```
@@ -2487,24 +2536,24 @@ If you never installed the service, start it in the foreground:
 openclaw gateway run
 ```
 
-37. **2) Windows gốc (không khuyến nghị):** Gateway chạy trực tiếp trên Windows.
+**2) Native Windows (not recommended):** the Gateway runs directly in Windows.
 
-38. Mở PowerShell và chạy:
+Open PowerShell and run:
 
 ```powershell
-39. openclaw gateway status
+openclaw gateway status
 openclaw gateway restart
 ```
 
-40. Nếu bạn chạy thủ công (không có service), hãy dùng:
+If you run it manually (no service), use:
 
 ```powershell
 openclaw gateway run
 ```
 
-41. Tài liệu: [Windows (WSL2)](/platforms/windows), [Gateway service runbook](/gateway).
+Docs: [Windows (WSL2)](/platforms/windows), [Gateway service runbook](/gateway).
 
-### 42. Gateway đang chạy nhưng không bao giờ nhận được phản hồi — tôi nên kiểm tra gì
+### The Gateway is up but replies never arrive What should I check
 
 Start with a quick health sweep:
 
@@ -2517,11 +2566,12 @@ openclaw logs --follow
 
 Common causes:
 
-- 46. Xác thực model chưa được nạp trên **máy chủ gateway** (kiểm tra `models status`).
+- Model auth not loaded on the **gateway host** (check `models status`).
 - Channel pairing/allowlist blocking replies (check channel config + logs).
-- 48. WebChat/Dashboard đang mở nhưng không có đúng token.
+- WebChat/Dashboard is open without the right token.
 
-49. Nếu bạn truy cập từ xa, hãy xác nhận tunnel/Tailscale đang hoạt động và WebSocket của Gateway có thể truy cập được.
+If you are remote, confirm the tunnel/Tailscale connection is up and that the
+Gateway WebSocket is reachable.
 
 Docs: [Channels](/channels), [Troubleshooting](/gateway/troubleshooting), [Remote access](/gateway/remote).
 
@@ -2551,7 +2601,7 @@ openclaw channels status
 openclaw channels logs --channel telegram
 ```
 
-Trong chế độ remote, các profile xác thực nằm trên máy gateway, không phải laptop của bạn.
+If you are on a VPS or behind a proxy, confirm outbound HTTPS is allowed and DNS works.
 If the Gateway is remote, make sure you are looking at logs on the Gateway host.
 
 Docs: [Telegram](/channels/telegram), [Channel troubleshooting](/channels/troubleshooting).
@@ -2561,8 +2611,8 @@ Docs: [Telegram](/channels/telegram), [Channel troubleshooting](/channels/troubl
 First confirm the Gateway is reachable and the agent can run:
 
 ```bash
-trạng thái openclaw
-trạng thái các mô hình openclaw
+openclaw status
+openclaw models status
 openclaw logs --follow
 ```
 
@@ -2617,7 +2667,7 @@ openclaw message send --target +15555550123 --message "Here you go" --media /pat
 
 Also check:
 
-- Kênh mục tiêu hỗ trợ gửi media đi và không bị chặn bởi allowlist.
+- The target channel supports outbound media and isn't blocked by allowlists.
 - The file is within the provider's size limits (images are resized to max 2048px).
 
 See [Images](/nodes/images).
@@ -2628,116 +2678,114 @@ See [Images](/nodes/images).
 
 Treat inbound DMs as untrusted input. Defaults are designed to reduce risk:
 
-- Hành vi mặc định trên các kênh hỗ trợ DM là **ghép cặp**:
+- Default behavior on DM-capable channels is **pairing**:
   - Unknown senders receive a pairing code; the bot does not process their message.
   - Approve with: `openclaw pairing approve <channel> <code>`
-  - 4. Các yêu cầu đang chờ được giới hạn ở **3 mỗi kênh**; kiểm tra `openclaw pairing list <channel>` nếu mã không đến.
-- 5. Mở DM công khai yêu cầu phải chủ động cho phép (`dmPolicy: "open"` và allowlist `"*"`).
+  - Pending requests are capped at **3 per channel**; check `openclaw pairing list <channel>` if a code didn't arrive.
+- Opening DMs publicly requires explicit opt-in (`dmPolicy: "open"` and allowlist `"*"`).
 
 Run `openclaw doctor` to surface risky DM policies.
 
-### Prompt injection chỉ là mối lo đối với các bot công khai hay không
+### Is prompt injection only a concern for public bots
 
-Không. Prompt injection is about **untrusted content**, not just who can DM the bot.
-9. Nếu trợ lý của bạn đọc nội dung bên ngoài (tìm kiếm/lấy dữ liệu web, trang trình duyệt, email,
-tài liệu, tệp đính kèm, log được dán), nội dung đó có thể chứa các chỉ dẫn nhằm
-chiếm quyền điều khiển mô hình. Rủi ro lớn nhất là khi các công cụ được bật: mô hình có thể bị đánh lừa để
-rò rỉ ngữ cảnh hoặc gọi công cụ thay mặt bạn.
+No. Prompt injection is about **untrusted content**, not just who can DM the bot.
+If your assistant reads external content (web search/fetch, browser pages, emails,
+docs, attachments, pasted logs), that content can include instructions that try
+to hijack the model. This can happen even if **you are the only sender**.
 
-Rủi ro lớn nhất là khi các công cụ được bật: mô hình có thể bị lừa để
-rò rỉ ngữ cảnh hoặc gọi công cụ thay mặt bạn. sử dụng một agent "reader" chỉ đọc hoặc bị vô hiệu hóa công cụ để tóm tắt nội dung không đáng tin cậy
+The biggest risk is when tools are enabled: the model can be tricked into
+exfiltrating context or calling tools on your behalf. Reduce the blast radius by:
 
-- sử dụng một agent "reader" chỉ đọc hoặc bị vô hiệu hóa công cụ để tóm tắt nội dung không đáng tin cậy
-- Chi tiết: [Security](/gateway/security).
-- 15. sandbox hóa và danh sách cho phép công cụ nghiêm ngặt
+- using a read-only or tool-disabled "reader" agent to summarize untrusted content
+- keeping `web_search` / `web_fetch` / `browser` off for tool-enabled agents
+- sandboxing and strict tool allowlists
 
-Điều này cũng giúp việc xoay vòng thông tin xác thực hoặc thu hồi quyền truy cập trở nên dễ dàng hơn mà không ảnh hưởng đến các tài khoản cá nhân của bạn.
+Details: [Security](/gateway/security).
 
-### 17. Bot của tôi có nên có email, tài khoản GitHub hoặc số điện thoại riêng không
+### Should my bot have its own email GitHub account or phone number
 
-18. Có, với hầu hết các thiết lập. 19. Cách ly bot bằng các tài khoản và số điện thoại riêng
-    sẽ giảm phạm vi ảnh hưởng nếu có sự cố xảy ra. Điều này cũng giúp việc xoay vòng
-    thông tin xác thực hoặc thu hồi quyền truy cập dễ dàng hơn mà không ảnh hưởng đến các tài khoản cá nhân của bạn.
+Yes, for most setups. Isolating the bot with separate accounts and phone numbers
+reduces the blast radius if something goes wrong. This also makes it easier to rotate
+credentials or revoke access without impacting your personal accounts.
 
-Tài liệu: [Security](/gateway/security), [Pairing](/channels/pairing). 22. Chỉ cấp quyền cho những công cụ và tài khoản bạn thực sự cần, và mở rộng
-sau nếu cần.
+Start small. Give access only to the tools and accounts you actually need, and expand
+later if required.
 
-Tôi có thể giao cho nó quyền tự chủ đối với tin nhắn văn bản của mình không và điều đó có an toàn không
+Docs: [Security](/gateway/security), [Pairing](/channels/pairing).
 
-### Chúng tôi **không** khuyến nghị trao toàn quyền tự chủ đối với các tin nhắn cá nhân của bạn.
+### Can I give it autonomy over my text messages and is that safe
 
-Mẫu an toàn nhất là: Để nó soạn thảo, sau đó **phê duyệt trước khi gửi**.
+We do **not** recommend full autonomy over your personal messages. The safest pattern is:
 
-- 27. Giữ DM ở **chế độ ghép cặp** hoặc một allowlist chặt chẽ.
-- 28. Dùng **một số điện thoại hoặc tài khoản riêng** nếu bạn muốn nó nhắn tin thay mặt bạn.
-- **dev**: di chuyển theo head của `main` (git).
+- Keep DMs in **pairing mode** or a tight allowlist.
+- Use a **separate number or account** if you want it to message on your behalf.
+- Let it draft, then **approve before sending**.
 
-Có, **nếu** agent chỉ trò chuyện và đầu vào là đáng tin cậy. 31. Xem
+If you want to experiment, do it on a dedicated account and keep it isolated. See
 [Security](/gateway/security).
 
-### 32. Tôi có thể dùng các mô hình rẻ hơn cho tác vụ trợ lý cá nhân không
+### Can I use cheaper models for personal assistant tasks
 
-Kiểm tra các yêu cầu đang chờ: 34. Các tier nhỏ hơn
-dễ bị chiếm quyền chỉ dẫn hơn, vì vậy hãy tránh dùng chúng cho các agent có bật công cụ
-hoặc khi đọc nội dung không đáng tin cậy. 35. Nếu buộc phải dùng mô hình nhỏ hơn, hãy khóa chặt
-công cụ và chạy trong sandbox. 36. Xem [Security](/gateway/security).
+Yes, **if** the agent is chat-only and the input is trusted. Smaller tiers are
+more susceptible to instruction hijacking, so avoid them for tool-enabled agents
+or when reading untrusted content. If you must use a smaller model, lock down
+tools and run inside a sandbox. See [Security](/gateway/security).
 
-### 37. Tôi đã chạy start trong Telegram nhưng không nhận được mã ghép cặp
+### I ran start in Telegram but didnt get a pairing code
 
-38. Mã ghép cặp **chỉ** được gửi khi một người gửi không xác định nhắn tin cho bot và
-    `dmPolicy: "pairing"` được bật. 39. Lệnh `/start` tự nó không tạo ra mã.
+Pairing codes are sent **only** when an unknown sender messages the bot and
+`dmPolicy: "pairing"` is enabled. `/start` by itself doesn't generate a code.
 
-Người gửi không xác định chỉ nhận được mã ghép cặp và tin nhắn của họ **không được xử lý**.
+Check pending requests:
 
 ```bash
 openclaw pairing list telegram
 ```
 
-41. Nếu bạn muốn truy cập ngay, hãy thêm sender id của bạn vào allowlist hoặc đặt `dmPolicy: "open"`
-    cho tài khoản đó.
+If you want immediate access, allowlist your sender id or set `dmPolicy: "open"`
+for that account.
 
-### 42. WhatsApp nó có nhắn cho danh bạ của tôi không Việc ghép cặp hoạt động thế nào
+### WhatsApp will it message my contacts How does pairing work
 
-Không. 43. Chính sách DM mặc định của WhatsApp là **ghép cặp**. OpenClaw chỉ trả lời các cuộc trò chuyện mà nó nhận được hoặc các lần gửi rõ ràng do bạn kích hoạt. Liệt kê các yêu cầu đang chờ:
+No. Default WhatsApp DM policy is **pairing**. Unknown senders only get a pairing code and their message is **not processed**. OpenClaw only replies to chats it receives or to explicit sends you trigger.
 
-46. Phê duyệt ghép cặp bằng:
+Approve pairing with:
 
 ```bash
 openclaw pairing approve whatsapp <code>
 ```
 
-Nếu bạn chạy trên số WhatsApp cá nhân của mình, hãy sử dụng số đó và bật `channels.whatsapp.selfChatMode`.
+List pending requests:
 
 ```bash
 openclaw pairing list whatsapp
 ```
 
-48. Lời nhắc số điện thoại trong trình hướng dẫn: nó được dùng để đặt **allowlist/chủ sở hữu** để DM của chính bạn được cho phép. 49. Nó không được dùng để tự động gửi. Lệnh chat, hủy tác vụ và "nó không dừng lại"
+Wizard phone number prompt: it's used to set your **allowlist/owner** so your own DMs are permitted. It's not used for auto-sending. If you run on your personal WhatsApp number, use that number and enable `channels.whatsapp.selfChatMode`.
 
+## Chat commands, aborting tasks, and "it won't stop"
+
+### How do I stop internal system messages from showing in chat
+
+Most internal or tool messages only appear when **verbose** or **reasoning** is enabled
+for that session.
+
+Fix in the chat where you see it:
+
+```
 /verbose off
 /reasoning off
---------------
-
-### Làm thế nào để ngăn các thông báo hệ thống nội bộ hiển thị trong chat
-
-Hầu hết các thông báo nội bộ hoặc công cụ chỉ xuất hiện khi **verbose** hoặc **reasoning** được bật
-cho phiên đó.
-
-Cách khắc phục ngay trong chat nơi bạn thấy nó:
-
-```
-Nếu vẫn còn quá ồn, hãy kiểm tra cài đặt phiên trong Control UI và đặt verbose
-thành **inherit**.
 ```
 
-Đối với các tiến trình nền (từ công cụ exec), bạn có thể yêu cầu agent chạy: Ngoài ra, hãy xác nhận rằng bạn không đang sử dụng hồ sơ bot có `verboseDefault` được đặt
-thành `on` trong config.
+If it is still noisy, check the session settings in the Control UI and set verbose
+to **inherit**. Also confirm you are not using a bot profile with `verboseDefault` set
+to `on` in config.
 
-Tài liệu: [Thinking and verbose](/tools/thinking), [Security](/gateway/security#reasoning--verbose-output-in-groups).
+Docs: [Thinking and verbose](/tools/thinking), [Security](/gateway/security#reasoning--verbose-output-in-groups).
 
-### Làm thế nào để dừng/hủy một tác vụ đang chạy
+### How do I stopcancel a running task
 
-Gửi bất kỳ mục nào sau đây **dưới dạng một tin nhắn độc lập** (không có dấu gạch chéo):
+Send any of these **as a standalone message** (no slash):
 
 ```
 stop
@@ -2748,24 +2796,24 @@ exit
 interrupt
 ```
 
-Đây là các trigger hủy (không phải lệnh gạch chéo).
+These are abort triggers (not slash commands).
 
+For background processes (from the exec tool), you can ask the agent to run:
+
+```
 process action:kill sessionId:XXX
-
-```
-Hầu hết các lệnh phải được gửi như một tin nhắn **độc lập** bắt đầu bằng `/`, nhưng một vài phím tắt (như `/status`) cũng hoạt động nội tuyến cho các người gửi được cho phép.
 ```
 
-Tổng quan lệnh gạch chéo: xem [Slash commands](/tools/slash-commands).
+Slash commands overview: see [Slash commands](/tools/slash-commands).
 
-OpenClaw chặn nhắn tin **xuyên nhà cung cấp** theo mặc định.
+Most commands must be sent as a **standalone** message that starts with `/`, but a few shortcuts (like `/status`) also work inline for allowlisted senders.
 
-### Làm thế nào để gửi một tin nhắn Discord từ Telegram — Crosscontext messaging bị từ chối
+### How do I send a Discord message from Telegram Crosscontext messaging denied
 
-Nếu một lần gọi công cụ được ràng buộc
-với Telegram, nó sẽ không gửi sang Discord trừ khi bạn cho phép rõ ràng. Khởi động lại gateway sau khi chỉnh sửa cấu hình.
+OpenClaw blocks **cross-provider** messaging by default. If a tool call is bound
+to Telegram, it won't send to Discord unless you explicitly allow it.
 
-Bật nhắn tin xuyên nhà cung cấp cho agent:
+Enable cross-provider messaging for the agent:
 
 ```json5
 {
@@ -2784,29 +2832,29 @@ Bật nhắn tin xuyên nhà cung cấp cho agent:
 }
 ```
 
-Nếu bạn chỉ muốn điều này cho một agent
-duy nhất, hãy đặt nó trong `agents.list[].tools.message` thay thế. Chế độ hàng đợi kiểm soát cách các tin nhắn mới tương tác với một lần chạy đang diễn ra.
+Restart the gateway after editing config. If you only want this for a single
+agent, set it under `agents.list[].tools.message` instead.
 
-### Tại sao có cảm giác như bot bỏ qua các tin nhắn gửi dồn dập
+### Why does it feel like the bot ignores rapidfire messages
 
-Sử dụng `/queue` để thay đổi chế độ: `followup` - chạy các tin nhắn từng cái một
+Queue mode controls how new messages interact with an in-flight run. Use `/queue` to change modes:
 
-- `steer` - các tin nhắn mới điều hướng lại tác vụ hiện tại
-- `steer-backlog` - điều hướng ngay, sau đó xử lý tồn đọng
-- `collect` - gom tin nhắn và trả lời một lần (mặc định)
-- Bạn có thể thêm các tùy chọn như `debounce:2s cap:25 drop:summarize` cho các chế độ followup.
-- `interrupt` - hủy lần chạy hiện tại và bắt đầu lại
+- `steer` - new messages redirect the current task
+- `followup` - run messages one at a time
+- `collect` - batch messages and reply once (default)
+- `steer-backlog` - steer now, then process backlog
+- `interrupt` - abort current run and start fresh
 
-Trả lời chính xác câu hỏi từ ảnh chụp màn hình / nhật ký chat
+You can add options like `debounce:2s cap:25 drop:summarize` for followup modes.
 
-## **Q: "Mô hình mặc định cho Anthropic khi dùng API key là gì?"**
+## Answer the exact question from the screenshot/chat log
 
-**A:** Trong OpenClaw, thông tin xác thực và việc chọn mô hình là hai thứ tách biệt.
+**Q: "What's the default model for Anthropic with an API key?"**
 
-Việc đặt `ANTHROPIC_API_KEY` (hoặc lưu API key Anthropic trong auth profiles) cho phép xác thực, nhưng mô hình mặc định thực tế là bất cứ thứ gì bạn cấu hình trong `agents.defaults.model.primary` (ví dụ: `anthropic/claude-sonnet-4-5` hoặc `anthropic/claude-opus-4-6`). Nếu bạn thấy `No credentials found for profile "anthropic:default"`, điều đó có nghĩa là Gateway không thể tìm thấy thông tin xác thực Anthropic trong `auth-profiles.json` được mong đợi cho agent đang chạy. Hãy hỏi trong [Discord](https://discord.com/invite/clawd) hoặc mở một [thảo luận GitHub](https://github.com/openclaw/openclaw/discussions).
+**A:** In OpenClaw, credentials and model selection are separate. Setting `ANTHROPIC_API_KEY` (or storing an Anthropic API key in auth profiles) enables authentication, but the actual default model is whatever you configure in `agents.defaults.model.primary` (for example, `anthropic/claude-sonnet-4-5` or `anthropic/claude-opus-4-6`). If you see `No credentials found for profile "anthropic:default"`, it means the Gateway couldn't find Anthropic credentials in the expected `auth-profiles.json` for the agent that's running.
 
 ---
 
-Vẫn bị kẹt? Giữ các thay đổi tập trung.
+Still stuck? Ask in [Discord](https://discord.com/invite/clawd) or open a [GitHub discussion](https://github.com/openclaw/openclaw/discussions).
 
 
