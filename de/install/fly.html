@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html class="__variable_47c970 __variable_3bbdad" data-banner-state="visible" data-page-mode="none" lang="de"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/bb3ef058b751a6ad-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/c4b700dcb2187787-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/e4af272ccee01ff0-s.p.woff2" rel="preload" type="font/woff2"/><link as="image" href="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26" rel="preload"/><link as="image" href="https://d3gk2c5xim1je2.cloudfront.net/flags/DE.svg" rel="preload"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/b864dec2fc058581.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/6f9b80d484ead711.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/05d6d8fcb903870d.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><meta content="" name="next-size-adjust"/><title>Fly.io-Bereitstellung - OpenClaw</title><meta content="Deploy OpenClaw on Fly.io." name="description"/><meta content="OpenClaw" name="application-name"/><meta content="Mintlify" name="generator"/><meta content="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/browserconfig.xml" name="msapplication-config"/><meta content="OpenClaw" name="apple-mobile-web-app-title"/><meta content="#FF5A36" name="msapplication-TileColor"/><meta content="utf-8" name="charset"/><meta content="OpenClaw" name="og:site_name"/><meta content="https://docs.openclaw.ai/install/fly" name="canonical"/><link href="fly.html" rel="canonical"/><link href="/sitemap.xml" rel="alternate" type="application/xml"/><meta content="Fly.io - OpenClaw" property="og:title"/><meta content="Deploy OpenClaw on Fly.io." property="og:description"/><meta content="https://docs.openclaw.ai/install/fly" property="og:url"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DHosting%2Band%2Bdeployment%26title%3DFly.io%26description%3DDeploy%2BOpenClaw%2Bon%2BFly.io.%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="website" property="og:type"/><meta content="summary_large_image" name="twitter:card"/><meta content="Fly.io - OpenClaw" name="twitter:title"/><meta content="Deploy OpenClaw on Fly.io." name="twitter:description"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DHosting%2Band%2Bdeployment%26title%3DFly.io%26description%3DDeploy%2BOpenClaw%2Bon%2BFly.io.%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" name="twitter:image"/><meta content="1200" name="twitter:image:width"/><meta content="630" name="twitter:image:height"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-16x16.png" media="(prefers-color-scheme: light)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-32x32.png" media="(prefers-color-scheme: light)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon.ico" media="(prefers-color-scheme: light)" rel="shortcut icon" type="image/x-icon"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-16x16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-32x32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon.ico" media="(prefers-color-scheme: dark)" rel="shortcut icon" type="image/x-icon"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link as="style" href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css" rel="preload"/><script type="text/javascript">(function(a,b){try{let c=document.getElementById("banner")?.innerText;if(c){for(let d=0;d<localStorage.length;d++){let e=localStorage.key(d);if(e?.endsWith(a)&&localStorage.getItem(e)===c)return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible");return}for(let c=0;c<localStorage.length;c++){let d=localStorage.key(c);if(d?.endsWith(a)&&localStorage.getItem(d))return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible")}catch(a){document.documentElement.setAttribute(b,"hidden")}})(
+  "bannerDismissed",
+  "data-banner-state",
+)</script><style id="veiseule-branding">
+.veiseule-bar{position:fixed;top:0;left:0;right:0;z-index:99999;background:#2E4A3A;color:#E0E0E0;text-align:center;padding:8px 16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;box-shadow:0 2px 4px rgba(0,0,0,0.15)}
+.veiseule-bar a{color:#A9B8A1;text-decoration:underline}
+.veiseule-bar a:hover{color:#fff}
+.veiseule-footer{background:#1A2E20;color:#E0E0E0;text-align:center;padding:16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;border-top:1px solid #2E4A3A}
+.veiseule-footer a{color:#A9B8A1;text-decoration:underline}
+.veiseule-footer a:hover{color:#fff}
+body{padding-top:36px !important}
+</style>
+<style>
+.toc-anchor { text-decoration: none; margin-left: 0.3em; opacity: 0.3; }
+.toc-anchor:hover { opacity: 1; }
+.toc-anchor { color: #999; }
+.dark .toc-anchor { color: #555; }
+</style></head><body>
+<div class="veiseule-bar">Community-Übersetzungen von <a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Help improve them on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a></div>
+<div hidden=""><!--$--><!--/$--></div><script>((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","isDarkMode","system",null,["dark","light","true","false","system"],{"true":"dark","false":"light","dark":"dark","light":"light"},true,true)</script><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><style>:root {
+  --font-family-headings-custom: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  --font-family-body-custom: "Fragment Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  
+  
+}</style><style>:root {
+    --primary: 255 90 54;
+    --primary-light: 255 138 107;
+    --primary-dark: 255 90 54;
+    --tooltip-foreground: 255 255 255;
+    --background-light: 255 255 255;
+    --background-dark: 14 12 13;
+    --gray-50: 250 245 244;
+    --gray-100: 245 240 239;
+    --gray-200: 230 225 224;
+    --gray-300: 213 208 207;
+    --gray-400: 166 161 160;
+    --gray-500: 119 114 113;
+    --gray-600: 87 82 81;
+    --gray-700: 70 65 64;
+    --gray-800: 45 40 38;
+    --gray-900: 30 25 24;
+    --gray-950: 17 12 11;
+  }</style><script type="text/javascript">
+          (function() {
+            function loadKatex() {
+              const link = document.querySelector('link[href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css"]');
+              if (link) link.rel = 'stylesheet';
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', loadKatex);
+            } else {
+              loadKatex();
+            }
+          })();
+        </script><div class="relative antialiased text-gray-500 dark:text-gray-400"><a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:p-2 focus:text-sm focus:bg-background-light dark:focus:bg-background-dark focus:rounded-md focus:outline-primary dark:focus:outline-primary-light" href="fly.html#content-area">Zum Hauptinhalt springen</a><div class="max-lg:contents lg:flex lg:w-full"><div class="max-lg:contents lg:flex-1 lg:min-w-0 lg:overflow-x-clip"><div class="z-30 fixed lg:sticky top-0 w-full peer is-not-custom peer is-not-center peer is-not-wide peer is-not-frame" id="navbar"><div class="absolute w-full h-full backdrop-blur flex-none transition-colors duration-500 border-b border-gray-500/5 dark:border-gray-300/[0.06] data-[is-opaque=true]:bg-background-light data-[is-opaque=true]:supports-backdrop-blur:bg-background-light/95 data-[is-opaque=true]:dark:bg-background-dark/75 data-[is-opaque=false]:supports-backdrop-blur:bg-background-light/60 data-[is-opaque=false]:dark:bg-transparent" data-is-opaque="false" id="navbar-transition"></div><div class="max-w-8xl mx-auto relative"><div><div class="relative"><div class="flex items-center lg:px-12 h-16 min-w-0 mx-4 lg:mx-0"><div class="h-full relative flex-1 flex items-center gap-x-4 min-w-0 border-b border-gray-500/5 dark:border-gray-300/[0.06]"><div class="flex-1 flex items-center gap-x-4"><a class="select-none" data-slot="context-menu-trigger" data-state="closed" href="../index.html" style="-webkit-touch-callout:none"><span class="sr-only">OpenClaw 🦞<!-- --> Startseite</span><img alt="light logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 block dark:hidden" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/><img alt="dark logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 hidden dark:block" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/></a><div class="hidden lg:flex items-center gap-x-2"><button aria-expanded="false" aria-haspopup="menu" class="group disabled:pointer-events-none [&amp;&gt;span]:line-clamp-1 overflow-hidden group group-hover:text-gray-950/70 dark:group-hover:text-white/70 py-1.5 px-2.5 rounded-xl hover:!bg-gray-600/5 dark:hover:!bg-gray-200/5 aria-[expanded=true]:bg-gray-600/5 dark:aria-[expanded=true]:bg-gray-200/5 text-sm font-medium text-gray-900 h-8 focus-visible:outline-primary dark:text-gray-300 group/trigger flex items-center gap-2 whitespace-nowrap" data-state="closed" id="localization-select-trigger" type="button"><div class="relative size-4 rounded-full shrink-0"><img alt="DE" class="w-full h-full rounded-full" src="https://d3gk2c5xim1je2.cloudfront.net/flags/DE.svg"/><div class="absolute top-0 left-0 w-full h-full border rounded-full bg-primary-light/10 border-black/10"></div></div><span class="truncate max-w-[12.5rem]">Deutsch</span><svg class="transition-transform text-gray-400 overflow-visible group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400 rotate-90 ml-auto group-aria-[expanded=true]/trigger:rotate-[270deg]" height="24" viewbox="0 -9 3 24" width="8"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></button></div></div><div class="relative hidden lg:flex items-center flex-1 z-20 justify-center"><button aria-label="Suche öffnen" class="flex pointer-events-auto rounded-xl w-full items-center text-sm leading-6 h-9 pl-3.5 pr-3 text-gray-500 dark:text-white/50 bg-background-light dark:bg-background-dark dark:brightness-[1.1] dark:ring-1 dark:hover:brightness-[1.25] ring-1 ring-gray-400/30 hover:ring-gray-600/30 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 justify-between truncate gap-2 min-w-[43px]" id="search-bar-entry" type="button"><div class="flex items-center gap-2 min-w-[42px]"><svg class="lucide lucide-search min-w-4 flex-none text-gray-700 hover:text-gray-800 dark:text-gray-400 hover:dark:text-gray-200" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><div class="truncate min-w-0">Suchen...</div></div><span class="flex-none text-xs font-semibold">⌘<!-- -->K</span></button></div><div class="flex-1 relative hidden lg:flex items-center ml-auto justify-end space-x-4"><nav class="text-sm"><ul class="flex space-x-6 items-center"><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);mask-repeat:no-repeat;mask-position:center"></svg>GitHub</a></li><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw/releases" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);mask-repeat:no-repeat;mask-position:center;mask-size:100%"></svg>Releases</a></li></ul></nav><div class="flex items-center"><button aria-label="Dark Mode umschalten" class="group p-2 flex items-center justify-center"><svg class="h-4 w-4 block text-gray-400 dark:hidden group-hover:text-gray-600" fill="none" height="16" stroke="currentColor" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2880_7340)"><path d="M8 1.11133V2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 3.12891L12.2427 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M14.8889 8H14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 12.8711L12.2427 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8 14.8889V14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 12.8711L3.75735 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M1.11133 8H2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 3.12891L3.75735 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8.00043 11.7782C10.0868 11.7782 11.7782 10.0868 11.7782 8.00043C11.7782 5.91402 10.0868 4.22266 8.00043 4.22266C5.91402 4.22266 4.22266 5.91402 4.22266 8.00043C4.22266 10.0868 5.91402 11.7782 8.00043 11.7782Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g><defs><clippath id="clip0_2880_7340"><rect fill="white" height="16" width="16"></rect></clippath></defs></svg><svg class="lucide lucide-moon h-4 w-4 hidden dark:block text-gray-500 dark:group-hover:text-gray-300" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button></div></div><div class="flex lg:hidden items-center gap-3"><button aria-label="Suche öffnen" class="text-gray-500 w-8 h-8 flex items-center justify-center hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300" id="search-bar-entry-mobile" type="button"><span class="sr-only">Suchen...</span><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);mask-repeat:no-repeat;mask-position:center"></svg></button><button aria-label="Weitere Aktionen" class="h-7 w-5 flex items-center justify-end"><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);mask-repeat:no-repeat;mask-position:center"></svg></button></div></div></div><button class="flex items-center h-14 py-4 px-5 lg:hidden focus:outline-0 w-full text-left" type="button"><div class="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300"><span class="sr-only">Navigation</span><svg class="h-4" fill="currentColor" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></div><div class="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0 space-x-3 overflow-hidden"><div class="flex items-center space-x-3 flex-shrink-0"><span>Hosting und Deployment</span><svg class="h-5 rotate-0 overflow-visible fill-gray-400" height="24" viewbox="0 -9 3 24" width="3"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></div><div class="font-semibold text-gray-900 truncate dark:text-gray-200 min-w-0 flex-1">Fly.io-Bereitstellung</div></div></button></div><div class="hidden lg:flex px-12 h-12"><div class="nav-tabs h-full flex text-sm gap-x-6"><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../index.html">Loslegen<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium hover:text-gray-800 dark:hover:text-gray-300 text-gray-800 dark:text-gray-200 [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor]" href="../install.html">Installieren<div class="absolute bottom-0 h-[1.5px] w-full left-0 bg-primary dark:bg-primary-light"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../channels.html">Kanäle<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../concepts/architecture.html">Agenten<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../tools.html">Tools<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../providers.html">Modelle<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../platforms.html">Plattformen<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../gateway.html">Gateway &amp; Betrieb<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../cli.html">Referenz<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../help.html">Hilfe<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a></div></div></div></div><span hidden="" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"></span></div><div class="scroll-mt-[var(--scroll-mt)] peer-[.is-custom]:max-w-none peer-[.is-center]:max-w-3xl peer-[.is-not-custom]:peer-[.is-not-center]:max-w-8xl peer-[.is-not-custom]:px-4 peer-[.is-not-custom]:mx-auto peer-[.is-not-custom]:lg:px-8 peer-[.is-wide]:[&amp;&gt;div:last-child]:max-w-6xl peer-[.is-custom]:[&amp;&gt;div:first-child]:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:xl:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:xl:!hidden"><div class="z-20 hidden lg:block fixed bottom-0 right-auto w-[18rem]" id="sidebar" style="top:7rem"><div class="absolute inset-0 z-10 stable-scrollbar-gutter overflow-auto pr-8 pb-10" id="sidebar-content"><div class="relative lg:text-sm lg:leading-6"><div class="sticky top-0 h-8 z-10 bg-gradient-to-b from-background-light dark:from-background-dark"></div><div id="navigation-items"><div class=""><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200">Installationsübersicht</div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Install" id="/install"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../install.html" style="padding-left:1rem">Installieren</a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Installer Internals" id="/install/installer"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="installer.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Installer Internals</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Other install methods</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Docker" id="/install/docker"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="docker.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Docker</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Podman" id="/install/podman"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="podman.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Podman</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Nix" id="/install/nix"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="nix.html" style="padding-left:1rem">Nix-Installation</a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Ansible" id="/install/ansible"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="ansible.html" style="padding-left:1rem">Ansible-Installation</a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Bun (Experimental)" id="/install/bun"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="bun.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Bun (Experimental)</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200">Wartung</div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Updating" id="/install/updating"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="updating.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Updating</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Migration Guide" id="/install/migrating"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="migrating.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Migration Guide</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Uninstall" id="/install/uninstall"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="uninstall.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Uninstall</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200">Hosting und Deployment</div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Fly.io" id="/install/fly"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] bg-primary/10 text-primary [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor] dark:text-primary-light dark:bg-primary-light/10" href="fly.html" style="padding-left:1rem">Fly.io-Bereitstellung</a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Hetzner" id="/install/hetzner"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="hetzner.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Hetzner</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="GCP" id="/install/gcp"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gcp.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">GCP</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="macOS VMs" id="/install/macos-vm"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="macos-vm.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">macOS VMs</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="exe.dev" id="/install/exe-dev"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="exe-dev.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">exe.dev</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Deploy on Railway" id="/install/railway"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="railway.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Deploy on Railway</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Deploy on Render" id="/install/render"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="render.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Deploy on Render</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Deploy on Northflank" id="/install/northflank"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="northflank.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Deploy on Northflank</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200">Erweitert</div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Development Channels" id="/install/development-channels"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="development-channels.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Development Channels</div></div></a></li></ul></div></div></div></div></div><div id="content-container"><span class="fixed inset-0 bg-background-light dark:bg-background-dark -z-10 pointer-events-none" id="almond-background-color"></span><style data-custom-css-index="0" data-custom-css-path="style.css">#content > h1:first-of-type {
+  display: none !important;
+}
+</style><div class="flex flex-row-reverse gap-12 box-border w-full pt-40 lg:pt-10"><div class="hidden xl:flex self-start sticky xl:flex-col max-w-[28rem] z-[21] h-[calc(100vh-9.5rem)] top-[calc(9.5rem-var(--sidenav-move-up,0px))]" id="content-side-layout"><div class="z-10 hidden xl:flex box-border max-h-full pl-10 w-[19rem]" id="table-of-contents-layout"><div class="text-gray-600 text-sm leading-6 w-[16.5rem] overflow-y-auto space-y-2 pb-4 -mt-10 pt-10" id="table-of-contents"><button class="text-gray-700 dark:text-gray-300 font-medium flex items-center space-x-2 hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer"><svg class="h-3 w-3" fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.44434 12.6665H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 3.3335H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 8H7.33323" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Auf dieser Seite</span></button><ul class="toc" id="table-of-contents-content"><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#flyio-bereitstellung">Fly.io-Bereitstellung</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#was-sie-benotigen">Was Sie benötigen</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#schneller-einstieg-fur-anfanger">Schneller Einstieg für Anfänger</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#1-fly-app-erstellen">1) Fly-App erstellen</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#2-flytoml-konfigurieren">2. fly.toml konfigurieren</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#3-secrets-setzen">3. Secrets setzen</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#4-deploy">4. Deploy</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#5-konfigurationsdatei-erstellen">5. Konfigurationsdatei erstellen</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#6-zugriff-auf-das-gateway">6. Zugriff auf das Gateway</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#bedienoberflache">Bedienoberfläche</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#logs">`openclaw logs`</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#ssh-konsole">SSH-Konsole</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#fehlerbehebung">Gateway-Fehlerbehebung</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#app-is-not-listening-on-expected-address">„App is not listening on expected address“</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#health-checks-schlagen-fehl-verbindung-abgelehnt">Health-Checks schlagen fehl / Verbindung abgelehnt</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#oom-speicherprobleme">OOM- / Speicherprobleme</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#gateway-lock-probleme">Gateway-Lock-Probleme</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#konfiguration-wird-nicht-gelesen">Konfiguration wird nicht gelesen</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#konfiguration-per-ssh-schreiben">Konfiguration per SSH schreiben</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#zustand-wird-nicht-persistiert">Zustand wird nicht persistiert</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#aktualisierungen">Aktualisierungen</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#maschinenbefehl-aktualisieren">Maschinenbefehl aktualisieren</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#private-bereitstellung-gehartet">Private Bereitstellung (gehärtet)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#wann-eine-private-bereitstellung-sinnvoll-ist">Wann eine private Bereitstellung sinnvoll ist</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#einrichtung">Einrichtung</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#zugriff-auf-eine-private-bereitstellung">Zugriff auf eine private Bereitstellung</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#webhooks-mit-privater-bereitstellung">Webhooks mit privater Bereitstellung</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#sicherheitsvorteile">Sicherheitsvorteile</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#hinweise">Hinweise</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/fly.html#kosten">Kosten</a></li></ul></div></div></div><div class="relative grow box-border flex-col w-full mx-auto px-1 lg:pl-[23.7rem] lg:-ml-12 xl:w-[calc(100%-28rem)]" id="content-area"><header class="relative leading-none" id="header"><div class="mt-0.5 space-y-2.5"><div class="eyebrow h-5 text-primary dark:text-primary-light text-sm font-semibold">Hosting und Deployment</div><div class="flex flex-col sm:flex-row items-start sm:items-center relative gap-2 min-w-0">Fly.io-Bereitstellung</div></div><div class="mt-2 text-lg prose prose-gray dark:prose-invert [&amp;&gt;*]:[overflow-wrap:anywhere]"><p>Deploy OpenClaw on Fly.io.</p></div></header><div class="mdx-content relative mt-8 mb-14 prose prose-gray dark:prose-invert [contain:inline-size] isolate" data-page-href="/install/fly" data-page-title="Fly.io" id="content"><h1 id="flyio-bereitstellung">Fly.io-Bereitstellung<a class="toc-anchor" href="#flyio-bereitstellung" title="Permanent link">¶</a></h1>
+<p><strong>Ziel:</strong> OpenClaw Gateway auf einer <a href="https://fly.io">Fly.io</a>-Maschine mit persistentem Speicher, automatischem HTTPS und Discord-/Kanal-Zugriff.</p>
+<h2 id="was-sie-benotigen">Was Sie benötigen<a class="toc-anchor" href="#was-sie-benotigen" title="Permanent link">¶</a></h2>
+<ul>
+<li>Installierte <a href="https://fly.io/docs/hands-on/install-flyctl/">flyctl CLI</a></li>
+<li>Fly.io-Konto (Free-Tier reicht aus)</li>
+<li>Modell-Authentifizierung: Anthropic-API-Schlüssel (oder andere Anbieter-Schlüssel)</li>
+<li>Kanal-Zugangsdaten: Discord-Bot-Token, Telegram-Token usw.</li>
+</ul>
+<h2 id="schneller-einstieg-fur-anfanger">Schneller Einstieg für Anfänger<a class="toc-anchor" href="#schneller-einstieg-fur-anfanger" title="Permanent link">¶</a></h2>
+<ol>
+<li>Repository klonen → <code>fly.toml</code> anpassen</li>
+<li>App + Volume erstellen → Secrets setzen</li>
+<li>Mit <code>fly deploy</code> deployen</li>
+<li>Per SSH anmelden, um Konfiguration zu erstellen, oder Control UI verwenden</li>
+</ol>
+<h2 id="1-fly-app-erstellen">1) Fly-App erstellen<a class="toc-anchor" href="#1-fly-app-erstellen" title="Permanent link">¶</a></h2>
+<pre class="highlight"><code class="language-bash"># Clone the repo
+git clone https://github.com/openclaw/openclaw.git
+cd openclaw
+
+# Create a new Fly app (pick your own name)
+fly apps create my-openclaw
+
+# Create a persistent volume (1GB is usually enough)
+fly volumes create openclaw_data --size 1 --region iad
+</code></pre>
+<p><strong>Tipp:</strong> Wählen Sie eine Region in Ihrer Nähe. Häufige Optionen: <code>lhr</code> (London), <code>iad</code> (Virginia), <code>sjc</code> (San Jose).</p>
+<h2 id="2-flytoml-konfigurieren">2. fly.toml konfigurieren<a class="toc-anchor" href="#2-flytoml-konfigurieren" title="Permanent link">¶</a></h2>
+<p>Bearbeiten Sie <code>fly.toml</code>, damit es zu Ihrem App-Namen und Ihren Anforderungen passt.</p>
+<p><strong>Sicherheitshinweis:</strong> Die Standardkonfiguration stellt eine öffentliche URL bereit. Für eine gehärtete Bereitstellung ohne öffentliche IP siehe <a href="#private-deployment-hardened">Private Deployment</a> oder verwenden Sie <code>fly.private.toml</code>.</p>
+<pre class="highlight"><code class="language-toml">app = "my-openclaw"  # Your app name
+primary_region = "iad"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  NODE_ENV = "production"
+  OPENCLAW_PREFER_PNPM = "1"
+  OPENCLAW_STATE_DIR = "/data"
+  NODE_OPTIONS = "--max-old-space-size=1536"
+
+[processes]
+  app = "node dist/index.js gateway --allow-unconfigured --port 3000 --bind lan"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
+
+[[vm]]
+  size = "shared-cpu-2x"
+  memory = "2048mb"
+
+[mounts]
+  source = "openclaw_data"
+  destination = "/data"
+</code></pre>
+<p><strong>Zentrale Einstellungen:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Einstellung</th>
+<th>Warum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--bind lan</code></td>
+<td>Bindet an <code>0.0.0.0</code>, damit der Fly-Proxy das Gateway erreichen kann</td>
+</tr>
+<tr>
+<td><code>--allow-unconfigured</code></td>
+<td>Startet ohne Konfigurationsdatei (Sie erstellen diese später)</td>
+</tr>
+<tr>
+<td><code>internal_port = 3000</code></td>
+<td>Muss mit <code>--port 3000</code> (oder <code>OPENCLAW_GATEWAY_PORT</code>) für Fly-Health-Checks übereinstimmen</td>
+</tr>
+<tr>
+<td><code>memory = "2048mb"</code></td>
+<td>512 MB sind zu wenig; 2 GB empfohlen</td>
+</tr>
+<tr>
+<td><code>OPENCLAW_STATE_DIR = "/data"</code></td>
+<td>Persistiert den Zustand auf dem Volume</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-secrets-setzen">3. Secrets setzen<a class="toc-anchor" href="#3-secrets-setzen" title="Permanent link">¶</a></h2>
+<pre class="highlight"><code class="language-bash"># Required: Gateway token (for non-loopback binding)
+fly secrets set OPENCLAW_GATEWAY_TOKEN=$(openssl rand -hex 32)
+
+# Model provider API keys
+fly secrets set ANTHROPIC_API_KEY=sk-ant-...
+
+# Optional: Other providers
+fly secrets set OPENAI_API_KEY=sk-...
+fly secrets set GOOGLE_API_KEY=...
+
+# Channel tokens
+fly secrets set DISCORD_BOT_TOKEN=MTQ...
+</code></pre>
+<p><strong>Hinweise:</strong></p>
+<ul>
+<li>Nicht-Loopback-Bindings (<code>--bind lan</code>) erfordern aus Sicherheitsgründen <code>OPENCLAW_GATEWAY_TOKEN</code>.</li>
+<li>Behandeln Sie diese Tokens wie Passwörter.</li>
+<li><strong>Bevorzugen Sie Umgebungsvariablen gegenüber der Konfigurationsdatei</strong> für alle API-Schlüssel und Tokens. So bleiben Secrets aus <code>openclaw.json</code> heraus, wo sie versehentlich offengelegt oder geloggt werden könnten.</li>
+</ul>
+<h2 id="4-deploy">4. Deploy<a class="toc-anchor" href="#4-deploy" title="Permanent link">¶</a></h2>
+<pre class="highlight"><code class="language-bash">fly deploy
+</code></pre>
+<p>Der erste Deploy baut das Docker-Image (~2–3 Minuten). Nachfolgende Deploys sind schneller.</p>
+<p>Nach der Bereitstellung prüfen Sie:</p>
+<pre class="highlight"><code class="language-bash">fly status
+fly logs
+</code></pre>
+<p>Sie sollten Folgendes sehen:</p>
+<pre class="highlight"><code>[gateway] listening on ws://0.0.0.0:3000 (PID xxx)
+[discord] logged in to discord as xxx
+</code></pre>
+<h2 id="5-konfigurationsdatei-erstellen">5. Konfigurationsdatei erstellen<a class="toc-anchor" href="#5-konfigurationsdatei-erstellen" title="Permanent link">¶</a></h2>
+<p>Melden Sie sich per SSH an der Maschine an, um eine vollständige Konfiguration zu erstellen:</p>
+<pre class="highlight"><code class="language-bash">fly ssh console
+</code></pre>
+<p>Erstellen Sie das Konfigurationsverzeichnis und die Datei:</p>
+<pre class="highlight"><code class="language-bash">mkdir -p /data
+cat &gt; /data/openclaw.json &lt;&lt; 'EOF'
+{
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "anthropic/claude-opus-4-6",
+        "fallbacks": ["anthropic/claude-sonnet-4-5", "openai/gpt-4o"]
+      },
+      "maxConcurrent": 4
+    },
+    "list": [
+      {
+        "id": "main",
+        "default": true
+      }
+    ]
+  },
+  "auth": {
+    "profiles": {
+      "anthropic:default": { "mode": "token", "provider": "anthropic" },
+      "openai:default": { "mode": "token", "provider": "openai" }
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "main",
+      "match": { "channel": "discord" }
+    }
+  ],
+  "channels": {
+    "discord": {
+      "enabled": true,
+      "groupPolicy": "allowlist",
+      "guilds": {
+        "YOUR_GUILD_ID": {
+          "channels": { "general": { "allow": true } },
+          "requireMention": false
+        }
+      }
+    }
+  },
+  "gateway": {
+    "mode": "local",
+    "bind": "auto"
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.1.29"
+  }
+}
+EOF
+</code></pre>
+<p><strong>Hinweis:</strong> Mit <code>OPENCLAW_STATE_DIR=/data</code> ist der Konfigurationspfad <code>/data/openclaw.json</code>.</p>
+<p><strong>Hinweis:</strong> Das Discord-Token kann aus einer der folgenden Quellen stammen:</p>
+<ul>
+<li>Umgebungsvariable: <code>DISCORD_BOT_TOKEN</code> (empfohlen für Secrets)</li>
+<li>Konfigurationsdatei: <code>channels.discord.token</code></li>
+</ul>
+<p>Wenn Sie die Umgebungsvariable verwenden, müssen Sie das Token nicht in die Konfiguration aufnehmen. Das Gateway liest <code>DISCORD_BOT_TOKEN</code> automatisch.</p>
+<p>Zum Anwenden neu starten:</p>
+<pre class="highlight"><code class="language-bash">exit
+fly machine restart &lt;machine-id&gt;
+</code></pre>
+<h2 id="6-zugriff-auf-das-gateway">6. Zugriff auf das Gateway<a class="toc-anchor" href="#6-zugriff-auf-das-gateway" title="Permanent link">¶</a></h2>
+<h3 id="bedienoberflache">Bedienoberfläche<a class="toc-anchor" href="#bedienoberflache" title="Permanent link">¶</a></h3>
+<p>Im Browser öffnen:</p>
+<pre class="highlight"><code class="language-bash">fly open
+</code></pre>
+<p>Oder besuchen Sie <code>https://my-openclaw.fly.dev/</code></p>
+<p>Fügen Sie Ihr Gateway-Token (das aus <code>OPENCLAW_GATEWAY_TOKEN</code>) zur Authentifizierung ein.</p>
+<h3 id="logs">Logs<a class="toc-anchor" href="#logs" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-bash">fly logs              # Live logs
+fly logs --no-tail    # Recent logs
+</code></pre>
+<h3 id="ssh-konsole">SSH-Konsole<a class="toc-anchor" href="#ssh-konsole" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-bash">fly ssh console
+</code></pre>
+<h2 id="fehlerbehebung">Fehlerbehebung<a class="toc-anchor" href="#fehlerbehebung" title="Permanent link">¶</a></h2>
+<h3 id="app-is-not-listening-on-expected-address">„App is not listening on expected address“<a class="toc-anchor" href="#app-is-not-listening-on-expected-address" title="Permanent link">¶</a></h3>
+<p>Das Gateway bindet an <code>127.0.0.1</code> statt an <code>0.0.0.0</code>.</p>
+<p><strong>Behebung:</strong> Fügen Sie <code>--bind lan</code> zum Prozessbefehl in <code>fly.toml</code> hinzu.</p>
+<h3 id="health-checks-schlagen-fehl-verbindung-abgelehnt">Health-Checks schlagen fehl / Verbindung abgelehnt<a class="toc-anchor" href="#health-checks-schlagen-fehl-verbindung-abgelehnt" title="Permanent link">¶</a></h3>
+<p>Fly kann das Gateway auf dem konfigurierten Port nicht erreichen.</p>
+<p><strong>Behebung:</strong> Stellen Sie sicher, dass <code>internal_port</code> mit dem Gateway-Port übereinstimmt (setzen Sie <code>--port 3000</code> oder <code>OPENCLAW_GATEWAY_PORT=3000</code>).</p>
+<h3 id="oom-speicherprobleme">OOM- / Speicherprobleme<a class="toc-anchor" href="#oom-speicherprobleme" title="Permanent link">¶</a></h3>
+<p>Der Container startet ständig neu oder wird beendet. Anzeichen: <code>SIGABRT</code>, <code>v8::internal::Runtime_AllocateInYoungGeneration</code> oder stille Neustarts.</p>
+<p><strong>Behebung:</strong> Erhöhen Sie den Speicher in <code>fly.toml</code>:</p>
+<pre class="highlight"><code class="language-toml">[[vm]]
+  memory = "2048mb"
+</code></pre>
+<p>Oder aktualisieren Sie eine bestehende Maschine:</p>
+<pre class="highlight"><code class="language-bash">fly machine update &lt;machine-id&gt; --vm-memory 2048 -y
+</code></pre>
+<p><strong>Hinweis:</strong> 512 MB sind zu wenig. 1 GB kann funktionieren, aber unter Last oder mit ausführlichem Logging zu OOM führen. <strong>2 GB werden empfohlen.</strong></p>
+<h3 id="gateway-lock-probleme">Gateway-Lock-Probleme<a class="toc-anchor" href="#gateway-lock-probleme" title="Permanent link">¶</a></h3>
+<p>Das Gateway startet nicht und meldet „already running“-Fehler.</p>
+<p>Dies passiert, wenn der Container neu startet, aber die PID-Lockdatei auf dem Volume bestehen bleibt.</p>
+<p><strong>Behebung:</strong> Löschen Sie die Lockdatei:</p>
+<pre class="highlight"><code class="language-bash">fly ssh console --command "rm -f /data/gateway.*.lock"
+fly machine restart &lt;machine-id&gt;
+</code></pre>
+<p>Die Lockdatei befindet sich unter <code>/data/gateway.*.lock</code> (nicht in einem Unterverzeichnis).</p>
+<h3 id="konfiguration-wird-nicht-gelesen">Konfiguration wird nicht gelesen<a class="toc-anchor" href="#konfiguration-wird-nicht-gelesen" title="Permanent link">¶</a></h3>
+<p>Bei Verwendung von <code>--allow-unconfigured</code> erstellt das Gateway eine minimale Konfiguration. Ihre benutzerdefinierte Konfiguration unter <code>/data/openclaw.json</code> sollte nach einem Neustart gelesen werden.</p>
+<p>Prüfen Sie, ob die Konfiguration existiert:</p>
+<pre class="highlight"><code class="language-bash">fly ssh console --command "cat /data/openclaw.json"
+</code></pre>
+<h3 id="konfiguration-per-ssh-schreiben">Konfiguration per SSH schreiben<a class="toc-anchor" href="#konfiguration-per-ssh-schreiben" title="Permanent link">¶</a></h3>
+<p>Der Befehl <code>fly ssh console -C</code> unterstützt keine Shell-Umleitung. Um eine Konfigurationsdatei zu schreiben:</p>
+<pre class="highlight"><code class="language-bash"># Use echo + tee (pipe from local to remote)
+echo '{"your":"config"}' | fly ssh console -C "tee /data/openclaw.json"
+
+# Or use sftp
+fly sftp shell
+&gt; put /local/path/config.json /data/openclaw.json
+</code></pre>
+<p><strong>Hinweis:</strong> <code>fly sftp</code> kann fehlschlagen, wenn die Datei bereits existiert. Löschen Sie sie zuerst:</p>
+<pre class="highlight"><code class="language-bash">fly ssh console --command "rm /data/openclaw.json"
+</code></pre>
+<h3 id="zustand-wird-nicht-persistiert">Zustand wird nicht persistiert<a class="toc-anchor" href="#zustand-wird-nicht-persistiert" title="Permanent link">¶</a></h3>
+<p>Wenn nach einem Neustart Zugangsdaten oder Sitzungen verloren gehen, schreibt das Zustandsverzeichnis in das Container-Dateisystem.</p>
+<p><strong>Behebung:</strong> Stellen Sie sicher, dass <code>OPENCLAW_STATE_DIR=/data</code> in <code>fly.toml</code> gesetzt ist, und deployen Sie erneut.</p>
+<h2 id="aktualisierungen">Aktualisierungen<a class="toc-anchor" href="#aktualisierungen" title="Permanent link">¶</a></h2>
+<pre class="highlight"><code class="language-bash"># Pull latest changes
+git pull
+
+# Redeploy
+fly deploy
+
+# Check health
+fly status
+fly logs
+</code></pre>
+<h3 id="maschinenbefehl-aktualisieren">Maschinenbefehl aktualisieren<a class="toc-anchor" href="#maschinenbefehl-aktualisieren" title="Permanent link">¶</a></h3>
+<p>Wenn Sie den Startbefehl ändern müssen, ohne einen vollständigen Redeploy durchzuführen:</p>
+<pre class="highlight"><code class="language-bash"># Get machine ID
+fly machines list
+
+# Update command
+fly machine update &lt;machine-id&gt; --command "node dist/index.js gateway --port 3000 --bind lan" -y
+
+# Or with memory increase
+fly machine update &lt;machine-id&gt; --vm-memory 2048 --command "node dist/index.js gateway --port 3000 --bind lan" -y
+</code></pre>
+<p><strong>Hinweis:</strong> Nach <code>fly deploy</code> kann der Maschinenbefehl auf den Wert in <code>fly.toml</code> zurückgesetzt werden. Wenn Sie manuelle Änderungen vorgenommen haben, wenden Sie diese nach dem Deploy erneut an.</p>
+<h2 id="private-bereitstellung-gehartet">Private Bereitstellung (gehärtet)<a class="toc-anchor" href="#private-bereitstellung-gehartet" title="Permanent link">¶</a></h2>
+<p>Standardmäßig weist Fly öffentliche IPs zu, wodurch Ihr Gateway unter <code>https://your-app.fly.dev</code> erreichbar ist. Das ist bequem, bedeutet aber, dass Ihre Bereitstellung für Internet-Scanner (Shodan, Censys usw.) auffindbar ist.</p>
+<p>Für eine gehärtete Bereitstellung <strong>ohne öffentliche Exponierung</strong> verwenden Sie das private Template.</p>
+<h3 id="wann-eine-private-bereitstellung-sinnvoll-ist">Wann eine private Bereitstellung sinnvoll ist<a class="toc-anchor" href="#wann-eine-private-bereitstellung-sinnvoll-ist" title="Permanent link">¶</a></h3>
+<ul>
+<li>Sie tätigen nur <strong>ausgehende</strong> Aufrufe/Nachrichten (keine eingehenden Webhooks)</li>
+<li>Sie nutzen <strong>ngrok- oder Tailscale</strong>-Tunnel für Webhook-Callbacks</li>
+<li>Sie greifen über <strong>SSH, Proxy oder WireGuard</strong> statt über den Browser auf das Gateway zu</li>
+<li>Sie möchten die Bereitstellung <strong>vor Internet-Scannern verbergen</strong></li>
+</ul>
+<h3 id="einrichtung">Einrichtung<a class="toc-anchor" href="#einrichtung" title="Permanent link">¶</a></h3>
+<p>Verwenden Sie <code>fly.private.toml</code> statt der Standardkonfiguration:</p>
+<pre class="highlight"><code class="language-bash"># Deploy with private config
+fly deploy -c fly.private.toml
+</code></pre>
+<p>Oder konvertieren Sie eine bestehende Bereitstellung:</p>
+<pre class="highlight"><code class="language-bash"># List current IPs
+fly ips list -a my-openclaw
+
+# Release public IPs
+fly ips release &lt;public-ipv4&gt; -a my-openclaw
+fly ips release &lt;public-ipv6&gt; -a my-openclaw
+
+# Switch to private config so future deploys don't re-allocate public IPs
+# (remove [http_service] or deploy with the private template)
+fly deploy -c fly.private.toml
+
+# Allocate private-only IPv6
+fly ips allocate-v6 --private -a my-openclaw
+</code></pre>
+<p>Danach sollte <code>fly ips list</code> nur eine IP vom Typ <code>private</code> anzeigen:</p>
+<pre class="highlight"><code>VERSION  IP                   TYPE             REGION
+v6       fdaa:x:x:x:x::x      private          global
+</code></pre>
+<h3 id="zugriff-auf-eine-private-bereitstellung">Zugriff auf eine private Bereitstellung<a class="toc-anchor" href="#zugriff-auf-eine-private-bereitstellung" title="Permanent link">¶</a></h3>
+<p>Da es keine öffentliche URL gibt, verwenden Sie eine der folgenden Methoden:</p>
+<p><strong>Option 1: Lokaler Proxy (am einfachsten)</strong></p>
+<pre class="highlight"><code class="language-bash"># Forward local port 3000 to the app
+fly proxy 3000:3000 -a my-openclaw
+
+# Then open http://localhost:3000 in browser
+</code></pre>
+<p><strong>Option 2: WireGuard-VPN</strong></p>
+<pre class="highlight"><code class="language-bash"># Create WireGuard config (one-time)
+fly wireguard create
+
+# Import to WireGuard client, then access via internal IPv6
+# Example: http://[fdaa:x:x:x:x::x]:3000
+</code></pre>
+<p><strong>Option 3: Nur SSH</strong></p>
+<pre class="highlight"><code class="language-bash">fly ssh console -a my-openclaw
+</code></pre>
+<h3 id="webhooks-mit-privater-bereitstellung">Webhooks mit privater Bereitstellung<a class="toc-anchor" href="#webhooks-mit-privater-bereitstellung" title="Permanent link">¶</a></h3>
+<p>Wenn Sie Webhook-Callbacks (Twilio, Telnyx usw.) ohne öffentliche Exponierung benötigen:</p>
+<ol>
+<li><strong>ngrok-Tunnel</strong> – ngrok innerhalb des Containers oder als Sidecar ausführen</li>
+<li><strong>Tailscale Funnel</strong> – Bestimmte Pfade über Tailscale freigeben</li>
+<li><strong>Nur ausgehend</strong> – Einige Anbieter (Twilio) funktionieren für ausgehende Anrufe auch ohne Webhooks</li>
+</ol>
+<p>Beispiel für eine Sprachruf-Konfiguration mit ngrok:</p>
+<pre class="highlight"><code class="language-json">{
+  "plugins": {
+    "entries": {
+      "voice-call": {
+        "enabled": true,
+        "config": {
+          "provider": "twilio",
+          "tunnel": { "provider": "ngrok" },
+          "webhookSecurity": {
+            "allowedHosts": ["example.ngrok.app"]
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>Der ngrok-Tunnel läuft innerhalb des Containers und stellt eine öffentliche Webhook-URL bereit, ohne die Fly-App selbst offenzulegen. Setzen Sie <code>webhookSecurity.allowedHosts</code> auf den öffentlichen Tunnel-Hostname, damit weitergeleitete Host-Header akzeptiert werden.</p>
+<h3 id="sicherheitsvorteile">Sicherheitsvorteile<a class="toc-anchor" href="#sicherheitsvorteile" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspekt</th>
+<th>Öffentlich</th>
+<th>Privat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Internet-Scanner</td>
+<td>Auffindbar</td>
+<td>Versteckt</td>
+</tr>
+<tr>
+<td>Direkte Angriffe</td>
+<td>Möglich</td>
+<td>Blockiert</td>
+</tr>
+<tr>
+<td>Control-UI-Zugriff</td>
+<td>Browser</td>
+<td>Proxy/VPN</td>
+</tr>
+<tr>
+<td>Webhook-Zustellung</td>
+<td>Direkt</td>
+<td>Über Tunnel</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hinweise">Hinweise<a class="toc-anchor" href="#hinweise" title="Permanent link">¶</a></h2>
+<ul>
+<li>Fly.io verwendet eine <strong>x86-Architektur</strong> (nicht ARM)</li>
+<li>Das Dockerfile ist mit beiden Architekturen kompatibel</li>
+<li>Für WhatsApp-/Telegram-Onboarding verwenden Sie <code>fly ssh console</code></li>
+<li>Persistente Daten liegen auf dem Volume unter <code>/data</code></li>
+<li>Signal erfordert Java + signal-cli; verwenden Sie ein benutzerdefiniertes Image und halten Sie den Speicher bei 2 GB+.</li>
+</ul>
+<h2 id="kosten">Kosten<a class="toc-anchor" href="#kosten" title="Permanent link">¶</a></h2>
+<p>Mit der empfohlenen Konfiguration (<code>shared-cpu-2x</code>, 2 GB RAM):</p>
+<ul>
+<li>~10–15 USD/Monat je nach Nutzung</li>
+<li>Das Free-Tier enthält ein gewisses Kontingent</li>
+</ul>
+<p>Details finden Sie unter <a href="https://fly.io/docs/about/pricing/">Fly.io pricing</a>.</p></div><div class="px-0.5 flex items-center text-sm font-semibold text-gray-700 dark:text-gray-200" id="pagination"><a class="flex items-center space-x-3 group" href="uninstall.html"><svg class="h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><span class="group-hover:text-gray-900 dark:group-hover:text-white">Uninstall</span></a><a class="flex items-center ml-auto space-x-3 group" href="hetzner.html"><span class="group-hover:text-gray-900 dark:group-hover:text-white">Hetzner</span><svg class="rotate-180 h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a></div><div class="left-0 right-0 sticky sm:px-4 pb-4 sm:pb-6 bottom-0 pt-1 flex flex-col items-center w-full overflow-hidden z-20 pointer-events-none print:hidden"><div class="chat-assistant-floating-input z-10 w-full sm:w-96 focus-within:w-full group/assistant-bar sm:focus-within:w-[30rem] hover:scale-100 sm:hover:scale-105 focus-within:hover:scale-100 [transition:width_400ms,left_200ms,transform_500ms,opacity_200ms]"><div class="translate-y-[100px] opacity-0"><div class="flex flex-col w-full rounded-2xl pointer-events-auto bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border border-gray-200 dark:border-white/30 focus-within:border-primary dark:focus-within:border-primary-light transition-colors sm:shadow-xl"><div class="relative flex items-end"><textarea aria-label="Ask a question..." autocomplete="off" class="chat-assistant-input w-full bg-transparent border-0 peer/input text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 !outline-none focus:!outline-none focus:ring-0 py-2.5 pl-3.5 pr-10 font-bodyWeight text-sm" id="chat-assistant-textarea" placeholder="Ask a question..." style="resize:none"></textarea><span class="absolute right-11 bottom-3 text-xs font-medium text-gray-400 dark:text-gray-500 select-none pointer-events-none peer-focus/input:hidden hidden sm:inline">⌘<!-- -->I</span><button aria-label="Nachricht senden" class="chat-assistant-send-button flex justify-center items-center rounded-full p-1 size-6 bg-primary/30 dark:bg-primary-dark/30 absolute right-2.5 bottom-2" disabled=""><svg class="lucide lucide-arrow-up text-white dark:text-white size-3.5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></div></div></div></div><footer class="flex gap-12 justify-between pt-10 border-t border-gray-100 sm:flex dark:border-gray-800/50 pb-28" id="footer"><div class="flex items-center justify-between"><div class="sm:flex"><a class="group flex items-baseline gap-1 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-nowrap" href="https://www.mintlify.com?utm_campaign=poweredBy&amp;utm_medium=referral&amp;utm_source=clawdhub" rel="noreferrer" target="_blank"><span>Bereitgestellt von</span><svg class="h-3.5 w-auto translate-y-[3px]" fill="none" height="367" viewbox="0 0 1274 367" width="1274" xmlns="http://www.w3.org/2000/svg"><path d="M1154.38 366.038H1097.86L1137.69 276.14L1058.04 97.1046H1114.93L1161.35 209.337C1162.97 213.26 1168.53 213.253 1170.14 209.325L1216.21 97.1046H1273.49L1154.38 366.038Z" fill="currentColor"></path><path d="M982.714 286.761V142.622H944.403V97.1041H982.714V72.4488C982.714 49.9429 989.542 32.2416 1003.2 19.345C1016.85 6.44832 1034.17 0 1055.16 0C1068.06 0 1079.06 1.39081 1088.16 4.17244V50.0693C1082.09 47.7934 1075.01 46.6555 1066.92 46.6555C1055.54 46.6555 1047.32 49.1843 1042.27 54.2418C1037.21 59.0464 1034.68 67.2648 1034.68 78.8971V97.1041H1088.16V142.622H1034.68V286.761H982.714Z" fill="currentColor"></path><path d="M897.916 66.0005C889.066 66.0005 881.353 62.8395 874.778 56.5176C868.203 49.9429 864.916 42.1037 864.916 33.0002C864.916 23.8967 868.203 16.184 874.778 9.86215C881.353 3.28738 889.066 0 897.916 0C907.273 0 915.112 3.28738 921.434 9.86215C928.008 16.184 931.296 23.8967 931.296 33.0002C931.296 42.1037 928.008 49.9429 921.434 56.5176C915.112 62.8395 907.273 66.0005 897.916 66.0005ZM872.123 286.761V97.1041H924.089V286.761H872.123Z" fill="currentColor"></path><path d="M781.638 286.761V2.27609H833.604V286.761H781.638Z" fill="currentColor"></path><path d="M722.934 289.037C701.693 289.037 684.244 283.221 670.589 271.588C657.187 259.703 650.485 242.634 650.485 220.381V142.622H612.175V97.1044H650.485V44.3799H702.451V97.1044H755.934V142.622H702.451V210.14C702.451 221.772 704.98 230.117 710.038 235.174C715.095 239.979 723.313 242.381 734.693 242.381C742.785 242.381 749.865 241.243 755.934 238.967V284.864C746.831 287.646 735.831 289.037 722.934 289.037Z" fill="currentColor"></path><path d="M417.674 286.761V97.1041H469.64V110.967C469.64 113.311 472.83 114.347 474.382 112.591C485.967 99.4848 502.467 92.9317 523.881 92.9317C546.64 92.9317 564.468 100.518 577.365 115.69C590.514 130.61 597.089 150.587 597.089 175.622V286.761H545.123V184.346C545.123 170.438 542.215 159.691 536.399 152.105C530.583 144.265 522.364 140.346 511.743 140.346C499.1 140.346 488.858 144.898 481.019 154.001C473.433 163.105 469.64 176.507 469.64 194.208V286.761H417.674Z" fill="currentColor"></path><path d="M352.981 66.0005C344.13 66.0005 336.417 62.8395 329.843 56.5176C323.268 49.9429 319.98 42.1037 319.98 33.0002C319.98 23.8967 323.268 16.184 329.843 9.86215C336.417 3.28738 344.13 0 352.981 0C362.337 0 370.176 3.28738 376.498 9.86215C383.073 16.184 386.36 23.8967 386.36 33.0002C386.36 42.1037 383.073 49.9429 376.498 56.5176C370.176 62.8395 362.337 66.0005 352.981 66.0005ZM327.187 286.761V97.1041H379.153V286.761H327.187Z" fill="currentColor"></path><path d="M238.967 286.761V185.484C238.967 155.392 229.105 140.346 209.381 140.346C198.001 140.346 188.898 144.645 182.07 153.242C175.495 161.84 171.955 174.61 171.449 191.553V286.761H119.484V185.484C119.484 155.392 109.621 140.346 89.8972 140.346C78.2649 140.346 69.035 144.898 62.2073 154.001C55.3797 163.105 51.9659 176.507 51.9659 194.208V286.761H0V97.1041H51.9659V111.103C51.9659 113.435 55.1014 114.462 56.633 112.704C68.1136 99.5223 83.3741 92.9317 102.415 92.9317C127.436 92.9317 146.283 103.262 158.953 123.923C159.953 125.553 162.412 125.527 163.406 123.894C168.884 114.891 176.496 107.731 186.243 102.415C197.369 96.0926 208.622 92.9317 220.002 92.9317C242.507 92.9317 259.956 100.392 272.347 115.311C284.738 130.231 290.933 150.714 290.933 176.76V286.761H238.967Z" fill="currentColor"></path></svg></a></div></div></footer></div></div><!--$--><!--/$--></div></div></div></div></div>
+<div class="veiseule-footer"><a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Community translations maintained by <a href="http://blog.law-kelly.com/2026/02/open-source-means-open-language.html">John Kelly</a>. Improve translations on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a>.</div>
+<script>
+(function(){
+  var btn = document.querySelector('[aria-label="Toggle dark mode"]');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var html = document.documentElement;
+    var isDark = html.classList.contains('dark');
+    if(isDark){
+      html.classList.remove('dark');
+      html.style.colorScheme = 'light';
+      try { localStorage.setItem('isDarkMode','light'); } catch(e){}
+    } else {
+      html.classList.add('dark');
+      html.style.colorScheme = 'dark';
+      try { localStorage.setItem('isDarkMode','dark'); } catch(e){}
+    }
+  });
+})();
+</script></body></html>

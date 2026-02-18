@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html class="__variable_47c970 __variable_3bbdad" data-banner-state="visible" data-page-mode="none" lang="nl"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/bb3ef058b751a6ad-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/c4b700dcb2187787-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/e4af272ccee01ff0-s.p.woff2" rel="preload" type="font/woff2"/><link as="image" href="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26" rel="preload"/><link as="image" href="https://d3gk2c5xim1je2.cloudfront.net/flags/NL.svg" rel="preload"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/b864dec2fc058581.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/6f9b80d484ead711.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/05d6d8fcb903870d.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><meta content="" name="next-size-adjust"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link as="style" href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css" rel="preload"/><title>Hooks - OpenClaw</title><meta content="OpenClaw" name="application-name"/><meta content="Mintlify" name="generator"/><meta content="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/browserconfig.xml" name="msapplication-config"/><meta content="OpenClaw" name="apple-mobile-web-app-title"/><meta content="#FF5A36" name="msapplication-TileColor"/><meta content="utf-8" name="charset"/><meta content="OpenClaw" name="og:site_name"/><meta content="https://docs.openclaw.ai/automation/hooks" name="canonical"/><link href="hooks.html" rel="canonical"/><link href="/sitemap.xml" rel="alternate" type="application/xml"/><meta content="Hooks - OpenClaw" property="og:title"/><meta content="https://docs.openclaw.ai/automation/hooks" property="og:url"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DAutomation%26title%3DHooks%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="website" property="og:type"/><meta content="summary_large_image" name="twitter:card"/><meta content="Hooks - OpenClaw" name="twitter:title"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DAutomation%26title%3DHooks%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" name="twitter:image"/><meta content="1200" name="twitter:image:width"/><meta content="630" name="twitter:image:height"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-16x16.png" media="(prefers-color-scheme: light)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-32x32.png" media="(prefers-color-scheme: light)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon.ico" media="(prefers-color-scheme: light)" rel="shortcut icon" type="image/x-icon"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-16x16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-32x32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon.ico" media="(prefers-color-scheme: dark)" rel="shortcut icon" type="image/x-icon"/><script type="text/javascript">(function(a,b){try{let c=document.getElementById("banner")?.innerText;if(c){for(let d=0;d<localStorage.length;d++){let e=localStorage.key(d);if(e?.endsWith(a)&&localStorage.getItem(e)===c)return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible");return}for(let c=0;c<localStorage.length;c++){let d=localStorage.key(c);if(d?.endsWith(a)&&localStorage.getItem(d))return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible")}catch(a){document.documentElement.setAttribute(b,"hidden")}})(
+  "bannerDismissed",
+  "data-banner-state",
+)</script><style id="veiseule-branding">
+.veiseule-bar{position:fixed;top:0;left:0;right:0;z-index:99999;background:#2E4A3A;color:#E0E0E0;text-align:center;padding:8px 16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;box-shadow:0 2px 4px rgba(0,0,0,0.15)}
+.veiseule-bar a{color:#A9B8A1;text-decoration:underline}
+.veiseule-bar a:hover{color:#fff}
+.veiseule-footer{background:#1A2E20;color:#E0E0E0;text-align:center;padding:16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;border-top:1px solid #2E4A3A}
+.veiseule-footer a{color:#A9B8A1;text-decoration:underline}
+.veiseule-footer a:hover{color:#fff}
+body{padding-top:36px !important}
+</style>
+<style>
+.toc-anchor { text-decoration: none; margin-left: 0.3em; opacity: 0.3; }
+.toc-anchor:hover { opacity: 1; }
+.toc-anchor { color: #999; }
+.dark .toc-anchor { color: #555; }
+</style></head><body>
+<div class="veiseule-bar">Community translations by <a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Help improve them on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a></div>
+<div hidden=""><!--$--><!--/$--></div><script>((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","isDarkMode","system",null,["dark","light","true","false","system"],{"true":"dark","false":"light","dark":"dark","light":"light"},true,true)</script><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><style>:root {
+  --font-family-headings-custom: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  --font-family-body-custom: "Fragment Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  
+  
+}</style><style>:root {
+    --primary: 255 90 54;
+    --primary-light: 255 138 107;
+    --primary-dark: 255 90 54;
+    --tooltip-foreground: 255 255 255;
+    --background-light: 255 255 255;
+    --background-dark: 14 12 13;
+    --gray-50: 250 245 244;
+    --gray-100: 245 240 239;
+    --gray-200: 230 225 224;
+    --gray-300: 213 208 207;
+    --gray-400: 166 161 160;
+    --gray-500: 119 114 113;
+    --gray-600: 87 82 81;
+    --gray-700: 70 65 64;
+    --gray-800: 45 40 38;
+    --gray-900: 30 25 24;
+    --gray-950: 17 12 11;
+  }</style><script type="text/javascript">
+          (function() {
+            function loadKatex() {
+              const link = document.querySelector('link[href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css"]');
+              if (link) link.rel = 'stylesheet';
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', loadKatex);
+            } else {
+              loadKatex();
+            }
+          })();
+        </script><div class="relative antialiased text-gray-500 dark:text-gray-400"><a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:p-2 focus:text-sm focus:bg-background-light dark:focus:bg-background-dark focus:rounded-md focus:outline-primary dark:focus:outline-primary-light" href="hooks.html#content-area">Skip to main content</a><div class="max-lg:contents lg:flex lg:w-full"><div class="max-lg:contents lg:flex-1 lg:min-w-0 lg:overflow-x-clip"><div class="z-30 fixed lg:sticky top-0 w-full peer is-not-custom peer is-not-center peer is-not-wide peer is-not-frame" id="navbar"><div class="absolute w-full h-full backdrop-blur flex-none transition-colors duration-500 border-b border-gray-500/5 dark:border-gray-300/[0.06] data-[is-opaque=true]:bg-background-light data-[is-opaque=true]:supports-backdrop-blur:bg-background-light/95 data-[is-opaque=true]:dark:bg-background-dark/75 data-[is-opaque=false]:supports-backdrop-blur:bg-background-light/60 data-[is-opaque=false]:dark:bg-transparent" data-is-opaque="false" id="navbar-transition"></div><div class="max-w-8xl mx-auto relative"><div><div class="relative"><div class="flex items-center lg:px-12 h-16 min-w-0 mx-4 lg:mx-0"><div class="h-full relative flex-1 flex items-center gap-x-4 min-w-0 border-b border-gray-500/5 dark:border-gray-300/[0.06]"><div class="flex-1 flex items-center gap-x-4"><a class="select-none" data-slot="context-menu-trigger" data-state="closed" href="../index.html" style="-webkit-touch-callout:none"><span class="sr-only">OpenClaw<!-- --> home page</span><img alt="light logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 block dark:hidden" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/><img alt="dark logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 hidden dark:block" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/></a><div class="hidden lg:flex items-center gap-x-2"><button aria-expanded="false" aria-haspopup="menu" class="group disabled:pointer-events-none [&amp;&gt;span]:line-clamp-1 overflow-hidden group group-hover:text-gray-950/70 dark:group-hover:text-white/70 py-1.5 px-2.5 rounded-xl hover:!bg-gray-600/5 dark:hover:!bg-gray-200/5 aria-[expanded=true]:bg-gray-600/5 dark:aria-[expanded=true]:bg-gray-200/5 text-sm font-medium text-gray-900 h-8 focus-visible:outline-primary dark:text-gray-300 group/trigger flex items-center gap-2 whitespace-nowrap" data-state="closed" id="localization-select-trigger" type="button"><div class="relative size-4 rounded-full shrink-0"><img alt="NL" class="w-full h-full rounded-full" src="https://d3gk2c5xim1je2.cloudfront.net/flags/NL.svg"/><div class="absolute top-0 left-0 w-full h-full border rounded-full bg-primary-light/10 border-black/10"></div></div><span class="truncate max-w-[12.5rem]">Nederlands</span><svg class="transition-transform text-gray-400 overflow-visible group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400 rotate-90 ml-auto group-aria-[expanded=true]/trigger:rotate-[270deg]" height="24" viewbox="0 -9 3 24" width="8"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></button></div></div><div class="relative hidden lg:flex items-center flex-1 z-20 justify-center"><button aria-label="Open search" class="flex pointer-events-auto rounded-xl w-full items-center text-sm leading-6 h-9 pl-3.5 pr-3 text-gray-500 dark:text-white/50 bg-background-light dark:bg-background-dark dark:brightness-[1.1] dark:ring-1 dark:hover:brightness-[1.25] ring-1 ring-gray-400/30 hover:ring-gray-600/30 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 justify-between truncate gap-2 min-w-[43px]" id="search-bar-entry" type="button"><div class="flex items-center gap-2 min-w-[42px]"><svg class="lucide lucide-search min-w-4 flex-none text-gray-700 hover:text-gray-800 dark:text-gray-400 hover:dark:text-gray-200" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><div class="truncate min-w-0">Search...</div></div><span class="flex-none text-xs font-semibold">⌘<!-- -->K</span></button></div><div class="flex-1 relative hidden lg:flex items-center ml-auto justify-end space-x-4"><nav class="text-sm"><ul class="flex space-x-6 items-center"><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);mask-repeat:no-repeat;mask-position:center"></svg>GitHub</a></li><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw/releases" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);mask-repeat:no-repeat;mask-position:center;mask-size:100%"></svg>Releases</a></li></ul></nav><div class="flex items-center"><button aria-label="Toggle dark mode" class="group p-2 flex items-center justify-center"><svg class="h-4 w-4 block text-gray-400 dark:hidden group-hover:text-gray-600" fill="none" height="16" stroke="currentColor" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2880_7340)"><path d="M8 1.11133V2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 3.12891L12.2427 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M14.8889 8H14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 12.8711L12.2427 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8 14.8889V14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 12.8711L3.75735 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M1.11133 8H2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 3.12891L3.75735 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8.00043 11.7782C10.0868 11.7782 11.7782 10.0868 11.7782 8.00043C11.7782 5.91402 10.0868 4.22266 8.00043 4.22266C5.91402 4.22266 4.22266 5.91402 4.22266 8.00043C4.22266 10.0868 5.91402 11.7782 8.00043 11.7782Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g><defs><clippath id="clip0_2880_7340"><rect fill="white" height="16" width="16"></rect></clippath></defs></svg><svg class="lucide lucide-moon h-4 w-4 hidden dark:block text-gray-500 dark:group-hover:text-gray-300" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button></div></div><div class="flex lg:hidden items-center gap-3"><button aria-label="Open search" class="text-gray-500 w-8 h-8 flex items-center justify-center hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300" id="search-bar-entry-mobile" type="button"><span class="sr-only">Search...</span><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);mask-repeat:no-repeat;mask-position:center"></svg></button><button aria-label="More actions" class="h-7 w-5 flex items-center justify-end"><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);mask-repeat:no-repeat;mask-position:center"></svg></button></div></div></div><button class="flex items-center h-14 py-4 px-5 lg:hidden focus:outline-0 w-full text-left" type="button"><div class="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300"><span class="sr-only">Navigation</span><svg class="h-4" fill="currentColor" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></div><div class="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0 space-x-3 overflow-hidden"><div class="flex items-center space-x-3 flex-shrink-0"><span>Automation</span><svg class="h-5 rotate-0 overflow-visible fill-gray-400" height="24" viewbox="0 -9 3 24" width="3"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></div><div class="font-semibold text-gray-900 truncate dark:text-gray-200 min-w-0 flex-1">Hooks</div></div></button></div><div class="hidden lg:flex px-12 h-12"><div class="nav-tabs h-full flex text-sm gap-x-6"><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../index.html">Get started<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../install.html">Install<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../channels.html">Channels<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../concepts/architecture.html">Agents<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium hover:text-gray-800 dark:hover:text-gray-300 text-gray-800 dark:text-gray-200 [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor]" href="../tools.html">Tools<div class="absolute bottom-0 h-[1.5px] w-full left-0 bg-primary dark:bg-primary-light"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../providers.html">Models<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../platforms.html">Platforms<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../gateway.html">Gateway &amp; Ops<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../cli.html">Reference<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../help.html">Help<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a></div></div></div></div><span hidden="" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"></span></div><div class="scroll-mt-[var(--scroll-mt)] peer-[.is-custom]:max-w-none peer-[.is-center]:max-w-3xl peer-[.is-not-custom]:peer-[.is-not-center]:max-w-8xl peer-[.is-not-custom]:px-4 peer-[.is-not-custom]:mx-auto peer-[.is-not-custom]:lg:px-8 peer-[.is-wide]:[&amp;&gt;div:last-child]:max-w-6xl peer-[.is-custom]:[&amp;&gt;div:first-child]:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:xl:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:xl:!hidden"><div class="z-20 hidden lg:block fixed bottom-0 right-auto w-[18rem]" id="sidebar" style="top:7rem"><div class="absolute inset-0 z-10 stable-scrollbar-gutter overflow-auto pr-8 pb-10" id="sidebar-content"><div class="relative lg:text-sm lg:leading-6"><div class="sticky top-0 h-8 z-10 bg-gradient-to-b from-background-light dark:from-background-dark"></div><div id="navigation-items"><div class=""><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Overview</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Tools" id="/tools"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Tools</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Built-in tools</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Lobster" id="/tools/lobster"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/lobster.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Lobster</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="LLM Task" id="/tools/llm-task"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/llm-task.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">LLM Task</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Exec Tool" id="/tools/exec"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/exec.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Exec Tool</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Web Tools" id="/tools/web"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/web.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Web Tools</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="apply_patch Tool" id="/tools/apply-patch"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/apply-patch.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">apply_patch Tool</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Elevated Mode" id="/tools/elevated"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/elevated.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Elevated Mode</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Thinking Levels" id="/tools/thinking"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/thinking.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Thinking Levels</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Reactions" id="/tools/reactions"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/reactions.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Reactions</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Browser</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Browser (OpenClaw-managed)" id="/tools/browser"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/browser.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Browser (OpenClaw-managed)</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Browser Login" id="/tools/browser-login"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/browser-login.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Browser Login</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Chrome Extension" id="/tools/chrome-extension"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/chrome-extension.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Chrome Extension</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Browser Troubleshooting" id="/tools/browser-linux-troubleshooting"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/browser-linux-troubleshooting.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Browser Troubleshooting</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Agent coordination</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Agent Send" id="/tools/agent-send"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/agent-send.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Agent Send</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Sub-Agents" id="/tools/subagents"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/subagents.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Sub-Agents</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Multi-Agent Sandbox &amp; Tools" id="/tools/multi-agent-sandbox-tools"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/multi-agent-sandbox-tools.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Multi-Agent Sandbox &amp; Tools</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Skills</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Slash Commands" id="/tools/slash-commands"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/slash-commands.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Slash Commands</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Skills" id="/tools/skills"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/skills.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Skills</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Skills Config" id="/tools/skills-config"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/skills-config.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Skills Config</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="ClawHub" id="/tools/clawhub"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/clawhub.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">ClawHub</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Plugins" id="/tools/plugin"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/plugin.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Plugins</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Extensions</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Voice Call Plugin" id="/plugins/voice-call"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../plugins/voice-call.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Voice Call Plugin</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Zalo Personal Plugin" id="/plugins/zalouser"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../plugins/zalouser.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Zalo Personal Plugin</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Automation</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Hooks" id="/automation/hooks"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] bg-primary/10 text-primary [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor] dark:text-primary-light dark:bg-primary-light/10" href="hooks.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Hooks</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Cron Jobs" id="/automation/cron-jobs"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="cron-jobs.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Cron Jobs</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Cron vs Heartbeat" id="/automation/cron-vs-heartbeat"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="cron-vs-heartbeat.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Cron vs Heartbeat</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Automation Troubleshooting" id="/automation/troubleshooting"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="troubleshooting.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Automation Troubleshooting</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Webhooks" id="/automation/webhook"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="webhook.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Webhooks</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Gmail PubSub" id="/automation/gmail-pubsub"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gmail-pubsub.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Gmail PubSub</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Polls" id="/automation/poll"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="poll.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Polls</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Auth Monitoring" id="/automation/auth-monitoring"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="auth-monitoring.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Auth Monitoring</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Media and devices</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Nodes" id="/nodes"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../nodes.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Nodes</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Node Troubleshooting" id="/nodes/troubleshooting"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../nodes/troubleshooting.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Node Troubleshooting</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Image and Media Support" id="/nodes/images"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../nodes/images.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Image and Media Support</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Audio and Voice Notes" id="/nodes/audio"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../nodes/audio.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Audio and Voice Notes</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Camera Capture" id="/nodes/camera"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../nodes/camera.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Camera Capture</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Talk Mode" id="/nodes/talk"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../nodes/talk.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Talk Mode</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Voice Wake" id="/nodes/voicewake"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../nodes/voicewake.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Voice Wake</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Location Command" id="/nodes/location-command"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../nodes/location-command.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Location Command</div></div></a></li></ul></div></div></div></div></div><div id="content-container"><span class="fixed inset-0 bg-background-light dark:bg-background-dark -z-10 pointer-events-none" id="almond-background-color"></span><style data-custom-css-index="0" data-custom-css-path="style.css">#content > h1:first-of-type {
+  display: none !important;
+}
+</style><div class="flex flex-row-reverse gap-12 box-border w-full pt-40 lg:pt-10"><div class="hidden xl:flex self-start sticky xl:flex-col max-w-[28rem] z-[21] h-[calc(100vh-9.5rem)] top-[calc(9.5rem-var(--sidenav-move-up,0px))]" id="content-side-layout"><div class="z-10 hidden xl:flex box-border max-h-full pl-10 w-[19rem]" id="table-of-contents-layout"><div class="text-gray-600 text-sm leading-6 w-[16.5rem] overflow-y-auto space-y-2 pb-4 -mt-10 pt-10" id="table-of-contents"><button class="text-gray-700 dark:text-gray-300 font-medium flex items-center space-x-2 hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer"><svg class="h-3 w-3" fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.44434 12.6665H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 3.3335H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 8H7.33323" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>On this page</span></button><ul class="toc" id="table-of-contents-content"><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#hooks">Hooks</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#gearchiveerd-krijgen">Gearchiveerd krijgen</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#overzicht">Overzicht</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#aan-de-slag">Aan de slag</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#gebundelde-hooks">Gebundelde hooks</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#aan-de-slag_1">Aan de slag</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#hook-detectie">Hook-detectie</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#hook-packs-npmarchieven">Hook Packs (npm/archieven)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#hookstructuur">Hookstructuur</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#hookmd-indeling">HOOK.md-indeling</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#metadatavelden">Metadatavelden</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#handler-implementatie">Handler-implementatie</a></li><li class="toc-item relative" data-depth="3"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#gebeurteniscontext">Gebeurteniscontext</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#gebeurtenistypen">Gebeurtenistypen</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#opdrachtevents">Opdrachtevents</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#agentgebeurtenissen">Agentgebeurtenissen</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#gateway-gebeurtenissen">Gateway-gebeurtenissen</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#toolresultaat-hooks-plugin-api">Toolresultaat-hooks (Plugin-API)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#toekomstige-gebeurtenissen">Toekomstige gebeurtenissen</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#aangepaste-hooks-maken">Aangepaste hooks maken</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#1-locatie-kiezen">1. Locatie kiezen</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#2-mapstructuur-maken">2. Mapstructuur maken</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#3-hookmd-maken">3. HOOK.md maken</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#4-handlerts-maken">4. handler.ts maken</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#5-inschakelen-en-testen">5. Inschakelen en testen</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#configuratie">Configuratie</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#nieuw-configformaat-aanbevolen">Nieuw configformaat (aanbevolen)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#per-hookconfiguratie">Per-hookconfiguratie</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#extra-mappen">Extra mappen</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#verouderd-configformaat-nog-ondersteund">Verouderd configformaat (nog ondersteund)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#cli-opdrachten">CLI-opdrachten</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#hooks-weergeven">Hooks weergeven</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#hookinformatie">Hookinformatie</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#geschiktheid-controleren">Geschiktheid controleren</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#in-uitschakelen">In-/uitschakelen</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#referentie-voor-gebundelde-hooks">Referentie voor gebundelde hooks</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#session-memory">session-memory</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#command-logger">command-logger</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#soul-evil">soul-evil</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#boot-md">boot-md</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#best-practices">Best practices</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#houd-handlers-snel">Houd handlers snel</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#ga-netjes-om-met-fouten">Ga netjes om met fouten</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#filter-gebeurtenissen-vroegtijdig">Filter gebeurtenissen vroegtijdig</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#gebruik-specifieke-gebeurtenissleutels">Gebruik specifieke gebeurtenissleutels</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#debuggen">Debuggen</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#hook-logging-inschakelen">Hook-logging inschakelen</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#detectie-controleren">Detectie controleren</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#registratie-controleren">Registratie controleren</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#geschiktheid-verifieren">Geschiktheid verifiëren</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#testen">Testen</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#gateway-logs">Gateway-logs</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#hooks-direct-testen">Hooks direct testen</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#architectuur">Architectuur</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#kerncomponenten">Kerncomponenten</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#ontdekking-flow">Ontdekking Flow</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#gebeurtenis-flow">Gebeurtenis flow</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#problemen-oplossen">Problemen oplossen</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#hook-niet-ontdekt">Hook niet ontdekt</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#hook-niet-geschikt">Hook niet geschikt</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#hook-wordt-niet-uitgevoerd">Hook wordt niet uitgevoerd</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#handlerfouten">Handlerfouten</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#migratiegids">Migratiegids</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#van-verouderde-config-naar-detectie">Van verouderde config naar detectie</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/hooks.html#zie-ook">Zie ook</a></li></ul></div></div></div><div class="relative grow box-border flex-col w-full mx-auto px-1 lg:pl-[23.7rem] lg:-ml-12 xl:w-[calc(100%-28rem)]" id="content-area"><header class="relative leading-none" id="header"><div class="mt-0.5 space-y-2.5"><div class="eyebrow h-5 text-primary dark:text-primary-light text-sm font-semibold">Automation</div><div class="flex flex-col sm:flex-row items-start sm:items-center relative gap-2 min-w-0"><h1 class="text-2xl sm:text-3xl text-gray-900 tracking-tight dark:text-gray-200 [overflow-wrap:anywhere] font-bold break-all" id="page-title">Hooks</h1></div></div></header><div class="mdx-content relative mt-8 mb-14 prose prose-gray dark:prose-invert [contain:inline-size] isolate" data-page-href="/automation/hooks" data-page-title="Hooks" id="content"><h1 id="hooks">Hooks<a class="toc-anchor" href="#hooks" title="Permanent link">¶</a></h1>
+<p>Hooks bieden een uitbreidbaar gebeurtenisgestuurd systeem voor het automatiseren van acties als reactie op agentopdrachten en gebeurtenissen. Hooks worden automatisch ontdekt vanuit mappen en kunnen via CLI-opdrachten worden beheerd, vergelijkbaar met hoe Skills werken in OpenClaw.</p>
+<h2 id="gearchiveerd-krijgen">Gearchiveerd krijgen<a class="toc-anchor" href="#gearchiveerd-krijgen" title="Permanent link">¶</a></h2>
+<p>Hooks zijn kleine scripts die worden uitgevoerd wanneer er iets gebeurt. Er zijn twee soorten:</p>
+<ul>
+<li><strong>Hooks</strong> (deze pagina): draaien binnen de Gateway wanneer agentgebeurtenissen plaatsvinden, zoals <code>/new</code>, <code>/reset</code>, <code>/stop</code> of levenscyclusgebeurtenissen.</li>
+<li><strong>Webhooks</strong>: externe HTTP-webhooks waarmee andere systemen werk kunnen triggeren in OpenClaw. Zie <a href="/automation/webhook">Webhook Hooks</a> of gebruik <code>openclaw webhooks</code> voor Gmail-helperopdrachten.</li>
+</ul>
+<p>Hooks kunnen ook worden gebundeld in plugins; zie <a href="/tools/plugin#plugin-hooks">Plugins</a>.</p>
+<p>Veelvoorkomende toepassingen:</p>
+<ul>
+<li>Een geheugensnapshot opslaan wanneer je een sessie reset</li>
+<li>Een audittrail van opdrachten bijhouden voor probleemoplossing of compliance</li>
+<li>Vervolgautomatisering triggeren wanneer een sessie start of eindigt</li>
+<li>Bestanden schrijven in de agent-werkruimte of externe API’s aanroepen wanneer gebeurtenissen plaatsvinden</li>
+</ul>
+<p>Als je een kleine TypeScript-functie kunt schrijven, kun je een hook schrijven. Hooks worden automatisch ontdekt en je schakelt ze in of uit via de CLI.</p>
+<h2 id="overzicht">Overzicht<a class="toc-anchor" href="#overzicht" title="Permanent link">¶</a></h2>
+<p>Het hooks-systeem stelt je in staat om:</p>
+<ul>
+<li>Sessiecontext op te slaan in het geheugen wanneer <code>/new</code> wordt uitgegeven</li>
+<li>Alle opdrachten te loggen voor auditing</li>
+<li>Aangepaste automatiseringen te triggeren bij levenscyclusgebeurtenissen van agents</li>
+<li>Het gedrag van OpenClaw uit te breiden zonder de kerncode te wijzigen</li>
+</ul>
+<h2 id="aan-de-slag">Aan de slag<a class="toc-anchor" href="#aan-de-slag" title="Permanent link">¶</a></h2>
+<h3 id="gebundelde-hooks">Gebundelde hooks<a class="toc-anchor" href="#gebundelde-hooks" title="Permanent link">¶</a></h3>
+<p>OpenClaw wordt geleverd met vier gebundelde hooks die automatisch worden ontdekt:</p>
+<ul>
+<li><strong>💾 session-memory</strong>: Slaat sessiecontext op in je agent-werkruimte (standaard <code>~/.openclaw/workspace/memory/</code>) wanneer je <code>/new</code> uitvoert</li>
+<li><strong>📝 command-logger</strong>: Logt alle opdrachtevents naar <code>~/.openclaw/logs/commands.log</code></li>
+<li><strong>🚀 boot-md</strong>: Voert <code>BOOT.md</code> uit wanneer de gateway start (vereist interne hooks ingeschakeld)</li>
+<li><strong>😈 soul-evil</strong>: Verwisselt geïnjecteerde <code>SOUL.md</code>-inhoud met <code>SOUL_EVIL.md</code> tijdens een purge-venster of met willekeurige kans</li>
+</ul>
+<p>Beschikbare hooks weergeven:</p>
+<pre class="highlight"><code class="language-bash">openclaw hooks list
+</code></pre>
+<p>Een hook inschakelen:</p>
+<pre class="highlight"><code class="language-bash">openclaw hooks enable session-memory
+</code></pre>
+<p>Hookstatus controleren:</p>
+<pre class="highlight"><code class="language-bash">openclaw hooks check
+</code></pre>
+<p>Gedetailleerde informatie ophalen:</p>
+<pre class="highlight"><code class="language-bash">openclaw hooks info session-memory
+</code></pre>
+<h3 id="aan-de-slag_1">Aan de slag<a class="toc-anchor" href="#aan-de-slag_1" title="Permanent link">¶</a></h3>
+<p>Tijdens onboarding (<code>openclaw onboard</code>) word je gevraagd aanbevolen hooks in te schakelen. De wizard ontdekt automatisch in aanmerking komende hooks en presenteert ze ter selectie.</p>
+<h2 id="hook-detectie">Hook-detectie<a class="toc-anchor" href="#hook-detectie" title="Permanent link">¶</a></h2>
+<p>Hooks worden automatisch ontdekt vanuit drie mappen (in volgorde van prioriteit):</p>
+<ol>
+<li><strong>Werkruimte-hooks</strong>: <code>&lt;workspace&gt;/hooks/</code> (per agent, hoogste prioriteit)</li>
+<li><strong>Beheerde hooks</strong>: <code>~/.openclaw/hooks/</code> (door de gebruiker geïnstalleerd, gedeeld over werkruimtes)</li>
+<li><strong>Gebundelde hooks</strong>: <code>&lt;openclaw&gt;/dist/hooks/bundled/</code> (meegeleverd met OpenClaw)</li>
+</ol>
+<p>Beheerde hookmappen kunnen óf een <strong>enkele hook</strong> zijn óf een <strong>hook pack</strong> (pakketmap).</p>
+<p>Elke hook is een map die het volgende bevat:</p>
+<pre class="highlight"><code>my-hook/
+├── HOOK.md          # Metadata + documentation
+└── handler.ts       # Handler implementation
+</code></pre>
+<h2 id="hook-packs-npmarchieven">Hook Packs (npm/archieven)<a class="toc-anchor" href="#hook-packs-npmarchieven" title="Permanent link">¶</a></h2>
+<p>Hook packs zijn standaard npm-pakketten die één of meer hooks exporteren via <code>openclaw.hooks</code> in
+<code>package.json</code>. Installeer ze met:</p>
+<pre class="highlight"><code class="language-bash">openclaw hooks install &lt;path-or-spec&gt;
+</code></pre>
+<p>Voorbeeld <code>package.json</code>:</p>
+<pre class="highlight"><code class="language-json">{
+  "name": "@acme/my-hooks",
+  "version": "0.1.0",
+  "openclaw": {
+    "hooks": ["./hooks/my-hook", "./hooks/other-hook"]
+  }
+}
+</code></pre>
+<p>Elke entry verwijst naar een hookmap met <code>HOOK.md</code> en <code>handler.ts</code> (of <code>index.ts</code>).
+Hook packs kunnen afhankelijkheden meeleveren; deze worden geïnstalleerd onder <code>~/.openclaw/hooks/&lt;id&gt;</code>.</p>
+<h2 id="hookstructuur">Hookstructuur<a class="toc-anchor" href="#hookstructuur" title="Permanent link">¶</a></h2>
+<h3 id="hookmd-indeling">HOOK.md-indeling<a class="toc-anchor" href="#hookmd-indeling" title="Permanent link">¶</a></h3>
+<p>Het bestand <code>HOOK.md</code> bevat metadata in YAML-frontmatter plus Markdown-documentatie:</p>
+<pre class="highlight"><code class="language-markdown">---
+name: my-hook
+description: "Short description of what this hook does"
+homepage: https://docs.openclaw.ai/hooks#my-hook
+metadata:
+  { "openclaw": { "emoji": "🔗", "events": ["command:new"], "requires": { "bins": ["node"] } } }
+---
+
+# My Hook
+
+Detailed documentation goes here...
+
+## What It Does
+
+- Listens for `/new` commands
+- Performs some action
+- Logs the result
+
+## Requirements
+
+- Node.js must be installed
+
+## Configuration
+
+No configuration needed.
+</code></pre>
+<h3 id="metadatavelden">Metadatavelden<a class="toc-anchor" href="#metadatavelden" title="Permanent link">¶</a></h3>
+<p>Het object <code>metadata.openclaw</code> ondersteunt:</p>
+<ul>
+<li><strong><code>emoji</code></strong>: Weergave-emoji voor de CLI (bijv. <code>"💾"</code>)</li>
+<li><strong><code>events</code></strong>: Array van gebeurtenissen om naar te luisteren (bijv. <code>["command:new", "command:reset"]</code>)</li>
+<li><strong><code>export</code></strong>: Benoemde export om te gebruiken (standaard <code>"default"</code>)</li>
+<li><strong><code>homepage</code></strong>: Documentatie-URL</li>
+<li><strong><code>requires</code></strong>: Optionele vereisten</li>
+<li><strong><code>bins</code></strong>: Vereiste binaries op PATH (bijv. <code>["git", "node"]</code>)</li>
+<li><strong><code>anyBins</code></strong>: Ten minste één van deze binaries moet aanwezig zijn</li>
+<li><strong><code>env</code></strong>: Vereiste omgevingsvariabelen</li>
+<li><strong><code>config</code></strong>: Vereiste configpaden (bijv. <code>["workspace.dir"]</code>)</li>
+<li><strong><code>os</code></strong>: Vereiste platforms (bijv. <code>["darwin", "linux"]</code>)</li>
+<li><strong><code>always</code></strong>: Geschiktheidscontroles omzeilen (boolean)</li>
+<li><strong><code>install</code></strong>: Installatiemethoden (voor gebundelde hooks: <code>[{"id":"bundled","kind":"bundled"}]</code>)</li>
+</ul>
+<h3 id="handler-implementatie">Handler-implementatie<a class="toc-anchor" href="#handler-implementatie" title="Permanent link">¶</a></h3>
+<p>Het bestand <code>handler.ts</code> exporteert een functie <code>HookHandler</code>:</p>
+<pre class="highlight"><code class="language-typescript">import type { HookHandler } from "../../src/hooks/hooks.js";
+
+const myHandler: HookHandler = async (event) =&gt; {
+  // Only trigger on 'new' command
+  if (event.type !== "command" || event.action !== "new") {
+    return;
+  }
+
+  console.log(`[my-hook] New command triggered`);
+  console.log(`  Session: ${event.sessionKey}`);
+  console.log(`  Timestamp: ${event.timestamp.toISOString()}`);
+
+  // Your custom logic here
+
+  // Optionally send message to user
+  event.messages.push("✨ My hook executed!");
+};
+
+export default myHandler;
+</code></pre>
+<h4 id="gebeurteniscontext">Gebeurteniscontext<a class="toc-anchor" href="#gebeurteniscontext" title="Permanent link">¶</a></h4>
+<p>Elke gebeurtenis bevat:</p>
+<pre class="highlight"><code class="language-typescript">{
+  type: 'command' | 'session' | 'agent' | 'gateway',
+  action: string,              // e.g., 'new', 'reset', 'stop'
+  sessionKey: string,          // Session identifier
+  timestamp: Date,             // When the event occurred
+  messages: string[],          // Push messages here to send to user
+  context: {
+    sessionEntry?: SessionEntry,
+    sessionId?: string,
+    sessionFile?: string,
+    commandSource?: string,    // e.g., 'whatsapp', 'telegram'
+    senderId?: string,
+    workspaceDir?: string,
+    bootstrapFiles?: WorkspaceBootstrapFile[],
+    cfg?: OpenClawConfig
+  }
+}
+</code></pre>
+<h2 id="gebeurtenistypen">Gebeurtenistypen<a class="toc-anchor" href="#gebeurtenistypen" title="Permanent link">¶</a></h2>
+<h3 id="opdrachtevents">Opdrachtevents<a class="toc-anchor" href="#opdrachtevents" title="Permanent link">¶</a></h3>
+<p>Getriggerd wanneer agentopdrachten worden uitgevoerd:</p>
+<ul>
+<li><strong><code>command</code></strong>: Alle opdrachtevents (algemene listener)</li>
+<li><strong><code>command:new</code></strong>: Wanneer de opdracht <code>/new</code> wordt uitgevoerd</li>
+<li><strong><code>command:reset</code></strong>: Wanneer de opdracht <code>/reset</code> wordt uitgevoerd</li>
+<li><strong><code>command:stop</code></strong>: Wanneer de opdracht <code>/stop</code> wordt uitgevoerd</li>
+</ul>
+<h3 id="agentgebeurtenissen">Agentgebeurtenissen<a class="toc-anchor" href="#agentgebeurtenissen" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong><code>agent:bootstrap</code></strong>: Vóórdat bootstrapbestanden in de werkruimte worden geïnjecteerd (hooks kunnen <code>context.bootstrapFiles</code> muteren)</li>
+</ul>
+<h3 id="gateway-gebeurtenissen">Gateway-gebeurtenissen<a class="toc-anchor" href="#gateway-gebeurtenissen" title="Permanent link">¶</a></h3>
+<p>Getriggerd wanneer de gateway start:</p>
+<ul>
+<li><strong><code>gateway:startup</code></strong>: Nadat kanalen zijn gestart en hooks zijn geladen</li>
+</ul>
+<h3 id="toolresultaat-hooks-plugin-api">Toolresultaat-hooks (Plugin-API)<a class="toc-anchor" href="#toolresultaat-hooks-plugin-api" title="Permanent link">¶</a></h3>
+<p>Deze hooks zijn geen event-streamlisteners; ze stellen plugins in staat toolresultaten synchroon aan te passen voordat OpenClaw ze opslaat.</p>
+<ul>
+<li><strong><code>tool_result_persist</code></strong>: Transformeert toolresultaten voordat ze naar het sessietranscript worden geschreven. Moet synchroon zijn; retourneer de bijgewerkte toolresultaat-payload of <code>undefined</code> om deze ongewijzigd te laten. Zie <a href="/concepts/agent-loop">Agent Loop</a>.</li>
+</ul>
+<h3 id="toekomstige-gebeurtenissen">Toekomstige gebeurtenissen<a class="toc-anchor" href="#toekomstige-gebeurtenissen" title="Permanent link">¶</a></h3>
+<p>Geplande gebeurtenistypen:</p>
+<ul>
+<li><strong><code>session:start</code></strong>: Wanneer een nieuwe sessie begint</li>
+<li><strong><code>session:end</code></strong>: Wanneer een sessie eindigt</li>
+<li><strong><code>agent:error</code></strong>: Wanneer een agent een fout tegenkomt</li>
+<li><strong><code>message:sent</code></strong>: Wanneer een bericht wordt verzonden</li>
+<li><strong><code>message:received</code></strong>: Wanneer een bericht wordt ontvangen</li>
+</ul>
+<h2 id="aangepaste-hooks-maken">Aangepaste hooks maken<a class="toc-anchor" href="#aangepaste-hooks-maken" title="Permanent link">¶</a></h2>
+<h3 id="1-locatie-kiezen">1. Locatie kiezen<a class="toc-anchor" href="#1-locatie-kiezen" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Werkruimte-hooks</strong> (<code>&lt;workspace&gt;/hooks/</code>): Per agent, hoogste prioriteit</li>
+<li><strong>Beheerde hooks</strong> (<code>~/.openclaw/hooks/</code>): Gedeeld over werkruimtes</li>
+</ul>
+<h3 id="2-mapstructuur-maken">2. Mapstructuur maken<a class="toc-anchor" href="#2-mapstructuur-maken" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-bash">mkdir -p ~/.openclaw/hooks/my-hook
+cd ~/.openclaw/hooks/my-hook
+</code></pre>
+<h3 id="3-hookmd-maken">3. HOOK.md maken<a class="toc-anchor" href="#3-hookmd-maken" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-markdown">---
+name: my-hook
+description: "Does something useful"
+metadata: { "openclaw": { "emoji": "🎯", "events": ["command:new"] } }
+---
+
+# My Custom Hook
+
+This hook does something useful when you issue `/new`.
+</code></pre>
+<h3 id="4-handlerts-maken">4. handler.ts maken<a class="toc-anchor" href="#4-handlerts-maken" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-typescript">import type { HookHandler } from "../../src/hooks/hooks.js";
+
+const handler: HookHandler = async (event) =&gt; {
+  if (event.type !== "command" || event.action !== "new") {
+    return;
+  }
+
+  console.log("[my-hook] Running!");
+  // Your logic here
+};
+
+export default handler;
+</code></pre>
+<h3 id="5-inschakelen-en-testen">5. Inschakelen en testen<a class="toc-anchor" href="#5-inschakelen-en-testen" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-bash"># Verify hook is discovered
+openclaw hooks list
+
+# Enable it
+openclaw hooks enable my-hook
+
+# Restart your gateway process (menu bar app restart on macOS, or restart your dev process)
+
+# Trigger the event
+# Send /new via your messaging channel
+</code></pre>
+<h2 id="configuratie">Configuratie<a class="toc-anchor" href="#configuratie" title="Permanent link">¶</a></h2>
+<h3 id="nieuw-configformaat-aanbevolen">Nieuw configformaat (aanbevolen)<a class="toc-anchor" href="#nieuw-configformaat-aanbevolen" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-json">{
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "session-memory": { "enabled": true },
+        "command-logger": { "enabled": false }
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="per-hookconfiguratie">Per-hookconfiguratie<a class="toc-anchor" href="#per-hookconfiguratie" title="Permanent link">¶</a></h3>
+<p>Hooks kunnen een aangepaste configuratie hebben:</p>
+<pre class="highlight"><code class="language-json">{
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "my-hook": {
+          "enabled": true,
+          "env": {
+            "MY_CUSTOM_VAR": "value"
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="extra-mappen">Extra mappen<a class="toc-anchor" href="#extra-mappen" title="Permanent link">¶</a></h3>
+<p>Laad hooks uit aanvullende mappen:</p>
+<pre class="highlight"><code class="language-json">{
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "load": {
+        "extraDirs": ["/path/to/more/hooks"]
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="verouderd-configformaat-nog-ondersteund">Verouderd configformaat (nog ondersteund)<a class="toc-anchor" href="#verouderd-configformaat-nog-ondersteund" title="Permanent link">¶</a></h3>
+<p>Het oude configformaat werkt nog steeds voor achterwaartse compatibiliteit:</p>
+<pre class="highlight"><code class="language-json">{
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "handlers": [
+        {
+          "event": "command:new",
+          "module": "./hooks/handlers/my-handler.ts",
+          "export": "default"
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+<p><strong>Migratie</strong>: Gebruik het nieuwe op detectie gebaseerde systeem voor nieuwe hooks. Verouderde handlers worden geladen na mapgebaseerde hooks.</p>
+<h2 id="cli-opdrachten">CLI-opdrachten<a class="toc-anchor" href="#cli-opdrachten" title="Permanent link">¶</a></h2>
+<h3 id="hooks-weergeven">Hooks weergeven<a class="toc-anchor" href="#hooks-weergeven" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-bash"># List all hooks
+openclaw hooks list
+
+# Show only eligible hooks
+openclaw hooks list --eligible
+
+# Verbose output (show missing requirements)
+openclaw hooks list --verbose
+
+# JSON output
+openclaw hooks list --json
+</code></pre>
+<h3 id="hookinformatie">Hookinformatie<a class="toc-anchor" href="#hookinformatie" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-bash"># Show detailed info about a hook
+openclaw hooks info session-memory
+
+# JSON output
+openclaw hooks info session-memory --json
+</code></pre>
+<h3 id="geschiktheid-controleren">Geschiktheid controleren<a class="toc-anchor" href="#geschiktheid-controleren" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-bash"># Show eligibility summary
+openclaw hooks check
+
+# JSON output
+openclaw hooks check --json
+</code></pre>
+<h3 id="in-uitschakelen">In-/uitschakelen<a class="toc-anchor" href="#in-uitschakelen" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-bash"># Enable a hook
+openclaw hooks enable session-memory
+
+# Disable a hook
+openclaw hooks disable command-logger
+</code></pre>
+<h2 id="referentie-voor-gebundelde-hooks">Referentie voor gebundelde hooks<a class="toc-anchor" href="#referentie-voor-gebundelde-hooks" title="Permanent link">¶</a></h2>
+<h3 id="session-memory">session-memory<a class="toc-anchor" href="#session-memory" title="Permanent link">¶</a></h3>
+<p>Slaat sessiecontext op in het geheugen wanneer je <code>/new</code> uitvoert.</p>
+<p><strong>Gebeurtenissen</strong>: <code>command:new</code></p>
+<p><strong>Vereisten</strong>: <code>workspace.dir</code> moet zijn geconfigureerd</p>
+<p><strong>Uitvoer</strong>: <code>&lt;workspace&gt;/memory/YYYY-MM-DD-slug.md</code> (standaard <code>~/.openclaw/workspace</code>)</p>
+<p><strong>Wat het doet</strong>:</p>
+<ol>
+<li>Gebruikt de pre-reset sessie-entry om het juiste transcript te vinden</li>
+<li>Extraheert de laatste 15 regels van het gesprek</li>
+<li>Gebruikt een LLM om een beschrijvende bestandsnaam-slug te genereren</li>
+<li>Slaat sessiemetadata op in een gedateerd geheugenbestand</li>
+</ol>
+<p><strong>Voorbeelduitvoer</strong>:</p>
+<pre class="highlight"><code class="language-markdown"># Session: 2026-01-16 14:30:00 UTC
+
+- **Session Key**: agent:main:main
+- **Session ID**: abc123def456
+- **Source**: telegram
+</code></pre>
+<p><strong>Voorbeelden van bestandsnamen</strong>:</p>
+<ul>
+<li><code>2026-01-16-vendor-pitch.md</code></li>
+<li><code>2026-01-16-api-design.md</code></li>
+<li><code>2026-01-16-1430.md</code> (fallback-tijdstempel als slug-generatie mislukt)</li>
+</ul>
+<p><strong>Inschakelen</strong>:</p>
+<pre class="highlight"><code class="language-bash">openclaw hooks enable session-memory
+</code></pre>
+<h3 id="command-logger">command-logger<a class="toc-anchor" href="#command-logger" title="Permanent link">¶</a></h3>
+<p>Logt alle opdrachtevents naar een gecentraliseerd auditbestand.</p>
+<p><strong>Gebeurtenissen</strong>: <code>command</code></p>
+<p><strong>Vereisten</strong>: Geen</p>
+<p><strong>Uitvoer</strong>: <code>~/.openclaw/logs/commands.log</code></p>
+<p><strong>Wat het doet</strong>:</p>
+<ol>
+<li>Legt gebeurtenisdetails vast (opdrachtactie, tijdstempel, sessiesleutel, afzender-ID, bron)</li>
+<li>Voegt toe aan het logbestand in JSONL-formaat</li>
+<li>Draait stil op de achtergrond</li>
+</ol>
+<p><strong>Voorbeeldlogregels</strong>:</p>
+<pre class="highlight"><code class="language-jsonl">{"timestamp":"2026-01-16T14:30:00.000Z","action":"new","sessionKey":"agent:main:main","senderId":"+1234567890","source":"telegram"}
+{"timestamp":"2026-01-16T15:45:22.000Z","action":"stop","sessionKey":"agent:main:main","senderId":"user@example.com","source":"whatsapp"}
+</code></pre>
+<p><strong>Logs bekijken</strong>:</p>
+<pre class="highlight"><code class="language-bash"># View recent commands
+tail -n 20 ~/.openclaw/logs/commands.log
+
+# Pretty-print with jq
+cat ~/.openclaw/logs/commands.log | jq .
+
+# Filter by action
+grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
+</code></pre>
+<p><strong>Inschakelen</strong>:</p>
+<pre class="highlight"><code class="language-bash">openclaw hooks enable command-logger
+</code></pre>
+<h3 id="soul-evil">soul-evil<a class="toc-anchor" href="#soul-evil" title="Permanent link">¶</a></h3>
+<p>Verwisselt geïnjecteerde <code>SOUL.md</code>-inhoud met <code>SOUL_EVIL.md</code> tijdens een purge-venster of met willekeurige kans.</p>
+<p><strong>Gebeurtenissen</strong>: <code>agent:bootstrap</code></p>
+<p><strong>Documentatie</strong>: <a href="/hooks/soul-evil">SOUL Evil Hook</a></p>
+<p><strong>Uitvoer</strong>: Er worden geen bestanden geschreven; verwisselingen gebeuren alleen in het geheugen.</p>
+<p><strong>Inschakelen</strong>:</p>
+<pre class="highlight"><code class="language-bash">openclaw hooks enable soul-evil
+</code></pre>
+<p><strong>Config</strong>:</p>
+<pre class="highlight"><code class="language-json">{
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "soul-evil": {
+          "enabled": true,
+          "file": "SOUL_EVIL.md",
+          "chance": 0.1,
+          "purge": { "at": "21:00", "duration": "15m" }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="boot-md">boot-md<a class="toc-anchor" href="#boot-md" title="Permanent link">¶</a></h3>
+<p>Voert <code>BOOT.md</code> uit wanneer de gateway start (nadat kanalen zijn gestart).
+Interne hooks moeten zijn ingeschakeld om dit te laten werken.</p>
+<p><strong>Gebeurtenissen</strong>: <code>gateway:startup</code></p>
+<p><strong>Vereisten</strong>: <code>workspace.dir</code> moet zijn geconfigureerd</p>
+<p><strong>Wat het doet</strong>:</p>
+<ol>
+<li>Leest <code>BOOT.md</code> uit je werkruimte</li>
+<li>Voert de instructies uit via de agent-runner</li>
+<li>Verstuurt eventuele gevraagde uitgaande berichten via de message-tool</li>
+</ol>
+<p><strong>Inschakelen</strong>:</p>
+<pre class="highlight"><code class="language-bash">openclaw hooks enable boot-md
+</code></pre>
+<h2 id="best-practices">Best practices<a class="toc-anchor" href="#best-practices" title="Permanent link">¶</a></h2>
+<h3 id="houd-handlers-snel">Houd handlers snel<a class="toc-anchor" href="#houd-handlers-snel" title="Permanent link">¶</a></h3>
+<p>Hooks draaien tijdens de verwerking van opdrachten. Houd ze lichtgewicht:</p>
+<pre class="highlight"><code class="language-typescript">// ✓ Good - async work, returns immediately
+const handler: HookHandler = async (event) =&gt; {
+  void processInBackground(event); // Fire and forget
+};
+
+// ✗ Bad - blocks command processing
+const handler: HookHandler = async (event) =&gt; {
+  await slowDatabaseQuery(event);
+  await evenSlowerAPICall(event);
+};
+</code></pre>
+<h3 id="ga-netjes-om-met-fouten">Ga netjes om met fouten<a class="toc-anchor" href="#ga-netjes-om-met-fouten" title="Permanent link">¶</a></h3>
+<p>Omwikkel risicovolle bewerkingen altijd:</p>
+<pre class="highlight"><code class="language-typescript">const handler: HookHandler = async (event) =&gt; {
+  try {
+    await riskyOperation(event);
+  } catch (err) {
+    console.error("[my-handler] Failed:", err instanceof Error ? err.message : String(err));
+    // Don't throw - let other handlers run
+  }
+};
+</code></pre>
+<h3 id="filter-gebeurtenissen-vroegtijdig">Filter gebeurtenissen vroegtijdig<a class="toc-anchor" href="#filter-gebeurtenissen-vroegtijdig" title="Permanent link">¶</a></h3>
+<p>Keer vroegtijdig terug als de gebeurtenis niet relevant is:</p>
+<pre class="highlight"><code class="language-typescript">const handler: HookHandler = async (event) =&gt; {
+  // Only handle 'new' commands
+  if (event.type !== "command" || event.action !== "new") {
+    return;
+  }
+
+  // Your logic here
+};
+</code></pre>
+<h3 id="gebruik-specifieke-gebeurtenissleutels">Gebruik specifieke gebeurtenissleutels<a class="toc-anchor" href="#gebruik-specifieke-gebeurtenissleutels" title="Permanent link">¶</a></h3>
+<p>Specificeer waar mogelijk exacte gebeurtenissen in de metadata:</p>
+<pre class="highlight"><code class="language-yaml">metadata: { "openclaw": { "events": ["command:new"] } } # Specific
+</code></pre>
+<p>In plaats van:</p>
+<pre class="highlight"><code class="language-yaml">metadata: { "openclaw": { "events": ["command"] } } # General - more overhead
+</code></pre>
+<h2 id="debuggen">Debuggen<a class="toc-anchor" href="#debuggen" title="Permanent link">¶</a></h2>
+<h3 id="hook-logging-inschakelen">Hook-logging inschakelen<a class="toc-anchor" href="#hook-logging-inschakelen" title="Permanent link">¶</a></h3>
+<p>De gateway logt het laden van hooks bij het opstarten:</p>
+<pre class="highlight"><code>Registered hook: session-memory -&gt; command:new
+Registered hook: command-logger -&gt; command
+Registered hook: boot-md -&gt; gateway:startup
+</code></pre>
+<h3 id="detectie-controleren">Detectie controleren<a class="toc-anchor" href="#detectie-controleren" title="Permanent link">¶</a></h3>
+<p>Alle ontdekte hooks weergeven:</p>
+<pre class="highlight"><code class="language-bash">openclaw hooks list --verbose
+</code></pre>
+<h3 id="registratie-controleren">Registratie controleren<a class="toc-anchor" href="#registratie-controleren" title="Permanent link">¶</a></h3>
+<p>Log in je handler wanneer deze wordt aangeroepen:</p>
+<pre class="highlight"><code class="language-typescript">const handler: HookHandler = async (event) =&gt; {
+  console.log("[my-handler] Triggered:", event.type, event.action);
+  // Your logic
+};
+</code></pre>
+<h3 id="geschiktheid-verifieren">Geschiktheid verifiëren<a class="toc-anchor" href="#geschiktheid-verifieren" title="Permanent link">¶</a></h3>
+<p>Controleer waarom een hook niet geschikt is:</p>
+<pre class="highlight"><code class="language-bash">openclaw hooks info my-hook
+</code></pre>
+<p>Zoek in de uitvoer naar ontbrekende vereisten.</p>
+<h2 id="testen">Testen<a class="toc-anchor" href="#testen" title="Permanent link">¶</a></h2>
+<h3 id="gateway-logs">Gateway-logs<a class="toc-anchor" href="#gateway-logs" title="Permanent link">¶</a></h3>
+<p>Monitor gateway-logs om de uitvoering van hooks te zien:</p>
+<pre class="highlight"><code class="language-bash"># macOS
+./scripts/clawlog.sh -f
+
+# Other platforms
+tail -f ~/.openclaw/gateway.log
+</code></pre>
+<h3 id="hooks-direct-testen">Hooks direct testen<a class="toc-anchor" href="#hooks-direct-testen" title="Permanent link">¶</a></h3>
+<p>Test je handlers geïsoleerd:</p>
+<pre class="highlight"><code class="language-typescript">import { test } from "vitest";
+import { createHookEvent } from "./src/hooks/hooks.js";
+import myHandler from "./hooks/my-hook/handler.js";
+
+test("my handler works", async () =&gt; {
+  const event = createHookEvent("command", "new", "test-session", {
+    foo: "bar",
+  });
+
+  await myHandler(event);
+
+  // Assert side effects
+});
+</code></pre>
+<h2 id="architectuur">Architectuur<a class="toc-anchor" href="#architectuur" title="Permanent link">¶</a></h2>
+<h3 id="kerncomponenten">Kerncomponenten<a class="toc-anchor" href="#kerncomponenten" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong><code>src/hooks/types.ts</code></strong>: Typedefinities</li>
+<li><strong><code>src/hooks/workspace.ts</code></strong>: Mappen scannen en laden</li>
+<li><strong><code>src/hooks/frontmatter.ts</code></strong>: Parsing van HOOK.md-metadata</li>
+<li><strong><code>src/hooks/config.ts</code></strong>: Geschiktheidscontrole</li>
+<li><strong><code>src/hooks/hooks-status.ts</code></strong>: Statusrapportage</li>
+<li><strong><code>src/hooks/loader.ts</code></strong>: Dynamische moduleloader</li>
+<li><strong><code>src/cli/hooks-cli.ts</code></strong>: CLI-opdrachten</li>
+<li><strong><code>src/gateway/server-startup.ts</code></strong>: Laadt hooks bij het starten van de gateway</li>
+<li><strong><code>src/auto-reply/reply/commands-core.ts</code></strong>: Triggert opdrachtevents</li>
+</ul>
+<h3 id="ontdekking-flow">Ontdekking Flow<a class="toc-anchor" href="#ontdekking-flow" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code>Gateway startup
+    ↓
+Scan directories (workspace → managed → bundled)
+    ↓
+Parse HOOK.md files
+    ↓
+Check eligibility (bins, env, config, os)
+    ↓
+Load handlers from eligible hooks
+    ↓
+Register handlers for events
+</code></pre>
+<h3 id="gebeurtenis-flow">Gebeurtenis flow<a class="toc-anchor" href="#gebeurtenis-flow" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code>User sends /new
+    ↓
+Command validation
+    ↓
+Create hook event
+    ↓
+Trigger hook (all registered handlers)
+    ↓
+Command processing continues
+    ↓
+Session reset
+</code></pre>
+<h2 id="problemen-oplossen">Problemen oplossen<a class="toc-anchor" href="#problemen-oplossen" title="Permanent link">¶</a></h2>
+<h3 id="hook-niet-ontdekt">Hook niet ontdekt<a class="toc-anchor" href="#hook-niet-ontdekt" title="Permanent link">¶</a></h3>
+<ol>
+<li>Controleer de mapstructuur:</li>
+</ol>
+<p><code>bash
+   ls -la ~/.openclaw/hooks/my-hook/
+   # Should show: HOOK.md, handler.ts</code></p>
+<ol start="2">
+<li>Verifieer het HOOK.md-formaat:</li>
+</ol>
+<p><code>bash
+   cat ~/.openclaw/hooks/my-hook/HOOK.md
+   # Should have YAML frontmatter with name and metadata</code></p>
+<ol start="3">
+<li>Toon alle ontdekte hooks:</li>
+</ol>
+<p><code>bash
+   openclaw hooks list</code></p>
+<h3 id="hook-niet-geschikt">Hook niet geschikt<a class="toc-anchor" href="#hook-niet-geschikt" title="Permanent link">¶</a></h3>
+<p>Controleer vereisten:</p>
+<pre class="highlight"><code class="language-bash">openclaw hooks info my-hook
+</code></pre>
+<p>Zoek naar ontbrekende:</p>
+<ul>
+<li>Binaries (controleer PATH)</li>
+<li>Omgevingsvariabelen</li>
+<li>Configwaarden</li>
+<li>OS-compatibiliteit</li>
+</ul>
+<h3 id="hook-wordt-niet-uitgevoerd">Hook wordt niet uitgevoerd<a class="toc-anchor" href="#hook-wordt-niet-uitgevoerd" title="Permanent link">¶</a></h3>
+<ol>
+<li>Verifieer dat de hook is ingeschakeld:</li>
+</ol>
+<p><code>bash
+   openclaw hooks list
+   # Should show ✓ next to enabled hooks</code></p>
+<ol start="2">
+<li>
+<p>Start je gatewayproces opnieuw zodat hooks opnieuw worden geladen.</p>
+</li>
+<li>
+<p>Controleer gateway-logs op fouten:</p>
+</li>
+</ol>
+<p><code>bash
+   ./scripts/clawlog.sh | grep hook</code></p>
+<h3 id="handlerfouten">Handlerfouten<a class="toc-anchor" href="#handlerfouten" title="Permanent link">¶</a></h3>
+<p>Controleer op TypeScript-/importfouten:</p>
+<pre class="highlight"><code class="language-bash"># Test import directly
+node -e "import('./path/to/handler.ts').then(console.log)"
+</code></pre>
+<h2 id="migratiegids">Migratiegids<a class="toc-anchor" href="#migratiegids" title="Permanent link">¶</a></h2>
+<h3 id="van-verouderde-config-naar-detectie">Van verouderde config naar detectie<a class="toc-anchor" href="#van-verouderde-config-naar-detectie" title="Permanent link">¶</a></h3>
+<p><strong>Voor</strong>:</p>
+<pre class="highlight"><code class="language-json">{
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "handlers": [
+        {
+          "event": "command:new",
+          "module": "./hooks/handlers/my-handler.ts"
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+<p><strong>Na</strong>:</p>
+<ol>
+<li>Maak een hookmap:</li>
+</ol>
+<p><code>bash
+   mkdir -p ~/.openclaw/hooks/my-hook
+   mv ./hooks/handlers/my-handler.ts ~/.openclaw/hooks/my-hook/handler.ts</code></p>
+<ol start="2">
+<li>Maak HOOK.md:</li>
+</ol>
+<p>```markdown</p>
+<hr/>
+<p>name: my-hook
+   description: "My custom hook"
+   metadata: { "openclaw": { "emoji": "🎯", "events": ["command:new"] } }</p>
+<hr/>
+<p># My Hook</p>
+<p>Does something useful.
+   ```</p>
+<ol start="3">
+<li>Config bijwerken:</li>
+</ol>
+<p><code>json
+   {
+     "hooks": {
+       "internal": {
+         "enabled": true,
+         "entries": {
+           "my-hook": { "enabled": true }
+         }
+       }
+     }
+   }</code></p>
+<ol start="4">
+<li>Verifieer en start je gatewayproces opnieuw:</li>
+</ol>
+<p><code>bash
+   openclaw hooks list
+   # Should show: 🎯 my-hook ✓</code></p>
+<p><strong>Voordelen van migratie</strong>:</p>
+<ul>
+<li>Automatische detectie</li>
+<li>CLI-beheer</li>
+<li>Geschiktheidscontrole</li>
+<li>Betere documentatie</li>
+<li>Consistente structuur</li>
+</ul>
+<h2 id="zie-ook">Zie ook<a class="toc-anchor" href="#zie-ook" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="/cli/hooks">CLI Reference: hooks</a></li>
+<li><a href="https://github.com/openclaw/openclaw/tree/main/src/hooks/bundled">Bundled Hooks README</a></li>
+<li><a href="/automation/webhook">Webhook Hooks</a></li>
+<li><a href="/gateway/configuration#hooks">Configuratie</a></li>
+</ul></div><div class="px-0.5 flex items-center text-sm font-semibold text-gray-700 dark:text-gray-200" id="pagination"><a class="flex items-center space-x-3 group" href="../plugins/zalouser.html"><svg class="h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><span class="group-hover:text-gray-900 dark:group-hover:text-white">Zalo Personal Plugin</span></a><a class="flex items-center ml-auto space-x-3 group" href="cron-jobs.html"><span class="group-hover:text-gray-900 dark:group-hover:text-white">Cron Jobs</span><svg class="rotate-180 h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a></div><div class="left-0 right-0 sticky sm:px-4 pb-4 sm:pb-6 bottom-0 pt-1 flex flex-col items-center w-full overflow-hidden z-20 pointer-events-none print:hidden"><div class="chat-assistant-floating-input z-10 w-full sm:w-96 focus-within:w-full group/assistant-bar sm:focus-within:w-[30rem] hover:scale-100 sm:hover:scale-105 focus-within:hover:scale-100 [transition:width_400ms,left_200ms,transform_500ms,opacity_200ms]"><div class="translate-y-[100px] opacity-0"><div class="flex flex-col w-full rounded-2xl pointer-events-auto bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border border-gray-200 dark:border-white/30 focus-within:border-primary dark:focus-within:border-primary-light transition-colors sm:shadow-xl"><div class="relative flex items-end"><textarea aria-label="Ask a question..." autocomplete="off" class="chat-assistant-input w-full bg-transparent border-0 peer/input text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 !outline-none focus:!outline-none focus:ring-0 py-2.5 pl-3.5 pr-10 font-bodyWeight text-sm" id="chat-assistant-textarea" placeholder="Ask a question..." style="resize:none"></textarea><span class="absolute right-11 bottom-3 text-xs font-medium text-gray-400 dark:text-gray-500 select-none pointer-events-none peer-focus/input:hidden hidden sm:inline">⌘<!-- -->I</span><button aria-label="Send message" class="chat-assistant-send-button flex justify-center items-center rounded-full p-1 size-6 bg-primary/30 dark:bg-primary-dark/30 absolute right-2.5 bottom-2" disabled=""><svg class="lucide lucide-arrow-up text-white dark:text-white size-3.5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></div></div></div></div><footer class="flex gap-12 justify-between pt-10 border-t border-gray-100 sm:flex dark:border-gray-800/50 pb-28" id="footer"><div class="flex items-center justify-between"><div class="sm:flex"><a class="group flex items-baseline gap-1 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-nowrap" href="https://www.mintlify.com?utm_campaign=poweredBy&amp;utm_medium=referral&amp;utm_source=clawdhub" rel="noreferrer" target="_blank"><span>Powered by</span><svg class="h-3.5 w-auto translate-y-[3px]" fill="none" height="367" viewbox="0 0 1274 367" width="1274" xmlns="http://www.w3.org/2000/svg"><path d="M1154.38 366.038H1097.86L1137.69 276.14L1058.04 97.1046H1114.93L1161.35 209.337C1162.97 213.26 1168.53 213.253 1170.14 209.325L1216.21 97.1046H1273.49L1154.38 366.038Z" fill="currentColor"></path><path d="M982.714 286.761V142.622H944.403V97.1041H982.714V72.4488C982.714 49.9429 989.542 32.2416 1003.2 19.345C1016.85 6.44832 1034.17 0 1055.16 0C1068.06 0 1079.06 1.39081 1088.16 4.17244V50.0693C1082.09 47.7934 1075.01 46.6555 1066.92 46.6555C1055.54 46.6555 1047.32 49.1843 1042.27 54.2418C1037.21 59.0464 1034.68 67.2648 1034.68 78.8971V97.1041H1088.16V142.622H1034.68V286.761H982.714Z" fill="currentColor"></path><path d="M897.916 66.0005C889.066 66.0005 881.353 62.8395 874.778 56.5176C868.203 49.9429 864.916 42.1037 864.916 33.0002C864.916 23.8967 868.203 16.184 874.778 9.86215C881.353 3.28738 889.066 0 897.916 0C907.273 0 915.112 3.28738 921.434 9.86215C928.008 16.184 931.296 23.8967 931.296 33.0002C931.296 42.1037 928.008 49.9429 921.434 56.5176C915.112 62.8395 907.273 66.0005 897.916 66.0005ZM872.123 286.761V97.1041H924.089V286.761H872.123Z" fill="currentColor"></path><path d="M781.638 286.761V2.27609H833.604V286.761H781.638Z" fill="currentColor"></path><path d="M722.934 289.037C701.693 289.037 684.244 283.221 670.589 271.588C657.187 259.703 650.485 242.634 650.485 220.381V142.622H612.175V97.1044H650.485V44.3799H702.451V97.1044H755.934V142.622H702.451V210.14C702.451 221.772 704.98 230.117 710.038 235.174C715.095 239.979 723.313 242.381 734.693 242.381C742.785 242.381 749.865 241.243 755.934 238.967V284.864C746.831 287.646 735.831 289.037 722.934 289.037Z" fill="currentColor"></path><path d="M417.674 286.761V97.1041H469.64V110.967C469.64 113.311 472.83 114.347 474.382 112.591C485.967 99.4848 502.467 92.9317 523.881 92.9317C546.64 92.9317 564.468 100.518 577.365 115.69C590.514 130.61 597.089 150.587 597.089 175.622V286.761H545.123V184.346C545.123 170.438 542.215 159.691 536.399 152.105C530.583 144.265 522.364 140.346 511.743 140.346C499.1 140.346 488.858 144.898 481.019 154.001C473.433 163.105 469.64 176.507 469.64 194.208V286.761H417.674Z" fill="currentColor"></path><path d="M352.981 66.0005C344.13 66.0005 336.417 62.8395 329.843 56.5176C323.268 49.9429 319.98 42.1037 319.98 33.0002C319.98 23.8967 323.268 16.184 329.843 9.86215C336.417 3.28738 344.13 0 352.981 0C362.337 0 370.176 3.28738 376.498 9.86215C383.073 16.184 386.36 23.8967 386.36 33.0002C386.36 42.1037 383.073 49.9429 376.498 56.5176C370.176 62.8395 362.337 66.0005 352.981 66.0005ZM327.187 286.761V97.1041H379.153V286.761H327.187Z" fill="currentColor"></path><path d="M238.967 286.761V185.484C238.967 155.392 229.105 140.346 209.381 140.346C198.001 140.346 188.898 144.645 182.07 153.242C175.495 161.84 171.955 174.61 171.449 191.553V286.761H119.484V185.484C119.484 155.392 109.621 140.346 89.8972 140.346C78.2649 140.346 69.035 144.898 62.2073 154.001C55.3797 163.105 51.9659 176.507 51.9659 194.208V286.761H0V97.1041H51.9659V111.103C51.9659 113.435 55.1014 114.462 56.633 112.704C68.1136 99.5223 83.3741 92.9317 102.415 92.9317C127.436 92.9317 146.283 103.262 158.953 123.923C159.953 125.553 162.412 125.527 163.406 123.894C168.884 114.891 176.496 107.731 186.243 102.415C197.369 96.0926 208.622 92.9317 220.002 92.9317C242.507 92.9317 259.956 100.392 272.347 115.311C284.738 130.231 290.933 150.714 290.933 176.76V286.761H238.967Z" fill="currentColor"></path></svg></a></div></div></footer></div></div><!--$--><!--/$--></div></div></div></div></div>
+<div class="veiseule-footer"><a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Community translations maintained by <a href="http://blog.law-kelly.com/2026/02/open-source-means-open-language.html">John Kelly</a>. Improve translations on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a>.</div>
+<script>
+(function(){
+  var btn = document.querySelector('[aria-label="Toggle dark mode"]');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var html = document.documentElement;
+    var isDark = html.classList.contains('dark');
+    if(isDark){
+      html.classList.remove('dark');
+      html.style.colorScheme = 'light';
+      try { localStorage.setItem('isDarkMode','light'); } catch(e){}
+    } else {
+      html.classList.add('dark');
+      html.style.colorScheme = 'dark';
+      try { localStorage.setItem('isDarkMode','dark'); } catch(e){}
+    }
+  });
+})();
+</script></body></html>

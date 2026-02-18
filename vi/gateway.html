@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html class="__variable_47c970 __variable_3bbdad" data-banner-state="visible" data-page-mode="none" lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/bb3ef058b751a6ad-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/c4b700dcb2187787-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/e4af272ccee01ff0-s.p.woff2" rel="preload" type="font/woff2"/><link as="image" href="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26" rel="preload"/><link as="image" href="https://d3gk2c5xim1je2.cloudfront.net/flags/VN.svg" rel="preload"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/b864dec2fc058581.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/6f9b80d484ead711.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/05d6d8fcb903870d.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><meta content="" name="next-size-adjust"/><title>Runbook dịch vụ Gateway - OpenClaw</title><meta content="OpenClaw" name="application-name"/><meta content="Mintlify" name="generator"/><meta content="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/browserconfig.xml" name="msapplication-config"/><meta content="OpenClaw" name="apple-mobile-web-app-title"/><meta content="#FF5A36" name="msapplication-TileColor"/><meta content="utf-8" name="charset"/><meta content="OpenClaw" name="og:site_name"/><meta content="https://docs.openclaw.ai/gateway" name="canonical"/><link href="gateway.html" rel="canonical"/><link href="sitemap.xml" rel="alternate" type="application/xml"/><meta content="Gateway Runbook - OpenClaw" property="og:title"/><meta content="https://docs.openclaw.ai/gateway" property="og:url"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DGateway%26title%3DGateway%2BRunbook%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="website" property="og:type"/><meta content="summary_large_image" name="twitter:card"/><meta content="Gateway Runbook - OpenClaw" name="twitter:title"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DGateway%26title%3DGateway%2BRunbook%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" name="twitter:image"/><meta content="1200" name="twitter:image:width"/><meta content="630" name="twitter:image:height"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-16x16.png" media="(prefers-color-scheme: light)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-32x32.png" media="(prefers-color-scheme: light)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon.ico" media="(prefers-color-scheme: light)" rel="shortcut icon" type="image/x-icon"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-16x16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-32x32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon.ico" media="(prefers-color-scheme: dark)" rel="shortcut icon" type="image/x-icon"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link as="style" href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css" rel="preload"/><script type="text/javascript">(function(a,b){try{let c=document.getElementById("banner")?.innerText;if(c){for(let d=0;d<localStorage.length;d++){let e=localStorage.key(d);if(e?.endsWith(a)&&localStorage.getItem(e)===c)return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible");return}for(let c=0;c<localStorage.length;c++){let d=localStorage.key(c);if(d?.endsWith(a)&&localStorage.getItem(d))return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible")}catch(a){document.documentElement.setAttribute(b,"hidden")}})(
+  "bannerDismissed",
+  "data-banner-state",
+)</script><style id="veiseule-branding">
+.veiseule-bar{position:fixed;top:0;left:0;right:0;z-index:99999;background:#2E4A3A;color:#E0E0E0;text-align:center;padding:8px 16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;box-shadow:0 2px 4px rgba(0,0,0,0.15)}
+.veiseule-bar a{color:#A9B8A1;text-decoration:underline}
+.veiseule-bar a:hover{color:#fff}
+.veiseule-footer{background:#1A2E20;color:#E0E0E0;text-align:center;padding:16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;border-top:1px solid #2E4A3A}
+.veiseule-footer a{color:#A9B8A1;text-decoration:underline}
+.veiseule-footer a:hover{color:#fff}
+body{padding-top:36px !important}
+</style>
+<style>
+.toc-anchor { text-decoration: none; margin-left: 0.3em; opacity: 0.3; }
+.toc-anchor:hover { opacity: 1; }
+.toc-anchor { color: #999; }
+.dark .toc-anchor { color: #555; }
+</style></head><body>
+<div class="veiseule-bar">Community translations by <a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Help improve them on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a></div>
+<div hidden=""><!--$--><!--/$--></div><script>((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","isDarkMode","system",null,["dark","light","true","false","system"],{"true":"dark","false":"light","dark":"dark","light":"light"},true,true)</script><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><style>:root {
+  --font-family-headings-custom: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  --font-family-body-custom: "Fragment Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  
+  
+}</style><style>:root {
+    --primary: 255 90 54;
+    --primary-light: 255 138 107;
+    --primary-dark: 255 90 54;
+    --tooltip-foreground: 255 255 255;
+    --background-light: 255 255 255;
+    --background-dark: 14 12 13;
+    --gray-50: 250 245 244;
+    --gray-100: 245 240 239;
+    --gray-200: 230 225 224;
+    --gray-300: 213 208 207;
+    --gray-400: 166 161 160;
+    --gray-500: 119 114 113;
+    --gray-600: 87 82 81;
+    --gray-700: 70 65 64;
+    --gray-800: 45 40 38;
+    --gray-900: 30 25 24;
+    --gray-950: 17 12 11;
+  }</style><script type="text/javascript">
+          (function() {
+            function loadKatex() {
+              const link = document.querySelector('link[href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css"]');
+              if (link) link.rel = 'stylesheet';
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', loadKatex);
+            } else {
+              loadKatex();
+            }
+          })();
+        </script><div class="relative antialiased text-gray-500 dark:text-gray-400"><a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:p-2 focus:text-sm focus:bg-background-light dark:focus:bg-background-dark focus:rounded-md focus:outline-primary dark:focus:outline-primary-light" href="gateway.html#content-area">Skip to main content</a><div class="max-lg:contents lg:flex lg:w-full"><div class="max-lg:contents lg:flex-1 lg:min-w-0 lg:overflow-x-clip"><div class="z-30 fixed lg:sticky top-0 w-full peer is-not-custom peer is-not-center peer is-not-wide peer is-not-frame" id="navbar"><div class="absolute w-full h-full backdrop-blur flex-none transition-colors duration-500 border-b border-gray-500/5 dark:border-gray-300/[0.06] data-[is-opaque=true]:bg-background-light data-[is-opaque=true]:supports-backdrop-blur:bg-background-light/95 data-[is-opaque=true]:dark:bg-background-dark/75 data-[is-opaque=false]:supports-backdrop-blur:bg-background-light/60 data-[is-opaque=false]:dark:bg-transparent" data-is-opaque="false" id="navbar-transition"></div><div class="max-w-8xl mx-auto relative"><div><div class="relative"><div class="flex items-center lg:px-12 h-16 min-w-0 mx-4 lg:mx-0"><div class="h-full relative flex-1 flex items-center gap-x-4 min-w-0 border-b border-gray-500/5 dark:border-gray-300/[0.06]"><div class="flex-1 flex items-center gap-x-4"><a class="select-none" data-slot="context-menu-trigger" data-state="closed" href="index.html" style="-webkit-touch-callout:none"><span class="sr-only">OpenClaw<!-- --> home page</span><img alt="light logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 block dark:hidden" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/><img alt="dark logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 hidden dark:block" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/></a><div class="hidden lg:flex items-center gap-x-2"><button aria-expanded="false" aria-haspopup="menu" class="group disabled:pointer-events-none [&amp;&gt;span]:line-clamp-1 overflow-hidden group group-hover:text-gray-950/70 dark:group-hover:text-white/70 py-1.5 px-2.5 rounded-xl hover:!bg-gray-600/5 dark:hover:!bg-gray-200/5 aria-[expanded=true]:bg-gray-600/5 dark:aria-[expanded=true]:bg-gray-200/5 text-sm font-medium text-gray-900 h-8 focus-visible:outline-primary dark:text-gray-300 group/trigger flex items-center gap-2 whitespace-nowrap" data-state="closed" id="localization-select-trigger" type="button"><div class="relative size-4 rounded-full shrink-0"><img alt="VN" class="w-full h-full rounded-full" src="https://d3gk2c5xim1je2.cloudfront.net/flags/VN.svg"/><div class="absolute top-0 left-0 w-full h-full border rounded-full bg-primary-light/10 border-black/10"></div></div><span class="truncate max-w-[12.5rem]">Tiếng Việt</span><svg class="transition-transform text-gray-400 overflow-visible group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400 rotate-90 ml-auto group-aria-[expanded=true]/trigger:rotate-[270deg]" height="24" viewbox="0 -9 3 24" width="8"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></button></div></div><div class="relative hidden lg:flex items-center flex-1 z-20 justify-center"><button aria-label="Open search" class="flex pointer-events-auto rounded-xl w-full items-center text-sm leading-6 h-9 pl-3.5 pr-3 text-gray-500 dark:text-white/50 bg-background-light dark:bg-background-dark dark:brightness-[1.1] dark:ring-1 dark:hover:brightness-[1.25] ring-1 ring-gray-400/30 hover:ring-gray-600/30 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 justify-between truncate gap-2 min-w-[43px]" id="search-bar-entry" type="button"><div class="flex items-center gap-2 min-w-[42px]"><svg class="lucide lucide-search min-w-4 flex-none text-gray-700 hover:text-gray-800 dark:text-gray-400 hover:dark:text-gray-200" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><div class="truncate min-w-0">Search...</div></div><span class="flex-none text-xs font-semibold">⌘<!-- -->K</span></button></div><div class="flex-1 relative hidden lg:flex items-center ml-auto justify-end space-x-4"><nav class="text-sm"><ul class="flex space-x-6 items-center"><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);mask-repeat:no-repeat;mask-position:center"></svg>GitHub</a></li><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw/releases" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);mask-repeat:no-repeat;mask-position:center;mask-size:100%"></svg>Releases</a></li></ul></nav><div class="flex items-center"><button aria-label="Toggle dark mode" class="group p-2 flex items-center justify-center"><svg class="h-4 w-4 block text-gray-400 dark:hidden group-hover:text-gray-600" fill="none" height="16" stroke="currentColor" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2880_7340)"><path d="M8 1.11133V2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 3.12891L12.2427 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M14.8889 8H14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 12.8711L12.2427 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8 14.8889V14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 12.8711L3.75735 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M1.11133 8H2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 3.12891L3.75735 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8.00043 11.7782C10.0868 11.7782 11.7782 10.0868 11.7782 8.00043C11.7782 5.91402 10.0868 4.22266 8.00043 4.22266C5.91402 4.22266 4.22266 5.91402 4.22266 8.00043C4.22266 10.0868 5.91402 11.7782 8.00043 11.7782Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g><defs><clippath id="clip0_2880_7340"><rect fill="white" height="16" width="16"></rect></clippath></defs></svg><svg class="lucide lucide-moon h-4 w-4 hidden dark:block text-gray-500 dark:group-hover:text-gray-300" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button></div></div><div class="flex lg:hidden items-center gap-3"><button aria-label="Open search" class="text-gray-500 w-8 h-8 flex items-center justify-center hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300" id="search-bar-entry-mobile" type="button"><span class="sr-only">Search...</span><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);mask-repeat:no-repeat;mask-position:center"></svg></button><button aria-label="More actions" class="h-7 w-5 flex items-center justify-end"><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);mask-repeat:no-repeat;mask-position:center"></svg></button></div></div></div><button class="flex items-center h-14 py-4 px-5 lg:hidden focus:outline-0 w-full text-left" type="button"><div class="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300"><span class="sr-only">Navigation</span><svg class="h-4" fill="currentColor" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></div><div class="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0 space-x-3 overflow-hidden"><div class="flex items-center space-x-3 flex-shrink-0"><span>Gateway</span><svg class="h-5 rotate-0 overflow-visible fill-gray-400" height="24" viewbox="0 -9 3 24" width="3"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></div><div class="font-semibold text-gray-900 truncate dark:text-gray-200 min-w-0 flex-1">Gateway Runbook</div></div></button></div><div class="hidden lg:flex px-12 h-12"><div class="nav-tabs h-full flex text-sm gap-x-6"><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="index.html">Get started<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="install.html">Install<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="channels.html">Channels<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="concepts/architecture.html">Agents<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="tools.html">Tools<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="providers.html">Models<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="platforms.html">Platforms<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium hover:text-gray-800 dark:hover:text-gray-300 text-gray-800 dark:text-gray-200 [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor]" href="gateway.html">Gateway &amp; Ops<div class="absolute bottom-0 h-[1.5px] w-full left-0 bg-primary dark:bg-primary-light"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="cli.html">Reference<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="help.html">Help<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a></div></div></div></div><span hidden="" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"></span></div><div class="scroll-mt-[var(--scroll-mt)] peer-[.is-custom]:max-w-none peer-[.is-center]:max-w-3xl peer-[.is-not-custom]:peer-[.is-not-center]:max-w-8xl peer-[.is-not-custom]:px-4 peer-[.is-not-custom]:mx-auto peer-[.is-not-custom]:lg:px-8 peer-[.is-wide]:[&amp;&gt;div:last-child]:max-w-6xl peer-[.is-custom]:[&amp;&gt;div:first-child]:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:xl:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:xl:!hidden"><div class="z-20 hidden lg:block fixed bottom-0 right-auto w-[18rem]" id="sidebar" style="top:7rem"><div class="absolute inset-0 z-10 stable-scrollbar-gutter overflow-auto pr-8 pb-10" id="sidebar-content"><div class="relative lg:text-sm lg:leading-6"><div class="sticky top-0 h-8 z-10 bg-gradient-to-b from-background-light dark:from-background-dark"></div><div id="navigation-items"><div class=""><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Gateway</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Gateway Runbook" id="/gateway"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] bg-primary/10 text-primary [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor] dark:text-primary-light dark:bg-primary-light/10" href="gateway.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Gateway Runbook</div></div></a></li><li class="space-y-px" data-group-tag="" data-title="Configuration and operations"><button aria-expanded="false" aria-label="Toggle Configuration and operations section" class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" style="padding-left:1rem"><div class="">Configuration and operations</div><svg class="transition-transform text-gray-400 overflow-visible group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400 w-2 h-5 -mr-0.5" height="24" viewbox="0 -9 3 24" width="8"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></button></li><li class="space-y-px" data-group-tag="" data-title="Security and sandboxing"><button aria-expanded="false" aria-label="Toggle Security and sandboxing section" class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" style="padding-left:1rem"><div class="">Security and sandboxing</div><svg class="transition-transform text-gray-400 overflow-visible group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400 w-2 h-5 -mr-0.5" height="24" viewbox="0 -9 3 24" width="8"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></button></li><li class="space-y-px" data-group-tag="" data-title="Protocols and APIs"><button aria-expanded="false" aria-label="Toggle Protocols and APIs section" class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" style="padding-left:1rem"><div class="">Protocols and APIs</div><svg class="transition-transform text-gray-400 overflow-visible group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400 w-2 h-5 -mr-0.5" height="24" viewbox="0 -9 3 24" width="8"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></button></li><li class="space-y-px" data-group-tag="" data-title="Networking and discovery"><button aria-expanded="false" aria-label="Toggle Networking and discovery section" class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" style="padding-left:1rem"><div class="">Networking and discovery</div><svg class="transition-transform text-gray-400 overflow-visible group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400 w-2 h-5 -mr-0.5" height="24" viewbox="0 -9 3 24" width="8"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></button></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Remote access</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Remote Access" id="/gateway/remote"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway/remote.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Remote Access</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Remote Gateway Setup" id="/gateway/remote-gateway-readme"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway/remote-gateway-readme.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Remote Gateway Setup</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Tailscale" id="/gateway/tailscale"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway/tailscale.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Tailscale</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Security</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Formal Verification (Security Models)" id="/security/formal-verification"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="security/formal-verification.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Formal Verification (Security Models)</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Web interfaces</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Web" id="/web"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="web.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Web</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Control UI" id="/web/control-ui"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="web/control-ui.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Control UI</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Dashboard" id="/web/dashboard"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="web/dashboard.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Dashboard</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="WebChat" id="/web/webchat"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="web/webchat.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">WebChat</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="TUI" id="/web/tui"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="web/tui.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">TUI</div></div></a></li></ul></div></div></div></div></div><div id="content-container"><span class="fixed inset-0 bg-background-light dark:bg-background-dark -z-10 pointer-events-none" id="almond-background-color"></span><style data-custom-css-index="0" data-custom-css-path="style.css">#content > h1:first-of-type {
+  display: none !important;
+}
+</style><div class="flex flex-row-reverse gap-12 box-border w-full pt-40 lg:pt-10"><div class="hidden xl:flex self-start sticky xl:flex-col max-w-[28rem] z-[21] h-[calc(100vh-9.5rem)] top-[calc(9.5rem-var(--sidenav-move-up,0px))]" id="content-side-layout"><div class="z-10 hidden xl:flex box-border max-h-full pl-10 w-[19rem]" id="table-of-contents-layout"><div class="text-gray-600 text-sm leading-6 w-[16.5rem] overflow-y-auto space-y-2 pb-4 -mt-10 pt-10" id="table-of-contents"><button class="text-gray-700 dark:text-gray-300 font-medium flex items-center space-x-2 hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer"><svg class="h-3 w-3" fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.44434 12.6665H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 3.3335H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 8H7.33323" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>On this page</span></button><ul class="toc" id="table-of-contents-content"><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#runbook-dich-vu-gateway">Runbook dịch vụ Gateway</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#no-la-gi">Nó là gì</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#cach-chay-local">Cách chạy (local)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#truy-cap-tu-xa">Truy cập từ xa</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#nhieu-gateway-cung-may-chu">Nhiều gateway (cùng máy chủ)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#profile-dev-dev">Profile dev (--dev)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#giao-thuc-goc-nhin-van-hanh">Giao thức (góc nhìn vận hành)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#phuong-thuc-tap-ban-au">Phương thức (tập ban đầu)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#su-kien">Sự kiện</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#tich-hop-webchat">Tích hợp WebChat</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#kieu-du-lieu-va-xac-thuc">Kiểu dữ liệu và xác thực</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#snapshot-ket-noi">Snapshot kết nối</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#ma-loi-dang-reserror">Mã lỗi (dạng res.error)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#hanh-vi-keepalive">Hành vi keepalive</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#phat-lai-khoang-trong">Phát lại / khoảng trống</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#giam-sat-vi-du-macos">Giám sát (ví dụ macOS)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#quan-ly-dich-vu-gateway-cli">Quản lý dịch vụ Gateway (CLI)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#giam-sat-systemd-user-unit">Giám sát (systemd user unit)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#windows-wsl2">Windows (WSL2)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#kiem-tra-van-hanh">Kiểm tra vận hành</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#bao-am-an-toan">Bảo đảm an toàn</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#tro-giup-cli">Trợ giúp CLI</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gateway.html#huong-dan-di-tru">Hướng dẫn di trú</a></li></ul></div></div></div><div class="relative grow box-border flex-col w-full mx-auto px-1 lg:pl-[23.7rem] lg:-ml-12 xl:w-[calc(100%-28rem)]" id="content-area"><header class="relative leading-none" id="header"><div class="mt-0.5 space-y-2.5"><div class="eyebrow h-5 text-primary dark:text-primary-light text-sm font-semibold">Gateway</div><div class="flex flex-col sm:flex-row items-start sm:items-center relative gap-2 min-w-0"><h1 class="text-2xl sm:text-3xl text-gray-900 tracking-tight dark:text-gray-200 [overflow-wrap:anywhere] font-bold" id="page-title">Gateway Runbook</h1></div></div></header><div class="mdx-content relative mt-8 mb-14 prose prose-gray dark:prose-invert [contain:inline-size] isolate" data-page-href="/gateway/index" data-page-title="Gateway Runbook" id="content"><h1 id="runbook-dich-vu-gateway">Runbook dịch vụ Gateway<a class="toc-anchor" href="#runbook-dich-vu-gateway" title="Permanent link">¶</a></h1>
+<p>Cập nhật lần cuối: 2025-12-09</p>
+<h2 id="no-la-gi">Nó là gì<a class="toc-anchor" href="#no-la-gi" title="Permanent link">¶</a></h2>
+<ul>
+<li>Tiến trình luôn chạy, sở hữu kết nối Baileys/Telegram duy nhất và mặt phẳng điều khiển/sự kiện.</li>
+<li>Replaces the legacy <code>gateway</code> command. CLI entry point: <code>openclaw gateway</code>.</li>
+<li>Chạy cho đến khi bị dừng; thoát với mã khác 0 khi gặp lỗi nghiêm trọng để bộ giám sát khởi động lại.</li>
+</ul>
+<h2 id="cach-chay-local">Cách chạy (local)<a class="toc-anchor" href="#cach-chay-local" title="Permanent link">¶</a></h2>
+<pre class="highlight"><code class="language-bash">openclaw gateway --port 18789
+# for full debug/trace logs in stdio:
+openclaw gateway --port 18789 --verbose
+# if the port is busy, terminate listeners then start:
+openclaw gateway --force
+# dev loop (auto-reload on TS changes):
+pnpm gateway:watch
+</code></pre>
+<ul>
+<li>Hot reload cấu hình theo dõi <code>~/.openclaw/openclaw.json</code> (hoặc <code>OPENCLAW_CONFIG_PATH</code>).</li>
+<li>Chế độ mặc định: <code>gateway.reload.mode="hybrid"</code> (áp dụng nóng các thay đổi an toàn, khởi động lại khi критical).</li>
+<li>Hot reload dùng khởi động lại trong tiến trình qua <strong>SIGUSR1</strong> khi cần.</li>
+<li>Tắt bằng <code>gateway.reload.mode="off"</code>.</li>
+<li>Gắn WebSocket mặt phẳng điều khiển vào <code>127.0.0.1:&lt;port&gt;</code> (mặc định 18789).</li>
+<li>The same port also serves HTTP (control UI, hooks, A2UI). Single-port multiplex.</li>
+<li>OpenAI Chat Completions (HTTP): <a href="/gateway/openai-http-api"><code>/v1/chat/completions</code></a>.</li>
+<li>OpenResponses (HTTP): <a href="/gateway/openresponses-http-api"><code>/v1/responses</code></a>.</li>
+<li>Tools Invoke (HTTP): <a href="/gateway/tools-invoke-http-api"><code>/tools/invoke</code></a>.</li>
+<li>Starts a Canvas file server by default on <code>canvasHost.port</code> (default <code>18793</code>), serving <code>http://&lt;gateway-host&gt;:18793/__openclaw__/canvas/</code> from <code>~/.openclaw/workspace/canvas</code>. Disable with <code>canvasHost.enabled=false</code> or <code>OPENCLAW_SKIP_CANVAS_HOST=1</code>.</li>
+<li>Ghi log ra stdout; dùng launchd/systemd để giữ tiến trình sống và xoay vòng log.</li>
+<li>Truyền <code>--verbose</code> để phản chiếu log gỡ lỗi (bắt tay, req/res, sự kiện) từ tệp log sang stdio khi xử lý sự cố.</li>
+<li><code>--force</code> dùng <code>lsof</code> để tìm các listener trên cổng đã chọn, gửi SIGTERM, ghi log những gì đã dừng, rồi khởi động gateway (thất bại nhanh nếu thiếu <code>lsof</code>).</li>
+<li>Nếu chạy dưới bộ giám sát (launchd/systemd/chế độ tiến trình con của ứng dụng mac), việc dừng/khởi động lại thường gửi <strong>SIGTERM</strong>; các bản build cũ có thể hiển thị là <code>pnpm</code> <code>ELIFECYCLE</code> với mã thoát <strong>143</strong> (SIGTERM), đây là tắt bình thường, không phải crash.</li>
+<li><strong>SIGUSR1</strong> kích hoạt khởi động lại trong tiến trình khi được ủy quyền (gateway tool/config apply/update, hoặc bật <code>commands.restart</code> để khởi động lại thủ công).</li>
+<li>Gateway auth is required by default: set <code>gateway.auth.token</code> (or <code>OPENCLAW_GATEWAY_TOKEN</code>) or <code>gateway.auth.password</code>. Clients must send <code>connect.params.auth.token/password</code> unless using Tailscale Serve identity.</li>
+<li>Trình hướng dẫn hiện tạo token theo mặc định, ngay cả trên loopback.</li>
+<li>Thứ tự ưu tiên cổng: <code>--port</code> &gt; <code>OPENCLAW_GATEWAY_PORT</code> &gt; <code>gateway.port</code> &gt; mặc định <code>18789</code>.</li>
+</ul>
+<h2 id="truy-cap-tu-xa">Truy cập từ xa<a class="toc-anchor" href="#truy-cap-tu-xa" title="Permanent link">¶</a></h2>
+<ul>
+<li>Ưu tiên Tailscale/VPN; nếu không thì dùng đường hầm SSH:</li>
+</ul>
+<p><code>bash
+  ssh -N -L 18789:127.0.0.1:18789 user@host</code></p>
+<ul>
+<li>
+<p>Client sau đó kết nối tới <code>ws://127.0.0.1:18789</code> qua đường hầm.</p>
+</li>
+<li>
+<p>Nếu đã cấu hình token, client phải kèm nó trong <code>connect.params.auth.token</code> ngay cả khi qua đường hầm.</p>
+</li>
+</ul>
+<h2 id="nhieu-gateway-cung-may-chu">Nhiều gateway (cùng máy chủ)<a class="toc-anchor" href="#nhieu-gateway-cung-may-chu" title="Permanent link">¶</a></h2>
+<p>Usually unnecessary: one Gateway can serve multiple messaging channels and agents. Use multiple Gateways only for redundancy or strict isolation (ex: rescue bot).</p>
+<p>Supported if you isolate state + config and use unique ports. Full guide: <a href="/gateway/multiple-gateways">Multiple gateways</a>.</p>
+<p>Tên dịch vụ nhận biết theo profile:</p>
+<ul>
+<li>macOS: <code>bot.molt.&lt;profile&gt;</code> (legacy <code>com.openclaw.*</code> may still exist)</li>
+<li>Linux: <code>openclaw-gateway-&lt;profile&gt;.service</code></li>
+<li>Windows: <code>OpenClaw Gateway (&lt;profile&gt;)</code></li>
+</ul>
+<p>Siêu dữ liệu cài đặt được nhúng trong cấu hình dịch vụ:</p>
+<ul>
+<li><code>OPENCLAW_SERVICE_MARKER=openclaw</code></li>
+<li><code>OPENCLAW_SERVICE_KIND=gateway</code></li>
+<li><code>OPENCLAW_SERVICE_VERSION=&lt;version&gt;</code></li>
+</ul>
+<p>Rescue-Bot Pattern: keep a second Gateway isolated with its own profile, state dir, workspace, and base port spacing. Full guide: <a href="/gateway/multiple-gateways#rescue-bot-guide">Rescue-bot guide</a>.</p>
+<h3 id="profile-dev-dev">Profile dev (<code>--dev</code>)<a class="toc-anchor" href="#profile-dev-dev" title="Permanent link">¶</a></h3>
+<p>Đường nhanh: chạy một instance dev cô lập hoàn toàn (config/state/workspace) mà không chạm vào thiết lập chính.</p>
+<pre class="highlight"><code class="language-bash">openclaw --dev setup
+openclaw --dev gateway --allow-unconfigured
+# then target the dev instance:
+openclaw --dev status
+openclaw --dev health
+</code></pre>
+<p>Mặc định (có thể ghi đè qua env/flags/config):</p>
+<ul>
+<li><code>OPENCLAW_STATE_DIR=~/.openclaw-dev</code></li>
+<li><code>OPENCLAW_CONFIG_PATH=~/.openclaw-dev/openclaw.json</code></li>
+<li><code>OPENCLAW_GATEWAY_PORT=19001</code> (Gateway WS + HTTP)</li>
+<li>cổng dịch vụ điều khiển trình duyệt = <code>19003</code> (suy ra: <code>gateway.port+2</code>, chỉ loopback)</li>
+<li><code>canvasHost.port=19005</code> (suy ra: <code>gateway.port+4</code>)</li>
+<li><code>agents.defaults.workspace</code> mặc định thành <code>~/.openclaw/workspace-dev</code> khi bạn chạy <code>setup</code>/<code>onboard</code> dưới <code>--dev</code>.</li>
+</ul>
+<p>Các cổng suy ra (quy tắc kinh nghiệm):</p>
+<ul>
+<li>Cổng cơ sở = <code>gateway.port</code> (hoặc <code>OPENCLAW_GATEWAY_PORT</code> / <code>--port</code>)</li>
+<li>cổng dịch vụ điều khiển trình duyệt = cơ sở + 2 (chỉ loopback)</li>
+<li><code>canvasHost.port = base + 4</code> (hoặc <code>OPENCLAW_CANVAS_HOST_PORT</code> / ghi đè cấu hình)</li>
+<li>Browser profile CDP ports auto-allocate from <code>browser.controlPort + 9 .. + 108</code> (được lưu theo từng hồ sơ).</li>
+</ul>
+<p>Danh sách kiểm tra cho mỗi instance:</p>
+<ul>
+<li><code>gateway.port</code> duy nhất</li>
+<li><code>OPENCLAW_CONFIG_PATH</code> duy nhất</li>
+<li><code>OPENCLAW_STATE_DIR</code> duy nhất</li>
+<li><code>agents.defaults.workspace</code> duy nhất</li>
+<li>số WhatsApp riêng (nếu dùng WA)</li>
+</ul>
+<p>Cài đặt dịch vụ theo profile:</p>
+<pre class="highlight"><code class="language-bash">openclaw --profile main gateway install
+openclaw --profile rescue gateway install
+</code></pre>
+<p>Ví dụ:</p>
+<pre class="highlight"><code class="language-bash">OPENCLAW_CONFIG_PATH=~/.openclaw/a.json OPENCLAW_STATE_DIR=~/.openclaw-a openclaw gateway --port 19001
+OPENCLAW_CONFIG_PATH=~/.openclaw/b.json OPENCLAW_STATE_DIR=~/.openclaw-b openclaw gateway --port 19002
+</code></pre>
+<h2 id="giao-thuc-goc-nhin-van-hanh">Giao thức (góc nhìn vận hành)<a class="toc-anchor" href="#giao-thuc-goc-nhin-van-hanh" title="Permanent link">¶</a></h2>
+<ul>
+<li>Tài liệu đầy đủ: <a href="/gateway/protocol">Gateway protocol</a> và <a href="/gateway/bridge-protocol">Bridge protocol (legacy)</a>.</li>
+<li>Mandatory first frame from client: <code>req {type:"req", id, method:"connect", params:{minProtocol,maxProtocol,client:{id,displayName?,version,platform,deviceFamily?,modelIdentifier?,mode,instanceId?}, caps, auth?, locale?, userAgent? } }</code>.</li>
+<li>Gateway phản hồi <code>res {type:"res", id, ok:true, payload:hello-ok }</code> (hoặc <code>ok:false</code> kèm lỗi, rồi đóng).</li>
+<li>Sau bắt tay:</li>
+<li>Yêu cầu: <code>{type:"req", id, method, params}</code> → <code>{type:"res", id, ok, payload|error}</code></li>
+<li>Sự kiện: <code>{type:"event", event, payload, seq?, stateVersion?}</code></li>
+<li>Structured presence entries: <code>{host, ip, version, platform?, deviceFamily?, modelIdentifier?, mode, lastInputSeconds?, ts, reason?, tags?[], instanceId? }</code> (đối với client WS, <code>instanceId</code> lấy từ <code>connect.client.instanceId</code>).</li>
+<li>Phản hồi <code>agent</code> theo hai giai đoạn: trước tiên ack <code>res</code> <code>{runId,status:"accepted"}</code>, sau đó là <code>res</code> <code>{runId,status:"ok"|"error",summary}</code> cuối cùng khi chạy xong; đầu ra dạng stream đến dưới dạng <code>event:"agent"</code>.</li>
+</ul>
+<h2 id="phuong-thuc-tap-ban-au">Phương thức (tập ban đầu)<a class="toc-anchor" href="#phuong-thuc-tap-ban-au" title="Permanent link">¶</a></h2>
+<ul>
+<li><code>health</code> — ảnh chụp sức khỏe đầy đủ (cùng dạng với <code>openclaw health --json</code>).</li>
+<li><code>status</code> — tóm tắt ngắn.</li>
+<li><code>system-presence</code> — danh sách hiện diện hiện tại.</li>
+<li><code>system-event</code> — đăng một ghi chú hiện diện/hệ thống (có cấu trúc).</li>
+<li><code>send</code> — gửi tin nhắn qua (các) kênh đang hoạt động.</li>
+<li><code>agent</code> — chạy một lượt tác tử (stream sự kiện trả về trên cùng kết nối).</li>
+<li><code>node.list</code> — liệt kê các nút đã ghép cặp + đang kết nối (bao gồm <code>caps</code>, <code>deviceFamily</code>, <code>modelIdentifier</code>, <code>paired</code>, <code>connected</code>, và <code>commands</code> được quảng bá).</li>
+<li><code>node.describe</code> — mô tả một nút (khả năng + các lệnh <code>node.invoke</code> được hỗ trợ; hoạt động cho nút đã ghép cặp và nút chưa ghép nhưng đang kết nối).</li>
+<li><code>node.invoke</code> — gọi một lệnh trên nút (ví dụ: <code>canvas.*</code>, <code>camera.*</code>).</li>
+<li><code>node.pair.*</code> — vòng đời ghép cặp (<code>request</code>, <code>list</code>, <code>approve</code>, <code>reject</code>, <code>verify</code>).</li>
+</ul>
+<p>Xem thêm: <a href="/concepts/presence">Presence</a> để biết cách tạo/khử trùng lặp hiện diện và vì sao <code>client.instanceId</code> ổn định lại quan trọng.</p>
+<h2 id="su-kien">Sự kiện<a class="toc-anchor" href="#su-kien" title="Permanent link">¶</a></h2>
+<ul>
+<li><code>agent</code> — các sự kiện công cụ/đầu ra được stream từ lượt chạy tác tử (gắn thẻ seq).</li>
+<li><code>presence</code> — cập nhật hiện diện (delta kèm stateVersion) được đẩy tới tất cả client đang kết nối.</li>
+<li><code>tick</code> — keepalive/no-op định kỳ để xác nhận còn sống.</li>
+<li><code>shutdown</code> — Gateway is exiting; payload includes <code>reason</code> and optional <code>restartExpectedMs</code>. Client nên kết nối lại.</li>
+</ul>
+<h2 id="tich-hop-webchat">Tích hợp WebChat<a class="toc-anchor" href="#tich-hop-webchat" title="Permanent link">¶</a></h2>
+<ul>
+<li>WebChat là UI SwiftUI gốc, nói chuyện trực tiếp với Gateway WebSocket để lấy lịch sử, gửi, hủy và nhận sự kiện.</li>
+<li>Dùng từ xa qua cùng đường hầm SSH/Tailscale; nếu cấu hình token gateway, client sẽ kèm nó trong <code>connect</code>.</li>
+<li>Ứng dụng macOS kết nối qua một WS duy nhất (kết nối dùng chung); nó hydrate hiện diện từ snapshot ban đầu và lắng nghe sự kiện <code>presence</code> để cập nhật UI.</li>
+</ul>
+<h2 id="kieu-du-lieu-va-xac-thuc">Kiểu dữ liệu và xác thực<a class="toc-anchor" href="#kieu-du-lieu-va-xac-thuc" title="Permanent link">¶</a></h2>
+<ul>
+<li>Máy chủ xác thực mọi khung vào bằng AJV theo JSON Schema phát sinh từ định nghĩa giao thức.</li>
+<li>Client (TS/Swift) dùng các kiểu sinh tự động (TS trực tiếp; Swift qua generator của repo).</li>
+<li>Định nghĩa giao thức là nguồn chân lý; tạo lại schema/mô hình bằng:</li>
+<li><code>pnpm protocol:gen</code></li>
+<li><code>pnpm protocol:gen:swift</code></li>
+</ul>
+<h2 id="snapshot-ket-noi">Snapshot kết nối<a class="toc-anchor" href="#snapshot-ket-noi" title="Permanent link">¶</a></h2>
+<ul>
+<li><code>hello-ok</code> bao gồm một <code>snapshot</code> với <code>presence</code>, <code>health</code>, <code>stateVersion</code> và <code>uptimeMs</code> cùng <code>policy {maxPayload,maxBufferedBytes,tickIntervalMs}</code> để client có thể render ngay mà không cần yêu cầu thêm.</li>
+<li><code>health</code>/<code>system-presence</code> vẫn khả dụng để làm mới thủ công, nhưng không bắt buộc lúc kết nối.</li>
+</ul>
+<h2 id="ma-loi-dang-reserror">Mã lỗi (dạng res.error)<a class="toc-anchor" href="#ma-loi-dang-reserror" title="Permanent link">¶</a></h2>
+<ul>
+<li>Errors use <code>{ code, message, details?, retryable?, retryAfterMs? }</code>.</li>
+<li>Mã chuẩn:</li>
+<li><code>NOT_LINKED</code> — WhatsApp chưa xác thực.</li>
+<li><code>AGENT_TIMEOUT</code> — tác tử không phản hồi trong thời hạn đã cấu hình.</li>
+<li><code>INVALID_REQUEST</code> — xác thực schema/tham số thất bại.</li>
+<li><code>UNAVAILABLE</code> — Gateway đang tắt hoặc phụ thuộc không khả dụng.</li>
+</ul>
+<h2 id="hanh-vi-keepalive">Hành vi keepalive<a class="toc-anchor" href="#hanh-vi-keepalive" title="Permanent link">¶</a></h2>
+<ul>
+<li>Sự kiện <code>tick</code> (hoặc WS ping/pong) được phát định kỳ để client biết Gateway còn sống ngay cả khi không có lưu lượng.</li>
+<li>Acknowledgement cho gửi/chạy tác tử vẫn là phản hồi riêng; không dùng tick cho việc gửi.</li>
+</ul>
+<h2 id="phat-lai-khoang-trong">Phát lại / khoảng trống<a class="toc-anchor" href="#phat-lai-khoang-trong" title="Permanent link">¶</a></h2>
+<ul>
+<li>Sự kiện không được phát lại. Clients detect seq gaps and should refresh (<code>health</code> + <code>system-presence</code>) before continuing. Client WebChat và macOS hiện tự động làm mới khi có khoảng trống.</li>
+</ul>
+<h2 id="giam-sat-vi-du-macos">Giám sát (ví dụ macOS)<a class="toc-anchor" href="#giam-sat-vi-du-macos" title="Permanent link">¶</a></h2>
+<ul>
+<li>Dùng launchd để giữ dịch vụ sống:</li>
+<li>Program: đường dẫn tới <code>openclaw</code></li>
+<li>Arguments: <code>gateway</code></li>
+<li>KeepAlive: true</li>
+<li>StandardOut/Err: đường dẫn tệp hoặc <code>syslog</code></li>
+<li>Khi lỗi, launchd khởi động lại; cấu hình sai nghiêm trọng nên tiếp tục thoát để người vận hành nhận ra.</li>
+<li>LaunchAgent là theo người dùng và yêu cầu phiên đăng nhập; với thiết lập headless dùng LaunchDaemon tùy chỉnh (không kèm theo).</li>
+<li><code>openclaw gateway install</code> ghi vào <code>~/Library/LaunchAgents/bot.molt.gateway.plist</code>
+    (hoặc <code>bot.molt.&lt;profile&gt;</code>.plist<code>; các nhãn cũ</code>com.openclaw.*` sẽ được dọn dẹp).</li>
+<li><code>openclaw doctor</code> kiểm tra cấu hình LaunchAgent và có thể cập nhật về mặc định hiện hành.</li>
+</ul>
+<h2 id="quan-ly-dich-vu-gateway-cli">Quản lý dịch vụ Gateway (CLI)<a class="toc-anchor" href="#quan-ly-dich-vu-gateway-cli" title="Permanent link">¶</a></h2>
+<p>Dùng Gateway CLI để cài đặt/khởi động/dừng/khởi động lại/trạng thái:</p>
+<pre class="highlight"><code class="language-bash">openclaw gateway status
+openclaw gateway install
+openclaw gateway stop
+openclaw gateway restart
+openclaw logs --follow
+</code></pre>
+<p>Ghi chú:</p>
+<ul>
+<li><code>gateway status</code> thăm dò RPC của Gateway theo mặc định bằng cổng/cấu hình đã resolve của dịch vụ (ghi đè bằng <code>--url</code>).</li>
+<li><code>gateway status --deep</code> thêm quét cấp hệ thống (LaunchDaemons/system units).</li>
+<li><code>gateway status --no-probe</code> bỏ qua thăm dò RPC (hữu ích khi mạng bị down).</li>
+<li><code>gateway status --json</code> ổn định cho script.</li>
+<li><code>gateway status</code> báo cáo <strong>thời gian chạy của bộ giám sát</strong> (launchd/systemd đang chạy) tách biệt với <strong>khả năng truy cập RPC</strong> (kết nối WS + RPC trạng thái).</li>
+<li><code>gateway status</code> in đường dẫn cấu hình + mục tiêu thăm dò để tránh nhầm “localhost vs bind LAN” và lệch profile.</li>
+<li><code>gateway status</code> bao gồm dòng lỗi gateway gần nhất khi dịch vụ có vẻ đang chạy nhưng cổng bị đóng.</li>
+<li><code>logs</code> tail log tệp Gateway qua RPC (không cần <code>tail</code>/<code>grep</code> thủ công).</li>
+<li>Nếu phát hiện các dịch vụ giống gateway khác, CLI sẽ cảnh báo trừ khi chúng là dịch vụ hồ sơ OpenClaw.
+  Chúng tôi vẫn khuyến nghị <strong>một gateway cho mỗi máy</strong> cho hầu hết các thiết lập; sử dụng hồ sơ/cổng tách biệt để dự phòng hoặc cho bot cứu hộ. Xem <a href="/gateway/multiple-gateways">Multiple gateways</a>.</li>
+<li>Dọn dẹp: <code>openclaw gateway uninstall</code> (dịch vụ hiện tại) và <code>openclaw doctor</code> (di trú bản cũ).</li>
+<li><code>gateway install</code> là no-op khi đã cài; dùng <code>openclaw gateway install --force</code> để cài lại (thay đổi profile/env/đường dẫn).</li>
+</ul>
+<p>Ứng dụng mac đóng gói:</p>
+<ul>
+<li>OpenClaw.app có thể đóng gói một gateway relay dựa trên Node và cài đặt LaunchAgent theo người dùng với nhãn
+  <code>bot.molt.gateway</code> (hoặc <code>bot.molt.&lt;profile&gt;</code>; các nhãn cũ <code>com.openclaw.*</code> vẫn được unload sạch sẽ).</li>
+<li>Để dừng sạch, dùng <code>openclaw gateway stop</code> (hoặc <code>launchctl bootout gui/$UID/bot.molt.gateway</code>).</li>
+<li>Để khởi động lại, dùng <code>openclaw gateway restart</code> (hoặc <code>launchctl kickstart -k gui/$UID/bot.molt.gateway</code>).</li>
+<li><code>launchctl</code> chỉ hoạt động nếu LaunchAgent đã được cài; nếu không hãy dùng <code>openclaw gateway install</code> trước.</li>
+<li>Thay nhãn bằng `bot.molt.<profile>`` khi chạy một hồ sơ được đặt tên.</profile></li>
+</ul>
+<h2 id="giam-sat-systemd-user-unit">Giám sát (systemd user unit)<a class="toc-anchor" href="#giam-sat-systemd-user-unit" title="Permanent link">¶</a></h2>
+<p>OpenClaw cài đặt <strong>dịch vụ systemd theo người dùng</strong> theo mặc định trên Linux/WSL2. Chúng tôi
+khuyến nghị dịch vụ người dùng cho máy đơn người dùng (môi trường đơn giản hơn, cấu hình theo người dùng).
+Sử dụng <strong>dịch vụ hệ thống</strong> cho máy chủ nhiều người dùng hoặc luôn bật (không cần lingering, giám sát dùng chung).</p>
+<p><code>openclaw gateway install</code> ghi user unit. <code>openclaw doctor</code> kiểm tra
+the unit và có thể cập nhật nó để khớp với các mặc định khuyến nghị hiện tại.</p>
+<p>Tạo <code>~/.config/systemd/user/openclaw-gateway[-&lt;profile&gt;].service</code>:</p>
+<pre class="highlight"><code>[Unit]
+Description=OpenClaw Gateway (profile: &lt;profile&gt;, v&lt;version&gt;)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/openclaw gateway --port 18789
+Restart=always
+RestartSec=5
+Environment=OPENCLAW_GATEWAY_TOKEN=
+WorkingDirectory=/home/youruser
+
+[Install]
+WantedBy=default.target
+</code></pre>
+<p>Bật lingering (bắt buộc để dịch vụ người dùng tồn tại qua đăng xuất/nhàn rỗi):</p>
+<pre class="highlight"><code>sudo loginctl enable-linger youruser
+</code></pre>
+<p>Onboarding chạy lệnh này trên Linux/WSL2 (có thể yêu cầu sudo; ghi vào <code>/var/lib/systemd/linger</code>).
+Sau đó kích hoạt dịch vụ:</p>
+<pre class="highlight"><code>systemctl --user enable --now openclaw-gateway[-&lt;profile&gt;].service
+</code></pre>
+<p><strong>Thay thế (dịch vụ hệ thống)</strong> - đối với máy chủ luôn bật hoặc nhiều người dùng, bạn có thể
+cài đặt một đơn vị <strong>systemd hệ thống</strong> thay vì đơn vị người dùng (không cần lingering).
+Tạo <code>/etc/systemd/system/openclaw-gateway[-&lt;profile&gt;].service</code> (sao chép đơn vị ở trên,
+chuyển <code>WantedBy=multi-user.target</code>, đặt <code>User=</code> + <code>WorkingDirectory=</code>), sau đó:</p>
+<pre class="highlight"><code>sudo systemctl daemon-reload
+sudo systemctl enable --now openclaw-gateway[-&lt;profile&gt;].service
+</code></pre>
+<h2 id="windows-wsl2">Windows (WSL2)<a class="toc-anchor" href="#windows-wsl2" title="Permanent link">¶</a></h2>
+<p>Cài đặt trên Windows nên dùng <strong>WSL2</strong> và làm theo phần systemd Linux ở trên.</p>
+<h2 id="kiem-tra-van-hanh">Kiểm tra vận hành<a class="toc-anchor" href="#kiem-tra-van-hanh" title="Permanent link">¶</a></h2>
+<ul>
+<li>Sống: mở WS và gửi <code>req:connect</code> → mong đợi <code>res</code> với <code>payload.type="hello-ok"</code> (kèm snapshot).</li>
+<li>Sẵn sàng: gọi <code>health</code> → mong đợi <code>ok: true</code> và một kênh được liên kết trong <code>linkChannel</code> (khi áp dụng).</li>
+<li>Gỡ lỗi: đăng ký sự kiện <code>tick</code> và <code>presence</code>; đảm bảo <code>status</code> hiển thị tuổi liên kết/xác thực; các mục hiện diện hiển thị máy chủ Gateway và client đang kết nối.</li>
+</ul>
+<h2 id="bao-am-an-toan">Bảo đảm an toàn<a class="toc-anchor" href="#bao-am-an-toan" title="Permanent link">¶</a></h2>
+<ul>
+<li>Mặc định giả định một Gateway trên mỗi máy; nếu chạy nhiều profile, hãy cô lập cổng/trạng thái và nhắm đúng instance.</li>
+<li>Không có dự phòng sang kết nối Baileys trực tiếp; nếu Gateway down, việc gửi thất bại nhanh.</li>
+<li>Khung đầu tiên không phải connect hoặc JSON sai định dạng sẽ bị từ chối và đóng socket.</li>
+<li>Tắt êm: phát sự kiện <code>shutdown</code> trước khi đóng; client phải xử lý đóng + kết nối lại.</li>
+</ul>
+<h2 id="tro-giup-cli">Trợ giúp CLI<a class="toc-anchor" href="#tro-giup-cli" title="Permanent link">¶</a></h2>
+<ul>
+<li><code>openclaw gateway health|status</code> — yêu cầu health/trạng thái qua WS của Gateway.</li>
+<li><code>openclaw message send --target &lt;num&gt; --message "hi" [--media ...]</code> — gửi qua Gateway (idempotent cho WhatsApp).</li>
+<li><code>openclaw agent --message "hi" --to &lt;num&gt;</code> — chạy một lượt tác tử (mặc định đợi kết quả cuối).</li>
+<li><code>openclaw gateway call &lt;method&gt; --params '{"k":"v"}'</code> — bộ gọi phương thức thô để gỡ lỗi.</li>
+<li><code>openclaw gateway stop|restart</code> — dừng/khởi động lại dịch vụ gateway được giám sát (launchd/systemd).</li>
+<li>Các lệnh phụ trợ Gateway giả định gateway đang chạy trên <code>--url</code>; chúng không còn tự khởi tạo nữa.</li>
+</ul>
+<h2 id="huong-dan-di-tru">Hướng dẫn di trú<a class="toc-anchor" href="#huong-dan-di-tru" title="Permanent link">¶</a></h2>
+<ul>
+<li>Ngừng sử dụng <code>openclaw gateway</code> và cổng điều khiển TCP cũ.</li>
+<li>Cập nhật client để nói chuyện giao thức WS với connect bắt buộc và hiện diện có cấu trúc.</li>
+</ul></div><div class="px-0.5 flex items-center text-sm font-semibold text-gray-700 dark:text-gray-200" id="pagination"><a class="flex items-center ml-auto space-x-3 group" href="gateway/configuration.html"><span class="group-hover:text-gray-900 dark:group-hover:text-white">Configuration</span><svg class="rotate-180 h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a></div><div class="left-0 right-0 sticky sm:px-4 pb-4 sm:pb-6 bottom-0 pt-1 flex flex-col items-center w-full overflow-hidden z-20 pointer-events-none print:hidden"><div class="chat-assistant-floating-input z-10 w-full sm:w-96 focus-within:w-full group/assistant-bar sm:focus-within:w-[30rem] hover:scale-100 sm:hover:scale-105 focus-within:hover:scale-100 [transition:width_400ms,left_200ms,transform_500ms,opacity_200ms]"><div class="translate-y-[100px] opacity-0"><div class="flex flex-col w-full rounded-2xl pointer-events-auto bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border border-gray-200 dark:border-white/30 focus-within:border-primary dark:focus-within:border-primary-light transition-colors sm:shadow-xl"><div class="relative flex items-end"><textarea aria-label="Ask a question..." autocomplete="off" class="chat-assistant-input w-full bg-transparent border-0 peer/input text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 !outline-none focus:!outline-none focus:ring-0 py-2.5 pl-3.5 pr-10 font-bodyWeight text-sm" id="chat-assistant-textarea" placeholder="Ask a question..." style="resize:none"></textarea><span class="absolute right-11 bottom-3 text-xs font-medium text-gray-400 dark:text-gray-500 select-none pointer-events-none peer-focus/input:hidden hidden sm:inline">⌘<!-- -->I</span><button aria-label="Send message" class="chat-assistant-send-button flex justify-center items-center rounded-full p-1 size-6 bg-primary/30 dark:bg-primary-dark/30 absolute right-2.5 bottom-2" disabled=""><svg class="lucide lucide-arrow-up text-white dark:text-white size-3.5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></div></div></div></div><footer class="flex gap-12 justify-between pt-10 border-t border-gray-100 sm:flex dark:border-gray-800/50 pb-28" id="footer"><div class="flex items-center justify-between"><div class="sm:flex"><a class="group flex items-baseline gap-1 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-nowrap" href="https://www.mintlify.com?utm_campaign=poweredBy&amp;utm_medium=referral&amp;utm_source=clawdhub" rel="noreferrer" target="_blank"><span>Powered by</span><svg class="h-3.5 w-auto translate-y-[3px]" fill="none" height="367" viewbox="0 0 1274 367" width="1274" xmlns="http://www.w3.org/2000/svg"><path d="M1154.38 366.038H1097.86L1137.69 276.14L1058.04 97.1046H1114.93L1161.35 209.337C1162.97 213.26 1168.53 213.253 1170.14 209.325L1216.21 97.1046H1273.49L1154.38 366.038Z" fill="currentColor"></path><path d="M982.714 286.761V142.622H944.403V97.1041H982.714V72.4488C982.714 49.9429 989.542 32.2416 1003.2 19.345C1016.85 6.44832 1034.17 0 1055.16 0C1068.06 0 1079.06 1.39081 1088.16 4.17244V50.0693C1082.09 47.7934 1075.01 46.6555 1066.92 46.6555C1055.54 46.6555 1047.32 49.1843 1042.27 54.2418C1037.21 59.0464 1034.68 67.2648 1034.68 78.8971V97.1041H1088.16V142.622H1034.68V286.761H982.714Z" fill="currentColor"></path><path d="M897.916 66.0005C889.066 66.0005 881.353 62.8395 874.778 56.5176C868.203 49.9429 864.916 42.1037 864.916 33.0002C864.916 23.8967 868.203 16.184 874.778 9.86215C881.353 3.28738 889.066 0 897.916 0C907.273 0 915.112 3.28738 921.434 9.86215C928.008 16.184 931.296 23.8967 931.296 33.0002C931.296 42.1037 928.008 49.9429 921.434 56.5176C915.112 62.8395 907.273 66.0005 897.916 66.0005ZM872.123 286.761V97.1041H924.089V286.761H872.123Z" fill="currentColor"></path><path d="M781.638 286.761V2.27609H833.604V286.761H781.638Z" fill="currentColor"></path><path d="M722.934 289.037C701.693 289.037 684.244 283.221 670.589 271.588C657.187 259.703 650.485 242.634 650.485 220.381V142.622H612.175V97.1044H650.485V44.3799H702.451V97.1044H755.934V142.622H702.451V210.14C702.451 221.772 704.98 230.117 710.038 235.174C715.095 239.979 723.313 242.381 734.693 242.381C742.785 242.381 749.865 241.243 755.934 238.967V284.864C746.831 287.646 735.831 289.037 722.934 289.037Z" fill="currentColor"></path><path d="M417.674 286.761V97.1041H469.64V110.967C469.64 113.311 472.83 114.347 474.382 112.591C485.967 99.4848 502.467 92.9317 523.881 92.9317C546.64 92.9317 564.468 100.518 577.365 115.69C590.514 130.61 597.089 150.587 597.089 175.622V286.761H545.123V184.346C545.123 170.438 542.215 159.691 536.399 152.105C530.583 144.265 522.364 140.346 511.743 140.346C499.1 140.346 488.858 144.898 481.019 154.001C473.433 163.105 469.64 176.507 469.64 194.208V286.761H417.674Z" fill="currentColor"></path><path d="M352.981 66.0005C344.13 66.0005 336.417 62.8395 329.843 56.5176C323.268 49.9429 319.98 42.1037 319.98 33.0002C319.98 23.8967 323.268 16.184 329.843 9.86215C336.417 3.28738 344.13 0 352.981 0C362.337 0 370.176 3.28738 376.498 9.86215C383.073 16.184 386.36 23.8967 386.36 33.0002C386.36 42.1037 383.073 49.9429 376.498 56.5176C370.176 62.8395 362.337 66.0005 352.981 66.0005ZM327.187 286.761V97.1041H379.153V286.761H327.187Z" fill="currentColor"></path><path d="M238.967 286.761V185.484C238.967 155.392 229.105 140.346 209.381 140.346C198.001 140.346 188.898 144.645 182.07 153.242C175.495 161.84 171.955 174.61 171.449 191.553V286.761H119.484V185.484C119.484 155.392 109.621 140.346 89.8972 140.346C78.2649 140.346 69.035 144.898 62.2073 154.001C55.3797 163.105 51.9659 176.507 51.9659 194.208V286.761H0V97.1041H51.9659V111.103C51.9659 113.435 55.1014 114.462 56.633 112.704C68.1136 99.5223 83.3741 92.9317 102.415 92.9317C127.436 92.9317 146.283 103.262 158.953 123.923C159.953 125.553 162.412 125.527 163.406 123.894C168.884 114.891 176.496 107.731 186.243 102.415C197.369 96.0926 208.622 92.9317 220.002 92.9317C242.507 92.9317 259.956 100.392 272.347 115.311C284.738 130.231 290.933 150.714 290.933 176.76V286.761H238.967Z" fill="currentColor"></path></svg></a></div></div></footer></div></div><!--$--><!--/$--></div></div></div></div></div>
+<div class="veiseule-footer"><a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Community translations maintained by <a href="http://blog.law-kelly.com/2026/02/open-source-means-open-language.html">John Kelly</a>. Improve translations on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a>.</div>
+<script>
+(function(){
+  var btn = document.querySelector('[aria-label="Toggle dark mode"]');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var html = document.documentElement;
+    var isDark = html.classList.contains('dark');
+    if(isDark){
+      html.classList.remove('dark');
+      html.style.colorScheme = 'light';
+      try { localStorage.setItem('isDarkMode','light'); } catch(e){}
+    } else {
+      html.classList.add('dark');
+      html.style.colorScheme = 'dark';
+      try { localStorage.setItem('isDarkMode','dark'); } catch(e){}
+    }
+  });
+})();
+</script></body></html>

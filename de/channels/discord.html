@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html class="__variable_47c970 __variable_3bbdad" data-banner-state="visible" data-page-mode="none" lang="de"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/bb3ef058b751a6ad-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/c4b700dcb2187787-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/e4af272ccee01ff0-s.p.woff2" rel="preload" type="font/woff2"/><link as="image" href="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26" rel="preload"/><link as="image" href="https://d3gk2c5xim1je2.cloudfront.net/flags/DE.svg" rel="preload"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/b864dec2fc058581.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/6f9b80d484ead711.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/05d6d8fcb903870d.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><meta content="" name="next-size-adjust"/><title>Discord (Bot API) - OpenClaw</title><meta content="OpenClaw" name="application-name"/><meta content="Mintlify" name="generator"/><meta content="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/browserconfig.xml" name="msapplication-config"/><meta content="OpenClaw" name="apple-mobile-web-app-title"/><meta content="#FF5A36" name="msapplication-TileColor"/><meta content="utf-8" name="charset"/><meta content="OpenClaw" name="og:site_name"/><meta content="https://docs.openclaw.ai/channels/discord" name="canonical"/><link href="discord.html" rel="canonical"/><link href="/sitemap.xml" rel="alternate" type="application/xml"/><meta content="Discord - OpenClaw" property="og:title"/><meta content="https://docs.openclaw.ai/channels/discord" property="og:url"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DMessaging%2Bplatforms%26title%3DDiscord%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="website" property="og:type"/><meta content="summary_large_image" name="twitter:card"/><meta content="Discord - OpenClaw" name="twitter:title"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DMessaging%2Bplatforms%26title%3DDiscord%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" name="twitter:image"/><meta content="1200" name="twitter:image:width"/><meta content="630" name="twitter:image:height"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-16x16.png" media="(prefers-color-scheme: light)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-32x32.png" media="(prefers-color-scheme: light)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon.ico" media="(prefers-color-scheme: light)" rel="shortcut icon" type="image/x-icon"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-16x16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-32x32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon.ico" media="(prefers-color-scheme: dark)" rel="shortcut icon" type="image/x-icon"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link as="style" href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css" rel="preload"/><script type="text/javascript">(function(a,b){try{let c=document.getElementById("banner")?.innerText;if(c){for(let d=0;d<localStorage.length;d++){let e=localStorage.key(d);if(e?.endsWith(a)&&localStorage.getItem(e)===c)return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible");return}for(let c=0;c<localStorage.length;c++){let d=localStorage.key(c);if(d?.endsWith(a)&&localStorage.getItem(d))return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible")}catch(a){document.documentElement.setAttribute(b,"hidden")}})(
+  "bannerDismissed",
+  "data-banner-state",
+)</script><style id="veiseule-branding">
+.veiseule-bar{position:fixed;top:0;left:0;right:0;z-index:99999;background:#2E4A3A;color:#E0E0E0;text-align:center;padding:8px 16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;box-shadow:0 2px 4px rgba(0,0,0,0.15)}
+.veiseule-bar a{color:#A9B8A1;text-decoration:underline}
+.veiseule-bar a:hover{color:#fff}
+.veiseule-footer{background:#1A2E20;color:#E0E0E0;text-align:center;padding:16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;border-top:1px solid #2E4A3A}
+.veiseule-footer a{color:#A9B8A1;text-decoration:underline}
+.veiseule-footer a:hover{color:#fff}
+body{padding-top:36px !important}
+</style>
+<style>
+.toc-anchor { text-decoration: none; margin-left: 0.3em; opacity: 0.3; }
+.toc-anchor:hover { opacity: 1; }
+.toc-anchor { color: #999; }
+.dark .toc-anchor { color: #555; }
+</style></head><body>
+<div class="veiseule-bar">Community-Übersetzungen von <a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Help improve them on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a></div>
+<div hidden=""><!--$--><!--/$--></div><script>((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","isDarkMode","system",null,["dark","light","true","false","system"],{"true":"dark","false":"light","dark":"dark","light":"light"},true,true)</script><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><style>:root {
+  --font-family-headings-custom: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  --font-family-body-custom: "Fragment Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  
+  
+}</style><style>:root {
+    --primary: 255 90 54;
+    --primary-light: 255 138 107;
+    --primary-dark: 255 90 54;
+    --tooltip-foreground: 255 255 255;
+    --background-light: 255 255 255;
+    --background-dark: 14 12 13;
+    --gray-50: 250 245 244;
+    --gray-100: 245 240 239;
+    --gray-200: 230 225 224;
+    --gray-300: 213 208 207;
+    --gray-400: 166 161 160;
+    --gray-500: 119 114 113;
+    --gray-600: 87 82 81;
+    --gray-700: 70 65 64;
+    --gray-800: 45 40 38;
+    --gray-900: 30 25 24;
+    --gray-950: 17 12 11;
+  }</style><script type="text/javascript">
+          (function() {
+            function loadKatex() {
+              const link = document.querySelector('link[href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css"]');
+              if (link) link.rel = 'stylesheet';
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', loadKatex);
+            } else {
+              loadKatex();
+            }
+          })();
+        </script><div class="relative antialiased text-gray-500 dark:text-gray-400"><a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:p-2 focus:text-sm focus:bg-background-light dark:focus:bg-background-dark focus:rounded-md focus:outline-primary dark:focus:outline-primary-light" href="discord.html#content-area">Zum Hauptinhalt springen</a><div class="max-lg:contents lg:flex lg:w-full"><div class="max-lg:contents lg:flex-1 lg:min-w-0 lg:overflow-x-clip"><div class="z-30 fixed lg:sticky top-0 w-full peer is-not-custom peer is-not-center peer is-not-wide peer is-not-frame" id="navbar"><div class="absolute w-full h-full backdrop-blur flex-none transition-colors duration-500 border-b border-gray-500/5 dark:border-gray-300/[0.06] data-[is-opaque=true]:bg-background-light data-[is-opaque=true]:supports-backdrop-blur:bg-background-light/95 data-[is-opaque=true]:dark:bg-background-dark/75 data-[is-opaque=false]:supports-backdrop-blur:bg-background-light/60 data-[is-opaque=false]:dark:bg-transparent" data-is-opaque="false" id="navbar-transition"></div><div class="max-w-8xl mx-auto relative"><div><div class="relative"><div class="flex items-center lg:px-12 h-16 min-w-0 mx-4 lg:mx-0"><div class="h-full relative flex-1 flex items-center gap-x-4 min-w-0 border-b border-gray-500/5 dark:border-gray-300/[0.06]"><div class="flex-1 flex items-center gap-x-4"><a class="select-none" data-slot="context-menu-trigger" data-state="closed" href="../index.html" style="-webkit-touch-callout:none"><span class="sr-only">OpenClaw 🦞<!-- --> Startseite</span><img alt="light logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 block dark:hidden" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/><img alt="dark logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 hidden dark:block" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/></a><div class="hidden lg:flex items-center gap-x-2"><button aria-expanded="false" aria-haspopup="menu" class="group disabled:pointer-events-none [&amp;&gt;span]:line-clamp-1 overflow-hidden group group-hover:text-gray-950/70 dark:group-hover:text-white/70 py-1.5 px-2.5 rounded-xl hover:!bg-gray-600/5 dark:hover:!bg-gray-200/5 aria-[expanded=true]:bg-gray-600/5 dark:aria-[expanded=true]:bg-gray-200/5 text-sm font-medium text-gray-900 h-8 focus-visible:outline-primary dark:text-gray-300 group/trigger flex items-center gap-2 whitespace-nowrap" data-state="closed" id="localization-select-trigger" type="button"><div class="relative size-4 rounded-full shrink-0"><img alt="DE" class="w-full h-full rounded-full" src="https://d3gk2c5xim1je2.cloudfront.net/flags/DE.svg"/><div class="absolute top-0 left-0 w-full h-full border rounded-full bg-primary-light/10 border-black/10"></div></div><span class="truncate max-w-[12.5rem]">Deutsch</span><svg class="transition-transform text-gray-400 overflow-visible group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400 rotate-90 ml-auto group-aria-[expanded=true]/trigger:rotate-[270deg]" height="24" viewbox="0 -9 3 24" width="8"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></button></div></div><div class="relative hidden lg:flex items-center flex-1 z-20 justify-center"><button aria-label="Suche öffnen" class="flex pointer-events-auto rounded-xl w-full items-center text-sm leading-6 h-9 pl-3.5 pr-3 text-gray-500 dark:text-white/50 bg-background-light dark:bg-background-dark dark:brightness-[1.1] dark:ring-1 dark:hover:brightness-[1.25] ring-1 ring-gray-400/30 hover:ring-gray-600/30 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 justify-between truncate gap-2 min-w-[43px]" id="search-bar-entry" type="button"><div class="flex items-center gap-2 min-w-[42px]"><svg class="lucide lucide-search min-w-4 flex-none text-gray-700 hover:text-gray-800 dark:text-gray-400 hover:dark:text-gray-200" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><div class="truncate min-w-0">Suchen...</div></div><span class="flex-none text-xs font-semibold">⌘<!-- -->K</span></button></div><div class="flex-1 relative hidden lg:flex items-center ml-auto justify-end space-x-4"><nav class="text-sm"><ul class="flex space-x-6 items-center"><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);mask-repeat:no-repeat;mask-position:center"></svg>GitHub</a></li><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw/releases" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);mask-repeat:no-repeat;mask-position:center;mask-size:100%"></svg>Releases</a></li></ul></nav><div class="flex items-center"><button aria-label="Dark Mode umschalten" class="group p-2 flex items-center justify-center"><svg class="h-4 w-4 block text-gray-400 dark:hidden group-hover:text-gray-600" fill="none" height="16" stroke="currentColor" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2880_7340)"><path d="M8 1.11133V2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 3.12891L12.2427 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M14.8889 8H14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 12.8711L12.2427 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8 14.8889V14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 12.8711L3.75735 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M1.11133 8H2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 3.12891L3.75735 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8.00043 11.7782C10.0868 11.7782 11.7782 10.0868 11.7782 8.00043C11.7782 5.91402 10.0868 4.22266 8.00043 4.22266C5.91402 4.22266 4.22266 5.91402 4.22266 8.00043C4.22266 10.0868 5.91402 11.7782 8.00043 11.7782Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g><defs><clippath id="clip0_2880_7340"><rect fill="white" height="16" width="16"></rect></clippath></defs></svg><svg class="lucide lucide-moon h-4 w-4 hidden dark:block text-gray-500 dark:group-hover:text-gray-300" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button></div></div><div class="flex lg:hidden items-center gap-3"><button aria-label="Suche öffnen" class="text-gray-500 w-8 h-8 flex items-center justify-center hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300" id="search-bar-entry-mobile" type="button"><span class="sr-only">Suchen...</span><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);mask-repeat:no-repeat;mask-position:center"></svg></button><button aria-label="Weitere Aktionen" class="h-7 w-5 flex items-center justify-end"><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);mask-repeat:no-repeat;mask-position:center"></svg></button></div></div></div><button class="flex items-center h-14 py-4 px-5 lg:hidden focus:outline-0 w-full text-left" type="button"><div class="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300"><span class="sr-only">Navigation</span><svg class="h-4" fill="currentColor" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></div><div class="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0 space-x-3 overflow-hidden"><div class="flex items-center space-x-3 flex-shrink-0"><span>Messaging-Plattformen</span><svg class="h-5 rotate-0 overflow-visible fill-gray-400" height="24" viewbox="0 -9 3 24" width="3"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></div><div class="font-semibold text-gray-900 truncate dark:text-gray-200 min-w-0 flex-1">Discord (Bot API)</div></div></button></div><div class="hidden lg:flex px-12 h-12"><div class="nav-tabs h-full flex text-sm gap-x-6"><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../index.html">Loslegen<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../install.html">Installieren<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium hover:text-gray-800 dark:hover:text-gray-300 text-gray-800 dark:text-gray-200 [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor]" href="../channels.html">Kanäle<div class="absolute bottom-0 h-[1.5px] w-full left-0 bg-primary dark:bg-primary-light"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../concepts/architecture.html">Agenten<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../tools.html">Tools<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../providers.html">Modelle<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../platforms.html">Plattformen<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../gateway.html">Gateway &amp; Betrieb<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../cli.html">Referenz<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../help.html">Hilfe<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a></div></div></div></div><span hidden="" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"></span></div><div class="scroll-mt-[var(--scroll-mt)] peer-[.is-custom]:max-w-none peer-[.is-center]:max-w-3xl peer-[.is-not-custom]:peer-[.is-not-center]:max-w-8xl peer-[.is-not-custom]:px-4 peer-[.is-not-custom]:mx-auto peer-[.is-not-custom]:lg:px-8 peer-[.is-wide]:[&amp;&gt;div:last-child]:max-w-6xl peer-[.is-custom]:[&amp;&gt;div:first-child]:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:xl:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:xl:!hidden"><div class="z-20 hidden lg:block fixed bottom-0 right-auto w-[18rem]" id="sidebar" style="top:7rem"><div class="absolute inset-0 z-10 stable-scrollbar-gutter overflow-auto pr-8 pb-10" id="sidebar-content"><div class="relative lg:text-sm lg:leading-6"><div class="sticky top-0 h-8 z-10 bg-gradient-to-b from-background-light dark:from-background-dark"></div><div id="navigation-items"><div class=""><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200">Überblick</div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Chat Channels" id="/channels"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../channels.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Chat Channels</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200">Messaging-Plattformen</div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="WhatsApp" id="/channels/whatsapp"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="whatsapp.html" style="padding-left:1rem">WhatsApp (Web-Kanal)</a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Telegram" id="/channels/telegram"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="telegram.html" style="padding-left:1rem">Telegram (Bot API)</a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Discord" id="/channels/discord"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] bg-primary/10 text-primary [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor] dark:text-primary-light dark:bg-primary-light/10" href="discord.html" style="padding-left:1rem">Discord (Bot API)</a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="IRC" id="/channels/irc"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="irc.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">IRC</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Slack" id="/channels/slack"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="slack.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Slack</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Feishu" id="/channels/feishu"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="feishu.html" style="padding-left:1rem">Feishu-Bot</a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Google Chat" id="/channels/googlechat"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="googlechat.html" style="padding-left:1rem">Google Chat (Chat API)</a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Mattermost" id="/channels/mattermost"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="mattermost.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Mattermost</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Signal" id="/channels/signal"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="signal.html" style="padding-left:1rem">Signal (signal-cli)</a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="iMessage" id="/channels/imessage"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="imessage.html" style="padding-left:1rem">iMessage (Legacy: imsg)</a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Microsoft Teams" id="/channels/msteams"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="msteams.html" style="padding-left:1rem">Microsoft Teams (Plugin)</a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="LINE" id="/channels/line"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="line.html" style="padding-left:1rem">LINE (Plugin)</a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Matrix" id="/channels/matrix"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="matrix.html" style="padding-left:1rem">Matrix (Plugin)</a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Zalo" id="/channels/zalo"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="zalo.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Zalo</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Zalo Personal" id="/channels/zalouser"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="zalouser.html" style="padding-left:1rem">Zalo Personal (inoffiziell)</a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200">Konfiguration</div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Pairing" id="/channels/pairing"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="pairing.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Pairing</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Group Messages" id="/channels/group-messages"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="group-messages.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Group Messages</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Groups" id="/channels/groups"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="groups.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Groups</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Broadcast Groups" id="/channels/broadcast-groups"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="broadcast-groups.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Broadcast Groups</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Channel Routing" id="/channels/channel-routing"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channel-routing.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Channel Routing</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Channel Location Parsing" id="/channels/location"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="location.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Channel Location Parsing</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Channel Troubleshooting" id="/channels/troubleshooting"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="troubleshooting.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Channel Troubleshooting</div></div></a></li></ul></div></div></div></div></div><div id="content-container"><span class="fixed inset-0 bg-background-light dark:bg-background-dark -z-10 pointer-events-none" id="almond-background-color"></span><style data-custom-css-index="0" data-custom-css-path="style.css">#content > h1:first-of-type {
+  display: none !important;
+}
+</style><div class="flex flex-row-reverse gap-12 box-border w-full pt-40 lg:pt-10"><div class="hidden xl:flex self-start sticky xl:flex-col max-w-[28rem] z-[21] h-[calc(100vh-9.5rem)] top-[calc(9.5rem-var(--sidenav-move-up,0px))]" id="content-side-layout"><div class="z-10 hidden xl:flex box-border max-h-full pl-10 w-[19rem]" id="table-of-contents-layout"><div class="text-gray-600 text-sm leading-6 w-[16.5rem] overflow-y-auto space-y-2 pb-4 -mt-10 pt-10" id="table-of-contents"><button class="text-gray-700 dark:text-gray-300 font-medium flex items-center space-x-2 hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer"><svg class="h-3 w-3" fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.44434 12.6665H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 3.3335H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 8H7.33323" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Auf dieser Seite</span></button><ul class="toc" id="table-of-contents-content"><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#discord-bot-api">Discord (Bot API)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#schnellstart-einsteiger">Schnellstart (Einsteiger)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#ziele">Ziele</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#wie-es-funktioniert">Wie es funktioniert</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#konfigurationsschreibzugriffe">Konfigurationsschreibzugriffe</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#so-erstellen-sie-ihren-eigenen-bot">So erstellen Sie Ihren eigenen Bot</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#1-discord-app-bot-benutzer-erstellen">1. Discord-App + Bot-Benutzer erstellen</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#2-gateway-intents-aktivieren-die-openclaw-benotigt">2) Gateway-Intents aktivieren, die OpenClaw benötigt</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#3-einladungs-url-erzeugen-oauth2-url-generator">3. Einladungs-URL erzeugen (OAuth2 URL Generator)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#4-ids-ermitteln-guildbenutzerkanal">4. IDs ermitteln (Guild/Benutzer/Kanal)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#5-openclaw-konfigurieren">5) OpenClaw konfigurieren</a></li><li class="toc-item relative" data-depth="3"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#token">Token</a></li><li class="toc-item relative" data-depth="3"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#allowlist-kanal-routing">Allowlist + Kanal-Routing</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#6-funktion-prufen">6. Funktion prüfen</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#fehlerbehebung">Gateway-Fehlerbehebung</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#funktionen-grenzen">Funktionen &amp; Grenzen</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#retry-richtlinie">Retry-Richtlinie</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#konfiguration">Konfiguration</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#pluralkit-pk-unterstutzung">PluralKit (PK)-Unterstützung</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#standardwerte-fur-tool-aktionen">Standardwerte für Tool-Aktionen</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#antwort-tags">Antwort-Tags</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#tool-aktionen">Tool-Aktionen</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/discord.html#sicherheit-betrieb">Sicherheit &amp; Betrieb</a></li></ul></div></div></div><div class="relative grow box-border flex-col w-full mx-auto px-1 lg:pl-[23.7rem] lg:-ml-12 xl:w-[calc(100%-28rem)]" id="content-area"><header class="relative leading-none" id="header"><div class="mt-0.5 space-y-2.5"><div class="eyebrow h-5 text-primary dark:text-primary-light text-sm font-semibold">Messaging-Plattformen</div><div class="flex flex-col sm:flex-row items-start sm:items-center relative gap-2 min-w-0">Discord (Bot API)</div></div></header><div class="mdx-content relative mt-8 mb-14 prose prose-gray dark:prose-invert [contain:inline-size] isolate" data-page-href="/channels/discord" data-page-title="Discord" id="content"><h1 id="discord-bot-api">Discord (Bot API)<a class="toc-anchor" href="#discord-bot-api" title="Permanent link">¶</a></h1>
+<p>Status: bereit für Direktnachrichten und Guild-Textkanäle über das offizielle Discord-Bot-Gateway.</p>
+<h2 id="schnellstart-einsteiger">Schnellstart (Einsteiger)<a class="toc-anchor" href="#schnellstart-einsteiger" title="Permanent link">¶</a></h2>
+<ol>
+<li>Erstellen Sie einen Discord-Bot und kopieren Sie das Bot-Token.</li>
+<li>Aktivieren Sie in den Discord-App-Einstellungen <strong>Message Content Intent</strong> (und <strong>Server Members Intent</strong>, wenn Sie Allowlists oder Namensauflösungen verwenden möchten).</li>
+<li>Setzen Sie das Token für OpenClaw:
+   - Env: <code>DISCORD_BOT_TOKEN=...</code>
+   - Oder Konfiguration: <code>channels.discord.token: "..."</code>.
+   - Wenn beide gesetzt sind, hat die Konfiguration Vorrang (Env-Fallback gilt nur für das Standardkonto).</li>
+<li>Laden Sie den Bot mit Nachrichtenberechtigungen auf Ihren Server ein (erstellen Sie einen privaten Server, wenn Sie nur Direktnachrichten möchten).</li>
+<li>Starten Sie das Gateway.</li>
+<li>DM-Zugriff ist standardmäßig gekoppelt; genehmigen Sie den Pairing-Code beim ersten Kontakt.</li>
+</ol>
+<p>Minimale Konfiguration:</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    discord: {
+      enabled: true,
+      token: "YOUR_BOT_TOKEN",
+    },
+  },
+}
+</code></pre>
+<h2 id="ziele">Ziele<a class="toc-anchor" href="#ziele" title="Permanent link">¶</a></h2>
+<ul>
+<li>Mit OpenClaw über Discord-DMs oder Guild-Kanäle kommunizieren.</li>
+<li>Direktchats werden in der Hauptsitzung des Agenten zusammengeführt (Standard: <code>agent:main:main</code>); Guild-Kanäle bleiben als <code>agent:&lt;agentId&gt;:discord:channel:&lt;channelId&gt;</code> isoliert (Anzeigenamen verwenden <code>discord:&lt;guildSlug&gt;#&lt;channelSlug&gt;</code>).</li>
+<li>Gruppen-DMs werden standardmäßig ignoriert; aktivieren Sie sie über <code>channels.discord.dm.groupEnabled</code> und beschränken Sie sie optional über <code>channels.discord.dm.groupChannels</code>.</li>
+<li>Deterministisches Routing beibehalten: Antworten gehen immer an den Kanal zurück, auf dem sie eingegangen sind.</li>
+</ul>
+<h2 id="wie-es-funktioniert">Wie es funktioniert<a class="toc-anchor" href="#wie-es-funktioniert" title="Permanent link">¶</a></h2>
+<ol>
+<li>Erstellen Sie eine Discord-Anwendung → Bot, aktivieren Sie die benötigten Intents (DMs + Guild-Nachrichten + Nachrichteninhalt) und kopieren Sie das Bot-Token.</li>
+<li>Laden Sie den Bot mit den erforderlichen Berechtigungen auf Ihren Server ein, um Nachrichten dort zu lesen/senden, wo Sie ihn verwenden möchten.</li>
+<li>Konfigurieren Sie OpenClaw mit <code>channels.discord.token</code> (oder <code>DISCORD_BOT_TOKEN</code> als Fallback).</li>
+<li>Starten Sie das Gateway; es startet den Discord-Kanal automatisch, wenn ein Token verfügbar ist (Konfiguration zuerst, Env-Fallback) und <code>channels.discord.enabled</code> nicht <code>false</code> ist.
+   - Wenn Sie Env-Variablen bevorzugen, setzen Sie <code>DISCORD_BOT_TOKEN</code> (ein Konfigurationsblock ist optional).</li>
+<li>Direktchats: Verwenden Sie bei der Zustellung <code>user:&lt;id&gt;</code> (oder eine <code>&lt;@id&gt;</code>-Erwähnung); alle Züge landen in der gemeinsamen Sitzung <code>main</code>. Reine numerische IDs sind mehrdeutig und werden abgelehnt.</li>
+<li>Guild-Kanäle: Verwenden Sie <code>channel:&lt;channelId&gt;</code> für die Zustellung. Erwähnungen sind standardmäßig erforderlich und können pro Guild oder pro Kanal festgelegt werden.</li>
+<li>Direktchats: Standardmäßig sicher über <code>channels.discord.dm.policy</code> (Standard: <code>"pairing"</code>). Unbekannte Absender erhalten einen Pairing-Code (läuft nach 1 Stunde ab); genehmigen Sie ihn über <code>openclaw pairing approve discord &lt;code&gt;</code>.
+   - Um das frühere „für alle offen“-Verhalten beizubehalten: setzen Sie <code>channels.discord.dm.policy="open"</code> und <code>channels.discord.dm.allowFrom=["*"]</code>.
+   - Für eine harte Allowlist: setzen Sie <code>channels.discord.dm.policy="allowlist"</code> und listen Sie Absender in <code>channels.discord.dm.allowFrom</code> auf.
+   - Um alle DMs zu ignorieren: setzen Sie <code>channels.discord.dm.enabled=false</code> oder <code>channels.discord.dm.policy="disabled"</code>.</li>
+<li>Gruppen-DMs werden standardmäßig ignoriert; aktivieren Sie sie über <code>channels.discord.dm.groupEnabled</code> und beschränken Sie sie optional über <code>channels.discord.dm.groupChannels</code>.</li>
+<li>Optionale Guild-Regeln: setzen Sie <code>channels.discord.guilds</code> nach Guild-ID (bevorzugt) oder Slug, mit Regeln pro Kanal.</li>
+<li>Optionale native Befehle: <code>commands.native</code> ist standardmäßig <code>"auto"</code> (an für Discord/Telegram, aus für Slack). Überschreiben Sie mit <code>channels.discord.commands.native: true|false|"auto"</code>; <code>false</code> löscht zuvor registrierte Befehle. Textbefehle werden über <code>commands.text</code> gesteuert und müssen als eigenständige <code>/...</code>-Nachrichten gesendet werden. Verwenden Sie <code>commands.useAccessGroups: false</code>, um Zugriffskontrollen für Befehle zu umgehen.<ul>
+<li>Vollständige Befehlsliste + Konfiguration: <a href="/tools/slash-commands">Slash commands</a></li>
+</ul>
+</li>
+<li>Optionaler Guild-Kontextverlauf: setzen Sie <code>channels.discord.historyLimit</code> (Standard 20, Fallback auf <code>messages.groupChat.historyLimit</code>), um beim Antworten auf eine Erwähnung die letzten N Guild-Nachrichten als Kontext einzubeziehen. Setzen Sie <code>0</code>, um dies zu deaktivieren.</li>
+<li>Reaktionen: Der Agent kann Reaktionen über das Werkzeug <code>discord</code> auslösen (gesteuert durch <code>channels.discord.actions.*</code>).<ul>
+<li>Semantik zum Entfernen von Reaktionen: siehe <a href="/tools/reactions">/tools/reactions</a>.</li>
+<li>Das Werkzeug <code>discord</code> ist nur verfügbar, wenn der aktuelle Kanal Discord ist.</li>
+</ul>
+</li>
+<li>Native Befehle verwenden isolierte Sitzungsschlüssel (<code>agent:&lt;agentId&gt;:discord:slash:&lt;userId&gt;</code>) statt der gemeinsamen Sitzung <code>main</code>.</li>
+</ol>
+<p>Hinweis: Namens-→ID-Auflösung nutzt die Guild-Mitgliedersuche und erfordert Server Members Intent; wenn der Bot keine Mitglieder suchen kann, verwenden Sie IDs oder <code>&lt;@id&gt;</code>-Erwähnungen.
+Hinweis: Slugs sind klein geschrieben, Leerzeichen werden durch <code>-</code> ersetzt. Kanalnamen werden ohne das führende <code>#</code> gesluggified.
+Hinweis: Guild-Kontextzeilen <code>[from:]</code> enthalten <code>author.tag</code> + <code>id</code>, um ping-fähige Antworten zu erleichtern.</p>
+<h2 id="konfigurationsschreibzugriffe">Konfigurationsschreibzugriffe<a class="toc-anchor" href="#konfigurationsschreibzugriffe" title="Permanent link">¶</a></h2>
+<p>Standardmäßig darf Discord Konfigurationsupdates schreiben, die durch <code>/config set|unset</code> ausgelöst werden (erfordert <code>commands.config: true</code>).</p>
+<p>Deaktivieren mit:</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: { discord: { configWrites: false } },
+}
+</code></pre>
+<h2 id="so-erstellen-sie-ihren-eigenen-bot">So erstellen Sie Ihren eigenen Bot<a class="toc-anchor" href="#so-erstellen-sie-ihren-eigenen-bot" title="Permanent link">¶</a></h2>
+<p>Dies ist die Einrichtung im „Discord Developer Portal“ für den Betrieb von OpenClaw in einem Server-(Guild-)Kanal wie <code>#help</code>.</p>
+<h3 id="1-discord-app-bot-benutzer-erstellen">1. Discord-App + Bot-Benutzer erstellen<a class="toc-anchor" href="#1-discord-app-bot-benutzer-erstellen" title="Permanent link">¶</a></h3>
+<ol>
+<li>Discord Developer Portal → <strong>Applications</strong> → <strong>New Application</strong></li>
+<li>In Ihrer App:
+   - <strong>Bot</strong> → <strong>Add Bot</strong>
+   - Kopieren Sie das <strong>Bot Token</strong> (dieses tragen Sie in <code>DISCORD_BOT_TOKEN</code> ein)</li>
+</ol>
+<h3 id="2-gateway-intents-aktivieren-die-openclaw-benotigt">2) Gateway-Intents aktivieren, die OpenClaw benötigt<a class="toc-anchor" href="#2-gateway-intents-aktivieren-die-openclaw-benotigt" title="Permanent link">¶</a></h3>
+<p>Discord blockiert „privilegierte Intents“, sofern sie nicht explizit aktiviert werden.</p>
+<p>Unter <strong>Bot</strong> → <strong>Privileged Gateway Intents</strong> aktivieren Sie:</p>
+<ul>
+<li><strong>Message Content Intent</strong> (erforderlich, um Nachrichtentext in den meisten Guilds zu lesen; ohne ihn sehen Sie „Used disallowed intents“ oder der Bot verbindet sich, reagiert aber nicht)</li>
+<li><strong>Server Members Intent</strong> (empfohlen; erforderlich für einige Mitglieder-/Benutzerabfragen und Allowlist-Abgleiche in Guilds)</li>
+</ul>
+<p>In der Regel benötigen Sie <strong>Presence Intent</strong> <strong>nicht</strong>. Das Setzen der eigenen Präsenz des Bots (Aktion <code>setPresence</code>) verwendet Gateway OP3 und erfordert diesen Intent nicht; er ist nur nötig, wenn Sie Präsenz-Updates anderer Guild-Mitglieder empfangen möchten.</p>
+<h3 id="3-einladungs-url-erzeugen-oauth2-url-generator">3. Einladungs-URL erzeugen (OAuth2 URL Generator)<a class="toc-anchor" href="#3-einladungs-url-erzeugen-oauth2-url-generator" title="Permanent link">¶</a></h3>
+<p>In Ihrer App: <strong>OAuth2</strong> → <strong>URL Generator</strong></p>
+<p><strong>Scopes</strong></p>
+<ul>
+<li>✅ <code>bot</code></li>
+<li>✅ <code>applications.commands</code> (erforderlich für native Befehle)</li>
+</ul>
+<p><strong>Bot-Berechtigungen</strong> (minimale Basis)</p>
+<ul>
+<li>✅ Kanäle anzeigen</li>
+<li>✅ Nachrichten senden</li>
+<li>✅ Nachrichtenverlauf lesen</li>
+<li>✅ Links einbetten</li>
+<li>✅ Dateien anhängen</li>
+<li>✅ Reaktionen hinzufügen (optional, aber empfohlen)</li>
+<li>✅ Externe Emojis / Sticker verwenden (optional; nur wenn gewünscht)</li>
+</ul>
+<p>Vermeiden Sie <strong>Administrator</strong>, außer Sie debuggen und vertrauen dem Bot vollständig.</p>
+<p>Kopieren Sie die generierte URL, öffnen Sie sie, wählen Sie Ihren Server aus und installieren Sie den Bot.</p>
+<h3 id="4-ids-ermitteln-guildbenutzerkanal">4. IDs ermitteln (Guild/Benutzer/Kanal)<a class="toc-anchor" href="#4-ids-ermitteln-guildbenutzerkanal" title="Permanent link">¶</a></h3>
+<p>Discord verwendet überall numerische IDs; die OpenClaw-Konfiguration bevorzugt IDs.</p>
+<ol>
+<li>Discord (Desktop/Web) → <strong>User Settings</strong> → <strong>Advanced</strong> → <strong>Developer Mode</strong> aktivieren</li>
+<li>Rechtsklick:
+   - Servername → <strong>Copy Server ID</strong> (Guild-ID)
+   - Kanal (z. B. <code>#help</code>) → <strong>Copy Channel ID</strong>
+   - Ihr Benutzer → <strong>Copy User ID</strong></li>
+</ol>
+<h3 id="5-openclaw-konfigurieren">5) OpenClaw konfigurieren<a class="toc-anchor" href="#5-openclaw-konfigurieren" title="Permanent link">¶</a></h3>
+<h4 id="token">Token<a class="toc-anchor" href="#token" title="Permanent link">¶</a></h4>
+<p>Setzen Sie das Bot-Token per Env-Var (auf Servern empfohlen):</p>
+<ul>
+<li><code>DISCORD_BOT_TOKEN=...</code></li>
+</ul>
+<p>Oder per Konfiguration:</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    discord: {
+      enabled: true,
+      token: "YOUR_BOT_TOKEN",
+    },
+  },
+}
+</code></pre>
+<p>Multi-Account-Unterstützung: Verwenden Sie <code>channels.discord.accounts</code> mit Tokens pro Account und optionalem <code>name</code>. Siehe <a href="/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts"><code>gateway/configuration</code></a> für das gemeinsame Muster.</p>
+<h4 id="allowlist-kanal-routing">Allowlist + Kanal-Routing<a class="toc-anchor" href="#allowlist-kanal-routing" title="Permanent link">¶</a></h4>
+<p>Beispiel „ein Server, nur ich erlaubt, nur #help erlaubt“:</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    discord: {
+      enabled: true,
+      dm: { enabled: false },
+      guilds: {
+        YOUR_GUILD_ID: {
+          users: ["YOUR_USER_ID"],
+          requireMention: true,
+          channels: {
+            help: { allow: true, requireMention: true },
+          },
+        },
+      },
+      retry: {
+        attempts: 3,
+        minDelayMs: 500,
+        maxDelayMs: 30000,
+        jitter: 0.1,
+      },
+    },
+  },
+}
+</code></pre>
+<p>Hinweise:</p>
+<ul>
+<li><code>requireMention: true</code> bedeutet, dass der Bot nur bei Erwähnung antwortet (empfohlen für geteilte Kanäle).</li>
+<li><code>agents.list[].groupChat.mentionPatterns</code> (oder <code>messages.groupChat.mentionPatterns</code>) zählen ebenfalls als Erwähnungen für Guild-Nachrichten.</li>
+<li>Multi-Agent-Override: Setzen Sie pro Agent Muster unter <code>agents.list[].groupChat.mentionPatterns</code>.</li>
+<li>Wenn <code>channels</code> vorhanden ist, werden alle nicht aufgeführten Kanäle standardmäßig abgelehnt.</li>
+<li>Verwenden Sie einen <code>"*"</code>-Kanal-Eintrag, um Standardwerte für alle Kanäle anzuwenden; explizite Kanal-Einträge überschreiben den Platzhalter.</li>
+<li>Threads erben die Konfiguration des Elternkanals (Allowlist, <code>requireMention</code>, Skills, Prompts usw.), sofern Sie die Thread-Kanal-ID nicht explizit hinzufügen. es sei denn, Sie fügen die Thread-Kanal-ID explizit hinzu.</li>
+<li>Owner-Hinweis: Wenn eine Allowlist <code>users</code> pro Guild oder pro Kanal auf den Absender zutrifft, behandelt OpenClaw diesen Absender im System-Prompt als Owner. Für einen globalen Owner über alle Kanäle hinweg setzen Sie <code>commands.ownerAllowFrom</code>.</li>
+<li>Vom Bot verfasste Nachrichten werden standardmäßig ignoriert; setzen Sie <code>channels.discord.allowBots=true</code>, um sie zuzulassen (eigene Nachrichten bleiben gefiltert).</li>
+<li>Warnung: Wenn Sie Antworten an andere Bots erlauben (<code>channels.discord.allowBots=true</code>), verhindern Sie Bot-zu-Bot-Schleifen mit <code>requireMention</code>, <code>channels.discord.guilds.*.channels.&lt;id&gt;.users</code>-Allowlists und/oder klaren Schutzmechanismen in <code>AGENTS.md</code> und <code>SOUL.md</code>.</li>
+</ul>
+<h3 id="6-funktion-prufen">6. Funktion prüfen<a class="toc-anchor" href="#6-funktion-prufen" title="Permanent link">¶</a></h3>
+<ol>
+<li>Starten Sie das Gateway.</li>
+<li>Senden Sie im Serverkanal: <code>@Krill hello</code> (oder wie auch immer Ihr Bot heißt).</li>
+<li>Wenn nichts passiert: prüfen Sie <strong>Fehlerbehebung</strong> unten.</li>
+</ol>
+<h3 id="fehlerbehebung">Fehlerbehebung<a class="toc-anchor" href="#fehlerbehebung" title="Permanent link">¶</a></h3>
+<ul>
+<li>Zuerst: führen Sie <code>openclaw doctor</code> und <code>openclaw channels status --probe</code> aus (umsetzbare Warnungen + Kurzprüfungen).</li>
+<li><strong>„Used disallowed intents“</strong>: Aktivieren Sie <strong>Message Content Intent</strong> (und vermutlich <strong>Server Members Intent</strong>) im Developer Portal und starten Sie das Gateway neu.</li>
+<li><strong>Bot verbindet sich, antwortet aber nie in einem Guild-Kanal</strong>:</li>
+<li>Fehlender <strong>Message Content Intent</strong>, oder</li>
+<li>Dem Bot fehlen Kanalberechtigungen (Anzeigen/Senden/Verlauf lesen), oder</li>
+<li>Ihre Konfiguration erfordert Erwähnungen und Sie haben ihn nicht erwähnt, oder</li>
+<li>Ihre Guild-/Kanal-Allowlist lehnt Kanal/Benutzer ab.</li>
+<li><strong><code>requireMention: false</code> aber weiterhin keine Antworten</strong>:</li>
+<li><code>channels.discord.groupPolicy</code> ist standardmäßig <strong>allowlist</strong>; setzen Sie es auf <code>"open"</code> oder fügen Sie unter <code>channels.discord.guilds</code> einen Guild-Eintrag hinzu (optional Kanäle unter <code>channels.discord.guilds.&lt;id&gt;.channels</code> einschränken).</li>
+<li>Wenn Sie nur <code>DISCORD_BOT_TOKEN</code> setzen und nie einen Abschnitt <code>channels.discord</code> erstellen, setzt die Laufzeit
+    <code>groupPolicy</code> standardmäßig auf <code>open</code>. Fügen Sie <code>channels.discord.groupPolicy</code>,
+    <code>channels.defaults.groupPolicy</code> oder eine Guild-/Kanal-Allowlist hinzu, um es abzusichern.</li>
+<li><code>requireMention</code> muss unter <code>channels.discord.guilds</code> (oder einem spezifischen Kanal) liegen. <code>channels.discord.requireMention</code> auf oberster Ebene wird ignoriert.</li>
+<li><strong>Berechtigungsprüfungen</strong> (<code>channels status --probe</code>) prüfen nur numerische Kanal-IDs. Wenn Sie Slugs/Namen als Schlüssel <code>channels.discord.guilds.*.channels</code> verwenden, kann die Prüfung Berechtigungen nicht verifizieren.</li>
+<li><strong>DMs funktionieren nicht</strong>: <code>channels.discord.dm.enabled=false</code>, <code>channels.discord.dm.policy="disabled"</code> oder Sie wurden noch nicht genehmigt (<code>channels.discord.dm.policy="pairing"</code>).</li>
+<li><strong>Exec-Genehmigungen in Discord</strong>: Discord unterstützt eine <strong>Button-UI</strong> für Exec-Genehmigungen in DMs (Einmal erlauben / Immer erlauben / Ablehnen). <code>/approve &lt;id&gt; ...</code> gilt nur für weitergeleitete Genehmigungen und löst die Discord-Buttons nicht. Wenn Sie <code>❌ Failed to submit approval: Error: unknown approval id</code> sehen oder die UI nie erscheint, prüfen Sie:</li>
+<li><code>channels.discord.execApprovals.enabled: true</code> in Ihrer Konfiguration.</li>
+<li>Ihre Discord-Benutzer-ID ist in <code>channels.discord.execApprovals.approvers</code> aufgeführt (die UI wird nur an Genehmiger gesendet).</li>
+<li>Verwenden Sie die Buttons in der DM-Aufforderung (<strong>Einmal erlauben</strong>, <strong>Immer erlauben</strong>, <strong>Ablehnen</strong>).</li>
+<li>Siehe <a href="/tools/exec-approvals">Exec approvals</a> und <a href="/tools/slash-commands">Slash commands</a> für den übergreifenden Genehmigungs- und Befehlsfluss.</li>
+</ul>
+<h2 id="funktionen-grenzen">Funktionen &amp; Grenzen<a class="toc-anchor" href="#funktionen-grenzen" title="Permanent link">¶</a></h2>
+<ul>
+<li>DMs und Guild-Textkanäle (Threads werden als separate Kanäle behandelt; Sprache nicht unterstützt).</li>
+<li>Tippindikatoren werden nach bestem Effort gesendet; Nachrichten-Splitting nutzt <code>channels.discord.textChunkLimit</code> (Standard 2000) und teilt lange Antworten nach Zeilenanzahl (<code>channels.discord.maxLinesPerMessage</code>, Standard 17).</li>
+<li>Optionales Absatz-Splitting: setzen Sie <code>channels.discord.chunkMode="newline"</code>, um vor dem Längen-Splitting an Leerzeilen (Absatzgrenzen) zu trennen.</li>
+<li>Datei-Uploads bis zur konfigurierten Größe <code>channels.discord.mediaMaxMb</code> (Standard 8 MB).</li>
+<li>Erwähnungsbasierte Guild-Antworten standardmäßig aktiviert, um laute Bots zu vermeiden.</li>
+<li>Antwortkontext wird eingefügt, wenn eine Nachricht auf eine andere verweist (zitierter Inhalt + IDs).</li>
+<li>Native Antwort-Threading ist <strong>standardmäßig aus</strong>; aktivieren Sie es mit <code>channels.discord.replyToMode</code> und Antwort-Tags.</li>
+</ul>
+<h2 id="retry-richtlinie">Retry-Richtlinie<a class="toc-anchor" href="#retry-richtlinie" title="Permanent link">¶</a></h2>
+<p>Ausgehende Discord-API-Aufrufe werden bei Rate Limits (429) unter Verwendung von Discord <code>retry_after</code> (sofern verfügbar) mit exponentiellem Backoff und Jitter wiederholt. Konfigurieren Sie dies über <code>channels.discord.retry</code>. Siehe <a href="/concepts/retry">Retry policy</a>.</p>
+<h2 id="konfiguration">Konfiguration<a class="toc-anchor" href="#konfiguration" title="Permanent link">¶</a></h2>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    discord: {
+      enabled: true,
+      token: "abc.123",
+      groupPolicy: "allowlist",
+      guilds: {
+        "*": {
+          channels: {
+            general: { allow: true },
+          },
+        },
+      },
+      mediaMaxMb: 8,
+      actions: {
+        reactions: true,
+        stickers: true,
+        emojiUploads: true,
+        stickerUploads: true,
+        polls: true,
+        permissions: true,
+        messages: true,
+        threads: true,
+        pins: true,
+        search: true,
+        memberInfo: true,
+        roleInfo: true,
+        roles: false,
+        channelInfo: true,
+        channels: true,
+        voiceStatus: true,
+        events: true,
+        moderation: false,
+        presence: false,
+      },
+      replyToMode: "off",
+      dm: {
+        enabled: true,
+        policy: "pairing", // pairing | allowlist | open | disabled
+        allowFrom: ["123456789012345678", "steipete"],
+        groupEnabled: false,
+        groupChannels: ["openclaw-dm"],
+      },
+      guilds: {
+        "*": { requireMention: true },
+        "123456789012345678": {
+          slug: "friends-of-openclaw",
+          requireMention: false,
+          reactionNotifications: "own",
+          users: ["987654321098765432", "steipete"],
+          channels: {
+            general: { allow: true },
+            help: {
+              allow: true,
+              requireMention: true,
+              users: ["987654321098765432"],
+              skills: ["search", "docs"],
+              systemPrompt: "Keep answers short.",
+            },
+          },
+        },
+      },
+    },
+  },
+}
+</code></pre>
+<p>Ack-Reaktionen werden global über <code>messages.ackReaction</code> +
+<code>messages.ackReactionScope</code> gesteuert. Verwenden Sie <code>messages.removeAckAfterReply</code>, um die
+Ack-Reaktion nach der Antwort des Bots zu entfernen.</p>
+<ul>
+<li><code>dm.enabled</code>: setzen Sie <code>false</code>, um alle DMs zu ignorieren (Standard <code>true</code>).</li>
+<li><code>dm.policy</code>: DM-Zugriffskontrolle (<code>pairing</code> empfohlen). <code>"open"</code> erfordert <code>dm.allowFrom=["*"]</code>.</li>
+<li><code>dm.allowFrom</code>: DM-Allowlist (Benutzer-IDs oder Namen). Verwendet von <code>dm.policy="allowlist"</code> und für <code>dm.policy="open"</code>-Validierung. Der Assistent akzeptiert Benutzernamen und löst sie zu IDs auf, wenn der Bot Mitglieder suchen kann.</li>
+<li><code>dm.groupEnabled</code>: Gruppen-DMs aktivieren (Standard <code>false</code>).</li>
+<li><code>dm.groupChannels</code>: optionale Allowlist für Gruppen-DM-Kanal-IDs oder Slugs.</li>
+<li><code>groupPolicy</code>: steuert die Behandlung von Guild-Kanälen (<code>open|disabled|allowlist</code>); <code>allowlist</code> erfordert Kanal-Allowlists.</li>
+<li><code>guilds</code>: Regeln pro Guild, nach Guild-ID (bevorzugt) oder Slug.</li>
+<li><code>guilds."*"</code>: Standard-Guild-Einstellungen, wenn kein expliziter Eintrag existiert.</li>
+<li><code>guilds.&lt;id&gt;.slug</code>: optionaler freundlicher Slug für Anzeigenamen.</li>
+<li><code>guilds.&lt;id&gt;.users</code>: optionale Benutzer-Allowlist pro Guild (IDs oder Namen).</li>
+<li><code>guilds.&lt;id&gt;.tools</code>: optionale Tool-Policy-Overrides pro Guild (<code>allow</code>/<code>deny</code>/<code>alsoAllow</code>), wenn der Kanal-Override fehlt.</li>
+<li><code>guilds.&lt;id&gt;.toolsBySender</code>: optionale Tool-Policy-Overrides pro Absender auf Guild-Ebene (gilt, wenn der Kanal-Override fehlt; Platzhalter <code>"*"</code> unterstützt).</li>
+<li><code>guilds.&lt;id&gt;.channels.&lt;channel&gt;.allow</code>: Kanal zulassen/ablehnen, wenn <code>groupPolicy="allowlist"</code>.</li>
+<li><code>guilds.&lt;id&gt;.channels.&lt;channel&gt;.requireMention</code>: Erwähnungs-Gating für den Kanal.</li>
+<li><code>guilds.&lt;id&gt;.channels.&lt;channel&gt;.tools</code>: optionale Tool-Policy-Overrides pro Kanal (<code>allow</code>/<code>deny</code>/<code>alsoAllow</code>).</li>
+<li><code>guilds.&lt;id&gt;.channels.&lt;channel&gt;.toolsBySender</code>: optionale Tool-Policy-Overrides pro Absender innerhalb des Kanals (Platzhalter <code>"*"</code> unterstützt).</li>
+<li><code>guilds.&lt;id&gt;.channels.&lt;channel&gt;.users</code>: optionale Benutzer-Allowlist pro Kanal.</li>
+<li><code>guilds.&lt;id&gt;.channels.&lt;channel&gt;.skills</code>: Skill-Filter (weglassen = alle Skills, leer = keine).</li>
+<li><code>guilds.&lt;id&gt;.channels.&lt;channel&gt;.systemPrompt</code>: zusätzlicher System-Prompt für den Kanal. Discord-Kanalthemen werden als <strong>nicht vertrauenswürdiger</strong> Kontext injiziert (nicht als System-Prompt).</li>
+<li><code>guilds.&lt;id&gt;.channels.&lt;channel&gt;.enabled</code>: setzen Sie <code>false</code>, um den Kanal zu deaktivieren.</li>
+<li><code>guilds.&lt;id&gt;.channels</code>: Kanalregeln (Schlüssel sind Kanal-Slugs oder -IDs).</li>
+<li><code>guilds.&lt;id&gt;.requireMention</code>: Erwähnungspflicht pro Guild (pro Kanal überschreibbar).</li>
+<li><code>guilds.&lt;id&gt;.reactionNotifications</code>: Reaktions-Systemereignismodus (<code>off</code>, <code>own</code>, <code>all</code>, <code>allowlist</code>).</li>
+<li><code>textChunkLimit</code>: Größe der ausgehenden Text-Chunks (Zeichen). Standard: 2000.</li>
+<li><code>chunkMode</code>: <code>length</code> (Standard) teilt nur bei Überschreitung von <code>textChunkLimit</code>; <code>newline</code> teilt an Leerzeilen (Absatzgrenzen) vor dem Längen-Splitting.</li>
+<li><code>maxLinesPerMessage</code>: weiches Maximum der Zeilenanzahl pro Nachricht. Standard: 17.</li>
+<li><code>mediaMaxMb</code>: Begrenzung eingehender Medien, die auf Datenträger gespeichert werden.</li>
+<li><code>historyLimit</code>: Anzahl der jüngsten Guild-Nachrichten, die beim Antworten auf eine Erwähnung als Kontext einbezogen werden (Standard 20; Fallback auf <code>messages.groupChat.historyLimit</code>; <code>0</code> deaktiviert).</li>
+<li><code>dmHistoryLimit</code>: DM-Verlaufslimit in Benutzerzügen. Pro-Benutzer-Overrides: <code>dms["&lt;user_id&gt;"].historyLimit</code>.</li>
+<li><code>retry</code>: Retry-Richtlinie für ausgehende Discord-API-Aufrufe (Versuche, minDelayMs, maxDelayMs, Jitter).</li>
+<li><code>pluralkit</code>: PluralKit-proxied Nachrichten auflösen, sodass Systemmitglieder als separate Absender erscheinen.</li>
+<li><code>actions</code>: Tool-Gates pro Aktion; weglassen = alles erlauben (setzen Sie <code>false</code>, um zu deaktivieren).</li>
+<li><code>reactions</code> (deckt Reaktionen + Reaktionen lesen ab)</li>
+<li><code>stickers</code>, <code>emojiUploads</code>, <code>stickerUploads</code>, <code>polls</code>, <code>permissions</code>, <code>messages</code>, <code>threads</code>, <code>pins</code>, <code>search</code></li>
+<li><code>memberInfo</code>, <code>roleInfo</code>, <code>channelInfo</code>, <code>voiceStatus</code>, <code>events</code></li>
+<li><code>channels</code> (Kanäle + Kategorien + Berechtigungen erstellen/bearbeiten/löschen)</li>
+<li><code>roles</code> (Rollen hinzufügen/entfernen, Standard <code>false</code>)</li>
+<li><code>moderation</code> (Timeout/Kick/Ban, Standard <code>false</code>)</li>
+<li><code>presence</code> (Bot-Status/Aktivität, Standard <code>false</code>)</li>
+<li><code>execApprovals</code>: Discord-spezifische Exec-Genehmigungs-DMs (Button-UI). Unterstützt <code>enabled</code>, <code>approvers</code>, <code>agentFilter</code>, <code>sessionFilter</code>.</li>
+</ul>
+<p>Reaktionsbenachrichtigungen verwenden <code>guilds.&lt;id&gt;.reactionNotifications</code>:</p>
+<ul>
+<li><code>off</code>: keine Reaktionsereignisse.</li>
+<li><code>own</code>: Reaktionen auf eigene Bot-Nachrichten (Standard).</li>
+<li><code>all</code>: alle Reaktionen auf allen Nachrichten.</li>
+<li><code>allowlist</code>: Reaktionen von <code>guilds.&lt;id&gt;.users</code> auf allen Nachrichten (leere Liste deaktiviert).</li>
+</ul>
+<h3 id="pluralkit-pk-unterstutzung">PluralKit (PK)-Unterstützung<a class="toc-anchor" href="#pluralkit-pk-unterstutzung" title="Permanent link">¶</a></h3>
+<p>Aktivieren Sie PK-Lookups, damit proxied Nachrichten dem zugrunde liegenden System + Mitglied zugeordnet werden.
+Wenn aktiviert, verwendet OpenClaw die Mitgliederidentität für Allowlists und kennzeichnet den
+Absender als <code>Member (PK:System)</code>, um unbeabsichtigte Discord-Pings zu vermeiden.</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    discord: {
+      pluralkit: {
+        enabled: true,
+        token: "pk_live_...", // optional; required for private systems
+      },
+    },
+  },
+}
+</code></pre>
+<p>Allowlist-Hinweise (PK aktiviert):</p>
+<ul>
+<li>Verwenden Sie <code>pk:&lt;memberId&gt;</code> in <code>dm.allowFrom</code>, <code>guilds.&lt;id&gt;.users</code> oder pro Kanal <code>users</code>.</li>
+<li>Anzeigenamen von Mitgliedern werden ebenfalls nach Name/Slug abgeglichen.</li>
+<li>Lookups verwenden die <strong>ursprüngliche</strong> Discord-Nachrichten-ID (die vor dem Proxy), sodass
+  die PK-API sie nur innerhalb ihres 30‑Minuten-Fensters auflöst.</li>
+<li>Wenn PK-Lookups fehlschlagen (z. B. privates System ohne Token), werden proxied Nachrichten
+  als Bot-Nachrichten behandelt und verworfen, sofern nicht <code>channels.discord.allowBots=true</code> gesetzt ist.</li>
+</ul>
+<h3 id="standardwerte-fur-tool-aktionen">Standardwerte für Tool-Aktionen<a class="toc-anchor" href="#standardwerte-fur-tool-aktionen" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aktionsgruppe</th>
+<th>Standard</th>
+<th>Hinweise</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reactions</td>
+<td>aktiviert</td>
+<td>Reagieren + Reaktionen auflisten + emojiList</td>
+</tr>
+<tr>
+<td>stickers</td>
+<td>aktiviert</td>
+<td>Sticker senden</td>
+</tr>
+<tr>
+<td>emojiUploads</td>
+<td>aktiviert</td>
+<td>Emojis hochladen</td>
+</tr>
+<tr>
+<td>stickerUploads</td>
+<td>aktiviert</td>
+<td>Sticker hochladen</td>
+</tr>
+<tr>
+<td>polls</td>
+<td>aktiviert</td>
+<td>Umfragen erstellen</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>aktiviert</td>
+<td>Kanal-Berechtigungssnapshot</td>
+</tr>
+<tr>
+<td>messages</td>
+<td>aktiviert</td>
+<td>Lesen/senden/bearbeiten/löschen</td>
+</tr>
+<tr>
+<td>threads</td>
+<td>aktiviert</td>
+<td>Erstellen/auflisten/antworten</td>
+</tr>
+<tr>
+<td>pins</td>
+<td>aktiviert</td>
+<td>Anpinnen/abpinnen/auflisten</td>
+</tr>
+<tr>
+<td>search</td>
+<td>aktiviert</td>
+<td>Nachrichtensuche (Vorschaufunktion)</td>
+</tr>
+<tr>
+<td>memberInfo</td>
+<td>aktiviert</td>
+<td>Mitgliederinformationen</td>
+</tr>
+<tr>
+<td>roleInfo</td>
+<td>aktiviert</td>
+<td>Rollenliste</td>
+</tr>
+<tr>
+<td>channelInfo</td>
+<td>aktiviert</td>
+<td>Kanalinfo + Liste</td>
+</tr>
+<tr>
+<td>channels</td>
+<td>aktiviert</td>
+<td>Kanal-/Kategorieverwaltung</td>
+</tr>
+<tr>
+<td>voiceStatus</td>
+<td>aktiviert</td>
+<td>Voice-Statusabfrage</td>
+</tr>
+<tr>
+<td>events</td>
+<td>aktiviert</td>
+<td>Geplante Events auflisten/erstellen</td>
+</tr>
+<tr>
+<td>Rollen</td>
+<td>deaktiviert</td>
+<td>Rollen hinzufügen/entfernen</td>
+</tr>
+<tr>
+<td>Moderation</td>
+<td>deaktiviert</td>
+<td>Timeout/Kick/Ban</td>
+</tr>
+<tr>
+<td>Präsenz</td>
+<td>deaktiviert</td>
+<td>Bot-Status/Aktivität (setPresence)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>replyToMode</code>: <code>off</code> (Standard), <code>first</code> oder <code>all</code>. Gilt nur, wenn das Modell ein Antwort-Tag enthält.</li>
+</ul>
+<h2 id="antwort-tags">Antwort-Tags<a class="toc-anchor" href="#antwort-tags" title="Permanent link">¶</a></h2>
+<p>Um eine Thread-Antwort anzufordern, kann das Modell ein Tag in seiner Ausgabe enthalten:</p>
+<ul>
+<li><code>[[reply_to_current]]</code> — Antwort auf die auslösende Discord-Nachricht.</li>
+<li><code>[[reply_to:&lt;id&gt;]]</code> — Antwort auf eine bestimmte Nachrichten-ID aus Kontext/Verlauf.
+  Aktuelle Nachrichten-IDs werden den Prompts als <code>[message_id: …]</code> angehängt; Verlaufseinträge enthalten bereits IDs.</li>
+</ul>
+<p>Das Verhalten wird durch <code>channels.discord.replyToMode</code> gesteuert:</p>
+<ul>
+<li><code>off</code>: Tags ignorieren.</li>
+<li><code>first</code>: Nur der erste ausgehende Chunk/Anhang ist eine Antwort.</li>
+<li><code>all</code>: Jeder ausgehende Chunk/Anhang ist eine Antwort.</li>
+</ul>
+<p>Hinweise zum Allowlist-Abgleich:</p>
+<ul>
+<li><code>allowFrom</code>/<code>users</code>/<code>groupChannels</code> akzeptieren IDs, Namen, Tags oder Erwähnungen wie <code>&lt;@id&gt;</code>.</li>
+<li>Präfixe wie <code>discord:</code>/<code>user:</code> (Benutzer) und <code>channel:</code> (Gruppen-DMs) werden unterstützt.</li>
+<li>Verwenden Sie <code>*</code>, um jeden Absender/Kanal zu erlauben.</li>
+<li>Wenn <code>guilds.&lt;id&gt;.channels</code> vorhanden ist, werden nicht aufgeführte Kanäle standardmäßig abgelehnt.</li>
+<li>Wenn <code>guilds.&lt;id&gt;.channels</code> fehlt, sind alle Kanäle in der allowlisteten Guild erlaubt.</li>
+<li>Um <strong>keine Kanäle</strong> zu erlauben, setzen Sie <code>channels.discord.groupPolicy: "disabled"</code> (oder lassen Sie die Allowlist leer).</li>
+<li>Der Konfigurationsassistent akzeptiert <code>Guild/Channel</code>-Namen (öffentlich + privat) und löst sie nach Möglichkeit zu IDs auf.</li>
+<li>Beim Start löst OpenClaw Kanal-/Benutzernamen in Allowlists zu IDs auf (wenn der Bot Mitglieder suchen kann)
+  und protokolliert die Zuordnung; nicht auflösbare Einträge bleiben unverändert.</li>
+</ul>
+<p>Hinweise zu nativen Befehlen:</p>
+<ul>
+<li>Die registrierten Befehle spiegeln OpenClaws Chat-Befehle wider.</li>
+<li>Native Befehle beachten dieselben Allowlists wie DMs/Guild-Nachrichten (<code>channels.discord.dm.allowFrom</code>, <code>channels.discord.guilds</code>, Regeln pro Kanal).</li>
+<li>Slash-Befehle können in der Discord-UI für nicht allowlistete Benutzer sichtbar sein; OpenClaw erzwingt die Allowlists bei der Ausführung und antwortet mit „not authorized“.</li>
+</ul>
+<h2 id="tool-aktionen">Tool-Aktionen<a class="toc-anchor" href="#tool-aktionen" title="Permanent link">¶</a></h2>
+<p>Der Agent kann <code>discord</code> mit Aktionen wie folgenden aufrufen:</p>
+<ul>
+<li><code>react</code> / <code>reactions</code> (Reaktionen hinzufügen oder auflisten)</li>
+<li><code>sticker</code>, <code>poll</code>, <code>permissions</code></li>
+<li><code>readMessages</code>, <code>sendMessage</code>, <code>editMessage</code>, <code>deleteMessage</code></li>
+<li>Read/Search/Pin-Tool-Payloads enthalten normalisierte <code>timestampMs</code> (UTC-Epoch-ms) und <code>timestampUtc</code> neben den rohen Discord-<code>timestamp</code>.</li>
+<li><code>threadCreate</code>, <code>threadList</code>, <code>threadReply</code></li>
+<li><code>pinMessage</code>, <code>unpinMessage</code>, <code>listPins</code></li>
+<li><code>searchMessages</code>, <code>memberInfo</code>, <code>roleInfo</code>, <code>roleAdd</code>, <code>roleRemove</code>, <code>emojiList</code></li>
+<li><code>channelInfo</code>, <code>channelList</code>, <code>voiceStatus</code>, <code>eventList</code>, <code>eventCreate</code></li>
+<li><code>timeout</code>, <code>kick</code>, <code>ban</code></li>
+<li><code>setPresence</code> (Bot-Aktivität und Online-Status)</li>
+</ul>
+<p>Discord-Nachrichten-IDs werden im injizierten Kontext (<code>[discord message id: …]</code> und Verlaufzeilen) bereitgestellt, sodass der Agent sie gezielt ansprechen kann.
+Emojis können Unicode sein (z. B. <code>✅</code>) oder benutzerdefinierte Emoji-Syntax wie <code>&lt;:party_blob:1234567890&gt;</code>.</p>
+<h2 id="sicherheit-betrieb">Sicherheit &amp; Betrieb<a class="toc-anchor" href="#sicherheit-betrieb" title="Permanent link">¶</a></h2>
+<ul>
+<li>Behandeln Sie das Bot-Token wie ein Passwort; bevorzugen Sie die Env-Var <code>DISCORD_BOT_TOKEN</code> auf überwachten Hosts oder beschränken Sie die Dateiberechtigungen der Konfigurationsdatei.</li>
+<li>Gewähren Sie dem Bot nur die Berechtigungen, die er benötigt (typischerweise Nachrichten lesen/senden).</li>
+<li>Wenn der Bot festhängt oder rate-limitiert ist, starten Sie das Gateway (<code>openclaw gateway --force</code>) neu, nachdem Sie bestätigt haben, dass keine anderen Prozesse die Discord-Sitzung besitzen.</li>
+</ul></div><div class="px-0.5 flex items-center text-sm font-semibold text-gray-700 dark:text-gray-200" id="pagination"><a class="flex items-center space-x-3 group" href="telegram.html"><svg class="h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><span class="group-hover:text-gray-900 dark:group-hover:text-white">Telegram (Bot API)</span></a><a class="flex items-center ml-auto space-x-3 group" href="irc.html"><span class="group-hover:text-gray-900 dark:group-hover:text-white">IRC</span><svg class="rotate-180 h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a></div><div class="left-0 right-0 sticky sm:px-4 pb-4 sm:pb-6 bottom-0 pt-1 flex flex-col items-center w-full overflow-hidden z-20 pointer-events-none print:hidden"><div class="chat-assistant-floating-input z-10 w-full sm:w-96 focus-within:w-full group/assistant-bar sm:focus-within:w-[30rem] hover:scale-100 sm:hover:scale-105 focus-within:hover:scale-100 [transition:width_400ms,left_200ms,transform_500ms,opacity_200ms]"><div class="translate-y-[100px] opacity-0"><div class="flex flex-col w-full rounded-2xl pointer-events-auto bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border border-gray-200 dark:border-white/30 focus-within:border-primary dark:focus-within:border-primary-light transition-colors sm:shadow-xl"><div class="relative flex items-end"><textarea aria-label="Ask a question..." autocomplete="off" class="chat-assistant-input w-full bg-transparent border-0 peer/input text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 !outline-none focus:!outline-none focus:ring-0 py-2.5 pl-3.5 pr-10 font-bodyWeight text-sm" id="chat-assistant-textarea" placeholder="Ask a question..." style="resize:none"></textarea><span class="absolute right-11 bottom-3 text-xs font-medium text-gray-400 dark:text-gray-500 select-none pointer-events-none peer-focus/input:hidden hidden sm:inline">⌘<!-- -->I</span><button aria-label="Nachricht senden" class="chat-assistant-send-button flex justify-center items-center rounded-full p-1 size-6 bg-primary/30 dark:bg-primary-dark/30 absolute right-2.5 bottom-2" disabled=""><svg class="lucide lucide-arrow-up text-white dark:text-white size-3.5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></div></div></div></div><footer class="flex gap-12 justify-between pt-10 border-t border-gray-100 sm:flex dark:border-gray-800/50 pb-28" id="footer"><div class="flex items-center justify-between"><div class="sm:flex"><a class="group flex items-baseline gap-1 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-nowrap" href="https://www.mintlify.com?utm_campaign=poweredBy&amp;utm_medium=referral&amp;utm_source=clawdhub" rel="noreferrer" target="_blank"><span>Bereitgestellt von</span><svg class="h-3.5 w-auto translate-y-[3px]" fill="none" height="367" viewbox="0 0 1274 367" width="1274" xmlns="http://www.w3.org/2000/svg"><path d="M1154.38 366.038H1097.86L1137.69 276.14L1058.04 97.1046H1114.93L1161.35 209.337C1162.97 213.26 1168.53 213.253 1170.14 209.325L1216.21 97.1046H1273.49L1154.38 366.038Z" fill="currentColor"></path><path d="M982.714 286.761V142.622H944.403V97.1041H982.714V72.4488C982.714 49.9429 989.542 32.2416 1003.2 19.345C1016.85 6.44832 1034.17 0 1055.16 0C1068.06 0 1079.06 1.39081 1088.16 4.17244V50.0693C1082.09 47.7934 1075.01 46.6555 1066.92 46.6555C1055.54 46.6555 1047.32 49.1843 1042.27 54.2418C1037.21 59.0464 1034.68 67.2648 1034.68 78.8971V97.1041H1088.16V142.622H1034.68V286.761H982.714Z" fill="currentColor"></path><path d="M897.916 66.0005C889.066 66.0005 881.353 62.8395 874.778 56.5176C868.203 49.9429 864.916 42.1037 864.916 33.0002C864.916 23.8967 868.203 16.184 874.778 9.86215C881.353 3.28738 889.066 0 897.916 0C907.273 0 915.112 3.28738 921.434 9.86215C928.008 16.184 931.296 23.8967 931.296 33.0002C931.296 42.1037 928.008 49.9429 921.434 56.5176C915.112 62.8395 907.273 66.0005 897.916 66.0005ZM872.123 286.761V97.1041H924.089V286.761H872.123Z" fill="currentColor"></path><path d="M781.638 286.761V2.27609H833.604V286.761H781.638Z" fill="currentColor"></path><path d="M722.934 289.037C701.693 289.037 684.244 283.221 670.589 271.588C657.187 259.703 650.485 242.634 650.485 220.381V142.622H612.175V97.1044H650.485V44.3799H702.451V97.1044H755.934V142.622H702.451V210.14C702.451 221.772 704.98 230.117 710.038 235.174C715.095 239.979 723.313 242.381 734.693 242.381C742.785 242.381 749.865 241.243 755.934 238.967V284.864C746.831 287.646 735.831 289.037 722.934 289.037Z" fill="currentColor"></path><path d="M417.674 286.761V97.1041H469.64V110.967C469.64 113.311 472.83 114.347 474.382 112.591C485.967 99.4848 502.467 92.9317 523.881 92.9317C546.64 92.9317 564.468 100.518 577.365 115.69C590.514 130.61 597.089 150.587 597.089 175.622V286.761H545.123V184.346C545.123 170.438 542.215 159.691 536.399 152.105C530.583 144.265 522.364 140.346 511.743 140.346C499.1 140.346 488.858 144.898 481.019 154.001C473.433 163.105 469.64 176.507 469.64 194.208V286.761H417.674Z" fill="currentColor"></path><path d="M352.981 66.0005C344.13 66.0005 336.417 62.8395 329.843 56.5176C323.268 49.9429 319.98 42.1037 319.98 33.0002C319.98 23.8967 323.268 16.184 329.843 9.86215C336.417 3.28738 344.13 0 352.981 0C362.337 0 370.176 3.28738 376.498 9.86215C383.073 16.184 386.36 23.8967 386.36 33.0002C386.36 42.1037 383.073 49.9429 376.498 56.5176C370.176 62.8395 362.337 66.0005 352.981 66.0005ZM327.187 286.761V97.1041H379.153V286.761H327.187Z" fill="currentColor"></path><path d="M238.967 286.761V185.484C238.967 155.392 229.105 140.346 209.381 140.346C198.001 140.346 188.898 144.645 182.07 153.242C175.495 161.84 171.955 174.61 171.449 191.553V286.761H119.484V185.484C119.484 155.392 109.621 140.346 89.8972 140.346C78.2649 140.346 69.035 144.898 62.2073 154.001C55.3797 163.105 51.9659 176.507 51.9659 194.208V286.761H0V97.1041H51.9659V111.103C51.9659 113.435 55.1014 114.462 56.633 112.704C68.1136 99.5223 83.3741 92.9317 102.415 92.9317C127.436 92.9317 146.283 103.262 158.953 123.923C159.953 125.553 162.412 125.527 163.406 123.894C168.884 114.891 176.496 107.731 186.243 102.415C197.369 96.0926 208.622 92.9317 220.002 92.9317C242.507 92.9317 259.956 100.392 272.347 115.311C284.738 130.231 290.933 150.714 290.933 176.76V286.761H238.967Z" fill="currentColor"></path></svg></a></div></div></footer></div></div><!--$--><!--/$--></div></div></div></div></div>
+<div class="veiseule-footer"><a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Community translations maintained by <a href="http://blog.law-kelly.com/2026/02/open-source-means-open-language.html">John Kelly</a>. Improve translations on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a>.</div>
+<script>
+(function(){
+  var btn = document.querySelector('[aria-label="Toggle dark mode"]');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var html = document.documentElement;
+    var isDark = html.classList.contains('dark');
+    if(isDark){
+      html.classList.remove('dark');
+      html.style.colorScheme = 'light';
+      try { localStorage.setItem('isDarkMode','light'); } catch(e){}
+    } else {
+      html.classList.add('dark');
+      html.style.colorScheme = 'dark';
+      try { localStorage.setItem('isDarkMode','dark'); } catch(e){}
+    }
+  });
+})();
+</script></body></html>

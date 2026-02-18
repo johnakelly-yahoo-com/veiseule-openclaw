@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html class="__variable_47c970 __variable_3bbdad" data-banner-state="visible" data-page-mode="none" lang="pl"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/bb3ef058b751a6ad-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/c4b700dcb2187787-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/e4af272ccee01ff0-s.p.woff2" rel="preload" type="font/woff2"/><link as="image" href="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26" rel="preload"/><link as="image" href="https://d3gk2c5xim1je2.cloudfront.net/flags/PL.svg" rel="preload"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/b864dec2fc058581.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/6f9b80d484ead711.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/05d6d8fcb903870d.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><meta content="" name="next-size-adjust"/><title>Bot Feishu - OpenClaw</title><meta content="OpenClaw" name="application-name"/><meta content="Mintlify" name="generator"/><meta content="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/browserconfig.xml" name="msapplication-config"/><meta content="OpenClaw" name="apple-mobile-web-app-title"/><meta content="#FF5A36" name="msapplication-TileColor"/><meta content="utf-8" name="charset"/><meta content="OpenClaw" name="og:site_name"/><meta content="https://docs.openclaw.ai/channels/feishu" name="canonical"/><link href="feishu.html" rel="canonical"/><link href="/sitemap.xml" rel="alternate" type="application/xml"/><meta content="Feishu - OpenClaw" property="og:title"/><meta content="https://docs.openclaw.ai/channels/feishu" property="og:url"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DMessaging%2Bplatforms%26title%3DFeishu%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="website" property="og:type"/><meta content="summary_large_image" name="twitter:card"/><meta content="Feishu - OpenClaw" name="twitter:title"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DMessaging%2Bplatforms%26title%3DFeishu%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" name="twitter:image"/><meta content="1200" name="twitter:image:width"/><meta content="630" name="twitter:image:height"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-16x16.png" media="(prefers-color-scheme: light)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-32x32.png" media="(prefers-color-scheme: light)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon.ico" media="(prefers-color-scheme: light)" rel="shortcut icon" type="image/x-icon"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-16x16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-32x32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon.ico" media="(prefers-color-scheme: dark)" rel="shortcut icon" type="image/x-icon"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link as="style" href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css" rel="preload"/><script type="text/javascript">(function(a,b){try{let c=document.getElementById("banner")?.innerText;if(c){for(let d=0;d<localStorage.length;d++){let e=localStorage.key(d);if(e?.endsWith(a)&&localStorage.getItem(e)===c)return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible");return}for(let c=0;c<localStorage.length;c++){let d=localStorage.key(c);if(d?.endsWith(a)&&localStorage.getItem(d))return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible")}catch(a){document.documentElement.setAttribute(b,"hidden")}})(
+  "bannerDismissed",
+  "data-banner-state",
+)</script><style id="veiseule-branding">
+.veiseule-bar{position:fixed;top:0;left:0;right:0;z-index:99999;background:#2E4A3A;color:#E0E0E0;text-align:center;padding:8px 16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;box-shadow:0 2px 4px rgba(0,0,0,0.15)}
+.veiseule-bar a{color:#A9B8A1;text-decoration:underline}
+.veiseule-bar a:hover{color:#fff}
+.veiseule-footer{background:#1A2E20;color:#E0E0E0;text-align:center;padding:16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;border-top:1px solid #2E4A3A}
+.veiseule-footer a{color:#A9B8A1;text-decoration:underline}
+.veiseule-footer a:hover{color:#fff}
+body{padding-top:36px !important}
+</style>
+<style>
+.toc-anchor { text-decoration: none; margin-left: 0.3em; opacity: 0.3; }
+.toc-anchor:hover { opacity: 1; }
+.toc-anchor { color: #999; }
+.dark .toc-anchor { color: #555; }
+</style></head><body>
+<div class="veiseule-bar">Community translations by <a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Help improve them on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a></div>
+<div hidden=""><!--$--><!--/$--></div><script>((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","isDarkMode","system",null,["dark","light","true","false","system"],{"true":"dark","false":"light","dark":"dark","light":"light"},true,true)</script><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><style>:root {
+  --font-family-headings-custom: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  --font-family-body-custom: "Fragment Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  
+  
+}</style><style>:root {
+    --primary: 255 90 54;
+    --primary-light: 255 138 107;
+    --primary-dark: 255 90 54;
+    --tooltip-foreground: 255 255 255;
+    --background-light: 255 255 255;
+    --background-dark: 14 12 13;
+    --gray-50: 250 245 244;
+    --gray-100: 245 240 239;
+    --gray-200: 230 225 224;
+    --gray-300: 213 208 207;
+    --gray-400: 166 161 160;
+    --gray-500: 119 114 113;
+    --gray-600: 87 82 81;
+    --gray-700: 70 65 64;
+    --gray-800: 45 40 38;
+    --gray-900: 30 25 24;
+    --gray-950: 17 12 11;
+  }</style><script type="text/javascript">
+          (function() {
+            function loadKatex() {
+              const link = document.querySelector('link[href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css"]');
+              if (link) link.rel = 'stylesheet';
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', loadKatex);
+            } else {
+              loadKatex();
+            }
+          })();
+        </script><div class="relative antialiased text-gray-500 dark:text-gray-400"><a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:p-2 focus:text-sm focus:bg-background-light dark:focus:bg-background-dark focus:rounded-md focus:outline-primary dark:focus:outline-primary-light" href="feishu.html#content-area">Skip to main content</a><div class="max-lg:contents lg:flex lg:w-full"><div class="max-lg:contents lg:flex-1 lg:min-w-0 lg:overflow-x-clip"><div class="z-30 fixed lg:sticky top-0 w-full peer is-not-custom peer is-not-center peer is-not-wide peer is-not-frame" id="navbar"><div class="absolute w-full h-full backdrop-blur flex-none transition-colors duration-500 border-b border-gray-500/5 dark:border-gray-300/[0.06] data-[is-opaque=true]:bg-background-light data-[is-opaque=true]:supports-backdrop-blur:bg-background-light/95 data-[is-opaque=true]:dark:bg-background-dark/75 data-[is-opaque=false]:supports-backdrop-blur:bg-background-light/60 data-[is-opaque=false]:dark:bg-transparent" data-is-opaque="false" id="navbar-transition"></div><div class="max-w-8xl mx-auto relative"><div><div class="relative"><div class="flex items-center lg:px-12 h-16 min-w-0 mx-4 lg:mx-0"><div class="h-full relative flex-1 flex items-center gap-x-4 min-w-0 border-b border-gray-500/5 dark:border-gray-300/[0.06]"><div class="flex-1 flex items-center gap-x-4"><a class="select-none" data-slot="context-menu-trigger" data-state="closed" href="../index.html" style="-webkit-touch-callout:none"><span class="sr-only">OpenClaw<!-- --> home page</span><img alt="light logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 block dark:hidden" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/><img alt="dark logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 hidden dark:block" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/></a><div class="hidden lg:flex items-center gap-x-2"><button aria-expanded="false" aria-haspopup="menu" class="group disabled:pointer-events-none [&amp;&gt;span]:line-clamp-1 overflow-hidden group group-hover:text-gray-950/70 dark:group-hover:text-white/70 py-1.5 px-2.5 rounded-xl hover:!bg-gray-600/5 dark:hover:!bg-gray-200/5 aria-[expanded=true]:bg-gray-600/5 dark:aria-[expanded=true]:bg-gray-200/5 text-sm font-medium text-gray-900 h-8 focus-visible:outline-primary dark:text-gray-300 group/trigger flex items-center gap-2 whitespace-nowrap" data-state="closed" id="localization-select-trigger" type="button"><div class="relative size-4 rounded-full shrink-0"><img alt="PL" class="w-full h-full rounded-full" src="https://d3gk2c5xim1je2.cloudfront.net/flags/PL.svg"/><div class="absolute top-0 left-0 w-full h-full border rounded-full bg-primary-light/10 border-black/10"></div></div><span class="truncate max-w-[12.5rem]">Polski</span><svg class="transition-transform text-gray-400 overflow-visible group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400 rotate-90 ml-auto group-aria-[expanded=true]/trigger:rotate-[270deg]" height="24" viewbox="0 -9 3 24" width="8"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></button></div></div><div class="relative hidden lg:flex items-center flex-1 z-20 justify-center"><button aria-label="Open search" class="flex pointer-events-auto rounded-xl w-full items-center text-sm leading-6 h-9 pl-3.5 pr-3 text-gray-500 dark:text-white/50 bg-background-light dark:bg-background-dark dark:brightness-[1.1] dark:ring-1 dark:hover:brightness-[1.25] ring-1 ring-gray-400/30 hover:ring-gray-600/30 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 justify-between truncate gap-2 min-w-[43px]" id="search-bar-entry" type="button"><div class="flex items-center gap-2 min-w-[42px]"><svg class="lucide lucide-search min-w-4 flex-none text-gray-700 hover:text-gray-800 dark:text-gray-400 hover:dark:text-gray-200" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><div class="truncate min-w-0">Search...</div></div><span class="flex-none text-xs font-semibold">⌘<!-- -->K</span></button></div><div class="flex-1 relative hidden lg:flex items-center ml-auto justify-end space-x-4"><nav class="text-sm"><ul class="flex space-x-6 items-center"><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);mask-repeat:no-repeat;mask-position:center"></svg>GitHub</a></li><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw/releases" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);mask-repeat:no-repeat;mask-position:center;mask-size:100%"></svg>Releases</a></li></ul></nav><div class="flex items-center"><button aria-label="Toggle dark mode" class="group p-2 flex items-center justify-center"><svg class="h-4 w-4 block text-gray-400 dark:hidden group-hover:text-gray-600" fill="none" height="16" stroke="currentColor" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2880_7340)"><path d="M8 1.11133V2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 3.12891L12.2427 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M14.8889 8H14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 12.8711L12.2427 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8 14.8889V14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 12.8711L3.75735 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M1.11133 8H2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 3.12891L3.75735 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8.00043 11.7782C10.0868 11.7782 11.7782 10.0868 11.7782 8.00043C11.7782 5.91402 10.0868 4.22266 8.00043 4.22266C5.91402 4.22266 4.22266 5.91402 4.22266 8.00043C4.22266 10.0868 5.91402 11.7782 8.00043 11.7782Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g><defs><clippath id="clip0_2880_7340"><rect fill="white" height="16" width="16"></rect></clippath></defs></svg><svg class="lucide lucide-moon h-4 w-4 hidden dark:block text-gray-500 dark:group-hover:text-gray-300" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button></div></div><div class="flex lg:hidden items-center gap-3"><button aria-label="Open search" class="text-gray-500 w-8 h-8 flex items-center justify-center hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300" id="search-bar-entry-mobile" type="button"><span class="sr-only">Search...</span><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);mask-repeat:no-repeat;mask-position:center"></svg></button><button aria-label="More actions" class="h-7 w-5 flex items-center justify-end"><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);mask-repeat:no-repeat;mask-position:center"></svg></button></div></div></div><button class="flex items-center h-14 py-4 px-5 lg:hidden focus:outline-0 w-full text-left" type="button"><div class="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300"><span class="sr-only">Navigation</span><svg class="h-4" fill="currentColor" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></div><div class="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0 space-x-3 overflow-hidden"><div class="flex items-center space-x-3 flex-shrink-0"><span>Messaging platforms</span><svg class="h-5 rotate-0 overflow-visible fill-gray-400" height="24" viewbox="0 -9 3 24" width="3"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></div><div class="font-semibold text-gray-900 truncate dark:text-gray-200 min-w-0 flex-1">Feishu</div></div></button></div><div class="hidden lg:flex px-12 h-12"><div class="nav-tabs h-full flex text-sm gap-x-6"><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../index.html">Get started<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../install.html">Install<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium hover:text-gray-800 dark:hover:text-gray-300 text-gray-800 dark:text-gray-200 [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor]" href="../channels.html">Channels<div class="absolute bottom-0 h-[1.5px] w-full left-0 bg-primary dark:bg-primary-light"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../concepts/architecture.html">Agents<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../tools.html">Tools<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../providers.html">Models<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../platforms.html">Platforms<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../gateway.html">Gateway &amp; Ops<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../cli.html">Reference<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../help.html">Help<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a></div></div></div></div><span hidden="" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"></span></div><div class="scroll-mt-[var(--scroll-mt)] peer-[.is-custom]:max-w-none peer-[.is-center]:max-w-3xl peer-[.is-not-custom]:peer-[.is-not-center]:max-w-8xl peer-[.is-not-custom]:px-4 peer-[.is-not-custom]:mx-auto peer-[.is-not-custom]:lg:px-8 peer-[.is-wide]:[&amp;&gt;div:last-child]:max-w-6xl peer-[.is-custom]:[&amp;&gt;div:first-child]:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:xl:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:xl:!hidden"><div class="z-20 hidden lg:block fixed bottom-0 right-auto w-[18rem]" id="sidebar" style="top:7rem"><div class="absolute inset-0 z-10 stable-scrollbar-gutter overflow-auto pr-8 pb-10" id="sidebar-content"><div class="relative lg:text-sm lg:leading-6"><div class="sticky top-0 h-8 z-10 bg-gradient-to-b from-background-light dark:from-background-dark"></div><div id="navigation-items"><div class=""><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Overview</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Chat Channels" id="/channels"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../channels.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Chat Channels</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Messaging platforms</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="WhatsApp" id="/channels/whatsapp"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="whatsapp.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">WhatsApp</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Telegram" id="/channels/telegram"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="telegram.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Telegram</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Discord" id="/channels/discord"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="discord.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Discord</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="IRC" id="/channels/irc"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="irc.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">IRC</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Slack" id="/channels/slack"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="slack.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Slack</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Feishu" id="/channels/feishu"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] bg-primary/10 text-primary [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor] dark:text-primary-light dark:bg-primary-light/10" href="feishu.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Feishu</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Google Chat" id="/channels/googlechat"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="googlechat.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Google Chat</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Mattermost" id="/channels/mattermost"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="mattermost.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Mattermost</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Signal" id="/channels/signal"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="signal.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Signal</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="iMessage" id="/channels/imessage"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="imessage.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">iMessage</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Microsoft Teams" id="/channels/msteams"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="msteams.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Microsoft Teams</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="LINE" id="/channels/line"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="line.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">LINE</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Matrix" id="/channels/matrix"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="matrix.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Matrix</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Zalo" id="/channels/zalo"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="zalo.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Zalo</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Zalo Personal" id="/channels/zalouser"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="zalouser.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Zalo Personal</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Configuration</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Pairing" id="/channels/pairing"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="pairing.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Pairing</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Group Messages" id="/channels/group-messages"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="group-messages.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Group Messages</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Groups" id="/channels/groups"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="groups.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Groups</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Broadcast Groups" id="/channels/broadcast-groups"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="broadcast-groups.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Broadcast Groups</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Channel Routing" id="/channels/channel-routing"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channel-routing.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Channel Routing</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Channel Location Parsing" id="/channels/location"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="location.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Channel Location Parsing</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Channel Troubleshooting" id="/channels/troubleshooting"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="troubleshooting.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Channel Troubleshooting</div></div></a></li></ul></div></div></div></div></div><div id="content-container"><span class="fixed inset-0 bg-background-light dark:bg-background-dark -z-10 pointer-events-none" id="almond-background-color"></span><style data-custom-css-index="0" data-custom-css-path="style.css">#content > h1:first-of-type {
+  display: none !important;
+}
+</style><div class="flex flex-row-reverse gap-12 box-border w-full pt-40 lg:pt-10"><div class="hidden xl:flex self-start sticky xl:flex-col max-w-[28rem] z-[21] h-[calc(100vh-9.5rem)] top-[calc(9.5rem-var(--sidenav-move-up,0px))]" id="content-side-layout"><div class="z-10 hidden xl:flex box-border max-h-full pl-10 w-[19rem]" id="table-of-contents-layout"><div class="text-gray-600 text-sm leading-6 w-[16.5rem] overflow-y-auto space-y-2 pb-4 -mt-10 pt-10" id="table-of-contents"><button class="text-gray-700 dark:text-gray-300 font-medium flex items-center space-x-2 hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer"><svg class="h-3 w-3" fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.44434 12.6665H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 3.3335H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 8H7.33323" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>On this page</span></button><ul class="toc" id="table-of-contents-content"><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#bot-feishu">Bot Feishu</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#wymagana-wtyczka">Wymagana wtyczka</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#szybki-start">Szybki start</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#metoda-1-kreator-onboardingu-zalecane">Metoda 1: kreator onboardingu (zalecane)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#metoda-2-konfiguracja-przez-cli">Metoda 2: konfiguracja przez CLI</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#krok-1-utworz-aplikacje-feishu">Krok 1: Utwórz aplikację Feishu</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#1-otworz-feishu-open-platform">1. Otwórz Feishu Open Platform</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#2-utworz-aplikacje">2. Utwórz aplikację</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#3-skopiuj-poswiadczenia">3. Skopiuj poświadczenia</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#4-skonfiguruj-uprawnienia">4. Skonfiguruj uprawnienia</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#5-wacz-mozliwosci-bota">5. Włącz możliwości bota</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#6-skonfiguruj-subskrypcje-zdarzen">6. Skonfiguruj subskrypcję zdarzeń</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#7-opublikuj-aplikacje">7. Opublikuj aplikację</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#krok-2-skonfiguruj-openclaw">Krok 2: Skonfiguruj OpenClaw</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#konfiguracja-za-pomoca-kreatora-zalecane">Konfiguracja za pomocą kreatora (zalecane)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#konfiguracja-przez-plik-konfiguracyjny">Konfiguracja przez plik konfiguracyjny</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#konfiguracja-przez-zmienne-srodowiskowe">Konfiguracja przez zmienne środowiskowe</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#domena-lark-globalna">Domena Lark (globalna)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#krok-3-uruchomienie-i-test">Krok 3: Uruchomienie i test</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#1-uruchom-gateway">1. Uruchom gateway</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#2-wyslij-wiadomosc-testowa">2. Wyślij wiadomość testową</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#3-zatwierdz-parowanie">3. Zatwierdź parowanie</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#przeglad">Przegląd</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#kontrola-dostepu">Kontrola dostępu</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#wiadomosci-bezposrednie">Wiadomości bezpośrednie</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#czaty-grupowe">Czaty grupowe</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#przykady-konfiguracji-grup">Przykłady konfiguracji grup</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#zezwol-na-wszystkie-grupy-wymagaj-wzmianki-domyslnie">Zezwól na wszystkie grupy, wymagaj @wzmianki (domyślnie)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#zezwol-na-wszystkie-grupy-bez-wymogu-wzmianki">Zezwól na wszystkie grupy, bez wymogu @wzmianki</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#zezwol-tylko-okreslonym-uzytkownikom-w-grupach">Zezwól tylko określonym użytkownikom w grupach</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#uzyskiwanie-identyfikatorow-grupuzytkownikow">Uzyskiwanie identyfikatorów grup/użytkowników</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#id-grup-chat_id">ID grup (chat_id)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#id-uzytkownikow-open_id">ID użytkowników (open_id)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#typowe-polecenia">Typowe polecenia</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#polecenia-zarzadzania-gateway">Polecenia zarządzania gateway</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#rozwiazywanie-problemow">Rozwiązywanie problemów</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#bot-nie-odpowiada-w-czatach-grupowych">Bot nie odpowiada w czatach grupowych</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#bot-nie-odbiera-wiadomosci">Bot nie odbiera wiadomości</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#wyciek-app-secret">Wyciek App Secret</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#bedy-wysyania-wiadomosci">Błędy wysyłania wiadomości</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#konfiguracja-zaawansowana">Konfiguracja zaawansowana</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#wiele-kont">Wiele kont</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#limity-wiadomosci">Limity wiadomości</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#strumieniowanie">Strumieniowanie</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#routowanie-wieloagentowe">Routowanie wieloagentowe</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#referencja-konfiguracji">Referencja konfiguracji</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#referencja-dmpolicy">Referencja dmPolicy</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#obsugiwane-typy-wiadomosci">Obsługiwane typy wiadomości</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#odbior">Odbiór</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/feishu.html#wysyanie">Wysyłanie</a></li></ul></div></div></div><div class="relative grow box-border flex-col w-full mx-auto px-1 lg:pl-[23.7rem] lg:-ml-12 xl:w-[calc(100%-28rem)]" id="content-area"><header class="relative leading-none" id="header"><div class="mt-0.5 space-y-2.5"><div class="eyebrow h-5 text-primary dark:text-primary-light text-sm font-semibold">Messaging platforms</div><div class="flex flex-col sm:flex-row items-start sm:items-center relative gap-2 min-w-0"><h1 class="text-2xl sm:text-3xl text-gray-900 tracking-tight dark:text-gray-200 [overflow-wrap:anywhere] font-bold break-all" id="page-title">Feishu</h1></div></div></header><div class="mdx-content relative mt-8 mb-14 prose prose-gray dark:prose-invert [contain:inline-size] isolate" data-page-href="/channels/feishu" data-page-title="Feishu" id="content"><h1 id="bot-feishu">Bot Feishu<a class="toc-anchor" href="#bot-feishu" title="Permanent link">¶</a></h1>
+<p>Feishu (Lark) to zespołowa platforma czatu używana przez firmy do komunikacji i współpracy. Ta wtyczka łączy OpenClaw z botem Feishu/Lark, wykorzystując subskrypcję zdarzeń WebSocket platformy, dzięki czemu wiadomości mogą być odbierane bez wystawiania publicznego adresu URL webhooka.</p>
+<hr/>
+<h2 id="wymagana-wtyczka">Wymagana wtyczka<a class="toc-anchor" href="#wymagana-wtyczka" title="Permanent link">¶</a></h2>
+<p>Zainstaluj wtyczkę Feishu:</p>
+<pre class="highlight"><code class="language-bash">openclaw plugins install @openclaw/feishu
+</code></pre>
+<p>Lokalne repozytorium (gdy uruchamiasz z repozytorium git):</p>
+<pre class="highlight"><code class="language-bash">openclaw plugins install ./extensions/feishu
+</code></pre>
+<hr/>
+<h2 id="szybki-start">Szybki start<a class="toc-anchor" href="#szybki-start" title="Permanent link">¶</a></h2>
+<p>Istnieją dwa sposoby dodania kanału Feishu:</p>
+<h3 id="metoda-1-kreator-onboardingu-zalecane">Metoda 1: kreator onboardingu (zalecane)<a class="toc-anchor" href="#metoda-1-kreator-onboardingu-zalecane" title="Permanent link">¶</a></h3>
+<p>Jeśli właśnie zainstalowałeś OpenClaw, uruchom kreator:</p>
+<pre class="highlight"><code class="language-bash">openclaw onboard
+</code></pre>
+<p>Kreator przewodniczy Ci przez:</p>
+<ol>
+<li>Utworzenie aplikacji Feishu i zebranie poświadczeń</li>
+<li>Skonfigurowanie poświadczeń aplikacji w OpenClaw</li>
+<li>Uruchomienie gateway</li>
+</ol>
+<p>✅ <strong>Po konfiguracji</strong> sprawdź status gateway:</p>
+<ul>
+<li><code>openclaw gateway status</code></li>
+<li><code>openclaw logs --follow</code></li>
+</ul>
+<h3 id="metoda-2-konfiguracja-przez-cli">Metoda 2: konfiguracja przez CLI<a class="toc-anchor" href="#metoda-2-konfiguracja-przez-cli" title="Permanent link">¶</a></h3>
+<p>Jeśli masz już ukończoną instalację początkową, dodaj kanał przez CLI:</p>
+<pre class="highlight"><code class="language-bash">openclaw channels add
+</code></pre>
+<p>Wybierz <strong>Feishu</strong>, a następnie wprowadź App ID i App Secret.</p>
+<p>✅ <strong>Po konfiguracji</strong> zarządzaj gateway:</p>
+<ul>
+<li><code>openclaw gateway status</code></li>
+<li><code>openclaw gateway restart</code></li>
+<li><code>openclaw logs --follow</code></li>
+</ul>
+<hr/>
+<h2 id="krok-1-utworz-aplikacje-feishu">Krok 1: Utwórz aplikację Feishu<a class="toc-anchor" href="#krok-1-utworz-aplikacje-feishu" title="Permanent link">¶</a></h2>
+<h3 id="1-otworz-feishu-open-platform">1. Otwórz Feishu Open Platform<a class="toc-anchor" href="#1-otworz-feishu-open-platform" title="Permanent link">¶</a></h3>
+<p>Odwiedź <a href="https://open.feishu.cn/app">Feishu Open Platform</a> i zaloguj się.</p>
+<p>Tenanci Lark (globalni) powinni użyć <a href="https://open.larksuite.com/app">https://open.larksuite.com/app</a> i ustawić <code>domain: "lark"</code> w konfiguracji Feishu.</p>
+<h3 id="2-utworz-aplikacje">2. Utwórz aplikację<a class="toc-anchor" href="#2-utworz-aplikacje" title="Permanent link">¶</a></h3>
+<ol>
+<li>Kliknij <strong>Create enterprise app</strong></li>
+<li>Uzupełnij nazwę aplikacji i opis</li>
+<li>Wybierz ikonę aplikacji</li>
+</ol>
+<p><img alt="Create enterprise app" src="https://docs.openclaw.ai/../images/feishu-step2-create-app.png"/></p>
+<h3 id="3-skopiuj-poswiadczenia">3. Skopiuj poświadczenia<a class="toc-anchor" href="#3-skopiuj-poswiadczenia" title="Permanent link">¶</a></h3>
+<p>W sekcji <strong>Credentials &amp; Basic Info</strong> skopiuj:</p>
+<ul>
+<li><strong>Identyfikator aplikacji</strong> (format: <code>cli_xxx</code>)</li>
+<li><strong>Sekret aplikacji</strong></li>
+</ul>
+<p>❗ <strong>Ważne:</strong> zachowaj App Secret w tajemnicy.</p>
+<p><img alt="Get credentials" src="https://docs.openclaw.ai/../images/feishu-step3-credentials.png"/></p>
+<h3 id="4-skonfiguruj-uprawnienia">4. Skonfiguruj uprawnienia<a class="toc-anchor" href="#4-skonfiguruj-uprawnienia" title="Permanent link">¶</a></h3>
+<p>W <strong>Permissions</strong> kliknij <strong>Batch import</strong> i wklej:</p>
+<pre class="highlight"><code class="language-json">{
+  "scopes": {
+    "tenant": [
+      "aily:file:read",
+      "aily:file:write",
+      "application:application.app_message_stats.overview:readonly",
+      "application:application:self_manage",
+      "application:bot.menu:write",
+      "contact:user.employee_id:readonly",
+      "corehr:file:download",
+      "event:ip_list",
+      "im:chat.access_event.bot_p2p_chat:read",
+      "im:chat.members:bot_access",
+      "im:message",
+      "im:message.group_at_msg:readonly",
+      "im:message.p2p_msg:readonly",
+      "im:message:readonly",
+      "im:message:send_as_bot",
+      "im:resource"
+    ],
+    "user": ["aily:file:read", "aily:file:write", "im:chat.access_event.bot_p2p_chat:read"]
+  }
+}
+</code></pre>
+<p><img alt="Configure permissions" src="https://docs.openclaw.ai/../images/feishu-step4-permissions.png"/></p>
+<h3 id="5-wacz-mozliwosci-bota">5. Włącz możliwości bota<a class="toc-anchor" href="#5-wacz-mozliwosci-bota" title="Permanent link">¶</a></h3>
+<p>W <strong>App Capability</strong> &gt; <strong>Bot</strong>:</p>
+<ol>
+<li>Włącz obsługę bota</li>
+<li>Ustaw nazwę bota</li>
+</ol>
+<p><img alt="Enable bot capability" src="https://docs.openclaw.ai/../images/feishu-step5-bot-capability.png"/></p>
+<h3 id="6-skonfiguruj-subskrypcje-zdarzen">6. Skonfiguruj subskrypcję zdarzeń<a class="toc-anchor" href="#6-skonfiguruj-subskrypcje-zdarzen" title="Permanent link">¶</a></h3>
+<p>⚠️ <strong>Ważne:</strong> przed skonfigurowaniem subskrypcji zdarzeń upewnij się, że:</p>
+<ol>
+<li>Wykonałeś już <code>openclaw channels add</code> dla Feishu</li>
+<li>Gateway jest uruchomiony (<code>openclaw gateway status</code>)</li>
+</ol>
+<p>W <strong>Event Subscription</strong>:</p>
+<ol>
+<li>Wybierz <strong>Use long connection to receive events</strong> (WebSocket)</li>
+<li>Dodaj zdarzenie: <code>im.message.receive_v1</code></li>
+</ol>
+<p>⚠️ Jeśli gateway nie jest uruchomiony, konfiguracja długiego połączenia może nie zapisać się poprawnie.</p>
+<p><img alt="Configure event subscription" src="https://docs.openclaw.ai/../images/feishu-step6-event-subscription.png"/></p>
+<h3 id="7-opublikuj-aplikacje">7. Opublikuj aplikację<a class="toc-anchor" href="#7-opublikuj-aplikacje" title="Permanent link">¶</a></h3>
+<ol>
+<li>Utwórz wersję w <strong>Version Management &amp; Release</strong></li>
+<li>Wyślij do przeglądu i opublikuj</li>
+<li>Poczekaj na zatwierdzenie przez administratora (aplikacje enterprise zwykle są zatwierdzane automatycznie)</li>
+</ol>
+<hr/>
+<h2 id="krok-2-skonfiguruj-openclaw">Krok 2: Skonfiguruj OpenClaw<a class="toc-anchor" href="#krok-2-skonfiguruj-openclaw" title="Permanent link">¶</a></h2>
+<h3 id="konfiguracja-za-pomoca-kreatora-zalecane">Konfiguracja za pomocą kreatora (zalecane)<a class="toc-anchor" href="#konfiguracja-za-pomoca-kreatora-zalecane" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-bash">openclaw channels add
+</code></pre>
+<p>Wybierz <strong>Feishu</strong> i wklej App ID oraz App Secret.</p>
+<h3 id="konfiguracja-przez-plik-konfiguracyjny">Konfiguracja przez plik konfiguracyjny<a class="toc-anchor" href="#konfiguracja-przez-plik-konfiguracyjny" title="Permanent link">¶</a></h3>
+<p>Edytuj <code>~/.openclaw/openclaw.json</code>:</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    feishu: {
+      enabled: true,
+      dmPolicy: "pairing",
+      accounts: {
+        main: {
+          appId: "cli_xxx",
+          appSecret: "xxx",
+          botName: "My AI assistant",
+        },
+      },
+    },
+  },
+}
+</code></pre>
+<h3 id="konfiguracja-przez-zmienne-srodowiskowe">Konfiguracja przez zmienne środowiskowe<a class="toc-anchor" href="#konfiguracja-przez-zmienne-srodowiskowe" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-bash">export FEISHU_APP_ID="cli_xxx"
+export FEISHU_APP_SECRET="xxx"
+</code></pre>
+<h3 id="domena-lark-globalna">Domena Lark (globalna)<a class="toc-anchor" href="#domena-lark-globalna" title="Permanent link">¶</a></h3>
+<p>Jeśli Twój tenant korzysta z Lark (międzynarodowego), ustaw domenę na <code>lark</code> (lub pełny ciąg domeny). Możesz ustawić ją w <code>channels.feishu.domain</code> lub per konto (<code>channels.feishu.accounts.&lt;id&gt;.domain</code>).</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    feishu: {
+      domain: "lark",
+      accounts: {
+        main: {
+          appId: "cli_xxx",
+          appSecret: "xxx",
+        },
+      },
+    },
+  },
+}
+</code></pre>
+<hr/>
+<h2 id="krok-3-uruchomienie-i-test">Krok 3: Uruchomienie i test<a class="toc-anchor" href="#krok-3-uruchomienie-i-test" title="Permanent link">¶</a></h2>
+<h3 id="1-uruchom-gateway">1. Uruchom gateway<a class="toc-anchor" href="#1-uruchom-gateway" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-bash">openclaw gateway
+</code></pre>
+<h3 id="2-wyslij-wiadomosc-testowa">2. Wyślij wiadomość testową<a class="toc-anchor" href="#2-wyslij-wiadomosc-testowa" title="Permanent link">¶</a></h3>
+<p>W Feishu znajdź swojego bota i wyślij wiadomość.</p>
+<h3 id="3-zatwierdz-parowanie">3. Zatwierdź parowanie<a class="toc-anchor" href="#3-zatwierdz-parowanie" title="Permanent link">¶</a></h3>
+<p>Domyślnie bot odpowiada kodem parowania. Zatwierdź go:</p>
+<pre class="highlight"><code class="language-bash">openclaw pairing approve feishu &lt;CODE&gt;
+</code></pre>
+<p>Po zatwierdzeniu możesz normalnie prowadzić rozmowę.</p>
+<hr/>
+<h2 id="przeglad">Przegląd<a class="toc-anchor" href="#przeglad" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Kanał bota Feishu</strong>: bot Feishu zarządzany przez gateway</li>
+<li><strong>Deterministyczne routowanie</strong>: odpowiedzi zawsze wracają do Feishu</li>
+<li><strong>Izolacja sesji</strong>: DM-y współdzielą główną sesję; grupy są izolowane</li>
+<li><strong>Połączenie WebSocket</strong>: długie połączenie przez SDK Feishu, bez potrzeby publicznego URL-a</li>
+</ul>
+<hr/>
+<h2 id="kontrola-dostepu">Kontrola dostępu<a class="toc-anchor" href="#kontrola-dostepu" title="Permanent link">¶</a></h2>
+<h3 id="wiadomosci-bezposrednie">Wiadomości bezpośrednie<a class="toc-anchor" href="#wiadomosci-bezposrednie" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p><strong>Domyślnie</strong>: <code>dmPolicy: "pairing"</code> (nieznani użytkownicy otrzymują kod parowania)</p>
+</li>
+<li>
+<p><strong>Zatwierdzanie parowania</strong>:</p>
+</li>
+</ul>
+<p><code>bash
+  openclaw pairing list feishu
+  openclaw pairing approve feishu &lt;CODE&gt;</code></p>
+<ul>
+<li><strong>Tryb listy dozwolonych</strong>: ustaw <code>channels.feishu.allowFrom</code> z dozwolonymi Open ID</li>
+</ul>
+<h3 id="czaty-grupowe">Czaty grupowe<a class="toc-anchor" href="#czaty-grupowe" title="Permanent link">¶</a></h3>
+<p><strong>1. Polityka grup</strong> (<code>channels.feishu.groupPolicy</code>):</p>
+<ul>
+<li><code>"open"</code> = zezwól wszystkim w grupach (domyślnie)</li>
+<li><code>"allowlist"</code> = zezwól tylko <code>groupAllowFrom</code></li>
+<li><code>"disabled"</code> = wyłącz wiadomości grupowe</li>
+</ul>
+<p><strong>2. Wymóg wzmianki</strong> (<code>channels.feishu.groups.&lt;chat_id&gt;.requireMention</code>):</p>
+<ul>
+<li><code>true</code> = wymagaj @wzmianki (domyślnie)</li>
+<li><code>false</code> = odpowiadaj bez wzmianek</li>
+</ul>
+<hr/>
+<h2 id="przykady-konfiguracji-grup">Przykłady konfiguracji grup<a class="toc-anchor" href="#przykady-konfiguracji-grup" title="Permanent link">¶</a></h2>
+<h3 id="zezwol-na-wszystkie-grupy-wymagaj-wzmianki-domyslnie">Zezwól na wszystkie grupy, wymagaj @wzmianki (domyślnie)<a class="toc-anchor" href="#zezwol-na-wszystkie-grupy-wymagaj-wzmianki-domyslnie" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    feishu: {
+      groupPolicy: "open",
+      // Default requireMention: true
+    },
+  },
+}
+</code></pre>
+<h3 id="zezwol-na-wszystkie-grupy-bez-wymogu-wzmianki">Zezwól na wszystkie grupy, bez wymogu @wzmianki<a class="toc-anchor" href="#zezwol-na-wszystkie-grupy-bez-wymogu-wzmianki" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    feishu: {
+      groups: {
+        oc_xxx: { requireMention: false },
+      },
+    },
+  },
+}
+</code></pre>
+<h3 id="zezwol-tylko-okreslonym-uzytkownikom-w-grupach">Zezwól tylko określonym użytkownikom w grupach<a class="toc-anchor" href="#zezwol-tylko-okreslonym-uzytkownikom-w-grupach" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    feishu: {
+      groupPolicy: "allowlist",
+      groupAllowFrom: ["ou_xxx", "ou_yyy"],
+    },
+  },
+}
+</code></pre>
+<hr/>
+<h2 id="uzyskiwanie-identyfikatorow-grupuzytkownikow">Uzyskiwanie identyfikatorów grup/użytkowników<a class="toc-anchor" href="#uzyskiwanie-identyfikatorow-grupuzytkownikow" title="Permanent link">¶</a></h2>
+<h3 id="id-grup-chat_id">ID grup (chat_id)<a class="toc-anchor" href="#id-grup-chat_id" title="Permanent link">¶</a></h3>
+<p>Identyfikatory grup wyglądają jak <code>oc_xxx</code>.</p>
+<p><strong>Metoda 1 (zalecana)</strong></p>
+<ol>
+<li>Uruchom gateway i @wzmiankuj bota w grupie</li>
+<li>Uruchom <code>openclaw logs --follow</code> i znajdź <code>chat_id</code></li>
+</ol>
+<p><strong>Metoda 2</strong></p>
+<p>Użyj debuggera API Feishu do wylistowania czatów grupowych.</p>
+<h3 id="id-uzytkownikow-open_id">ID użytkowników (open_id)<a class="toc-anchor" href="#id-uzytkownikow-open_id" title="Permanent link">¶</a></h3>
+<p>Identyfikatory użytkowników wyglądają jak <code>ou_xxx</code>.</p>
+<p><strong>Metoda 1 (zalecana)</strong></p>
+<ol>
+<li>Uruchom gateway i wyślij botowi DM</li>
+<li>Uruchom <code>openclaw logs --follow</code> i znajdź <code>open_id</code></li>
+</ol>
+<p><strong>Metoda 2</strong></p>
+<p>Sprawdź żądania parowania pod kątem Open ID użytkowników:</p>
+<pre class="highlight"><code class="language-bash">openclaw pairing list feishu
+</code></pre>
+<hr/>
+<h2 id="typowe-polecenia">Typowe polecenia<a class="toc-anchor" href="#typowe-polecenia" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Polecenie</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/status</code></td>
+<td>Pokaż status bota</td>
+</tr>
+<tr>
+<td><code>/reset</code></td>
+<td>Zresetuj sesję</td>
+</tr>
+<tr>
+<td><code>/model</code></td>
+<td>Pokaż/przełącz model</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Uwaga: Feishu nie obsługuje jeszcze natywnych menu poleceń, dlatego polecenia muszą być wysyłane jako tekst.</p>
+</blockquote>
+<h2 id="polecenia-zarzadzania-gateway">Polecenia zarządzania gateway<a class="toc-anchor" href="#polecenia-zarzadzania-gateway" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Polecenie</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>openclaw gateway status</code></td>
+<td>Pokaż status gateway</td>
+</tr>
+<tr>
+<td><code>openclaw gateway install</code></td>
+<td>Zainstaluj/uruchom usługę gateway</td>
+</tr>
+<tr>
+<td><code>openclaw gateway stop</code></td>
+<td>Zatrzymaj usługę gateway</td>
+</tr>
+<tr>
+<td><code>openclaw gateway restart</code></td>
+<td>Zrestartuj usługę gateway</td>
+</tr>
+<tr>
+<td><code>openclaw logs --follow</code></td>
+<td>Śledź logi gateway</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="rozwiazywanie-problemow">Rozwiązywanie problemów<a class="toc-anchor" href="#rozwiazywanie-problemow" title="Permanent link">¶</a></h2>
+<h3 id="bot-nie-odpowiada-w-czatach-grupowych">Bot nie odpowiada w czatach grupowych<a class="toc-anchor" href="#bot-nie-odpowiada-w-czatach-grupowych" title="Permanent link">¶</a></h3>
+<ol>
+<li>Upewnij się, że bot został dodany do grupy</li>
+<li>Upewnij się, że @wzmiankujesz bota (zachowanie domyślne)</li>
+<li>Sprawdź, czy <code>groupPolicy</code> nie jest ustawione na <code>"disabled"</code></li>
+<li>Sprawdź logi: <code>openclaw logs --follow</code></li>
+</ol>
+<h3 id="bot-nie-odbiera-wiadomosci">Bot nie odbiera wiadomości<a class="toc-anchor" href="#bot-nie-odbiera-wiadomosci" title="Permanent link">¶</a></h3>
+<ol>
+<li>Upewnij się, że aplikacja jest opublikowana i zatwierdzona</li>
+<li>Upewnij się, że subskrypcja zdarzeń obejmuje <code>im.message.receive_v1</code></li>
+<li>Upewnij się, że włączone jest <strong>długie połączenie</strong></li>
+<li>Upewnij się, że uprawnienia aplikacji są kompletne</li>
+<li>Upewnij się, że gateway jest uruchomiony: <code>openclaw gateway status</code></li>
+<li>Sprawdź logi: <code>openclaw logs --follow</code></li>
+</ol>
+<h3 id="wyciek-app-secret">Wyciek App Secret<a class="toc-anchor" href="#wyciek-app-secret" title="Permanent link">¶</a></h3>
+<ol>
+<li>Zresetuj App Secret w Feishu Open Platform</li>
+<li>Zaktualizuj App Secret w konfiguracji</li>
+<li>Zrestartuj gateway</li>
+</ol>
+<h3 id="bedy-wysyania-wiadomosci">Błędy wysyłania wiadomości<a class="toc-anchor" href="#bedy-wysyania-wiadomosci" title="Permanent link">¶</a></h3>
+<ol>
+<li>Upewnij się, że aplikacja ma uprawnienie <code>im:message:send_as_bot</code></li>
+<li>Upewnij się, że aplikacja jest opublikowana</li>
+<li>Sprawdź logi w poszukiwaniu szczegółowych błędów</li>
+</ol>
+<hr/>
+<h2 id="konfiguracja-zaawansowana">Konfiguracja zaawansowana<a class="toc-anchor" href="#konfiguracja-zaawansowana" title="Permanent link">¶</a></h2>
+<h3 id="wiele-kont">Wiele kont<a class="toc-anchor" href="#wiele-kont" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    feishu: {
+      accounts: {
+        main: {
+          appId: "cli_xxx",
+          appSecret: "xxx",
+          botName: "Primary bot",
+        },
+        backup: {
+          appId: "cli_yyy",
+          appSecret: "yyy",
+          botName: "Backup bot",
+          enabled: false,
+        },
+      },
+    },
+  },
+}
+</code></pre>
+<h3 id="limity-wiadomosci">Limity wiadomości<a class="toc-anchor" href="#limity-wiadomosci" title="Permanent link">¶</a></h3>
+<ul>
+<li><code>textChunkLimit</code>: rozmiar fragmentu tekstu wychodzącego (domyślnie: 2000 znaków)</li>
+<li><code>mediaMaxMb</code>: limit wysyłania/pobierania mediów (domyślnie: 30 MB)</li>
+</ul>
+<h3 id="strumieniowanie">Strumieniowanie<a class="toc-anchor" href="#strumieniowanie" title="Permanent link">¶</a></h3>
+<p>Feishu obsługuje strumieniowe odpowiedzi za pomocą kart interaktywnych. Po włączeniu bot aktualizuje kartę w miarę generowania tekstu.</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    feishu: {
+      streaming: true, // enable streaming card output (default true)
+      blockStreaming: true, // enable block-level streaming (default true)
+    },
+  },
+}
+</code></pre>
+<p>Ustaw <code>streaming: false</code>, aby czekać na pełną odpowiedź przed wysłaniem.</p>
+<h3 id="routowanie-wieloagentowe">Routowanie wieloagentowe<a class="toc-anchor" href="#routowanie-wieloagentowe" title="Permanent link">¶</a></h3>
+<p>Użyj <code>bindings</code> do kierowania DM-ów lub grup Feishu do różnych agentów.</p>
+<pre class="highlight"><code class="language-json5">{
+  agents: {
+    list: [
+      { id: "main" },
+      {
+        id: "clawd-fan",
+        workspace: "/home/user/clawd-fan",
+        agentDir: "/home/user/.openclaw/agents/clawd-fan/agent",
+      },
+      {
+        id: "clawd-xi",
+        workspace: "/home/user/clawd-xi",
+        agentDir: "/home/user/.openclaw/agents/clawd-xi/agent",
+      },
+    ],
+  },
+  bindings: [
+    {
+      agentId: "main",
+      match: {
+        channel: "feishu",
+        peer: { kind: "direct", id: "ou_xxx" },
+      },
+    },
+    {
+      agentId: "clawd-fan",
+      match: {
+        channel: "feishu",
+        peer: { kind: "direct", id: "ou_yyy" },
+      },
+    },
+    {
+      agentId: "clawd-xi",
+      match: {
+        channel: "feishu",
+        peer: { kind: "group", id: "oc_zzz" },
+      },
+    },
+  ],
+}
+</code></pre>
+<p>Pola routowania:</p>
+<ul>
+<li><code>match.channel</code>: <code>"feishu"</code></li>
+<li><code>match.peer.kind</code>: <code>"direct"</code> or <code>"group"</code></li>
+<li><code>match.peer.id</code>: Open ID użytkownika (<code>ou_xxx</code>) lub ID grupy (<code>oc_xxx</code>)</li>
+</ul>
+<p>Zobacz <a href="#get-groupuser-ids">Uzyskiwanie identyfikatorów grup/użytkowników</a>, aby uzyskać wskazówki.</p>
+<hr/>
+<h2 id="referencja-konfiguracji">Referencja konfiguracji<a class="toc-anchor" href="#referencja-konfiguracji" title="Permanent link">¶</a></h2>
+<p>Pełna konfiguracja: <a href="/gateway/configuration">Konfiguracja Gateway</a></p>
+<p>Kluczowe opcje:</p>
+<table>
+<thead>
+<tr>
+<th>Ustawienie</th>
+<th>Opis</th>
+<th>Domyślne</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>channels.feishu.enabled</code></td>
+<td>Włącz/wyłącz kanał</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>channels.feishu.domain</code></td>
+<td>Domena API (<code>feishu</code> lub <code>lark</code>)</td>
+<td><code>feishu</code></td>
+</tr>
+<tr>
+<td><code>channels.feishu.accounts.&lt;id&gt;.appId</code></td>
+<td>App ID</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>channels.feishu.accounts.&lt;id&gt;.appSecret</code></td>
+<td>App Secret</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>channels.feishu.accounts.&lt;id&gt;.domain</code></td>
+<td>Nadpisanie domeny API per konto</td>
+<td><code>feishu</code></td>
+</tr>
+<tr>
+<td><code>channels.feishu.dmPolicy</code></td>
+<td>Polityka DM</td>
+<td><code>pairing</code></td>
+</tr>
+<tr>
+<td><code>channels.feishu.allowFrom</code></td>
+<td>Lista dozwolonych DM (lista open_id)</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>channels.feishu.groupPolicy</code></td>
+<td>Polityka grup</td>
+<td><code>open</code></td>
+</tr>
+<tr>
+<td><code>channels.feishu.groupAllowFrom</code></td>
+<td>Lista dozwolonych grup</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>channels.feishu.groups.&lt;chat_id&gt;.requireMention</code></td>
+<td>Wymagaj @wzmianki</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>channels.feishu.groups.&lt;chat_id&gt;.enabled</code></td>
+<td>Włącz grupy</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>channels.feishu.textChunkLimit</code></td>
+<td>Rozmiar fragmentu wiadomości</td>
+<td><code>2000</code></td>
+</tr>
+<tr>
+<td><code>channels.feishu.mediaMaxMb</code></td>
+<td>Limit rozmiaru mediów</td>
+<td><code>30</code></td>
+</tr>
+<tr>
+<td><code>channels.feishu.streaming</code></td>
+<td>Włącz strumieniowe wyjście kart</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>channels.feishu.blockStreaming</code></td>
+<td>Włącz strumieniowanie blokowe</td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="referencja-dmpolicy">Referencja dmPolicy<a class="toc-anchor" href="#referencja-dmpolicy" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Wartość</th>
+<th>Zachowanie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"pairing"</code></td>
+<td><strong>Domyślne.</strong> Nieznani użytkownicy otrzymują kod parowania; muszą zostać zatwierdzeni</td>
+</tr>
+<tr>
+<td><code>"allowlist"</code></td>
+<td>Tylko użytkownicy z <code>allowFrom</code> mogą prowadzić rozmowę</td>
+</tr>
+<tr>
+<td><code>"open"</code></td>
+<td>Zezwól wszystkim użytkownikom (wymaga <code>"*"</code> w allowFrom)</td>
+</tr>
+<tr>
+<td><code>"disabled"</code></td>
+<td>Wyłącz DM-y</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="obsugiwane-typy-wiadomosci">Obsługiwane typy wiadomości<a class="toc-anchor" href="#obsugiwane-typy-wiadomosci" title="Permanent link">¶</a></h2>
+<h3 id="odbior">Odbiór<a class="toc-anchor" href="#odbior" title="Permanent link">¶</a></h3>
+<ul>
+<li>✅ Tekst</li>
+<li>✅ Tekst sformatowany (post)</li>
+<li>✅ Obrazy</li>
+<li>✅ Pliki</li>
+<li>✅ Audio</li>
+<li>✅ Wideo</li>
+<li>✅ Naklejki</li>
+</ul>
+<h3 id="wysyanie">Wysyłanie<a class="toc-anchor" href="#wysyanie" title="Permanent link">¶</a></h3>
+<ul>
+<li>✅ Tekst</li>
+<li>✅ Obrazy</li>
+<li>✅ Pliki</li>
+<li>✅ Audio</li>
+<li>⚠️ Tekst sformatowany (częściowe wsparcie)</li>
+</ul></div><div class="px-0.5 flex items-center text-sm font-semibold text-gray-700 dark:text-gray-200" id="pagination"><a class="flex items-center space-x-3 group" href="slack.html"><svg class="h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><span class="group-hover:text-gray-900 dark:group-hover:text-white">Slack</span></a><a class="flex items-center ml-auto space-x-3 group" href="googlechat.html"><span class="group-hover:text-gray-900 dark:group-hover:text-white">Google Chat</span><svg class="rotate-180 h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a></div><div class="left-0 right-0 sticky sm:px-4 pb-4 sm:pb-6 bottom-0 pt-1 flex flex-col items-center w-full overflow-hidden z-20 pointer-events-none print:hidden"><div class="chat-assistant-floating-input z-10 w-full sm:w-96 focus-within:w-full group/assistant-bar sm:focus-within:w-[30rem] hover:scale-100 sm:hover:scale-105 focus-within:hover:scale-100 [transition:width_400ms,left_200ms,transform_500ms,opacity_200ms]"><div class="translate-y-[100px] opacity-0"><div class="flex flex-col w-full rounded-2xl pointer-events-auto bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border border-gray-200 dark:border-white/30 focus-within:border-primary dark:focus-within:border-primary-light transition-colors sm:shadow-xl"><div class="relative flex items-end"><textarea aria-label="Ask a question..." autocomplete="off" class="chat-assistant-input w-full bg-transparent border-0 peer/input text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 !outline-none focus:!outline-none focus:ring-0 py-2.5 pl-3.5 pr-10 font-bodyWeight text-sm" id="chat-assistant-textarea" placeholder="Ask a question..." style="resize:none"></textarea><span class="absolute right-11 bottom-3 text-xs font-medium text-gray-400 dark:text-gray-500 select-none pointer-events-none peer-focus/input:hidden hidden sm:inline">⌘<!-- -->I</span><button aria-label="Send message" class="chat-assistant-send-button flex justify-center items-center rounded-full p-1 size-6 bg-primary/30 dark:bg-primary-dark/30 absolute right-2.5 bottom-2" disabled=""><svg class="lucide lucide-arrow-up text-white dark:text-white size-3.5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></div></div></div></div><footer class="flex gap-12 justify-between pt-10 border-t border-gray-100 sm:flex dark:border-gray-800/50 pb-28" id="footer"><div class="flex items-center justify-between"><div class="sm:flex"><a class="group flex items-baseline gap-1 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-nowrap" href="https://www.mintlify.com?utm_campaign=poweredBy&amp;utm_medium=referral&amp;utm_source=clawdhub" rel="noreferrer" target="_blank"><span>Powered by</span><svg class="h-3.5 w-auto translate-y-[3px]" fill="none" height="367" viewbox="0 0 1274 367" width="1274" xmlns="http://www.w3.org/2000/svg"><path d="M1154.38 366.038H1097.86L1137.69 276.14L1058.04 97.1046H1114.93L1161.35 209.337C1162.97 213.26 1168.53 213.253 1170.14 209.325L1216.21 97.1046H1273.49L1154.38 366.038Z" fill="currentColor"></path><path d="M982.714 286.761V142.622H944.403V97.1041H982.714V72.4488C982.714 49.9429 989.542 32.2416 1003.2 19.345C1016.85 6.44832 1034.17 0 1055.16 0C1068.06 0 1079.06 1.39081 1088.16 4.17244V50.0693C1082.09 47.7934 1075.01 46.6555 1066.92 46.6555C1055.54 46.6555 1047.32 49.1843 1042.27 54.2418C1037.21 59.0464 1034.68 67.2648 1034.68 78.8971V97.1041H1088.16V142.622H1034.68V286.761H982.714Z" fill="currentColor"></path><path d="M897.916 66.0005C889.066 66.0005 881.353 62.8395 874.778 56.5176C868.203 49.9429 864.916 42.1037 864.916 33.0002C864.916 23.8967 868.203 16.184 874.778 9.86215C881.353 3.28738 889.066 0 897.916 0C907.273 0 915.112 3.28738 921.434 9.86215C928.008 16.184 931.296 23.8967 931.296 33.0002C931.296 42.1037 928.008 49.9429 921.434 56.5176C915.112 62.8395 907.273 66.0005 897.916 66.0005ZM872.123 286.761V97.1041H924.089V286.761H872.123Z" fill="currentColor"></path><path d="M781.638 286.761V2.27609H833.604V286.761H781.638Z" fill="currentColor"></path><path d="M722.934 289.037C701.693 289.037 684.244 283.221 670.589 271.588C657.187 259.703 650.485 242.634 650.485 220.381V142.622H612.175V97.1044H650.485V44.3799H702.451V97.1044H755.934V142.622H702.451V210.14C702.451 221.772 704.98 230.117 710.038 235.174C715.095 239.979 723.313 242.381 734.693 242.381C742.785 242.381 749.865 241.243 755.934 238.967V284.864C746.831 287.646 735.831 289.037 722.934 289.037Z" fill="currentColor"></path><path d="M417.674 286.761V97.1041H469.64V110.967C469.64 113.311 472.83 114.347 474.382 112.591C485.967 99.4848 502.467 92.9317 523.881 92.9317C546.64 92.9317 564.468 100.518 577.365 115.69C590.514 130.61 597.089 150.587 597.089 175.622V286.761H545.123V184.346C545.123 170.438 542.215 159.691 536.399 152.105C530.583 144.265 522.364 140.346 511.743 140.346C499.1 140.346 488.858 144.898 481.019 154.001C473.433 163.105 469.64 176.507 469.64 194.208V286.761H417.674Z" fill="currentColor"></path><path d="M352.981 66.0005C344.13 66.0005 336.417 62.8395 329.843 56.5176C323.268 49.9429 319.98 42.1037 319.98 33.0002C319.98 23.8967 323.268 16.184 329.843 9.86215C336.417 3.28738 344.13 0 352.981 0C362.337 0 370.176 3.28738 376.498 9.86215C383.073 16.184 386.36 23.8967 386.36 33.0002C386.36 42.1037 383.073 49.9429 376.498 56.5176C370.176 62.8395 362.337 66.0005 352.981 66.0005ZM327.187 286.761V97.1041H379.153V286.761H327.187Z" fill="currentColor"></path><path d="M238.967 286.761V185.484C238.967 155.392 229.105 140.346 209.381 140.346C198.001 140.346 188.898 144.645 182.07 153.242C175.495 161.84 171.955 174.61 171.449 191.553V286.761H119.484V185.484C119.484 155.392 109.621 140.346 89.8972 140.346C78.2649 140.346 69.035 144.898 62.2073 154.001C55.3797 163.105 51.9659 176.507 51.9659 194.208V286.761H0V97.1041H51.9659V111.103C51.9659 113.435 55.1014 114.462 56.633 112.704C68.1136 99.5223 83.3741 92.9317 102.415 92.9317C127.436 92.9317 146.283 103.262 158.953 123.923C159.953 125.553 162.412 125.527 163.406 123.894C168.884 114.891 176.496 107.731 186.243 102.415C197.369 96.0926 208.622 92.9317 220.002 92.9317C242.507 92.9317 259.956 100.392 272.347 115.311C284.738 130.231 290.933 150.714 290.933 176.76V286.761H238.967Z" fill="currentColor"></path></svg></a></div></div></footer></div></div><!--$--><!--/$--></div></div></div></div></div>
+<div class="veiseule-footer"><a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Community translations maintained by <a href="http://blog.law-kelly.com/2026/02/open-source-means-open-language.html">John Kelly</a>. Improve translations on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a>.</div>
+<script>
+(function(){
+  var btn = document.querySelector('[aria-label="Toggle dark mode"]');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var html = document.documentElement;
+    var isDark = html.classList.contains('dark');
+    if(isDark){
+      html.classList.remove('dark');
+      html.style.colorScheme = 'light';
+      try { localStorage.setItem('isDarkMode','light'); } catch(e){}
+    } else {
+      html.classList.add('dark');
+      html.style.colorScheme = 'dark';
+      try { localStorage.setItem('isDarkMode','dark'); } catch(e){}
+    }
+  });
+})();
+</script></body></html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html class="__variable_47c970 __variable_3bbdad" data-banner-state="visible" data-page-mode="none" lang="pl"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/bb3ef058b751a6ad-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/c4b700dcb2187787-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/e4af272ccee01ff0-s.p.woff2" rel="preload" type="font/woff2"/><link as="image" href="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26" rel="preload"/><link as="image" href="https://d3gk2c5xim1je2.cloudfront.net/flags/PL.svg" rel="preload"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/b864dec2fc058581.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/6f9b80d484ead711.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/05d6d8fcb903870d.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><meta content="" name="next-size-adjust"/><title>Pamięć - OpenClaw</title><meta content="OpenClaw" name="application-name"/><meta content="Mintlify" name="generator"/><meta content="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/browserconfig.xml" name="msapplication-config"/><meta content="OpenClaw" name="apple-mobile-web-app-title"/><meta content="#FF5A36" name="msapplication-TileColor"/><meta content="utf-8" name="charset"/><meta content="OpenClaw" name="og:site_name"/><meta content="https://docs.openclaw.ai/concepts/memory" name="canonical"/><link href="memory.html" rel="canonical"/><link href="/sitemap.xml" rel="alternate" type="application/xml"/><meta content="Memory - OpenClaw" property="og:title"/><meta content="https://docs.openclaw.ai/concepts/memory" property="og:url"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DSessions%2Band%2Bmemory%26title%3DMemory%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="website" property="og:type"/><meta content="summary_large_image" name="twitter:card"/><meta content="Memory - OpenClaw" name="twitter:title"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DSessions%2Band%2Bmemory%26title%3DMemory%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" name="twitter:image"/><meta content="1200" name="twitter:image:width"/><meta content="630" name="twitter:image:height"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-16x16.png" media="(prefers-color-scheme: light)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-32x32.png" media="(prefers-color-scheme: light)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon.ico" media="(prefers-color-scheme: light)" rel="shortcut icon" type="image/x-icon"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-16x16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-32x32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon.ico" media="(prefers-color-scheme: dark)" rel="shortcut icon" type="image/x-icon"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link as="style" href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css" rel="preload"/><script type="text/javascript">(function(a,b){try{let c=document.getElementById("banner")?.innerText;if(c){for(let d=0;d<localStorage.length;d++){let e=localStorage.key(d);if(e?.endsWith(a)&&localStorage.getItem(e)===c)return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible");return}for(let c=0;c<localStorage.length;c++){let d=localStorage.key(c);if(d?.endsWith(a)&&localStorage.getItem(d))return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible")}catch(a){document.documentElement.setAttribute(b,"hidden")}})(
+  "bannerDismissed",
+  "data-banner-state",
+)</script><style id="veiseule-branding">
+.veiseule-bar{position:fixed;top:0;left:0;right:0;z-index:99999;background:#2E4A3A;color:#E0E0E0;text-align:center;padding:8px 16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;box-shadow:0 2px 4px rgba(0,0,0,0.15)}
+.veiseule-bar a{color:#A9B8A1;text-decoration:underline}
+.veiseule-bar a:hover{color:#fff}
+.veiseule-footer{background:#1A2E20;color:#E0E0E0;text-align:center;padding:16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;border-top:1px solid #2E4A3A}
+.veiseule-footer a{color:#A9B8A1;text-decoration:underline}
+.veiseule-footer a:hover{color:#fff}
+body{padding-top:36px !important}
+</style>
+<style>
+.toc-anchor { text-decoration: none; margin-left: 0.3em; opacity: 0.3; }
+.toc-anchor:hover { opacity: 1; }
+.toc-anchor { color: #999; }
+.dark .toc-anchor { color: #555; }
+</style></head><body>
+<div class="veiseule-bar">Community translations by <a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Help improve them on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a></div>
+<div hidden=""><!--$--><!--/$--></div><script>((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","isDarkMode","system",null,["dark","light","true","false","system"],{"true":"dark","false":"light","dark":"dark","light":"light"},true,true)</script><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><style>:root {
+  --font-family-headings-custom: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  --font-family-body-custom: "Fragment Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  
+  
+}</style><style>:root {
+    --primary: 255 90 54;
+    --primary-light: 255 138 107;
+    --primary-dark: 255 90 54;
+    --tooltip-foreground: 255 255 255;
+    --background-light: 255 255 255;
+    --background-dark: 14 12 13;
+    --gray-50: 250 245 244;
+    --gray-100: 245 240 239;
+    --gray-200: 230 225 224;
+    --gray-300: 213 208 207;
+    --gray-400: 166 161 160;
+    --gray-500: 119 114 113;
+    --gray-600: 87 82 81;
+    --gray-700: 70 65 64;
+    --gray-800: 45 40 38;
+    --gray-900: 30 25 24;
+    --gray-950: 17 12 11;
+  }</style><script type="text/javascript">
+          (function() {
+            function loadKatex() {
+              const link = document.querySelector('link[href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css"]');
+              if (link) link.rel = 'stylesheet';
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', loadKatex);
+            } else {
+              loadKatex();
+            }
+          })();
+        </script><div class="relative antialiased text-gray-500 dark:text-gray-400"><a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:p-2 focus:text-sm focus:bg-background-light dark:focus:bg-background-dark focus:rounded-md focus:outline-primary dark:focus:outline-primary-light" href="memory.html#content-area">Skip to main content</a><div class="max-lg:contents lg:flex lg:w-full"><div class="max-lg:contents lg:flex-1 lg:min-w-0 lg:overflow-x-clip"><div class="z-30 fixed lg:sticky top-0 w-full peer is-not-custom peer is-not-center peer is-not-wide peer is-not-frame" id="navbar"><div class="absolute w-full h-full backdrop-blur flex-none transition-colors duration-500 border-b border-gray-500/5 dark:border-gray-300/[0.06] data-[is-opaque=true]:bg-background-light data-[is-opaque=true]:supports-backdrop-blur:bg-background-light/95 data-[is-opaque=true]:dark:bg-background-dark/75 data-[is-opaque=false]:supports-backdrop-blur:bg-background-light/60 data-[is-opaque=false]:dark:bg-transparent" data-is-opaque="false" id="navbar-transition"></div><div class="max-w-8xl mx-auto relative"><div><div class="relative"><div class="flex items-center lg:px-12 h-16 min-w-0 mx-4 lg:mx-0"><div class="h-full relative flex-1 flex items-center gap-x-4 min-w-0 border-b border-gray-500/5 dark:border-gray-300/[0.06]"><div class="flex-1 flex items-center gap-x-4"><a class="select-none" data-slot="context-menu-trigger" data-state="closed" href="../index.html" style="-webkit-touch-callout:none"><span class="sr-only">OpenClaw<!-- --> home page</span><img alt="light logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 block dark:hidden" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/><img alt="dark logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 hidden dark:block" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/></a><div class="hidden lg:flex items-center gap-x-2"><button aria-expanded="false" aria-haspopup="menu" class="group disabled:pointer-events-none [&amp;&gt;span]:line-clamp-1 overflow-hidden group group-hover:text-gray-950/70 dark:group-hover:text-white/70 py-1.5 px-2.5 rounded-xl hover:!bg-gray-600/5 dark:hover:!bg-gray-200/5 aria-[expanded=true]:bg-gray-600/5 dark:aria-[expanded=true]:bg-gray-200/5 text-sm font-medium text-gray-900 h-8 focus-visible:outline-primary dark:text-gray-300 group/trigger flex items-center gap-2 whitespace-nowrap" data-state="closed" id="localization-select-trigger" type="button"><div class="relative size-4 rounded-full shrink-0"><img alt="PL" class="w-full h-full rounded-full" src="https://d3gk2c5xim1je2.cloudfront.net/flags/PL.svg"/><div class="absolute top-0 left-0 w-full h-full border rounded-full bg-primary-light/10 border-black/10"></div></div><span class="truncate max-w-[12.5rem]">Polski</span><svg class="transition-transform text-gray-400 overflow-visible group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400 rotate-90 ml-auto group-aria-[expanded=true]/trigger:rotate-[270deg]" height="24" viewbox="0 -9 3 24" width="8"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></button></div></div><div class="relative hidden lg:flex items-center flex-1 z-20 justify-center"><button aria-label="Open search" class="flex pointer-events-auto rounded-xl w-full items-center text-sm leading-6 h-9 pl-3.5 pr-3 text-gray-500 dark:text-white/50 bg-background-light dark:bg-background-dark dark:brightness-[1.1] dark:ring-1 dark:hover:brightness-[1.25] ring-1 ring-gray-400/30 hover:ring-gray-600/30 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 justify-between truncate gap-2 min-w-[43px]" id="search-bar-entry" type="button"><div class="flex items-center gap-2 min-w-[42px]"><svg class="lucide lucide-search min-w-4 flex-none text-gray-700 hover:text-gray-800 dark:text-gray-400 hover:dark:text-gray-200" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><div class="truncate min-w-0">Search...</div></div><span class="flex-none text-xs font-semibold">⌘<!-- -->K</span></button></div><div class="flex-1 relative hidden lg:flex items-center ml-auto justify-end space-x-4"><nav class="text-sm"><ul class="flex space-x-6 items-center"><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);mask-repeat:no-repeat;mask-position:center"></svg>GitHub</a></li><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw/releases" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);mask-repeat:no-repeat;mask-position:center;mask-size:100%"></svg>Releases</a></li></ul></nav><div class="flex items-center"><button aria-label="Toggle dark mode" class="group p-2 flex items-center justify-center"><svg class="h-4 w-4 block text-gray-400 dark:hidden group-hover:text-gray-600" fill="none" height="16" stroke="currentColor" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2880_7340)"><path d="M8 1.11133V2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 3.12891L12.2427 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M14.8889 8H14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 12.8711L12.2427 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8 14.8889V14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 12.8711L3.75735 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M1.11133 8H2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 3.12891L3.75735 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8.00043 11.7782C10.0868 11.7782 11.7782 10.0868 11.7782 8.00043C11.7782 5.91402 10.0868 4.22266 8.00043 4.22266C5.91402 4.22266 4.22266 5.91402 4.22266 8.00043C4.22266 10.0868 5.91402 11.7782 8.00043 11.7782Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g><defs><clippath id="clip0_2880_7340"><rect fill="white" height="16" width="16"></rect></clippath></defs></svg><svg class="lucide lucide-moon h-4 w-4 hidden dark:block text-gray-500 dark:group-hover:text-gray-300" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button></div></div><div class="flex lg:hidden items-center gap-3"><button aria-label="Open search" class="text-gray-500 w-8 h-8 flex items-center justify-center hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300" id="search-bar-entry-mobile" type="button"><span class="sr-only">Search...</span><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);mask-repeat:no-repeat;mask-position:center"></svg></button><button aria-label="More actions" class="h-7 w-5 flex items-center justify-end"><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);mask-repeat:no-repeat;mask-position:center"></svg></button></div></div></div><button class="flex items-center h-14 py-4 px-5 lg:hidden focus:outline-0 w-full text-left" type="button"><div class="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300"><span class="sr-only">Navigation</span><svg class="h-4" fill="currentColor" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></div><div class="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0 space-x-3 overflow-hidden"><div class="flex items-center space-x-3 flex-shrink-0"><span>Sessions and memory</span><svg class="h-5 rotate-0 overflow-visible fill-gray-400" height="24" viewbox="0 -9 3 24" width="3"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></div><div class="font-semibold text-gray-900 truncate dark:text-gray-200 min-w-0 flex-1">Memory</div></div></button></div><div class="hidden lg:flex px-12 h-12"><div class="nav-tabs h-full flex text-sm gap-x-6"><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../index.html">Get started<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../install.html">Install<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../channels.html">Channels<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium hover:text-gray-800 dark:hover:text-gray-300 text-gray-800 dark:text-gray-200 [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor]" href="architecture.html">Agents<div class="absolute bottom-0 h-[1.5px] w-full left-0 bg-primary dark:bg-primary-light"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../tools.html">Tools<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../providers.html">Models<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../platforms.html">Platforms<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../gateway.html">Gateway &amp; Ops<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../cli.html">Reference<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../help.html">Help<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a></div></div></div></div><span hidden="" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"></span></div><div class="scroll-mt-[var(--scroll-mt)] peer-[.is-custom]:max-w-none peer-[.is-center]:max-w-3xl peer-[.is-not-custom]:peer-[.is-not-center]:max-w-8xl peer-[.is-not-custom]:px-4 peer-[.is-not-custom]:mx-auto peer-[.is-not-custom]:lg:px-8 peer-[.is-wide]:[&amp;&gt;div:last-child]:max-w-6xl peer-[.is-custom]:[&amp;&gt;div:first-child]:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:xl:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:xl:!hidden"><div class="z-20 hidden lg:block fixed bottom-0 right-auto w-[18rem]" id="sidebar" style="top:7rem"><div class="absolute inset-0 z-10 stable-scrollbar-gutter overflow-auto pr-8 pb-10" id="sidebar-content"><div class="relative lg:text-sm lg:leading-6"><div class="sticky top-0 h-8 z-10 bg-gradient-to-b from-background-light dark:from-background-dark"></div><div id="navigation-items"><div class=""><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Fundamentals</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Gateway Architecture" id="/concepts/architecture"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="architecture.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Gateway Architecture</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Agent Runtime" id="/concepts/agent"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="agent.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Agent Runtime</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Agent Loop" id="/concepts/agent-loop"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="agent-loop.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Agent Loop</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="System Prompt" id="/concepts/system-prompt"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="system-prompt.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">System Prompt</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Context" id="/concepts/context"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="context.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Context</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Agent Workspace" id="/concepts/agent-workspace"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="agent-workspace.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Agent Workspace</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="OAuth" id="/concepts/oauth"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="oauth.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">OAuth</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Bootstrapping</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Bootstrapping" id="/start/bootstrapping"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../start/bootstrapping.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Bootstrapping</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Sessions and memory</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Session Management" id="/concepts/session"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="session.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Session Management</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Sessions" id="/concepts/sessions"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="sessions.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Sessions</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Session Pruning" id="/concepts/session-pruning"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="session-pruning.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Session Pruning</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Session Tools" id="/concepts/session-tool"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="session-tool.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Session Tools</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Memory" id="/concepts/memory"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] bg-primary/10 text-primary [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor] dark:text-primary-light dark:bg-primary-light/10" href="memory.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Memory</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Compaction" id="/concepts/compaction"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="compaction.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Compaction</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Multi-agent</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Multi-Agent Routing" id="/concepts/multi-agent"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="multi-agent.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Multi-Agent Routing</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Presence" id="/concepts/presence"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="presence.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Presence</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Messages and delivery</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Messages" id="/concepts/messages"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="messages.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Messages</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Streaming and Chunking" id="/concepts/streaming"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="streaming.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Streaming and Chunking</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Retry Policy" id="/concepts/retry"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="retry.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Retry Policy</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Command Queue" id="/concepts/queue"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="queue.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Command Queue</div></div></a></li></ul></div></div></div></div></div><div id="content-container"><span class="fixed inset-0 bg-background-light dark:bg-background-dark -z-10 pointer-events-none" id="almond-background-color"></span><style data-custom-css-index="0" data-custom-css-path="style.css">#content > h1:first-of-type {
+  display: none !important;
+}
+</style><div class="flex flex-row-reverse gap-12 box-border w-full pt-40 lg:pt-10"><div class="hidden xl:flex self-start sticky xl:flex-col max-w-[28rem] z-[21] h-[calc(100vh-9.5rem)] top-[calc(9.5rem-var(--sidenav-move-up,0px))]" id="content-side-layout"><div class="z-10 hidden xl:flex box-border max-h-full pl-10 w-[19rem]" id="table-of-contents-layout"><div class="text-gray-600 text-sm leading-6 w-[16.5rem] overflow-y-auto space-y-2 pb-4 -mt-10 pt-10" id="table-of-contents"><button class="text-gray-700 dark:text-gray-300 font-medium flex items-center space-x-2 hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer"><svg class="h-3 w-3" fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.44434 12.6665H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 3.3335H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 8H7.33323" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>On this page</span></button><ul class="toc" id="table-of-contents-content"><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#pamiec">Pamięć</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#pliki-pamieci-markdown">Pliki pamięci (Markdown)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#kiedy-zapisywac-pamiec">Kiedy zapisywać pamięć</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#automatyczne-oproznianie-pamieci-ping-przed-kompakcja">Automatyczne opróżnianie pamięci (ping przed kompakcją)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#wyszukiwanie-pamieci-wektorowej">Wyszukiwanie pamięci wektorowej</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#backend-qmd-eksperymentalny">Backend QMD (eksperymentalny)</a></li><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#pick-the-same-state-dir-openclaw-uses">Pick the same state dir OpenClaw uses</a></li><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#optional-force-an-index-refresh-embeddings">(Optional) force an index refresh + embeddings</a></li><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#warm-up-trigger-first-time-model-downloads">Warm up / trigger first-time model downloads</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#dodatkowe-sciezki-pamieci">Dodatkowe ścieżki pamięci</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#embeddingi-gemini-natywne">Embeddingi Gemini (natywne)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#jak-dziaaja-narzedzia-pamieci">Jak działają narzędzia pamięci</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#co-jest-indeksowane-i-kiedy">Co jest indeksowane (i kiedy)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#wyszukiwanie-hybrydowe-bm25-wektor">Wyszukiwanie hybrydowe (BM25 + wektor)</a></li><li class="toc-item relative" data-depth="3"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#dlaczego-hybryda">Dlaczego hybryda?</a></li><li class="toc-item relative" data-depth="3"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#jak-aczymy-wyniki-obecny-projekt">Jak łączymy wyniki (obecny projekt)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#cache-embeddingow">Cache embeddingów</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#wyszukiwanie-pamieci-sesji-eksperymentalne">Wyszukiwanie pamięci sesji (eksperymentalne)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#przyspieszenie-wektorow-sqlite-sqlite-vec">Przyspieszenie wektorów SQLite (sqlite-vec)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#automatyczne-pobieranie-lokalnych-embeddingow">Automatyczne pobieranie lokalnych embeddingów</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#przykad-niestandardowego-endpointu-zgodnego-z-openai">Przykład niestandardowego endpointu zgodnego z OpenAI</a></li></ul></div></div></div><div class="relative grow box-border flex-col w-full mx-auto px-1 lg:pl-[23.7rem] lg:-ml-12 xl:w-[calc(100%-28rem)]" id="content-area"><header class="relative leading-none" id="header"><div class="mt-0.5 space-y-2.5"><div class="eyebrow h-5 text-primary dark:text-primary-light text-sm font-semibold">Sessions and memory</div><div class="flex flex-col sm:flex-row items-start sm:items-center relative gap-2 min-w-0"><h1 class="text-2xl sm:text-3xl text-gray-900 tracking-tight dark:text-gray-200 [overflow-wrap:anywhere] font-bold break-all" id="page-title">Memory</h1></div></div></header><div class="mdx-content relative mt-8 mb-14 prose prose-gray dark:prose-invert [contain:inline-size] isolate" data-page-href="/concepts/memory" data-page-title="Memory" id="content"><h1 id="pamiec">Pamięć<a class="toc-anchor" href="#pamiec" title="Permanent link">¶</a></h1>
+<p>Pamięć OpenClaw to <strong>zwykły Markdown w obszarze roboczym agenta</strong>. Pliki są
+źródłem prawdy; model „pamięta” tylko to, co zostanie zapisane na dysku.</p>
+<p>Narzędzia wyszukiwania pamięci są dostarczane przez aktywną wtyczkę pamięci (domyślnie:
+<code>memory-core</code>). Wtyczki pamięci można wyłączyć za pomocą <code>plugins.slots.memory = "none"</code>.</p>
+<h2 id="pliki-pamieci-markdown">Pliki pamięci (Markdown)<a class="toc-anchor" href="#pliki-pamieci-markdown" title="Permanent link">¶</a></h2>
+<p>Domyślny układ obszaru roboczego używa dwóch warstw pamięci:</p>
+<ul>
+<li><code>memory/YYYY-MM-DD.md</code></li>
+<li>Dziennik dzienny (tylko dopisywanie).</li>
+<li>Odczytywany jest dzień bieżący + wczorajszy na początku sesji.</li>
+<li><code>MEMORY.md</code> (opcjonalne)</li>
+<li>Kuratorowana pamięć długoterminowa.</li>
+<li><strong>Ładowana wyłącznie w głównej, prywatnej sesji</strong> (nigdy w kontekstach grupowych).</li>
+</ul>
+<p>Pliki te znajdują się w obszarze roboczym (<code>agents.defaults.workspace</code>, domyślnie
+<code>~/.openclaw/workspace</code>). Pełny układ opisano w <a href="/concepts/agent-workspace">Agent workspace</a>.</p>
+<h2 id="kiedy-zapisywac-pamiec">Kiedy zapisywać pamięć<a class="toc-anchor" href="#kiedy-zapisywac-pamiec" title="Permanent link">¶</a></h2>
+<ul>
+<li>Decyzje, preferencje i trwałe fakty trafiają do <code>MEMORY.md</code>.</li>
+<li>Codzienne notatki i bieżący kontekst trafiają do <code>memory/YYYY-MM-DD.md</code>.</li>
+<li>Jeśli ktoś mówi „zapamiętaj to”, zapisz to (nie trzymaj w RAM-ie).</li>
+<li>Ten obszar wciąż się rozwija. Pomaga przypominanie modelowi o zapisywaniu wspomnień; będzie wiedział, co zrobić.</li>
+<li>Jeśli chcesz, aby coś się utrwaliło, <strong>poproś bota o zapisanie tego</strong> w pamięci.</li>
+</ul>
+<h2 id="automatyczne-oproznianie-pamieci-ping-przed-kompakcja">Automatyczne opróżnianie pamięci (ping przed kompakcją)<a class="toc-anchor" href="#automatyczne-oproznianie-pamieci-ping-przed-kompakcja" title="Permanent link">¶</a></h2>
+<p>Gdy sesja jest <strong>bliska automatycznej kompakcji</strong>, OpenClaw uruchamia <strong>cichy,
+agentowy krok</strong>, który przypomina modelowi o zapisaniu trwałej pamięci <strong>zanim</strong>
+kontekst zostanie skompaktowany. Domyślne prompty wyraźnie mówią, że model <em>może odpowiedzieć</em>,
+ale zazwyczaj <code>NO_REPLY</code> jest poprawną odpowiedzią, dzięki czemu użytkownik nigdy nie widzi tego kroku.</p>
+<p>Jest to kontrolowane przez <code>agents.defaults.compaction.memoryFlush</code>:</p>
+<pre class="highlight"><code class="language-json5">{
+  agents: {
+    defaults: {
+      compaction: {
+        reserveTokensFloor: 20000,
+        memoryFlush: {
+          enabled: true,
+          softThresholdTokens: 4000,
+          systemPrompt: "Session nearing compaction. Store durable memories now.",
+          prompt: "Write any lasting notes to memory/YYYY-MM-DD.md; reply with NO_REPLY if nothing to store.",
+        },
+      },
+    },
+  },
+}
+</code></pre>
+<p>Szczegóły:</p>
+<ul>
+<li><strong>Miękki próg</strong>: opróżnianie uruchamia się, gdy estymacja tokenów sesji przekroczy
+  <code>contextWindow - reserveTokensFloor - softThresholdTokens</code>.</li>
+<li><strong>Cisza domyślna</strong>: prompty zawierają <code>NO_REPLY</code>, więc nic nie jest dostarczane.</li>
+<li><strong>Dwa prompty</strong>: prompt użytkownika oraz prompt systemowy dołączają przypomnienie.</li>
+<li><strong>Jedno opróżnienie na cykl kompakcji</strong> (śledzone w <code>sessions.json</code>).</li>
+<li><strong>Obszar roboczy musi być zapisywalny</strong>: jeśli sesja działa w sandboxie z
+  <code>workspaceAccess: "ro"</code> lub <code>"none"</code>, opróżnianie jest pomijane.</li>
+</ul>
+<p>Pełny cykl życia kompakcji opisano w
+<a href="/reference/session-management-compaction">Session management + compaction</a>.</p>
+<h2 id="wyszukiwanie-pamieci-wektorowej">Wyszukiwanie pamięci wektorowej<a class="toc-anchor" href="#wyszukiwanie-pamieci-wektorowej" title="Permanent link">¶</a></h2>
+<p>OpenClaw może zbudować niewielki indeks wektorowy nad <code>MEMORY.md</code> i <code>memory/*.md</code>, aby
+zapytania semantyczne mogły znajdować powiązane notatki nawet przy różnym brzmieniu.</p>
+<p>Ustawienia domyślne:</p>
+<ul>
+<li>Włączone domyślnie.</li>
+<li>Obserwuje pliki pamięci pod kątem zmian (z opóźnieniem).</li>
+<li>Domyślnie używa zdalnych embeddingów. Jeśli <code>memorySearch.provider</code> nie jest ustawione, OpenClaw automatycznie wybiera:
+  1. <code>local</code>, jeśli skonfigurowano <code>memorySearch.local.modelPath</code> i plik istnieje.
+  2. <code>openai</code>, jeśli można rozwiązać klucz OpenAI.
+  3. <code>gemini</code>, jeśli można rozwiązać klucz Gemini.
+  4. <code>voyage</code>, jeśli można rozwiązać klucz Voyage.
+  5. W przeciwnym razie wyszukiwanie pamięci pozostaje wyłączone do czasu konfiguracji.</li>
+<li>Tryb lokalny używa node-llama-cpp i może wymagać <code>pnpm approve-builds</code>.</li>
+<li>Używa sqlite-vec (gdy dostępne) do przyspieszenia wyszukiwania wektorowego w SQLite.</li>
+</ul>
+<p>Zdalne embeddingi <strong>wymagają</strong> klucza API dostawcy embeddingów. OpenClaw
+rozwiązuje klucze z profili uwierzytelniania, <code>models.providers.*.apiKey</code> lub zmiennych
+środowiskowych. OAuth Codex obejmuje tylko czat/uzupełniania i <strong>nie</strong> spełnia
+wymagań embeddingów do wyszukiwania pamięci. Dla Gemini użyj <code>GEMINI_API_KEY</code> lub
+<code>models.providers.google.apiKey</code>. Dla Voyage użyj <code>VOYAGE_API_KEY</code> lub
+<code>models.providers.voyage.apiKey</code>. Przy użyciu niestandardowego endpointu zgodnego z OpenAI
+ustaw <code>memorySearch.remote.apiKey</code> (oraz opcjonalnie <code>memorySearch.remote.headers</code>).</p>
+<h3 id="backend-qmd-eksperymentalny">Backend QMD (eksperymentalny)<a class="toc-anchor" href="#backend-qmd-eksperymentalny" title="Permanent link">¶</a></h3>
+<p>Ustaw <code>memory.backend = "qmd"</code>, aby zastąpić wbudowany indeksator SQLite przez
+<a href="https://github.com/tobi/qmd">QMD</a>: lokalny sidecar wyszukiwania łączący
+BM25 + wektory + reranking. Markdown pozostaje źródłem prawdy; OpenClaw wywołuje
+QMD do pobierania wyników. Kluczowe punkty:</p>
+<p><strong>Wymagania wstępne</strong></p>
+<ul>
+<li>Domyślnie wyłączone. Włączane per-konfiguracja (<code>memory.backend = "qmd"</code>).</li>
+<li>Zainstaluj osobno CLI QMD (<code>bun install -g https://github.com/tobi/qmd</code> lub pobierz
+  wydanie) i upewnij się, że binarka <code>qmd</code> znajduje się na <code>PATH</code> gateway’a.</li>
+<li>QMD wymaga kompilacji SQLite ze wsparciem rozszerzeń (<code>brew install sqlite</code> na
+  macOS).</li>
+<li>QMD działa w pełni lokalnie przez Bun + <code>node-llama-cpp</code> i automatycznie pobiera
+  modele GGUF z HuggingFace przy pierwszym użyciu (nie jest wymagany osobny daemon Ollama).</li>
+<li>Gateway uruchamia QMD w samodzielnym katalogu XDG pod
+  <code>~/.openclaw/agents/&lt;agentId&gt;/qmd/</code>, ustawiając <code>XDG_CONFIG_HOME</code> oraz
+  <code>XDG_CACHE_HOME</code>.</li>
+<li>Wsparcie OS: macOS i Linux działają od razu po zainstalowaniu Bun + SQLite. Windows najlepiej wspierany przez WSL2.</li>
+</ul>
+<p><strong>Jak działa sidecar</strong></p>
+<ul>
+<li>Gateway zapisuje samodzielny katalog domowy QMD pod
+  <code>~/.openclaw/agents/&lt;agentId&gt;/qmd/</code> (konfiguracja + cache + baza sqlite).</li>
+<li>Kolekcje są tworzone przez <code>qmd collection add</code> z <code>memory.qmd.paths</code>
+  (plus domyślne pliki pamięci obszaru roboczego), następnie <code>qmd update</code> + <code>qmd embed</code> są uruchamiane
+  przy starcie oraz w konfigurowalnym interwale (<code>memory.qmd.update.interval</code>,
+  domyślnie 5 min).</li>
+<li>Odświeżanie przy starcie działa teraz domyślnie w tle, aby nie blokować uruchomienia czatu;
+  ustaw <code>memory.qmd.update.waitForBootSync = true</code>, aby zachować poprzednie blokujące zachowanie.</li>
+<li>Wyszukiwania są wykonywane przez <code>qmd query --json</code>. Jeśli QMD zawiedzie lub
+  brakuje binarki, OpenClaw automatycznie wraca do wbudowanego menedżera SQLite,
+  dzięki czemu narzędzia pamięci nadal działają.</li>
+<li>OpenClaw nie udostępnia obecnie strojenia rozmiaru batcha embeddingów QMD;
+  zachowanie batcha kontroluje samo QMD.</li>
+<li><strong>Pierwsze wyszukiwanie może być wolne</strong>: QMD może pobrać lokalne modele GGUF
+  (reranker/rozszerzanie zapytań) przy pierwszym uruchomieniu <code>qmd query</code>.</li>
+<li>OpenClaw automatycznie ustawia <code>XDG_CONFIG_HOME</code>/<code>XDG_CACHE_HOME</code>, gdy uruchamia QMD.</li>
+<li>
+<p>Jeśli chcesz wstępnie pobrać modele ręcznie (i rozgrzać ten sam indeks,
+    którego używa OpenClaw), uruchom jednorazowe zapytanie z katalogami XDG agenta.</p>
+<p>Stan QMD OpenClaw znajduje się w Twoim <strong>katalogu stanu</strong> (domyślnie <code>~/.openclaw</code>).
+Możesz wskazać <code>qmd</code> na dokładnie ten sam indeks, eksportując te same zmienne XDG,
+których używa OpenClaw:</p>
+<p>```bash</p>
+<h1 id="pick-the-same-state-dir-openclaw-uses">Pick the same state dir OpenClaw uses<a class="toc-anchor" href="#pick-the-same-state-dir-openclaw-uses" title="Permanent link">¶</a></h1>
+<p>STATE_DIR="${OPENCLAW_STATE_DIR:-$HOME/.openclaw}"
+if [ -d "$HOME/.moltbot" ] &amp;&amp; [ ! -d "$HOME/.openclaw" ] \
+  &amp;&amp; [ -z "${OPENCLAW_STATE_DIR:-}" ]; then
+  STATE_DIR="$HOME/.moltbot"
+fi</p>
+<p>export XDG_CONFIG_HOME="$STATE_DIR/agents/main/qmd/xdg-config"
+export XDG_CACHE_HOME="$STATE_DIR/agents/main/qmd/xdg-cache"</p>
+<h1 id="optional-force-an-index-refresh-embeddings">(Optional) force an index refresh + embeddings<a class="toc-anchor" href="#optional-force-an-index-refresh-embeddings" title="Permanent link">¶</a></h1>
+<p>qmd update
+qmd embed</p>
+<h1 id="warm-up-trigger-first-time-model-downloads">Warm up / trigger first-time model downloads<a class="toc-anchor" href="#warm-up-trigger-first-time-model-downloads" title="Permanent link">¶</a></h1>
+<p>qmd query "test" -c memory-root --json &gt;/dev/null 2&gt;&amp;1
+```</p>
+</li>
+</ul>
+<p><strong>Powierzchnia konfiguracji (<code>memory.qmd.*</code>)</strong></p>
+<ul>
+<li><code>command</code> (domyślnie <code>qmd</code>): nadpisanie ścieżki do pliku wykonywalnego.</li>
+<li><code>includeDefaultMemory</code> (domyślnie <code>true</code>): automatyczne indeksowanie <code>MEMORY.md</code> + <code>memory/**/*.md</code>.</li>
+<li><code>paths[]</code>: dodanie dodatkowych katalogów/plików (<code>path</code>, opcjonalnie <code>pattern</code>, opcjonalnie
+  stabilne <code>name</code>).</li>
+<li><code>sessions</code>: włączenie indeksowania JSONL sesji (<code>enabled</code>, <code>retentionDays</code>,
+  <code>exportDir</code>).</li>
+<li><code>update</code>: kontrola kadencji odświeżania i wykonywania utrzymania:
+  (<code>interval</code>, <code>debounceMs</code>, <code>onBoot</code>, <code>waitForBootSync</code>, <code>embedInterval</code>,
+  <code>commandTimeoutMs</code>, <code>updateTimeoutMs</code>, <code>embedTimeoutMs</code>).</li>
+<li><code>limits</code>: ograniczenie ładunku przywołań (<code>maxResults</code>, <code>maxSnippetChars</code>,
+  <code>maxInjectedChars</code>, <code>timeoutMs</code>).</li>
+<li><code>scope</code>: ten sam schemat co <a href="/gateway/configuration#session"><code>session.sendPolicy</code></a>.
+  Domyślnie tylko DM-y (<code>deny</code> wszystkie, <code>allow</code> czaty bezpośrednie); poluzuj,
+  aby ujawniać trafienia QMD w grupach/kanałach.</li>
+<li>When <code>scope</code> denies a search, OpenClaw logs a warning with the derived
+  <code>channel</code>/<code>chatType</code> so empty results are easier to debug.</li>
+<li>Fragmenty pochodzące spoza obszaru roboczego pojawiają się jako
+  <code>qmd/&lt;collection&gt;/&lt;relative-path&gt;</code> w wynikach <code>memory_search</code>; <code>memory_get</code>
+  rozumie ten prefiks i czyta z skonfigurowanego katalogu głównego kolekcji QMD.</li>
+<li>Gdy <code>memory.qmd.sessions.enabled = true</code>, OpenClaw eksportuje zanonimizowane transkrypty sesji
+  (tury Użytkownik/Asystent) do dedykowanej kolekcji QMD pod
+  <code>~/.openclaw/agents/&lt;id&gt;/qmd/sessions/</code>, dzięki czemu <code>memory_search</code> może przywoływać
+  ostatnie rozmowy bez dotykania wbudowanego indeksu SQLite.</li>
+<li>Fragmenty <code>memory_search</code> zawierają teraz stopkę <code>Source: &lt;path#line&gt;</code>, gdy
+  <code>memory.citations</code> ma wartość <code>auto</code>/<code>on</code>; ustaw <code>memory.citations = "off"</code>,
+  aby zachować metadane ścieżki jako wewnętrzne (agent nadal otrzymuje ścieżkę do
+  <code>memory_get</code>, ale tekst fragmentu pomija stopkę, a prompt systemowy
+  ostrzega agenta, aby jej nie cytował).</li>
+</ul>
+<p><strong>Przykład</strong></p>
+<pre class="highlight"><code class="language-json5">memory: {
+  backend: "qmd",
+  citations: "auto",
+  qmd: {
+    includeDefaultMemory: true,
+    update: { interval: "5m", debounceMs: 15000 },
+    limits: { maxResults: 6, timeoutMs: 4000 },
+    scope: {
+      default: "deny",
+      rules: [{ action: "allow", match: { chatType: "direct" } }]
+    },
+    paths: [
+      { name: "docs", path: "~/notes", pattern: "**/*.md" }
+    ]
+  }
+}
+</code></pre>
+<p><strong>Cytowania i fallback</strong></p>
+<ul>
+<li><code>memory.citations</code> obowiązuje niezależnie od backendu (<code>auto</code>/<code>on</code>/<code>off</code>).</li>
+<li>Gdy działa <code>qmd</code>, oznaczamy <code>status().backend = "qmd"</code>, aby diagnostyka pokazywała,
+  który silnik obsłużył wyniki. Jeśli podproces QMD zakończy się lub wyjście JSON
+  nie może zostać sparsowane, menedżer wyszukiwania loguje ostrzeżenie i zwraca
+  wbudowanego dostawcę (istniejące embeddingi Markdown), dopóki QMD się nie podniesie.</li>
+</ul>
+<h3 id="dodatkowe-sciezki-pamieci">Dodatkowe ścieżki pamięci<a class="toc-anchor" href="#dodatkowe-sciezki-pamieci" title="Permanent link">¶</a></h3>
+<p>Jeśli chcesz indeksować pliki Markdown poza domyślnym układem obszaru roboczego,
+dodaj jawne ścieżki:</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      extraPaths: ["../team-docs", "/srv/shared-notes/overview.md"]
+    }
+  }
+}
+</code></pre>
+<p>Uwagi:</p>
+<ul>
+<li>Ścieżki mogą być bezwzględne lub względne względem obszaru roboczego.</li>
+<li>Katalogi są skanowane rekurencyjnie w poszukiwaniu plików <code>.md</code>.</li>
+<li>Indeksowane są tylko pliki Markdown.</li>
+<li>Dowiązania symboliczne są ignorowane (pliki lub katalogi).</li>
+</ul>
+<h3 id="embeddingi-gemini-natywne">Embeddingi Gemini (natywne)<a class="toc-anchor" href="#embeddingi-gemini-natywne" title="Permanent link">¶</a></h3>
+<p>Ustaw dostawcę na <code>gemini</code>, aby używać bezpośrednio API embeddingów Gemini:</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      provider: "gemini",
+      model: "gemini-embedding-001",
+      remote: {
+        apiKey: "YOUR_GEMINI_API_KEY"
+      }
+    }
+  }
+}
+</code></pre>
+<p>Uwagi:</p>
+<ul>
+<li><code>remote.baseUrl</code> jest opcjonalne (domyślnie bazowy URL API Gemini).</li>
+<li><code>remote.headers</code> pozwala dodać dodatkowe nagłówki, jeśli są potrzebne.</li>
+<li>Domyślny model: <code>gemini-embedding-001</code>.</li>
+</ul>
+<p>Jeśli chcesz użyć <strong>niestandardowego endpointu zgodnego z OpenAI</strong> (OpenRouter, vLLM lub proxy),
+możesz użyć konfiguracji <code>remote</code> z dostawcą OpenAI:</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      provider: "openai",
+      model: "text-embedding-3-small",
+      remote: {
+        baseUrl: "https://api.example.com/v1/",
+        apiKey: "YOUR_OPENAI_COMPAT_API_KEY",
+        headers: { "X-Custom-Header": "value" }
+      }
+    }
+  }
+}
+</code></pre>
+<p>Jeśli nie chcesz ustawiać klucza API, użyj <code>memorySearch.provider = "local"</code> lub ustaw
+<code>memorySearch.fallback = "none"</code>.</p>
+<p>Fallbacki:</p>
+<ul>
+<li><code>memorySearch.fallback</code> może mieć wartość <code>openai</code>, <code>gemini</code>, <code>local</code> lub <code>none</code>.</li>
+<li>Dostawca fallback jest używany tylko wtedy, gdy podstawowy dostawca embeddingów zawiedzie.</li>
+</ul>
+<p>Indeksowanie wsadowe (OpenAI + Gemini):</p>
+<ul>
+<li>Włączone domyślnie dla embeddingów OpenAI i Gemini. Ustaw <code>agents.defaults.memorySearch.remote.batch.enabled = false</code>, aby wyłączyć.</li>
+<li>Domyślne zachowanie czeka na zakończenie batcha; dostrój <code>remote.batch.wait</code>, <code>remote.batch.pollIntervalMs</code> i <code>remote.batch.timeoutMinutes</code>, jeśli potrzeba.</li>
+<li>Ustaw <code>remote.batch.concurrency</code>, aby kontrolować liczbę równoległych zadań batch (domyślnie: 2).</li>
+<li>Tryb batch obowiązuje, gdy <code>memorySearch.provider = "openai"</code> lub <code>"gemini"</code> i używa odpowiadającego klucza API.</li>
+<li>Zadania batch Gemini używają asynchronicznego endpointu batch embeddingów i wymagają dostępności Gemini Batch API.</li>
+</ul>
+<p>Dlaczego batch OpenAI jest szybki i tani:</p>
+<ul>
+<li>Dla dużych uzupełnień wstecznych OpenAI jest zwykle najszybszą wspieraną opcją,
+  ponieważ możemy wysyłać wiele żądań embeddingów w jednym zadaniu batch i pozwolić
+  OpenAI przetwarzać je asynchronicznie.</li>
+<li>OpenAI oferuje obniżone ceny dla obciążeń Batch API, więc duże przebiegi
+  indeksowania są zwykle tańsze niż wysyłanie tych samych żądań synchronicznie.</li>
+<li>Szczegóły w dokumentacji i cenniku OpenAI Batch API:</li>
+<li><a href="https://platform.openai.com/docs/api-reference/batch">https://platform.openai.com/docs/api-reference/batch</a></li>
+<li><a href="https://platform.openai.com/pricing">https://platform.openai.com/pricing</a></li>
+</ul>
+<p>Przykład konfiguracji:</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      provider: "openai",
+      model: "text-embedding-3-small",
+      fallback: "openai",
+      remote: {
+        batch: { enabled: true, concurrency: 2 }
+      },
+      sync: { watch: true }
+    }
+  }
+}
+</code></pre>
+<p>Narzędzia:</p>
+<ul>
+<li><code>memory_search</code> — zwraca fragmenty z plikiem + zakresami linii.</li>
+<li><code>memory_get</code> — odczyt zawartości pliku pamięci po ścieżce.</li>
+</ul>
+<p>Tryb lokalny:</p>
+<ul>
+<li>Ustaw <code>agents.defaults.memorySearch.provider = "local"</code>.</li>
+<li>Podaj <code>agents.defaults.memorySearch.local.modelPath</code> (GGUF lub URI <code>hf:</code>).</li>
+<li>Opcjonalnie: ustaw <code>agents.defaults.memorySearch.fallback = "none"</code>, aby uniknąć zdalnego fallbacku.</li>
+</ul>
+<h3 id="jak-dziaaja-narzedzia-pamieci">Jak działają narzędzia pamięci<a class="toc-anchor" href="#jak-dziaaja-narzedzia-pamieci" title="Permanent link">¶</a></h3>
+<ul>
+<li><code>memory_search</code> przeszukuje semantycznie fragmenty Markdown (~400 tokenów docelowo, 80-tokenowa nakładka) z <code>MEMORY.md</code> + <code>memory/**/*.md</code>. Zwraca tekst fragmentu (limit ~700 znaków), ścieżkę pliku, zakres linii, wynik, dostawcę/model oraz informację, czy nastąpił fallback z lokalnych → zdalnych embeddingów. Nie jest zwracana pełna zawartość pliku.</li>
+<li><code>memory_get</code> odczytuje konkretny plik Markdown pamięci (względny względem obszaru roboczego), opcjonalnie od wskazanej linii i przez N linii. Ścieżki poza <code>MEMORY.md</code> / <code>memory/</code> są odrzucane.</li>
+<li>Oba narzędzia są włączone tylko wtedy, gdy <code>memorySearch.enabled</code> rozwiązuje się jako true dla agenta.</li>
+</ul>
+<h3 id="co-jest-indeksowane-i-kiedy">Co jest indeksowane (i kiedy)<a class="toc-anchor" href="#co-jest-indeksowane-i-kiedy" title="Permanent link">¶</a></h3>
+<ul>
+<li>Typ pliku: tylko Markdown (<code>MEMORY.md</code>, <code>memory/**/*.md</code>).</li>
+<li>Przechowywanie indeksu: SQLite per-agent w <code>~/.openclaw/memory/&lt;agentId&gt;.sqlite</code> (konfigurowalne przez <code>agents.defaults.memorySearch.store.path</code>, obsługuje token <code>{agentId}</code>).</li>
+<li>Świeżość: watcher na <code>MEMORY.md</code> + <code>memory/</code> oznacza indeks jako brudny (debounce 1,5 s). Synchronizacja jest planowana na start sesji, przy wyszukiwaniu lub w interwale i działa asynchronicznie. Transkrypty sesji używają progów delta do wyzwalania synchronizacji w tle.</li>
+<li>Wyzwalacze reindeksacji: indeks przechowuje <strong>dostawcę/model embeddingów + odcisk endpointu + parametry chunkowania</strong>. Jeśli którekolwiek z nich się zmieni, OpenClaw automatycznie resetuje i reindeksuje cały magazyn.</li>
+</ul>
+<h3 id="wyszukiwanie-hybrydowe-bm25-wektor">Wyszukiwanie hybrydowe (BM25 + wektor)<a class="toc-anchor" href="#wyszukiwanie-hybrydowe-bm25-wektor" title="Permanent link">¶</a></h3>
+<p>Gdy włączone, OpenClaw łączy:</p>
+<ul>
+<li><strong>Podobieństwo wektorowe</strong> (dopasowanie semantyczne, brzmienie może się różnić)</li>
+<li><strong>Trafność słów kluczowych BM25</strong> (dokładne tokeny, jak identyfikatory, zmienne środowiskowe, symbole kodu)</li>
+</ul>
+<p>Jeśli pełnotekstowe wyszukiwanie jest niedostępne na Twojej platformie, OpenClaw wraca do wyszukiwania tylko wektorowego.</p>
+<h4 id="dlaczego-hybryda">Dlaczego hybryda?<a class="toc-anchor" href="#dlaczego-hybryda" title="Permanent link">¶</a></h4>
+<p>Wyszukiwanie wektorowe świetnie radzi sobie z „to znaczy to samo”:</p>
+<ul>
+<li>„Mac Studio gateway host” vs „maszyna uruchamiająca gateway”</li>
+<li>„debounce aktualizacje plików” vs „unikać indeksowania przy każdym zapisie”</li>
+</ul>
+<p>Może jednak być słabe dla dokładnych, wysoko-sygnałowych tokenów:</p>
+<ul>
+<li>identyfikatory (<code>a828e60</code>, <code>b3b9895a…</code>)</li>
+<li>symbole kodu (<code>memorySearch.query.hybrid</code>)</li>
+<li>ciągi błędów („sqlite-vec unavailable”)</li>
+</ul>
+<p>BM25 (pełnotekst) jest odwrotnością: silne dla dokładnych tokenów, słabsze dla parafraz.
+Wyszukiwanie hybrydowe to pragmatyczny środek: <strong>używa obu sygnałów pobierania</strong>, aby uzyskać
+dobre wyniki zarówno dla zapytań „języka naturalnego”, jak i „igła w stogu siana”.</p>
+<h4 id="jak-aczymy-wyniki-obecny-projekt">Jak łączymy wyniki (obecny projekt)<a class="toc-anchor" href="#jak-aczymy-wyniki-obecny-projekt" title="Permanent link">¶</a></h4>
+<p>Szkic implementacji:</p>
+<ol>
+<li>Pobierz pulę kandydatów z obu stron:</li>
+</ol>
+<ul>
+<li><strong>Wektor</strong>: top <code>maxResults * candidateMultiplier</code> według podobieństwa cosinusowego.</li>
+<li><strong>BM25</strong>: top <code>maxResults * candidateMultiplier</code> według rangi FTS5 BM25 (niżej = lepiej).</li>
+</ul>
+<ol start="2">
+<li>Przekształć rangę BM25 w wynik ~0..1:</li>
+</ol>
+<ul>
+<li><code>textScore = 1 / (1 + max(0, bm25Rank))</code></li>
+</ul>
+<ol start="3">
+<li>Połącz kandydatów po id fragmentu i oblicz wynik ważony:</li>
+</ol>
+<ul>
+<li><code>finalScore = vectorWeight * vectorScore + textWeight * textScore</code></li>
+</ul>
+<p>Uwagi:</p>
+<ul>
+<li><code>vectorWeight</code> + <code>textWeight</code> jest normalizowane do 1,0 podczas rozwiązywania konfiguracji, więc wagi zachowują się jak procenty.</li>
+<li>Jeśli embeddingi są niedostępne (lub dostawca zwraca wektor zerowy), nadal uruchamiamy BM25 i zwracamy dopasowania słów kluczowych.</li>
+<li>Jeśli FTS5 nie może zostać utworzone, pozostajemy przy wyszukiwaniu tylko wektorowym (bez twardej awarii).</li>
+</ul>
+<p>To nie jest „idealne według teorii IR”, ale jest proste, szybkie i zwykle poprawia recall/precyzję na rzeczywistych notatkach.
+Jeśli później będziemy chcieli pójść dalej, typowe kolejne kroki to Reciprocal Rank Fusion (RRF) lub normalizacja wyników
+(min/max lub z-score) przed mieszaniem.</p>
+<p>Konfiguracja:</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      query: {
+        hybrid: {
+          enabled: true,
+          vectorWeight: 0.7,
+          textWeight: 0.3,
+          candidateMultiplier: 4
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="cache-embeddingow">Cache embeddingów<a class="toc-anchor" href="#cache-embeddingow" title="Permanent link">¶</a></h3>
+<p>OpenClaw może buforować <strong>embeddingi fragmentów</strong> w SQLite, aby reindeksowanie i częste aktualizacje
+(zwłaszcza transkrypty sesji) nie wymagały ponownego embedowania niezmienionego tekstu.</p>
+<p>Konfiguracja:</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      cache: {
+        enabled: true,
+        maxEntries: 50000
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="wyszukiwanie-pamieci-sesji-eksperymentalne">Wyszukiwanie pamięci sesji (eksperymentalne)<a class="toc-anchor" href="#wyszukiwanie-pamieci-sesji-eksperymentalne" title="Permanent link">¶</a></h3>
+<p>Opcjonalnie możesz indeksować <strong>transkrypty sesji</strong> i udostępniać je przez <code>memory_search</code>.
+Funkcja jest ukryta za flagą eksperymentalną.</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      experimental: { sessionMemory: true },
+      sources: ["memory", "sessions"]
+    }
+  }
+}
+</code></pre>
+<p>Uwagi:</p>
+<ul>
+<li>Indeksowanie sesji jest <strong>opcjonalne</strong> (domyślnie wyłączone).</li>
+<li>Aktualizacje sesji są debouncowane i <strong>indeksowane asynchronicznie</strong> po przekroczeniu progów delta (best-effort).</li>
+<li><code>memory_search</code> nigdy nie blokuje na indeksowaniu; wyniki mogą być lekko nieaktualne do czasu zakończenia synchronizacji w tle.</li>
+<li>Wyniki nadal zawierają tylko fragmenty; <code>memory_get</code> pozostaje ograniczone do plików pamięci.</li>
+<li>Indeksowanie sesji jest izolowane per agent (indeksowane są tylko logi sesji tego agenta).</li>
+<li>Logi sesji znajdują się na dysku (<code>~/.openclaw/agents/&lt;agentId&gt;/sessions/*.jsonl</code>). Każdy proces/użytkownik z dostępem do systemu plików może je odczytać, więc granicą zaufania jest dostęp do dysku. Dla ostrzejszej izolacji uruchamiaj agentów pod oddzielnymi użytkownikami systemu lub hostami.</li>
+</ul>
+<p>Progi delta (pokazane wartości domyślne):</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      sync: {
+        sessions: {
+          deltaBytes: 100000,   // ~100 KB
+          deltaMessages: 50     // JSONL lines
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="przyspieszenie-wektorow-sqlite-sqlite-vec">Przyspieszenie wektorów SQLite (sqlite-vec)<a class="toc-anchor" href="#przyspieszenie-wektorow-sqlite-sqlite-vec" title="Permanent link">¶</a></h3>
+<p>Gdy rozszerzenie sqlite-vec jest dostępne, OpenClaw przechowuje embeddingi w
+wirtualnej tabeli SQLite (<code>vec0</code>) i wykonuje zapytania odległości wektorów w
+bazie danych. Utrzymuje to szybkie wyszukiwanie bez ładowania każdego embeddingu do JS.</p>
+<p>Konfiguracja (opcjonalna):</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      store: {
+        vector: {
+          enabled: true,
+          extensionPath: "/path/to/sqlite-vec"
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>Uwagi:</p>
+<ul>
+<li><code>enabled</code> domyślnie ma wartość true; po wyłączeniu wyszukiwanie wraca do
+  obliczania podobieństwa cosinusowego w procesie nad zapisanymi embeddingami.</li>
+<li>Jeśli rozszerzenie sqlite-vec jest niedostępne lub nie uda się go załadować,
+  OpenClaw loguje błąd i kontynuuje z fallbackiem JS (bez tabeli wektorowej).</li>
+<li><code>extensionPath</code> nadpisuje dołączoną ścieżkę sqlite-vec (przydatne dla niestandardowych
+  buildów lub niestandardowych lokalizacji instalacji).</li>
+</ul>
+<h3 id="automatyczne-pobieranie-lokalnych-embeddingow">Automatyczne pobieranie lokalnych embeddingów<a class="toc-anchor" href="#automatyczne-pobieranie-lokalnych-embeddingow" title="Permanent link">¶</a></h3>
+<ul>
+<li>Domyślny lokalny model embeddingów: <code>hf:ggml-org/embeddinggemma-300M-GGUF/embeddinggemma-300M-Q8_0.gguf</code> (~0,6 GB).</li>
+<li>Gdy <code>memorySearch.provider = "local"</code>, <code>node-llama-cpp</code> rozwiązuje <code>modelPath</code>; jeśli GGUF brakuje, jest <strong>automatycznie pobierany</strong> do cache (lub <code>local.modelCacheDir</code>, jeśli ustawione), a następnie ładowany. Pobieranie jest wznawiane przy ponownej próbie.</li>
+<li>Wymaganie natywnej kompilacji: uruchom <code>pnpm approve-builds</code>, wybierz <code>node-llama-cpp</code>, następnie <code>pnpm rebuild node-llama-cpp</code>.</li>
+<li>Fallback: jeśli lokalna konfiguracja się nie powiedzie i <code>memorySearch.fallback = "openai"</code>, automatycznie przełączamy się na zdalne embeddingi (<code>openai/text-embedding-3-small</code>, o ile nie nadpisano) i zapisujemy powód.</li>
+</ul>
+<h3 id="przykad-niestandardowego-endpointu-zgodnego-z-openai">Przykład niestandardowego endpointu zgodnego z OpenAI<a class="toc-anchor" href="#przykad-niestandardowego-endpointu-zgodnego-z-openai" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      provider: "openai",
+      model: "text-embedding-3-small",
+      remote: {
+        baseUrl: "https://api.example.com/v1/",
+        apiKey: "YOUR_REMOTE_API_KEY",
+        headers: {
+          "X-Organization": "org-id",
+          "X-Project": "project-id"
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>Uwagi:</p>
+<ul>
+<li><code>remote.*</code> ma pierwszeństwo przed <code>models.providers.openai.*</code>.</li>
+<li><code>remote.headers</code> łączą się z nagłówkami OpenAI; zdalne wygrywają przy konfliktach kluczy. Pomiń <code>remote.headers</code>, aby użyć domyślnych ustawień OpenAI.</li>
+</ul></div><div class="px-0.5 flex items-center text-sm font-semibold text-gray-700 dark:text-gray-200" id="pagination"><a class="flex items-center space-x-3 group" href="session-tool.html"><svg class="h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><span class="group-hover:text-gray-900 dark:group-hover:text-white">Session Tools</span></a><a class="flex items-center ml-auto space-x-3 group" href="compaction.html"><span class="group-hover:text-gray-900 dark:group-hover:text-white">Compaction</span><svg class="rotate-180 h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a></div><div class="left-0 right-0 sticky sm:px-4 pb-4 sm:pb-6 bottom-0 pt-1 flex flex-col items-center w-full overflow-hidden z-20 pointer-events-none print:hidden"><div class="chat-assistant-floating-input z-10 w-full sm:w-96 focus-within:w-full group/assistant-bar sm:focus-within:w-[30rem] hover:scale-100 sm:hover:scale-105 focus-within:hover:scale-100 [transition:width_400ms,left_200ms,transform_500ms,opacity_200ms]"><div class="translate-y-[100px] opacity-0"><div class="flex flex-col w-full rounded-2xl pointer-events-auto bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border border-gray-200 dark:border-white/30 focus-within:border-primary dark:focus-within:border-primary-light transition-colors sm:shadow-xl"><div class="relative flex items-end"><textarea aria-label="Ask a question..." autocomplete="off" class="chat-assistant-input w-full bg-transparent border-0 peer/input text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 !outline-none focus:!outline-none focus:ring-0 py-2.5 pl-3.5 pr-10 font-bodyWeight text-sm" id="chat-assistant-textarea" placeholder="Ask a question..." style="resize:none"></textarea><span class="absolute right-11 bottom-3 text-xs font-medium text-gray-400 dark:text-gray-500 select-none pointer-events-none peer-focus/input:hidden hidden sm:inline">⌘<!-- -->I</span><button aria-label="Send message" class="chat-assistant-send-button flex justify-center items-center rounded-full p-1 size-6 bg-primary/30 dark:bg-primary-dark/30 absolute right-2.5 bottom-2" disabled=""><svg class="lucide lucide-arrow-up text-white dark:text-white size-3.5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></div></div></div></div><footer class="flex gap-12 justify-between pt-10 border-t border-gray-100 sm:flex dark:border-gray-800/50 pb-28" id="footer"><div class="flex items-center justify-between"><div class="sm:flex"><a class="group flex items-baseline gap-1 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-nowrap" href="https://www.mintlify.com?utm_campaign=poweredBy&amp;utm_medium=referral&amp;utm_source=clawdhub" rel="noreferrer" target="_blank"><span>Powered by</span><svg class="h-3.5 w-auto translate-y-[3px]" fill="none" height="367" viewbox="0 0 1274 367" width="1274" xmlns="http://www.w3.org/2000/svg"><path d="M1154.38 366.038H1097.86L1137.69 276.14L1058.04 97.1046H1114.93L1161.35 209.337C1162.97 213.26 1168.53 213.253 1170.14 209.325L1216.21 97.1046H1273.49L1154.38 366.038Z" fill="currentColor"></path><path d="M982.714 286.761V142.622H944.403V97.1041H982.714V72.4488C982.714 49.9429 989.542 32.2416 1003.2 19.345C1016.85 6.44832 1034.17 0 1055.16 0C1068.06 0 1079.06 1.39081 1088.16 4.17244V50.0693C1082.09 47.7934 1075.01 46.6555 1066.92 46.6555C1055.54 46.6555 1047.32 49.1843 1042.27 54.2418C1037.21 59.0464 1034.68 67.2648 1034.68 78.8971V97.1041H1088.16V142.622H1034.68V286.761H982.714Z" fill="currentColor"></path><path d="M897.916 66.0005C889.066 66.0005 881.353 62.8395 874.778 56.5176C868.203 49.9429 864.916 42.1037 864.916 33.0002C864.916 23.8967 868.203 16.184 874.778 9.86215C881.353 3.28738 889.066 0 897.916 0C907.273 0 915.112 3.28738 921.434 9.86215C928.008 16.184 931.296 23.8967 931.296 33.0002C931.296 42.1037 928.008 49.9429 921.434 56.5176C915.112 62.8395 907.273 66.0005 897.916 66.0005ZM872.123 286.761V97.1041H924.089V286.761H872.123Z" fill="currentColor"></path><path d="M781.638 286.761V2.27609H833.604V286.761H781.638Z" fill="currentColor"></path><path d="M722.934 289.037C701.693 289.037 684.244 283.221 670.589 271.588C657.187 259.703 650.485 242.634 650.485 220.381V142.622H612.175V97.1044H650.485V44.3799H702.451V97.1044H755.934V142.622H702.451V210.14C702.451 221.772 704.98 230.117 710.038 235.174C715.095 239.979 723.313 242.381 734.693 242.381C742.785 242.381 749.865 241.243 755.934 238.967V284.864C746.831 287.646 735.831 289.037 722.934 289.037Z" fill="currentColor"></path><path d="M417.674 286.761V97.1041H469.64V110.967C469.64 113.311 472.83 114.347 474.382 112.591C485.967 99.4848 502.467 92.9317 523.881 92.9317C546.64 92.9317 564.468 100.518 577.365 115.69C590.514 130.61 597.089 150.587 597.089 175.622V286.761H545.123V184.346C545.123 170.438 542.215 159.691 536.399 152.105C530.583 144.265 522.364 140.346 511.743 140.346C499.1 140.346 488.858 144.898 481.019 154.001C473.433 163.105 469.64 176.507 469.64 194.208V286.761H417.674Z" fill="currentColor"></path><path d="M352.981 66.0005C344.13 66.0005 336.417 62.8395 329.843 56.5176C323.268 49.9429 319.98 42.1037 319.98 33.0002C319.98 23.8967 323.268 16.184 329.843 9.86215C336.417 3.28738 344.13 0 352.981 0C362.337 0 370.176 3.28738 376.498 9.86215C383.073 16.184 386.36 23.8967 386.36 33.0002C386.36 42.1037 383.073 49.9429 376.498 56.5176C370.176 62.8395 362.337 66.0005 352.981 66.0005ZM327.187 286.761V97.1041H379.153V286.761H327.187Z" fill="currentColor"></path><path d="M238.967 286.761V185.484C238.967 155.392 229.105 140.346 209.381 140.346C198.001 140.346 188.898 144.645 182.07 153.242C175.495 161.84 171.955 174.61 171.449 191.553V286.761H119.484V185.484C119.484 155.392 109.621 140.346 89.8972 140.346C78.2649 140.346 69.035 144.898 62.2073 154.001C55.3797 163.105 51.9659 176.507 51.9659 194.208V286.761H0V97.1041H51.9659V111.103C51.9659 113.435 55.1014 114.462 56.633 112.704C68.1136 99.5223 83.3741 92.9317 102.415 92.9317C127.436 92.9317 146.283 103.262 158.953 123.923C159.953 125.553 162.412 125.527 163.406 123.894C168.884 114.891 176.496 107.731 186.243 102.415C197.369 96.0926 208.622 92.9317 220.002 92.9317C242.507 92.9317 259.956 100.392 272.347 115.311C284.738 130.231 290.933 150.714 290.933 176.76V286.761H238.967Z" fill="currentColor"></path></svg></a></div></div></footer></div></div><!--$--><!--/$--></div></div></div></div></div>
+<div class="veiseule-footer"><a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Community translations maintained by <a href="http://blog.law-kelly.com/2026/02/open-source-means-open-language.html">John Kelly</a>. Improve translations on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a>.</div>
+<script>
+(function(){
+  var btn = document.querySelector('[aria-label="Toggle dark mode"]');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var html = document.documentElement;
+    var isDark = html.classList.contains('dark');
+    if(isDark){
+      html.classList.remove('dark');
+      html.style.colorScheme = 'light';
+      try { localStorage.setItem('isDarkMode','light'); } catch(e){}
+    } else {
+      html.classList.add('dark');
+      html.style.colorScheme = 'dark';
+      try { localStorage.setItem('isDarkMode','dark'); } catch(e){}
+    }
+  });
+})();
+</script></body></html>

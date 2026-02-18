@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html class="__variable_47c970 __variable_3bbdad" data-banner-state="visible" data-page-mode="none" lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/bb3ef058b751a6ad-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/c4b700dcb2187787-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/e4af272ccee01ff0-s.p.woff2" rel="preload" type="font/woff2"/><link as="image" href="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26" rel="preload"/><link as="image" href="https://d3gk2c5xim1je2.cloudfront.net/flags/VN.svg" rel="preload"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/b864dec2fc058581.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/6f9b80d484ead711.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/05d6d8fcb903870d.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><meta content="" name="next-size-adjust"/><title>Memory - OpenClaw</title><meta content="OpenClaw" name="application-name"/><meta content="Mintlify" name="generator"/><meta content="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/browserconfig.xml" name="msapplication-config"/><meta content="OpenClaw" name="apple-mobile-web-app-title"/><meta content="#FF5A36" name="msapplication-TileColor"/><meta content="utf-8" name="charset"/><meta content="OpenClaw" name="og:site_name"/><meta content="https://docs.openclaw.ai/concepts/memory" name="canonical"/><link href="memory.html" rel="canonical"/><link href="/sitemap.xml" rel="alternate" type="application/xml"/><meta content="Memory - OpenClaw" property="og:title"/><meta content="https://docs.openclaw.ai/concepts/memory" property="og:url"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DSessions%2Band%2Bmemory%26title%3DMemory%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="website" property="og:type"/><meta content="summary_large_image" name="twitter:card"/><meta content="Memory - OpenClaw" name="twitter:title"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DSessions%2Band%2Bmemory%26title%3DMemory%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" name="twitter:image"/><meta content="1200" name="twitter:image:width"/><meta content="630" name="twitter:image:height"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-16x16.png" media="(prefers-color-scheme: light)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-32x32.png" media="(prefers-color-scheme: light)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon.ico" media="(prefers-color-scheme: light)" rel="shortcut icon" type="image/x-icon"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-16x16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-32x32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon.ico" media="(prefers-color-scheme: dark)" rel="shortcut icon" type="image/x-icon"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link as="style" href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css" rel="preload"/><script type="text/javascript">(function(a,b){try{let c=document.getElementById("banner")?.innerText;if(c){for(let d=0;d<localStorage.length;d++){let e=localStorage.key(d);if(e?.endsWith(a)&&localStorage.getItem(e)===c)return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible");return}for(let c=0;c<localStorage.length;c++){let d=localStorage.key(c);if(d?.endsWith(a)&&localStorage.getItem(d))return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible")}catch(a){document.documentElement.setAttribute(b,"hidden")}})(
+  "bannerDismissed",
+  "data-banner-state",
+)</script><style id="veiseule-branding">
+.veiseule-bar{position:fixed;top:0;left:0;right:0;z-index:99999;background:#2E4A3A;color:#E0E0E0;text-align:center;padding:8px 16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;box-shadow:0 2px 4px rgba(0,0,0,0.15)}
+.veiseule-bar a{color:#A9B8A1;text-decoration:underline}
+.veiseule-bar a:hover{color:#fff}
+.veiseule-footer{background:#1A2E20;color:#E0E0E0;text-align:center;padding:16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;border-top:1px solid #2E4A3A}
+.veiseule-footer a{color:#A9B8A1;text-decoration:underline}
+.veiseule-footer a:hover{color:#fff}
+body{padding-top:36px !important}
+</style>
+<style>
+.toc-anchor { text-decoration: none; margin-left: 0.3em; opacity: 0.3; }
+.toc-anchor:hover { opacity: 1; }
+.toc-anchor { color: #999; }
+.dark .toc-anchor { color: #555; }
+</style></head><body>
+<div class="veiseule-bar">Community translations by <a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Help improve them on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a></div>
+<div hidden=""><!--$--><!--/$--></div><script>((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","isDarkMode","system",null,["dark","light","true","false","system"],{"true":"dark","false":"light","dark":"dark","light":"light"},true,true)</script><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><style>:root {
+  --font-family-headings-custom: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  --font-family-body-custom: "Fragment Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  
+  
+}</style><style>:root {
+    --primary: 255 90 54;
+    --primary-light: 255 138 107;
+    --primary-dark: 255 90 54;
+    --tooltip-foreground: 255 255 255;
+    --background-light: 255 255 255;
+    --background-dark: 14 12 13;
+    --gray-50: 250 245 244;
+    --gray-100: 245 240 239;
+    --gray-200: 230 225 224;
+    --gray-300: 213 208 207;
+    --gray-400: 166 161 160;
+    --gray-500: 119 114 113;
+    --gray-600: 87 82 81;
+    --gray-700: 70 65 64;
+    --gray-800: 45 40 38;
+    --gray-900: 30 25 24;
+    --gray-950: 17 12 11;
+  }</style><script type="text/javascript">
+          (function() {
+            function loadKatex() {
+              const link = document.querySelector('link[href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css"]');
+              if (link) link.rel = 'stylesheet';
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', loadKatex);
+            } else {
+              loadKatex();
+            }
+          })();
+        </script><div class="relative antialiased text-gray-500 dark:text-gray-400"><a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:p-2 focus:text-sm focus:bg-background-light dark:focus:bg-background-dark focus:rounded-md focus:outline-primary dark:focus:outline-primary-light" href="memory.html#content-area">Skip to main content</a><div class="max-lg:contents lg:flex lg:w-full"><div class="max-lg:contents lg:flex-1 lg:min-w-0 lg:overflow-x-clip"><div class="z-30 fixed lg:sticky top-0 w-full peer is-not-custom peer is-not-center peer is-not-wide peer is-not-frame" id="navbar"><div class="absolute w-full h-full backdrop-blur flex-none transition-colors duration-500 border-b border-gray-500/5 dark:border-gray-300/[0.06] data-[is-opaque=true]:bg-background-light data-[is-opaque=true]:supports-backdrop-blur:bg-background-light/95 data-[is-opaque=true]:dark:bg-background-dark/75 data-[is-opaque=false]:supports-backdrop-blur:bg-background-light/60 data-[is-opaque=false]:dark:bg-transparent" data-is-opaque="false" id="navbar-transition"></div><div class="max-w-8xl mx-auto relative"><div><div class="relative"><div class="flex items-center lg:px-12 h-16 min-w-0 mx-4 lg:mx-0"><div class="h-full relative flex-1 flex items-center gap-x-4 min-w-0 border-b border-gray-500/5 dark:border-gray-300/[0.06]"><div class="flex-1 flex items-center gap-x-4"><a class="select-none" data-slot="context-menu-trigger" data-state="closed" href="../index.html" style="-webkit-touch-callout:none"><span class="sr-only">OpenClaw<!-- --> home page</span><img alt="light logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 block dark:hidden" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/><img alt="dark logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 hidden dark:block" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/></a><div class="hidden lg:flex items-center gap-x-2"><button aria-expanded="false" aria-haspopup="menu" class="group disabled:pointer-events-none [&amp;&gt;span]:line-clamp-1 overflow-hidden group group-hover:text-gray-950/70 dark:group-hover:text-white/70 py-1.5 px-2.5 rounded-xl hover:!bg-gray-600/5 dark:hover:!bg-gray-200/5 aria-[expanded=true]:bg-gray-600/5 dark:aria-[expanded=true]:bg-gray-200/5 text-sm font-medium text-gray-900 h-8 focus-visible:outline-primary dark:text-gray-300 group/trigger flex items-center gap-2 whitespace-nowrap" data-state="closed" id="localization-select-trigger" type="button"><div class="relative size-4 rounded-full shrink-0"><img alt="VN" class="w-full h-full rounded-full" src="https://d3gk2c5xim1je2.cloudfront.net/flags/VN.svg"/><div class="absolute top-0 left-0 w-full h-full border rounded-full bg-primary-light/10 border-black/10"></div></div><span class="truncate max-w-[12.5rem]">Tiếng Việt</span><svg class="transition-transform text-gray-400 overflow-visible group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400 rotate-90 ml-auto group-aria-[expanded=true]/trigger:rotate-[270deg]" height="24" viewbox="0 -9 3 24" width="8"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></button></div></div><div class="relative hidden lg:flex items-center flex-1 z-20 justify-center"><button aria-label="Open search" class="flex pointer-events-auto rounded-xl w-full items-center text-sm leading-6 h-9 pl-3.5 pr-3 text-gray-500 dark:text-white/50 bg-background-light dark:bg-background-dark dark:brightness-[1.1] dark:ring-1 dark:hover:brightness-[1.25] ring-1 ring-gray-400/30 hover:ring-gray-600/30 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 justify-between truncate gap-2 min-w-[43px]" id="search-bar-entry" type="button"><div class="flex items-center gap-2 min-w-[42px]"><svg class="lucide lucide-search min-w-4 flex-none text-gray-700 hover:text-gray-800 dark:text-gray-400 hover:dark:text-gray-200" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><div class="truncate min-w-0">Search...</div></div><span class="flex-none text-xs font-semibold">⌘<!-- -->K</span></button></div><div class="flex-1 relative hidden lg:flex items-center ml-auto justify-end space-x-4"><nav class="text-sm"><ul class="flex space-x-6 items-center"><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);mask-repeat:no-repeat;mask-position:center"></svg>GitHub</a></li><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw/releases" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);mask-repeat:no-repeat;mask-position:center;mask-size:100%"></svg>Releases</a></li></ul></nav><div class="flex items-center"><button aria-label="Toggle dark mode" class="group p-2 flex items-center justify-center"><svg class="h-4 w-4 block text-gray-400 dark:hidden group-hover:text-gray-600" fill="none" height="16" stroke="currentColor" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2880_7340)"><path d="M8 1.11133V2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 3.12891L12.2427 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M14.8889 8H14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 12.8711L12.2427 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8 14.8889V14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 12.8711L3.75735 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M1.11133 8H2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 3.12891L3.75735 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8.00043 11.7782C10.0868 11.7782 11.7782 10.0868 11.7782 8.00043C11.7782 5.91402 10.0868 4.22266 8.00043 4.22266C5.91402 4.22266 4.22266 5.91402 4.22266 8.00043C4.22266 10.0868 5.91402 11.7782 8.00043 11.7782Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g><defs><clippath id="clip0_2880_7340"><rect fill="white" height="16" width="16"></rect></clippath></defs></svg><svg class="lucide lucide-moon h-4 w-4 hidden dark:block text-gray-500 dark:group-hover:text-gray-300" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button></div></div><div class="flex lg:hidden items-center gap-3"><button aria-label="Open search" class="text-gray-500 w-8 h-8 flex items-center justify-center hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300" id="search-bar-entry-mobile" type="button"><span class="sr-only">Search...</span><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);mask-repeat:no-repeat;mask-position:center"></svg></button><button aria-label="More actions" class="h-7 w-5 flex items-center justify-end"><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);mask-repeat:no-repeat;mask-position:center"></svg></button></div></div></div><button class="flex items-center h-14 py-4 px-5 lg:hidden focus:outline-0 w-full text-left" type="button"><div class="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300"><span class="sr-only">Navigation</span><svg class="h-4" fill="currentColor" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></div><div class="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0 space-x-3 overflow-hidden"><div class="flex items-center space-x-3 flex-shrink-0"><span>Sessions and memory</span><svg class="h-5 rotate-0 overflow-visible fill-gray-400" height="24" viewbox="0 -9 3 24" width="3"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></div><div class="font-semibold text-gray-900 truncate dark:text-gray-200 min-w-0 flex-1">Memory</div></div></button></div><div class="hidden lg:flex px-12 h-12"><div class="nav-tabs h-full flex text-sm gap-x-6"><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../index.html">Get started<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../install.html">Install<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../channels.html">Channels<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium hover:text-gray-800 dark:hover:text-gray-300 text-gray-800 dark:text-gray-200 [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor]" href="architecture.html">Agents<div class="absolute bottom-0 h-[1.5px] w-full left-0 bg-primary dark:bg-primary-light"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../tools.html">Tools<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../providers.html">Models<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../platforms.html">Platforms<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../gateway.html">Gateway &amp; Ops<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../cli.html">Reference<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../help.html">Help<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a></div></div></div></div><span hidden="" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"></span></div><div class="scroll-mt-[var(--scroll-mt)] peer-[.is-custom]:max-w-none peer-[.is-center]:max-w-3xl peer-[.is-not-custom]:peer-[.is-not-center]:max-w-8xl peer-[.is-not-custom]:px-4 peer-[.is-not-custom]:mx-auto peer-[.is-not-custom]:lg:px-8 peer-[.is-wide]:[&amp;&gt;div:last-child]:max-w-6xl peer-[.is-custom]:[&amp;&gt;div:first-child]:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:xl:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:xl:!hidden"><div class="z-20 hidden lg:block fixed bottom-0 right-auto w-[18rem]" id="sidebar" style="top:7rem"><div class="absolute inset-0 z-10 stable-scrollbar-gutter overflow-auto pr-8 pb-10" id="sidebar-content"><div class="relative lg:text-sm lg:leading-6"><div class="sticky top-0 h-8 z-10 bg-gradient-to-b from-background-light dark:from-background-dark"></div><div id="navigation-items"><div class=""><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Fundamentals</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Gateway Architecture" id="/concepts/architecture"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="architecture.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Gateway Architecture</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Agent Runtime" id="/concepts/agent"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="agent.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Agent Runtime</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Agent Loop" id="/concepts/agent-loop"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="agent-loop.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Agent Loop</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="System Prompt" id="/concepts/system-prompt"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="system-prompt.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">System Prompt</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Context" id="/concepts/context"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="context.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Context</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Agent Workspace" id="/concepts/agent-workspace"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="agent-workspace.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Agent Workspace</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="OAuth" id="/concepts/oauth"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="oauth.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">OAuth</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Bootstrapping</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Bootstrapping" id="/start/bootstrapping"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../start/bootstrapping.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Bootstrapping</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Sessions and memory</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Session Management" id="/concepts/session"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="session.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Session Management</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Sessions" id="/concepts/sessions"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="sessions.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Sessions</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Session Pruning" id="/concepts/session-pruning"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="session-pruning.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Session Pruning</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Session Tools" id="/concepts/session-tool"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="session-tool.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Session Tools</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Memory" id="/concepts/memory"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] bg-primary/10 text-primary [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor] dark:text-primary-light dark:bg-primary-light/10" href="memory.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Memory</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Compaction" id="/concepts/compaction"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="compaction.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Compaction</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Multi-agent</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Multi-Agent Routing" id="/concepts/multi-agent"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="multi-agent.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Multi-Agent Routing</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Presence" id="/concepts/presence"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="presence.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Presence</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Messages and delivery</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Messages" id="/concepts/messages"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="messages.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Messages</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Streaming and Chunking" id="/concepts/streaming"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="streaming.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Streaming and Chunking</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Retry Policy" id="/concepts/retry"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="retry.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Retry Policy</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Command Queue" id="/concepts/queue"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="queue.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Command Queue</div></div></a></li></ul></div></div></div></div></div><div id="content-container"><span class="fixed inset-0 bg-background-light dark:bg-background-dark -z-10 pointer-events-none" id="almond-background-color"></span><style data-custom-css-index="0" data-custom-css-path="style.css">#content > h1:first-of-type {
+  display: none !important;
+}
+</style><div class="flex flex-row-reverse gap-12 box-border w-full pt-40 lg:pt-10"><div class="hidden xl:flex self-start sticky xl:flex-col max-w-[28rem] z-[21] h-[calc(100vh-9.5rem)] top-[calc(9.5rem-var(--sidenav-move-up,0px))]" id="content-side-layout"><div class="z-10 hidden xl:flex box-border max-h-full pl-10 w-[19rem]" id="table-of-contents-layout"><div class="text-gray-600 text-sm leading-6 w-[16.5rem] overflow-y-auto space-y-2 pb-4 -mt-10 pt-10" id="table-of-contents"><button class="text-gray-700 dark:text-gray-300 font-medium flex items-center space-x-2 hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer"><svg class="h-3 w-3" fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.44434 12.6665H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 3.3335H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 8H7.33323" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>On this page</span></button><ul class="toc" id="table-of-contents-content"><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#memory">Memory</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#tep-bo-nho-markdown">Tệp bộ nhớ (Markdown)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#khi-nao-ghi-bo-nho">Khi nào ghi bộ nhớ</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#xa-bo-nho-tu-ong-ping-truoc-khi-nen-gop">Xả bộ nhớ tự động (ping trước khi nén gộp)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#tim-kiem-bo-nho-vector">Tìm kiếm bộ nhớ vector</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#qmd-backend-experimental">QMD backend (experimental)</a></li><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#pick-the-same-state-dir-openclaw-uses">Pick the same state dir OpenClaw uses</a></li><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#optional-force-an-index-refresh-embeddings">(Optional) force an index refresh + embeddings</a></li><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#warm-up-trigger-first-time-model-downloads">Warm up / trigger first-time model downloads</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#additional-memory-paths">Additional memory paths</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#gemini-embeddings-native">Gemini embeddings (native)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#cach-cac-cong-cu-bo-nho-hoat-ong">Cách các công cụ bộ nhớ hoạt động</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#nhung-gi-uoc-lap-chi-muc-va-khi-nao">Những gì được lập chỉ mục (và khi nào)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#hybrid-search-bm25-vector">Hybrid search (BM25 + vector)</a></li><li class="toc-item relative" data-depth="3"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#vi-sao-hybrid">Vì sao hybrid?</a></li><li class="toc-item relative" data-depth="3"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#cach-chung-toi-gop-ket-qua-thiet-ke-hien-tai">Cách chúng tôi gộp kết quả (thiết kế hiện tại)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#embedding-cache">Embedding cache</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#session-memory-search-experimental">Session memory search (experimental)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#sqlite-vector-acceleration-sqlite-vec">SQLite vector acceleration (sqlite-vec)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#local-embedding-auto-download">Local embedding auto-download</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#vi-du-endpoint-tuong-thich-openai-tuy-chinh">Ví dụ endpoint tương thích OpenAI tùy chỉnh</a></li></ul></div></div></div><div class="relative grow box-border flex-col w-full mx-auto px-1 lg:pl-[23.7rem] lg:-ml-12 xl:w-[calc(100%-28rem)]" id="content-area"><header class="relative leading-none" id="header"><div class="mt-0.5 space-y-2.5"><div class="eyebrow h-5 text-primary dark:text-primary-light text-sm font-semibold">Sessions and memory</div><div class="flex flex-col sm:flex-row items-start sm:items-center relative gap-2 min-w-0"><h1 class="text-2xl sm:text-3xl text-gray-900 tracking-tight dark:text-gray-200 [overflow-wrap:anywhere] font-bold break-all" id="page-title">Memory</h1></div></div></header><div class="mdx-content relative mt-8 mb-14 prose prose-gray dark:prose-invert [contain:inline-size] isolate" data-page-href="/concepts/memory" data-page-title="Memory" id="content"><h1 id="memory">Memory<a class="toc-anchor" href="#memory" title="Permanent link">¶</a></h1>
+<ol start="14">
+<li>
+<p>Bộ nhớ OpenClaw là <strong>Markdown thuần trong workspace của agent</strong>. The files are the
+    source of truth; the model only "remembers" what gets written to disk.</p>
+</li>
+<li>
+<p>Công cụ tìm kiếm bộ nhớ được cung cấp bởi plugin bộ nhớ đang hoạt động (mặc định: <code>memory-core</code>). 16. Tắt plugin bộ nhớ bằng <code>plugins.slots.memory = "none"</code>.</p>
+</li>
+</ol>
+<h2 id="tep-bo-nho-markdown">Tệp bộ nhớ (Markdown)<a class="toc-anchor" href="#tep-bo-nho-markdown" title="Permanent link">¶</a></h2>
+<p>Bố cục workspace mặc định dùng hai lớp bộ nhớ:</p>
+<ul>
+<li><code>memory/YYYY-MM-DD.md</code></li>
+<li>Nhật ký hằng ngày (chỉ ghi thêm).</li>
+<li>Đọc hôm nay + hôm qua khi bắt đầu phiên.</li>
+<li><code>MEMORY.md</code> (tùy chọn)</li>
+<li>Bộ nhớ dài hạn đã được tuyển chọn.</li>
+<li><strong>Chỉ tải trong phiên chính, riêng tư</strong> (không bao giờ trong ngữ cảnh nhóm).</li>
+</ul>
+<ol start="17">
+<li>Các tệp này nằm dưới workspace (<code>agents.defaults.workspace</code>, mặc định <code>~/.openclaw/workspace</code>). 18. Xem <a href="/concepts/agent-workspace">Agent workspace</a> để biết bố cục đầy đủ.</li>
+</ol>
+<h2 id="khi-nao-ghi-bo-nho">Khi nào ghi bộ nhớ<a class="toc-anchor" href="#khi-nao-ghi-bo-nho" title="Permanent link">¶</a></h2>
+<ul>
+<li>Quyết định, sở thích và sự thật bền vững ghi vào <code>MEMORY.md</code>.</li>
+<li>Ghi chú hằng ngày và ngữ cảnh đang chạy ghi vào <code>memory/YYYY-MM-DD.md</code>.</li>
+<li>Nếu ai đó nói “hãy nhớ điều này”, hãy ghi lại (đừng giữ trong RAM).</li>
+<li>
+<ol start="19">
+<li>Khu vực này vẫn đang phát triển. 20. Việc nhắc mô hình lưu bộ nhớ là hữu ích; nó sẽ biết phải làm gì.</li>
+</ol>
+</li>
+<li>Nếu bạn muốn điều gì đó được ghi nhớ, <strong>hãy yêu cầu bot ghi vào bộ nhớ</strong>.</li>
+</ul>
+<h2 id="xa-bo-nho-tu-ong-ping-truoc-khi-nen-gop">Xả bộ nhớ tự động (ping trước khi nén gộp)<a class="toc-anchor" href="#xa-bo-nho-tu-ong-ping-truoc-khi-nen-gop" title="Permanent link">¶</a></h2>
+<ol start="21">
+<li>Khi một phiên <strong>gần đến auto-compaction</strong>, OpenClaw kích hoạt một <strong>lượt tác tử im lặng</strong> để nhắc mô hình ghi bộ nhớ bền vững <strong>trước khi</strong> context bị nén gọn. 22. Các prompt mặc định nói rõ mô hình <em>có thể trả lời</em>, nhưng thường thì <code>NO_REPLY</code> là phản hồi đúng để người dùng không bao giờ thấy lượt này.</li>
+</ol>
+<p>Cơ chế này được điều khiển bởi <code>agents.defaults.compaction.memoryFlush</code>:</p>
+<pre class="highlight"><code class="language-json5">{
+  agents: {
+    defaults: {
+      compaction: {
+        reserveTokensFloor: 20000,
+        memoryFlush: {
+          enabled: true,
+          softThresholdTokens: 4000,
+          systemPrompt: "Session nearing compaction. Store durable memories now.",
+          prompt: "Write any lasting notes to memory/YYYY-MM-DD.md; reply with NO_REPLY if nothing to store.",
+        },
+      },
+    },
+  },
+}
+</code></pre>
+<p>Chi tiết:</p>
+<ul>
+<li><strong>Ngưỡng mềm</strong>: xả bộ nhớ được kích hoạt khi ước lượng token của phiên vượt
+  <code>contextWindow - reserveTokensFloor - softThresholdTokens</code>.</li>
+<li><strong>Im lặng</strong> theo mặc định: lời nhắc bao gồm <code>NO_REPLY</code> nên không có gì được gửi ra.</li>
+<li><strong>Hai lời nhắc</strong>: một lời nhắc người dùng cộng với một lời nhắc hệ thống để thêm nhắc nhở.</li>
+<li><strong>Một lần xả cho mỗi chu kỳ nén</strong> (theo dõi trong <code>sessions.json</code>).</li>
+<li><strong>Workspace phải ghi được</strong>: nếu phiên chạy trong sandbox với
+  <code>workspaceAccess: "ro"</code> hoặc <code>"none"</code>, việc xả sẽ bị bỏ qua.</li>
+</ul>
+<p>Để biết toàn bộ vòng đời nén, xem
+<a href="/reference/session-management-compaction">Session management + compaction</a>.</p>
+<h2 id="tim-kiem-bo-nho-vector">Tìm kiếm bộ nhớ vector<a class="toc-anchor" href="#tim-kiem-bo-nho-vector" title="Permanent link">¶</a></h2>
+<p>OpenClaw có thể xây dựng một chỉ mục vector nhỏ trên <code>MEMORY.md</code> và <code>memory/*.md</code> để
+các truy vấn ngữ nghĩa có thể tìm ghi chú liên quan ngay cả khi cách diễn đạt khác nhau.</p>
+<p>Mặc định:</p>
+<ul>
+<li>Bật theo mặc định.</li>
+<li>Theo dõi thay đổi của tệp bộ nhớ (debounce).</li>
+<li>
+<ol start="23">
+<li>Sử dụng embeddings từ xa theo mặc định. 24. Nếu <code>memorySearch.provider</code> không được đặt, OpenClaw tự động chọn:</li>
+<li><code>local</code> nếu <code>memorySearch.local.modelPath</code> được cấu hình và tệp tồn tại.</li>
+<li><code>openai</code> nếu có thể phân giải khóa OpenAI.</li>
+<li><code>gemini</code> nếu có thể phân giải khóa Gemini.</li>
+<li><code>voyage</code> nếu có thể phân giải khóa Voyage.</li>
+<li>Nếu không, tìm kiếm bộ nhớ sẽ bị vô hiệu cho đến khi được cấu hình.</li>
+</ol>
+</li>
+<li>Chế độ local dùng node-llama-cpp và có thể cần <code>pnpm approve-builds</code>.</li>
+<li>Dùng sqlite-vec (khi có) để tăng tốc tìm kiếm vector trong SQLite.</li>
+</ul>
+<ol start="25">
+<li>Embeddings từ xa <strong>yêu cầu</strong> API key cho nhà cung cấp embedding. 26. OpenClaw phân giải khóa từ auth profiles, <code>models.providers.*.apiKey</code>, hoặc biến môi trường. 27. Codex OAuth chỉ bao phủ chat/completions và <strong>không</strong> đáp ứng embeddings cho tìm kiếm bộ nhớ. For Gemini, use <code>GEMINI_API_KEY</code> or
+    <code>models.providers.google.apiKey</code>. 29. Với Voyage, sử dụng <code>VOYAGE_API_KEY</code> hoặc <code>models.providers.voyage.apiKey</code>. When using a custom OpenAI-compatible endpoint,
+    set <code>memorySearch.remote.apiKey</code> (and optional <code>memorySearch.remote.headers</code>).</li>
+</ol>
+<h3 id="qmd-backend-experimental">QMD backend (experimental)<a class="toc-anchor" href="#qmd-backend-experimental" title="Permanent link">¶</a></h3>
+<ol start="31">
+<li>Đặt <code>memory.backend = "qmd"</code> để thay thế indexer SQLite tích hợp bằng <a href="https://github.com/tobi/qmd">QMD</a>: một sidecar tìm kiếm ưu tiên local kết hợp BM25 + vector + reranking. Markdown stays the source of truth; OpenClaw shells
+    out to QMD for retrieval. 33. Các điểm chính:</li>
+</ol>
+<p><strong>Điều kiện tiên quyết</strong></p>
+<ul>
+<li>
+<ol start="34">
+<li>Bị tắt theo mặc định. 35. Bật theo từng cấu hình (<code>memory.backend = "qmd"</code>).</li>
+</ol>
+</li>
+<li>Cài QMD CLI riêng (<code>bun install -g https://github.com/tobi/qmd</code> hoặc tải
+  bản phát hành) và đảm bảo binary <code>qmd</code> nằm trong <code>PATH</code> của gateway.</li>
+<li>QMD cần bản dựng SQLite cho phép extension (<code>brew install sqlite</code> trên
+  macOS).</li>
+<li>QMD chạy hoàn toàn local qua Bun + <code>node-llama-cpp</code> và tự động tải model GGUF
+  từ HuggingFace khi dùng lần đầu (không cần daemon Ollama riêng).</li>
+<li>Gateway chạy QMD trong một XDG home tự chứa dưới
+  <code>~/.openclaw/agents/&lt;agentId&gt;/qmd/</code> bằng cách đặt <code>XDG_CONFIG_HOME</code> và
+  <code>XDG_CACHE_HOME</code>.</li>
+<li>
+<ol start="21">
+<li>Hỗ trợ hệ điều hành: macOS và Linux hoạt động ngay sau khi cài Bun + SQLite. Windows is best supported via WSL2.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Cách sidecar chạy</strong></p>
+<ul>
+<li>Gateway ghi một QMD home tự chứa dưới
+  <code>~/.openclaw/agents/&lt;agentId&gt;/qmd/</code> (config + cache + sqlite DB).</li>
+<li>Collection được tạo qua <code>qmd collection add</code> từ <code>memory.qmd.paths</code>
+  (cộng với các tệp bộ nhớ workspace mặc định), sau đó <code>qmd update</code> + <code>qmd embed</code> chạy
+  khi khởi động và theo khoảng thời gian cấu hình (<code>memory.qmd.update.interval</code>,
+  mặc định 5 phút).</li>
+<li>Làm mới khi khởi động hiện chạy nền theo mặc định để không chặn khởi động chat;
+  đặt <code>memory.qmd.update.waitForBootSync = true</code> để giữ hành vi chặn trước đây.</li>
+<li>
+<ol start="23">
+<li>Các tìm kiếm chạy qua <code>qmd query --json</code>. 37. Nếu QMD thất bại hoặc thiếu binary, OpenClaw tự động quay về trình quản lý SQLite tích hợp để các công cụ bộ nhớ vẫn hoạt động.</li>
+</ol>
+</li>
+<li>Hiện OpenClaw không phơi bày tinh chỉnh batch-size embedding của QMD; hành vi batch
+  do QMD tự điều khiển.</li>
+<li><strong>Lần tìm đầu tiên có thể chậm</strong>: QMD có thể tải model GGUF local (reranker/mở rộng truy vấn)
+  ở lần chạy <code>qmd query</code> đầu tiên.</li>
+<li>OpenClaw tự động đặt <code>XDG_CONFIG_HOME</code>/<code>XDG_CACHE_HOME</code> khi chạy QMD.</li>
+<li>
+<p>Nếu muốn tải sẵn model thủ công (và làm ấm cùng chỉ mục OpenClaw dùng),
+    hãy chạy một truy vấn một lần với các XDG dir của tác tử.</p>
+<ol start="38">
+<li>Trạng thái QMD của OpenClaw nằm dưới <strong>thư mục state</strong> của bạn (mặc định <code>~/.openclaw</code>).
+    You can point <code>qmd</code> at the exact same index by exporting the same XDG vars
+    OpenClaw uses:</li>
+</ol>
+<p>```bash</p>
+<h1 id="pick-the-same-state-dir-openclaw-uses">Pick the same state dir OpenClaw uses<a class="toc-anchor" href="#pick-the-same-state-dir-openclaw-uses" title="Permanent link">¶</a></h1>
+<p>STATE_DIR="${OPENCLAW_STATE_DIR:-$HOME/.openclaw}"
+if [ -d "$HOME/.moltbot" ] &amp;&amp; [ ! -d "$HOME/.openclaw" ] \
+  &amp;&amp; [ -z "${OPENCLAW_STATE_DIR:-}" ]; then
+  STATE_DIR="$HOME/.moltbot"
+fi</p>
+<p>export XDG_CONFIG_HOME="$STATE_DIR/agents/main/qmd/xdg-config"
+export XDG_CACHE_HOME="$STATE_DIR/agents/main/qmd/xdg-cache"</p>
+<h1 id="optional-force-an-index-refresh-embeddings">(Optional) force an index refresh + embeddings<a class="toc-anchor" href="#optional-force-an-index-refresh-embeddings" title="Permanent link">¶</a></h1>
+<p>qmd update
+qmd embed</p>
+<h1 id="warm-up-trigger-first-time-model-downloads">Warm up / trigger first-time model downloads<a class="toc-anchor" href="#warm-up-trigger-first-time-model-downloads" title="Permanent link">¶</a></h1>
+<p>qmd query "test" -c memory-root --json &gt;/dev/null 2&gt;&amp;1
+```</p>
+</li>
+</ul>
+<p><strong>Bề mặt cấu hình (<code>memory.qmd.*</code>)</strong></p>
+<ul>
+<li><code>command</code> (mặc định <code>qmd</code>): ghi đè đường dẫn executable.</li>
+<li><code>includeDefaultMemory</code> (mặc định <code>true</code>): tự động lập chỉ mục <code>MEMORY.md</code> + <code>memory/**/*.md</code>.</li>
+<li><code>paths[]</code>: thêm thư mục/tệp bổ sung (<code>path</code>, tùy chọn <code>pattern</code>, tùy chọn
+  ổn định <code>name</code>).</li>
+<li><code>sessions</code>: chọn tham gia lập chỉ mục JSONL phiên (<code>enabled</code>, <code>retentionDays</code>,
+  <code>exportDir</code>).</li>
+<li><code>update</code>: điều khiển nhịp làm mới và thực thi bảo trì:
+  (<code>interval</code>, <code>debounceMs</code>, <code>onBoot</code>, <code>waitForBootSync</code>, <code>embedInterval</code>,
+  <code>commandTimeoutMs</code>, <code>updateTimeoutMs</code>, <code>embedTimeoutMs</code>).</li>
+<li><code>limits</code>: giới hạn payload recall (<code>maxResults</code>, <code>maxSnippetChars</code>,
+  <code>maxInjectedChars</code>, <code>timeoutMs</code>).</li>
+<li><code>scope</code>: same schema as <a href="/gateway/configuration#session"><code>session.sendPolicy</code></a>.
+  41. Mặc định là chỉ DM (từ chối tất cả, cho phép chat trực tiếp); nới lỏng để hiển thị kết quả QMD trong nhóm/kênh.</li>
+<li>When <code>scope</code> denies a search, OpenClaw logs a warning with the derived
+  <code>channel</code>/<code>chatType</code> so empty results are easier to debug.</li>
+<li>Đoạn trích lấy từ ngoài workspace hiển thị là
+  <code>qmd/&lt;collection&gt;/&lt;relative-path&gt;</code> trong kết quả <code>memory_search</code>; <code>memory_get</code>
+  hiểu tiền tố đó và đọc từ root collection QMD đã cấu hình.</li>
+<li>Khi <code>memory.qmd.sessions.enabled = true</code>, OpenClaw xuất transcript phiên đã được làm sạch
+  (lượt User/Assistant) vào một collection QMD riêng dưới
+  <code>~/.openclaw/agents/&lt;id&gt;/qmd/sessions/</code>, để <code>memory_search</code> có thể gọi lại các
+  cuộc hội thoại gần đây mà không chạm vào chỉ mục SQLite tích hợp.</li>
+<li>Các snippet <code>memory_search</code> giờ bao gồm footer <code>Source: &lt;path#line&gt;</code> khi
+  <code>memory.citations</code> là <code>auto</code>/<code>on</code>; đặt <code>memory.citations = "off"</code> để giữ
+  metadata đường dẫn ở nội bộ (tác tử vẫn nhận đường dẫn cho
+  <code>memory_get</code>, nhưng văn bản snippet bỏ footer và lời nhắc hệ thống
+  cảnh báo tác tử không trích dẫn nó).</li>
+</ul>
+<p><strong>Ví dụ</strong></p>
+<pre class="highlight"><code class="language-json5">memory: {
+  backend: "qmd",
+  citations: "auto",
+  qmd: {
+    includeDefaultMemory: true,
+    update: { interval: "5m", debounceMs: 15000 },
+    limits: { maxResults: 6, timeoutMs: 4000 },
+    scope: {
+      default: "deny",
+      rules: [{ action: "allow", match: { chatType: "direct" } }]
+    },
+    paths: [
+      { name: "docs", path: "~/notes", pattern: "**/*.md" }
+    ]
+  }
+}
+</code></pre>
+<p><strong>Trích dẫn &amp; fallback</strong></p>
+<ul>
+<li><code>memory.citations</code> áp dụng bất kể backend (<code>auto</code>/<code>on</code>/<code>off</code>).</li>
+<li>
+<ol start="29">
+<li>Khi <code>qmd</code> chạy, chúng tôi gắn thẻ <code>status().backend = "qmd"</code> để chẩn đoán hiển thị
+      engine nào đã phục vụ kết quả. 42. Nếu subprocess QMD thoát hoặc đầu ra JSON không thể phân tích, trình quản lý tìm kiếm ghi log cảnh báo và trả về nhà cung cấp tích hợp (embeddings Markdown hiện có) cho đến khi QMD phục hồi.</li>
+</ol>
+</li>
+</ul>
+<h3 id="additional-memory-paths">Additional memory paths<a class="toc-anchor" href="#additional-memory-paths" title="Permanent link">¶</a></h3>
+<p>Nếu bạn muốn lập chỉ mục các tệp Markdown ngoài bố cục workspace mặc định, hãy thêm
+đường dẫn rõ ràng:</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      extraPaths: ["../team-docs", "/srv/shared-notes/overview.md"]
+    }
+  }
+}
+</code></pre>
+<p>Ghi chú:</p>
+<ul>
+<li>Đường dẫn có thể là tuyệt đối hoặc tương đối theo workspace.</li>
+<li>Thư mục được quét đệ quy cho các tệp <code>.md</code>.</li>
+<li>Chỉ lập chỉ mục tệp Markdown.</li>
+<li>Bỏ qua symlink (tệp hoặc thư mục).</li>
+</ul>
+<h3 id="gemini-embeddings-native">Gemini embeddings (native)<a class="toc-anchor" href="#gemini-embeddings-native" title="Permanent link">¶</a></h3>
+<p>Đặt nhà cung cấp là <code>gemini</code> để dùng trực tiếp API embedding của Gemini:</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      provider: "gemini",
+      model: "gemini-embedding-001",
+      remote: {
+        apiKey: "YOUR_GEMINI_API_KEY"
+      }
+    }
+  }
+}
+</code></pre>
+<p>Ghi chú:</p>
+<ul>
+<li><code>remote.baseUrl</code> là tùy chọn (mặc định là base URL của Gemini API).</li>
+<li><code>remote.headers</code> cho phép thêm header bổ sung nếu cần.</li>
+<li>Model mặc định: <code>gemini-embedding-001</code>.</li>
+</ul>
+<p>Nếu bạn muốn dùng <strong>endpoint tương thích OpenAI tùy chỉnh</strong> (OpenRouter, vLLM, hoặc proxy),
+bạn có thể dùng cấu hình <code>remote</code> với nhà cung cấp OpenAI:</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      provider: "openai",
+      model: "text-embedding-3-small",
+      remote: {
+        baseUrl: "https://api.example.com/v1/",
+        apiKey: "YOUR_OPENAI_COMPAT_API_KEY",
+        headers: { "X-Custom-Header": "value" }
+      }
+    }
+  }
+}
+</code></pre>
+<p>Nếu bạn không muốn đặt khóa API, dùng <code>memorySearch.provider = "local"</code> hoặc đặt
+<code>memorySearch.fallback = "none"</code>.</p>
+<p>Fallback:</p>
+<ul>
+<li><code>memorySearch.fallback</code> có thể là <code>openai</code>, <code>gemini</code>, <code>local</code>, hoặc <code>none</code>.</li>
+<li>Nhà cung cấp fallback chỉ được dùng khi nhà cung cấp embedding chính thất bại.</li>
+</ul>
+<p>Lập chỉ mục theo lô (OpenAI + Gemini):</p>
+<ul>
+<li>
+<ol start="43">
+<li>Được bật theo mặc định cho embeddings OpenAI và Gemini. 32. Đặt <code>agents.defaults.memorySearch.remote.batch.enabled = false</code> để vô hiệu hóa.</li>
+</ol>
+</li>
+<li>Hành vi mặc định chờ hoàn tất batch; tinh chỉnh <code>remote.batch.wait</code>, <code>remote.batch.pollIntervalMs</code>, và <code>remote.batch.timeoutMinutes</code> nếu cần.</li>
+<li>Đặt <code>remote.batch.concurrency</code> để điều khiển số job batch gửi song song (mặc định: 2).</li>
+<li>Chế độ batch áp dụng khi <code>memorySearch.provider = "openai"</code> hoặc <code>"gemini"</code> và dùng khóa API tương ứng.</li>
+<li>Batch Gemini dùng endpoint batch embedding async và yêu cầu Gemini Batch API khả dụng.</li>
+</ul>
+<p>Vì sao batch OpenAI nhanh + rẻ:</p>
+<ul>
+<li>Với backfill lớn, OpenAI thường là lựa chọn nhanh nhất chúng tôi hỗ trợ vì có thể gửi nhiều yêu cầu embedding trong một job batch và để OpenAI xử lý bất đồng bộ.</li>
+<li>OpenAI cung cấp giá ưu đãi cho workload Batch API, nên các đợt lập chỉ mục lớn thường rẻ hơn so với gửi đồng bộ cùng lượng yêu cầu.</li>
+<li>Xem tài liệu và bảng giá OpenAI Batch API để biết chi tiết:</li>
+<li><a href="https://platform.openai.com/docs/api-reference/batch">https://platform.openai.com/docs/api-reference/batch</a></li>
+<li><a href="https://platform.openai.com/pricing">https://platform.openai.com/pricing</a></li>
+</ul>
+<p>Ví dụ cấu hình:</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      provider: "openai",
+      model: "text-embedding-3-small",
+      fallback: "openai",
+      remote: {
+        batch: { enabled: true, concurrency: 2 }
+      },
+      sync: { watch: true }
+    }
+  }
+}
+</code></pre>
+<p>Công cụ:</p>
+<ul>
+<li><code>memory_search</code> — trả về snippet kèm tệp + khoảng dòng.</li>
+<li><code>memory_get</code> — đọc nội dung tệp bộ nhớ theo đường dẫn.</li>
+</ul>
+<p>Chế độ local:</p>
+<ul>
+<li>Đặt <code>agents.defaults.memorySearch.provider = "local"</code>.</li>
+<li>Cung cấp <code>agents.defaults.memorySearch.local.modelPath</code> (GGUF hoặc URI <code>hf:</code>).</li>
+<li>Tùy chọn: đặt <code>agents.defaults.memorySearch.fallback = "none"</code> để tránh fallback từ xa.</li>
+</ul>
+<h3 id="cach-cac-cong-cu-bo-nho-hoat-ong">Cách các công cụ bộ nhớ hoạt động<a class="toc-anchor" href="#cach-cac-cong-cu-bo-nho-hoat-ong" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<ol start="33">
+<li><code>memory_search</code> tìm kiếm ngữ nghĩa các khối Markdown (~400 token mục tiêu, chồng lấp 80 token) từ <code>MEMORY.md</code> + <code>memory/**/*.md</code>. 44. Nó trả về đoạn trích văn bản (giới hạn ~700 ký tự), đường dẫn tệp, phạm vi dòng, điểm số, nhà cung cấp/mô hình, và liệu có fallback từ embeddings local → remote hay không. No full file payload is returned.</li>
+</ol>
+</li>
+<li>
+<ol start="36">
+<li><code>memory_get</code> đọc một tệp Markdown bộ nhớ cụ thể (tương đối workspace), tùy chọn từ một dòng bắt đầu và trong N dòng. 37. Các đường dẫn ngoài <code>MEMORY.md</code> / <code>memory/</code> sẽ bị từ chối.</li>
+</ol>
+</li>
+<li>Cả hai công cụ chỉ được bật khi <code>memorySearch.enabled</code> phân giải true cho tác tử.</li>
+</ul>
+<h3 id="nhung-gi-uoc-lap-chi-muc-va-khi-nao">Những gì được lập chỉ mục (và khi nào)<a class="toc-anchor" href="#nhung-gi-uoc-lap-chi-muc-va-khi-nao" title="Permanent link">¶</a></h3>
+<ul>
+<li>Loại tệp: chỉ Markdown (<code>MEMORY.md</code>, <code>memory/**/*.md</code>).</li>
+<li>Lưu trữ chỉ mục: SQLite theo từng tác tử tại <code>~/.openclaw/memory/&lt;agentId&gt;.sqlite</code> (cấu hình qua <code>agents.defaults.memorySearch.store.path</code>, hỗ trợ token <code>{agentId}</code>).</li>
+<li>
+<ol start="38">
+<li>Độ mới: watcher trên <code>MEMORY.md</code> + <code>memory/</code> đánh dấu chỉ mục là bẩn (debounce 1,5s). Sync is scheduled on session start, on search, or on an interval and runs asynchronously. Session transcripts use delta thresholds to trigger background sync.</li>
+</ol>
+</li>
+<li>
+<ol start="41">
+<li>Kích hoạt lập chỉ mục lại: chỉ mục lưu trữ <strong>nhà cung cấp/mô hình embedding + dấu vân tay endpoint + tham số chia khối</strong>. 48. Nếu bất kỳ điều nào trong số đó thay đổi, OpenClaw tự động reset và lập chỉ mục lại toàn bộ kho.</li>
+</ol>
+</li>
+</ul>
+<h3 id="hybrid-search-bm25-vector">Hybrid search (BM25 + vector)<a class="toc-anchor" href="#hybrid-search-bm25-vector" title="Permanent link">¶</a></h3>
+<p>Khi bật, OpenClaw kết hợp:</p>
+<ul>
+<li><strong>Độ tương đồng vector</strong> (khớp ngữ nghĩa, cách diễn đạt có thể khác)</li>
+<li><strong>Độ liên quan từ khóa BM25</strong> (token chính xác như ID, biến môi trường, ký hiệu code)</li>
+</ul>
+<p>Nếu tìm kiếm toàn văn không khả dụng trên nền tảng của bạn, OpenClaw fallback sang tìm kiếm chỉ vector.</p>
+<h4 id="vi-sao-hybrid">Vì sao hybrid?<a class="toc-anchor" href="#vi-sao-hybrid" title="Permanent link">¶</a></h4>
+<p>Tìm kiếm vector rất tốt cho “ý nghĩa tương đương”:</p>
+<ul>
+<li>“Mac Studio gateway host” vs “máy chạy gateway”</li>
+<li>“debounce cập nhật tệp” vs “tránh lập chỉ mục mỗi lần ghi”</li>
+</ul>
+<p>Nhưng nó có thể yếu với token chính xác, tín hiệu cao:</p>
+<ul>
+<li>ID (<code>a828e60</code>, <code>b3b9895a…</code>)</li>
+<li>ký hiệu code (<code>memorySearch.query.hybrid</code>)</li>
+<li>chuỗi lỗi (“sqlite-vec unavailable”)</li>
+</ul>
+<p>BM25 (full-text) is the opposite: strong at exact tokens, weaker at paraphrases.
+50. Tìm kiếm lai là phương án trung dung thực dụng: <strong>sử dụng cả hai tín hiệu truy xuất</strong> để bạn có kết quả tốt cho cả truy vấn “ngôn ngữ tự nhiên” và truy vấn “kim đáy bể”.</p>
+<h4 id="cach-chung-toi-gop-ket-qua-thiet-ke-hien-tai">Cách chúng tôi gộp kết quả (thiết kế hiện tại)<a class="toc-anchor" href="#cach-chung-toi-gop-ket-qua-thiet-ke-hien-tai" title="Permanent link">¶</a></h4>
+<p>Phác thảo triển khai:</p>
+<ol>
+<li>Lấy tập ứng viên từ cả hai phía:</li>
+</ol>
+<ul>
+<li><strong>Vector</strong>: top <code>maxResults * candidateMultiplier</code> theo cosine similarity.</li>
+<li><strong>BM25</strong>: top <code>maxResults * candidateMultiplier</code> theo thứ hạng FTS5 BM25 (thấp hơn là tốt hơn).</li>
+</ul>
+<ol start="2">
+<li>Chuyển thứ hạng BM25 thành điểm 0..1-ish:</li>
+</ol>
+<ul>
+<li><code>textScore = 1 / (1 + max(0, bm25Rank))</code></li>
+</ul>
+<ol start="3">
+<li>Hợp nhất ứng viên theo id khối và tính điểm có trọng số:</li>
+</ol>
+<ul>
+<li><code>finalScore = vectorWeight * vectorScore + textWeight * textScore</code></li>
+</ul>
+<p>Ghi chú:</p>
+<ul>
+<li><code>vectorWeight</code> + <code>textWeight</code> được chuẩn hóa thành 1.0 khi phân giải cấu hình, nên trọng số hoạt động như phần trăm.</li>
+<li>Nếu embedding không khả dụng (hoặc nhà cung cấp trả về vector rỗng), chúng tôi vẫn chạy BM25 và trả kết quả khớp từ khóa.</li>
+<li>Nếu không thể tạo FTS5, chúng tôi giữ tìm kiếm chỉ vector (không lỗi cứng).</li>
+</ul>
+<ol start="45">
+<li>Điều này không phải là “hoàn hảo theo lý thuyết IR”, nhưng nó đơn giản, nhanh và thường cải thiện recall/precision trên ghi chú thực tế.
+    If we want to get fancier later, common next steps are Reciprocal Rank Fusion (RRF) or score normalization
+    (min/max or z-score) before mixing.</li>
+</ol>
+<p>Cấu hình:</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      query: {
+        hybrid: {
+          enabled: true,
+          vectorWeight: 0.7,
+          textWeight: 0.3,
+          candidateMultiplier: 4
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="embedding-cache">Embedding cache<a class="toc-anchor" href="#embedding-cache" title="Permanent link">¶</a></h3>
+<p>OpenClaw có thể cache <strong>embedding theo khối</strong> trong SQLite để việc lập chỉ mục lại và cập nhật thường xuyên
+(đặc biệt là transcript phiên) không phải embed lại văn bản không đổi.</p>
+<p>Cấu hình:</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      cache: {
+        enabled: true,
+        maxEntries: 50000
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="session-memory-search-experimental">Session memory search (experimental)<a class="toc-anchor" href="#session-memory-search-experimental" title="Permanent link">¶</a></h3>
+<ol start="47">
+<li>Bạn có thể tùy chọn lập chỉ mục <strong>bản ghi phiên</strong> và hiển thị chúng qua <code>memory_search</code>.
+    This is gated behind an experimental flag.</li>
+</ol>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      experimental: { sessionMemory: true },
+      sources: ["memory", "sessions"]
+    }
+  }
+}
+</code></pre>
+<p>Ghi chú:</p>
+<ul>
+<li>Lập chỉ mục phiên là <strong>tùy chọn</strong> (tắt theo mặc định).</li>
+<li>Cập nhật phiên được debounce và <strong>lập chỉ mục bất đồng bộ</strong> khi vượt ngưỡng delta (best-effort).</li>
+<li><code>memory_search</code> không bao giờ chặn chờ lập chỉ mục; kết quả có thể hơi cũ cho đến khi đồng bộ nền hoàn tất.</li>
+<li>Kết quả vẫn chỉ gồm snippet; <code>memory_get</code> vẫn giới hạn ở tệp bộ nhớ.</li>
+<li>Lập chỉ mục phiên được cô lập theo từng tác tử (chỉ log phiên của tác tử đó được lập chỉ mục).</li>
+<li>Session logs live on disk (<code>~/.openclaw/agents/&lt;agentId&gt;/sessions/*.jsonl</code>). 50. Bất kỳ tiến trình/người dùng nào có quyền truy cập hệ thống tệp đều có thể đọc chúng, vì vậy hãy coi quyền truy cập đĩa là ranh giới tin cậy. For stricter isolation, run agents under separate OS users or hosts.</li>
+</ul>
+<p>Ngưỡng delta (mặc định hiển thị):</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      sync: {
+        sessions: {
+          deltaBytes: 100000,   // ~100 KB
+          deltaMessages: 50     // JSONL lines
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="sqlite-vector-acceleration-sqlite-vec">SQLite vector acceleration (sqlite-vec)<a class="toc-anchor" href="#sqlite-vector-acceleration-sqlite-vec" title="Permanent link">¶</a></h3>
+<p>Khi tiện ích mở rộng sqlite-vec khả dụng, OpenClaw lưu trữ embedding trong một
+bảng ảo SQLite (<code>vec0</code>) và thực hiện các truy vấn khoảng cách vector ngay trong
+cơ sở dữ liệu. This keeps search fast without loading every embedding into JS.</p>
+<p>Cấu hình (tùy chọn):</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      store: {
+        vector: {
+          enabled: true,
+          extensionPath: "/path/to/sqlite-vec"
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>Ghi chú:</p>
+<ul>
+<li><code>enabled</code> mặc định true; khi tắt, tìm kiếm fallback sang
+  cosine similarity trong tiến trình trên embedding đã lưu.</li>
+<li>Nếu extension sqlite-vec thiếu hoặc không tải được, OpenClaw ghi log lỗi
+  và tiếp tục với fallback JS (không có bảng vector).</li>
+<li><code>extensionPath</code> ghi đè đường dẫn sqlite-vec đi kèm (hữu ích cho bản dựng tùy chỉnh
+  hoặc vị trí cài đặt không chuẩn).</li>
+</ul>
+<h3 id="local-embedding-auto-download">Local embedding auto-download<a class="toc-anchor" href="#local-embedding-auto-download" title="Permanent link">¶</a></h3>
+<ul>
+<li>Model embedding local mặc định: <code>hf:ggml-org/embeddinggemma-300M-GGUF/embeddinggemma-300M-Q8_0.gguf</code> (~0,6 GB).</li>
+<li>When <code>memorySearch.provider = "local"</code>, <code>node-llama-cpp</code> resolves <code>modelPath</code>; if the GGUF is missing it <strong>auto-downloads</strong> to the cache (or <code>local.modelCacheDir</code> if set), then loads it. Downloads resume on retry.</li>
+<li>Yêu cầu build native: chạy <code>pnpm approve-builds</code>, chọn <code>node-llama-cpp</code>, rồi <code>pnpm rebuild node-llama-cpp</code>.</li>
+<li>Fallback: nếu thiết lập local thất bại và <code>memorySearch.fallback = "openai"</code>, chúng tôi tự động chuyển sang embedding từ xa
+  (<code>openai/text-embedding-3-small</code> trừ khi bị ghi đè) và ghi lại lý do.</li>
+</ul>
+<h3 id="vi-du-endpoint-tuong-thich-openai-tuy-chinh">Ví dụ endpoint tương thích OpenAI tùy chỉnh<a class="toc-anchor" href="#vi-du-endpoint-tuong-thich-openai-tuy-chinh" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      provider: "openai",
+      model: "text-embedding-3-small",
+      remote: {
+        baseUrl: "https://api.example.com/v1/",
+        apiKey: "YOUR_REMOTE_API_KEY",
+        headers: {
+          "X-Organization": "org-id",
+          "X-Project": "project-id"
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>Ghi chú:</p>
+<ul>
+<li><code>remote.*</code> có ưu tiên cao hơn <code>models.providers.openai.*</code>.</li>
+<li><code>remote.headers</code> được hợp nhất với header của OpenAI; remote sẽ thắng khi trùng khóa. Omit <code>remote.headers</code> to use the OpenAI defaults.</li>
+</ul></div><div class="px-0.5 flex items-center text-sm font-semibold text-gray-700 dark:text-gray-200" id="pagination"><a class="flex items-center space-x-3 group" href="session-tool.html"><svg class="h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><span class="group-hover:text-gray-900 dark:group-hover:text-white">Session Tools</span></a><a class="flex items-center ml-auto space-x-3 group" href="compaction.html"><span class="group-hover:text-gray-900 dark:group-hover:text-white">Compaction</span><svg class="rotate-180 h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a></div><div class="left-0 right-0 sticky sm:px-4 pb-4 sm:pb-6 bottom-0 pt-1 flex flex-col items-center w-full overflow-hidden z-20 pointer-events-none print:hidden"><div class="chat-assistant-floating-input z-10 w-full sm:w-96 focus-within:w-full group/assistant-bar sm:focus-within:w-[30rem] hover:scale-100 sm:hover:scale-105 focus-within:hover:scale-100 [transition:width_400ms,left_200ms,transform_500ms,opacity_200ms]"><div class="translate-y-[100px] opacity-0"><div class="flex flex-col w-full rounded-2xl pointer-events-auto bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border border-gray-200 dark:border-white/30 focus-within:border-primary dark:focus-within:border-primary-light transition-colors sm:shadow-xl"><div class="relative flex items-end"><textarea aria-label="Ask a question..." autocomplete="off" class="chat-assistant-input w-full bg-transparent border-0 peer/input text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 !outline-none focus:!outline-none focus:ring-0 py-2.5 pl-3.5 pr-10 font-bodyWeight text-sm" id="chat-assistant-textarea" placeholder="Ask a question..." style="resize:none"></textarea><span class="absolute right-11 bottom-3 text-xs font-medium text-gray-400 dark:text-gray-500 select-none pointer-events-none peer-focus/input:hidden hidden sm:inline">⌘<!-- -->I</span><button aria-label="Send message" class="chat-assistant-send-button flex justify-center items-center rounded-full p-1 size-6 bg-primary/30 dark:bg-primary-dark/30 absolute right-2.5 bottom-2" disabled=""><svg class="lucide lucide-arrow-up text-white dark:text-white size-3.5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></div></div></div></div><footer class="flex gap-12 justify-between pt-10 border-t border-gray-100 sm:flex dark:border-gray-800/50 pb-28" id="footer"><div class="flex items-center justify-between"><div class="sm:flex"><a class="group flex items-baseline gap-1 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-nowrap" href="https://www.mintlify.com?utm_campaign=poweredBy&amp;utm_medium=referral&amp;utm_source=clawdhub" rel="noreferrer" target="_blank"><span>Powered by</span><svg class="h-3.5 w-auto translate-y-[3px]" fill="none" height="367" viewbox="0 0 1274 367" width="1274" xmlns="http://www.w3.org/2000/svg"><path d="M1154.38 366.038H1097.86L1137.69 276.14L1058.04 97.1046H1114.93L1161.35 209.337C1162.97 213.26 1168.53 213.253 1170.14 209.325L1216.21 97.1046H1273.49L1154.38 366.038Z" fill="currentColor"></path><path d="M982.714 286.761V142.622H944.403V97.1041H982.714V72.4488C982.714 49.9429 989.542 32.2416 1003.2 19.345C1016.85 6.44832 1034.17 0 1055.16 0C1068.06 0 1079.06 1.39081 1088.16 4.17244V50.0693C1082.09 47.7934 1075.01 46.6555 1066.92 46.6555C1055.54 46.6555 1047.32 49.1843 1042.27 54.2418C1037.21 59.0464 1034.68 67.2648 1034.68 78.8971V97.1041H1088.16V142.622H1034.68V286.761H982.714Z" fill="currentColor"></path><path d="M897.916 66.0005C889.066 66.0005 881.353 62.8395 874.778 56.5176C868.203 49.9429 864.916 42.1037 864.916 33.0002C864.916 23.8967 868.203 16.184 874.778 9.86215C881.353 3.28738 889.066 0 897.916 0C907.273 0 915.112 3.28738 921.434 9.86215C928.008 16.184 931.296 23.8967 931.296 33.0002C931.296 42.1037 928.008 49.9429 921.434 56.5176C915.112 62.8395 907.273 66.0005 897.916 66.0005ZM872.123 286.761V97.1041H924.089V286.761H872.123Z" fill="currentColor"></path><path d="M781.638 286.761V2.27609H833.604V286.761H781.638Z" fill="currentColor"></path><path d="M722.934 289.037C701.693 289.037 684.244 283.221 670.589 271.588C657.187 259.703 650.485 242.634 650.485 220.381V142.622H612.175V97.1044H650.485V44.3799H702.451V97.1044H755.934V142.622H702.451V210.14C702.451 221.772 704.98 230.117 710.038 235.174C715.095 239.979 723.313 242.381 734.693 242.381C742.785 242.381 749.865 241.243 755.934 238.967V284.864C746.831 287.646 735.831 289.037 722.934 289.037Z" fill="currentColor"></path><path d="M417.674 286.761V97.1041H469.64V110.967C469.64 113.311 472.83 114.347 474.382 112.591C485.967 99.4848 502.467 92.9317 523.881 92.9317C546.64 92.9317 564.468 100.518 577.365 115.69C590.514 130.61 597.089 150.587 597.089 175.622V286.761H545.123V184.346C545.123 170.438 542.215 159.691 536.399 152.105C530.583 144.265 522.364 140.346 511.743 140.346C499.1 140.346 488.858 144.898 481.019 154.001C473.433 163.105 469.64 176.507 469.64 194.208V286.761H417.674Z" fill="currentColor"></path><path d="M352.981 66.0005C344.13 66.0005 336.417 62.8395 329.843 56.5176C323.268 49.9429 319.98 42.1037 319.98 33.0002C319.98 23.8967 323.268 16.184 329.843 9.86215C336.417 3.28738 344.13 0 352.981 0C362.337 0 370.176 3.28738 376.498 9.86215C383.073 16.184 386.36 23.8967 386.36 33.0002C386.36 42.1037 383.073 49.9429 376.498 56.5176C370.176 62.8395 362.337 66.0005 352.981 66.0005ZM327.187 286.761V97.1041H379.153V286.761H327.187Z" fill="currentColor"></path><path d="M238.967 286.761V185.484C238.967 155.392 229.105 140.346 209.381 140.346C198.001 140.346 188.898 144.645 182.07 153.242C175.495 161.84 171.955 174.61 171.449 191.553V286.761H119.484V185.484C119.484 155.392 109.621 140.346 89.8972 140.346C78.2649 140.346 69.035 144.898 62.2073 154.001C55.3797 163.105 51.9659 176.507 51.9659 194.208V286.761H0V97.1041H51.9659V111.103C51.9659 113.435 55.1014 114.462 56.633 112.704C68.1136 99.5223 83.3741 92.9317 102.415 92.9317C127.436 92.9317 146.283 103.262 158.953 123.923C159.953 125.553 162.412 125.527 163.406 123.894C168.884 114.891 176.496 107.731 186.243 102.415C197.369 96.0926 208.622 92.9317 220.002 92.9317C242.507 92.9317 259.956 100.392 272.347 115.311C284.738 130.231 290.933 150.714 290.933 176.76V286.761H238.967Z" fill="currentColor"></path></svg></a></div></div></footer></div></div><!--$--><!--/$--></div></div></div></div></div>
+<div class="veiseule-footer"><a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Community translations maintained by <a href="http://blog.law-kelly.com/2026/02/open-source-means-open-language.html">John Kelly</a>. Improve translations on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a>.</div>
+<script>
+(function(){
+  var btn = document.querySelector('[aria-label="Toggle dark mode"]');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var html = document.documentElement;
+    var isDark = html.classList.contains('dark');
+    if(isDark){
+      html.classList.remove('dark');
+      html.style.colorScheme = 'light';
+      try { localStorage.setItem('isDarkMode','light'); } catch(e){}
+    } else {
+      html.classList.add('dark');
+      html.style.colorScheme = 'dark';
+      try { localStorage.setItem('isDarkMode','dark'); } catch(e){}
+    }
+  });
+})();
+</script></body></html>

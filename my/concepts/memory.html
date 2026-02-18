@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html class="__variable_47c970 __variable_3bbdad" data-banner-state="visible" data-page-mode="none" lang="my"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/bb3ef058b751a6ad-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/c4b700dcb2187787-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/e4af272ccee01ff0-s.p.woff2" rel="preload" type="font/woff2"/><link as="image" href="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26" rel="preload"/><link as="image" href="https://d3gk2c5xim1je2.cloudfront.net/flags/MM.svg" rel="preload"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/b864dec2fc058581.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/6f9b80d484ead711.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/05d6d8fcb903870d.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><meta content="" name="next-size-adjust"/><title>Memory - OpenClaw</title><meta content="OpenClaw" name="application-name"/><meta content="Mintlify" name="generator"/><meta content="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/browserconfig.xml" name="msapplication-config"/><meta content="OpenClaw" name="apple-mobile-web-app-title"/><meta content="#FF5A36" name="msapplication-TileColor"/><meta content="utf-8" name="charset"/><meta content="OpenClaw" name="og:site_name"/><meta content="https://docs.openclaw.ai/concepts/memory" name="canonical"/><link href="memory.html" rel="canonical"/><link href="/sitemap.xml" rel="alternate" type="application/xml"/><meta content="Memory - OpenClaw" property="og:title"/><meta content="https://docs.openclaw.ai/concepts/memory" property="og:url"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DSessions%2Band%2Bmemory%26title%3DMemory%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="website" property="og:type"/><meta content="summary_large_image" name="twitter:card"/><meta content="Memory - OpenClaw" name="twitter:title"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DSessions%2Band%2Bmemory%26title%3DMemory%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" name="twitter:image"/><meta content="1200" name="twitter:image:width"/><meta content="630" name="twitter:image:height"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-16x16.png" media="(prefers-color-scheme: light)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-32x32.png" media="(prefers-color-scheme: light)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon.ico" media="(prefers-color-scheme: light)" rel="shortcut icon" type="image/x-icon"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-16x16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-32x32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon.ico" media="(prefers-color-scheme: dark)" rel="shortcut icon" type="image/x-icon"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link as="style" href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css" rel="preload"/><script type="text/javascript">(function(a,b){try{let c=document.getElementById("banner")?.innerText;if(c){for(let d=0;d<localStorage.length;d++){let e=localStorage.key(d);if(e?.endsWith(a)&&localStorage.getItem(e)===c)return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible");return}for(let c=0;c<localStorage.length;c++){let d=localStorage.key(c);if(d?.endsWith(a)&&localStorage.getItem(d))return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible")}catch(a){document.documentElement.setAttribute(b,"hidden")}})(
+  "bannerDismissed",
+  "data-banner-state",
+)</script><style id="veiseule-branding">
+.veiseule-bar{position:fixed;top:0;left:0;right:0;z-index:99999;background:#2E4A3A;color:#E0E0E0;text-align:center;padding:8px 16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;box-shadow:0 2px 4px rgba(0,0,0,0.15)}
+.veiseule-bar a{color:#A9B8A1;text-decoration:underline}
+.veiseule-bar a:hover{color:#fff}
+.veiseule-footer{background:#1A2E20;color:#E0E0E0;text-align:center;padding:16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;border-top:1px solid #2E4A3A}
+.veiseule-footer a{color:#A9B8A1;text-decoration:underline}
+.veiseule-footer a:hover{color:#fff}
+body{padding-top:36px !important}
+</style>
+<style>
+.toc-anchor { text-decoration: none; margin-left: 0.3em; opacity: 0.3; }
+.toc-anchor:hover { opacity: 1; }
+.toc-anchor { color: #999; }
+.dark .toc-anchor { color: #555; }
+</style></head><body>
+<div class="veiseule-bar">Community translations by <a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Help improve them on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a></div>
+<div hidden=""><!--$--><!--/$--></div><script>((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","isDarkMode","system",null,["dark","light","true","false","system"],{"true":"dark","false":"light","dark":"dark","light":"light"},true,true)</script><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><style>:root {
+  --font-family-headings-custom: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  --font-family-body-custom: "Fragment Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  
+  
+}</style><style>:root {
+    --primary: 255 90 54;
+    --primary-light: 255 138 107;
+    --primary-dark: 255 90 54;
+    --tooltip-foreground: 255 255 255;
+    --background-light: 255 255 255;
+    --background-dark: 14 12 13;
+    --gray-50: 250 245 244;
+    --gray-100: 245 240 239;
+    --gray-200: 230 225 224;
+    --gray-300: 213 208 207;
+    --gray-400: 166 161 160;
+    --gray-500: 119 114 113;
+    --gray-600: 87 82 81;
+    --gray-700: 70 65 64;
+    --gray-800: 45 40 38;
+    --gray-900: 30 25 24;
+    --gray-950: 17 12 11;
+  }</style><script type="text/javascript">
+          (function() {
+            function loadKatex() {
+              const link = document.querySelector('link[href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css"]');
+              if (link) link.rel = 'stylesheet';
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', loadKatex);
+            } else {
+              loadKatex();
+            }
+          })();
+        </script><div class="relative antialiased text-gray-500 dark:text-gray-400"><a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:p-2 focus:text-sm focus:bg-background-light dark:focus:bg-background-dark focus:rounded-md focus:outline-primary dark:focus:outline-primary-light" href="memory.html#content-area">Skip to main content</a><div class="max-lg:contents lg:flex lg:w-full"><div class="max-lg:contents lg:flex-1 lg:min-w-0 lg:overflow-x-clip"><div class="z-30 fixed lg:sticky top-0 w-full peer is-not-custom peer is-not-center peer is-not-wide peer is-not-frame" id="navbar"><div class="absolute w-full h-full backdrop-blur flex-none transition-colors duration-500 border-b border-gray-500/5 dark:border-gray-300/[0.06] data-[is-opaque=true]:bg-background-light data-[is-opaque=true]:supports-backdrop-blur:bg-background-light/95 data-[is-opaque=true]:dark:bg-background-dark/75 data-[is-opaque=false]:supports-backdrop-blur:bg-background-light/60 data-[is-opaque=false]:dark:bg-transparent" data-is-opaque="false" id="navbar-transition"></div><div class="max-w-8xl mx-auto relative"><div><div class="relative"><div class="flex items-center lg:px-12 h-16 min-w-0 mx-4 lg:mx-0"><div class="h-full relative flex-1 flex items-center gap-x-4 min-w-0 border-b border-gray-500/5 dark:border-gray-300/[0.06]"><div class="flex-1 flex items-center gap-x-4"><a class="select-none" data-slot="context-menu-trigger" data-state="closed" href="../index.html" style="-webkit-touch-callout:none"><span class="sr-only">OpenClaw<!-- --> home page</span><img alt="light logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 block dark:hidden" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/><img alt="dark logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 hidden dark:block" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/></a><div class="hidden lg:flex items-center gap-x-2"><button aria-expanded="false" aria-haspopup="menu" class="group disabled:pointer-events-none [&amp;&gt;span]:line-clamp-1 overflow-hidden group group-hover:text-gray-950/70 dark:group-hover:text-white/70 py-1.5 px-2.5 rounded-xl hover:!bg-gray-600/5 dark:hover:!bg-gray-200/5 aria-[expanded=true]:bg-gray-600/5 dark:aria-[expanded=true]:bg-gray-200/5 text-sm font-medium text-gray-900 h-8 focus-visible:outline-primary dark:text-gray-300 group/trigger flex items-center gap-2 whitespace-nowrap" data-state="closed" id="localization-select-trigger" type="button"><div class="relative size-4 rounded-full shrink-0"><img alt="MM" class="w-full h-full rounded-full" src="https://d3gk2c5xim1je2.cloudfront.net/flags/MM.svg"/><div class="absolute top-0 left-0 w-full h-full border rounded-full bg-primary-light/10 border-black/10"></div></div><span class="truncate max-w-[12.5rem]">မြန်မာ</span><svg class="transition-transform text-gray-400 overflow-visible group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400 rotate-90 ml-auto group-aria-[expanded=true]/trigger:rotate-[270deg]" height="24" viewbox="0 -9 3 24" width="8"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></button></div></div><div class="relative hidden lg:flex items-center flex-1 z-20 justify-center"><button aria-label="Open search" class="flex pointer-events-auto rounded-xl w-full items-center text-sm leading-6 h-9 pl-3.5 pr-3 text-gray-500 dark:text-white/50 bg-background-light dark:bg-background-dark dark:brightness-[1.1] dark:ring-1 dark:hover:brightness-[1.25] ring-1 ring-gray-400/30 hover:ring-gray-600/30 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 justify-between truncate gap-2 min-w-[43px]" id="search-bar-entry" type="button"><div class="flex items-center gap-2 min-w-[42px]"><svg class="lucide lucide-search min-w-4 flex-none text-gray-700 hover:text-gray-800 dark:text-gray-400 hover:dark:text-gray-200" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><div class="truncate min-w-0">Search...</div></div><span class="flex-none text-xs font-semibold">⌘<!-- -->K</span></button></div><div class="flex-1 relative hidden lg:flex items-center ml-auto justify-end space-x-4"><nav class="text-sm"><ul class="flex space-x-6 items-center"><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);mask-repeat:no-repeat;mask-position:center"></svg>GitHub</a></li><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw/releases" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);mask-repeat:no-repeat;mask-position:center;mask-size:100%"></svg>Releases</a></li></ul></nav><div class="flex items-center"><button aria-label="Toggle dark mode" class="group p-2 flex items-center justify-center"><svg class="h-4 w-4 block text-gray-400 dark:hidden group-hover:text-gray-600" fill="none" height="16" stroke="currentColor" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2880_7340)"><path d="M8 1.11133V2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 3.12891L12.2427 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M14.8889 8H14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 12.8711L12.2427 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8 14.8889V14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 12.8711L3.75735 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M1.11133 8H2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 3.12891L3.75735 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8.00043 11.7782C10.0868 11.7782 11.7782 10.0868 11.7782 8.00043C11.7782 5.91402 10.0868 4.22266 8.00043 4.22266C5.91402 4.22266 4.22266 5.91402 4.22266 8.00043C4.22266 10.0868 5.91402 11.7782 8.00043 11.7782Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g><defs><clippath id="clip0_2880_7340"><rect fill="white" height="16" width="16"></rect></clippath></defs></svg><svg class="lucide lucide-moon h-4 w-4 hidden dark:block text-gray-500 dark:group-hover:text-gray-300" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button></div></div><div class="flex lg:hidden items-center gap-3"><button aria-label="Open search" class="text-gray-500 w-8 h-8 flex items-center justify-center hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300" id="search-bar-entry-mobile" type="button"><span class="sr-only">Search...</span><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);mask-repeat:no-repeat;mask-position:center"></svg></button><button aria-label="More actions" class="h-7 w-5 flex items-center justify-end"><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);mask-repeat:no-repeat;mask-position:center"></svg></button></div></div></div><button class="flex items-center h-14 py-4 px-5 lg:hidden focus:outline-0 w-full text-left" type="button"><div class="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300"><span class="sr-only">Navigation</span><svg class="h-4" fill="currentColor" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></div><div class="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0 space-x-3 overflow-hidden"><div class="flex items-center space-x-3 flex-shrink-0"><span>Sessions and memory</span><svg class="h-5 rotate-0 overflow-visible fill-gray-400" height="24" viewbox="0 -9 3 24" width="3"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></div><div class="font-semibold text-gray-900 truncate dark:text-gray-200 min-w-0 flex-1">Memory</div></div></button></div><div class="hidden lg:flex px-12 h-12"><div class="nav-tabs h-full flex text-sm gap-x-6"><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../index.html">Get started<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../install.html">Install<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../channels.html">Channels<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium hover:text-gray-800 dark:hover:text-gray-300 text-gray-800 dark:text-gray-200 [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor]" href="architecture.html">Agents<div class="absolute bottom-0 h-[1.5px] w-full left-0 bg-primary dark:bg-primary-light"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../tools.html">Tools<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../providers.html">Models<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../platforms.html">Platforms<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../gateway.html">Gateway &amp; Ops<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../cli.html">Reference<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../help.html">Help<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a></div></div></div></div><span hidden="" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"></span></div><div class="scroll-mt-[var(--scroll-mt)] peer-[.is-custom]:max-w-none peer-[.is-center]:max-w-3xl peer-[.is-not-custom]:peer-[.is-not-center]:max-w-8xl peer-[.is-not-custom]:px-4 peer-[.is-not-custom]:mx-auto peer-[.is-not-custom]:lg:px-8 peer-[.is-wide]:[&amp;&gt;div:last-child]:max-w-6xl peer-[.is-custom]:[&amp;&gt;div:first-child]:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:xl:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:xl:!hidden"><div class="z-20 hidden lg:block fixed bottom-0 right-auto w-[18rem]" id="sidebar" style="top:7rem"><div class="absolute inset-0 z-10 stable-scrollbar-gutter overflow-auto pr-8 pb-10" id="sidebar-content"><div class="relative lg:text-sm lg:leading-6"><div class="sticky top-0 h-8 z-10 bg-gradient-to-b from-background-light dark:from-background-dark"></div><div id="navigation-items"><div class=""><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Fundamentals</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Gateway Architecture" id="/concepts/architecture"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="architecture.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Gateway Architecture</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Agent Runtime" id="/concepts/agent"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="agent.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Agent Runtime</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Agent Loop" id="/concepts/agent-loop"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="agent-loop.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Agent Loop</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="System Prompt" id="/concepts/system-prompt"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="system-prompt.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">System Prompt</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Context" id="/concepts/context"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="context.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Context</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Agent Workspace" id="/concepts/agent-workspace"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="agent-workspace.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Agent Workspace</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="OAuth" id="/concepts/oauth"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="oauth.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">OAuth</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Bootstrapping</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Bootstrapping" id="/start/bootstrapping"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../start/bootstrapping.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Bootstrapping</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Sessions and memory</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Session Management" id="/concepts/session"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="session.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Session Management</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Sessions" id="/concepts/sessions"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="sessions.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Sessions</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Session Pruning" id="/concepts/session-pruning"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="session-pruning.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Session Pruning</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Session Tools" id="/concepts/session-tool"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="session-tool.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Session Tools</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Memory" id="/concepts/memory"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] bg-primary/10 text-primary [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor] dark:text-primary-light dark:bg-primary-light/10" href="memory.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Memory</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Compaction" id="/concepts/compaction"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="compaction.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Compaction</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Multi-agent</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Multi-Agent Routing" id="/concepts/multi-agent"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="multi-agent.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Multi-Agent Routing</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Presence" id="/concepts/presence"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="presence.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Presence</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Messages and delivery</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Messages" id="/concepts/messages"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="messages.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Messages</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Streaming and Chunking" id="/concepts/streaming"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="streaming.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Streaming and Chunking</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Retry Policy" id="/concepts/retry"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="retry.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Retry Policy</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Command Queue" id="/concepts/queue"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="queue.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Command Queue</div></div></a></li></ul></div></div></div></div></div><div id="content-container"><span class="fixed inset-0 bg-background-light dark:bg-background-dark -z-10 pointer-events-none" id="almond-background-color"></span><style data-custom-css-index="0" data-custom-css-path="style.css">#content > h1:first-of-type {
+  display: none !important;
+}
+</style><div class="flex flex-row-reverse gap-12 box-border w-full pt-40 lg:pt-10"><div class="hidden xl:flex self-start sticky xl:flex-col max-w-[28rem] z-[21] h-[calc(100vh-9.5rem)] top-[calc(9.5rem-var(--sidenav-move-up,0px))]" id="content-side-layout"><div class="z-10 hidden xl:flex box-border max-h-full pl-10 w-[19rem]" id="table-of-contents-layout"><div class="text-gray-600 text-sm leading-6 w-[16.5rem] overflow-y-auto space-y-2 pb-4 -mt-10 pt-10" id="table-of-contents"><button class="text-gray-700 dark:text-gray-300 font-medium flex items-center space-x-2 hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer"><svg class="h-3 w-3" fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.44434 12.6665H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 3.3335H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 8H7.33323" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>On this page</span></button><ul class="toc" id="table-of-contents-content"><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#memory">Memory</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#memory-files-markdown">Memory files (Markdown)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#memory_1">Memory ကို ဘယ်အချိန် ရေးသင့်သလဲ</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#automatic-memory-flush-pre-compaction-ping">Automatic memory flush (pre-compaction ping)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#vector-memory-search">Vector memory search</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#qmd-backend-experimental">QMD backend (experimental)</a></li><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#pick-the-same-state-dir-openclaw-uses">Pick the same state dir OpenClaw uses</a></li><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#optional-force-an-index-refresh-embeddings">(Optional) force an index refresh + embeddings</a></li><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#warm-up-trigger-first-time-model-downloads">Warm up / trigger first-time model downloads</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#additional-memory-paths">Additional memory paths</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#gemini-embeddings-native">Gemini embeddings (native)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#how-the-memory-tools-work">How the memory tools work</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#what-gets-indexed-and-when">What gets indexed (and when)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#hybrid-search-bm25-vector">Hybrid search (BM25 + vector)</a></li><li class="toc-item relative" data-depth="3"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#why-hybrid">Why hybrid?</a></li><li class="toc-item relative" data-depth="3"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#how-we-merge-results-the-current-design">How we merge results (the current design)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#embedding-cache">Embedding cache</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#session-memory-search-experimental">Session memory search (experimental)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#sqlite-vector-acceleration-sqlite-vec">SQLite vector acceleration (sqlite-vec)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#local-embedding-auto-download">Local embedding auto-download</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="concepts/memory.html#custom-openai-compatible-endpoint-example">Custom OpenAI-compatible endpoint example</a></li></ul></div></div></div><div class="relative grow box-border flex-col w-full mx-auto px-1 lg:pl-[23.7rem] lg:-ml-12 xl:w-[calc(100%-28rem)]" id="content-area"><header class="relative leading-none" id="header"><div class="mt-0.5 space-y-2.5"><div class="eyebrow h-5 text-primary dark:text-primary-light text-sm font-semibold">Sessions and memory</div><div class="flex flex-col sm:flex-row items-start sm:items-center relative gap-2 min-w-0"><h1 class="text-2xl sm:text-3xl text-gray-900 tracking-tight dark:text-gray-200 [overflow-wrap:anywhere] font-bold break-all" id="page-title">Memory</h1></div></div></header><div class="mdx-content relative mt-8 mb-14 prose prose-gray dark:prose-invert [contain:inline-size] isolate" data-page-href="/concepts/memory" data-page-title="Memory" id="content"><h1 id="memory">Memory<a class="toc-anchor" href="#memory" title="Permanent link">¶</a></h1>
+<ol start="31">
+<li>
+<p>OpenClaw memory သည် <strong>agent workspace ထဲရှိ plain Markdown</strong> ဖြစ်ပါသည်။ 32. File များသည် source of truth ဖြစ်ပြီး၊ model သည် disk သို့ ရေးသားထားသော အရာများကိုသာ “မှတ်မိ” ပါသည်။</p>
+</li>
+<li>
+<p>Memory search tools များကို active memory plugin (default: <code>memory-core</code>) မှ ပံ့ပိုးပေးပါသည်။ 34. Memory plugins များကို <code>plugins.slots.memory = "none"</code> ဖြင့် ပိတ်နိုင်ပါသည်။</p>
+</li>
+</ol>
+<h2 id="memory-files-markdown">Memory files (Markdown)<a class="toc-anchor" href="#memory-files-markdown" title="Permanent link">¶</a></h2>
+<p>ပုံမှန် workspace အလွှာဖွဲ့စည်းပုံတွင် မေမိုရီ အလွှာ ၂ ခု အသုံးပြုသည် —</p>
+<ul>
+<li><code>memory/YYYY-MM-DD.md</code></li>
+<li>နေ့စဉ် မှတ်တမ်း (append-only)။</li>
+<li>ဆက်ရှင် စတင်ချိန်တွင် ယနေ့ + မနေ့ကို ဖတ်သည်။</li>
+<li><code>MEMORY.md</code> (ရွေးချယ်နိုင်သည်)</li>
+<li>ရွေးချယ်စီစဉ်ထားသော ရေရှည်မေမိုရီ။</li>
+<li><strong>အဓိက၊ ကိုယ်ပိုင် ဆက်ရှင်တွင်သာ ဖတ်သည်</strong> (အုပ်စု အခြေအနေများတွင် မဖတ်ပါ)။</li>
+</ul>
+<ol start="35">
+<li>ဤ file များသည် workspace (<code>agents.defaults.workspace</code>, default <code>~/.openclaw/workspace</code>) အောက်တွင် ရှိပါသည်။ 36. Layout အပြည့်အစုံအတွက် <a href="/concepts/agent-workspace">Agent workspace</a> ကို ကြည့်ပါ။</li>
+</ol>
+<h2 id="memory_1">Memory ကို ဘယ်အချိန် ရေးသင့်သလဲ<a class="toc-anchor" href="#memory_1" title="Permanent link">¶</a></h2>
+<ul>
+<li>ဆုံးဖြတ်ချက်များ၊ နှစ်သက်မှုများ၊ ရေရှည် အသုံးဝင်မည့် အချက်အလက်များကို <code>MEMORY.md</code> သို့ ရေးပါ။</li>
+<li>နေ့စဉ် မှတ်စုများနှင့် လက်ရှိ အလုပ်လုပ်နေသော အကြောင်းအရာများကို <code>memory/YYYY-MM-DD.md</code> သို့ ရေးပါ။</li>
+<li>တစ်ယောက်ယောက်က “ဒါကို မှတ်ထားပါ” ဟုပြောပါက RAM ထဲ မထားဘဲ ရေးချပါ။</li>
+<li>
+<ol start="37">
+<li>ဤဧရိယာသည် ဆက်လက် ဖွံ့ဖြိုးနေဆဲ ဖြစ်ပါသည်။ 38. Model ကို memory များ သိမ်းဆည်းရန် သတိပေးခြင်းက အထောက်အကူဖြစ်ပြီး၊ ၎င်းသည် ဘာလုပ်ရမည်ကို သိပါသည်။</li>
+</ol>
+</li>
+<li>တစ်ခုခုကို တည်တံ့စေလိုပါက <strong>bot ကို မေမိုရီထဲ ရေးပေးရန် တောင်းဆိုပါ</strong>။</li>
+</ul>
+<h2 id="automatic-memory-flush-pre-compaction-ping">Automatic memory flush (pre-compaction ping)<a class="toc-anchor" href="#automatic-memory-flush-pre-compaction-ping" title="Permanent link">¶</a></h2>
+<ol start="39">
+<li>Session သည် <strong>auto-compaction နီးကပ်လာသောအခါ</strong> OpenClaw သည် <strong>silent, agentic turn</strong> ကို trigger လုပ်ပြီး context ကို compact မလုပ်မီ durable memory ကို ရေးသားရန် model ကို သတိပေးပါသည်။ 40. Default prompts များတွင် model သည် <em>reply လုပ်နိုင်သည်</em> ဟု ပြောထားသော်လည်း၊ အသုံးများသောအခါ <code>NO_REPLY</code> သည် မှန်ကန်သော တုံ့ပြန်မှုဖြစ်ပြီး user သည် ဤ turn ကို မမြင်ရပါ။</li>
+</ol>
+<p>ဤအပြုအမူကို <code>agents.defaults.compaction.memoryFlush</code> ဖြင့် ထိန်းချုပ်ထားသည် —</p>
+<pre class="highlight"><code class="language-json5">{
+  agents: {
+    defaults: {
+      compaction: {
+        reserveTokensFloor: 20000,
+        memoryFlush: {
+          enabled: true,
+          softThresholdTokens: 4000,
+          systemPrompt: "Session nearing compaction. Store durable memories now.",
+          prompt: "Write any lasting notes to memory/YYYY-MM-DD.md; reply with NO_REPLY if nothing to store.",
+        },
+      },
+    },
+  },
+}
+</code></pre>
+<p>အသေးစိတ် —</p>
+<ul>
+<li><strong>Soft threshold</strong>: ဆက်ရှင် token ခန့်မှန်းတန်ဖိုးသည်
+  <code>contextWindow - reserveTokensFloor - softThresholdTokens</code> ကို ကျော်လွန်သည့်အခါ flush ကို အစပျိုးသည်။</li>
+<li><strong>ပုံမှန်အားဖြင့် အသံမထွက်</strong>: prompt များတွင် <code>NO_REPLY</code> ပါဝင်သဖြင့် အသုံးပြုသူထံ မပို့ပါ။</li>
+<li><strong>Prompt ၂ ခု</strong>: user prompt တစ်ခုနှင့် system prompt တစ်ခုတို့ ပူးပေါင်း၍ သတိပေးချက် ထည့်သွင်းသည်။</li>
+<li><strong>Compaction cycle တစ်ခါလျှင် flush တစ်ကြိမ်သာ</strong> (<code>sessions.json</code> တွင် ခြေရာခံသည်)။</li>
+<li><strong>Workspace ကို ရေးနိုင်ရမည်</strong>: ဆက်ရှင်ကို sandboxed ဖြင့်
+  <code>workspaceAccess: "ro"</code> သို့မဟုတ် <code>"none"</code> ဖြင့် လည်ပတ်ပါက flush ကို ကျော်သွားသည်။</li>
+</ul>
+<p>Compaction lifecycle အပြည့်အစုံအတွက်
+<a href="/reference/session-management-compaction">Session management + compaction</a> ကို ကြည့်ပါ။</p>
+<h2 id="vector-memory-search">Vector memory search<a class="toc-anchor" href="#vector-memory-search" title="Permanent link">¶</a></h2>
+<p>OpenClaw သည် <code>MEMORY.md</code> နှင့် <code>memory/*.md</code> အပေါ်တွင် vector index သေးငယ်တစ်ခု တည်ဆောက်နိုင်ပြီး စကားလုံး အသုံးအနှုန်း မတူညီသော်လည်း ဆက်စပ် မှတ်စုများကို semantic query ဖြင့် ရှာတွေ့နိုင်စေသည်။</p>
+<p>Defaults —</p>
+<ul>
+<li>ပုံမှန်အားဖြင့် ဖွင့်ထားသည်။</li>
+<li>မေမိုရီ ဖိုင် ပြောင်းလဲမှုများကို စောင့်ကြည့်သည် (debounced)။</li>
+<li>
+<ol start="41">
+<li>Default အနေဖြင့် remote embeddings ကို အသုံးပြုပါသည်။ 42. <code>memorySearch.provider</code> ကို မသတ်မှတ်ထားပါက OpenClaw သည် auto-select လုပ်ပါသည်။</li>
+<li><code>local</code> ကို <code>memorySearch.local.modelPath</code> သတ်မှတ်ထားပြီး ဖိုင် ရှိပါက။</li>
+<li>OpenAI key ကို ဖြေရှင်းနိုင်ပါက <code>openai</code>။</li>
+<li>Gemini key ကို ဖြေရှင်းနိုင်ပါက <code>gemini</code>။</li>
+<li>Voyage key ကို ဖြေရှင်းနိုင်ပါက <code>voyage</code>။</li>
+<li>မဟုတ်ပါက စီစဉ်ချိန်ညှိမချင်း memory search ကို ပိတ်ထားမည်။</li>
+</ol>
+</li>
+<li>Local mode သည် node-llama-cpp ကို အသုံးပြုပြီး <code>pnpm approve-builds</code> လိုအပ်နိုင်သည်။</li>
+<li>SQLite အတွင်း vector search ကို မြန်ဆန်စေရန် sqlite-vec (ရရှိနိုင်ပါက) ကို အသုံးပြုသည်။</li>
+</ul>
+<ol start="43">
+<li>Remote embeddings များသည် embedding provider အတွက် API key ကို <strong>လိုအပ်ပါသည်</strong>။ 44. OpenClaw သည် auth profiles, <code>models.providers.*.apiKey</code>, သို့မဟုတ် environment variables များမှ key များကို resolve လုပ်ပါသည်။ 45. Codex OAuth သည် chat/completions ကိုသာ ဖုံးလွှမ်းပြီး memory search အတွက် embeddings ကို <strong>မဖြည့်ဆည်းနိုင်ပါ</strong>။ 46. Gemini အတွက် <code>GEMINI_API_KEY</code> သို့မဟုတ် <code>models.providers.google.apiKey</code> ကို အသုံးပြုပါ။ 47. Voyage အတွက် <code>VOYAGE_API_KEY</code> သို့မဟုတ် <code>models.providers.voyage.apiKey</code> ကို အသုံးပြုပါ။ 48. Custom OpenAI-compatible endpoint ကို အသုံးပြုပါက <code>memorySearch.remote.apiKey</code> (နှင့် optional <code>memorySearch.remote.headers</code>) ကို သတ်မှတ်ပါ။</li>
+</ol>
+<h3 id="qmd-backend-experimental">QMD backend (experimental)<a class="toc-anchor" href="#qmd-backend-experimental" title="Permanent link">¶</a></h3>
+<ol start="49">
+<li>Built-in SQLite indexer ကို <a href="https://github.com/tobi/qmd">QMD</a> ဖြင့် ပြောင်းလဲရန် <code>memory.backend = "qmd"</code> ကို သတ်မှတ်ပါ။ QMD သည် BM25 + vectors + reranking ကို ပေါင်းစပ်ထားသော local-first search sidecar ဖြစ်ပါသည်။ 50. Markdown သည် source of truth အဖြစ် ဆက်လက် ရှိနေပြီး၊ OpenClaw သည် retrieval အတွက် QMD ကို shell out လုပ်ပါသည်။ ၁။ အဓိကအချက်များ:</li>
+</ol>
+<p><strong>Prereqs</strong></p>
+<ul>
+<li>၂။ မူလအနေဖြင့် ပိတ်ထားသည်။ ၃။ config တစ်ခုချင်းစီအလိုက် opt in လုပ်ရန် (<code>memory.backend = "qmd"</code>)။</li>
+<li>QMD CLI ကို သီးခြား ထည့်သွင်းရမည် (<code>bun install -g https://github.com/tobi/qmd</code> သို့မဟုတ်
+  release ကို ရယူပါ) နှင့် <code>qmd</code> binary သည် gateway ၏ <code>PATH</code> ပေါ်တွင် ရှိရမည်။</li>
+<li>QMD သည် extension များ ခွင့်ပြုထားသော SQLite build လိုအပ်သည် (<code>brew install sqlite</code> on
+  macOS)။</li>
+<li>QMD သည် Bun + <code>node-llama-cpp</code> ဖြင့် local အပြည့်အဝ လည်ပတ်ပြီး ပထမဆုံး အသုံးပြုချိန်တွင် HuggingFace မှ GGUF
+  models များကို အလိုအလျောက် ဒေါင်းလုပ်လုပ်သည် (သီးခြား Ollama daemon မလိုအပ်ပါ)။</li>
+<li>Gateway သည် QMD ကို self-contained XDG home အဖြစ်
+  <code>~/.openclaw/agents/&lt;agentId&gt;/qmd/</code> အောက်တွင် <code>XDG_CONFIG_HOME</code> နှင့်
+  <code>XDG_CACHE_HOME</code> သတ်မှတ်၍ လည်ပတ်စေသည်။</li>
+<li>၄။ OS ပံ့ပိုးမှု: Bun + SQLite ကို ထည့်သွင်းပြီးပါက macOS နှင့် Linux သည် out of the box အလုပ်လုပ်သည်။ ၅။ Windows အတွက် WSL2 မှတစ်ဆင့် အသုံးပြုခြင်းသည် အကောင်းဆုံးဖြစ်သည်။</li>
+</ul>
+<p><strong>Sidecar အလုပ်လုပ်ပုံ</strong></p>
+<ul>
+<li>Gateway သည် self-contained QMD home ကို
+  <code>~/.openclaw/agents/&lt;agentId&gt;/qmd/</code> အောက်တွင် ရေးသားသည် (config + cache + sqlite DB)။</li>
+<li>Collections များကို <code>memory.qmd.paths</code> မှ <code>qmd collection add</code> ဖြင့် ဖန်တီးပြီး
+  (workspace မေမိုရီ ဖိုင်များကိုပါ ပေါင်းထည့်သည်) ထို့နောက် <code>qmd update</code> + <code>qmd embed</code> ကို
+  boot အချိန်နှင့် သတ်မှတ်နိုင်သော အချိန်အInterval (<code>memory.qmd.update.interval</code>,
+  ပုံမှန် 5 မိနစ်) တွင် လည်ပတ်စေသည်။</li>
+<li>Boot refresh ကို ယခု ပုံမှန်အားဖြင့် background တွင် လည်ပတ်စေသဖြင့် chat စတင်မှု မပိတ်ဆို့တော့ပါ။ ယခင်
+  blocking အပြုအမူကို ဆက်ထားလိုပါက <code>memory.qmd.update.waitForBootSync = true</code> ကို သတ်မှတ်ပါ။</li>
+<li>၆။ ရှာဖွေမှုများကို <code>qmd query --json</code> ဖြင့် လုပ်ဆောင်သည်။ ၇။ QMD မအောင်မြင်ပါက သို့မဟုတ် binary မရှိပါက၊ OpenClaw သည် builtin SQLite manager သို့ အလိုအလျောက် ပြန်လည်ပြောင်းသုံးပြီး memory tools များ ဆက်လက်အလုပ်လုပ်နိုင်စေရန် ထောက်ပံ့ပေးသည်။</li>
+<li>OpenClaw သည် ယနေ့အချိန်တွင် QMD embed batch-size tuning ကို မဖော်ပြပါ။ batch အပြုအမူကို
+  QMD ကိုယ်တိုင် ထိန်းချုပ်သည်။</li>
+<li><strong>ပထမဆုံး search သည် နှေးကွေးနိုင်သည်</strong>: ပထမဆုံး <code>qmd query</code> လည်ပတ်ချိန်တွင် QMD သည် local GGUF models (reranker/query
+  expansion) များကို ဒေါင်းလုပ်လုပ်နိုင်သည်။</li>
+<li>OpenClaw သည် QMD လည်ပတ်ချိန်တွင် <code>XDG_CONFIG_HOME</code>/<code>XDG_CACHE_HOME</code> ကို အလိုအလျောက် သတ်မှတ်ပေးသည်။</li>
+<li>
+<p>Model များကို ကိုယ်တိုင် ကြိုတင် ဒေါင်းလုပ်လုပ်ပြီး (OpenClaw အသုံးပြုသည့် index ကို အပူပေးလိုပါက)
+    agent ၏ XDG dirs ဖြင့် one-off query တစ်ခုကို လည်ပတ်ပါ။</p>
+<p>၈။ OpenClaw ၏ QMD state သည် သင့် <strong>state dir</strong> အောက်တွင် ရှိသည် (မူလအားဖြင့် <code>~/.openclaw</code>)။
+၉။ OpenClaw အသုံးပြုသည့် XDG vars တူညီစွာ export လုပ်ခြင်းဖြင့် <code>qmd</code> ကို တူညီသော index ကိုညွှန်ပြနိုင်သည်:</p>
+<p>```bash</p>
+<h1 id="pick-the-same-state-dir-openclaw-uses">Pick the same state dir OpenClaw uses<a class="toc-anchor" href="#pick-the-same-state-dir-openclaw-uses" title="Permanent link">¶</a></h1>
+<p>STATE_DIR="${OPENCLAW_STATE_DIR:-$HOME/.openclaw}"
+if [ -d "$HOME/.moltbot" ] &amp;&amp; [ ! -d "$HOME/.openclaw" ] \
+  &amp;&amp; [ -z "${OPENCLAW_STATE_DIR:-}" ]; then
+  STATE_DIR="$HOME/.moltbot"
+fi</p>
+<p>export XDG_CONFIG_HOME="$STATE_DIR/agents/main/qmd/xdg-config"
+export XDG_CACHE_HOME="$STATE_DIR/agents/main/qmd/xdg-cache"</p>
+<h1 id="optional-force-an-index-refresh-embeddings">(Optional) force an index refresh + embeddings<a class="toc-anchor" href="#optional-force-an-index-refresh-embeddings" title="Permanent link">¶</a></h1>
+<p>qmd update
+qmd embed</p>
+<h1 id="warm-up-trigger-first-time-model-downloads">Warm up / trigger first-time model downloads<a class="toc-anchor" href="#warm-up-trigger-first-time-model-downloads" title="Permanent link">¶</a></h1>
+<p>qmd query "test" -c memory-root --json &gt;/dev/null 2&gt;&amp;1
+```</p>
+</li>
+</ul>
+<p><strong>Config surface (<code>memory.qmd.*</code>)</strong></p>
+<ul>
+<li><code>command</code> (ပုံမှန် <code>qmd</code>): executable path ကို override လုပ်သည်။</li>
+<li><code>includeDefaultMemory</code> (ပုံမှန် <code>true</code>): <code>MEMORY.md</code> + <code>memory/**/*.md</code> ကို auto-index လုပ်သည်။</li>
+<li><code>paths[]</code>: ထပ်မံ directory/file များ ထည့်ရန် (<code>path</code>, ရွေးချယ်နိုင်သော <code>pattern</code>, တည်ငြိမ်သော
+  <code>name</code> ကို ရွေးချယ်နိုင်သည်)။</li>
+<li><code>sessions</code>: session JSONL indexing ကို ဖွင့်ရန် (<code>enabled</code>, <code>retentionDays</code>,
+  <code>exportDir</code>)။</li>
+<li><code>update</code>: refresh cadence နှင့် maintenance လည်ပတ်မှုကို ထိန်းချုပ်သည် —
+  (<code>interval</code>, <code>debounceMs</code>, <code>onBoot</code>, <code>waitForBootSync</code>, <code>embedInterval</code>,
+  <code>commandTimeoutMs</code>, <code>updateTimeoutMs</code>, <code>embedTimeoutMs</code>)။</li>
+<li><code>limits</code>: recall payload ကို clamp လုပ်သည် (<code>maxResults</code>, <code>maxSnippetChars</code>,
+  <code>maxInjectedChars</code>, <code>timeoutMs</code>)။</li>
+<li>၁၀။ <code>scope</code>: <a href="/gateway/configuration#session"><code>session.sendPolicy</code></a> နှင့် တူညီသော schema ဖြစ်သည်။
+  ၁၁။ မူလသတ်မှတ်ချက်မှာ DM-only ဖြစ်သည် (<code>deny</code> အားလုံး၊ <code>allow</code> direct chats) ဖြစ်ပြီး group/channel များတွင် QMD hits များ ပြသလိုပါက လျော့ပေါ့နိုင်သည်။</li>
+<li><code>scope</code> သည် search ကို ငြင်းပယ်ပါက OpenClaw သည် derived <code>channel</code>/<code>chatType</code> နှင့်အတူ warning ကို log ထားပြီး အလွတ်ရလဒ်များကို debug လုပ်ရန် လွယ်ကူစေပါသည်။</li>
+<li>Workspace ပြင်ပမှ ရင်းမြစ်ယူသော snippet များသည်
+  <code>memory_search</code> ရလဒ်များတွင် <code>qmd/&lt;collection&gt;/&lt;relative-path&gt;</code> အဖြစ် ပေါ်လာသည်။ <code>memory_get</code> သည် ထို prefix ကို နားလည်ပြီး
+  သတ်မှတ်ထားသော QMD collection root မှ ဖတ်သည်။</li>
+<li><code>memory.qmd.sessions.enabled = true</code> ဖြစ်ပါက OpenClaw သည် သန့်စင်ထားသော session
+  transcript များ (User/Assistant turns) ကို <code>~/.openclaw/agents/&lt;id&gt;/qmd/sessions/</code> အောက်ရှိ သီးသန့် QMD collection သို့ export လုပ်ပြီး
+  builtin SQLite index ကို မထိဘဲ <code>memory_search</code> မှ မကြာသေးသော စကားဝိုင်းများကို ပြန်ခေါ်နိုင်စေသည်။</li>
+<li><code>memory_search</code> snippet များတွင် <code>Source: &lt;path#line&gt;</code> footer ကို ယခု
+  <code>memory.citations</code> သည် <code>auto</code>/<code>on</code> ဖြစ်သည့်အခါ ပါဝင်လာသည်။ Path metadata ကို အတွင်းပိုင်းတွင်သာ ထားလိုပါက
+  <code>memory.citations = "off"</code> ကို သတ်မှတ်ပါ (agent သည် <code>memory_get</code> အတွက် path ကို ဆက်လက် ရရှိသော်လည်း
+  snippet စာသားတွင် footer မပါဝင်တော့ပါ၊ system prompt ကလည်း မ引用ရန် သတိပေးပါသည်)။</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre class="highlight"><code class="language-json5">memory: {
+  backend: "qmd",
+  citations: "auto",
+  qmd: {
+    includeDefaultMemory: true,
+    update: { interval: "5m", debounceMs: 15000 },
+    limits: { maxResults: 6, timeoutMs: 4000 },
+    scope: {
+      default: "deny",
+      rules: [{ action: "allow", match: { chatType: "direct" } }]
+    },
+    paths: [
+      { name: "docs", path: "~/notes", pattern: "**/*.md" }
+    ]
+  }
+}
+</code></pre>
+<p><strong>Citations &amp; fallback</strong></p>
+<ul>
+<li>Backend မည်သို့ဖြစ်စေ <code>memory.citations</code> သက်ဆိုင်သည် (<code>auto</code>/<code>on</code>/<code>off</code>)။</li>
+<li>၁၂။ <code>qmd</code> လည်ပတ်သောအခါ <code>status().backend = "qmd"</code> ဟု tag လုပ်ထားသဖြင့် diagnostics တွင် မည်သည့် engine က ရလဒ်များကို ပံ့ပိုးခဲ့သည်ကို ပြသနိုင်သည်။ ၁၃။ QMD subprocess ထွက်သွားပါက သို့မဟုတ် JSON output ကို parse မလုပ်နိုင်ပါက၊ search manager သည် warning ကို log လုပ်ပြီး QMD ပြန်လည်အလုပ်လုပ်လာသည်အထိ builtin provider (ရှိပြီးသား Markdown embeddings) ကို ပြန်ပေးသည်။</li>
+</ul>
+<h3 id="additional-memory-paths">Additional memory paths<a class="toc-anchor" href="#additional-memory-paths" title="Permanent link">¶</a></h3>
+<p>ပုံမှန် workspace ဖွဲ့စည်းပုံ အပြင်ဘက်ရှိ Markdown ဖိုင်များကို index လုပ်လိုပါက
+လမ်းကြောင်းများကို ထည့်ပါ —</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      extraPaths: ["../team-docs", "/srv/shared-notes/overview.md"]
+    }
+  }
+}
+</code></pre>
+<p>မှတ်ချက်များ —</p>
+<ul>
+<li>လမ်းကြောင်းများသည် absolute သို့မဟုတ် workspace-relative ဖြစ်နိုင်သည်။</li>
+<li>Directory များကို <code>.md</code> ဖိုင်များအတွက် recursive စစ်ဆေးသည်။</li>
+<li>Markdown ဖိုင်များကိုသာ index လုပ်သည်။</li>
+<li>Symlink များကို (ဖိုင် သို့မဟုတ် directory) လျစ်လျူရှုသည်။</li>
+</ul>
+<h3 id="gemini-embeddings-native">Gemini embeddings (native)<a class="toc-anchor" href="#gemini-embeddings-native" title="Permanent link">¶</a></h3>
+<p>Gemini embeddings API ကို တိုက်ရိုက် အသုံးပြုရန် provider ကို <code>gemini</code> သို့ သတ်မှတ်ပါ —</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      provider: "gemini",
+      model: "gemini-embedding-001",
+      remote: {
+        apiKey: "YOUR_GEMINI_API_KEY"
+      }
+    }
+  }
+}
+</code></pre>
+<p>မှတ်ချက်များ —</p>
+<ul>
+<li><code>remote.baseUrl</code> သည် ရွေးချယ်နိုင်သည် (ပုံမှန်အားဖြင့် Gemini API base URL)။</li>
+<li><code>remote.headers</code> ဖြင့် လိုအပ်ပါက header များ ထပ်ထည့်နိုင်သည်။</li>
+<li>ပုံမှန် မော်ဒယ်: <code>gemini-embedding-001</code>။</li>
+</ul>
+<p><strong>custom OpenAI-compatible endpoint</strong> (OpenRouter, vLLM, သို့မဟုတ် proxy) ကို အသုံးပြုလိုပါက
+OpenAI provider နှင့်အတူ <code>remote</code> configuration ကို အသုံးပြုနိုင်သည် —</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      provider: "openai",
+      model: "text-embedding-3-small",
+      remote: {
+        baseUrl: "https://api.example.com/v1/",
+        apiKey: "YOUR_OPENAI_COMPAT_API_KEY",
+        headers: { "X-Custom-Header": "value" }
+      }
+    }
+  }
+}
+</code></pre>
+<p>API key မသတ်မှတ်လိုပါက <code>memorySearch.provider = "local"</code> ကို အသုံးပြုပါ သို့မဟုတ်
+<code>memorySearch.fallback = "none"</code> ကို သတ်မှတ်ပါ။</p>
+<p>Fallbacks —</p>
+<ul>
+<li><code>memorySearch.fallback</code> သည် <code>openai</code>, <code>gemini</code>, <code>local</code>, သို့မဟုတ် <code>none</code> ဖြစ်နိုင်သည်။</li>
+<li>Fallback provider ကို primary embedding provider မအောင်မြင်သည့်အခါတွင်သာ အသုံးပြုသည်။</li>
+</ul>
+<p>Batch indexing (OpenAI + Gemini) —</p>
+<ul>
+<li>၁၄။ OpenAI နှင့် Gemini embeddings အတွက် မူလအနေဖြင့် ဖွင့်ထားသည်။ ၁၅။ ပိတ်လိုပါက <code>agents.defaults.memorySearch.remote.batch.enabled = false</code> ဟု သတ်မှတ်ပါ။</li>
+<li>ပုံမှန် အပြုအမူသည် batch ပြီးဆုံးသည်အထိ စောင့်သည်။ လိုအပ်ပါက <code>remote.batch.wait</code>, <code>remote.batch.pollIntervalMs</code>, နှင့် <code>remote.batch.timeoutMinutes</code> ကို ချိန်ညှိပါ။</li>
+<li>အပြိုင် submit လုပ်မည့် batch jobs အရေအတွက်ကို ထိန်းချုပ်ရန် <code>remote.batch.concurrency</code> ကို သတ်မှတ်ပါ (ပုံမှန်: 2)။</li>
+<li>Batch mode သည် <code>memorySearch.provider = "openai"</code> သို့မဟုတ် <code>"gemini"</code> ဖြစ်သည့်အခါ အသုံးပြုကာ သက်ဆိုင်ရာ API key ကို အသုံးပြုသည်။</li>
+<li>Gemini batch jobs များသည် async embeddings batch endpoint ကို အသုံးပြုပြီး Gemini Batch API ရရှိနိုင်ရမည်။</li>
+</ul>
+<p>Why OpenAI batch is fast + cheap —</p>
+<ul>
+<li>အကြီးစား backfill များအတွက် OpenAI သည် batch job တစ်ခုအတွင်း embedding request များစွာကို submit လုပ်နိုင်ပြီး
+  asynchronous အနေဖြင့် ဆောင်ရွက်ပေးသဖြင့် ပုံမှန်အားဖြင့် အမြန်ဆုံး ဖြစ်သည်။</li>
+<li>OpenAI သည် Batch API workload များအတွက် လျှော့စျေး ပေးသဖြင့်
+  synchronous ပို့ပေးခြင်းထက် စျေးသက်သာလေ့ရှိသည်။</li>
+<li>အသေးစိတ်အတွက် OpenAI Batch API docs နှင့် pricing ကို ကြည့်ပါ —</li>
+<li><a href="https://platform.openai.com/docs/api-reference/batch">https://platform.openai.com/docs/api-reference/batch</a></li>
+<li><a href="https://platform.openai.com/pricing">https://platform.openai.com/pricing</a></li>
+</ul>
+<p>Config example —</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      provider: "openai",
+      model: "text-embedding-3-small",
+      fallback: "openai",
+      remote: {
+        batch: { enabled: true, concurrency: 2 }
+      },
+      sync: { watch: true }
+    }
+  }
+}
+</code></pre>
+<p>Tools —</p>
+<ul>
+<li><code>memory_search</code> — ဖိုင် + လိုင်းအကွာအဝေး ပါဝင်သည့် snippet များကို ပြန်ပေးသည်။</li>
+<li><code>memory_get</code> — path ဖြင့် မေမိုရီ ဖိုင် အကြောင်းအရာကို ဖတ်သည်။</li>
+</ul>
+<p>Local mode —</p>
+<ul>
+<li><code>agents.defaults.memorySearch.provider = "local"</code> ကို သတ်မှတ်ပါ။</li>
+<li><code>agents.defaults.memorySearch.local.modelPath</code> (GGUF သို့မဟုတ် <code>hf:</code> URI) ကို ပေးပါ။</li>
+<li>ရွေးချယ်နိုင်သည်: remote fallback ကို ရှောင်ရန် <code>agents.defaults.memorySearch.fallback = "none"</code> ကို သတ်မှတ်ပါ။</li>
+</ul>
+<h3 id="how-the-memory-tools-work">How the memory tools work<a class="toc-anchor" href="#how-the-memory-tools-work" title="Permanent link">¶</a></h3>
+<ul>
+<li>၁၆။ <code>memory_search</code> သည် <code>MEMORY.md</code> နှင့် <code>memory/**/*.md</code> ထဲမှ Markdown chunks (~400 token ပန်းတိုင်၊ 80-token overlap) ကို semantic အရ ရှာဖွေသည်။ ၁၇။ snippet စာသား (~700 chars အထိ ကန့်သတ်), file path, line range, score, provider/model နှင့် local → remote embeddings သို့ fallback ဖြစ်ခဲ့/မဖြစ်ခဲ့ ကို ပြန်ပေးသည်။ ၁၈။ ဖိုင်အပြည့်အစုံ payload ကို မပြန်ပေးပါ။</li>
+<li>၁၉။ <code>memory_get</code> သည် သတ်မှတ်ထားသော memory Markdown ဖိုင် (workspace-relative) ကို ဖတ်ပြီး၊ လိုအပ်ပါက စတင်လိုင်းနှင့် လိုင်းအရေအတွက် N ကို သတ်မှတ်နိုင်သည်။ ၂၀။ <code>MEMORY.md</code> / <code>memory/</code> အပြင်ဘက်ရှိ paths များကို ငြင်းပယ်သည်။</li>
+<li>ကိရိယာ ၂ ခုစလုံးသည် agent အတွက် <code>memorySearch.enabled</code> true ဖြစ်မှသာ ဖွင့်ထားသည်။</li>
+</ul>
+<h3 id="what-gets-indexed-and-when">What gets indexed (and when)<a class="toc-anchor" href="#what-gets-indexed-and-when" title="Permanent link">¶</a></h3>
+<ul>
+<li>ဖိုင်အမျိုးအစား: Markdown သာ (<code>MEMORY.md</code>, <code>memory/**/*.md</code>)။</li>
+<li>Index သိမ်းဆည်းရာ: per-agent SQLite ကို <code>~/.openclaw/memory/&lt;agentId&gt;.sqlite</code> တွင် သိမ်းဆည်းသည် (<code>agents.defaults.memorySearch.store.path</code> ဖြင့် ချိန်ညှိနိုင်ပြီး <code>{agentId}</code> token ကို ထောက်ပံ့သည်)။</li>
+<li>Freshness: <code>MEMORY.md</code> + <code>memory/</code> ကို watcher လုပ်ထားပြီး index ကို dirty အဖြစ်မှတ်သားပါသည် (debounce 1.5s)။ ၂၂။ Sync ကို session စတင်ချိန်၊ search လုပ်ချိန် သို့မဟုတ် အချိန်အပိုင်းအခြားအလိုက် စီစဉ်ထားပြီး asynchronous အနေဖြင့် လည်ပတ်သည်။ ၂၃။ Session transcripts များသည် delta thresholds ကို အသုံးပြု၍ background sync ကို trigger လုပ်သည်။</li>
+<li>၂၄။ Reindex triggers: index သည် embedding <strong>provider/model + endpoint fingerprint + chunking params</strong> ကို သိမ်းဆည်းထားသည်။ ၂၅။ အဆိုပါ အချက်များထဲမှ တစ်ခုခု ပြောင်းလဲပါက OpenClaw သည် အလိုအလျောက် reset လုပ်ပြီး store အပြည့်အစုံကို reindex လုပ်သည်။</li>
+</ul>
+<h3 id="hybrid-search-bm25-vector">Hybrid search (BM25 + vector)<a class="toc-anchor" href="#hybrid-search-bm25-vector" title="Permanent link">¶</a></h3>
+<p>ဖွင့်ထားပါက OpenClaw သည် —</p>
+<ul>
+<li><strong>Vector similarity</strong> (semantic ကိုက်ညီမှု၊ စကားလုံး မတူနိုင်)</li>
+<li><strong>BM25 keyword relevance</strong> (ID များ၊ env vars၊ code symbols ကဲ့သို့ တိကျသော token များ)</li>
+</ul>
+<p>တို့ကို ပေါင်းစပ် အသုံးပြုသည်။</p>
+<h4 id="why-hybrid">Why hybrid?<a class="toc-anchor" href="#why-hybrid" title="Permanent link">¶</a></h4>
+<p>၂၆။ Vector search သည် “အဓိပ္ပါယ်တူညီမှု” ကို ရှာဖွေရန် အလွန်ကောင်းမွန်သည်:</p>
+<ul>
+<li>၂၇။ “Mac Studio gateway host” နှင့် “gateway ကို လည်ပတ်နေသော စက်”</li>
+<li>၂၈။ “debounce file updates” နှင့် “ရေးသွင်းမှုတိုင်းတွင် indexing မလုပ်ရန်”</li>
+</ul>
+<p>၂၉။ သို့သော် တိကျပြီး signal မြင့်သော tokens များအတွက် အားနည်းနိုင်သည်:</p>
+<ul>
+<li>IDs (<code>a828e60</code>, <code>b3b9895a…</code>)</li>
+<li>code symbols (<code>memorySearch.query.hybrid</code>)</li>
+<li>error strings (“sqlite-vec unavailable”)</li>
+</ul>
+<p>၃၀။ BM25 (full-text) သည် ဆန့်ကျင်ဘက်ဖြစ်ပြီး တိကျသော tokens များတွင် အားကောင်းသော်လည်း paraphrases များတွင် အားနည်းသည်။
+၃၁။ Hybrid search သည် လက်တွေ့ကျသော အလယ်လမ်းဖြစ်ပြီး <strong>retrieval signals နှစ်မျိုးလုံးကို အသုံးပြုခြင်း</strong> ဖြင့် “natural language” queries နှင့် “needle in a haystack” queries နှစ်မျိုးလုံးအတွက် ကောင်းမွန်သော ရလဒ်များကို ရရှိစေသည်။</p>
+<h4 id="how-we-merge-results-the-current-design">How we merge results (the current design)<a class="toc-anchor" href="#how-we-merge-results-the-current-design" title="Permanent link">¶</a></h4>
+<p>၃၂။ Implementation sketch:</p>
+<ol>
+<li>၃၃။ နှစ်ဖက်စလုံးမှ candidate pool ကို ရယူပါ:</li>
+</ol>
+<ul>
+<li>နှစ်ဘက်စလုံးမှ candidate pool ကို ရယူသည် —</li>
+<li>၃၄။ <strong>BM25</strong>: FTS5 BM25 rank ဖြင့် top <code>maxResults * candidateMultiplier</code> (နိမ့်လေလေ ပိုကောင်း)။</li>
+</ul>
+<ol start="2">
+<li><strong>Vector</strong>: cosine similarity အရ ထိပ်ဆုံး <code>maxResults * candidateMultiplier</code>။</li>
+</ol>
+<ul>
+<li><code>textScore = 1 / (1 + max(0, bm25Rank))</code></li>
+</ul>
+<ol start="3">
+<li>၃၅။ chunk id အလိုက် candidates များကို union လုပ်ပြီး weighted score ကို တွက်ချက်ပါ:</li>
+</ol>
+<ul>
+<li><code>finalScore = vectorWeight * vectorScore + textWeight * textScore</code></li>
+</ul>
+<p>မှတ်ချက်များ —</p>
+<ul>
+<li>၃၆။ <code>vectorWeight</code> + <code>textWeight</code> ကို config resolution တွင် 1.0 သို့ normalize လုပ်ထားသဖြင့် weights များသည် ရာခိုင်နှုန်းများကဲ့သို့ အပြုအမူပြုသည်။</li>
+<li>၃၇။ embeddings မရနိုင်ပါက (သို့မဟုတ် provider မှ zero-vector ပြန်ပါက) BM25 ကို ဆက်လက်လုပ်ဆောင်ပြီး keyword matches များကို ပြန်ပေးသည်။</li>
+<li>၃၈။ FTS5 ကို မဖန်တီးနိုင်ပါက vector-only search ကို ထိန်းထားပြီး hard failure မလုပ်ပါ။</li>
+</ul>
+<p>၃၉။ ၎င်းသည် “IR-theory perfect” မဟုတ်သော်လည်း ရိုးရှင်း၊ မြန်ဆန်ပြီး အမှန်တကယ်ရှိသော notes များတွင် recall/precision ကို တိုးတက်စေတတ်သည်။
+၄၀။ နောက်ပိုင်းတွင် ပိုမိုရှုပ်ထွေးစေလိုပါက အများအားဖြင့် လုပ်ဆောင်သည့် နောက်တစ်ဆင့်များမှာ Reciprocal Rank Fusion (RRF) သို့မဟုတ် score normalization (min/max သို့မဟုတ် z-score) ကို ပေါင်းစပ်မီ လုပ်ခြင်း ဖြစ်သည်။</p>
+<p>ဤဒီဇိုင်းသည် “IR-theory အပြည့်အစုံ” မဟုတ်သော်လည်း ရိုးရှင်း၊ မြန်ဆန်ပြီး လက်တွေ့ မှတ်စုများတွင် recall/precision ကို တိုးတက်စေတတ်သည်။
+နောက်ထပ် အဆင့်မြင့်လိုပါက Reciprocal Rank Fusion (RRF) သို့မဟုတ် score normalization
+(min/max သို့မဟုတ် z-score) ကို ပေါင်းစပ်နိုင်သည်။</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      query: {
+        hybrid: {
+          enabled: true,
+          vectorWeight: 0.7,
+          textWeight: 0.3,
+          candidateMultiplier: 4
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="embedding-cache">Embedding cache<a class="toc-anchor" href="#embedding-cache" title="Permanent link">¶</a></h3>
+<p>၄၁။ OpenClaw သည် SQLite ထဲတွင် <strong>chunk embeddings</strong> ကို cache လုပ်နိုင်ပြီး reindexing နှင့် မကြာခဏ update များ (အထူးသဖြင့် session transcripts) တွင် မပြောင်းလဲသော စာသားများကို ပြန်လည် embed မလုပ်ရအောင် ကူညီသည်။</p>
+<p>OpenClaw သည် <strong>chunk embedding များကို SQLite တွင် cache လုပ်</strong> နိုင်ပြီး
+reindexing နှင့် မကြာခဏ update များ (အထူးသဖြင့် session transcript များ) တွင်
+မပြောင်းလဲသော စာသားကို ပြန်လည် embed မလုပ်စေရန် ကူညီသည်။</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      cache: {
+        enabled: true,
+        maxEntries: 50000
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="session-memory-search-experimental">Session memory search (experimental)<a class="toc-anchor" href="#session-memory-search-experimental" title="Permanent link">¶</a></h3>
+<p>၄၂။ ရွေးချယ်နိုင်စွာ <strong>session transcripts</strong> ကို index လုပ်ပြီး <code>memory_search</code> မှတစ်ဆင့် ပြသနိုင်သည်။
+၄၃။ ဤအရာသည် experimental flag အောက်တွင်သာ အသုံးပြုနိုင်သည်။</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      experimental: { sessionMemory: true },
+      sources: ["memory", "sessions"]
+    }
+  }
+}
+</code></pre>
+<p>မှတ်ချက်များ-</p>
+<ul>
+<li>၄၄။ Session indexing သည် <strong>opt-in</strong> ဖြစ်ပြီး (မူလအားဖြင့် ပိတ်ထားသည်)။</li>
+<li>၄၅။ Session updates များကို debounce လုပ်ပြီး delta thresholds ကို ကျော်လွန်သည့်အခါ <strong>asynchronously index</strong> လုပ်သည် (best-effort)။</li>
+<li>၄၆။ <code>memory_search</code> သည် indexing ကို စောင့်မနေဘဲ လုပ်ဆောင်ပြီး background sync မပြီးမချင်း ရလဒ်များသည် အနည်းငယ်ဟောင်းနေနိုင်သည်။</li>
+<li>၄၇။ ရလဒ်များတွင် snippet များသာ ပါဝင်ပြီး <code>memory_get</code> သည် memory ဖိုင်များအတွက်သာ ကန့်သတ်ထားသည်။</li>
+<li>၄၈။ Session indexing ကို agent တစ်ခုချင်းစီအလိုက် ခွဲထားပြီး (ထို agent ၏ session logs များသာ index လုပ်သည်)။</li>
+<li>၄၉။ Session logs များကို disk ပေါ်တွင် သိမ်းထားသည် (<code>~/.openclaw/agents/&lt;agentId&gt;/sessions/*.jsonl</code>)။ ၅၀။ filesystem access ရှိသည့် process/user မည်သူမဆို ဖတ်နိုင်သောကြောင့် disk access ကို trust boundary အဖြစ် သတ်မှတ်၍ ဆက်ဆံပါ။ For stricter isolation, run agents under separate OS users or hosts.</li>
+</ul>
+<p>Delta thresholds (defaults shown):</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      sync: {
+        sessions: {
+          deltaBytes: 100000,   // ~100 KB
+          deltaMessages: 50     // JSONL lines
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="sqlite-vector-acceleration-sqlite-vec">SQLite vector acceleration (sqlite-vec)<a class="toc-anchor" href="#sqlite-vector-acceleration-sqlite-vec" title="Permanent link">¶</a></h3>
+<p>When the sqlite-vec extension is available, OpenClaw stores embeddings in a
+SQLite virtual table (<code>vec0</code>) and performs vector distance queries in the
+database. This keeps search fast without loading every embedding into JS.</p>
+<p>sqlite-vec extension ရရှိနိုင်ပါက OpenClaw သည် embedding များကို
+SQLite virtual table (<code>vec0</code>) တွင် သိမ်းဆည်းပြီး
+database အတွင်းတွင် vector distance query များကို ဆောင်ရွက်သည်။
+ဤနည်းလမ်းသည် embedding အားလုံးကို JS ထဲ မတင်ဘဲ search ကို မြန်ဆန်စေသည်။</p>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      store: {
+        vector: {
+          enabled: true,
+          extensionPath: "/path/to/sqlite-vec"
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>မှတ်ချက်များ —</p>
+<ul>
+<li><code>enabled</code> defaults to true; when disabled, search falls back to in-process
+  cosine similarity over stored embeddings.</li>
+<li>If the sqlite-vec extension is missing or fails to load, OpenClaw logs the
+  error and continues with the JS fallback (no vector table).</li>
+<li><code>extensionPath</code> overrides the bundled sqlite-vec path (useful for custom builds
+  or non-standard install locations).</li>
+</ul>
+<h3 id="local-embedding-auto-download">Local embedding auto-download<a class="toc-anchor" href="#local-embedding-auto-download" title="Permanent link">¶</a></h3>
+<ul>
+<li>Default local embedding model: <code>hf:ggml-org/embeddinggemma-300M-GGUF/embeddinggemma-300M-Q8_0.gguf</code> (~0.6 GB).</li>
+<li>When <code>memorySearch.provider = "local"</code>, <code>node-llama-cpp</code> resolves <code>modelPath</code>; if the GGUF is missing it <strong>auto-downloads</strong> to the cache (or <code>local.modelCacheDir</code> if set), then loads it. Downloads resume on retry.</li>
+<li>Native build requirement: run <code>pnpm approve-builds</code>, pick <code>node-llama-cpp</code>, then <code>pnpm rebuild node-llama-cpp</code>.</li>
+<li>Fallback: if local setup fails and <code>memorySearch.fallback = "openai"</code>, we automatically switch to remote embeddings (<code>openai/text-embedding-3-small</code> unless overridden) and record the reason.</li>
+</ul>
+<h3 id="custom-openai-compatible-endpoint-example">Custom OpenAI-compatible endpoint example<a class="toc-anchor" href="#custom-openai-compatible-endpoint-example" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-json5">agents: {
+  defaults: {
+    memorySearch: {
+      provider: "openai",
+      model: "text-embedding-3-small",
+      remote: {
+        baseUrl: "https://api.example.com/v1/",
+        apiKey: "YOUR_REMOTE_API_KEY",
+        headers: {
+          "X-Organization": "org-id",
+          "X-Project": "project-id"
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>မှတ်ချက်များ-</p>
+<ul>
+<li><code>remote.*</code> takes precedence over <code>models.providers.openai.*</code>.</li>
+<li><code>remote.headers</code> merge with OpenAI headers; remote wins on key conflicts. Omit <code>remote.headers</code> to use the OpenAI defaults.</li>
+</ul></div><div class="px-0.5 flex items-center text-sm font-semibold text-gray-700 dark:text-gray-200" id="pagination"><a class="flex items-center space-x-3 group" href="session-tool.html"><svg class="h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><span class="group-hover:text-gray-900 dark:group-hover:text-white">Session Tools</span></a><a class="flex items-center ml-auto space-x-3 group" href="compaction.html"><span class="group-hover:text-gray-900 dark:group-hover:text-white">Compaction</span><svg class="rotate-180 h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a></div><div class="left-0 right-0 sticky sm:px-4 pb-4 sm:pb-6 bottom-0 pt-1 flex flex-col items-center w-full overflow-hidden z-20 pointer-events-none print:hidden"><div class="chat-assistant-floating-input z-10 w-full sm:w-96 focus-within:w-full group/assistant-bar sm:focus-within:w-[30rem] hover:scale-100 sm:hover:scale-105 focus-within:hover:scale-100 [transition:width_400ms,left_200ms,transform_500ms,opacity_200ms]"><div class="translate-y-[100px] opacity-0"><div class="flex flex-col w-full rounded-2xl pointer-events-auto bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border border-gray-200 dark:border-white/30 focus-within:border-primary dark:focus-within:border-primary-light transition-colors sm:shadow-xl"><div class="relative flex items-end"><textarea aria-label="Ask a question..." autocomplete="off" class="chat-assistant-input w-full bg-transparent border-0 peer/input text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 !outline-none focus:!outline-none focus:ring-0 py-2.5 pl-3.5 pr-10 font-bodyWeight text-sm" id="chat-assistant-textarea" placeholder="Ask a question..." style="resize:none"></textarea><span class="absolute right-11 bottom-3 text-xs font-medium text-gray-400 dark:text-gray-500 select-none pointer-events-none peer-focus/input:hidden hidden sm:inline">⌘<!-- -->I</span><button aria-label="Send message" class="chat-assistant-send-button flex justify-center items-center rounded-full p-1 size-6 bg-primary/30 dark:bg-primary-dark/30 absolute right-2.5 bottom-2" disabled=""><svg class="lucide lucide-arrow-up text-white dark:text-white size-3.5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></div></div></div></div><footer class="flex gap-12 justify-between pt-10 border-t border-gray-100 sm:flex dark:border-gray-800/50 pb-28" id="footer"><div class="flex items-center justify-between"><div class="sm:flex"><a class="group flex items-baseline gap-1 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-nowrap" href="https://www.mintlify.com?utm_campaign=poweredBy&amp;utm_medium=referral&amp;utm_source=clawdhub" rel="noreferrer" target="_blank"><span>Powered by</span><svg class="h-3.5 w-auto translate-y-[3px]" fill="none" height="367" viewbox="0 0 1274 367" width="1274" xmlns="http://www.w3.org/2000/svg"><path d="M1154.38 366.038H1097.86L1137.69 276.14L1058.04 97.1046H1114.93L1161.35 209.337C1162.97 213.26 1168.53 213.253 1170.14 209.325L1216.21 97.1046H1273.49L1154.38 366.038Z" fill="currentColor"></path><path d="M982.714 286.761V142.622H944.403V97.1041H982.714V72.4488C982.714 49.9429 989.542 32.2416 1003.2 19.345C1016.85 6.44832 1034.17 0 1055.16 0C1068.06 0 1079.06 1.39081 1088.16 4.17244V50.0693C1082.09 47.7934 1075.01 46.6555 1066.92 46.6555C1055.54 46.6555 1047.32 49.1843 1042.27 54.2418C1037.21 59.0464 1034.68 67.2648 1034.68 78.8971V97.1041H1088.16V142.622H1034.68V286.761H982.714Z" fill="currentColor"></path><path d="M897.916 66.0005C889.066 66.0005 881.353 62.8395 874.778 56.5176C868.203 49.9429 864.916 42.1037 864.916 33.0002C864.916 23.8967 868.203 16.184 874.778 9.86215C881.353 3.28738 889.066 0 897.916 0C907.273 0 915.112 3.28738 921.434 9.86215C928.008 16.184 931.296 23.8967 931.296 33.0002C931.296 42.1037 928.008 49.9429 921.434 56.5176C915.112 62.8395 907.273 66.0005 897.916 66.0005ZM872.123 286.761V97.1041H924.089V286.761H872.123Z" fill="currentColor"></path><path d="M781.638 286.761V2.27609H833.604V286.761H781.638Z" fill="currentColor"></path><path d="M722.934 289.037C701.693 289.037 684.244 283.221 670.589 271.588C657.187 259.703 650.485 242.634 650.485 220.381V142.622H612.175V97.1044H650.485V44.3799H702.451V97.1044H755.934V142.622H702.451V210.14C702.451 221.772 704.98 230.117 710.038 235.174C715.095 239.979 723.313 242.381 734.693 242.381C742.785 242.381 749.865 241.243 755.934 238.967V284.864C746.831 287.646 735.831 289.037 722.934 289.037Z" fill="currentColor"></path><path d="M417.674 286.761V97.1041H469.64V110.967C469.64 113.311 472.83 114.347 474.382 112.591C485.967 99.4848 502.467 92.9317 523.881 92.9317C546.64 92.9317 564.468 100.518 577.365 115.69C590.514 130.61 597.089 150.587 597.089 175.622V286.761H545.123V184.346C545.123 170.438 542.215 159.691 536.399 152.105C530.583 144.265 522.364 140.346 511.743 140.346C499.1 140.346 488.858 144.898 481.019 154.001C473.433 163.105 469.64 176.507 469.64 194.208V286.761H417.674Z" fill="currentColor"></path><path d="M352.981 66.0005C344.13 66.0005 336.417 62.8395 329.843 56.5176C323.268 49.9429 319.98 42.1037 319.98 33.0002C319.98 23.8967 323.268 16.184 329.843 9.86215C336.417 3.28738 344.13 0 352.981 0C362.337 0 370.176 3.28738 376.498 9.86215C383.073 16.184 386.36 23.8967 386.36 33.0002C386.36 42.1037 383.073 49.9429 376.498 56.5176C370.176 62.8395 362.337 66.0005 352.981 66.0005ZM327.187 286.761V97.1041H379.153V286.761H327.187Z" fill="currentColor"></path><path d="M238.967 286.761V185.484C238.967 155.392 229.105 140.346 209.381 140.346C198.001 140.346 188.898 144.645 182.07 153.242C175.495 161.84 171.955 174.61 171.449 191.553V286.761H119.484V185.484C119.484 155.392 109.621 140.346 89.8972 140.346C78.2649 140.346 69.035 144.898 62.2073 154.001C55.3797 163.105 51.9659 176.507 51.9659 194.208V286.761H0V97.1041H51.9659V111.103C51.9659 113.435 55.1014 114.462 56.633 112.704C68.1136 99.5223 83.3741 92.9317 102.415 92.9317C127.436 92.9317 146.283 103.262 158.953 123.923C159.953 125.553 162.412 125.527 163.406 123.894C168.884 114.891 176.496 107.731 186.243 102.415C197.369 96.0926 208.622 92.9317 220.002 92.9317C242.507 92.9317 259.956 100.392 272.347 115.311C284.738 130.231 290.933 150.714 290.933 176.76V286.761H238.967Z" fill="currentColor"></path></svg></a></div></div></footer></div></div><!--$--><!--/$--></div></div></div></div></div>
+<div class="veiseule-footer"><a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Community translations maintained by <a href="http://blog.law-kelly.com/2026/02/open-source-means-open-language.html">John Kelly</a>. Improve translations on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a>.</div>
+<script>
+(function(){
+  var btn = document.querySelector('[aria-label="Toggle dark mode"]');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var html = document.documentElement;
+    var isDark = html.classList.contains('dark');
+    if(isDark){
+      html.classList.remove('dark');
+      html.style.colorScheme = 'light';
+      try { localStorage.setItem('isDarkMode','light'); } catch(e){}
+    } else {
+      html.classList.add('dark');
+      html.style.colorScheme = 'dark';
+      try { localStorage.setItem('isDarkMode','dark'); } catch(e){}
+    }
+  });
+})();
+</script></body></html>

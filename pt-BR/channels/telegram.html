@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html class="__variable_47c970 __variable_3bbdad" data-banner-state="visible" data-page-mode="none" lang="pt"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/bb3ef058b751a6ad-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/c4b700dcb2187787-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/e4af272ccee01ff0-s.p.woff2" rel="preload" type="font/woff2"/><link as="image" href="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26" rel="preload"/><link as="image" href="https://d3gk2c5xim1je2.cloudfront.net/flags/BR.svg" rel="preload"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/b864dec2fc058581.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/6f9b80d484ead711.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/05d6d8fcb903870d.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><meta content="" name="next-size-adjust"/><title>Telegram (Bot API) - OpenClaw</title><meta content="OpenClaw" name="application-name"/><meta content="Mintlify" name="generator"/><meta content="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/browserconfig.xml" name="msapplication-config"/><meta content="OpenClaw" name="apple-mobile-web-app-title"/><meta content="#FF5A36" name="msapplication-TileColor"/><meta content="utf-8" name="charset"/><meta content="OpenClaw" name="og:site_name"/><meta content="https://docs.openclaw.ai/channels/telegram" name="canonical"/><link href="telegram.html" rel="canonical"/><link href="/sitemap.xml" rel="alternate" type="application/xml"/><meta content="Telegram - OpenClaw" property="og:title"/><meta content="https://docs.openclaw.ai/channels/telegram" property="og:url"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DMessaging%2Bplatforms%26title%3DTelegram%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="website" property="og:type"/><meta content="summary_large_image" name="twitter:card"/><meta content="Telegram - OpenClaw" name="twitter:title"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DMessaging%2Bplatforms%26title%3DTelegram%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" name="twitter:image"/><meta content="1200" name="twitter:image:width"/><meta content="630" name="twitter:image:height"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-16x16.png" media="(prefers-color-scheme: light)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-32x32.png" media="(prefers-color-scheme: light)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon.ico" media="(prefers-color-scheme: light)" rel="shortcut icon" type="image/x-icon"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-16x16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-32x32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon.ico" media="(prefers-color-scheme: dark)" rel="shortcut icon" type="image/x-icon"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link as="style" href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css" rel="preload"/><script type="text/javascript">(function(a,b){try{let c=document.getElementById("banner")?.innerText;if(c){for(let d=0;d<localStorage.length;d++){let e=localStorage.key(d);if(e?.endsWith(a)&&localStorage.getItem(e)===c)return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible");return}for(let c=0;c<localStorage.length;c++){let d=localStorage.key(c);if(d?.endsWith(a)&&localStorage.getItem(d))return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible")}catch(a){document.documentElement.setAttribute(b,"hidden")}})(
+  "bannerDismissed",
+  "data-banner-state",
+)</script><style id="veiseule-branding">
+.veiseule-bar{position:fixed;top:0;left:0;right:0;z-index:99999;background:#2E4A3A;color:#E0E0E0;text-align:center;padding:8px 16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;box-shadow:0 2px 4px rgba(0,0,0,0.15)}
+.veiseule-bar a{color:#A9B8A1;text-decoration:underline}
+.veiseule-bar a:hover{color:#fff}
+.veiseule-footer{background:#1A2E20;color:#E0E0E0;text-align:center;padding:16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;border-top:1px solid #2E4A3A}
+.veiseule-footer a{color:#A9B8A1;text-decoration:underline}
+.veiseule-footer a:hover{color:#fff}
+body{padding-top:36px !important}
+</style>
+<style>
+.toc-anchor { text-decoration: none; margin-left: 0.3em; opacity: 0.3; }
+.toc-anchor:hover { opacity: 1; }
+.toc-anchor { color: #999; }
+.dark .toc-anchor { color: #555; }
+</style></head><body>
+<div class="veiseule-bar">Community translations by <a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Help improve them on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a></div>
+<div hidden=""><!--$--><!--/$--></div><script>((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","isDarkMode","system",null,["dark","light","true","false","system"],{"true":"dark","false":"light","dark":"dark","light":"light"},true,true)</script><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><style>:root {
+  --font-family-headings-custom: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  --font-family-body-custom: "Fragment Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  
+  
+}</style><style>:root {
+    --primary: 255 90 54;
+    --primary-light: 255 138 107;
+    --primary-dark: 255 90 54;
+    --tooltip-foreground: 255 255 255;
+    --background-light: 255 255 255;
+    --background-dark: 14 12 13;
+    --gray-50: 250 245 244;
+    --gray-100: 245 240 239;
+    --gray-200: 230 225 224;
+    --gray-300: 213 208 207;
+    --gray-400: 166 161 160;
+    --gray-500: 119 114 113;
+    --gray-600: 87 82 81;
+    --gray-700: 70 65 64;
+    --gray-800: 45 40 38;
+    --gray-900: 30 25 24;
+    --gray-950: 17 12 11;
+  }</style><script type="text/javascript">
+          (function() {
+            function loadKatex() {
+              const link = document.querySelector('link[href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css"]');
+              if (link) link.rel = 'stylesheet';
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', loadKatex);
+            } else {
+              loadKatex();
+            }
+          })();
+        </script><div class="relative antialiased text-gray-500 dark:text-gray-400"><a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:p-2 focus:text-sm focus:bg-background-light dark:focus:bg-background-dark focus:rounded-md focus:outline-primary dark:focus:outline-primary-light" href="telegram.html#content-area">Skip to main content</a><div class="max-lg:contents lg:flex lg:w-full"><div class="max-lg:contents lg:flex-1 lg:min-w-0 lg:overflow-x-clip"><div class="z-30 fixed lg:sticky top-0 w-full peer is-not-custom peer is-not-center peer is-not-wide peer is-not-frame" id="navbar"><div class="absolute w-full h-full backdrop-blur flex-none transition-colors duration-500 border-b border-gray-500/5 dark:border-gray-300/[0.06] data-[is-opaque=true]:bg-background-light data-[is-opaque=true]:supports-backdrop-blur:bg-background-light/95 data-[is-opaque=true]:dark:bg-background-dark/75 data-[is-opaque=false]:supports-backdrop-blur:bg-background-light/60 data-[is-opaque=false]:dark:bg-transparent" data-is-opaque="false" id="navbar-transition"></div><div class="max-w-8xl mx-auto relative"><div><div class="relative"><div class="flex items-center lg:px-12 h-16 min-w-0 mx-4 lg:mx-0"><div class="h-full relative flex-1 flex items-center gap-x-4 min-w-0 border-b border-gray-500/5 dark:border-gray-300/[0.06]"><div class="flex-1 flex items-center gap-x-4"><a class="select-none" data-slot="context-menu-trigger" data-state="closed" href="../index.html" style="-webkit-touch-callout:none"><span class="sr-only">OpenClaw<!-- --> home page</span><img alt="light logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 block dark:hidden" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/><img alt="dark logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 hidden dark:block" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/></a><div class="hidden lg:flex items-center gap-x-2"><button aria-expanded="false" aria-haspopup="menu" class="group disabled:pointer-events-none [&amp;&gt;span]:line-clamp-1 overflow-hidden group group-hover:text-gray-950/70 dark:group-hover:text-white/70 py-1.5 px-2.5 rounded-xl hover:!bg-gray-600/5 dark:hover:!bg-gray-200/5 aria-[expanded=true]:bg-gray-600/5 dark:aria-[expanded=true]:bg-gray-200/5 text-sm font-medium text-gray-900 h-8 focus-visible:outline-primary dark:text-gray-300 group/trigger flex items-center gap-2 whitespace-nowrap" data-state="closed" id="localization-select-trigger" type="button"><div class="relative size-4 rounded-full shrink-0"><img alt="BR" class="w-full h-full rounded-full" src="https://d3gk2c5xim1je2.cloudfront.net/flags/BR.svg"/><div class="absolute top-0 left-0 w-full h-full border rounded-full bg-primary-light/10 border-black/10"></div></div><span class="truncate max-w-[12.5rem]">Português</span><svg class="transition-transform text-gray-400 overflow-visible group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400 rotate-90 ml-auto group-aria-[expanded=true]/trigger:rotate-[270deg]" height="24" viewbox="0 -9 3 24" width="8"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></button></div></div><div class="relative hidden lg:flex items-center flex-1 z-20 justify-center"><button aria-label="Open search" class="flex pointer-events-auto rounded-xl w-full items-center text-sm leading-6 h-9 pl-3.5 pr-3 text-gray-500 dark:text-white/50 bg-background-light dark:bg-background-dark dark:brightness-[1.1] dark:ring-1 dark:hover:brightness-[1.25] ring-1 ring-gray-400/30 hover:ring-gray-600/30 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 justify-between truncate gap-2 min-w-[43px]" id="search-bar-entry" type="button"><div class="flex items-center gap-2 min-w-[42px]"><svg class="lucide lucide-search min-w-4 flex-none text-gray-700 hover:text-gray-800 dark:text-gray-400 hover:dark:text-gray-200" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><div class="truncate min-w-0">Search...</div></div><span class="flex-none text-xs font-semibold">⌘<!-- -->K</span></button></div><div class="flex-1 relative hidden lg:flex items-center ml-auto justify-end space-x-4"><nav class="text-sm"><ul class="flex space-x-6 items-center"><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);mask-repeat:no-repeat;mask-position:center"></svg>GitHub</a></li><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw/releases" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);mask-repeat:no-repeat;mask-position:center;mask-size:100%"></svg>Releases</a></li></ul></nav><div class="flex items-center"><button aria-label="Toggle dark mode" class="group p-2 flex items-center justify-center"><svg class="h-4 w-4 block text-gray-400 dark:hidden group-hover:text-gray-600" fill="none" height="16" stroke="currentColor" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2880_7340)"><path d="M8 1.11133V2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 3.12891L12.2427 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M14.8889 8H14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 12.8711L12.2427 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8 14.8889V14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 12.8711L3.75735 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M1.11133 8H2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 3.12891L3.75735 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8.00043 11.7782C10.0868 11.7782 11.7782 10.0868 11.7782 8.00043C11.7782 5.91402 10.0868 4.22266 8.00043 4.22266C5.91402 4.22266 4.22266 5.91402 4.22266 8.00043C4.22266 10.0868 5.91402 11.7782 8.00043 11.7782Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g><defs><clippath id="clip0_2880_7340"><rect fill="white" height="16" width="16"></rect></clippath></defs></svg><svg class="lucide lucide-moon h-4 w-4 hidden dark:block text-gray-500 dark:group-hover:text-gray-300" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button></div></div><div class="flex lg:hidden items-center gap-3"><button aria-label="Open search" class="text-gray-500 w-8 h-8 flex items-center justify-center hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300" id="search-bar-entry-mobile" type="button"><span class="sr-only">Search...</span><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);mask-repeat:no-repeat;mask-position:center"></svg></button><button aria-label="More actions" class="h-7 w-5 flex items-center justify-end"><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);mask-repeat:no-repeat;mask-position:center"></svg></button></div></div></div><button class="flex items-center h-14 py-4 px-5 lg:hidden focus:outline-0 w-full text-left" type="button"><div class="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300"><span class="sr-only">Navigation</span><svg class="h-4" fill="currentColor" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></div><div class="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0 space-x-3 overflow-hidden"><div class="flex items-center space-x-3 flex-shrink-0"><span>Messaging platforms</span><svg class="h-5 rotate-0 overflow-visible fill-gray-400" height="24" viewbox="0 -9 3 24" width="3"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></div><div class="font-semibold text-gray-900 truncate dark:text-gray-200 min-w-0 flex-1">Telegram</div></div></button></div><div class="hidden lg:flex px-12 h-12"><div class="nav-tabs h-full flex text-sm gap-x-6"><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../index.html">Get started<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../install.html">Install<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium hover:text-gray-800 dark:hover:text-gray-300 text-gray-800 dark:text-gray-200 [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor]" href="../channels.html">Channels<div class="absolute bottom-0 h-[1.5px] w-full left-0 bg-primary dark:bg-primary-light"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../concepts/architecture.html">Agents<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../tools.html">Tools<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../providers.html">Models<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../platforms.html">Platforms<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../gateway.html">Gateway &amp; Ops<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../cli.html">Reference<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../help.html">Help<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a></div></div></div></div><span hidden="" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"></span></div><div class="scroll-mt-[var(--scroll-mt)] peer-[.is-custom]:max-w-none peer-[.is-center]:max-w-3xl peer-[.is-not-custom]:peer-[.is-not-center]:max-w-8xl peer-[.is-not-custom]:px-4 peer-[.is-not-custom]:mx-auto peer-[.is-not-custom]:lg:px-8 peer-[.is-wide]:[&amp;&gt;div:last-child]:max-w-6xl peer-[.is-custom]:[&amp;&gt;div:first-child]:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:xl:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:xl:!hidden"><div class="z-20 hidden lg:block fixed bottom-0 right-auto w-[18rem]" id="sidebar" style="top:7rem"><div class="absolute inset-0 z-10 stable-scrollbar-gutter overflow-auto pr-8 pb-10" id="sidebar-content"><div class="relative lg:text-sm lg:leading-6"><div class="sticky top-0 h-8 z-10 bg-gradient-to-b from-background-light dark:from-background-dark"></div><div id="navigation-items"><div class=""><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Overview</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Chat Channels" id="/channels"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../channels.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Chat Channels</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Messaging platforms</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="WhatsApp" id="/channels/whatsapp"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="whatsapp.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">WhatsApp</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Telegram" id="/channels/telegram"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] bg-primary/10 text-primary [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor] dark:text-primary-light dark:bg-primary-light/10" href="telegram.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Telegram</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Discord" id="/channels/discord"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="discord.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Discord</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="IRC" id="/channels/irc"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="irc.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">IRC</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Slack" id="/channels/slack"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="slack.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Slack</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Feishu" id="/channels/feishu"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="feishu.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Feishu</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Google Chat" id="/channels/googlechat"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="googlechat.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Google Chat</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Mattermost" id="/channels/mattermost"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="mattermost.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Mattermost</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Signal" id="/channels/signal"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="signal.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Signal</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="iMessage" id="/channels/imessage"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="imessage.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">iMessage</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Microsoft Teams" id="/channels/msteams"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="msteams.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Microsoft Teams</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="LINE" id="/channels/line"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="line.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">LINE</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Matrix" id="/channels/matrix"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="matrix.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Matrix</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Zalo" id="/channels/zalo"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="zalo.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Zalo</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Zalo Personal" id="/channels/zalouser"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="zalouser.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Zalo Personal</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Configuration</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Pairing" id="/channels/pairing"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="pairing.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Pairing</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Group Messages" id="/channels/group-messages"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="group-messages.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Group Messages</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Groups" id="/channels/groups"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="groups.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Groups</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Broadcast Groups" id="/channels/broadcast-groups"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="broadcast-groups.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Broadcast Groups</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Channel Routing" id="/channels/channel-routing"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channel-routing.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Channel Routing</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Channel Location Parsing" id="/channels/location"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="location.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Channel Location Parsing</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Channel Troubleshooting" id="/channels/troubleshooting"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="troubleshooting.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Channel Troubleshooting</div></div></a></li></ul></div></div></div></div></div><div id="content-container"><span class="fixed inset-0 bg-background-light dark:bg-background-dark -z-10 pointer-events-none" id="almond-background-color"></span><style data-custom-css-index="0" data-custom-css-path="style.css">#content > h1:first-of-type {
+  display: none !important;
+}
+</style><div class="flex flex-row-reverse gap-12 box-border w-full pt-40 lg:pt-10"><div class="hidden xl:flex self-start sticky xl:flex-col max-w-[28rem] z-[21] h-[calc(100vh-9.5rem)] top-[calc(9.5rem-var(--sidenav-move-up,0px))]" id="content-side-layout"><div class="z-10 hidden xl:flex box-border max-h-full pl-10 w-[19rem]" id="table-of-contents-layout"><div class="text-gray-600 text-sm leading-6 w-[16.5rem] overflow-y-auto space-y-2 pb-4 -mt-10 pt-10" id="table-of-contents"><button class="text-gray-700 dark:text-gray-300 font-medium flex items-center space-x-2 hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer"><svg class="h-3 w-3" fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.44434 12.6665H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 3.3335H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 8H7.33323" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>On this page</span></button><ul class="toc" id="table-of-contents-content"><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#telegram-bot-api">Telegram (Bot API)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#configuracao-rapida-iniciante">Configuração rápida (iniciante)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#o-que-e">O que é</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#configuracao-caminho-rapido">Configuração (caminho rápido)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#1-criar-um-token-de-bot-botfather">1. Criar um token de bot (BotFather)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#2-configurar-o-token-env-ou-config">2. Configurar o token (env ou config)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#token-privacidade-permissoes-lado-do-telegram">Token + privacidade + permissões (lado do Telegram)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#criacao-do-token-botfather">Criação do token (BotFather)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#visibilidade-de-mensagens-em-grupos-modo-de-privacidade">Visibilidade de mensagens em grupos (Modo de Privacidade)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#permissoes-de-grupo-direitos-de-admin">Permissões de grupo (direitos de admin)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#como-funciona-comportamento">Como funciona (comportamento)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#streaming-de-rascunho">Streaming de rascunho</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#formatacao-html-do-telegram">Formatação (HTML do Telegram)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#comandos-nativos-personalizados">Comandos (nativos + personalizados)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#solucao-de-problemas-de-configuracao-comandos">Solução de problemas de configuração (comandos)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#device-pairing-commands-device-pair-plugin">Device pairing commands (device-pairplugin)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#limites">Limites</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#modos-de-ativacao-em-grupos">Modos de ativação em grupos</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#via-config-recomendado">Via config (recomendado)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#via-comando-nivel-de-sessao">Via comando (nível de sessão)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#obtendo-o-id-do-chat-do-grupo">Obtendo o ID do chat do grupo</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#escritas-de-configuracao">Escritas de configuração</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#topicos-supergrupos-de-forum">Tópicos (supergrupos de fórum)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#botoes-inline">Botões Inline</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#envio-de-botoes">Envio de botões</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#opcoes-de-configuracao">Opções de configuração</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#controle-de-acesso-dms-grupos">Controle de acesso (DMs + grupos)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#acesso-por-dm">Acesso por DM</a></li><li class="toc-item relative" data-depth="3"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#encontrando-seu-id-de-usuario-do-telegram">Encontrando seu ID de usuário do Telegram</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#acesso-a-grupos">Acesso a grupos</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#long-polling-vs-webhook">Long-polling vs webhook</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#encadeamento-de-respostas">Encadeamento de respostas</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#mensagens-de-audio-voz-vs-arquivo">Mensagens de áudio (voz vs arquivo)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#video-messages-video-vs-video-note">Video messages (video vs video note)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#figurinhas-stickers">Figurinhas (Stickers)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#recebendo-adesivos">Recebendo adesivos</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#cache-de-adesivo">Cache de adesivo</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#enviando-stickers">Enviando stickers</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#streaming-rascunhos">Streaming (rascunhos)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#politica-de-tentativas">Política de tentativas</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#ferramenta-do-agente-mensagens-reacoes">Ferramenta do agente (mensagens + reações)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#notificacoes-de-reacoes">Notificações de reações</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#destinos-de-entrega-clicron">Destinos de entrega (CLI/cron)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#solucao-de-problemas">Solução de problemas</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/telegram.html#referencia-de-configuracao-telegram">Referência de configuração (Telegram)</a></li></ul></div></div></div><div class="relative grow box-border flex-col w-full mx-auto px-1 lg:pl-[23.7rem] lg:-ml-12 xl:w-[calc(100%-28rem)]" id="content-area"><header class="relative leading-none" id="header"><div class="mt-0.5 space-y-2.5"><div class="eyebrow h-5 text-primary dark:text-primary-light text-sm font-semibold">Messaging platforms</div><div class="flex flex-col sm:flex-row items-start sm:items-center relative gap-2 min-w-0"><h1 class="text-2xl sm:text-3xl text-gray-900 tracking-tight dark:text-gray-200 [overflow-wrap:anywhere] font-bold break-all" id="page-title">Telegram</h1></div></div></header><div class="mdx-content relative mt-8 mb-14 prose prose-gray dark:prose-invert [contain:inline-size] isolate" data-page-href="/channels/telegram" data-page-title="Telegram" id="content"><h1 id="telegram-bot-api">Telegram (Bot API)<a class="toc-anchor" href="#telegram-bot-api" title="Permanent link">¶</a></h1>
+<p>Status: pronto para produção para DMs de bots + grupos via grammY. Long-polling por padrão; webhook opcional.</p>
+<h2 id="configuracao-rapida-iniciante">Configuração rápida (iniciante)<a class="toc-anchor" href="#configuracao-rapida-iniciante" title="Permanent link">¶</a></h2>
+<ol>
+<li>Crie um bot com <strong>@BotFather</strong> (<a href="https://t.me/BotFather">link direto</a>). Confirme que o handle é exatamente <code>@BotFather</code>, depois copie o token.</li>
+<li>Defina o token:
+   - Env: <code>TELEGRAM_BOT_TOKEN=...</code>
+   - Ou config: <code>channels.telegram.botToken: "..."</code>.
+   - Se ambos estiverem definidos, a config tem precedência (o fallback de env é apenas para a conta padrão).</li>
+<li>Inicie o gateway.</li>
+<li>O acesso por DM é pareamento por padrão; aprove o código de pareamento no primeiro contato.</li>
+</ol>
+<p>Configuração mínima:</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    telegram: {
+      enabled: true,
+      botToken: "123:abc",
+      dmPolicy: "pairing",
+    },
+  },
+}
+</code></pre>
+<h2 id="o-que-e">O que é<a class="toc-anchor" href="#o-que-e" title="Permanent link">¶</a></h2>
+<ul>
+<li>Um canal da API de Bots do Telegram pertencente ao Gateway.</li>
+<li>Roteamento determinístico: as respostas voltam para o Telegram; o modelo nunca escolhe canais.</li>
+<li>DMs compartilham a sessão principal do agente; grupos permanecem isolados (<code>agent:&lt;agentId&gt;:telegram:group:&lt;chatId&gt;</code>).</li>
+</ul>
+<h2 id="configuracao-caminho-rapido">Configuração (caminho rápido)<a class="toc-anchor" href="#configuracao-caminho-rapido" title="Permanent link">¶</a></h2>
+<h3 id="1-criar-um-token-de-bot-botfather">1. Criar um token de bot (BotFather)<a class="toc-anchor" href="#1-criar-um-token-de-bot-botfather" title="Permanent link">¶</a></h3>
+<ol>
+<li>Abra o Telegram e converse com <strong>@BotFather</strong> (<a href="https://t.me/BotFather">link direto</a>). Confirme que o handle é exatamente <code>@BotFather</code>.</li>
+<li>Execute <code>/newbot</code>, depois siga as instruções (nome + nome de usuário terminando em <code>bot</code>).</li>
+<li>Copie o token e armazene-o com segurança.</li>
+</ol>
+<p>Configurações opcionais do BotFather:</p>
+<ul>
+<li><code>/setjoingroups</code> — permitir/negar adicionar o bot a grupos.</li>
+<li><code>/setprivacy</code> — controlar se o bot vê todas as mensagens do grupo.</li>
+</ul>
+<h3 id="2-configurar-o-token-env-ou-config">2. Configurar o token (env ou config)<a class="toc-anchor" href="#2-configurar-o-token-env-ou-config" title="Permanent link">¶</a></h3>
+<p>Exemplo:</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    telegram: {
+      enabled: true,
+      botToken: "123:abc",
+      dmPolicy: "pairing",
+      groups: { "*": { requireMention: true } },
+    },
+  },
+}
+</code></pre>
+<p>Opção via env: <code>TELEGRAM_BOT_TOKEN=...</code> (funciona para a conta padrão).
+Se env e config estiverem definidos, a config tem precedência.</p>
+<p>Suporte a múltiplas contas: use <code>channels.telegram.accounts</code> com tokens por conta e <code>name</code> opcional. Veja <a href="/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts"><code>gateway/configuration</code></a> para o padrão compartilhado.</p>
+<ol start="3">
+<li>Inicie o gateway. O Telegram inicia quando um token é resolvido (config primeiro, fallback de env).</li>
+<li>O acesso por DM é pareado por padrão. Aprove o código quando o bot for contatado pela primeira vez.</li>
+<li>Para grupos: adicione o bot, decida o comportamento de privacidade/admin (abaixo) e então defina <code>channels.telegram.groups</code> para controlar gating por menção + listas de permissões.</li>
+</ol>
+<h2 id="token-privacidade-permissoes-lado-do-telegram">Token + privacidade + permissões (lado do Telegram)<a class="toc-anchor" href="#token-privacidade-permissoes-lado-do-telegram" title="Permanent link">¶</a></h2>
+<h3 id="criacao-do-token-botfather">Criação do token (BotFather)<a class="toc-anchor" href="#criacao-do-token-botfather" title="Permanent link">¶</a></h3>
+<ul>
+<li><code>/newbot</code> cria o bot e retorna o token (mantenha-o em segredo).</li>
+<li>Se um token vazar, revogue/regenere via @BotFather e atualize sua configuração.</li>
+</ul>
+<h3 id="visibilidade-de-mensagens-em-grupos-modo-de-privacidade">Visibilidade de mensagens em grupos (Modo de Privacidade)<a class="toc-anchor" href="#visibilidade-de-mensagens-em-grupos-modo-de-privacidade" title="Permanent link">¶</a></h3>
+<p>Bots do Telegram usam <strong>Modo de Privacidade</strong> por padrão, o que limita quais mensagens de grupos eles recebem.
+Se seu bot precisa ver <em>todas</em> as mensagens do grupo, você tem duas opções:</p>
+<ul>
+<li>Desativar o modo de privacidade com <code>/setprivacy</code> <strong>ou</strong></li>
+<li>Adicionar o bot como <strong>admin</strong> do grupo (bots admin recebem todas as mensagens).</li>
+</ul>
+<p><strong>Nota:</strong> Ao alternar o modo de privacidade, o Telegram exige remover e re-adicionar o bot
+a cada grupo para que a alteração tenha efeito.</p>
+<h3 id="permissoes-de-grupo-direitos-de-admin">Permissões de grupo (direitos de admin)<a class="toc-anchor" href="#permissoes-de-grupo-direitos-de-admin" title="Permanent link">¶</a></h3>
+<p>O status de admin é definido dentro do grupo (UI do Telegram). Bots admin sempre recebem todas
+as mensagens do grupo, então use admin se precisar de visibilidade total.</p>
+<h2 id="como-funciona-comportamento">Como funciona (comportamento)<a class="toc-anchor" href="#como-funciona-comportamento" title="Permanent link">¶</a></h2>
+<ul>
+<li>Mensagens de entrada são normalizadas no envelope de canal compartilhado com contexto de resposta e placeholders de mídia.</li>
+<li>Respostas em grupos exigem menção por padrão (menção nativa @ ou <code>agents.list[].groupChat.mentionPatterns</code> / <code>messages.groupChat.mentionPatterns</code>).</li>
+<li>Substituição multiagente: defina padrões por agente em <code>agents.list[].groupChat.mentionPatterns</code>.</li>
+<li>As respostas sempre retornam para o mesmo chat do Telegram.</li>
+<li>Long-polling usa o runner do grammY com sequenciamento por chat; a concorrência geral é limitada por <code>agents.defaults.maxConcurrent</code>.</li>
+<li>A API de Bots do Telegram não suporta recibos de leitura; não há opção <code>sendReadReceipts</code>.</li>
+</ul>
+<h2 id="streaming-de-rascunho">Streaming de rascunho<a class="toc-anchor" href="#streaming-de-rascunho" title="Permanent link">¶</a></h2>
+<p>O OpenClaw pode transmitir respostas parciais em DMs do Telegram usando <code>sendMessageDraft</code>.</p>
+<p>Requisitos:</p>
+<ul>
+<li>Modo Threaded habilitado para o bot no @BotFather (modo de tópico de fórum).</li>
+<li>Apenas threads de chat privado (o Telegram inclui <code>message_thread_id</code> nas mensagens de entrada).</li>
+<li><code>channels.telegram.streamMode</code> não definido como <code>"off"</code> (padrão: <code>"partial"</code>, <code>"block"</code> habilita atualizações de rascunho em blocos).</li>
+</ul>
+<p>O streaming de rascunho é apenas para DMs; o Telegram não o suporta em grupos ou canais.</p>
+<h2 id="formatacao-html-do-telegram">Formatação (HTML do Telegram)<a class="toc-anchor" href="#formatacao-html-do-telegram" title="Permanent link">¶</a></h2>
+<ul>
+<li>Texto de saída do Telegram usa <code>parse_mode: "HTML"</code> (subconjunto de tags suportadas pelo Telegram).</li>
+<li>Entrada em estilo Markdown é renderizada em <strong>HTML seguro para o Telegram</strong> (negrito/itálico/riscado/código/links); elementos de bloco são achatados em texto com novas linhas/marcadores.</li>
+<li>HTML bruto vindo de modelos é escapado para evitar erros de parsing do Telegram.</li>
+<li>Se o Telegram rejeitar o payload HTML, o OpenClaw tenta novamente a mesma mensagem como texto simples.</li>
+</ul>
+<h2 id="comandos-nativos-personalizados">Comandos (nativos + personalizados)<a class="toc-anchor" href="#comandos-nativos-personalizados" title="Permanent link">¶</a></h2>
+<p>O OpenClaw registra comandos nativos (como <code>/status</code>, <code>/reset</code>, <code>/model</code>) no menu de bots do Telegram na inicialização.
+Você pode adicionar comandos personalizados ao menu via config:</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    telegram: {
+      customCommands: [
+        { command: "backup", description: "Git backup" },
+        { command: "generate", description: "Create an image" },
+      ],
+    },
+  },
+}
+</code></pre>
+<h2 id="solucao-de-problemas-de-configuracao-comandos">Solução de problemas de configuração (comandos)<a class="toc-anchor" href="#solucao-de-problemas-de-configuracao-comandos" title="Permanent link">¶</a></h2>
+<ul>
+<li><code>setMyCommands failed</code> nos logs geralmente significa que HTTPS/DNS de saída está bloqueado para <code>api.telegram.org</code>.</li>
+<li>Se você vir falhas <code>sendMessage</code> ou <code>sendChatAction</code>, verifique o roteamento IPv6 e o DNS.</li>
+</ul>
+<p>Mais ajuda: <a href="/channels/troubleshooting">Solução de problemas de canais</a>.</p>
+<p>Notas:</p>
+<ul>
+<li>Comandos personalizados são <strong>apenas entradas de menu</strong>; o OpenClaw não os implementa a menos que você os trate em outro lugar.</li>
+<li>Some commands can be handled by plugins/skills without being registered in Telegram’s command menu. These still work when typed (they just won't show up in <code>/commands</code> / the menu).</li>
+<li>Os nomes dos comandos são normalizados (prefixo <code>/</code> removido, em minúsculas) e devem corresponder a <code>a-z</code>, <code>0-9</code>, <code>_</code> (1–32 caracteres).</li>
+<li>Comandos personalizados <strong>não podem substituir comandos nativos</strong>. Conflitos são ignorados e registrados em log.</li>
+<li>Se <code>commands.native</code> estiver desabilitado, apenas comandos personalizados são registrados (ou limpos se não houver).</li>
+</ul>
+<h3 id="device-pairing-commands-device-pair-plugin">Device pairing commands (<code>device-pair</code> plugin)<a class="toc-anchor" href="#device-pairing-commands-device-pair-plugin" title="Permanent link">¶</a></h3>
+<p>If the <code>device-pair</code> plugin is installed, it adds a Telegram-first flow for pairing a new phone:</p>
+<ol>
+<li><code>/pair</code> generates a setup code (sent as a separate message for easy copy/paste).</li>
+<li>Paste the setup code in the iOS app to connect.</li>
+<li><code>/pair approve</code> approves the latest pending device request.</li>
+</ol>
+<p>More details: <a href="/channels/pairing#pair-via-telegram-recommended-for-ios">Pairing</a>.</p>
+<h2 id="limites">Limites<a class="toc-anchor" href="#limites" title="Permanent link">¶</a></h2>
+<ul>
+<li>Texto de saída é dividido em <code>channels.telegram.textChunkLimit</code> (padrão 4000).</li>
+<li>Divisão opcional por nova linha: defina <code>channels.telegram.chunkMode="newline"</code> para dividir em linhas em branco (limites de parágrafo) antes da divisão por comprimento.</li>
+<li>Downloads/uploads de mídia são limitados por <code>channels.telegram.mediaMaxMb</code> (padrão 5).</li>
+<li>Requisições da API de Bots do Telegram expiram após <code>channels.telegram.timeoutSeconds</code> (padrão 500 via grammY). Defina menor para evitar travamentos longos.</li>
+<li>Contexto do histórico do grupo usa <code>channels.telegram.historyLimit</code> (ou <code>channels.telegram.accounts.*.historyLimit</code>), com fallback para <code>messages.groupChat.historyLimit</code>. Defina <code>0</code> para desabilitar (padrão 50).</li>
+<li>O histórico de DM pode ser limitado com <code>channels.telegram.dmHistoryLimit</code> (turnos do usuário). Substituições por usuário: <code>channels.telegram.dms["&lt;user_id&gt;"].historyLimit</code>.</li>
+</ul>
+<h2 id="modos-de-ativacao-em-grupos">Modos de ativação em grupos<a class="toc-anchor" href="#modos-de-ativacao-em-grupos" title="Permanent link">¶</a></h2>
+<p>Por padrão, o bot só responde a menções em grupos (<code>@botname</code> ou padrões em <code>agents.list[].groupChat.mentionPatterns</code>). Para alterar esse comportamento:</p>
+<h3 id="via-config-recomendado">Via config (recomendado)<a class="toc-anchor" href="#via-config-recomendado" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    telegram: {
+      groups: {
+        "-1001234567890": { requireMention: false }, // always respond in this group
+      },
+    },
+  },
+}
+</code></pre>
+<p><strong>Importante:</strong> Definir <code>channels.telegram.groups</code> cria uma <strong>lista de permissões</strong> — apenas os grupos listados (ou <code>"*"</code>) serão aceitos.
+Tópicos de fórum herdam a configuração do grupo pai (allowFrom, requireMention, skills, prompts), a menos que você adicione substituições por tópico em <code>channels.telegram.groups.&lt;groupId&gt;.topics.&lt;topicId&gt;</code>.</p>
+<p>Para permitir todos os grupos com sempre-responder:</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    telegram: {
+      groups: {
+        "*": { requireMention: false }, // all groups, always respond
+      },
+    },
+  },
+}
+</code></pre>
+<p>Para manter apenas menção para todos os grupos (comportamento padrão):</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    telegram: {
+      groups: {
+        "*": { requireMention: true }, // or omit groups entirely
+      },
+    },
+  },
+}
+</code></pre>
+<h3 id="via-comando-nivel-de-sessao">Via comando (nível de sessão)<a class="toc-anchor" href="#via-comando-nivel-de-sessao" title="Permanent link">¶</a></h3>
+<p>Envie no grupo:</p>
+<ul>
+<li><code>/activation always</code> - responder a todas as mensagens</li>
+<li><code>/activation mention</code> - exigir menções (padrão)</li>
+</ul>
+<p><strong>Nota:</strong> Comandos atualizam apenas o estado da sessão. Para comportamento persistente após reinicializações, use config.</p>
+<h3 id="obtendo-o-id-do-chat-do-grupo">Obtendo o ID do chat do grupo<a class="toc-anchor" href="#obtendo-o-id-do-chat-do-grupo" title="Permanent link">¶</a></h3>
+<p>Encaminhe qualquer mensagem do grupo para <code>@userinfobot</code> ou <code>@getidsbot</code> no Telegram para ver o ID do chat (número negativo como <code>-1001234567890</code>).</p>
+<p><strong>Dica:</strong> Para seu próprio ID de usuário, envie DM ao bot e ele responderá com seu ID de usuário (mensagem de pareamento), ou use <code>/whoami</code> quando os comandos estiverem habilitados.</p>
+<p><strong>Nota de privacidade:</strong> <code>@userinfobot</code> é um bot de terceiros. Se preferir, adicione o bot ao grupo, envie uma mensagem e use <code>openclaw logs --follow</code> para ler <code>chat.id</code>, ou use a API de Bots <code>getUpdates</code>.</p>
+<h2 id="escritas-de-configuracao">Escritas de configuração<a class="toc-anchor" href="#escritas-de-configuracao" title="Permanent link">¶</a></h2>
+<p>Por padrão, o Telegram tem permissão para gravar atualizações de configuração acionadas por eventos do canal ou <code>/config set|unset</code>.</p>
+<p>Isso acontece quando:</p>
+<ul>
+<li>Um grupo é atualizado para supergrupo e o Telegram emite <code>migrate_to_chat_id</code> (o ID do chat muda). O OpenClaw pode migrar <code>channels.telegram.groups</code> automaticamente.</li>
+<li>Você executa <code>/config set</code> ou <code>/config unset</code> em um chat do Telegram (requer <code>commands.config: true</code>).</li>
+</ul>
+<p>Desabilite com:</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: { telegram: { configWrites: false } },
+}
+</code></pre>
+<h2 id="topicos-supergrupos-de-forum">Tópicos (supergrupos de fórum)<a class="toc-anchor" href="#topicos-supergrupos-de-forum" title="Permanent link">¶</a></h2>
+<p>Tópicos de fórum do Telegram incluem um <code>message_thread_id</code> por mensagem. O OpenClaw:</p>
+<ul>
+<li>Anexa <code>:topic:&lt;threadId&gt;</code> à chave de sessão do grupo do Telegram para que cada tópico fique isolado.</li>
+<li>Envia indicadores de digitação e respostas com <code>message_thread_id</code> para que as respostas permaneçam no tópico.</li>
+<li>O tópico geral (thread id <code>1</code>) é especial: envios de mensagens omitem <code>message_thread_id</code> (o Telegram rejeita), mas indicadores de digitação ainda o incluem.</li>
+<li>Expõe <code>MessageThreadId</code> + <code>IsForum</code> no contexto de template para roteamento/templating.</li>
+<li>Configuração específica por tópico está disponível em <code>channels.telegram.groups.&lt;chatId&gt;.topics.&lt;threadId&gt;</code> (skills, listas de permissões, resposta automática, prompts do sistema, desabilitar).</li>
+<li>Configurações de tópico herdam as do grupo (requireMention, listas de permissões, skills, prompts, habilitado) a menos que sejam substituídas por tópico.</li>
+</ul>
+<p>Chats privados podem incluir <code>message_thread_id</code> em alguns casos extremos. O OpenClaw mantém a chave de sessão de DM inalterada, mas ainda usa o thread id para respostas/streaming de rascunho quando presente.</p>
+<h2 id="botoes-inline">Botões Inline<a class="toc-anchor" href="#botoes-inline" title="Permanent link">¶</a></h2>
+<p>O Telegram suporta teclados inline com botões de callback.</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    telegram: {
+      capabilities: {
+        inlineButtons: "allowlist",
+      },
+    },
+  },
+}
+</code></pre>
+<p>Para configuração por conta:</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    telegram: {
+      accounts: {
+        main: {
+          capabilities: {
+            inlineButtons: "allowlist",
+          },
+        },
+      },
+    },
+  },
+}
+</code></pre>
+<p>Escopos:</p>
+<ul>
+<li><code>off</code> — botões inline desabilitados</li>
+<li><code>dm</code> — apenas DMs (alvos de grupo bloqueados)</li>
+<li><code>group</code> — apenas grupos (alvos de DM bloqueados)</li>
+<li><code>all</code> — DMs + grupos</li>
+<li><code>allowlist</code> — DMs + grupos, mas apenas remetentes permitidos por <code>allowFrom</code>/<code>groupAllowFrom</code> (mesmas regras que comandos de controle)</li>
+</ul>
+<p>Padrão: <code>allowlist</code>.
+Legado: <code>capabilities: ["inlineButtons"]</code> = <code>inlineButtons: "all"</code>.</p>
+<h3 id="envio-de-botoes">Envio de botões<a class="toc-anchor" href="#envio-de-botoes" title="Permanent link">¶</a></h3>
+<p>Use a ferramenta de mensagens com o parâmetro <code>buttons</code>:</p>
+<pre class="highlight"><code class="language-json5">{
+  action: "send",
+  channel: "telegram",
+  to: "123456789",
+  message: "Choose an option:",
+  buttons: [
+    [
+      { text: "Yes", callback_data: "yes" },
+      { text: "No", callback_data: "no" },
+    ],
+    [{ text: "Cancel", callback_data: "cancel" }],
+  ],
+}
+</code></pre>
+<p>Quando um usuário clica em um botão, os dados de callback são enviados de volta ao agente como uma mensagem no formato:
+<code>callback_data: value</code></p>
+<h3 id="opcoes-de-configuracao">Opções de configuração<a class="toc-anchor" href="#opcoes-de-configuracao" title="Permanent link">¶</a></h3>
+<p>As capacidades do Telegram podem ser configuradas em dois níveis (forma de objeto mostrada acima; arrays de strings legadas ainda são suportadas):</p>
+<ul>
+<li><code>channels.telegram.capabilities</code>: Configuração de capacidade padrão global aplicada a todas as contas do Telegram, a menos que seja substituída.</li>
+<li><code>channels.telegram.accounts.&lt;account&gt;.capabilities</code>: Capacidades por conta que substituem os padrões globais para aquela conta específica.</li>
+</ul>
+<p>Use a configuração global quando todos os bots/contas do Telegram devem se comportar da mesma forma. Use a configuração por conta quando bots diferentes precisam de comportamentos diferentes (por exemplo, uma conta só lida com DMs enquanto outra é permitida em grupos).</p>
+<h2 id="controle-de-acesso-dms-grupos">Controle de acesso (DMs + grupos)<a class="toc-anchor" href="#controle-de-acesso-dms-grupos" title="Permanent link">¶</a></h2>
+<h3 id="acesso-por-dm">Acesso por DM<a class="toc-anchor" href="#acesso-por-dm" title="Permanent link">¶</a></h3>
+<ul>
+<li>Padrão: <code>channels.telegram.dmPolicy = "pairing"</code>. Remetentes desconhecidos recebem um código de pareamento; mensagens são ignoradas até a aprovação (códigos expiram após 1 hora).</li>
+<li>Aprovar via:</li>
+<li><code>openclaw pairing list telegram</code></li>
+<li><code>openclaw pairing approve telegram &lt;CODE&gt;</code></li>
+<li>O pareamento é a troca de token padrão usada para DMs do Telegram. Detalhes: <a href="/channels/pairing">Pareamento</a></li>
+<li><code>channels.telegram.allowFrom</code> aceita IDs numéricos de usuário (recomendado) ou entradas <code>@username</code>. <strong>Não</strong> é o nome de usuário do bot; use o ID do remetente humano. O assistente aceita <code>@username</code> e resolve para o ID numérico quando possível.</li>
+</ul>
+<h4 id="encontrando-seu-id-de-usuario-do-telegram">Encontrando seu ID de usuário do Telegram<a class="toc-anchor" href="#encontrando-seu-id-de-usuario-do-telegram" title="Permanent link">¶</a></h4>
+<p>Mais seguro (sem bot de terceiros):</p>
+<ol>
+<li>Inicie o gateway e envie DM ao seu bot.</li>
+<li>Execute <code>openclaw logs --follow</code> e procure <code>from.id</code>.</li>
+</ol>
+<p>Alternativo (API oficial de Bots):</p>
+<ol>
+<li>Envie DM ao seu bot.</li>
+<li>Busque atualizações com o token do bot e leia <code>message.from.id</code>:</li>
+</ol>
+<p><code>bash
+   curl "https://api.telegram.org/bot&lt;bot_token&gt;/getUpdates"</code></p>
+<p>Terceiros (menos privado):</p>
+<ul>
+<li>Envie DM para <code>@userinfobot</code> ou <code>@getidsbot</code> e use o ID de usuário retornado.</li>
+</ul>
+<h3 id="acesso-a-grupos">Acesso a grupos<a class="toc-anchor" href="#acesso-a-grupos" title="Permanent link">¶</a></h3>
+<p>Dois controles independentes:</p>
+<p><strong>1. Quais grupos são permitidos</strong> (lista de permissões de grupos via <code>channels.telegram.groups</code>):</p>
+<ul>
+<li>Sem config <code>groups</code> = todos os grupos permitidos</li>
+<li>Com config <code>groups</code> = apenas os grupos listados ou <code>"*"</code> são permitidos</li>
+<li>Exemplo: <code>"groups": { "-1001234567890": {}, "*": {} }</code> permite todos os grupos</li>
+</ul>
+<p><strong>2. Quais remetentes são permitidos</strong> (filtragem de remetentes via <code>channels.telegram.groupPolicy</code>):</p>
+<ul>
+<li><code>"open"</code> = todos os remetentes em grupos permitidos podem enviar mensagens</li>
+<li><code>"allowlist"</code> = apenas remetentes em <code>channels.telegram.groupAllowFrom</code> podem enviar mensagens</li>
+<li><code>"disabled"</code> = nenhuma mensagem de grupo é aceita
+  O padrão é <code>groupPolicy: "allowlist"</code> (bloqueado a menos que você adicione <code>groupAllowFrom</code>).</li>
+</ul>
+<p>A maioria dos usuários quer: <code>groupPolicy: "allowlist"</code> + <code>groupAllowFrom</code> + grupos específicos listados em <code>channels.telegram.groups</code></p>
+<p>Para permitir que <strong>qualquer membro do grupo</strong> fale em um grupo específico (mantendo comandos de controle restritos a remetentes autorizados), defina uma substituição por grupo:</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    telegram: {
+      groups: {
+        "-1001234567890": {
+          groupPolicy: "open",
+          requireMention: false,
+        },
+      },
+    },
+  },
+}
+</code></pre>
+<h2 id="long-polling-vs-webhook">Long-polling vs webhook<a class="toc-anchor" href="#long-polling-vs-webhook" title="Permanent link">¶</a></h2>
+<ul>
+<li>Padrão: long-polling (nenhuma URL pública necessária).</li>
+<li>Modo webhook: defina <code>channels.telegram.webhookUrl</code> e <code>channels.telegram.webhookSecret</code> (opcionalmente <code>channels.telegram.webhookPath</code>).</li>
+<li>O listener local se liga a <code>0.0.0.0:8787</code> e serve <code>POST /telegram-webhook</code> por padrão.</li>
+<li>Se sua URL pública for diferente, use um proxy reverso e aponte <code>channels.telegram.webhookUrl</code> para o endpoint público.</li>
+</ul>
+<h2 id="encadeamento-de-respostas">Encadeamento de respostas<a class="toc-anchor" href="#encadeamento-de-respostas" title="Permanent link">¶</a></h2>
+<p>O Telegram suporta respostas encadeadas opcionais via tags:</p>
+<ul>
+<li><code>[[reply_to_current]]</code> -- responder à mensagem disparadora.</li>
+<li><code>[[reply_to:&lt;id&gt;]]</code> -- responder a um ID de mensagem específico.</li>
+</ul>
+<p>Controlado por <code>channels.telegram.replyToMode</code>:</p>
+<ul>
+<li><code>first</code> (padrão), <code>all</code>, <code>off</code>.</li>
+</ul>
+<h2 id="mensagens-de-audio-voz-vs-arquivo">Mensagens de áudio (voz vs arquivo)<a class="toc-anchor" href="#mensagens-de-audio-voz-vs-arquivo" title="Permanent link">¶</a></h2>
+<p>O Telegram distingue <strong>notas de voz</strong> (bolha redonda) de <strong>arquivos de áudio</strong> (cartão com metadados).
+O OpenClaw usa arquivos de áudio por padrão para compatibilidade retroativa.</p>
+<p>Para forçar uma bolha de nota de voz nas respostas do agente, inclua esta tag em qualquer lugar da resposta:</p>
+<ul>
+<li><code>[[audio_as_voice]]</code> — enviar áudio como nota de voz em vez de arquivo.</li>
+</ul>
+<p>A tag é removida do texto entregue. Outros canais ignoram essa tag.</p>
+<p>Para envios via ferramenta de mensagens, defina <code>asVoice: true</code> com um <code>media</code> de áudio compatível com voz
+(<code>message</code> é opcional quando há mídia):</p>
+<pre class="highlight"><code class="language-json5">{
+  action: "send",
+  channel: "telegram",
+  to: "123456789",
+  media: "https://example.com/voice.ogg",
+  asVoice: true,
+}
+</code></pre>
+<h2 id="video-messages-video-vs-video-note">Video messages (video vs video note)<a class="toc-anchor" href="#video-messages-video-vs-video-note" title="Permanent link">¶</a></h2>
+<p>Telegram distinguishes <strong>video notes</strong> (round bubble) from <strong>video files</strong> (rectangular).
+OpenClaw defaults to video files.</p>
+<p>For message tool sends, set <code>asVideoNote: true</code> with a video <code>media</code> URL:</p>
+<pre class="highlight"><code class="language-json5">{
+  action: "send",
+  channel: "telegram",
+  to: "123456789",
+  media: "https://example.com/video.mp4",
+  asVideoNote: true,
+}
+</code></pre>
+<p>(Note: Video notes do not support captions. If you provide a message text, it will be sent as a separate message.)</p>
+<h2 id="figurinhas-stickers">Figurinhas (Stickers)<a class="toc-anchor" href="#figurinhas-stickers" title="Permanent link">¶</a></h2>
+<p>O OpenClaw oferece suporte a receber e enviar figurinhas do Telegram com cache inteligente.</p>
+<h3 id="recebendo-adesivos">Recebendo adesivos<a class="toc-anchor" href="#recebendo-adesivos" title="Permanent link">¶</a></h3>
+<p>Quando um usuário envia uma figurinha, o OpenClaw a trata com base no tipo de figurinha:</p>
+<ul>
+<li><strong>Figurinhas estáticas (WEBP):</strong> Baixadas e processadas via visão. A figurinha aparece como um placeholder <code>&lt;media:sticker&gt;</code> no conteúdo da mensagem.</li>
+<li><strong>Figurinhas animadas (TGS):</strong> Ignoradas (formato Lottie não suportado para processamento).</li>
+<li><strong>Figurinhas de vídeo (WEBM):</strong> Ignoradas (formato de vídeo não suportado para processamento).</li>
+</ul>
+<p>Campo de contexto de template disponível ao receber figurinhas:</p>
+<ul>
+<li><code>Sticker</code> — objeto com:</li>
+<li><code>emoji</code> — emoji associado à figurinha</li>
+<li><code>setName</code> — nome do conjunto de figurinhas</li>
+<li><code>fileId</code> — ID de arquivo do Telegram (enviar a mesma figurinha de volta)</li>
+<li><code>fileUniqueId</code> — ID estável para consulta no cache</li>
+<li><code>cachedDescription</code> — descrição de visão em cache quando disponível</li>
+</ul>
+<h3 id="cache-de-adesivo">Cache de adesivo<a class="toc-anchor" href="#cache-de-adesivo" title="Permanent link">¶</a></h3>
+<p>As figurinhas são processadas pelas capacidades de visão da IA para gerar descrições. Como as mesmas figurinhas são frequentemente enviadas repetidamente, o OpenClaw armazena essas descrições em cache para evitar chamadas redundantes à API.</p>
+<p><strong>Como funciona:</strong></p>
+<ol>
+<li><strong>Primeiro encontro:</strong> A imagem da figurinha é enviada à IA para análise de visão. A IA gera uma descrição (por exemplo, "Um gato de desenho animado acenando entusiasticamente").</li>
+<li><strong>Armazenamento em cache:</strong> A descrição é salva junto com o ID do arquivo da figurinha, emoji e nome do conjunto.</li>
+<li><strong>Encontros subsequentes:</strong> Quando a mesma figurinha aparece novamente, a descrição em cache é usada diretamente. A imagem não é enviada à IA.</li>
+</ol>
+<p><strong>Local do cache:</strong> <code>~/.openclaw/telegram/sticker-cache.json</code></p>
+<p><strong>Formato da entrada do cache:</strong></p>
+<pre class="highlight"><code class="language-json">{
+  "fileId": "CAACAgIAAxkBAAI...",
+  "fileUniqueId": "AgADBAADb6cxG2Y",
+  "emoji": "👋",
+  "setName": "CoolCats",
+  "description": "A cartoon cat waving enthusiastically",
+  "cachedAt": "2026-01-15T10:30:00.000Z"
+}
+</code></pre>
+<p><strong>Benefícios:</strong></p>
+<ul>
+<li>Reduz custos de API ao evitar chamadas de visão repetidas para a mesma figurinha</li>
+<li>Tempos de resposta mais rápidos para figurinhas em cache (sem atraso de processamento de visão)</li>
+<li>Permite funcionalidade de busca de figurinhas com base em descrições em cache</li>
+</ul>
+<p>O cache é populado automaticamente conforme as figurinhas são recebidas. Não há gerenciamento manual de cache necessário.</p>
+<h3 id="enviando-stickers">Enviando stickers<a class="toc-anchor" href="#enviando-stickers" title="Permanent link">¶</a></h3>
+<p>O agente pode enviar e buscar figurinhas usando as ações <code>sticker</code> e <code>sticker-search</code>. Elas são desabilitadas por padrão e devem ser habilitadas na config:</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    telegram: {
+      actions: {
+        sticker: true,
+      },
+    },
+  },
+}
+</code></pre>
+<p><strong>Enviar uma figurinha:</strong></p>
+<pre class="highlight"><code class="language-json5">{
+  action: "sticker",
+  channel: "telegram",
+  to: "123456789",
+  fileId: "CAACAgIAAxkBAAI...",
+}
+</code></pre>
+<p>Parâmetros:</p>
+<ul>
+<li><code>fileId</code> (obrigatório) — o ID de arquivo do Telegram da figurinha. Obtenha isso a partir de <code>Sticker.fileId</code> ao receber uma figurinha, ou de um resultado de <code>sticker-search</code>.</li>
+<li><code>replyTo</code> (opcional) — ID da mensagem à qual responder.</li>
+<li><code>threadId</code> (opcional) — ID do tópico de mensagem para tópicos de fórum.</li>
+</ul>
+<p><strong>Procure por adesivos:</strong></p>
+<p>O agente pode buscar figurinhas em cache por descrição, emoji ou nome do conjunto:</p>
+<pre class="highlight"><code class="language-json5">{
+  action: "sticker-search",
+  channel: "telegram",
+  query: "cat waving",
+  limit: 5,
+}
+</code></pre>
+<p>Retorna figurinhas correspondentes do cache:</p>
+<pre class="highlight"><code class="language-json5">{
+  ok: true,
+  count: 2,
+  stickers: [
+    {
+      fileId: "CAACAgIAAxkBAAI...",
+      emoji: "👋",
+      description: "A cartoon cat waving enthusiastically",
+      setName: "CoolCats",
+    },
+  ],
+}
+</code></pre>
+<p>A busca usa correspondência fuzzy em texto de descrição, caracteres de emoji e nomes de conjuntos.</p>
+<p><strong>Exemplo com encadeamento:</strong></p>
+<pre class="highlight"><code class="language-json5">{
+  action: "sticker",
+  channel: "telegram",
+  to: "-1001234567890",
+  fileId: "CAACAgIAAxkBAAI...",
+  replyTo: 42,
+  threadId: 123,
+}
+</code></pre>
+<h2 id="streaming-rascunhos">Streaming (rascunhos)<a class="toc-anchor" href="#streaming-rascunhos" title="Permanent link">¶</a></h2>
+<p>O Telegram pode transmitir <strong>bolhas de rascunho</strong> enquanto o agente está gerando uma resposta.
+O OpenClaw usa a API de Bots <code>sendMessageDraft</code> (não são mensagens reais) e depois envia a
+resposta final como uma mensagem normal.</p>
+<p>Requisitos (API de Bots do Telegram 9.3+):</p>
+<ul>
+<li><strong>Chats privados com tópicos habilitados</strong> (modo de tópico de fórum para o bot).</li>
+<li>Mensagens de entrada devem incluir <code>message_thread_id</code> (thread de tópico privado).</li>
+<li>O streaming é ignorado para grupos/supergrupos/canais.</li>
+</ul>
+<p>Configuração:</p>
+<ul>
+<li><code>channels.telegram.streamMode: "off" | "partial" | "block"</code> (padrão: <code>partial</code>)</li>
+<li><code>partial</code>: atualizar a bolha de rascunho com o texto de streaming mais recente.</li>
+<li><code>block</code>: atualizar a bolha de rascunho em blocos maiores (em partes).</li>
+<li><code>off</code>: desabilitar o streaming de rascunho.</li>
+<li>Opcional (apenas para <code>streamMode: "block"</code>):</li>
+<li><code>channels.telegram.draftChunk: { minChars?, maxChars?, breakPreference? }</code><ul>
+<li>padrões: <code>minChars: 200</code>, <code>maxChars: 800</code>, <code>breakPreference: "paragraph"</code> (limitados a <code>channels.telegram.textChunkLimit</code>).</li>
+</ul>
+</li>
+</ul>
+<p>Nota: o streaming de rascunho é separado do <strong>streaming em blocos</strong> (mensagens do canal).
+O streaming em blocos vem desabilitado por padrão e requer <code>channels.telegram.blockStreaming: true</code>
+se você quiser mensagens antecipadas do Telegram em vez de atualizações de rascunho.</p>
+<p>Stream de raciocínio (somente Telegram):</p>
+<ul>
+<li><code>/reasoning stream</code> transmite o raciocínio para a bolha de rascunho enquanto a resposta é
+  gerada, depois envia a resposta final sem o raciocínio.</li>
+<li>Se <code>channels.telegram.streamMode</code> for <code>off</code>, o stream de raciocínio é desabilitado.
+  Mais contexto: <a href="/concepts/streaming">Streaming + divisão em partes</a>.</li>
+</ul>
+<h2 id="politica-de-tentativas">Política de tentativas<a class="toc-anchor" href="#politica-de-tentativas" title="Permanent link">¶</a></h2>
+<p>Chamadas de saída à API do Telegram repetem em erros transitórios/rede/429 com backoff exponencial e jitter. Configure via <code>channels.telegram.retry</code>. Veja <a href="/concepts/retry">Política de tentativas</a>.</p>
+<h2 id="ferramenta-do-agente-mensagens-reacoes">Ferramenta do agente (mensagens + reações)<a class="toc-anchor" href="#ferramenta-do-agente-mensagens-reacoes" title="Permanent link">¶</a></h2>
+<ul>
+<li>Ferramenta: <code>telegram</code> com ação <code>sendMessage</code> (<code>to</code>, <code>content</code>, opcional <code>mediaUrl</code>, <code>replyToMessageId</code>, <code>messageThreadId</code>).</li>
+<li>Ferramenta: <code>telegram</code> com ação <code>react</code> (<code>chatId</code>, <code>messageId</code>, <code>emoji</code>).</li>
+<li>Ferramenta: <code>telegram</code> com ação <code>deleteMessage</code> (<code>chatId</code>, <code>messageId</code>).</li>
+<li>Semântica de remoção de reações: veja <a href="/tools/reactions">/tools/reactions</a>.</li>
+<li>Gateamento de ferramentas: <code>channels.telegram.actions.reactions</code>, <code>channels.telegram.actions.sendMessage</code>, <code>channels.telegram.actions.deleteMessage</code> (padrão: habilitado) e <code>channels.telegram.actions.sticker</code> (padrão: desabilitado).</li>
+</ul>
+<h2 id="notificacoes-de-reacoes">Notificações de reações<a class="toc-anchor" href="#notificacoes-de-reacoes" title="Permanent link">¶</a></h2>
+<p><strong>Como as reações funcionam:</strong>
+Reações do Telegram chegam como <strong>eventos <code>message_reaction</code> separados</strong>, não como propriedades no payload da mensagem. Quando um usuário adiciona uma reação, o OpenClaw:</p>
+<ol>
+<li>Recebe a atualização <code>message_reaction</code> da API do Telegram</li>
+<li>Converte para um <strong>evento de sistema</strong> com o formato: <code>"Telegram reaction added: {emoji} by {user} on msg {id}"</code></li>
+<li>Enfileira o evento de sistema usando a <strong>mesma chave de sessão</strong> das mensagens regulares</li>
+<li>Quando a próxima mensagem chega nessa conversa, os eventos de sistema são drenados e prefixados ao contexto do agente</li>
+</ol>
+<p>O agente vê reações como <strong>notificações de sistema</strong> no histórico da conversa, não como metadados da mensagem.</p>
+<p><strong>Configuração:</strong></p>
+<ul>
+<li><code>channels.telegram.reactionNotifications</code>: Controla quais reações disparam notificações</li>
+<li><code>"off"</code> — ignorar todas as reações</li>
+<li><code>"own"</code> — notificar quando usuários reagem a mensagens do bot (best-effort; em memória) (padrão)</li>
+<li>
+<p><code>"all"</code> — notificar todas as reações</p>
+</li>
+<li>
+<p><code>channels.telegram.reactionLevel</code>: Controla a capacidade de reação do agente</p>
+</li>
+<li><code>"off"</code> — o agente não pode reagir a mensagens</li>
+<li><code>"ack"</code> — o bot envia reações de confirmação (👀 enquanto processa) (padrão)</li>
+<li><code>"minimal"</code> — o agente pode reagir com parcimônia (diretriz: 1 a cada 5–10 trocas)</li>
+<li><code>"extensive"</code> — o agente pode reagir liberalmente quando apropriado</li>
+</ul>
+<p><strong>Grupos de fórum:</strong> Reações em grupos de fórum incluem <code>message_thread_id</code> e usam chaves de sessão como <code>agent:main:telegram:group:{chatId}:topic:{threadId}</code>. Isso garante que reações e mensagens no mesmo tópico permaneçam juntas.</p>
+<p><strong>Exemplo de config:</strong></p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    telegram: {
+      reactionNotifications: "all", // See all reactions
+      reactionLevel: "minimal", // Agent can react sparingly
+    },
+  },
+}
+</code></pre>
+<p><strong>Requisitos:</strong></p>
+<ul>
+<li>Bots do Telegram devem solicitar explicitamente <code>message_reaction</code> em <code>allowed_updates</code> (configurado automaticamente pelo OpenClaw)</li>
+<li>No modo webhook, reações são incluídas no webhook <code>allowed_updates</code></li>
+<li>No modo polling, reações são incluídas nas <code>getUpdates</code> <code>allowed_updates</code></li>
+</ul>
+<h2 id="destinos-de-entrega-clicron">Destinos de entrega (CLI/cron)<a class="toc-anchor" href="#destinos-de-entrega-clicron" title="Permanent link">¶</a></h2>
+<ul>
+<li>Use um chat id (<code>123456789</code>) ou um nome de usuário (<code>@name</code>) como destino.</li>
+<li>Exemplo: <code>openclaw message send --channel telegram --target 123456789 --message "hi"</code>.</li>
+</ul>
+<h2 id="solucao-de-problemas">Solução de problemas<a class="toc-anchor" href="#solucao-de-problemas" title="Permanent link">¶</a></h2>
+<p><strong>O bot não responde a mensagens sem menção em um grupo:</strong></p>
+<ul>
+<li>Se você definiu <code>channels.telegram.groups.*.requireMention=false</code>, o <strong>modo de privacidade</strong> da API de Bots do Telegram deve estar desabilitado.</li>
+<li>BotFather: <code>/setprivacy</code> → <strong>Disable</strong> (depois remova e re-adicione o bot ao grupo)</li>
+<li><code>openclaw channels status</code> mostra um aviso quando a config espera mensagens de grupo sem menção.</li>
+<li><code>openclaw channels status --probe</code> pode verificar adicionalmente a associação para IDs numéricos explícitos de grupos (não consegue auditar regras curinga <code>"*"</code>).</li>
+<li>Teste rápido: <code>/activation always</code> (apenas sessão; use config para persistência)</li>
+</ul>
+<p><strong>O bot não vê mensagens de grupo de forma alguma:</strong></p>
+<ul>
+<li>Se <code>channels.telegram.groups</code> estiver definido, o grupo deve estar listado ou usar <code>"*"</code></li>
+<li>Verifique Configurações de Privacidade no @BotFather → "Group Privacy" deve estar <strong>OFF</strong></li>
+<li>Verifique se o bot é realmente membro (não apenas admin sem acesso de leitura)</li>
+<li>Verifique os logs do gateway: <code>openclaw logs --follow</code> (procure por "skipping group message")</li>
+</ul>
+<p><strong>O bot responde a menções, mas não a <code>/activation always</code>:</strong></p>
+<ul>
+<li>O comando <code>/activation</code> atualiza o estado da sessão, mas não persiste na config</li>
+<li>Para comportamento persistente, adicione o grupo a <code>channels.telegram.groups</code> com <code>requireMention: false</code></li>
+</ul>
+<p><strong>Comandos como <code>/status</code> não funcionam:</strong></p>
+<ul>
+<li>Certifique-se de que seu ID de usuário do Telegram esteja autorizado (via pareamento ou <code>channels.telegram.allowFrom</code>)</li>
+<li>Comandos exigem autorização mesmo em grupos com <code>groupPolicy: "open"</code></li>
+</ul>
+<p><strong>O long-polling é abortado imediatamente no Node 22+ (frequentemente com proxies/fetch customizado):</strong></p>
+<ul>
+<li>O Node 22+ é mais rigoroso com instâncias <code>AbortSignal</code>; sinais externos podem abortar chamadas <code>fetch</code> imediatamente.</li>
+<li>Atualize para uma build do OpenClaw que normalize sinais de abort, ou execute o gateway no Node 20 até poder atualizar.</li>
+</ul>
+<p><strong>O bot inicia e depois para silenciosamente de responder (ou registra <code>HttpError: Network request ... failed</code>):</strong></p>
+<ul>
+<li>Alguns hosts resolvem <code>api.telegram.org</code> para IPv6 primeiro. Se seu servidor não tiver saída IPv6 funcional, o grammY pode travar em requisições apenas IPv6.</li>
+<li>Corrija habilitando saída IPv6 <strong>ou</strong> forçando resolução IPv4 para <code>api.telegram.org</code> (por exemplo, adicione uma entrada <code>/etc/hosts</code> usando o registro A IPv4, ou prefira IPv4 na pilha DNS do SO), depois reinicie o gateway.</li>
+<li>Verificação rápida: <code>dig +short api.telegram.org A</code> e <code>dig +short api.telegram.org AAAA</code> para confirmar o que o DNS retorna.</li>
+</ul>
+<h2 id="referencia-de-configuracao-telegram">Referência de configuração (Telegram)<a class="toc-anchor" href="#referencia-de-configuracao-telegram" title="Permanent link">¶</a></h2>
+<p>Configuração completa: <a href="/gateway/configuration">Configuração</a></p>
+<p>Opções do provedor:</p>
+<ul>
+<li><code>channels.telegram.enabled</code>: habilitar/desabilitar a inicialização do canal.</li>
+<li><code>channels.telegram.botToken</code>: token do bot (BotFather).</li>
+<li><code>channels.telegram.tokenFile</code>: ler token de um caminho de arquivo.</li>
+<li><code>channels.telegram.dmPolicy</code>: <code>pairing | allowlist | open | disabled</code> (padrão: pareamento).</li>
+<li><code>channels.telegram.allowFrom</code>: lista de permissões de DM (ids/usernames). <code>open</code> requer <code>"*"</code>.</li>
+<li><code>channels.telegram.groupPolicy</code>: <code>open | allowlist | disabled</code> (padrão: lista de permissões).</li>
+<li><code>channels.telegram.groupAllowFrom</code>: lista de permissões de remetentes de grupo (ids/usernames).</li>
+<li><code>channels.telegram.groups</code>: padrões por grupo + lista de permissões (use <code>"*"</code> para padrões globais).</li>
+<li><code>channels.telegram.groups.&lt;id&gt;.groupPolicy</code>: substituição por grupo para groupPolicy (<code>open | allowlist | disabled</code>).</li>
+<li><code>channels.telegram.groups.&lt;id&gt;.requireMention</code>: padrão de gating por menção.</li>
+<li><code>channels.telegram.groups.&lt;id&gt;.skills</code>: filtro de skills (omitir = todas as skills, vazio = nenhuma).</li>
+<li><code>channels.telegram.groups.&lt;id&gt;.allowFrom</code>: substituição da lista de permissões de remetentes por grupo.</li>
+<li><code>channels.telegram.groups.&lt;id&gt;.systemPrompt</code>: prompt de sistema extra para o grupo.</li>
+<li><code>channels.telegram.groups.&lt;id&gt;.enabled</code>: desabilitar o grupo quando <code>false</code>.</li>
+<li><code>channels.telegram.groups.&lt;id&gt;.topics.&lt;threadId&gt;.*</code>: substituições por tópico (mesmos campos do grupo).</li>
+<li><code>channels.telegram.groups.&lt;id&gt;.topics.&lt;threadId&gt;.groupPolicy</code>: substituição por tópico para groupPolicy (<code>open | allowlist | disabled</code>).</li>
+<li><code>channels.telegram.groups.&lt;id&gt;.topics.&lt;threadId&gt;.requireMention</code>: substituição de gating por menção por tópico.</li>
+<li><code>channels.telegram.capabilities.inlineButtons</code>: <code>off | dm | group | all | allowlist</code> (padrão: lista de permissões).</li>
+<li><code>channels.telegram.accounts.&lt;account&gt;.capabilities.inlineButtons</code>: substituição por conta.</li>
+<li><code>channels.telegram.replyToMode</code>: <code>off | first | all</code> (padrão: <code>first</code>).</li>
+<li><code>channels.telegram.textChunkLimit</code>: tamanho de divisão de saída (caracteres).</li>
+<li><code>channels.telegram.chunkMode</code>: <code>length</code> (padrão) ou <code>newline</code> para dividir em linhas em branco (limites de parágrafo) antes da divisão por comprimento.</li>
+<li><code>channels.telegram.linkPreview</code>: alternar prévias de links para mensagens de saída (padrão: true).</li>
+<li><code>channels.telegram.streamMode</code>: <code>off | partial | block</code> (streaming de rascunho).</li>
+<li><code>channels.telegram.mediaMaxMb</code>: limite de mídia de entrada/saída (MB).</li>
+<li><code>channels.telegram.retry</code>: política de tentativas para chamadas de saída da API do Telegram (tentativas, minDelayMs, maxDelayMs, jitter).</li>
+<li><code>channels.telegram.network.autoSelectFamily</code>: substituir autoSelectFamily do Node (true=habilitar, false=desabilitar). Padrão desabilitado no Node 22 para evitar timeouts do Happy Eyeballs.</li>
+<li><code>channels.telegram.proxy</code>: URL de proxy para chamadas da API de Bots (SOCKS/HTTP).</li>
+<li><code>channels.telegram.webhookUrl</code>: habilitar modo webhook (requer <code>channels.telegram.webhookSecret</code>).</li>
+<li><code>channels.telegram.webhookSecret</code>: segredo do webhook (obrigatório quando webhookUrl está definido).</li>
+<li><code>channels.telegram.webhookPath</code>: caminho local do webhook (padrão <code>/telegram-webhook</code>).</li>
+<li><code>channels.telegram.actions.reactions</code>: gatear reações da ferramenta do Telegram.</li>
+<li><code>channels.telegram.actions.sendMessage</code>: gatear envios de mensagens da ferramenta do Telegram.</li>
+<li><code>channels.telegram.actions.deleteMessage</code>: gatear exclusões de mensagens da ferramenta do Telegram.</li>
+<li><code>channels.telegram.actions.sticker</code>: gatear ações de figurinhas do Telegram — enviar e buscar (padrão: false).</li>
+<li><code>channels.telegram.reactionNotifications</code>: <code>off | own | all</code> — controlar quais reações disparam eventos de sistema (padrão: <code>own</code> quando não definido).</li>
+<li><code>channels.telegram.reactionLevel</code>: <code>off | ack | minimal | extensive</code> — controlar a capacidade de reação do agente (padrão: <code>minimal</code> quando não definido).</li>
+</ul>
+<p>Opções globais relacionadas:</p>
+<ul>
+<li><code>agents.list[].groupChat.mentionPatterns</code> (padrões de gating por menção).</li>
+<li><code>messages.groupChat.mentionPatterns</code> (fallback global).</li>
+<li><code>commands.native</code> (padrão para <code>"auto"</code> → ligado para Telegram/Discord, desligado para Slack), <code>commands.text</code>, <code>commands.useAccessGroups</code> (comportamento de comandos). Substitua com <code>channels.telegram.commands.native</code>.</li>
+<li><code>messages.responsePrefix</code>, <code>messages.ackReaction</code>, <code>messages.ackReactionScope</code>, <code>messages.removeAckAfterReply</code>.</li>
+</ul></div><div class="px-0.5 flex items-center text-sm font-semibold text-gray-700 dark:text-gray-200" id="pagination"><a class="flex items-center space-x-3 group" href="whatsapp.html"><svg class="h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><span class="group-hover:text-gray-900 dark:group-hover:text-white">WhatsApp</span></a><a class="flex items-center ml-auto space-x-3 group" href="discord.html"><span class="group-hover:text-gray-900 dark:group-hover:text-white">Discord</span><svg class="rotate-180 h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a></div><div class="left-0 right-0 sticky sm:px-4 pb-4 sm:pb-6 bottom-0 pt-1 flex flex-col items-center w-full overflow-hidden z-20 pointer-events-none print:hidden"><div class="chat-assistant-floating-input z-10 w-full sm:w-96 focus-within:w-full group/assistant-bar sm:focus-within:w-[30rem] hover:scale-100 sm:hover:scale-105 focus-within:hover:scale-100 [transition:width_400ms,left_200ms,transform_500ms,opacity_200ms]"><div class="translate-y-[100px] opacity-0"><div class="flex flex-col w-full rounded-2xl pointer-events-auto bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border border-gray-200 dark:border-white/30 focus-within:border-primary dark:focus-within:border-primary-light transition-colors sm:shadow-xl"><div class="relative flex items-end"><textarea aria-label="Ask a question..." autocomplete="off" class="chat-assistant-input w-full bg-transparent border-0 peer/input text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 !outline-none focus:!outline-none focus:ring-0 py-2.5 pl-3.5 pr-10 font-bodyWeight text-sm" id="chat-assistant-textarea" placeholder="Ask a question..." style="resize:none"></textarea><span class="absolute right-11 bottom-3 text-xs font-medium text-gray-400 dark:text-gray-500 select-none pointer-events-none peer-focus/input:hidden hidden sm:inline">⌘<!-- -->I</span><button aria-label="Send message" class="chat-assistant-send-button flex justify-center items-center rounded-full p-1 size-6 bg-primary/30 dark:bg-primary-dark/30 absolute right-2.5 bottom-2" disabled=""><svg class="lucide lucide-arrow-up text-white dark:text-white size-3.5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></div></div></div></div><footer class="flex gap-12 justify-between pt-10 border-t border-gray-100 sm:flex dark:border-gray-800/50 pb-28" id="footer"><div class="flex items-center justify-between"><div class="sm:flex"><a class="group flex items-baseline gap-1 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-nowrap" href="https://www.mintlify.com?utm_campaign=poweredBy&amp;utm_medium=referral&amp;utm_source=clawdhub" rel="noreferrer" target="_blank"><span>Powered by</span><svg class="h-3.5 w-auto translate-y-[3px]" fill="none" height="367" viewbox="0 0 1274 367" width="1274" xmlns="http://www.w3.org/2000/svg"><path d="M1154.38 366.038H1097.86L1137.69 276.14L1058.04 97.1046H1114.93L1161.35 209.337C1162.97 213.26 1168.53 213.253 1170.14 209.325L1216.21 97.1046H1273.49L1154.38 366.038Z" fill="currentColor"></path><path d="M982.714 286.761V142.622H944.403V97.1041H982.714V72.4488C982.714 49.9429 989.542 32.2416 1003.2 19.345C1016.85 6.44832 1034.17 0 1055.16 0C1068.06 0 1079.06 1.39081 1088.16 4.17244V50.0693C1082.09 47.7934 1075.01 46.6555 1066.92 46.6555C1055.54 46.6555 1047.32 49.1843 1042.27 54.2418C1037.21 59.0464 1034.68 67.2648 1034.68 78.8971V97.1041H1088.16V142.622H1034.68V286.761H982.714Z" fill="currentColor"></path><path d="M897.916 66.0005C889.066 66.0005 881.353 62.8395 874.778 56.5176C868.203 49.9429 864.916 42.1037 864.916 33.0002C864.916 23.8967 868.203 16.184 874.778 9.86215C881.353 3.28738 889.066 0 897.916 0C907.273 0 915.112 3.28738 921.434 9.86215C928.008 16.184 931.296 23.8967 931.296 33.0002C931.296 42.1037 928.008 49.9429 921.434 56.5176C915.112 62.8395 907.273 66.0005 897.916 66.0005ZM872.123 286.761V97.1041H924.089V286.761H872.123Z" fill="currentColor"></path><path d="M781.638 286.761V2.27609H833.604V286.761H781.638Z" fill="currentColor"></path><path d="M722.934 289.037C701.693 289.037 684.244 283.221 670.589 271.588C657.187 259.703 650.485 242.634 650.485 220.381V142.622H612.175V97.1044H650.485V44.3799H702.451V97.1044H755.934V142.622H702.451V210.14C702.451 221.772 704.98 230.117 710.038 235.174C715.095 239.979 723.313 242.381 734.693 242.381C742.785 242.381 749.865 241.243 755.934 238.967V284.864C746.831 287.646 735.831 289.037 722.934 289.037Z" fill="currentColor"></path><path d="M417.674 286.761V97.1041H469.64V110.967C469.64 113.311 472.83 114.347 474.382 112.591C485.967 99.4848 502.467 92.9317 523.881 92.9317C546.64 92.9317 564.468 100.518 577.365 115.69C590.514 130.61 597.089 150.587 597.089 175.622V286.761H545.123V184.346C545.123 170.438 542.215 159.691 536.399 152.105C530.583 144.265 522.364 140.346 511.743 140.346C499.1 140.346 488.858 144.898 481.019 154.001C473.433 163.105 469.64 176.507 469.64 194.208V286.761H417.674Z" fill="currentColor"></path><path d="M352.981 66.0005C344.13 66.0005 336.417 62.8395 329.843 56.5176C323.268 49.9429 319.98 42.1037 319.98 33.0002C319.98 23.8967 323.268 16.184 329.843 9.86215C336.417 3.28738 344.13 0 352.981 0C362.337 0 370.176 3.28738 376.498 9.86215C383.073 16.184 386.36 23.8967 386.36 33.0002C386.36 42.1037 383.073 49.9429 376.498 56.5176C370.176 62.8395 362.337 66.0005 352.981 66.0005ZM327.187 286.761V97.1041H379.153V286.761H327.187Z" fill="currentColor"></path><path d="M238.967 286.761V185.484C238.967 155.392 229.105 140.346 209.381 140.346C198.001 140.346 188.898 144.645 182.07 153.242C175.495 161.84 171.955 174.61 171.449 191.553V286.761H119.484V185.484C119.484 155.392 109.621 140.346 89.8972 140.346C78.2649 140.346 69.035 144.898 62.2073 154.001C55.3797 163.105 51.9659 176.507 51.9659 194.208V286.761H0V97.1041H51.9659V111.103C51.9659 113.435 55.1014 114.462 56.633 112.704C68.1136 99.5223 83.3741 92.9317 102.415 92.9317C127.436 92.9317 146.283 103.262 158.953 123.923C159.953 125.553 162.412 125.527 163.406 123.894C168.884 114.891 176.496 107.731 186.243 102.415C197.369 96.0926 208.622 92.9317 220.002 92.9317C242.507 92.9317 259.956 100.392 272.347 115.311C284.738 130.231 290.933 150.714 290.933 176.76V286.761H238.967Z" fill="currentColor"></path></svg></a></div></div></footer></div></div><!--$--><!--/$--></div></div></div></div></div>
+<div class="veiseule-footer"><a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Community translations maintained by <a href="http://blog.law-kelly.com/2026/02/open-source-means-open-language.html">John Kelly</a>. Improve translations on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a>.</div>
+<script>
+(function(){
+  var btn = document.querySelector('[aria-label="Toggle dark mode"]');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var html = document.documentElement;
+    var isDark = html.classList.contains('dark');
+    if(isDark){
+      html.classList.remove('dark');
+      html.style.colorScheme = 'light';
+      try { localStorage.setItem('isDarkMode','light'); } catch(e){}
+    } else {
+      html.classList.add('dark');
+      html.style.colorScheme = 'dark';
+      try { localStorage.setItem('isDarkMode','dark'); } catch(e){}
+    }
+  });
+})();
+</script></body></html>

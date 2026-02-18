@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html class="__variable_47c970 __variable_3bbdad" data-banner-state="visible" data-page-mode="none" lang="pt"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/bb3ef058b751a6ad-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/c4b700dcb2187787-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/e4af272ccee01ff0-s.p.woff2" rel="preload" type="font/woff2"/><link as="image" href="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26" rel="preload"/><link as="image" href="https://d3gk2c5xim1je2.cloudfront.net/flags/BR.svg" rel="preload"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/b864dec2fc058581.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/6f9b80d484ead711.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/05d6d8fcb903870d.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><meta content="" name="next-size-adjust"/><title>Docker (opcional) - OpenClaw</title><meta content="OpenClaw" name="application-name"/><meta content="Mintlify" name="generator"/><meta content="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/browserconfig.xml" name="msapplication-config"/><meta content="OpenClaw" name="apple-mobile-web-app-title"/><meta content="#FF5A36" name="msapplication-TileColor"/><meta content="utf-8" name="charset"/><meta content="OpenClaw" name="og:site_name"/><meta content="https://docs.openclaw.ai/install/docker" name="canonical"/><link href="docker.html" rel="canonical"/><link href="/sitemap.xml" rel="alternate" type="application/xml"/><meta content="Docker - OpenClaw" property="og:title"/><meta content="https://docs.openclaw.ai/install/docker" property="og:url"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DOther%2Binstall%2Bmethods%26title%3DDocker%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="website" property="og:type"/><meta content="summary_large_image" name="twitter:card"/><meta content="Docker - OpenClaw" name="twitter:title"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DOther%2Binstall%2Bmethods%26title%3DDocker%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" name="twitter:image"/><meta content="1200" name="twitter:image:width"/><meta content="630" name="twitter:image:height"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-16x16.png" media="(prefers-color-scheme: light)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-32x32.png" media="(prefers-color-scheme: light)" rel="icon" sizes="32x32" type="image/png"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link as="style" href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css" rel="preload"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon.ico" media="(prefers-color-scheme: light)" rel="shortcut icon" type="image/x-icon"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-16x16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-32x32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon.ico" media="(prefers-color-scheme: dark)" rel="shortcut icon" type="image/x-icon"/><script type="text/javascript">(function(a,b){try{let c=document.getElementById("banner")?.innerText;if(c){for(let d=0;d<localStorage.length;d++){let e=localStorage.key(d);if(e?.endsWith(a)&&localStorage.getItem(e)===c)return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible");return}for(let c=0;c<localStorage.length;c++){let d=localStorage.key(c);if(d?.endsWith(a)&&localStorage.getItem(d))return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible")}catch(a){document.documentElement.setAttribute(b,"hidden")}})(
+  "bannerDismissed",
+  "data-banner-state",
+)</script><style id="veiseule-branding">
+.veiseule-bar{position:fixed;top:0;left:0;right:0;z-index:99999;background:#2E4A3A;color:#E0E0E0;text-align:center;padding:8px 16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;box-shadow:0 2px 4px rgba(0,0,0,0.15)}
+.veiseule-bar a{color:#A9B8A1;text-decoration:underline}
+.veiseule-bar a:hover{color:#fff}
+.veiseule-footer{background:#1A2E20;color:#E0E0E0;text-align:center;padding:16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;border-top:1px solid #2E4A3A}
+.veiseule-footer a{color:#A9B8A1;text-decoration:underline}
+.veiseule-footer a:hover{color:#fff}
+body{padding-top:36px !important}
+</style>
+<style>
+.toc-anchor { text-decoration: none; margin-left: 0.3em; opacity: 0.3; }
+.toc-anchor:hover { opacity: 1; }
+.toc-anchor { color: #999; }
+.dark .toc-anchor { color: #555; }
+</style></head><body>
+<div class="veiseule-bar">Community translations by <a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Help improve them on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a></div>
+<div hidden=""><!--$--><!--/$--></div><script>((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","isDarkMode","system",null,["dark","light","true","false","system"],{"true":"dark","false":"light","dark":"dark","light":"light"},true,true)</script><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><style>:root {
+  --font-family-headings-custom: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  --font-family-body-custom: "Fragment Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  
+  
+}</style><style>:root {
+    --primary: 255 90 54;
+    --primary-light: 255 138 107;
+    --primary-dark: 255 90 54;
+    --tooltip-foreground: 255 255 255;
+    --background-light: 255 255 255;
+    --background-dark: 14 12 13;
+    --gray-50: 250 245 244;
+    --gray-100: 245 240 239;
+    --gray-200: 230 225 224;
+    --gray-300: 213 208 207;
+    --gray-400: 166 161 160;
+    --gray-500: 119 114 113;
+    --gray-600: 87 82 81;
+    --gray-700: 70 65 64;
+    --gray-800: 45 40 38;
+    --gray-900: 30 25 24;
+    --gray-950: 17 12 11;
+  }</style><script type="text/javascript">
+          (function() {
+            function loadKatex() {
+              const link = document.querySelector('link[href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css"]');
+              if (link) link.rel = 'stylesheet';
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', loadKatex);
+            } else {
+              loadKatex();
+            }
+          })();
+        </script><div class="relative antialiased text-gray-500 dark:text-gray-400"><a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:p-2 focus:text-sm focus:bg-background-light dark:focus:bg-background-dark focus:rounded-md focus:outline-primary dark:focus:outline-primary-light" href="docker.html#content-area">Skip to main content</a><div class="max-lg:contents lg:flex lg:w-full"><div class="max-lg:contents lg:flex-1 lg:min-w-0 lg:overflow-x-clip"><div class="z-30 fixed lg:sticky top-0 w-full peer is-not-custom peer is-not-center peer is-not-wide peer is-not-frame" id="navbar"><div class="absolute w-full h-full backdrop-blur flex-none transition-colors duration-500 border-b border-gray-500/5 dark:border-gray-300/[0.06] data-[is-opaque=true]:bg-background-light data-[is-opaque=true]:supports-backdrop-blur:bg-background-light/95 data-[is-opaque=true]:dark:bg-background-dark/75 data-[is-opaque=false]:supports-backdrop-blur:bg-background-light/60 data-[is-opaque=false]:dark:bg-transparent" data-is-opaque="false" id="navbar-transition"></div><div class="max-w-8xl mx-auto relative"><div><div class="relative"><div class="flex items-center lg:px-12 h-16 min-w-0 mx-4 lg:mx-0"><div class="h-full relative flex-1 flex items-center gap-x-4 min-w-0 border-b border-gray-500/5 dark:border-gray-300/[0.06]"><div class="flex-1 flex items-center gap-x-4"><a class="select-none" data-slot="context-menu-trigger" data-state="closed" href="../index.html" style="-webkit-touch-callout:none"><span class="sr-only">OpenClaw<!-- --> home page</span><img alt="light logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 block dark:hidden" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/><img alt="dark logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 hidden dark:block" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/></a><div class="hidden lg:flex items-center gap-x-2"><button aria-expanded="false" aria-haspopup="menu" class="group disabled:pointer-events-none [&amp;&gt;span]:line-clamp-1 overflow-hidden group group-hover:text-gray-950/70 dark:group-hover:text-white/70 py-1.5 px-2.5 rounded-xl hover:!bg-gray-600/5 dark:hover:!bg-gray-200/5 aria-[expanded=true]:bg-gray-600/5 dark:aria-[expanded=true]:bg-gray-200/5 text-sm font-medium text-gray-900 h-8 focus-visible:outline-primary dark:text-gray-300 group/trigger flex items-center gap-2 whitespace-nowrap" data-state="closed" id="localization-select-trigger" type="button"><div class="relative size-4 rounded-full shrink-0"><img alt="BR" class="w-full h-full rounded-full" src="https://d3gk2c5xim1je2.cloudfront.net/flags/BR.svg"/><div class="absolute top-0 left-0 w-full h-full border rounded-full bg-primary-light/10 border-black/10"></div></div><span class="truncate max-w-[12.5rem]">Português</span><svg class="transition-transform text-gray-400 overflow-visible group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400 rotate-90 ml-auto group-aria-[expanded=true]/trigger:rotate-[270deg]" height="24" viewbox="0 -9 3 24" width="8"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></button></div></div><div class="relative hidden lg:flex items-center flex-1 z-20 justify-center"><button aria-label="Open search" class="flex pointer-events-auto rounded-xl w-full items-center text-sm leading-6 h-9 pl-3.5 pr-3 text-gray-500 dark:text-white/50 bg-background-light dark:bg-background-dark dark:brightness-[1.1] dark:ring-1 dark:hover:brightness-[1.25] ring-1 ring-gray-400/30 hover:ring-gray-600/30 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 justify-between truncate gap-2 min-w-[43px]" id="search-bar-entry" type="button"><div class="flex items-center gap-2 min-w-[42px]"><svg class="lucide lucide-search min-w-4 flex-none text-gray-700 hover:text-gray-800 dark:text-gray-400 hover:dark:text-gray-200" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><div class="truncate min-w-0">Search...</div></div><span class="flex-none text-xs font-semibold">⌘<!-- -->K</span></button></div><div class="flex-1 relative hidden lg:flex items-center ml-auto justify-end space-x-4"><nav class="text-sm"><ul class="flex space-x-6 items-center"><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);mask-repeat:no-repeat;mask-position:center"></svg>GitHub</a></li><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw/releases" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);mask-repeat:no-repeat;mask-position:center;mask-size:100%"></svg>Releases</a></li></ul></nav><div class="flex items-center"><button aria-label="Toggle dark mode" class="group p-2 flex items-center justify-center"><svg class="h-4 w-4 block text-gray-400 dark:hidden group-hover:text-gray-600" fill="none" height="16" stroke="currentColor" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2880_7340)"><path d="M8 1.11133V2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 3.12891L12.2427 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M14.8889 8H14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 12.8711L12.2427 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8 14.8889V14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 12.8711L3.75735 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M1.11133 8H2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 3.12891L3.75735 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8.00043 11.7782C10.0868 11.7782 11.7782 10.0868 11.7782 8.00043C11.7782 5.91402 10.0868 4.22266 8.00043 4.22266C5.91402 4.22266 4.22266 5.91402 4.22266 8.00043C4.22266 10.0868 5.91402 11.7782 8.00043 11.7782Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g><defs><clippath id="clip0_2880_7340"><rect fill="white" height="16" width="16"></rect></clippath></defs></svg><svg class="lucide lucide-moon h-4 w-4 hidden dark:block text-gray-500 dark:group-hover:text-gray-300" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button></div></div><div class="flex lg:hidden items-center gap-3"><button aria-label="Open search" class="text-gray-500 w-8 h-8 flex items-center justify-center hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300" id="search-bar-entry-mobile" type="button"><span class="sr-only">Search...</span><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);mask-repeat:no-repeat;mask-position:center"></svg></button><button aria-label="More actions" class="h-7 w-5 flex items-center justify-end"><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);mask-repeat:no-repeat;mask-position:center"></svg></button></div></div></div><button class="flex items-center h-14 py-4 px-5 lg:hidden focus:outline-0 w-full text-left" type="button"><div class="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300"><span class="sr-only">Navigation</span><svg class="h-4" fill="currentColor" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></div><div class="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0 space-x-3 overflow-hidden"><div class="flex items-center space-x-3 flex-shrink-0"><span>Other install methods</span><svg class="h-5 rotate-0 overflow-visible fill-gray-400" height="24" viewbox="0 -9 3 24" width="3"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></div><div class="font-semibold text-gray-900 truncate dark:text-gray-200 min-w-0 flex-1">Docker</div></div></button></div><div class="hidden lg:flex px-12 h-12"><div class="nav-tabs h-full flex text-sm gap-x-6"><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../index.html">Get started<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium hover:text-gray-800 dark:hover:text-gray-300 text-gray-800 dark:text-gray-200 [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor]" href="../install.html">Install<div class="absolute bottom-0 h-[1.5px] w-full left-0 bg-primary dark:bg-primary-light"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../channels.html">Channels<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../concepts/architecture.html">Agents<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../tools.html">Tools<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../providers.html">Models<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../platforms.html">Platforms<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../gateway.html">Gateway &amp; Ops<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../cli.html">Reference<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../help.html">Help<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a></div></div></div></div><span hidden="" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"></span></div><div class="scroll-mt-[var(--scroll-mt)] peer-[.is-custom]:max-w-none peer-[.is-center]:max-w-3xl peer-[.is-not-custom]:peer-[.is-not-center]:max-w-8xl peer-[.is-not-custom]:px-4 peer-[.is-not-custom]:mx-auto peer-[.is-not-custom]:lg:px-8 peer-[.is-wide]:[&amp;&gt;div:last-child]:max-w-6xl peer-[.is-custom]:[&amp;&gt;div:first-child]:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:xl:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:xl:!hidden"><div class="z-20 hidden lg:block fixed bottom-0 right-auto w-[18rem]" id="sidebar" style="top:7rem"><div class="absolute inset-0 z-10 stable-scrollbar-gutter overflow-auto pr-8 pb-10" id="sidebar-content"><div class="relative lg:text-sm lg:leading-6"><div class="sticky top-0 h-8 z-10 bg-gradient-to-b from-background-light dark:from-background-dark"></div><div id="navigation-items"><div class=""><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Install overview</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Install" id="/install"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../install.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Install</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Installer Internals" id="/install/installer"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="installer.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Installer Internals</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Other install methods</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Docker" id="/install/docker"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] bg-primary/10 text-primary [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor] dark:text-primary-light dark:bg-primary-light/10" href="docker.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Docker</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Podman" id="/install/podman"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="podman.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Podman</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Nix" id="/install/nix"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="nix.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Nix</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Ansible" id="/install/ansible"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="ansible.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Ansible</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Bun (Experimental)" id="/install/bun"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="bun.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Bun (Experimental)</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Maintenance</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Updating" id="/install/updating"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="updating.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Updating</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Migration Guide" id="/install/migrating"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="migrating.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Migration Guide</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Uninstall" id="/install/uninstall"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="uninstall.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Uninstall</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Hosting and deployment</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Fly.io" id="/install/fly"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="fly.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Fly.io</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Hetzner" id="/install/hetzner"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="hetzner.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Hetzner</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="GCP" id="/install/gcp"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gcp.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">GCP</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="macOS VMs" id="/install/macos-vm"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="macos-vm.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">macOS VMs</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="exe.dev" id="/install/exe-dev"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="exe-dev.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">exe.dev</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Deploy on Railway" id="/install/railway"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="railway.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Deploy on Railway</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Deploy on Render" id="/install/render"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="render.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Deploy on Render</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Deploy on Northflank" id="/install/northflank"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="northflank.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Deploy on Northflank</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Advanced</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Development Channels" id="/install/development-channels"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="development-channels.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Development Channels</div></div></a></li></ul></div></div></div></div></div><div id="content-container"><span class="fixed inset-0 bg-background-light dark:bg-background-dark -z-10 pointer-events-none" id="almond-background-color"></span><style data-custom-css-index="0" data-custom-css-path="style.css">#content > h1:first-of-type {
+  display: none !important;
+}
+</style><div class="flex flex-row-reverse gap-12 box-border w-full pt-40 lg:pt-10"><div class="hidden xl:flex self-start sticky xl:flex-col max-w-[28rem] z-[21] h-[calc(100vh-9.5rem)] top-[calc(9.5rem-var(--sidenav-move-up,0px))]" id="content-side-layout"><div class="z-10 hidden xl:flex box-border max-h-full pl-10 w-[19rem]" id="table-of-contents-layout"><div class="text-gray-600 text-sm leading-6 w-[16.5rem] overflow-y-auto space-y-2 pb-4 -mt-10 pt-10" id="table-of-contents"><button class="text-gray-700 dark:text-gray-300 font-medium flex items-center space-x-2 hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer"><svg class="h-3 w-3" fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.44434 12.6665H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 3.3335H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 8H7.33323" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>On this page</span></button><ul class="toc" id="table-of-contents-content"><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#docker-opcional">Docker (opcional)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#o-docker-e-ideal-para-mim">O Docker é ideal para mim?</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#requisitos">Requisitos</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#gateway-em-conteiner-docker-compose">Gateway em contêiner (Docker Compose)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#inicio-rapido-recomendado">Início rápido (recomendado)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#fluxo-manual-compose">Fluxo manual (compose)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#token-da-ui-de-controle-pareamento-docker">Token da UI de Controle + pareamento (Docker)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#montagens-extras-opcional">Montagens extras (opcional)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#persistir-todo-o-home-do-conteiner-opcional">Persistir todo o home do contêiner (opcional)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#instalar-pacotes-apt-extras-opcional">Instalar pacotes apt extras (opcional)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#conteiner-para-usuarios-avancados-com-recursos-completos-opt-in">Contêiner para usuários avançados / com recursos completos (opt-in)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#permissoes-eacces">Permissões + EACCES</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#rebuilds-mais-rapidos-recomendado">Rebuilds mais rápidos (recomendado)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#configuracao-de-canais-opcional">Configuração de canais (opcional)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#openai-codex-oauth-docker-headless">OpenAI Codex OAuth (Docker headless)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#health-check">Health check</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#teste-de-fumaca-e2e-docker">Teste de fumaça E2E (Docker)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#teste-de-fumaca-de-importacao-de-qr-docker">Teste de fumaça de importação de QR (Docker)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#notas">Notas</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#sandbox-de-agente-gateway-no-host-ferramentas-em-docker">Sandbox de Agente (gateway no host + ferramentas em Docker)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#o-que-faz">O que faz</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#perfis-de-sandbox-por-agente-multi-agente">Perfis de sandbox por agente (multi-agente)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#comportamento-padrao">Comportamento padrão</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#habilitar-sandboxing">Habilitar sandboxing</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#construir-a-imagem-padrao-do-sandbox">Construir a imagem padrão do sandbox</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#imagem-comum-de-sandbox-opcional">Imagem comum de sandbox (opcional)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#imagem-de-navegador-do-sandbox">Imagem de navegador do sandbox</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#imagem-de-sandbox-personalizada">Imagem de sandbox personalizada</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#politica-de-ferramentas-allowdeny">Política de ferramentas (allow/deny)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#estrategia-de-pruning">Estratégia de pruning</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#notas-de-seguranca">Notas de segurança</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="install/docker.html#solucao-de-problemas">Solução de problemas</a></li></ul></div></div></div><div class="relative grow box-border flex-col w-full mx-auto px-1 lg:pl-[23.7rem] lg:-ml-12 xl:w-[calc(100%-28rem)]" id="content-area"><header class="relative leading-none" id="header"><div class="mt-0.5 space-y-2.5"><div class="eyebrow h-5 text-primary dark:text-primary-light text-sm font-semibold">Other install methods</div><div class="flex flex-col sm:flex-row items-start sm:items-center relative gap-2 min-w-0"><h1 class="text-2xl sm:text-3xl text-gray-900 tracking-tight dark:text-gray-200 [overflow-wrap:anywhere] font-bold break-all" id="page-title">Docker</h1></div></div></header><div class="mdx-content relative mt-8 mb-14 prose prose-gray dark:prose-invert [contain:inline-size] isolate" data-page-href="/install/docker" data-page-title="Docker" id="content"><h1 id="docker-opcional">Docker (opcional)<a class="toc-anchor" href="#docker-opcional" title="Permanent link">¶</a></h1>
+<p>Docker é <strong>opcional</strong>. Use apenas se você quiser um gateway em contêiner ou validar o fluxo do Docker.</p>
+<h2 id="o-docker-e-ideal-para-mim">O Docker é ideal para mim?<a class="toc-anchor" href="#o-docker-e-ideal-para-mim" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Sim</strong>: você quer um ambiente de gateway isolado e descartável ou executar o OpenClaw em um host sem instalações locais.</li>
+<li><strong>Não</strong>: você está executando na sua própria máquina e só quer o loop de desenvolvimento mais rápido. Use o fluxo de instalação normal.</li>
+<li><strong>Nota sobre sandboxing</strong>: o sandboxing do agente também usa Docker, mas <strong>não</strong> exige que o gateway completo rode em Docker. Veja <a href="/gateway/sandboxing">Sandboxing</a>.</li>
+</ul>
+<p>Este guia cobre:</p>
+<ul>
+<li>Gateway em contêiner (OpenClaw completo em Docker)</li>
+<li>Sandbox de Agente por sessão (gateway no host + ferramentas do agente isoladas em Docker)</li>
+</ul>
+<p>Detalhes de sandboxing: <a href="/gateway/sandboxing">Sandboxing</a></p>
+<h2 id="requisitos">Requisitos<a class="toc-anchor" href="#requisitos" title="Permanent link">¶</a></h2>
+<ul>
+<li>Docker Desktop (ou Docker Engine) + Docker Compose v2</li>
+<li>Espaço em disco suficiente para imagens + logs</li>
+</ul>
+<h2 id="gateway-em-conteiner-docker-compose">Gateway em contêiner (Docker Compose)<a class="toc-anchor" href="#gateway-em-conteiner-docker-compose" title="Permanent link">¶</a></h2>
+<h3 id="inicio-rapido-recomendado">Início rápido (recomendado)<a class="toc-anchor" href="#inicio-rapido-recomendado" title="Permanent link">¶</a></h3>
+<p>A partir da raiz do repositório:</p>
+<pre class="highlight"><code class="language-bash">./docker-setup.sh
+</code></pre>
+<p>Este script:</p>
+<ul>
+<li>constrói a imagem do gateway</li>
+<li>executa o assistente de integração</li>
+<li>imprime dicas opcionais de configuração de provedores</li>
+<li>inicia o gateway via Docker Compose</li>
+<li>gera um token do gateway e o grava em <code>.env</code></li>
+</ul>
+<p>Variáveis env opcionais:</p>
+<ul>
+<li><code>OPENCLAW_DOCKER_APT_PACKAGES</code> — instala pacotes apt extras durante o build</li>
+<li><code>OPENCLAW_EXTRA_MOUNTS</code> — adiciona bind mounts extras do host</li>
+<li><code>OPENCLAW_HOME_VOLUME</code> — persiste <code>/home/node</code> em um volume nomeado</li>
+</ul>
+<p>Após finalizar:</p>
+<ul>
+<li>Abra <code>http://127.0.0.1:18789/</code> no seu navegador.</li>
+<li>Cole o token na UI de Controle (Configurações → token).</li>
+<li>Precisa da URL novamente? Execute <code>docker compose run --rm openclaw-cli dashboard --no-open</code>.</li>
+</ul>
+<p>Ele grava config/workspace no host:</p>
+<ul>
+<li><code>~/.openclaw/</code></li>
+<li><code>~/.openclaw/workspace</code></li>
+</ul>
+<p>Executando em um VPS? Veja <a href="/install/hetzner">Hetzner (Docker VPS)</a>.</p>
+<h3 id="fluxo-manual-compose">Fluxo manual (compose)<a class="toc-anchor" href="#fluxo-manual-compose" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-bash">docker build -t openclaw:local -f Dockerfile .
+docker compose run --rm openclaw-cli onboard
+docker compose up -d openclaw-gateway
+</code></pre>
+<p>Nota: execute <code>docker compose ...</code> a partir da raiz do repositório. Se você ativou
+<code>OPENCLAW_EXTRA_MOUNTS</code> ou <code>OPENCLAW_HOME_VOLUME</code>, o script de setup grava
+<code>docker-compose.extra.yml</code>; inclua-o ao executar o Compose em outro local:</p>
+<pre class="highlight"><code class="language-bash">docker compose -f docker-compose.yml -f docker-compose.extra.yml &lt;command&gt;
+</code></pre>
+<h3 id="token-da-ui-de-controle-pareamento-docker">Token da UI de Controle + pareamento (Docker)<a class="toc-anchor" href="#token-da-ui-de-controle-pareamento-docker" title="Permanent link">¶</a></h3>
+<p>Se você vir “unauthorized” ou “disconnected (1008): pairing required”, obtenha um
+novo link do painel e aprove o dispositivo do navegador:</p>
+<pre class="highlight"><code class="language-bash">docker compose run --rm openclaw-cli dashboard --no-open
+docker compose run --rm openclaw-cli devices list
+docker compose run --rm openclaw-cli devices approve &lt;requestId&gt;
+</code></pre>
+<p>Mais detalhes: <a href="/web/dashboard">Dashboard</a>, <a href="/cli/devices">Devices</a>.</p>
+<h3 id="montagens-extras-opcional">Montagens extras (opcional)<a class="toc-anchor" href="#montagens-extras-opcional" title="Permanent link">¶</a></h3>
+<p>Se você quiser montar diretórios adicionais do host nos contêineres, defina
+<code>OPENCLAW_EXTRA_MOUNTS</code> antes de executar <code>docker-setup.sh</code>. Isso aceita uma
+lista separada por vírgulas de bind mounts do Docker e aplica a ambos
+<code>openclaw-gateway</code> e <code>openclaw-cli</code> gerando <code>docker-compose.extra.yml</code>.</p>
+<p>Exemplo:</p>
+<pre class="highlight"><code class="language-bash">export OPENCLAW_EXTRA_MOUNTS="$HOME/.codex:/home/node/.codex:ro,$HOME/github:/home/node/github:rw"
+./docker-setup.sh
+</code></pre>
+<p>Notas:</p>
+<ul>
+<li>Os caminhos devem estar compartilhados com o Docker Desktop no macOS/Windows.</li>
+<li>Se você editar <code>OPENCLAW_EXTRA_MOUNTS</code>, execute novamente <code>docker-setup.sh</code> para regenerar o
+  arquivo compose extra.</li>
+<li><code>docker-compose.extra.yml</code> é gerado. Não edite manualmente.</li>
+</ul>
+<h3 id="persistir-todo-o-home-do-conteiner-opcional">Persistir todo o home do contêiner (opcional)<a class="toc-anchor" href="#persistir-todo-o-home-do-conteiner-opcional" title="Permanent link">¶</a></h3>
+<p>Se você quiser que <code>/home/node</code> persista entre recriações do contêiner, defina um
+volume nomeado via <code>OPENCLAW_HOME_VOLUME</code>. Isso cria um volume Docker e o monta em
+<code>/home/node</code>, mantendo as montagens padrão de config/workspace. Use um
+volume nomeado aqui (não um caminho de bind); para bind mounts, use
+<code>OPENCLAW_EXTRA_MOUNTS</code>.</p>
+<p>Exemplo:</p>
+<pre class="highlight"><code class="language-bash">export OPENCLAW_HOME_VOLUME="openclaw_home"
+./docker-setup.sh
+</code></pre>
+<p>Você pode combinar isso com montagens extras:</p>
+<pre class="highlight"><code class="language-bash">export OPENCLAW_HOME_VOLUME="openclaw_home"
+export OPENCLAW_EXTRA_MOUNTS="$HOME/.codex:/home/node/.codex:ro,$HOME/github:/home/node/github:rw"
+./docker-setup.sh
+</code></pre>
+<p>Notas:</p>
+<ul>
+<li>Se você alterar <code>OPENCLAW_HOME_VOLUME</code>, execute novamente <code>docker-setup.sh</code> para regenerar o
+  arquivo compose extra.</li>
+<li>O volume nomeado persiste até ser removido com <code>docker volume rm &lt;name&gt;</code>.</li>
+</ul>
+<h3 id="instalar-pacotes-apt-extras-opcional">Instalar pacotes apt extras (opcional)<a class="toc-anchor" href="#instalar-pacotes-apt-extras-opcional" title="Permanent link">¶</a></h3>
+<p>Se você precisar de pacotes de sistema dentro da imagem (por exemplo, ferramentas
+de build ou bibliotecas de mídia), defina <code>OPENCLAW_DOCKER_APT_PACKAGES</code> antes de executar
+<code>docker-setup.sh</code>.
+Isso instala os pacotes durante o build da imagem, então eles
+persistem mesmo que o contêiner seja excluído.</p>
+<p>Exemplo:</p>
+<pre class="highlight"><code class="language-bash">export OPENCLAW_DOCKER_APT_PACKAGES="ffmpeg build-essential"
+./docker-setup.sh
+</code></pre>
+<p>Notas:</p>
+<ul>
+<li>Aceita uma lista separada por espaços de nomes de pacotes apt.</li>
+<li>Se você alterar <code>OPENCLAW_DOCKER_APT_PACKAGES</code>, execute novamente <code>docker-setup.sh</code> para reconstruir
+  a imagem.</li>
+</ul>
+<h3 id="conteiner-para-usuarios-avancados-com-recursos-completos-opt-in">Contêiner para usuários avançados / com recursos completos (opt-in)<a class="toc-anchor" href="#conteiner-para-usuarios-avancados-com-recursos-completos-opt-in" title="Permanent link">¶</a></h3>
+<p>A imagem Docker padrão é <strong>security-first</strong> e roda como o usuário não-root
+<code>node</code>. Isso mantém a superfície de ataque pequena, mas significa:</p>
+<ul>
+<li>sem instalações de pacotes de sistema em tempo de execução</li>
+<li>sem Homebrew por padrão</li>
+<li>sem navegadores Chromium/Playwright empacotados</li>
+</ul>
+<p>Se você quiser um contêiner com mais recursos, use estes controles opt-in:</p>
+<ol>
+<li><strong>Persistir <code>/home/node</code></strong> para que downloads de navegadores e caches de ferramentas sobrevivam:</li>
+</ol>
+<pre class="highlight"><code class="language-bash">export OPENCLAW_HOME_VOLUME="openclaw_home"
+./docker-setup.sh
+</code></pre>
+<ol start="2">
+<li><strong>Incorporar dependências de sistema na imagem</strong> (repetível + persistente):</li>
+</ol>
+<pre class="highlight"><code class="language-bash">export OPENCLAW_DOCKER_APT_PACKAGES="git curl jq"
+./docker-setup.sh
+</code></pre>
+<ol start="3">
+<li><strong>Instalar navegadores do Playwright sem <code>npx</code></strong> (evita conflitos de override do npm):</li>
+</ol>
+<pre class="highlight"><code class="language-bash">docker compose run --rm openclaw-cli \
+  node /app/node_modules/playwright-core/cli.js install chromium
+</code></pre>
+<p>Se você precisar que o Playwright instale dependências de sistema, reconstrua a
+imagem com <code>OPENCLAW_DOCKER_APT_PACKAGES</code> em vez de usar <code>--with-deps</code> em tempo de execução.</p>
+<ol start="4">
+<li><strong>Persistir downloads de navegadores do Playwright</strong>:</li>
+</ol>
+<ul>
+<li>Defina <code>PLAYWRIGHT_BROWSERS_PATH=/home/node/.cache/ms-playwright</code> em
+  <code>docker-compose.yml</code>.</li>
+<li>Garanta que <code>/home/node</code> persista via <code>OPENCLAW_HOME_VOLUME</code>, ou monte
+  <code>/home/node/.cache/ms-playwright</code> via <code>OPENCLAW_EXTRA_MOUNTS</code>.</li>
+</ul>
+<h3 id="permissoes-eacces">Permissões + EACCES<a class="toc-anchor" href="#permissoes-eacces" title="Permanent link">¶</a></h3>
+<p>A imagem roda como <code>node</code> (uid 1000). Se você vir erros de permissão em
+<code>/home/node/.openclaw</code>, certifique-se de que seus bind mounts do host pertençam ao uid 1000.</p>
+<p>Exemplo (host Linux):</p>
+<pre class="highlight"><code class="language-bash">sudo chown -R 1000:1000 /path/to/openclaw-config /path/to/openclaw-workspace
+</code></pre>
+<p>Se você optar por rodar como root por conveniência, você aceita a troca de segurança.</p>
+<h3 id="rebuilds-mais-rapidos-recomendado">Rebuilds mais rápidos (recomendado)<a class="toc-anchor" href="#rebuilds-mais-rapidos-recomendado" title="Permanent link">¶</a></h3>
+<p>Para acelerar rebuilds, organize seu Dockerfile para que as camadas de dependências
+sejam cacheadas.
+Isso evita reexecutar <code>pnpm install</code> a menos que os lockfiles mudem:</p>
+<pre class="highlight"><code class="language-dockerfile">FROM node:22-bookworm
+
+# Install Bun (required for build scripts)
+RUN curl -fsSL https://bun.sh/install | bash
+ENV PATH="/root/.bun/bin:${PATH}"
+
+RUN corepack enable
+
+WORKDIR /app
+
+# Cache dependencies unless package metadata changes
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
+COPY ui/package.json ./ui/package.json
+COPY scripts ./scripts
+
+RUN pnpm install --frozen-lockfile
+
+COPY . .
+RUN pnpm build
+RUN pnpm ui:install
+RUN pnpm ui:build
+
+ENV NODE_ENV=production
+
+CMD ["node","dist/index.js"]
+</code></pre>
+<h3 id="configuracao-de-canais-opcional">Configuração de canais (opcional)<a class="toc-anchor" href="#configuracao-de-canais-opcional" title="Permanent link">¶</a></h3>
+<p>Use o contêiner da CLI para configurar canais e, se necessário, reinicie o gateway.</p>
+<p>WhatsApp (QR):</p>
+<pre class="highlight"><code class="language-bash">docker compose run --rm openclaw-cli channels login
+</code></pre>
+<p>Telegram (token do bot):</p>
+<pre class="highlight"><code class="language-bash">docker compose run --rm openclaw-cli channels add --channel telegram --token "&lt;token&gt;"
+</code></pre>
+<p>Discord (token do bot):</p>
+<pre class="highlight"><code class="language-bash">docker compose run --rm openclaw-cli channels add --channel discord --token "&lt;token&gt;"
+</code></pre>
+<p>Docs: <a href="/channels/whatsapp">WhatsApp</a>, <a href="/channels/telegram">Telegram</a>, <a href="/channels/discord">Discord</a></p>
+<h3 id="openai-codex-oauth-docker-headless">OpenAI Codex OAuth (Docker headless)<a class="toc-anchor" href="#openai-codex-oauth-docker-headless" title="Permanent link">¶</a></h3>
+<p>Se você escolher OpenAI Codex OAuth no assistente, ele abre uma URL no navegador e
+tenta capturar um callback em <code>http://127.0.0.1:1455/auth/callback</code>. Em Docker ou
+configurações headless, esse callback pode mostrar um erro no navegador. Copie a
+URL completa de redirecionamento em que você cair e cole de volta no assistente
+para finalizar a autenticação.</p>
+<h3 id="health-check">Health check<a class="toc-anchor" href="#health-check" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-bash">docker compose exec openclaw-gateway node dist/index.js health --token "$OPENCLAW_GATEWAY_TOKEN"
+</code></pre>
+<h3 id="teste-de-fumaca-e2e-docker">Teste de fumaça E2E (Docker)<a class="toc-anchor" href="#teste-de-fumaca-e2e-docker" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-bash">scripts/e2e/onboard-docker.sh
+</code></pre>
+<h3 id="teste-de-fumaca-de-importacao-de-qr-docker">Teste de fumaça de importação de QR (Docker)<a class="toc-anchor" href="#teste-de-fumaca-de-importacao-de-qr-docker" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-bash">pnpm test:docker:qr
+</code></pre>
+<h3 id="notas">Notas<a class="toc-anchor" href="#notas" title="Permanent link">¶</a></h3>
+<ul>
+<li>O bind do Gateway usa por padrão <code>lan</code> para uso em contêiner.</li>
+<li>O CMD do Dockerfile usa <code>--allow-unconfigured</code>; config montada com <code>gateway.mode</code> e não <code>local</code> ainda iniciará. Substitua o CMD para impor a verificação.</li>
+<li>O contêiner do gateway é a fonte de verdade para sessões (<code>~/.openclaw/agents/&lt;agentId&gt;/sessions/</code>).</li>
+</ul>
+<h2 id="sandbox-de-agente-gateway-no-host-ferramentas-em-docker">Sandbox de Agente (gateway no host + ferramentas em Docker)<a class="toc-anchor" href="#sandbox-de-agente-gateway-no-host-ferramentas-em-docker" title="Permanent link">¶</a></h2>
+<p>Aprofundamento: <a href="/gateway/sandboxing">Sandboxing</a></p>
+<h3 id="o-que-faz">O que faz<a class="toc-anchor" href="#o-que-faz" title="Permanent link">¶</a></h3>
+<p>Quando <code>agents.defaults.sandbox</code> está habilitado, <strong>sessões não-principais</strong> executam
+ferramentas dentro de um contêiner Docker. O gateway permanece no seu host, mas a
+execução das ferramentas é isolada:</p>
+<ul>
+<li>escopo: <code>"agent"</code> por padrão (um contêiner + workspace por agente)</li>
+<li>escopo: <code>"session"</code> para isolamento por sessão</li>
+<li>pasta de workspace por escopo montada em <code>/workspace</code></li>
+<li>acesso opcional ao workspace do agente (<code>agents.defaults.sandbox.workspaceAccess</code>)</li>
+<li>política de ferramentas allow/deny (deny vence)</li>
+<li>mídia de entrada é copiada para o workspace ativo do sandbox (<code>media/inbound/*</code>)
+  para que as ferramentas possam lê-la (com <code>workspaceAccess: "rw"</code>, isso vai para o
+  workspace do agente)</li>
+</ul>
+<p>Aviso: <code>scope: "shared"</code> desativa o isolamento entre sessões. Todas as sessões
+compartilham um contêiner e um workspace.</p>
+<h3 id="perfis-de-sandbox-por-agente-multi-agente">Perfis de sandbox por agente (multi-agente)<a class="toc-anchor" href="#perfis-de-sandbox-por-agente-multi-agente" title="Permanent link">¶</a></h3>
+<p>Se você usa roteamento multi-agente, cada agente pode sobrescrever configurações
+de sandbox + ferramentas: <code>agents.list[].sandbox</code> e <code>agents.list[].tools</code> (além de
+<code>agents.list[].tools.sandbox.tools</code>). Isso permite executar níveis de acesso mistos em um único gateway:</p>
+<ul>
+<li>Acesso total (agente pessoal)</li>
+<li>Ferramentas somente leitura + workspace somente leitura (agente familiar/de trabalho)</li>
+<li>Sem ferramentas de filesystem/shell (agente público)</li>
+</ul>
+<p>Veja <a href="/tools/multi-agent-sandbox-tools">Multi-Agent Sandbox &amp; Tools</a> para exemplos,
+precedência e solução de problemas.</p>
+<h3 id="comportamento-padrao">Comportamento padrão<a class="toc-anchor" href="#comportamento-padrao" title="Permanent link">¶</a></h3>
+<ul>
+<li>Imagem: <code>openclaw-sandbox:bookworm-slim</code></li>
+<li>Um contêiner por agente</li>
+<li>Acesso ao workspace do agente: <code>workspaceAccess: "none"</code> (padrão) usa <code>~/.openclaw/sandboxes</code></li>
+<li><code>"ro"</code> mantém o workspace do sandbox em <code>/workspace</code> e monta o
+    workspace do agente como somente leitura em <code>/agent</code> (desativa
+    <code>write</code>/<code>edit</code>/<code>apply_patch</code>)</li>
+<li><code>"rw"</code> monta o workspace do agente com leitura/escrita em
+    <code>/workspace</code></li>
+<li>Auto-prune: inativo &gt; 24h OU idade &gt; 7d</li>
+<li>Rede: <code>none</code> por padrão (faça opt-in explícito se precisar de egress)</li>
+<li>Allow padrão: <code>exec</code>, <code>process</code>, <code>read</code>,
+  <code>write</code>, <code>edit</code>, <code>sessions_list</code>, <code>sessions_history</code>,
+  <code>sessions_send</code>, <code>sessions_spawn</code>, <code>session_status</code></li>
+<li>Deny padrão: <code>browser</code>, <code>canvas</code>, <code>nodes</code>,
+  <code>cron</code>, <code>discord</code>, <code>gateway</code></li>
+</ul>
+<h3 id="habilitar-sandboxing">Habilitar sandboxing<a class="toc-anchor" href="#habilitar-sandboxing" title="Permanent link">¶</a></h3>
+<p>Se você planeja instalar pacotes em <code>setupCommand</code>, observe:</p>
+<ul>
+<li>O <code>docker.network</code> padrão é <code>"none"</code> (sem egress).</li>
+<li><code>readOnlyRoot: true</code> bloqueia instalações de pacotes.</li>
+<li><code>user</code> deve ser root para <code>apt-get</code> (omita <code>user</code> ou
+  defina <code>user: "0:0"</code>).
+  O OpenClaw recria automaticamente os contêineres quando <code>setupCommand</code> (ou a
+  configuração do Docker) muda, a menos que o contêiner tenha sido <strong>usado
+  recentemente</strong> (dentro de ~5 minutos). Contêineres “quentes” registram um aviso
+  com o comando exato <code>openclaw sandbox recreate ...</code>.</li>
+</ul>
+<pre class="highlight"><code class="language-json5">{
+  agents: {
+    defaults: {
+      sandbox: {
+        mode: "non-main", // off | non-main | all
+        scope: "agent", // session | agent | shared (agent is default)
+        workspaceAccess: "none", // none | ro | rw
+        workspaceRoot: "~/.openclaw/sandboxes",
+        docker: {
+          image: "openclaw-sandbox:bookworm-slim",
+          workdir: "/workspace",
+          readOnlyRoot: true,
+          tmpfs: ["/tmp", "/var/tmp", "/run"],
+          network: "none",
+          user: "1000:1000",
+          capDrop: ["ALL"],
+          env: { LANG: "C.UTF-8" },
+          setupCommand: "apt-get update &amp;&amp; apt-get install -y git curl jq",
+          pidsLimit: 256,
+          memory: "1g",
+          memorySwap: "2g",
+          cpus: 1,
+          ulimits: {
+            nofile: { soft: 1024, hard: 2048 },
+            nproc: 256,
+          },
+          seccompProfile: "/path/to/seccomp.json",
+          apparmorProfile: "openclaw-sandbox",
+          dns: ["1.1.1.1", "8.8.8.8"],
+          extraHosts: ["internal.service:10.0.0.5"],
+        },
+        prune: {
+          idleHours: 24, // 0 disables idle pruning
+          maxAgeDays: 7, // 0 disables max-age pruning
+        },
+      },
+    },
+  },
+  tools: {
+    sandbox: {
+      tools: {
+        allow: [
+          "exec",
+          "process",
+          "read",
+          "write",
+          "edit",
+          "sessions_list",
+          "sessions_history",
+          "sessions_send",
+          "sessions_spawn",
+          "session_status",
+        ],
+        deny: ["browser", "canvas", "nodes", "cron", "discord", "gateway"],
+      },
+    },
+  },
+}
+</code></pre>
+<p>Controles de hardening ficam em <code>agents.defaults.sandbox.docker</code>:
+<code>network</code>, <code>user</code>, <code>pidsLimit</code>, <code>memory</code>,
+<code>memorySwap</code>, <code>cpus</code>, <code>ulimits</code>, <code>seccompProfile</code>,
+<code>apparmorProfile</code>, <code>dns</code>, <code>extraHosts</code>.</p>
+<p>Multi-agente: sobrescreva <code>agents.defaults.sandbox.{docker,browser,prune}.*</code> por agente via <code>agents.list[].sandbox.{docker,browser,prune}.*</code>
+(ignorado quando <code>agents.defaults.sandbox.scope</code> / <code>agents.list[].sandbox.scope</code> é <code>"shared"</code>).</p>
+<h3 id="construir-a-imagem-padrao-do-sandbox">Construir a imagem padrão do sandbox<a class="toc-anchor" href="#construir-a-imagem-padrao-do-sandbox" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-bash">scripts/sandbox-setup.sh
+</code></pre>
+<p>Isso constrói <code>openclaw-sandbox:bookworm-slim</code> usando <code>Dockerfile.sandbox</code>.</p>
+<h3 id="imagem-comum-de-sandbox-opcional">Imagem comum de sandbox (opcional)<a class="toc-anchor" href="#imagem-comum-de-sandbox-opcional" title="Permanent link">¶</a></h3>
+<p>Se você quiser uma imagem de sandbox com ferramentas comuns de build (Node, Go,
+Rust, etc.), construa a imagem comum:</p>
+<pre class="highlight"><code class="language-bash">scripts/sandbox-common-setup.sh
+</code></pre>
+<p>Isso constrói <code>openclaw-sandbox-common:bookworm-slim</code>. Para usá-la:</p>
+<pre class="highlight"><code class="language-json5">{
+  agents: {
+    defaults: {
+      sandbox: { docker: { image: "openclaw-sandbox-common:bookworm-slim" } },
+    },
+  },
+}
+</code></pre>
+<h3 id="imagem-de-navegador-do-sandbox">Imagem de navegador do sandbox<a class="toc-anchor" href="#imagem-de-navegador-do-sandbox" title="Permanent link">¶</a></h3>
+<p>Para executar a ferramenta de navegador dentro do sandbox, construa a imagem de
+navegador:</p>
+<pre class="highlight"><code class="language-bash">scripts/sandbox-browser-setup.sh
+</code></pre>
+<p>Isso constrói <code>openclaw-sandbox-browser:bookworm-slim</code> usando
+<code>Dockerfile.sandbox-browser</code>. O contêiner executa o Chromium com CDP habilitado e
+um observador noVNC opcional (headful via Xvfb).</p>
+<p>Notas:</p>
+<ul>
+<li>Headful (Xvfb) reduz bloqueios de bots vs headless.</li>
+<li>Headless ainda pode ser usado definindo <code>agents.defaults.sandbox.browser.headless=true</code>.</li>
+<li>Nenhum ambiente de desktop completo (GNOME) é necessário; o Xvfb fornece o display.</li>
+</ul>
+<p>Use a configuração:</p>
+<pre class="highlight"><code class="language-json5">{
+  agents: {
+    defaults: {
+      sandbox: {
+        browser: { enabled: true },
+      },
+    },
+  },
+}
+</code></pre>
+<p>Imagem de navegador personalizada:</p>
+<pre class="highlight"><code class="language-json5">{
+  agents: {
+    defaults: {
+      sandbox: { browser: { image: "my-openclaw-browser" } },
+    },
+  },
+}
+</code></pre>
+<p>Quando habilitado, o agente recebe:</p>
+<ul>
+<li>uma URL de controle do navegador do sandbox (para a ferramenta <code>browser</code>)</li>
+<li>uma URL noVNC (se habilitado e headless=false)</li>
+</ul>
+<p>Lembre-se: se você usar uma lista de permissões (allowlist) para ferramentas,
+adicione <code>browser</code> (e remova de deny) ou a ferramenta continuará bloqueada.
+As regras de prune (<code>agents.defaults.sandbox.prune</code>) também se aplicam a contêineres de navegador.</p>
+<h3 id="imagem-de-sandbox-personalizada">Imagem de sandbox personalizada<a class="toc-anchor" href="#imagem-de-sandbox-personalizada" title="Permanent link">¶</a></h3>
+<p>Construa sua própria imagem e aponte a configuração para ela:</p>
+<pre class="highlight"><code class="language-bash">docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
+</code></pre>
+<pre class="highlight"><code class="language-json5">{
+  agents: {
+    defaults: {
+      sandbox: { docker: { image: "my-openclaw-sbx" } },
+    },
+  },
+}
+</code></pre>
+<h3 id="politica-de-ferramentas-allowdeny">Política de ferramentas (allow/deny)<a class="toc-anchor" href="#politica-de-ferramentas-allowdeny" title="Permanent link">¶</a></h3>
+<ul>
+<li><code>deny</code> vence sobre <code>allow</code>.</li>
+<li>Se <code>allow</code> estiver vazio: todas as ferramentas (exceto deny) estão disponíveis.</li>
+<li>Se <code>allow</code> não estiver vazio: apenas as ferramentas em <code>allow</code> estão disponíveis (menos deny).</li>
+</ul>
+<h3 id="estrategia-de-pruning">Estratégia de pruning<a class="toc-anchor" href="#estrategia-de-pruning" title="Permanent link">¶</a></h3>
+<p>Dois controles:</p>
+<ul>
+<li><code>prune.idleHours</code>: remover contêineres não usados em X horas (0 = desativar)</li>
+<li><code>prune.maxAgeDays</code>: remover contêineres mais antigos que X dias (0 = desativar)</li>
+</ul>
+<p>Exemplo:</p>
+<ul>
+<li>Manter sessões ativas, mas limitar a vida útil:
+  <code>idleHours: 24</code>, <code>maxAgeDays: 7</code></li>
+<li>Nunca fazer prune:
+  <code>idleHours: 0</code>, <code>maxAgeDays: 0</code></li>
+</ul>
+<h3 id="notas-de-seguranca">Notas de segurança<a class="toc-anchor" href="#notas-de-seguranca" title="Permanent link">¶</a></h3>
+<ul>
+<li>A barreira rígida se aplica apenas a <strong>ferramentas</strong> (exec/read/write/edit/apply_patch).</li>
+<li>Ferramentas somente do host como browser/camera/canvas são bloqueadas por padrão.</li>
+<li>Permitir <code>browser</code> no sandbox <strong>quebra o isolamento</strong> (o navegador roda no host).</li>
+</ul>
+<h2 id="solucao-de-problemas">Solução de problemas<a class="toc-anchor" href="#solucao-de-problemas" title="Permanent link">¶</a></h2>
+<ul>
+<li>Imagem ausente: construa com <a href="https://github.com/openclaw/openclaw/blob/main/scripts/sandbox-setup.sh"><code>scripts/sandbox-setup.sh</code></a> ou defina <code>agents.defaults.sandbox.docker.image</code>.</li>
+<li>Contêiner não está em execução: ele será criado automaticamente por sessão sob demanda.</li>
+<li>Erros de permissão no sandbox: defina <code>docker.user</code> para um UID:GID que corresponda à
+  propriedade do seu workspace montado (ou faça chown da pasta do workspace).</li>
+<li>Ferramentas personalizadas não encontradas: o OpenClaw executa comandos com
+  <code>sh -lc</code> (login shell), que carrega <code>/etc/profile</code> e pode redefinir o PATH. Defina <code>docker.env.PATH</code> para prefixar os caminhos das suas ferramentas personalizadas
+  (por exemplo, <code>/custom/bin:/usr/local/share/npm-global/bin</code>), ou adicione
+  um script em <code>/etc/profile.d/</code> no seu Dockerfile.</li>
+</ul></div><div class="px-0.5 flex items-center text-sm font-semibold text-gray-700 dark:text-gray-200" id="pagination"><a class="flex items-center space-x-3 group" href="installer.html"><svg class="h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><span class="group-hover:text-gray-900 dark:group-hover:text-white">Installer Internals</span></a><a class="flex items-center ml-auto space-x-3 group" href="podman.html"><span class="group-hover:text-gray-900 dark:group-hover:text-white">Podman</span><svg class="rotate-180 h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a></div><div class="left-0 right-0 sticky sm:px-4 pb-4 sm:pb-6 bottom-0 pt-1 flex flex-col items-center w-full overflow-hidden z-20 pointer-events-none print:hidden"><div class="chat-assistant-floating-input z-10 w-full sm:w-96 focus-within:w-full group/assistant-bar sm:focus-within:w-[30rem] hover:scale-100 sm:hover:scale-105 focus-within:hover:scale-100 [transition:width_400ms,left_200ms,transform_500ms,opacity_200ms]"><div class="translate-y-[100px] opacity-0"><div class="flex flex-col w-full rounded-2xl pointer-events-auto bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border border-gray-200 dark:border-white/30 focus-within:border-primary dark:focus-within:border-primary-light transition-colors sm:shadow-xl"><div class="relative flex items-end"><textarea aria-label="Ask a question..." autocomplete="off" class="chat-assistant-input w-full bg-transparent border-0 peer/input text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 !outline-none focus:!outline-none focus:ring-0 py-2.5 pl-3.5 pr-10 font-bodyWeight text-sm" id="chat-assistant-textarea" placeholder="Ask a question..." style="resize:none"></textarea><span class="absolute right-11 bottom-3 text-xs font-medium text-gray-400 dark:text-gray-500 select-none pointer-events-none peer-focus/input:hidden hidden sm:inline">⌘<!-- -->I</span><button aria-label="Send message" class="chat-assistant-send-button flex justify-center items-center rounded-full p-1 size-6 bg-primary/30 dark:bg-primary-dark/30 absolute right-2.5 bottom-2" disabled=""><svg class="lucide lucide-arrow-up text-white dark:text-white size-3.5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></div></div></div></div><footer class="flex gap-12 justify-between pt-10 border-t border-gray-100 sm:flex dark:border-gray-800/50 pb-28" id="footer"><div class="flex items-center justify-between"><div class="sm:flex"><a class="group flex items-baseline gap-1 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-nowrap" href="https://www.mintlify.com?utm_campaign=poweredBy&amp;utm_medium=referral&amp;utm_source=clawdhub" rel="noreferrer" target="_blank"><span>Powered by</span><svg class="h-3.5 w-auto translate-y-[3px]" fill="none" height="367" viewbox="0 0 1274 367" width="1274" xmlns="http://www.w3.org/2000/svg"><path d="M1154.38 366.038H1097.86L1137.69 276.14L1058.04 97.1046H1114.93L1161.35 209.337C1162.97 213.26 1168.53 213.253 1170.14 209.325L1216.21 97.1046H1273.49L1154.38 366.038Z" fill="currentColor"></path><path d="M982.714 286.761V142.622H944.403V97.1041H982.714V72.4488C982.714 49.9429 989.542 32.2416 1003.2 19.345C1016.85 6.44832 1034.17 0 1055.16 0C1068.06 0 1079.06 1.39081 1088.16 4.17244V50.0693C1082.09 47.7934 1075.01 46.6555 1066.92 46.6555C1055.54 46.6555 1047.32 49.1843 1042.27 54.2418C1037.21 59.0464 1034.68 67.2648 1034.68 78.8971V97.1041H1088.16V142.622H1034.68V286.761H982.714Z" fill="currentColor"></path><path d="M897.916 66.0005C889.066 66.0005 881.353 62.8395 874.778 56.5176C868.203 49.9429 864.916 42.1037 864.916 33.0002C864.916 23.8967 868.203 16.184 874.778 9.86215C881.353 3.28738 889.066 0 897.916 0C907.273 0 915.112 3.28738 921.434 9.86215C928.008 16.184 931.296 23.8967 931.296 33.0002C931.296 42.1037 928.008 49.9429 921.434 56.5176C915.112 62.8395 907.273 66.0005 897.916 66.0005ZM872.123 286.761V97.1041H924.089V286.761H872.123Z" fill="currentColor"></path><path d="M781.638 286.761V2.27609H833.604V286.761H781.638Z" fill="currentColor"></path><path d="M722.934 289.037C701.693 289.037 684.244 283.221 670.589 271.588C657.187 259.703 650.485 242.634 650.485 220.381V142.622H612.175V97.1044H650.485V44.3799H702.451V97.1044H755.934V142.622H702.451V210.14C702.451 221.772 704.98 230.117 710.038 235.174C715.095 239.979 723.313 242.381 734.693 242.381C742.785 242.381 749.865 241.243 755.934 238.967V284.864C746.831 287.646 735.831 289.037 722.934 289.037Z" fill="currentColor"></path><path d="M417.674 286.761V97.1041H469.64V110.967C469.64 113.311 472.83 114.347 474.382 112.591C485.967 99.4848 502.467 92.9317 523.881 92.9317C546.64 92.9317 564.468 100.518 577.365 115.69C590.514 130.61 597.089 150.587 597.089 175.622V286.761H545.123V184.346C545.123 170.438 542.215 159.691 536.399 152.105C530.583 144.265 522.364 140.346 511.743 140.346C499.1 140.346 488.858 144.898 481.019 154.001C473.433 163.105 469.64 176.507 469.64 194.208V286.761H417.674Z" fill="currentColor"></path><path d="M352.981 66.0005C344.13 66.0005 336.417 62.8395 329.843 56.5176C323.268 49.9429 319.98 42.1037 319.98 33.0002C319.98 23.8967 323.268 16.184 329.843 9.86215C336.417 3.28738 344.13 0 352.981 0C362.337 0 370.176 3.28738 376.498 9.86215C383.073 16.184 386.36 23.8967 386.36 33.0002C386.36 42.1037 383.073 49.9429 376.498 56.5176C370.176 62.8395 362.337 66.0005 352.981 66.0005ZM327.187 286.761V97.1041H379.153V286.761H327.187Z" fill="currentColor"></path><path d="M238.967 286.761V185.484C238.967 155.392 229.105 140.346 209.381 140.346C198.001 140.346 188.898 144.645 182.07 153.242C175.495 161.84 171.955 174.61 171.449 191.553V286.761H119.484V185.484C119.484 155.392 109.621 140.346 89.8972 140.346C78.2649 140.346 69.035 144.898 62.2073 154.001C55.3797 163.105 51.9659 176.507 51.9659 194.208V286.761H0V97.1041H51.9659V111.103C51.9659 113.435 55.1014 114.462 56.633 112.704C68.1136 99.5223 83.3741 92.9317 102.415 92.9317C127.436 92.9317 146.283 103.262 158.953 123.923C159.953 125.553 162.412 125.527 163.406 123.894C168.884 114.891 176.496 107.731 186.243 102.415C197.369 96.0926 208.622 92.9317 220.002 92.9317C242.507 92.9317 259.956 100.392 272.347 115.311C284.738 130.231 290.933 150.714 290.933 176.76V286.761H238.967Z" fill="currentColor"></path></svg></a></div></div></footer></div></div><!--$--><!--/$--></div></div></div></div></div>
+<div class="veiseule-footer"><a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Community translations maintained by <a href="http://blog.law-kelly.com/2026/02/open-source-means-open-language.html">John Kelly</a>. Improve translations on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a>.</div>
+<script>
+(function(){
+  var btn = document.querySelector('[aria-label="Toggle dark mode"]');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var html = document.documentElement;
+    var isDark = html.classList.contains('dark');
+    if(isDark){
+      html.classList.remove('dark');
+      html.style.colorScheme = 'light';
+      try { localStorage.setItem('isDarkMode','light'); } catch(e){}
+    } else {
+      html.classList.add('dark');
+      html.style.colorScheme = 'dark';
+      try { localStorage.setItem('isDarkMode','dark'); } catch(e){}
+    }
+  });
+})();
+</script></body></html>

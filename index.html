@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OpenClaw Documentation — 23 Languages | veiseule.ai</title>
+  <meta name="description" content="OpenClaw documentation translated into 23 languages by the community. Choose your language and start reading." />
+  <link rel="icon" href="/assets/owl-icon.png" type="image/png" />
+  <meta property="og:title" content="OpenClaw Docs — 23 Languages" />
+  <meta property="og:description" content="Community-maintained translations of the OpenClaw documentation." />
+  <meta property="og:image" content="/assets/language-globe.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style id="veiseule-branding">
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0c0f14;
+      --bg-gradient: linear-gradient(170deg, #0c0f14 0%, #111820 40%, #0f1a14 100%);
+      --surface: rgba(255,255,255,0.04);
+      --surface-hover: rgba(255,255,255,0.07);
+      --border: rgba(255,255,255,0.08);
+      --border-hover: #A9B8A1;
+      --text: #e8e8ec;
+      --text-muted: #8b919e;
+      --accent: #A9B8A1;
+      --accent-bright: #c5d4bc;
+      --accent-dim: #2E4A3A;
+      --glow: rgba(169,184,161,0.08);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      background-image: var(--bg-gradient);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Top banner ── */
+    .banner {
+      background: var(--accent-dim);
+      color: #d0d0d0;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 13px;
+      letter-spacing: 0.01em;
+    }
+    .banner a { color: var(--accent-bright); text-decoration: none; font-weight: 500; }
+    .banner a:hover { text-decoration: underline; color: #fff; }
+
+    /* ── Hero section ── */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 1.5rem 1rem;
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-globe {
+      width: min(340px, 70vw);
+      height: auto;
+      margin-bottom: 1.5rem;
+      border-radius: 20px;
+      filter: drop-shadow(0 4px 40px var(--glow));
+    }
+    .hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .hero h1 .v { color: var(--accent); }
+    .hero .tagline {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 0.25rem;
+    }
+    .hero .count {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--accent);
+      background: rgba(169,184,161,0.1);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Section divider ── */
+    .section-label {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin: 2rem auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      max-width: 960px;
+      padding: 0 1.5rem;
+    }
+    .section-label::before, .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Language grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 10px;
+      max-width: 960px;
+      margin: 0 auto 3rem;
+      padding: 0 1.5rem;
+    }
+
+    .lang-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s ease;
+    }
+    .lang-card:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px var(--glow);
+    }
+    .flag {
+      width: 30px;
+      height: 22px;
+      border-radius: 3px;
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+    .lang-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      min-width: 0;
+      flex: 1;
+    }
+    .lang-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .lang-greeting {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .arrow {
+      width: 14px;
+      height: 14px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      transition: transform 0.15s, color 0.15s;
+    }
+    .lang-card:hover .arrow {
+      transform: translateX(2px);
+      color: var(--accent);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: auto;
+      background: #131a12;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 24px 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      opacity: 0.7;
+    }
+    .footer a { color: var(--accent); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; color: #fff; }
+    .footer .links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+
+    @media (max-width: 540px) {
+      .hero { padding-top: 2rem; }
+      .hero-globe { width: 70vw; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    Community translations by <a href="https://openclaw.veiseule.ai">veiseule.ai</a>
+    &mdash; Help improve them on
+    <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a>
+  </div>
+
+  <div class="hero">
+    <img src="/assets/language-globe.png" alt="Veiseule owl on a globe surrounded by language names" class="hero-globe" />
+    <h1>Open<span class="v">Claw</span> Docs</h1>
+    <p class="tagline">
+      Community-maintained translations of the OpenClaw documentation,
+      powered by <strong>veiseule.ai</strong>.
+    </p>
+    <span class="count">23 languages available</span>
+  </div>
+
+  <div class="section-label">Choose your language</div>
+
+  <div class="grid">
+    
+      <a href="/en/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/US.svg" alt="US" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">English</span>
+          <span class="lang-greeting">Documentation</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/da/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/DK.svg" alt="DK" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">Dansk</span>
+          <span class="lang-greeting">Dokumentation</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/de/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/DE.svg" alt="DE" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">Deutsch</span>
+          <span class="lang-greeting">Dokumentation</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/es/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/ES.svg" alt="ES" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">Español</span>
+          <span class="lang-greeting">Documentación</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/tl/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/PH.svg" alt="PH" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">Filipino</span>
+          <span class="lang-greeting">Dokumentasyon</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/fr/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/FR.svg" alt="FR" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">Français</span>
+          <span class="lang-greeting">Documentation</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/nl/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/NL.svg" alt="NL" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">Nederlands</span>
+          <span class="lang-greeting">Documentatie</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/uz/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/UZ.svg" alt="UZ" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">Oʻzbek</span>
+          <span class="lang-greeting">Hujjatlar</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/pl/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/PL.svg" alt="PL" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">Polski</span>
+          <span class="lang-greeting">Dokumentacja</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/pt-BR/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/BR.svg" alt="BR" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">Português</span>
+          <span class="lang-greeting">Documentação</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/sv/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/SE.svg" alt="SE" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">Svenska</span>
+          <span class="lang-greeting">Dokumentation</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/vi/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/VN.svg" alt="VN" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">Tiếng Việt</span>
+          <span class="lang-greeting">Tài liệu</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/tr/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/TR.svg" alt="TR" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">Türkçe</span>
+          <span class="lang-greeting">Belgeler</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/ru/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/RU.svg" alt="RU" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">Русский</span>
+          <span class="lang-greeting">Документация</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/ur/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/PK.svg" alt="PK" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">اردو</span>
+          <span class="lang-greeting">دستاویزات</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/ar/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/SA.svg" alt="SA" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">العربية</span>
+          <span class="lang-greeting">التوثيق</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/hi/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/IN.svg" alt="IN" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">हिन्दी</span>
+          <span class="lang-greeting">दस्तावेज़ीकरण</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/th/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/TH.svg" alt="TH" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">ไทย</span>
+          <span class="lang-greeting">เอกสาร</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/my/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/MM.svg" alt="MM" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">မြန်မာ</span>
+          <span class="lang-greeting">စာရွက်စာတမ်း</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/ja/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/JP.svg" alt="JP" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">日本語</span>
+          <span class="lang-greeting">ドキュメント</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/zh-CN/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/CN.svg" alt="CN" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">简体中文</span>
+          <span class="lang-greeting">文档</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/zh-TW/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/TW.svg" alt="TW" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">繁體中文</span>
+          <span class="lang-greeting">文件</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+      <a href="/ko/index.html" class="lang-card">
+        <img src="https://d3gk2c5xim1je2.cloudfront.net/flags/KR.svg" alt="KR" class="flag" loading="lazy" />
+        <div class="lang-info">
+          <span class="lang-name">한국어</span>
+          <span class="lang-greeting">문서</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+      </a>
+  </div>
+
+  <div class="footer">
+    <img src="/assets/owl-icon.png" alt="Veiseule" class="footer-logo" />
+    <div class="links">
+      <a href="https://openclaw.veiseule.ai">veiseule.ai</a>
+      <a href="https://docs.openclaw.ai">English docs</a>
+      <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Contribute on Crowdin</a>
+    </div>
+    <div>
+      Maintained by
+      <a href="http://blog.law-kelly.com/2026/02/open-source-means-open-language.html">John Kelly</a>
+    </div>
+  </div>
+</body>
+</html>

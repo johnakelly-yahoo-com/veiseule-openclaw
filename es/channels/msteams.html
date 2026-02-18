@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html class="__variable_47c970 __variable_3bbdad" data-banner-state="visible" data-page-mode="none" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/bb3ef058b751a6ad-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/c4b700dcb2187787-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/e4af272ccee01ff0-s.p.woff2" rel="preload" type="font/woff2"/><link as="image" href="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26" rel="preload"/><link as="image" href="https://d3gk2c5xim1je2.cloudfront.net/flags/ES.svg" rel="preload"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/b864dec2fc058581.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/6f9b80d484ead711.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/05d6d8fcb903870d.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><meta content="" name="next-size-adjust"/><title>Microsoft Teams (plugin) - OpenClaw</title><meta content="OpenClaw" name="application-name"/><meta content="Mintlify" name="generator"/><meta content="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/browserconfig.xml" name="msapplication-config"/><meta content="OpenClaw" name="apple-mobile-web-app-title"/><meta content="#FF5A36" name="msapplication-TileColor"/><meta content="utf-8" name="charset"/><meta content="OpenClaw" name="og:site_name"/><meta content="https://docs.openclaw.ai/channels/msteams" name="canonical"/><link href="msteams.html" rel="canonical"/><link href="/sitemap.xml" rel="alternate" type="application/xml"/><meta content="Microsoft Teams - OpenClaw" property="og:title"/><meta content="https://docs.openclaw.ai/channels/msteams" property="og:url"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DMessaging%2Bplatforms%26title%3DMicrosoft%2BTeams%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="website" property="og:type"/><meta content="summary_large_image" name="twitter:card"/><meta content="Microsoft Teams - OpenClaw" name="twitter:title"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DMessaging%2Bplatforms%26title%3DMicrosoft%2BTeams%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" name="twitter:image"/><meta content="1200" name="twitter:image:width"/><meta content="630" name="twitter:image:height"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-16x16.png" media="(prefers-color-scheme: light)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-32x32.png" media="(prefers-color-scheme: light)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon.ico" media="(prefers-color-scheme: light)" rel="shortcut icon" type="image/x-icon"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-16x16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-32x32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon.ico" media="(prefers-color-scheme: dark)" rel="shortcut icon" type="image/x-icon"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link as="style" href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css" rel="preload"/><script type="text/javascript">(function(a,b){try{let c=document.getElementById("banner")?.innerText;if(c){for(let d=0;d<localStorage.length;d++){let e=localStorage.key(d);if(e?.endsWith(a)&&localStorage.getItem(e)===c)return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible");return}for(let c=0;c<localStorage.length;c++){let d=localStorage.key(c);if(d?.endsWith(a)&&localStorage.getItem(d))return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible")}catch(a){document.documentElement.setAttribute(b,"hidden")}})(
+  "bannerDismissed",
+  "data-banner-state",
+)</script><style id="veiseule-branding">
+.veiseule-bar{position:fixed;top:0;left:0;right:0;z-index:99999;background:#2E4A3A;color:#E0E0E0;text-align:center;padding:8px 16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;box-shadow:0 2px 4px rgba(0,0,0,0.15)}
+.veiseule-bar a{color:#A9B8A1;text-decoration:underline}
+.veiseule-bar a:hover{color:#fff}
+.veiseule-footer{background:#1A2E20;color:#E0E0E0;text-align:center;padding:16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;border-top:1px solid #2E4A3A}
+.veiseule-footer a{color:#A9B8A1;text-decoration:underline}
+.veiseule-footer a:hover{color:#fff}
+body{padding-top:36px !important}
+</style>
+<style>
+.toc-anchor { text-decoration: none; margin-left: 0.3em; opacity: 0.3; }
+.toc-anchor:hover { opacity: 1; }
+.toc-anchor { color: #999; }
+.dark .toc-anchor { color: #555; }
+</style></head><body>
+<div class="veiseule-bar">Community translations by <a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Help improve them on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a></div>
+<div hidden=""><!--$--><!--/$--></div><script>((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","isDarkMode","system",null,["dark","light","true","false","system"],{"true":"dark","false":"light","dark":"dark","light":"light"},true,true)</script><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><style>:root {
+  --font-family-headings-custom: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  --font-family-body-custom: "Fragment Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  
+  
+}</style><style>:root {
+    --primary: 255 90 54;
+    --primary-light: 255 138 107;
+    --primary-dark: 255 90 54;
+    --tooltip-foreground: 255 255 255;
+    --background-light: 255 255 255;
+    --background-dark: 14 12 13;
+    --gray-50: 250 245 244;
+    --gray-100: 245 240 239;
+    --gray-200: 230 225 224;
+    --gray-300: 213 208 207;
+    --gray-400: 166 161 160;
+    --gray-500: 119 114 113;
+    --gray-600: 87 82 81;
+    --gray-700: 70 65 64;
+    --gray-800: 45 40 38;
+    --gray-900: 30 25 24;
+    --gray-950: 17 12 11;
+  }</style><script type="text/javascript">
+          (function() {
+            function loadKatex() {
+              const link = document.querySelector('link[href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css"]');
+              if (link) link.rel = 'stylesheet';
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', loadKatex);
+            } else {
+              loadKatex();
+            }
+          })();
+        </script><div class="relative antialiased text-gray-500 dark:text-gray-400"><a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:p-2 focus:text-sm focus:bg-background-light dark:focus:bg-background-dark focus:rounded-md focus:outline-primary dark:focus:outline-primary-light" href="msteams.html#content-area">Skip to main content</a><div class="max-lg:contents lg:flex lg:w-full"><div class="max-lg:contents lg:flex-1 lg:min-w-0 lg:overflow-x-clip"><div class="z-30 fixed lg:sticky top-0 w-full peer is-not-custom peer is-not-center peer is-not-wide peer is-not-frame" id="navbar"><div class="absolute w-full h-full backdrop-blur flex-none transition-colors duration-500 border-b border-gray-500/5 dark:border-gray-300/[0.06] data-[is-opaque=true]:bg-background-light data-[is-opaque=true]:supports-backdrop-blur:bg-background-light/95 data-[is-opaque=true]:dark:bg-background-dark/75 data-[is-opaque=false]:supports-backdrop-blur:bg-background-light/60 data-[is-opaque=false]:dark:bg-transparent" data-is-opaque="false" id="navbar-transition"></div><div class="max-w-8xl mx-auto relative"><div><div class="relative"><div class="flex items-center lg:px-12 h-16 min-w-0 mx-4 lg:mx-0"><div class="h-full relative flex-1 flex items-center gap-x-4 min-w-0 border-b border-gray-500/5 dark:border-gray-300/[0.06]"><div class="flex-1 flex items-center gap-x-4"><a class="select-none" data-slot="context-menu-trigger" data-state="closed" href="../index.html" style="-webkit-touch-callout:none"><span class="sr-only">OpenClaw<!-- --> home page</span><img alt="light logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 block dark:hidden" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/><img alt="dark logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 hidden dark:block" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/></a><div class="hidden lg:flex items-center gap-x-2"><button aria-expanded="false" aria-haspopup="menu" class="group disabled:pointer-events-none [&amp;&gt;span]:line-clamp-1 overflow-hidden group group-hover:text-gray-950/70 dark:group-hover:text-white/70 py-1.5 px-2.5 rounded-xl hover:!bg-gray-600/5 dark:hover:!bg-gray-200/5 aria-[expanded=true]:bg-gray-600/5 dark:aria-[expanded=true]:bg-gray-200/5 text-sm font-medium text-gray-900 h-8 focus-visible:outline-primary dark:text-gray-300 group/trigger flex items-center gap-2 whitespace-nowrap" data-state="closed" id="localization-select-trigger" type="button"><div class="relative size-4 rounded-full shrink-0"><img alt="ES" class="w-full h-full rounded-full" src="https://d3gk2c5xim1je2.cloudfront.net/flags/ES.svg"/><div class="absolute top-0 left-0 w-full h-full border rounded-full bg-primary-light/10 border-black/10"></div></div><span class="truncate max-w-[12.5rem]">Español</span><svg class="transition-transform text-gray-400 overflow-visible group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400 rotate-90 ml-auto group-aria-[expanded=true]/trigger:rotate-[270deg]" height="24" viewbox="0 -9 3 24" width="8"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></button></div></div><div class="relative hidden lg:flex items-center flex-1 z-20 justify-center"><button aria-label="Open search" class="flex pointer-events-auto rounded-xl w-full items-center text-sm leading-6 h-9 pl-3.5 pr-3 text-gray-500 dark:text-white/50 bg-background-light dark:bg-background-dark dark:brightness-[1.1] dark:ring-1 dark:hover:brightness-[1.25] ring-1 ring-gray-400/30 hover:ring-gray-600/30 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 justify-between truncate gap-2 min-w-[43px]" id="search-bar-entry" type="button"><div class="flex items-center gap-2 min-w-[42px]"><svg class="lucide lucide-search min-w-4 flex-none text-gray-700 hover:text-gray-800 dark:text-gray-400 hover:dark:text-gray-200" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><div class="truncate min-w-0">Search...</div></div><span class="flex-none text-xs font-semibold">⌘<!-- -->K</span></button></div><div class="flex-1 relative hidden lg:flex items-center ml-auto justify-end space-x-4"><nav class="text-sm"><ul class="flex space-x-6 items-center"><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);mask-repeat:no-repeat;mask-position:center"></svg>GitHub</a></li><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw/releases" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);mask-repeat:no-repeat;mask-position:center;mask-size:100%"></svg>Releases</a></li></ul></nav><div class="flex items-center"><button aria-label="Toggle dark mode" class="group p-2 flex items-center justify-center"><svg class="h-4 w-4 block text-gray-400 dark:hidden group-hover:text-gray-600" fill="none" height="16" stroke="currentColor" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2880_7340)"><path d="M8 1.11133V2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 3.12891L12.2427 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M14.8889 8H14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 12.8711L12.2427 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8 14.8889V14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 12.8711L3.75735 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M1.11133 8H2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 3.12891L3.75735 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8.00043 11.7782C10.0868 11.7782 11.7782 10.0868 11.7782 8.00043C11.7782 5.91402 10.0868 4.22266 8.00043 4.22266C5.91402 4.22266 4.22266 5.91402 4.22266 8.00043C4.22266 10.0868 5.91402 11.7782 8.00043 11.7782Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g><defs><clippath id="clip0_2880_7340"><rect fill="white" height="16" width="16"></rect></clippath></defs></svg><svg class="lucide lucide-moon h-4 w-4 hidden dark:block text-gray-500 dark:group-hover:text-gray-300" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button></div></div><div class="flex lg:hidden items-center gap-3"><button aria-label="Open search" class="text-gray-500 w-8 h-8 flex items-center justify-center hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300" id="search-bar-entry-mobile" type="button"><span class="sr-only">Search...</span><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);mask-repeat:no-repeat;mask-position:center"></svg></button><button aria-label="More actions" class="h-7 w-5 flex items-center justify-end"><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);mask-repeat:no-repeat;mask-position:center"></svg></button></div></div></div><button class="flex items-center h-14 py-4 px-5 lg:hidden focus:outline-0 w-full text-left" type="button"><div class="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300"><span class="sr-only">Navigation</span><svg class="h-4" fill="currentColor" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></div><div class="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0 space-x-3 overflow-hidden"><div class="flex items-center space-x-3 flex-shrink-0"><span>Messaging platforms</span><svg class="h-5 rotate-0 overflow-visible fill-gray-400" height="24" viewbox="0 -9 3 24" width="3"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></div><div class="font-semibold text-gray-900 truncate dark:text-gray-200 min-w-0 flex-1">Microsoft Teams</div></div></button></div><div class="hidden lg:flex px-12 h-12"><div class="nav-tabs h-full flex text-sm gap-x-6"><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../index.html">Get started<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../install.html">Install<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium hover:text-gray-800 dark:hover:text-gray-300 text-gray-800 dark:text-gray-200 [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor]" href="../channels.html">Channels<div class="absolute bottom-0 h-[1.5px] w-full left-0 bg-primary dark:bg-primary-light"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../concepts/architecture.html">Agents<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../tools.html">Tools<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../providers.html">Models<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../platforms.html">Platforms<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../gateway.html">Gateway &amp; Ops<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../cli.html">Reference<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../help.html">Help<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a></div></div></div></div><span hidden="" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"></span></div><div class="scroll-mt-[var(--scroll-mt)] peer-[.is-custom]:max-w-none peer-[.is-center]:max-w-3xl peer-[.is-not-custom]:peer-[.is-not-center]:max-w-8xl peer-[.is-not-custom]:px-4 peer-[.is-not-custom]:mx-auto peer-[.is-not-custom]:lg:px-8 peer-[.is-wide]:[&amp;&gt;div:last-child]:max-w-6xl peer-[.is-custom]:[&amp;&gt;div:first-child]:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:xl:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:xl:!hidden"><div class="z-20 hidden lg:block fixed bottom-0 right-auto w-[18rem]" id="sidebar" style="top:7rem"><div class="absolute inset-0 z-10 stable-scrollbar-gutter overflow-auto pr-8 pb-10" id="sidebar-content"><div class="relative lg:text-sm lg:leading-6"><div class="sticky top-0 h-8 z-10 bg-gradient-to-b from-background-light dark:from-background-dark"></div><div id="navigation-items"><div class=""><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Overview</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Chat Channels" id="/channels"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../channels.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Chat Channels</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Messaging platforms</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="WhatsApp" id="/channels/whatsapp"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="whatsapp.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">WhatsApp</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Telegram" id="/channels/telegram"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="telegram.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Telegram</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Discord" id="/channels/discord"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="discord.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Discord</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="IRC" id="/channels/irc"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="irc.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">IRC</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Slack" id="/channels/slack"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="slack.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Slack</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Feishu" id="/channels/feishu"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="feishu.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Feishu</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Google Chat" id="/channels/googlechat"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="googlechat.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Google Chat</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Mattermost" id="/channels/mattermost"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="mattermost.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Mattermost</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Signal" id="/channels/signal"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="signal.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Signal</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="iMessage" id="/channels/imessage"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="imessage.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">iMessage</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Microsoft Teams" id="/channels/msteams"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] bg-primary/10 text-primary [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor] dark:text-primary-light dark:bg-primary-light/10" href="msteams.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Microsoft Teams</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="LINE" id="/channels/line"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="line.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">LINE</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Matrix" id="/channels/matrix"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="matrix.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Matrix</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Zalo" id="/channels/zalo"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="zalo.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Zalo</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Zalo Personal" id="/channels/zalouser"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="zalouser.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Zalo Personal</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Configuration</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Pairing" id="/channels/pairing"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="pairing.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Pairing</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Group Messages" id="/channels/group-messages"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="group-messages.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Group Messages</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Groups" id="/channels/groups"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="groups.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Groups</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Broadcast Groups" id="/channels/broadcast-groups"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="broadcast-groups.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Broadcast Groups</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Channel Routing" id="/channels/channel-routing"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channel-routing.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Channel Routing</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Channel Location Parsing" id="/channels/location"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="location.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Channel Location Parsing</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Channel Troubleshooting" id="/channels/troubleshooting"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="troubleshooting.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Channel Troubleshooting</div></div></a></li></ul></div></div></div></div></div><div id="content-container"><span class="fixed inset-0 bg-background-light dark:bg-background-dark -z-10 pointer-events-none" id="almond-background-color"></span><style data-custom-css-index="0" data-custom-css-path="style.css">#content > h1:first-of-type {
+  display: none !important;
+}
+</style><div class="flex flex-row-reverse gap-12 box-border w-full pt-40 lg:pt-10"><div class="hidden xl:flex self-start sticky xl:flex-col max-w-[28rem] z-[21] h-[calc(100vh-9.5rem)] top-[calc(9.5rem-var(--sidenav-move-up,0px))]" id="content-side-layout"><div class="z-10 hidden xl:flex box-border max-h-full pl-10 w-[19rem]" id="table-of-contents-layout"><div class="text-gray-600 text-sm leading-6 w-[16.5rem] overflow-y-auto space-y-2 pb-4 -mt-10 pt-10" id="table-of-contents"><button class="text-gray-700 dark:text-gray-300 font-medium flex items-center space-x-2 hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer"><svg class="h-3 w-3" fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.44434 12.6665H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 3.3335H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 8H7.33323" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>On this page</span></button><ul class="toc" id="table-of-contents-content"><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#microsoft-teams-plugin">Microsoft Teams (plugin)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#plugin-requerido">Plugin requerido</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#configuracion-rapida-principiante">Configuración rápida (principiante)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#objetivos">Objetivos</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#escrituras-de-configuracion">Escrituras de configuración</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#control-de-acceso-mensajes-directos-grupos">Control de acceso (mensajes directos + grupos)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#como-funciona">Cómo funciona</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#configuracion-del-azure-bot-requisitos-previos">Configuración del Azure Bot (Requisitos previos)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#paso-1-crear-azure-bot">Paso 1: Crear Azure Bot</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#paso-2-obtener-credenciales">Paso 2: Obtener credenciales</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#paso-3-configurar-el-endpoint-de-mensajeria">Paso 3: Configurar el endpoint de mensajería</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#paso-4-habilitar-el-canal-de-teams">Paso 4: Habilitar el canal de Teams</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#desarrollo-local-tuneles">Desarrollo local (túneles)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#portal-para-desarrolladores-de-teams-alternativa">Portal para desarrolladores de Teams (alternativa)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#prueba-del-bot">Prueba del bot</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#configuracion-minima-solo-texto">Configuración (mínima solo texto)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#contexto-de-historial">Contexto de historial</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#permisos-rsc-actuales-de-teams-manifiesto">Permisos RSC actuales de Teams (manifiesto)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#ejemplo-de-manifiesto-de-teams-redactado">Ejemplo de manifiesto de Teams (redactado)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#advertencias-del-manifiesto-campos-imprescindibles">Advertencias del manifiesto (campos imprescindibles)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#actualizar-una-app-existente">Actualizar una app existente</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#capacidades-solo-rsc-vs-graph">Capacidades: solo RSC vs Graph</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#con-solo-teams-rsc-app-instalada-sin-permisos-de-graph-api">Consolo Teams RSC(app instalada, sin permisos de Graph API)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#con-teams-rsc-permisos-de-aplicacion-de-microsoft-graph">ConTeams RSC + permisos de aplicación de Microsoft Graph</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#rsc-vs-graph-api">RSC vs Graph API</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#medios-historial-habilitados-con-graph-requerido-para-canales">Medios + historial habilitados con Graph (requerido para canales)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#limitaciones-conocidas">Limitaciones conocidas</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#tiempos-de-espera-del-webhook">Tiempos de espera del webhook</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#formato">Formato</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#configuracion">Configuración</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#enrutamiento-y-sesiones">Enrutamiento y sesiones</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#estilo-de-respuesta-hilos-vs-publicaciones">Estilo de respuesta: Hilos vs Publicaciones</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#adjuntos-e-imagenes">Adjuntos e imágenes</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#envio-de-archivos-en-chats-grupales">Envío de archivos en chats grupales</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#por-que-los-chats-grupales-necesitan-sharepoint">Por qué los chats grupales necesitan SharePoint</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#configuracion_1">Configuración</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#comportamiento-de-uso-compartido">Comportamiento de uso compartido</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#comportamiento-de-respaldo">Comportamiento de respaldo</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#ubicacion-de-almacenamiento-de-archivos">Ubicación de almacenamiento de archivos</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#encuestas-adaptive-cards">Encuestas (Adaptive Cards)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#adaptive-cards-arbitrarias">Adaptive Cards (arbitrarias)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#formatos-de-destino">Formatos de destino</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#mensajeria-proactiva">Mensajería proactiva</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#ids-de-equipo-y-canal-error-comun">IDs de equipo y canal (error común)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#canales-privados">Canales privados</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#solucion-de-problemas">Solución de problemas</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#problemas-comunes">Problemas comunes</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#errores-al-cargar-el-manifiesto">Errores al cargar el manifiesto</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#permisos-rsc-no-funcionan">Permisos RSC no funcionan</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="channels/msteams.html#referencias">Referencias</a></li></ul></div></div></div><div class="relative grow box-border flex-col w-full mx-auto px-1 lg:pl-[23.7rem] lg:-ml-12 xl:w-[calc(100%-28rem)]" id="content-area"><header class="relative leading-none" id="header"><div class="mt-0.5 space-y-2.5"><div class="eyebrow h-5 text-primary dark:text-primary-light text-sm font-semibold">Messaging platforms</div><div class="flex flex-col sm:flex-row items-start sm:items-center relative gap-2 min-w-0"><h1 class="text-2xl sm:text-3xl text-gray-900 tracking-tight dark:text-gray-200 [overflow-wrap:anywhere] font-bold" id="page-title">Microsoft Teams</h1></div></div></header><div class="mdx-content relative mt-8 mb-14 prose prose-gray dark:prose-invert [contain:inline-size] isolate" data-page-href="/channels/msteams" data-page-title="Microsoft Teams" id="content"><h1 id="microsoft-teams-plugin">Microsoft Teams (plugin)<a class="toc-anchor" href="#microsoft-teams-plugin" title="Permanent link">¶</a></h1>
+<blockquote>
+<p>"Abandonen toda esperanza quienes entren aquí."</p>
+</blockquote>
+<p>Actualizado: 2026-01-21</p>
+<p>Estado: se admiten texto + archivos adjuntos en mensajes directos; el envío de archivos en canales/grupos requiere <code>sharePointSiteId</code> + permisos de Graph (consulte <a href="#sending-files-in-group-chats">Envío de archivos en chats grupales</a>). Las encuestas se envían mediante Adaptive Cards.</p>
+<h2 id="plugin-requerido">Plugin requerido<a class="toc-anchor" href="#plugin-requerido" title="Permanent link">¶</a></h2>
+<p>Microsoft Teams se distribuye como un plugin y no viene incluido con la instalación principal.</p>
+<p><strong>Cambio disruptivo (2026.1.15):</strong> MS Teams salió del núcleo. Si lo usa, debe instalar el plugin.</p>
+<p>Explicación: mantiene las instalaciones del núcleo más ligeras y permite que las dependencias de MS Teams se actualicen de forma independiente.</p>
+<p>Instalar vía CLI (registro npm):</p>
+<pre class="highlight"><code class="language-bash">openclaw plugins install @openclaw/msteams
+</code></pre>
+<p>Instalación local (cuando se ejecuta desde un repositorio git):</p>
+<pre class="highlight"><code class="language-bash">openclaw plugins install ./extensions/msteams
+</code></pre>
+<p>Si elige Teams durante la configuración/onboarding y se detecta un checkout de git,
+OpenClaw ofrecerá automáticamente la ruta de instalación local.</p>
+<p>Detalles: <a href="/tools/plugin">Plugins</a></p>
+<h2 id="configuracion-rapida-principiante">Configuración rápida (principiante)<a class="toc-anchor" href="#configuracion-rapida-principiante" title="Permanent link">¶</a></h2>
+<ol>
+<li>Instale el plugin de Microsoft Teams.</li>
+<li>Cree un <strong>Azure Bot</strong> (App ID + secreto del cliente + ID de tenant).</li>
+<li>Configure OpenClaw con esas credenciales.</li>
+<li>Exponga <code>/api/messages</code> (puerto 3978 por defecto) mediante una URL pública o un túnel.</li>
+<li>Instale el paquete de la app de Teams e inicie el gateway.</li>
+</ol>
+<p>Configuración mínima:</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    msteams: {
+      enabled: true,
+      appId: "&lt;APP_ID&gt;",
+      appPassword: "&lt;APP_PASSWORD&gt;",
+      tenantId: "&lt;TENANT_ID&gt;",
+      webhook: { port: 3978, path: "/api/messages" },
+    },
+  },
+}
+</code></pre>
+<p>Nota: los chats grupales están bloqueados por defecto (<code>channels.msteams.groupPolicy: "allowlist"</code>). Para permitir respuestas en grupos, configure <code>channels.msteams.groupAllowFrom</code> (o use <code>groupPolicy: "open"</code> para permitir a cualquier miembro, con mención obligatoria).</p>
+<h2 id="objetivos">Objetivos<a class="toc-anchor" href="#objetivos" title="Permanent link">¶</a></h2>
+<ul>
+<li>Comunicarse con OpenClaw mediante mensajes directos de Teams, chats grupales o canales.</li>
+<li>Mantener un enrutamiento determinista: las respuestas siempre vuelven al canal por el que llegaron.</li>
+<li>Usar por defecto un comportamiento seguro del canal (menciones requeridas salvo que se configure lo contrario).</li>
+</ul>
+<h2 id="escrituras-de-configuracion">Escrituras de configuración<a class="toc-anchor" href="#escrituras-de-configuracion" title="Permanent link">¶</a></h2>
+<p>De forma predeterminada, Microsoft Teams puede escribir actualizaciones de configuración activadas por <code>/config set|unset</code> (requiere <code>commands.config: true</code>).</p>
+<p>Deshabilitar con:</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: { msteams: { configWrites: false } },
+}
+</code></pre>
+<h2 id="control-de-acceso-mensajes-directos-grupos">Control de acceso (mensajes directos + grupos)<a class="toc-anchor" href="#control-de-acceso-mensajes-directos-grupos" title="Permanent link">¶</a></h2>
+<p><strong>Acceso a mensajes directos</strong></p>
+<ul>
+<li>Predeterminado: <code>channels.msteams.dmPolicy = "pairing"</code>. Los remitentes desconocidos se ignoran hasta ser aprobados.</li>
+<li><code>channels.msteams.allowFrom</code> acepta IDs de objetos AAD, UPNs o nombres para mostrar. El asistente resuelve nombres a IDs mediante Microsoft Graph cuando las credenciales lo permiten.</li>
+</ul>
+<p><strong>Acceso a grupos</strong></p>
+<ul>
+<li>Predeterminado: <code>channels.msteams.groupPolicy = "allowlist"</code> (bloqueado a menos que agregue <code>groupAllowFrom</code>). Use <code>channels.defaults.groupPolicy</code> para anular el valor predeterminado cuando no esté configurado.</li>
+<li><code>channels.msteams.groupAllowFrom</code> controla qué remitentes pueden activar en chats/canales grupales (usa como respaldo <code>channels.msteams.allowFrom</code>).</li>
+<li>Configure <code>groupPolicy: "open"</code> para permitir a cualquier miembro (aún con mención obligatoria por defecto).</li>
+<li>Para permitir <strong>ningún canal</strong>, configure <code>channels.msteams.groupPolicy: "disabled"</code>.</li>
+</ul>
+<p>Ejemplo:</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    msteams: {
+      groupPolicy: "allowlist",
+      groupAllowFrom: ["user@org.com"],
+    },
+  },
+}
+</code></pre>
+<p><strong>Teams + lista de permitidos de canales</strong></p>
+<ul>
+<li>Limite respuestas por grupo/canal listando equipos y canales bajo <code>channels.msteams.teams</code>.</li>
+<li>Las claves pueden ser IDs o nombres de equipos; las claves de canal pueden ser IDs de conversación o nombres.</li>
+<li>Cuando <code>groupPolicy="allowlist"</code> y existe una lista de permitidos de equipos, solo se aceptan los equipos/canales listados (con mención obligatoria).</li>
+<li>El asistente de configuración acepta entradas <code>Team/Channel</code> y las almacena por usted.</li>
+<li>Al iniciar, OpenClaw resuelve nombres de equipos/canales y listas de permitidos de usuarios a IDs (cuando los permisos de Graph lo permiten)
+  y registra el mapeo; las entradas no resueltas se conservan tal como se escribieron.</li>
+</ul>
+<p>Ejemplo:</p>
+<pre class="highlight"><code class="language-json5">{
+  channels: {
+    msteams: {
+      groupPolicy: "allowlist",
+      teams: {
+        "My Team": {
+          channels: {
+            General: { requireMention: true },
+          },
+        },
+      },
+    },
+  },
+}
+</code></pre>
+<h2 id="como-funciona">Cómo funciona<a class="toc-anchor" href="#como-funciona" title="Permanent link">¶</a></h2>
+<ol>
+<li>Instale el plugin de Microsoft Teams.</li>
+<li>Cree un <strong>Azure Bot</strong> (App ID + secreto + ID de tenant).</li>
+<li>Cree un <strong>paquete de app de Teams</strong> que haga referencia al bot e incluya los permisos RSC a continuación.</li>
+<li>Cargue/instale la app de Teams en un equipo (o en ámbito personal para mensajes directos).</li>
+<li>Configure <code>msteams</code> en <code>~/.openclaw/openclaw.json</code> (o variables de entorno) e inicie el gateway.</li>
+<li>El gateway escucha tráfico de webhook de Bot Framework en <code>/api/messages</code> por defecto.</li>
+</ol>
+<h2 id="configuracion-del-azure-bot-requisitos-previos">Configuración del Azure Bot (Requisitos previos)<a class="toc-anchor" href="#configuracion-del-azure-bot-requisitos-previos" title="Permanent link">¶</a></h2>
+<p>Antes de configurar OpenClaw, debe crear un recurso de Azure Bot.</p>
+<h3 id="paso-1-crear-azure-bot">Paso 1: Crear Azure Bot<a class="toc-anchor" href="#paso-1-crear-azure-bot" title="Permanent link">¶</a></h3>
+<ol>
+<li>Vaya a <a href="https://portal.azure.com/#create/Microsoft.AzureBot">Crear Azure Bot</a></li>
+<li>Complete la pestaña <strong>Basics</strong>:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Identificador del bot</strong></td>
+<td>Nombre de su bot, p. ej., <code>openclaw-msteams</code> (debe ser único)</td>
+</tr>
+<tr>
+<td><strong>Suscripción</strong></td>
+<td>Seleccione su suscripción de Azure</td>
+</tr>
+<tr>
+<td><strong>Grupo de recursos</strong></td>
+<td>Cree uno nuevo o use uno existente</td>
+</tr>
+<tr>
+<td><strong>Nivel de precios</strong></td>
+<td><strong>Free</strong> para dev/pruebas</td>
+</tr>
+<tr>
+<td><strong>Tipo de aplicación</strong></td>
+<td><strong>Single Tenant</strong> (recomendado; ver nota abajo)</td>
+</tr>
+<tr>
+<td><strong>Tipo de creación</strong></td>
+<td><strong>Crear nuevo Microsoft App ID</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Aviso de deprecación:</strong> La creación de nuevos bots multi-tenant se deprecó después del 2025-07-31. Use <strong>Single Tenant</strong> para nuevos bots.</p>
+</blockquote>
+<ol start="3">
+<li>Haga clic en <strong>Review + create</strong> → <strong>Create</strong> (espere ~1-2 minutos)</li>
+</ol>
+<h3 id="paso-2-obtener-credenciales">Paso 2: Obtener credenciales<a class="toc-anchor" href="#paso-2-obtener-credenciales" title="Permanent link">¶</a></h3>
+<ol>
+<li>Vaya a su recurso de Azure Bot → <strong>Configuration</strong></li>
+<li>Copie <strong>Microsoft App ID</strong> → este es su <code>appId</code></li>
+<li>Haga clic en <strong>Manage Password</strong> → vaya al App Registration</li>
+<li>En <strong>Certificates &amp; secrets</strong> → <strong>New client secret</strong> → copie el <strong>Value</strong> → este es su <code>appPassword</code></li>
+<li>Vaya a <strong>Overview</strong> → copie <strong>Directory (tenant) ID</strong> → este es su <code>tenantId</code></li>
+</ol>
+<h3 id="paso-3-configurar-el-endpoint-de-mensajeria">Paso 3: Configurar el endpoint de mensajería<a class="toc-anchor" href="#paso-3-configurar-el-endpoint-de-mensajeria" title="Permanent link">¶</a></h3>
+<ol>
+<li>En Azure Bot → <strong>Configuration</strong></li>
+<li>Establezca <strong>Messaging endpoint</strong> en la URL de su webhook:
+   - Producción: <code>https://your-domain.com/api/messages</code>
+   - Desarrollo local: use un túnel (consulte <a href="#local-development-tunneling">Desarrollo local</a> abajo)</li>
+</ol>
+<h3 id="paso-4-habilitar-el-canal-de-teams">Paso 4: Habilitar el canal de Teams<a class="toc-anchor" href="#paso-4-habilitar-el-canal-de-teams" title="Permanent link">¶</a></h3>
+<ol>
+<li>En Azure Bot → <strong>Channels</strong></li>
+<li>Haga clic en <strong>Microsoft Teams</strong> → Configure → Save</li>
+<li>Acepte los Términos del servicio</li>
+</ol>
+<h2 id="desarrollo-local-tuneles">Desarrollo local (túneles)<a class="toc-anchor" href="#desarrollo-local-tuneles" title="Permanent link">¶</a></h2>
+<p>Teams no puede alcanzar <code>localhost</code>. Use un túnel para desarrollo local:</p>
+<p><strong>Opción A: ngrok</strong></p>
+<pre class="highlight"><code class="language-bash">ngrok http 3978
+# Copy the https URL, e.g., https://abc123.ngrok.io
+# Set messaging endpoint to: https://abc123.ngrok.io/api/messages
+</code></pre>
+<p><strong>Opción B: Tailscale Funnel</strong></p>
+<pre class="highlight"><code class="language-bash">tailscale funnel 3978
+# Use your Tailscale funnel URL as the messaging endpoint
+</code></pre>
+<h2 id="portal-para-desarrolladores-de-teams-alternativa">Portal para desarrolladores de Teams (alternativa)<a class="toc-anchor" href="#portal-para-desarrolladores-de-teams-alternativa" title="Permanent link">¶</a></h2>
+<p>En lugar de crear manualmente un ZIP de manifiesto, puede usar el <a href="https://dev.teams.microsoft.com/apps">Portal para desarrolladores de Teams</a>:</p>
+<ol>
+<li>Haga clic en <strong>+ New app</strong></li>
+<li>Complete la información básica (nombre, descripción, info del desarrollador)</li>
+<li>Vaya a <strong>App features</strong> → <strong>Bot</strong></li>
+<li>Seleccione <strong>Enter a bot ID manually</strong> y pegue el App ID de su Azure Bot</li>
+<li>Marque los ámbitos: <strong>Personal</strong>, <strong>Team</strong>, <strong>Group Chat</strong></li>
+<li>Haga clic en <strong>Distribute</strong> → <strong>Download app package</strong></li>
+<li>En Teams: <strong>Apps</strong> → <strong>Manage your apps</strong> → <strong>Upload a custom app</strong> → seleccione el ZIP</li>
+</ol>
+<p>Suele ser más fácil que editar manifiestos JSON a mano.</p>
+<h2 id="prueba-del-bot">Prueba del bot<a class="toc-anchor" href="#prueba-del-bot" title="Permanent link">¶</a></h2>
+<p><strong>Opción A: Azure Web Chat (verifique primero el webhook)</strong></p>
+<ol>
+<li>En Azure Portal → su recurso de Azure Bot → <strong>Test in Web Chat</strong></li>
+<li>Envíe un mensaje: debería ver una respuesta</li>
+<li>Esto confirma que su endpoint de webhook funciona antes de configurar Teams</li>
+</ol>
+<p><strong>Opción B: Teams (después de instalar la app)</strong></p>
+<ol>
+<li>Instale la app de Teams (sideload o catálogo de la organización)</li>
+<li>Busque el bot en Teams y envíe un mensaje directo</li>
+<li>Revise los logs del gateway para actividad entrante</li>
+</ol>
+<h2 id="configuracion-minima-solo-texto">Configuración (mínima solo texto)<a class="toc-anchor" href="#configuracion-minima-solo-texto" title="Permanent link">¶</a></h2>
+<ol>
+<li>
+<p><strong>Instale el plugin de Microsoft Teams</strong>
+   - Desde npm: <code>openclaw plugins install @openclaw/msteams</code>
+   - Desde un checkout local: <code>openclaw plugins install ./extensions/msteams</code></p>
+</li>
+<li>
+<p><strong>Registro del bot</strong>
+   - Cree un Azure Bot (ver arriba) y anote:</p>
+<ul>
+<li>App ID</li>
+<li>Secreto del cliente (contraseña de la app)</li>
+<li>Tenant ID (single-tenant)</li>
+</ul>
+</li>
+<li>
+<p><strong>Manifiesto de la app de Teams</strong>
+   - Incluya una entrada <code>bot</code> con <code>botId = &lt;App ID&gt;</code>.
+   - Ámbitos: <code>personal</code>, <code>team</code>, <code>groupChat</code>.
+   - <code>supportsFiles: true</code> (requerido para manejo de archivos en ámbito personal).
+   - Agregue permisos RSC (abajo).
+   - Cree íconos: <code>outline.png</code> (32x32) y <code>color.png</code> (192x192).
+   - Comprima los tres archivos juntos: <code>manifest.json</code>, <code>outline.png</code>, <code>color.png</code>.</p>
+</li>
+<li>
+<p><strong>Configure OpenClaw</strong></p>
+</li>
+</ol>
+<p><code>json
+   {
+     "msteams": {
+       "enabled": true,
+       "appId": "&lt;APP_ID&gt;",
+       "appPassword": "&lt;APP_PASSWORD&gt;",
+       "tenantId": "&lt;TENANT_ID&gt;",
+       "webhook": { "port": 3978, "path": "/api/messages" }
+     }
+   }</code></p>
+<p>También puede usar variables de entorno en lugar de claves de configuración:</p>
+<ul>
+<li><code>MSTEAMS_APP_ID</code></li>
+<li><code>MSTEAMS_APP_PASSWORD</code></li>
+<li><code>MSTEAMS_TENANT_ID</code></li>
+</ul>
+<ol start="5">
+<li>
+<p><strong>Endpoint del bot</strong>
+   - Establezca el Messaging Endpoint del Azure Bot en:</p>
+<ul>
+<li><code>https://&lt;host&gt;:3978/api/messages</code> (o su ruta/puerto elegido).</li>
+</ul>
+</li>
+<li>
+<p><strong>Ejecute el gateway</strong>
+   - El canal de Teams se inicia automáticamente cuando el plugin está instalado y existe la configuración <code>msteams</code> con credenciales.</p>
+</li>
+</ol>
+<h2 id="contexto-de-historial">Contexto de historial<a class="toc-anchor" href="#contexto-de-historial" title="Permanent link">¶</a></h2>
+<ul>
+<li><code>channels.msteams.historyLimit</code> controla cuántos mensajes recientes de canal/grupo se envuelven en el prompt.</li>
+<li>Usa como respaldo <code>messages.groupChat.historyLimit</code>. Configure <code>0</code> para deshabilitar (predeterminado 50).</li>
+<li>El historial de mensajes directos puede limitarse con <code>channels.msteams.dmHistoryLimit</code> (turnos por usuario). Anulaciones por usuario: <code>channels.msteams.dms["&lt;user_id&gt;"].historyLimit</code>.</li>
+</ul>
+<h2 id="permisos-rsc-actuales-de-teams-manifiesto">Permisos RSC actuales de Teams (manifiesto)<a class="toc-anchor" href="#permisos-rsc-actuales-de-teams-manifiesto" title="Permanent link">¶</a></h2>
+<p>Estos son los <strong>resourceSpecific permissions</strong> existentes en nuestro manifiesto de la app de Teams. Solo aplican dentro del equipo/chat donde está instalada la app.</p>
+<p><strong>Para canales (ámbito de equipo):</strong></p>
+<ul>
+<li><code>ChannelMessage.Read.Group</code> (Application) - recibir todos los mensajes del canal sin @mention</li>
+<li><code>ChannelMessage.Send.Group</code> (Application)</li>
+<li><code>Member.Read.Group</code> (Application)</li>
+<li><code>Owner.Read.Group</code> (Application)</li>
+<li><code>ChannelSettings.Read.Group</code> (Application)</li>
+<li><code>TeamMember.Read.Group</code> (Application)</li>
+<li><code>TeamSettings.Read.Group</code> (Application)</li>
+</ul>
+<p><strong>Para chats grupales:</strong></p>
+<ul>
+<li><code>ChatMessage.Read.Chat</code> (Application) - recibir todos los mensajes del chat grupal sin @mention</li>
+</ul>
+<h2 id="ejemplo-de-manifiesto-de-teams-redactado">Ejemplo de manifiesto de Teams (redactado)<a class="toc-anchor" href="#ejemplo-de-manifiesto-de-teams-redactado" title="Permanent link">¶</a></h2>
+<p>Ejemplo mínimo y válido con los campos requeridos. Reemplace IDs y URLs.</p>
+<pre class="highlight"><code class="language-json">{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.23/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.23",
+  "version": "1.0.0",
+  "id": "00000000-0000-0000-0000-000000000000",
+  "name": { "short": "OpenClaw" },
+  "developer": {
+    "name": "Your Org",
+    "websiteUrl": "https://example.com",
+    "privacyUrl": "https://example.com/privacy",
+    "termsOfUseUrl": "https://example.com/terms"
+  },
+  "description": { "short": "OpenClaw in Teams", "full": "OpenClaw in Teams" },
+  "icons": { "outline": "outline.png", "color": "color.png" },
+  "accentColor": "#5B6DEF",
+  "bots": [
+    {
+      "botId": "11111111-1111-1111-1111-111111111111",
+      "scopes": ["personal", "team", "groupChat"],
+      "isNotificationOnly": false,
+      "supportsCalling": false,
+      "supportsVideo": false,
+      "supportsFiles": true
+    }
+  ],
+  "webApplicationInfo": {
+    "id": "11111111-1111-1111-1111-111111111111"
+  },
+  "authorization": {
+    "permissions": {
+      "resourceSpecific": [
+        { "name": "ChannelMessage.Read.Group", "type": "Application" },
+        { "name": "ChannelMessage.Send.Group", "type": "Application" },
+        { "name": "Member.Read.Group", "type": "Application" },
+        { "name": "Owner.Read.Group", "type": "Application" },
+        { "name": "ChannelSettings.Read.Group", "type": "Application" },
+        { "name": "TeamMember.Read.Group", "type": "Application" },
+        { "name": "TeamSettings.Read.Group", "type": "Application" },
+        { "name": "ChatMessage.Read.Chat", "type": "Application" }
+      ]
+    }
+  }
+}
+</code></pre>
+<h3 id="advertencias-del-manifiesto-campos-imprescindibles">Advertencias del manifiesto (campos imprescindibles)<a class="toc-anchor" href="#advertencias-del-manifiesto-campos-imprescindibles" title="Permanent link">¶</a></h3>
+<ul>
+<li><code>bots[].botId</code> <strong>debe</strong> coincidir con el App ID del Azure Bot.</li>
+<li><code>webApplicationInfo.id</code> <strong>debe</strong> coincidir con el App ID del Azure Bot.</li>
+<li><code>bots[].scopes</code> debe incluir las superficies que planea usar (<code>personal</code>, <code>team</code>, <code>groupChat</code>).</li>
+<li><code>bots[].supportsFiles: true</code> es requerido para manejo de archivos en ámbito personal.</li>
+<li><code>authorization.permissions.resourceSpecific</code> debe incluir lectura/envío de canales si desea tráfico de canales.</li>
+</ul>
+<h3 id="actualizar-una-app-existente">Actualizar una app existente<a class="toc-anchor" href="#actualizar-una-app-existente" title="Permanent link">¶</a></h3>
+<p>Para actualizar una app de Teams ya instalada (p. ej., para agregar permisos RSC):</p>
+<ol>
+<li>Actualice su <code>manifest.json</code> con la nueva configuración</li>
+<li><strong>Incremente el campo <code>version</code></strong> (p. ej., <code>1.0.0</code> → <code>1.1.0</code>)</li>
+<li><strong>Vuelva a comprimir</strong> el manifiesto con los íconos (<code>manifest.json</code>, <code>outline.png</code>, <code>color.png</code>)</li>
+<li>Cargue el nuevo zip:
+   - <strong>Opción A (Teams Admin Center):</strong> Teams Admin Center → Teams apps → Manage apps → busque su app → Upload new version
+   - <strong>Opción B (Sideload):</strong> En Teams → Apps → Manage your apps → Upload a custom app</li>
+<li><strong>Para canales de equipo:</strong> Reinstale la app en cada equipo para que los nuevos permisos surtan efecto</li>
+<li><strong>Cierre completamente y vuelva a abrir Teams</strong> (no solo cerrar la ventana) para limpiar la caché de metadatos de la app</li>
+</ol>
+<h2 id="capacidades-solo-rsc-vs-graph">Capacidades: solo RSC vs Graph<a class="toc-anchor" href="#capacidades-solo-rsc-vs-graph" title="Permanent link">¶</a></h2>
+<h3 id="con-solo-teams-rsc-app-instalada-sin-permisos-de-graph-api">Con <strong>solo Teams RSC</strong> (app instalada, sin permisos de Graph API)<a class="toc-anchor" href="#con-solo-teams-rsc-app-instalada-sin-permisos-de-graph-api" title="Permanent link">¶</a></h3>
+<p>Funciona:</p>
+<ul>
+<li>Leer contenido <strong>de texto</strong> de mensajes de canal.</li>
+<li>Enviar contenido <strong>de texto</strong> de mensajes de canal.</li>
+<li>Recibir archivos adjuntos <strong>personales (DM)</strong>.</li>
+</ul>
+<p>No funciona:</p>
+<ul>
+<li>Contenido de <strong>imágenes o archivos</strong> en canales/grupos (la carga solo incluye un stub HTML).</li>
+<li>Descargar adjuntos almacenados en SharePoint/OneDrive.</li>
+<li>Leer historial de mensajes (más allá del evento de webhook en vivo).</li>
+</ul>
+<h3 id="con-teams-rsc-permisos-de-aplicacion-de-microsoft-graph">Con <strong>Teams RSC + permisos de aplicación de Microsoft Graph</strong><a class="toc-anchor" href="#con-teams-rsc-permisos-de-aplicacion-de-microsoft-graph" title="Permanent link">¶</a></h3>
+<p>Agrega:</p>
+<ul>
+<li>Descarga de contenidos alojados (imágenes pegadas en mensajes).</li>
+<li>Descarga de archivos adjuntos almacenados en SharePoint/OneDrive.</li>
+<li>Lectura del historial de mensajes de canal/chat vía Graph.</li>
+</ul>
+<h3 id="rsc-vs-graph-api">RSC vs Graph API<a class="toc-anchor" href="#rsc-vs-graph-api" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Capacidad</th>
+<th>Permisos RSC</th>
+<th>Graph API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mensajes en tiempo real</strong></td>
+<td>Sí (vía webhook)</td>
+<td>No (solo sondeo)</td>
+</tr>
+<tr>
+<td><strong>Mensajes históricos</strong></td>
+<td>No</td>
+<td>Sí (se puede consultar historial)</td>
+</tr>
+<tr>
+<td><strong>Complejidad de configuración</strong></td>
+<td>Solo manifiesto de la app</td>
+<td>Requiere consentimiento de admin + flujo de tokens</td>
+</tr>
+<tr>
+<td><strong>Funciona sin conexión</strong></td>
+<td>No (debe estar en ejecución)</td>
+<td>Sí (consultar en cualquier momento)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conclusión:</strong> RSC es para escucha en tiempo real; Graph API es para acceso histórico. Para ponerse al día con mensajes perdidos mientras estaba offline, necesita Graph API con <code>ChannelMessage.Read.All</code> (requiere consentimiento de administrador).</p>
+<h2 id="medios-historial-habilitados-con-graph-requerido-para-canales">Medios + historial habilitados con Graph (requerido para canales)<a class="toc-anchor" href="#medios-historial-habilitados-con-graph-requerido-para-canales" title="Permanent link">¶</a></h2>
+<p>Si necesita imágenes/archivos en <strong>canales</strong> o desea obtener <strong>historial de mensajes</strong>, debe habilitar permisos de Microsoft Graph y otorgar consentimiento de administrador.</p>
+<ol>
+<li>En Entra ID (Azure AD) <strong>App Registration</strong>, agregue permisos de <strong>Application</strong> de Microsoft Graph:
+   - <code>ChannelMessage.Read.All</code> (adjuntos de canal + historial)
+   - <code>Chat.Read.All</code> o <code>ChatMessage.Read.All</code> (chats grupales)</li>
+<li><strong>Otorgue consentimiento de administrador</strong> para el tenant.</li>
+<li>Aumente la <strong>versión del manifiesto</strong> de la app de Teams, vuelva a cargarla y <strong>reinstale la app en Teams</strong>.</li>
+<li><strong>Cierre completamente y vuelva a abrir Teams</strong> para limpiar la caché de metadatos de la app.</li>
+</ol>
+<h2 id="limitaciones-conocidas">Limitaciones conocidas<a class="toc-anchor" href="#limitaciones-conocidas" title="Permanent link">¶</a></h2>
+<h3 id="tiempos-de-espera-del-webhook">Tiempos de espera del webhook<a class="toc-anchor" href="#tiempos-de-espera-del-webhook" title="Permanent link">¶</a></h3>
+<p>Teams entrega mensajes mediante webhook HTTP. Si el procesamiento tarda demasiado (p. ej., respuestas lentas del LLM), puede ver:</p>
+<ul>
+<li>Tiempos de espera del gateway</li>
+<li>Reintentos de Teams (causando duplicados)</li>
+<li>Respuestas perdidas</li>
+</ul>
+<p>OpenClaw maneja esto devolviendo rápidamente y enviando respuestas de forma proactiva, pero respuestas muy lentas aún pueden causar problemas.</p>
+<h3 id="formato">Formato<a class="toc-anchor" href="#formato" title="Permanent link">¶</a></h3>
+<p>El markdown de Teams es más limitado que Slack o Discord:</p>
+<ul>
+<li>El formato básico funciona: <strong>negrita</strong>, <em>cursiva</em>, <code>code</code>, enlaces</li>
+<li>El markdown complejo (tablas, listas anidadas) puede no renderizarse correctamente</li>
+<li>Adaptive Cards son compatibles para encuestas y envíos arbitrarios de tarjetas (ver abajo)</li>
+</ul>
+<h2 id="configuracion">Configuración<a class="toc-anchor" href="#configuracion" title="Permanent link">¶</a></h2>
+<p>Ajustes clave (consulte <code>/gateway/configuration</code> para patrones de canales compartidos):</p>
+<ul>
+<li><code>channels.msteams.enabled</code>: habilitar/deshabilitar el canal.</li>
+<li><code>channels.msteams.appId</code>, <code>channels.msteams.appPassword</code>, <code>channels.msteams.tenantId</code>: credenciales del bot.</li>
+<li><code>channels.msteams.webhook.port</code> (predeterminado <code>3978</code>)</li>
+<li><code>channels.msteams.webhook.path</code> (predeterminado <code>/api/messages</code>)</li>
+<li><code>channels.msteams.dmPolicy</code>: <code>pairing | allowlist | open | disabled</code> (predeterminado: emparejamiento)</li>
+<li><code>channels.msteams.allowFrom</code>: lista de permitidos para mensajes directos (IDs de objeto AAD, UPNs o nombres para mostrar). El asistente resuelve nombres a IDs durante la configuración cuando hay acceso a Graph.</li>
+<li><code>channels.msteams.textChunkLimit</code>: tamaño de fragmento de texto saliente.</li>
+<li><code>channels.msteams.chunkMode</code>: <code>length</code> (predeterminado) o <code>newline</code> para dividir en líneas en blanco (límites de párrafo) antes del troceado por longitud.</li>
+<li><code>channels.msteams.mediaAllowHosts</code>: lista de permitidos de hosts de adjuntos entrantes (predeterminado: dominios de Microsoft/Teams).</li>
+<li><code>channels.msteams.mediaAuthAllowHosts</code>: lista de permitidos para adjuntar encabezados Authorization en reintentos de medios (predeterminado: hosts de Graph + Bot Framework).</li>
+<li><code>channels.msteams.requireMention</code>: requerir @mention en canales/grupos (predeterminado true).</li>
+<li><code>channels.msteams.replyStyle</code>: <code>thread | top-level</code> (consulte <a href="#reply-style-threads-vs-posts">Estilo de respuesta</a>).</li>
+<li><code>channels.msteams.teams.&lt;teamId&gt;.replyStyle</code>: anulación por equipo.</li>
+<li><code>channels.msteams.teams.&lt;teamId&gt;.requireMention</code>: anulación por equipo.</li>
+<li><code>channels.msteams.teams.&lt;teamId&gt;.tools</code>: anulaciones predeterminadas de política de herramientas por equipo (<code>allow</code>/<code>deny</code>/<code>alsoAllow</code>) usadas cuando falta una anulación de canal.</li>
+<li><code>channels.msteams.teams.&lt;teamId&gt;.toolsBySender</code>: anulaciones predeterminadas de política de herramientas por equipo y remitente (<code>"*"</code> comodín compatible).</li>
+<li><code>channels.msteams.teams.&lt;teamId&gt;.channels.&lt;conversationId&gt;.replyStyle</code>: anulación por canal.</li>
+<li><code>channels.msteams.teams.&lt;teamId&gt;.channels.&lt;conversationId&gt;.requireMention</code>: anulación por canal.</li>
+<li><code>channels.msteams.teams.&lt;teamId&gt;.channels.&lt;conversationId&gt;.tools</code>: anulaciones de política de herramientas por canal (<code>allow</code>/<code>deny</code>/<code>alsoAllow</code>).</li>
+<li><code>channels.msteams.teams.&lt;teamId&gt;.channels.&lt;conversationId&gt;.toolsBySender</code>: anulaciones de política de herramientas por canal y remitente (<code>"*"</code> comodín compatible).</li>
+<li><code>channels.msteams.sharePointSiteId</code>: ID del sitio de SharePoint para cargas de archivos en chats/canales grupales (consulte <a href="#sending-files-in-group-chats">Envío de archivos en chats grupales</a>).</li>
+</ul>
+<h2 id="enrutamiento-y-sesiones">Enrutamiento y sesiones<a class="toc-anchor" href="#enrutamiento-y-sesiones" title="Permanent link">¶</a></h2>
+<ul>
+<li>Las claves de sesión siguen el formato estándar del agente (consulte <a href="/concepts/session">/concepts/session</a>):</li>
+<li>Los mensajes directos comparten la sesión principal (<code>agent:&lt;agentId&gt;:&lt;mainKey&gt;</code>).</li>
+<li>Los mensajes de canal/grupo usan el id de conversación:<ul>
+<li><code>agent:&lt;agentId&gt;:msteams:channel:&lt;conversationId&gt;</code></li>
+<li><code>agent:&lt;agentId&gt;:msteams:group:&lt;conversationId&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="estilo-de-respuesta-hilos-vs-publicaciones">Estilo de respuesta: Hilos vs Publicaciones<a class="toc-anchor" href="#estilo-de-respuesta-hilos-vs-publicaciones" title="Permanent link">¶</a></h2>
+<p>Teams introdujo recientemente dos estilos de UI de canal sobre el mismo modelo de datos subyacente:</p>
+<table>
+<thead>
+<tr>
+<th>Estilo</th>
+<th>Descripción</th>
+<th><code>replyStyle</code> recomendado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Publicaciones</strong> (clásico)</td>
+<td>Los mensajes aparecen como tarjetas con respuestas en hilo debajo</td>
+<td><code>thread</code> (predeterminado)</td>
+</tr>
+<tr>
+<td><strong>Hilos</strong> (tipo Slack)</td>
+<td>Los mensajes fluyen linealmente, más como Slack</td>
+<td><code>top-level</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>El problema:</strong> La API de Teams no expone qué estilo de UI usa un canal. Si usa el <code>replyStyle</code> incorrecto:</p>
+<ul>
+<li><code>thread</code> en un canal con estilo Hilos → las respuestas aparecen anidadas de forma incómoda</li>
+<li><code>top-level</code> en un canal con estilo Publicaciones → las respuestas aparecen como publicaciones de nivel superior separadas en lugar de en hilo</li>
+</ul>
+<p><strong>Solución:</strong> Configure <code>replyStyle</code> por canal según cómo esté configurado el canal:</p>
+<pre class="highlight"><code class="language-json">{
+  "msteams": {
+    "replyStyle": "thread",
+    "teams": {
+      "19:abc...@thread.tacv2": {
+        "channels": {
+          "19:xyz...@thread.tacv2": {
+            "replyStyle": "top-level"
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h2 id="adjuntos-e-imagenes">Adjuntos e imágenes<a class="toc-anchor" href="#adjuntos-e-imagenes" title="Permanent link">¶</a></h2>
+<p><strong>Limitaciones actuales:</strong></p>
+<ul>
+<li><strong>Mensajes directos:</strong> Imágenes y archivos adjuntos funcionan mediante las APIs de archivos del bot de Teams.</li>
+<li><strong>Canales/grupos:</strong> Los adjuntos viven en el almacenamiento M365 (SharePoint/OneDrive). La carga del webhook solo incluye un stub HTML, no los bytes reales del archivo. <strong>Se requieren permisos de Graph API</strong> para descargar adjuntos de canales.</li>
+</ul>
+<p>Sin permisos de Graph, los mensajes de canal con imágenes se recibirán solo como texto (el contenido de la imagen no es accesible para el bot).
+Por defecto, OpenClaw solo descarga medios desde nombres de host de Microsoft/Teams. Anule con <code>channels.msteams.mediaAllowHosts</code> (use <code>["*"]</code> para permitir cualquier host).
+Los encabezados Authorization solo se adjuntan para hosts en <code>channels.msteams.mediaAuthAllowHosts</code> (predeterminado: hosts de Graph + Bot Framework). Mantenga esta lista estricta (evite sufijos multi-tenant).</p>
+<h2 id="envio-de-archivos-en-chats-grupales">Envío de archivos en chats grupales<a class="toc-anchor" href="#envio-de-archivos-en-chats-grupales" title="Permanent link">¶</a></h2>
+<p>Los bots pueden enviar archivos en mensajes directos usando el flujo FileConsentCard (integrado). Sin embargo, <strong>enviar archivos en chats/canales grupales</strong> requiere configuración adicional:</p>
+<table>
+<thead>
+<tr>
+<th>Contexto</th>
+<th>Cómo se envían los archivos</th>
+<th>Configuración necesaria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mensajes directos</strong></td>
+<td>FileConsentCard → el usuario acepta → el bot carga</td>
+<td>Funciona fuera de la caja</td>
+</tr>
+<tr>
+<td><strong>Chats/canales grupales</strong></td>
+<td>Carga a SharePoint → enlace compartido</td>
+<td>Requiere <code>sharePointSiteId</code> + permisos de Graph</td>
+</tr>
+<tr>
+<td><strong>Imágenes (cualquier contexto)</strong></td>
+<td>Inline codificado en Base64</td>
+<td>Funciona fuera de la caja</td>
+</tr>
+</tbody>
+</table>
+<h3 id="por-que-los-chats-grupales-necesitan-sharepoint">Por qué los chats grupales necesitan SharePoint<a class="toc-anchor" href="#por-que-los-chats-grupales-necesitan-sharepoint" title="Permanent link">¶</a></h3>
+<p>Los bots no tienen una unidad personal de OneDrive (el endpoint de Graph <code>/me/drive</code> no funciona para identidades de aplicación). Para enviar archivos en chats/canales grupales, el bot carga a un <strong>sitio de SharePoint</strong> y crea un enlace de uso compartido.</p>
+<h3 id="configuracion_1">Configuración<a class="toc-anchor" href="#configuracion_1" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>Agregue permisos de Graph API</strong> en Entra ID (Azure AD) → App Registration:
+   - <code>Sites.ReadWrite.All</code> (Application) - cargar archivos a SharePoint
+   - <code>Chat.Read.All</code> (Application) - opcional, habilita enlaces de uso compartido por usuario</p>
+</li>
+<li>
+<p><strong>Otorgue consentimiento de administrador</strong> para el tenant.</p>
+</li>
+<li>
+<p><strong>Obtenga el ID de su sitio de SharePoint:</strong></p>
+</li>
+</ol>
+<p>```bash
+   # Via Graph Explorer or curl with a valid token:
+   curl -H "Authorization: Bearer $TOKEN" \
+     "https://graph.microsoft.com/v1.0/sites/{hostname}:/{site-path}"</p>
+<p># Example: for a site at "contoso.sharepoint.com/sites/BotFiles"
+   curl -H "Authorization: Bearer $TOKEN" \
+     "https://graph.microsoft.com/v1.0/sites/contoso.sharepoint.com:/sites/BotFiles"</p>
+<p># Response includes: "id": "contoso.sharepoint.com,guid1,guid2"
+   ```</p>
+<ol start="4">
+<li><strong>Configure OpenClaw:</strong></li>
+</ol>
+<p><code>json5
+   {
+     channels: {
+       msteams: {
+         // ... other config ...
+         sharePointSiteId: "contoso.sharepoint.com,guid1,guid2",
+       },
+     },
+   }</code></p>
+<h3 id="comportamiento-de-uso-compartido">Comportamiento de uso compartido<a class="toc-anchor" href="#comportamiento-de-uso-compartido" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Permiso</th>
+<th>Comportamiento de uso compartido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Sites.ReadWrite.All</code> solamente</td>
+<td>Enlace de uso compartido a nivel de organización (cualquiera en la org puede acceder)</td>
+</tr>
+<tr>
+<td><code>Sites.ReadWrite.All</code> + <code>Chat.Read.All</code></td>
+<td>Enlace de uso compartido por usuario (solo miembros del chat pueden acceder)</td>
+</tr>
+</tbody>
+</table>
+<p>El uso compartido por usuario es más seguro, ya que solo los participantes del chat pueden acceder al archivo. Si falta el permiso <code>Chat.Read.All</code>, el bot recurre al uso compartido a nivel de organización.</p>
+<h3 id="comportamiento-de-respaldo">Comportamiento de respaldo<a class="toc-anchor" href="#comportamiento-de-respaldo" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Escenario</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chat grupal + archivo + <code>sharePointSiteId</code> configurado</td>
+<td>Carga a SharePoint, envía enlace compartido</td>
+</tr>
+<tr>
+<td>Chat grupal + archivo + sin <code>sharePointSiteId</code></td>
+<td>Intenta carga a OneDrive (puede fallar), envía solo texto</td>
+</tr>
+<tr>
+<td>Chat personal + archivo</td>
+<td>Flujo FileConsentCard (funciona sin SharePoint)</td>
+</tr>
+<tr>
+<td>Cualquier contexto + imagen</td>
+<td>Inline codificado en Base64 (funciona sin SharePoint)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ubicacion-de-almacenamiento-de-archivos">Ubicación de almacenamiento de archivos<a class="toc-anchor" href="#ubicacion-de-almacenamiento-de-archivos" title="Permanent link">¶</a></h3>
+<p>Los archivos cargados se almacenan en una carpeta <code>/OpenClawShared/</code> en la biblioteca de documentos predeterminada del sitio de SharePoint configurado.</p>
+<h2 id="encuestas-adaptive-cards">Encuestas (Adaptive Cards)<a class="toc-anchor" href="#encuestas-adaptive-cards" title="Permanent link">¶</a></h2>
+<p>OpenClaw envía encuestas de Teams como Adaptive Cards (no existe una API nativa de encuestas de Teams).</p>
+<ul>
+<li>CLI: <code>openclaw message poll --channel msteams --target conversation:&lt;id&gt; ...</code></li>
+<li>Los votos se registran por el gateway en <code>~/.openclaw/msteams-polls.json</code>.</li>
+<li>El gateway debe permanecer en línea para registrar votos.</li>
+<li>Las encuestas aún no publican automáticamente resúmenes de resultados (inspeccione el archivo de almacenamiento si es necesario).</li>
+</ul>
+<h2 id="adaptive-cards-arbitrarias">Adaptive Cards (arbitrarias)<a class="toc-anchor" href="#adaptive-cards-arbitrarias" title="Permanent link">¶</a></h2>
+<p>Envíe cualquier JSON de Adaptive Card a usuarios o conversaciones de Teams usando la herramienta o CLI <code>message</code>.</p>
+<p>El parámetro <code>card</code> acepta un objeto JSON de Adaptive Card. Cuando se proporciona <code>card</code>, el texto del mensaje es opcional.</p>
+<p><strong>Herramienta del agente:</strong></p>
+<pre class="highlight"><code class="language-json">{
+  "action": "send",
+  "channel": "msteams",
+  "target": "user:&lt;id&gt;",
+  "card": {
+    "type": "AdaptiveCard",
+    "version": "1.5",
+    "body": [{ "type": "TextBlock", "text": "Hello!" }]
+  }
+}
+</code></pre>
+<p><strong>CLI:</strong></p>
+<pre class="highlight"><code class="language-bash">openclaw message send --channel msteams \
+  --target "conversation:19:abc...@thread.tacv2" \
+  --card '{"type":"AdaptiveCard","version":"1.5","body":[{"type":"TextBlock","text":"Hello!"}]}'
+</code></pre>
+<p>Consulte la <a href="https://adaptivecards.io/">documentación de Adaptive Cards</a> para el esquema y ejemplos. Para detalles del formato de destino, consulte <a href="#target-formats">Formatos de destino</a> abajo.</p>
+<h2 id="formatos-de-destino">Formatos de destino<a class="toc-anchor" href="#formatos-de-destino" title="Permanent link">¶</a></h2>
+<p>Los destinos de MSTeams usan prefijos para distinguir entre usuarios y conversaciones:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo de destino</th>
+<th>Formato</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Usuario (por ID)</td>
+<td><code>user:&lt;aad-object-id&gt;</code></td>
+<td><code>user:40a1a0ed-4ff2-4164-a219-55518990c197</code></td>
+</tr>
+<tr>
+<td>Usuario (por nombre)</td>
+<td><code>user:&lt;display-name&gt;</code></td>
+<td><code>user:John Smith</code> (requiere Graph API)</td>
+</tr>
+<tr>
+<td>Grupo/canal</td>
+<td><code>conversation:&lt;conversation-id&gt;</code></td>
+<td><code>conversation:19:abc123...@thread.tacv2</code></td>
+</tr>
+<tr>
+<td>Grupo/canal (raw)</td>
+<td><code>&lt;conversation-id&gt;</code></td>
+<td><code>19:abc123...@thread.tacv2</code> (si contiene <code>@thread</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ejemplos de CLI:</strong></p>
+<pre class="highlight"><code class="language-bash"># Send to a user by ID
+openclaw message send --channel msteams --target "user:40a1a0ed-..." --message "Hello"
+
+# Send to a user by display name (triggers Graph API lookup)
+openclaw message send --channel msteams --target "user:John Smith" --message "Hello"
+
+# Send to a group chat or channel
+openclaw message send --channel msteams --target "conversation:19:abc...@thread.tacv2" --message "Hello"
+
+# Send an Adaptive Card to a conversation
+openclaw message send --channel msteams --target "conversation:19:abc...@thread.tacv2" \
+  --card '{"type":"AdaptiveCard","version":"1.5","body":[{"type":"TextBlock","text":"Hello"}]}'
+</code></pre>
+<p><strong>Ejemplos de herramienta del agente:</strong></p>
+<pre class="highlight"><code class="language-json">{
+  "action": "send",
+  "channel": "msteams",
+  "target": "user:John Smith",
+  "message": "Hello!"
+}
+</code></pre>
+<pre class="highlight"><code class="language-json">{
+  "action": "send",
+  "channel": "msteams",
+  "target": "conversation:19:abc...@thread.tacv2",
+  "card": {
+    "type": "AdaptiveCard",
+    "version": "1.5",
+    "body": [{ "type": "TextBlock", "text": "Hello" }]
+  }
+}
+</code></pre>
+<p>Nota: Sin el prefijo <code>user:</code>, los nombres se resuelven por defecto a grupos/equipos. Use siempre <code>user:</code> cuando apunte a personas por nombre para mostrar.</p>
+<h2 id="mensajeria-proactiva">Mensajería proactiva<a class="toc-anchor" href="#mensajeria-proactiva" title="Permanent link">¶</a></h2>
+<ul>
+<li>Los mensajes proactivos solo son posibles <strong>después</strong> de que un usuario haya interactuado, porque almacenamos referencias de conversación en ese punto.</li>
+<li>Consulte <code>/gateway/configuration</code> para <code>dmPolicy</code> y el control por lista de permitidos.</li>
+</ul>
+<h2 id="ids-de-equipo-y-canal-error-comun">IDs de equipo y canal (error común)<a class="toc-anchor" href="#ids-de-equipo-y-canal-error-comun" title="Permanent link">¶</a></h2>
+<p>El parámetro de consulta <code>groupId</code> en las URLs de Teams <strong>NO</strong> es el ID de equipo usado para la configuración. Extraiga los IDs desde la ruta de la URL:</p>
+<p><strong>URL del equipo:</strong></p>
+<pre class="highlight"><code>https://teams.microsoft.com/l/team/19%3ABk4j...%40thread.tacv2/conversations?groupId=...
+                                    └────────────────────────────┘
+                                    Team ID (URL-decode this)
+</code></pre>
+<p><strong>URL del canal:</strong></p>
+<pre class="highlight"><code>https://teams.microsoft.com/l/channel/19%3A15bc...%40thread.tacv2/ChannelName?groupId=...
+                                      └─────────────────────────┘
+                                      Channel ID (URL-decode this)
+</code></pre>
+<p><strong>Para configuración:</strong></p>
+<ul>
+<li>ID de equipo = segmento de ruta después de <code>/team/</code> (decodificado de URL, p. ej., <code>19:Bk4j...@thread.tacv2</code>)</li>
+<li>ID de canal = segmento de ruta después de <code>/channel/</code> (decodificado de URL)</li>
+<li><strong>Ignore</strong> el parámetro de consulta <code>groupId</code></li>
+</ul>
+<h2 id="canales-privados">Canales privados<a class="toc-anchor" href="#canales-privados" title="Permanent link">¶</a></h2>
+<p>Los bots tienen soporte limitado en canales privados:</p>
+<table>
+<thead>
+<tr>
+<th>Función</th>
+<th>Canales estándar</th>
+<th>Canales privados</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instalación del bot</td>
+<td>Sí</td>
+<td>Limitado</td>
+</tr>
+<tr>
+<td>Mensajes en tiempo real (webhook)</td>
+<td>Sí</td>
+<td>Puede no funcionar</td>
+</tr>
+<tr>
+<td>Permisos RSC</td>
+<td>Sí</td>
+<td>Pueden comportarse distinto</td>
+</tr>
+<tr>
+<td>@mentions</td>
+<td>Sí</td>
+<td>Si el bot es accesible</td>
+</tr>
+<tr>
+<td>Historial por Graph API</td>
+<td>Sí</td>
+<td>Sí (con permisos)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Alternativas si los canales privados no funcionan:</strong></p>
+<ol>
+<li>Use canales estándar para interacciones con el bot</li>
+<li>Use mensajes directos: los usuarios siempre pueden escribirle al bot directamente</li>
+<li>Use Graph API para acceso histórico (requiere <code>ChannelMessage.Read.All</code>)</li>
+</ol>
+<h2 id="solucion-de-problemas">Solución de problemas<a class="toc-anchor" href="#solucion-de-problemas" title="Permanent link">¶</a></h2>
+<h3 id="problemas-comunes">Problemas comunes<a class="toc-anchor" href="#problemas-comunes" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Las imágenes no se muestran en canales:</strong> faltan permisos de Graph o consentimiento de administrador. Reinstale la app de Teams y cierre/abra completamente Teams.</li>
+<li><strong>Sin respuestas en canal:</strong> las menciones son obligatorias por defecto; configure <code>channels.msteams.requireMention=false</code> o ajuste por equipo/canal.</li>
+<li><strong>Desajuste de versión (Teams aún muestra el manifiesto antiguo):</strong> quite y vuelva a agregar la app y cierre completamente Teams para refrescar.</li>
+<li><strong>401 Unauthorized desde el webhook:</strong> esperado al probar manualmente sin JWT de Azure; indica que el endpoint es alcanzable pero falló la autenticación. Use Azure Web Chat para probar correctamente.</li>
+</ul>
+<h3 id="errores-al-cargar-el-manifiesto">Errores al cargar el manifiesto<a class="toc-anchor" href="#errores-al-cargar-el-manifiesto" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>"Icon file cannot be empty":</strong> El manifiesto referencia íconos de 0 bytes. Cree íconos PNG válidos (32x32 para <code>outline.png</code>, 192x192 para <code>color.png</code>).</li>
+<li><strong>"webApplicationInfo.Id already in use":</strong> La app aún está instalada en otro equipo/chat. Encuéntrela y desinstálela primero, o espere 5-10 minutos para la propagación.</li>
+<li><strong>"Something went wrong" al cargar:</strong> Cargue mediante <a href="https://admin.teams.microsoft.com">https://admin.teams.microsoft.com</a> en su lugar, abra las DevTools del navegador (F12) → pestaña Network, y revise el cuerpo de la respuesta para el error real.</li>
+<li><strong>Fallo de sideload:</strong> Intente "Upload an app to your org's app catalog" en lugar de "Upload a custom app"; a menudo evita restricciones de sideload.</li>
+</ul>
+<h3 id="permisos-rsc-no-funcionan">Permisos RSC no funcionan<a class="toc-anchor" href="#permisos-rsc-no-funcionan" title="Permanent link">¶</a></h3>
+<ol>
+<li>Verifique que <code>webApplicationInfo.id</code> coincida exactamente con el App ID de su bot</li>
+<li>Vuelva a cargar la app y reinstálela en el equipo/chat</li>
+<li>Verifique si el admin de su organización bloqueó los permisos RSC</li>
+<li>Confirme que usa el ámbito correcto: <code>ChannelMessage.Read.Group</code> para equipos, <code>ChatMessage.Read.Chat</code> para chats grupales</li>
+</ol>
+<h2 id="referencias">Referencias<a class="toc-anchor" href="#referencias" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/bot-service/bot-service-quickstart-registration">Crear Azure Bot</a> - Guía de configuración de Azure Bot</li>
+<li><a href="https://dev.teams.microsoft.com/apps">Portal para desarrolladores de Teams</a> - crear/administrar apps de Teams</li>
+<li><a href="https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema">Esquema del manifiesto de apps de Teams</a></li>
+<li><a href="https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/channel-messages-with-rsc">Recibir mensajes de canal con RSC</a></li>
+<li><a href="https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent">Referencia de permisos RSC</a></li>
+<li><a href="https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4">Manejo de archivos del bot de Teams</a> (canal/grupo requiere Graph)</li>
+<li><a href="https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages">Mensajería proactiva</a></li>
+</ul></div><div class="px-0.5 flex items-center text-sm font-semibold text-gray-700 dark:text-gray-200" id="pagination"><a class="flex items-center space-x-3 group" href="imessage.html"><svg class="h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><span class="group-hover:text-gray-900 dark:group-hover:text-white">iMessage</span></a><a class="flex items-center ml-auto space-x-3 group" href="line.html"><span class="group-hover:text-gray-900 dark:group-hover:text-white">LINE</span><svg class="rotate-180 h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a></div><div class="left-0 right-0 sticky sm:px-4 pb-4 sm:pb-6 bottom-0 pt-1 flex flex-col items-center w-full overflow-hidden z-20 pointer-events-none print:hidden"><div class="chat-assistant-floating-input z-10 w-full sm:w-96 focus-within:w-full group/assistant-bar sm:focus-within:w-[30rem] hover:scale-100 sm:hover:scale-105 focus-within:hover:scale-100 [transition:width_400ms,left_200ms,transform_500ms,opacity_200ms]"><div class="translate-y-[100px] opacity-0"><div class="flex flex-col w-full rounded-2xl pointer-events-auto bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border border-gray-200 dark:border-white/30 focus-within:border-primary dark:focus-within:border-primary-light transition-colors sm:shadow-xl"><div class="relative flex items-end"><textarea aria-label="Ask a question..." autocomplete="off" class="chat-assistant-input w-full bg-transparent border-0 peer/input text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 !outline-none focus:!outline-none focus:ring-0 py-2.5 pl-3.5 pr-10 font-bodyWeight text-sm" id="chat-assistant-textarea" placeholder="Ask a question..." style="resize:none"></textarea><span class="absolute right-11 bottom-3 text-xs font-medium text-gray-400 dark:text-gray-500 select-none pointer-events-none peer-focus/input:hidden hidden sm:inline">⌘<!-- -->I</span><button aria-label="Send message" class="chat-assistant-send-button flex justify-center items-center rounded-full p-1 size-6 bg-primary/30 dark:bg-primary-dark/30 absolute right-2.5 bottom-2" disabled=""><svg class="lucide lucide-arrow-up text-white dark:text-white size-3.5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></div></div></div></div><footer class="flex gap-12 justify-between pt-10 border-t border-gray-100 sm:flex dark:border-gray-800/50 pb-28" id="footer"><div class="flex items-center justify-between"><div class="sm:flex"><a class="group flex items-baseline gap-1 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-nowrap" href="https://www.mintlify.com?utm_campaign=poweredBy&amp;utm_medium=referral&amp;utm_source=clawdhub" rel="noreferrer" target="_blank"><span>Powered by</span><svg class="h-3.5 w-auto translate-y-[3px]" fill="none" height="367" viewbox="0 0 1274 367" width="1274" xmlns="http://www.w3.org/2000/svg"><path d="M1154.38 366.038H1097.86L1137.69 276.14L1058.04 97.1046H1114.93L1161.35 209.337C1162.97 213.26 1168.53 213.253 1170.14 209.325L1216.21 97.1046H1273.49L1154.38 366.038Z" fill="currentColor"></path><path d="M982.714 286.761V142.622H944.403V97.1041H982.714V72.4488C982.714 49.9429 989.542 32.2416 1003.2 19.345C1016.85 6.44832 1034.17 0 1055.16 0C1068.06 0 1079.06 1.39081 1088.16 4.17244V50.0693C1082.09 47.7934 1075.01 46.6555 1066.92 46.6555C1055.54 46.6555 1047.32 49.1843 1042.27 54.2418C1037.21 59.0464 1034.68 67.2648 1034.68 78.8971V97.1041H1088.16V142.622H1034.68V286.761H982.714Z" fill="currentColor"></path><path d="M897.916 66.0005C889.066 66.0005 881.353 62.8395 874.778 56.5176C868.203 49.9429 864.916 42.1037 864.916 33.0002C864.916 23.8967 868.203 16.184 874.778 9.86215C881.353 3.28738 889.066 0 897.916 0C907.273 0 915.112 3.28738 921.434 9.86215C928.008 16.184 931.296 23.8967 931.296 33.0002C931.296 42.1037 928.008 49.9429 921.434 56.5176C915.112 62.8395 907.273 66.0005 897.916 66.0005ZM872.123 286.761V97.1041H924.089V286.761H872.123Z" fill="currentColor"></path><path d="M781.638 286.761V2.27609H833.604V286.761H781.638Z" fill="currentColor"></path><path d="M722.934 289.037C701.693 289.037 684.244 283.221 670.589 271.588C657.187 259.703 650.485 242.634 650.485 220.381V142.622H612.175V97.1044H650.485V44.3799H702.451V97.1044H755.934V142.622H702.451V210.14C702.451 221.772 704.98 230.117 710.038 235.174C715.095 239.979 723.313 242.381 734.693 242.381C742.785 242.381 749.865 241.243 755.934 238.967V284.864C746.831 287.646 735.831 289.037 722.934 289.037Z" fill="currentColor"></path><path d="M417.674 286.761V97.1041H469.64V110.967C469.64 113.311 472.83 114.347 474.382 112.591C485.967 99.4848 502.467 92.9317 523.881 92.9317C546.64 92.9317 564.468 100.518 577.365 115.69C590.514 130.61 597.089 150.587 597.089 175.622V286.761H545.123V184.346C545.123 170.438 542.215 159.691 536.399 152.105C530.583 144.265 522.364 140.346 511.743 140.346C499.1 140.346 488.858 144.898 481.019 154.001C473.433 163.105 469.64 176.507 469.64 194.208V286.761H417.674Z" fill="currentColor"></path><path d="M352.981 66.0005C344.13 66.0005 336.417 62.8395 329.843 56.5176C323.268 49.9429 319.98 42.1037 319.98 33.0002C319.98 23.8967 323.268 16.184 329.843 9.86215C336.417 3.28738 344.13 0 352.981 0C362.337 0 370.176 3.28738 376.498 9.86215C383.073 16.184 386.36 23.8967 386.36 33.0002C386.36 42.1037 383.073 49.9429 376.498 56.5176C370.176 62.8395 362.337 66.0005 352.981 66.0005ZM327.187 286.761V97.1041H379.153V286.761H327.187Z" fill="currentColor"></path><path d="M238.967 286.761V185.484C238.967 155.392 229.105 140.346 209.381 140.346C198.001 140.346 188.898 144.645 182.07 153.242C175.495 161.84 171.955 174.61 171.449 191.553V286.761H119.484V185.484C119.484 155.392 109.621 140.346 89.8972 140.346C78.2649 140.346 69.035 144.898 62.2073 154.001C55.3797 163.105 51.9659 176.507 51.9659 194.208V286.761H0V97.1041H51.9659V111.103C51.9659 113.435 55.1014 114.462 56.633 112.704C68.1136 99.5223 83.3741 92.9317 102.415 92.9317C127.436 92.9317 146.283 103.262 158.953 123.923C159.953 125.553 162.412 125.527 163.406 123.894C168.884 114.891 176.496 107.731 186.243 102.415C197.369 96.0926 208.622 92.9317 220.002 92.9317C242.507 92.9317 259.956 100.392 272.347 115.311C284.738 130.231 290.933 150.714 290.933 176.76V286.761H238.967Z" fill="currentColor"></path></svg></a></div></div></footer></div></div><!--$--><!--/$--></div></div></div></div></div>
+<div class="veiseule-footer"><a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Community translations maintained by <a href="http://blog.law-kelly.com/2026/02/open-source-means-open-language.html">John Kelly</a>. Improve translations on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a>.</div>
+<script>
+(function(){
+  var btn = document.querySelector('[aria-label="Toggle dark mode"]');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var html = document.documentElement;
+    var isDark = html.classList.contains('dark');
+    if(isDark){
+      html.classList.remove('dark');
+      html.style.colorScheme = 'light';
+      try { localStorage.setItem('isDarkMode','light'); } catch(e){}
+    } else {
+      html.classList.add('dark');
+      html.style.colorScheme = 'dark';
+      try { localStorage.setItem('isDarkMode','dark'); } catch(e){}
+    }
+  });
+})();
+</script></body></html>

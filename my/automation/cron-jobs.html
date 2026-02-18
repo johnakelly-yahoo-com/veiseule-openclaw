@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html class="__variable_47c970 __variable_3bbdad" data-banner-state="visible" data-page-mode="none" lang="my"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/bb3ef058b751a6ad-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/c4b700dcb2187787-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/e4af272ccee01ff0-s.p.woff2" rel="preload" type="font/woff2"/><link as="image" href="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26" rel="preload"/><link as="image" href="https://d3gk2c5xim1je2.cloudfront.net/flags/MM.svg" rel="preload"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/b864dec2fc058581.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/6f9b80d484ead711.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/05d6d8fcb903870d.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><meta content="" name="next-size-adjust"/><title>Cron အလုပ်များ (Gateway အချိန်ဇယားစနစ်) - OpenClaw</title><meta content="OpenClaw" name="application-name"/><meta content="Mintlify" name="generator"/><meta content="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/browserconfig.xml" name="msapplication-config"/><meta content="OpenClaw" name="apple-mobile-web-app-title"/><meta content="#FF5A36" name="msapplication-TileColor"/><meta content="utf-8" name="charset"/><meta content="OpenClaw" name="og:site_name"/><meta content="https://docs.openclaw.ai/automation/cron-jobs" name="canonical"/><link href="cron-jobs.html" rel="canonical"/><link href="/sitemap.xml" rel="alternate" type="application/xml"/><meta content="Cron Jobs - OpenClaw" property="og:title"/><meta content="https://docs.openclaw.ai/automation/cron-jobs" property="og:url"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DAutomation%26title%3DCron%2BJobs%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="website" property="og:type"/><meta content="summary_large_image" name="twitter:card"/><meta content="Cron Jobs - OpenClaw" name="twitter:title"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DAutomation%26title%3DCron%2BJobs%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" name="twitter:image"/><meta content="1200" name="twitter:image:width"/><meta content="630" name="twitter:image:height"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-16x16.png" media="(prefers-color-scheme: light)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-32x32.png" media="(prefers-color-scheme: light)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon.ico" media="(prefers-color-scheme: light)" rel="shortcut icon" type="image/x-icon"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-16x16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-32x32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon.ico" media="(prefers-color-scheme: dark)" rel="shortcut icon" type="image/x-icon"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link as="style" href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css" rel="preload"/><script type="text/javascript">(function(a,b){try{let c=document.getElementById("banner")?.innerText;if(c){for(let d=0;d<localStorage.length;d++){let e=localStorage.key(d);if(e?.endsWith(a)&&localStorage.getItem(e)===c)return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible");return}for(let c=0;c<localStorage.length;c++){let d=localStorage.key(c);if(d?.endsWith(a)&&localStorage.getItem(d))return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible")}catch(a){document.documentElement.setAttribute(b,"hidden")}})(
+  "bannerDismissed",
+  "data-banner-state",
+)</script><style id="veiseule-branding">
+.veiseule-bar{position:fixed;top:0;left:0;right:0;z-index:99999;background:#2E4A3A;color:#E0E0E0;text-align:center;padding:8px 16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;box-shadow:0 2px 4px rgba(0,0,0,0.15)}
+.veiseule-bar a{color:#A9B8A1;text-decoration:underline}
+.veiseule-bar a:hover{color:#fff}
+.veiseule-footer{background:#1A2E20;color:#E0E0E0;text-align:center;padding:16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;border-top:1px solid #2E4A3A}
+.veiseule-footer a{color:#A9B8A1;text-decoration:underline}
+.veiseule-footer a:hover{color:#fff}
+body{padding-top:36px !important}
+</style>
+<style>
+.toc-anchor { text-decoration: none; margin-left: 0.3em; opacity: 0.3; }
+.toc-anchor:hover { opacity: 1; }
+.toc-anchor { color: #999; }
+.dark .toc-anchor { color: #555; }
+</style></head><body>
+<div class="veiseule-bar">Community translations by <a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Help improve them on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a></div>
+<div hidden=""><!--$--><!--/$--></div><script>((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","isDarkMode","system",null,["dark","light","true","false","system"],{"true":"dark","false":"light","dark":"dark","light":"light"},true,true)</script><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><style>:root {
+  --font-family-headings-custom: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  --font-family-body-custom: "Fragment Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  
+  
+}</style><style>:root {
+    --primary: 255 90 54;
+    --primary-light: 255 138 107;
+    --primary-dark: 255 90 54;
+    --tooltip-foreground: 255 255 255;
+    --background-light: 255 255 255;
+    --background-dark: 14 12 13;
+    --gray-50: 250 245 244;
+    --gray-100: 245 240 239;
+    --gray-200: 230 225 224;
+    --gray-300: 213 208 207;
+    --gray-400: 166 161 160;
+    --gray-500: 119 114 113;
+    --gray-600: 87 82 81;
+    --gray-700: 70 65 64;
+    --gray-800: 45 40 38;
+    --gray-900: 30 25 24;
+    --gray-950: 17 12 11;
+  }</style><script type="text/javascript">
+          (function() {
+            function loadKatex() {
+              const link = document.querySelector('link[href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css"]');
+              if (link) link.rel = 'stylesheet';
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', loadKatex);
+            } else {
+              loadKatex();
+            }
+          })();
+        </script><div class="relative antialiased text-gray-500 dark:text-gray-400"><a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:p-2 focus:text-sm focus:bg-background-light dark:focus:bg-background-dark focus:rounded-md focus:outline-primary dark:focus:outline-primary-light" href="cron-jobs.html#content-area">Skip to main content</a><div class="max-lg:contents lg:flex lg:w-full"><div class="max-lg:contents lg:flex-1 lg:min-w-0 lg:overflow-x-clip"><div class="z-30 fixed lg:sticky top-0 w-full peer is-not-custom peer is-not-center peer is-not-wide peer is-not-frame" id="navbar"><div class="absolute w-full h-full backdrop-blur flex-none transition-colors duration-500 border-b border-gray-500/5 dark:border-gray-300/[0.06] data-[is-opaque=true]:bg-background-light data-[is-opaque=true]:supports-backdrop-blur:bg-background-light/95 data-[is-opaque=true]:dark:bg-background-dark/75 data-[is-opaque=false]:supports-backdrop-blur:bg-background-light/60 data-[is-opaque=false]:dark:bg-transparent" data-is-opaque="false" id="navbar-transition"></div><div class="max-w-8xl mx-auto relative"><div><div class="relative"><div class="flex items-center lg:px-12 h-16 min-w-0 mx-4 lg:mx-0"><div class="h-full relative flex-1 flex items-center gap-x-4 min-w-0 border-b border-gray-500/5 dark:border-gray-300/[0.06]"><div class="flex-1 flex items-center gap-x-4"><a class="select-none" data-slot="context-menu-trigger" data-state="closed" href="../index.html" style="-webkit-touch-callout:none"><span class="sr-only">OpenClaw<!-- --> home page</span><img alt="light logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 block dark:hidden" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/><img alt="dark logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 hidden dark:block" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/></a><div class="hidden lg:flex items-center gap-x-2"><button aria-expanded="false" aria-haspopup="menu" class="group disabled:pointer-events-none [&amp;&gt;span]:line-clamp-1 overflow-hidden group group-hover:text-gray-950/70 dark:group-hover:text-white/70 py-1.5 px-2.5 rounded-xl hover:!bg-gray-600/5 dark:hover:!bg-gray-200/5 aria-[expanded=true]:bg-gray-600/5 dark:aria-[expanded=true]:bg-gray-200/5 text-sm font-medium text-gray-900 h-8 focus-visible:outline-primary dark:text-gray-300 group/trigger flex items-center gap-2 whitespace-nowrap" data-state="closed" id="localization-select-trigger" type="button"><div class="relative size-4 rounded-full shrink-0"><img alt="MM" class="w-full h-full rounded-full" src="https://d3gk2c5xim1je2.cloudfront.net/flags/MM.svg"/><div class="absolute top-0 left-0 w-full h-full border rounded-full bg-primary-light/10 border-black/10"></div></div><span class="truncate max-w-[12.5rem]">မြန်မာ</span><svg class="transition-transform text-gray-400 overflow-visible group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400 rotate-90 ml-auto group-aria-[expanded=true]/trigger:rotate-[270deg]" height="24" viewbox="0 -9 3 24" width="8"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></button></div></div><div class="relative hidden lg:flex items-center flex-1 z-20 justify-center"><button aria-label="Open search" class="flex pointer-events-auto rounded-xl w-full items-center text-sm leading-6 h-9 pl-3.5 pr-3 text-gray-500 dark:text-white/50 bg-background-light dark:bg-background-dark dark:brightness-[1.1] dark:ring-1 dark:hover:brightness-[1.25] ring-1 ring-gray-400/30 hover:ring-gray-600/30 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 justify-between truncate gap-2 min-w-[43px]" id="search-bar-entry" type="button"><div class="flex items-center gap-2 min-w-[42px]"><svg class="lucide lucide-search min-w-4 flex-none text-gray-700 hover:text-gray-800 dark:text-gray-400 hover:dark:text-gray-200" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><div class="truncate min-w-0">Search...</div></div><span class="flex-none text-xs font-semibold">⌘<!-- -->K</span></button></div><div class="flex-1 relative hidden lg:flex items-center ml-auto justify-end space-x-4"><nav class="text-sm"><ul class="flex space-x-6 items-center"><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);mask-repeat:no-repeat;mask-position:center"></svg>GitHub</a></li><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw/releases" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);mask-repeat:no-repeat;mask-position:center;mask-size:100%"></svg>Releases</a></li></ul></nav><div class="flex items-center"><button aria-label="Toggle dark mode" class="group p-2 flex items-center justify-center"><svg class="h-4 w-4 block text-gray-400 dark:hidden group-hover:text-gray-600" fill="none" height="16" stroke="currentColor" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2880_7340)"><path d="M8 1.11133V2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 3.12891L12.2427 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M14.8889 8H14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 12.8711L12.2427 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8 14.8889V14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 12.8711L3.75735 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M1.11133 8H2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 3.12891L3.75735 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8.00043 11.7782C10.0868 11.7782 11.7782 10.0868 11.7782 8.00043C11.7782 5.91402 10.0868 4.22266 8.00043 4.22266C5.91402 4.22266 4.22266 5.91402 4.22266 8.00043C4.22266 10.0868 5.91402 11.7782 8.00043 11.7782Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g><defs><clippath id="clip0_2880_7340"><rect fill="white" height="16" width="16"></rect></clippath></defs></svg><svg class="lucide lucide-moon h-4 w-4 hidden dark:block text-gray-500 dark:group-hover:text-gray-300" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button></div></div><div class="flex lg:hidden items-center gap-3"><button aria-label="Open search" class="text-gray-500 w-8 h-8 flex items-center justify-center hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300" id="search-bar-entry-mobile" type="button"><span class="sr-only">Search...</span><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);mask-repeat:no-repeat;mask-position:center"></svg></button><button aria-label="More actions" class="h-7 w-5 flex items-center justify-end"><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);mask-repeat:no-repeat;mask-position:center"></svg></button></div></div></div><button class="flex items-center h-14 py-4 px-5 lg:hidden focus:outline-0 w-full text-left" type="button"><div class="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300"><span class="sr-only">Navigation</span><svg class="h-4" fill="currentColor" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></div><div class="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0 space-x-3 overflow-hidden"><div class="flex items-center space-x-3 flex-shrink-0"><span>Automation</span><svg class="h-5 rotate-0 overflow-visible fill-gray-400" height="24" viewbox="0 -9 3 24" width="3"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></div><div class="font-semibold text-gray-900 truncate dark:text-gray-200 min-w-0 flex-1">Cron Jobs</div></div></button></div><div class="hidden lg:flex px-12 h-12"><div class="nav-tabs h-full flex text-sm gap-x-6"><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../index.html">Get started<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../install.html">Install<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../channels.html">Channels<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../concepts/architecture.html">Agents<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium hover:text-gray-800 dark:hover:text-gray-300 text-gray-800 dark:text-gray-200 [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor]" href="../tools.html">Tools<div class="absolute bottom-0 h-[1.5px] w-full left-0 bg-primary dark:bg-primary-light"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../providers.html">Models<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../platforms.html">Platforms<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../gateway.html">Gateway &amp; Ops<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../cli.html">Reference<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../help.html">Help<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a></div></div></div></div><span hidden="" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"></span></div><div class="scroll-mt-[var(--scroll-mt)] peer-[.is-custom]:max-w-none peer-[.is-center]:max-w-3xl peer-[.is-not-custom]:peer-[.is-not-center]:max-w-8xl peer-[.is-not-custom]:px-4 peer-[.is-not-custom]:mx-auto peer-[.is-not-custom]:lg:px-8 peer-[.is-wide]:[&amp;&gt;div:last-child]:max-w-6xl peer-[.is-custom]:[&amp;&gt;div:first-child]:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:xl:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:xl:!hidden"><div class="z-20 hidden lg:block fixed bottom-0 right-auto w-[18rem]" id="sidebar" style="top:7rem"><div class="absolute inset-0 z-10 stable-scrollbar-gutter overflow-auto pr-8 pb-10" id="sidebar-content"><div class="relative lg:text-sm lg:leading-6"><div class="sticky top-0 h-8 z-10 bg-gradient-to-b from-background-light dark:from-background-dark"></div><div id="navigation-items"><div class=""><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Overview</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Tools" id="/tools"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Tools</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Built-in tools</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Lobster" id="/tools/lobster"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/lobster.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Lobster</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="LLM Task" id="/tools/llm-task"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/llm-task.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">LLM Task</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Exec Tool" id="/tools/exec"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/exec.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Exec Tool</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Web Tools" id="/tools/web"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/web.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Web Tools</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="apply_patch Tool" id="/tools/apply-patch"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/apply-patch.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">apply_patch Tool</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Elevated Mode" id="/tools/elevated"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/elevated.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Elevated Mode</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Thinking Levels" id="/tools/thinking"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/thinking.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Thinking Levels</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Reactions" id="/tools/reactions"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/reactions.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Reactions</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Browser</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Browser (OpenClaw-managed)" id="/tools/browser"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/browser.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Browser (OpenClaw-managed)</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Browser Login" id="/tools/browser-login"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/browser-login.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Browser Login</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Chrome Extension" id="/tools/chrome-extension"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/chrome-extension.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Chrome Extension</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Browser Troubleshooting" id="/tools/browser-linux-troubleshooting"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/browser-linux-troubleshooting.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Browser Troubleshooting</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Agent coordination</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Agent Send" id="/tools/agent-send"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/agent-send.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Agent Send</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Sub-Agents" id="/tools/subagents"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/subagents.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Sub-Agents</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Multi-Agent Sandbox &amp; Tools" id="/tools/multi-agent-sandbox-tools"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/multi-agent-sandbox-tools.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Multi-Agent Sandbox &amp; Tools</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Skills</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Slash Commands" id="/tools/slash-commands"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/slash-commands.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Slash Commands</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Skills" id="/tools/skills"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/skills.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Skills</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Skills Config" id="/tools/skills-config"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/skills-config.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Skills Config</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="ClawHub" id="/tools/clawhub"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/clawhub.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">ClawHub</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Plugins" id="/tools/plugin"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../tools/plugin.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Plugins</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Extensions</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Voice Call Plugin" id="/plugins/voice-call"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../plugins/voice-call.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Voice Call Plugin</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Zalo Personal Plugin" id="/plugins/zalouser"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../plugins/zalouser.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Zalo Personal Plugin</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Automation</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Hooks" id="/automation/hooks"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="hooks.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Hooks</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Cron Jobs" id="/automation/cron-jobs"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] bg-primary/10 text-primary [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor] dark:text-primary-light dark:bg-primary-light/10" href="cron-jobs.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Cron Jobs</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Cron vs Heartbeat" id="/automation/cron-vs-heartbeat"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="cron-vs-heartbeat.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Cron vs Heartbeat</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Automation Troubleshooting" id="/automation/troubleshooting"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="troubleshooting.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Automation Troubleshooting</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Webhooks" id="/automation/webhook"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="webhook.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Webhooks</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Gmail PubSub" id="/automation/gmail-pubsub"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="gmail-pubsub.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Gmail PubSub</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Polls" id="/automation/poll"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="poll.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Polls</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Auth Monitoring" id="/automation/auth-monitoring"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="auth-monitoring.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Auth Monitoring</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200"><h5 class="" id="sidebar-title">Media and devices</h5></div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Nodes" id="/nodes"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../nodes.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Nodes</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Node Troubleshooting" id="/nodes/troubleshooting"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../nodes/troubleshooting.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Node Troubleshooting</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Image and Media Support" id="/nodes/images"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../nodes/images.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Image and Media Support</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Audio and Voice Notes" id="/nodes/audio"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../nodes/audio.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Audio and Voice Notes</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Camera Capture" id="/nodes/camera"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../nodes/camera.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Camera Capture</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Talk Mode" id="/nodes/talk"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../nodes/talk.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Talk Mode</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Voice Wake" id="/nodes/voicewake"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../nodes/voicewake.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Voice Wake</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Location Command" id="/nodes/location-command"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../nodes/location-command.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Location Command</div></div></a></li></ul></div></div></div></div></div><div id="content-container"><span class="fixed inset-0 bg-background-light dark:bg-background-dark -z-10 pointer-events-none" id="almond-background-color"></span><style data-custom-css-index="0" data-custom-css-path="style.css">#content > h1:first-of-type {
+  display: none !important;
+}
+</style><div class="flex flex-row-reverse gap-12 box-border w-full pt-40 lg:pt-10"><div class="hidden xl:flex self-start sticky xl:flex-col max-w-[28rem] z-[21] h-[calc(100vh-9.5rem)] top-[calc(9.5rem-var(--sidenav-move-up,0px))]" id="content-side-layout"><div class="z-10 hidden xl:flex box-border max-h-full pl-10 w-[19rem]" id="table-of-contents-layout"><div class="text-gray-600 text-sm leading-6 w-[16.5rem] overflow-y-auto space-y-2 pb-4 -mt-10 pt-10" id="table-of-contents"><button class="text-gray-700 dark:text-gray-300 font-medium flex items-center space-x-2 hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer"><svg class="h-3 w-3" fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.44434 12.6665H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 3.3335H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 8H7.33323" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>On this page</span></button><ul class="toc" id="table-of-contents-content"><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#cron-gateway">Cron အလုပ်များ (Gateway အချိန်ဇယားစနစ်)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#_1">အကျဉ်းချုပ်</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#_2">အမြန်စတင်ရန် (လက်တွေ့လုပ်ဆောင်နိုင်သော)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#tool-call-gateway-cron-tool">Tool-call နှင့်ညီမျှမှုများ (Gateway cron tool)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#cron-jobs">Cron jobs များ သိမ်းဆည်းထားသည့် နေရာ</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#beginner-friendly-overview">Beginner-friendly overview</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#concepts">Concepts</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#jobs">Jobs</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#schedules">Schedules</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#main-vs-isolated-execution">Main vs isolated execution</a></li><li class="toc-item relative" data-depth="3"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#main-session-jobs-system-events">Main session jobs (system events)</a></li><li class="toc-item relative" data-depth="3"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#isolated-jobs-dedicated-cron-sessions">Isolated jobs (dedicated cron sessions)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#payload-shapes-what-runs">Payload shapes (what runs)</a></li><li class="toc-item relative" data-depth="3"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#announce-delivery-flow">Announce delivery flow</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#model-thinking-overrides">Model နှင့် thinking overrides</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#delivery-channel-target">Delivery (channel + target)</a></li><li class="toc-item relative" data-depth="3"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#telegram-delivery-targets-topics-forum-threads">Telegram delivery targets (topics / forum threads)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#json-schema-for-tool-calls">JSON schema for tool calls</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#cronadd-params">cron.add params</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#cronupdate-params">cron.update params</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#cronrun-cronremove-params">cron.run နှင့် cron.remove params</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#storage-history">Storage &amp; history</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#configuration">Configuration</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#cli-quickstart">CLI quickstart</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#gateway-api-surface">Gateway API surface</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#troubleshooting">Troubleshooting</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#_3">“ဘာမှ မလည်ပတ်ပါ”</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#recurring-job">Recurring job တစ်ခုသည် မအောင်မြင်မှုများနောက်တွင် ဆက်လက် နောက်ကျနေပါသည်</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="automation/cron-jobs.html#telegram">Telegram သည် မှားသော နေရာသို့ ပို့နေပါသည်</a></li></ul></div></div></div><div class="relative grow box-border flex-col w-full mx-auto px-1 lg:pl-[23.7rem] lg:-ml-12 xl:w-[calc(100%-28rem)]" id="content-area"><header class="relative leading-none" id="header"><div class="mt-0.5 space-y-2.5"><div class="eyebrow h-5 text-primary dark:text-primary-light text-sm font-semibold">Automation</div><div class="flex flex-col sm:flex-row items-start sm:items-center relative gap-2 min-w-0"><h1 class="text-2xl sm:text-3xl text-gray-900 tracking-tight dark:text-gray-200 [overflow-wrap:anywhere] font-bold" id="page-title">Cron Jobs</h1></div></div></header><div class="mdx-content relative mt-8 mb-14 prose prose-gray dark:prose-invert [contain:inline-size] isolate" data-page-href="/automation/cron-jobs" data-page-title="Cron Jobs" id="content"><h1 id="cron-gateway">Cron အလုပ်များ (Gateway အချိန်ဇယားစနစ်)<a class="toc-anchor" href="#cron-gateway" title="Permanent link">¶</a></h1>
+<blockquote>
+<p><strong>Cron vs Heartbeat?</strong> မည်သည့်အချိန်တွင် မည်သို့အသုံးပြုရမည်ကို လမ်းညွှန်ချက်အတွက် <a href="/automation/cron-vs-heartbeat">Cron vs Heartbeat</a> ကိုကြည့်ပါ။</p>
+</blockquote>
+<ol start="5">
+<li>Cron သည် Gateway ၏ built-in scheduler ဖြစ်သည်။ 6. ၎င်းသည် job များကို သိမ်းဆည်းထားပြီး၊ အချိန်မှန်အောင် agent ကို နိုးထစေကာ၊ ရွေးချယ်နိုင်ပါက output ကို chat သို့ ပြန်ပို့နိုင်သည်။</li>
+</ol>
+<p><em>“မနက်တိုင်း အလုပ်လုပ်ပါ”</em> သို့မဟုတ် <em>“မိနစ် ၂၀ အတွင်း agent ကို နိုးပါ”</em> လိုအပ်ပါက cron ကို အသုံးပြုရပါမည်။</p>
+<p>ပြဿနာဖြေရှင်းခြင်း: <a href="/automation/troubleshooting">/automation/troubleshooting</a></p>
+<h2 id="_1">အကျဉ်းချုပ်<a class="toc-anchor" href="#_1" title="Permanent link">¶</a></h2>
+<ul>
+<li>Cron သည် <strong>Gateway အတွင်း</strong> လည်ပတ်သည် (model အတွင်းမဟုတ်ပါ)။</li>
+<li>Jobs များကို <code>~/.openclaw/cron/</code> အောက်တွင် သိမ်းဆည်းထားသဖြင့် restart လုပ်လျှင် အချိန်ဇယား မပျောက်ကွယ်ပါ။</li>
+<li>လုပ်ဆောင်ပုံစံ နှစ်မျိုးရှိသည်—</li>
+<li><strong>Main session</strong>: system event ကို queue ထဲသို့ ထည့်ပြီး နောက် heartbeat တွင် လည်ပတ်စေသည်။</li>
+<li><strong>Isolated</strong>: <code>cron:&lt;jobId&gt;</code> တွင် သီးသန့် agent turn ကို လည်ပတ်စေပြီး delivery (ပုံမှန်အားဖြင့် announce သို့မဟုတ် none) ပါရှိနိုင်သည်။</li>
+<li>Wakeups သည် ပထမတန်းစား အင်္ဂါရပ်ဖြစ်ပြီး job တစ်ခုသည် “အခုနိုးပါ” သို့မဟုတ် “နောက် heartbeat” ကို တောင်းဆိုနိုင်သည်။</li>
+</ul>
+<h2 id="_2">အမြန်စတင်ရန် (လက်တွေ့လုပ်ဆောင်နိုင်သော)<a class="toc-anchor" href="#_2" title="Permanent link">¶</a></h2>
+<p>တစ်ကြိမ်တည်း reminder တစ်ခု ဖန်တီးပြီး ရှိနေကြောင်း အတည်ပြုပြီး ချက်ချင်း လည်ပတ်စေပါ—</p>
+<pre class="highlight"><code class="language-bash">openclaw cron add \
+  --name "Reminder" \
+  --at "2026-02-01T16:00:00Z" \
+  --session main \
+  --system-event "Reminder: check the cron docs draft" \
+  --wake now \
+  --delete-after-run
+
+openclaw cron list
+openclaw cron run &lt;job-id&gt;
+openclaw cron runs --id &lt;job-id&gt;
+</code></pre>
+<p>Delivery ပါရှိသော recurring isolated job တစ်ခု အချိန်ဇယားချပါ—</p>
+<pre class="highlight"><code class="language-bash">openclaw cron add \
+  --name "Morning brief" \
+  --cron "0 7 * * *" \
+  --tz "America/Los_Angeles" \
+  --session isolated \
+  --message "Summarize overnight updates." \
+  --announce \
+  --channel slack \
+  --to "channel:C1234567890"
+</code></pre>
+<h2 id="tool-call-gateway-cron-tool">Tool-call နှင့်ညီမျှမှုများ (Gateway cron tool)<a class="toc-anchor" href="#tool-call-gateway-cron-tool" title="Permanent link">¶</a></h2>
+<p>Canonical JSON ပုံစံများနှင့် ဥပမာများအတွက် <a href="/automation/cron-jobs#json-schema-for-tool-calls">JSON schema for tool calls</a> ကိုကြည့်ပါ။</p>
+<h2 id="cron-jobs">Cron jobs များ သိမ်းဆည်းထားသည့် နေရာ<a class="toc-anchor" href="#cron-jobs" title="Permanent link">¶</a></h2>
+<ol start="7">
+<li>Cron job များကို ပုံမှန်အားဖြင့် Gateway host ရှိ <code>~/.openclaw/cron/jobs.json</code> တွင် သိမ်းဆည်းထားသည်။</li>
+<li>Gateway သည် ဖိုင်ကို memory ထဲသို့ load လုပ်ပြီး ပြောင်းလဲမှုရှိပါက ပြန်ရေးသွားသောကြောင့် Gateway ကို ရပ်ထားချိန်တွင်သာ လက်ဖြင့် ပြင်ဆင်ခြင်းသည် လုံခြုံသည်။ 9. ပြောင်းလဲရန် <code>openclaw cron add/edit</code> သို့မဟုတ် cron tool call API ကို ဦးစားပေးအသုံးပြုပါ။</li>
+</ol>
+<h2 id="beginner-friendly-overview">Beginner-friendly overview<a class="toc-anchor" href="#beginner-friendly-overview" title="Permanent link">¶</a></h2>
+<p>Cron job ကို <strong>ဘယ်အချိန်</strong> လည်ပတ်မည် + <strong>ဘာလုပ်မည်</strong> ဟု စဉ်းစားနိုင်သည်။</p>
+<ol>
+<li>
+<p><strong>Schedule ကို ရွေးချယ်ပါ</strong>
+   - တစ်ကြိမ်တည်း reminder → <code>schedule.kind = "at"</code> (CLI: <code>--at</code>)
+   - ပြန်လည်လုပ်ဆောင်မည့် job → <code>schedule.kind = "every"</code> သို့မဟုတ် <code>schedule.kind = "cron"</code>
+   - ISO timestamp တွင် timezone မပါပါက <strong>UTC</strong> ဟု သတ်မှတ်ပါသည်။</p>
+</li>
+<li>
+<p><strong>ဘယ်နေရာတွင် လည်ပတ်မည်ကို ရွေးပါ</strong>
+   - <code>sessionTarget: "main"</code> → နောက် heartbeat တွင် main context ဖြင့် လည်ပတ်မည်။
+   - <code>sessionTarget: "isolated"</code> → <code>cron:&lt;jobId&gt;</code> တွင် သီးသန့် agent turn ကို လည်ပတ်မည်။</p>
+</li>
+<li>
+<p><strong>Payload ကို ရွေးပါ</strong>
+   - Main session → <code>payload.kind = "systemEvent"</code>
+   - Isolated session → <code>payload.kind = "agentTurn"</code></p>
+</li>
+</ol>
+<p>10) ရွေးချယ်စရာ: one-shot job များ (<code>schedule.kind = "at"</code>) သည် အောင်မြင်ပြီးနောက် ပုံမှန်အားဖြင့် အလိုအလျောက် ဖျက်ပစ်သည်။ 11. ၎င်းတို့ကို ဆက်လက်ထားလိုပါက <code>deleteAfterRun: false</code> ကို သတ်မှတ်ပါ (အောင်မြင်ပြီးနောက် disable ဖြစ်သွားမည်)။</p>
+<h2 id="concepts">Concepts<a class="toc-anchor" href="#concepts" title="Permanent link">¶</a></h2>
+<h3 id="jobs">Jobs<a class="toc-anchor" href="#jobs" title="Permanent link">¶</a></h3>
+<p>Cron job တစ်ခုတွင် အောက်ပါအချက်များ ပါဝင်သည်—</p>
+<ul>
+<li><strong>schedule</strong> (ဘယ်အချိန် လည်ပတ်မည်),</li>
+<li><strong>payload</strong> (ဘာလုပ်မည်),</li>
+<li>ရွေးချယ်နိုင်သော <strong>delivery mode</strong> (announce သို့မဟုတ် none)။</li>
+<li>ရွေးချယ်နိုင်သော <strong>agent binding</strong> (<code>agentId</code>): သတ်မှတ်ထားသော agent ဖြင့် လည်ပတ်စေခြင်း; မရှိပါက သို့မဟုတ် မသိပါက Gateway သည် default agent သို့ ပြန်လည်ရွေးချယ်ပါသည်။</li>
+</ul>
+<ol start="12">
+<li>Job များကို တည်ငြိမ်သော <code>jobId</code> ဖြင့် သတ်မှတ်ထားသည် (CLI/Gateway API များတွင် အသုံးပြုသည်)။
+    In agent tool calls, <code>jobId</code> is canonical; legacy <code>id</code> is accepted for compatibility.</li>
+<li>One-shot job များသည် အောင်မြင်ပြီးနောက် ပုံမှန်အားဖြင့် အလိုအလျောက် ဖျက်ပစ်သည်။ ဆက်လက်ထားလိုပါက <code>deleteAfterRun: false</code> ကို သတ်မှတ်ပါ။</li>
+</ol>
+<h3 id="schedules">Schedules<a class="toc-anchor" href="#schedules" title="Permanent link">¶</a></h3>
+<p>Cron သည် schedule အမျိုးအစား သုံးမျိုးကို ပံ့ပိုးပါသည်—</p>
+<ul>
+<li><code>at</code>: <code>schedule.at</code> (ISO 8601) ဖြင့် သတ်မှတ်သော တစ်ကြိမ်တည်း timestamp။</li>
+<li><code>every</code>: သတ်မှတ်ထားသော interval (ms)။</li>
+<li><code>cron</code>: IANA timezone ရွေးချယ်နိုင်သော 5-field cron expression။</li>
+</ul>
+<ol start="15">
+<li>Cron expression များသည် <code>croner</code> ကို အသုံးပြုသည်။ If a timezone is omitted, the Gateway host’s
+    local timezone is used.</li>
+</ol>
+<h3 id="main-vs-isolated-execution">Main vs isolated execution<a class="toc-anchor" href="#main-vs-isolated-execution" title="Permanent link">¶</a></h3>
+<h4 id="main-session-jobs-system-events">Main session jobs (system events)<a class="toc-anchor" href="#main-session-jobs-system-events" title="Permanent link">¶</a></h4>
+<ol start="17">
+<li>Main job များသည် system event တစ်ခုကို enqueue လုပ်ပြီး ရွေးချယ်နိုင်ပါက heartbeat runner ကို နိုးထစေသည်။</li>
+<li>၎င်းတို့သည် <code>payload.kind = "systemEvent"</code> ကို အသုံးပြုရမည်။</li>
+</ol>
+<ul>
+<li><code>wakeMode: "now"</code> (default): event သည် ချက်ချင်း heartbeat ကို လည်ပတ်စေသည်။</li>
+<li><code>wakeMode: "next-heartbeat"</code>: event သည် နောက် scheduled heartbeat ကို စောင့်ဆိုင်းသည်။</li>
+</ul>
+<ol start="19">
+<li>သာမန် heartbeat prompt + main-session context ကို လိုချင်သောအခါ ဤနည်းလမ်းသည် အကောင်းဆုံး ကိုက်ညီသည်။
+    See <a href="/gateway/heartbeat">Heartbeat</a>.</li>
+</ol>
+<h4 id="isolated-jobs-dedicated-cron-sessions">Isolated jobs (dedicated cron sessions)<a class="toc-anchor" href="#isolated-jobs-dedicated-cron-sessions" title="Permanent link">¶</a></h4>
+<p>Isolated jobs များသည် session <code>cron:&lt;jobId&gt;</code> တွင် သီးသန့် agent turn ကို လည်ပတ်စေပါသည်။</p>
+<p>အရေးကြီးသော အပြုအမူများ—</p>
+<ul>
+<li>Traceability အတွက် prompt ကို <code>[cron:&lt;jobId&gt; &lt;job name&gt;]</code> ဖြင့် အစပြုပါသည်။</li>
+<li>လည်ပတ်မှုတိုင်းသည် <strong>session id အသစ်</strong> ဖြင့် စတင်ပါသည် (ယခင် စကားဝိုင်း မပါဝင်ပါ)။</li>
+<li>ပုံမှန်အပြုအမူ—<code>delivery</code> မသတ်မှတ်ထားပါက isolated jobs များသည် အကျဉ်းချုပ်ကို announce လုပ်ပါသည် (<code>delivery.mode = "announce"</code>)။</li>
+<li><code>delivery.mode</code> (isolated-only) သည် အပြုအမူကို ရွေးချယ်ပါသည်—</li>
+<li><code>announce</code>: target channel သို့ အကျဉ်းချုပ် ပို့ပြီး main session သို့ အတိုချုပ် တင်ပါသည်။</li>
+<li><code>none</code>: internal only (delivery မရှိ၊ main-session summary မရှိ)။</li>
+<li><code>wakeMode</code> သည် main-session summary တင်သည့် အချိန်ကို ထိန်းချုပ်ပါသည်—</li>
+<li><code>now</code>: ချက်ချင်း heartbeat။</li>
+<li><code>next-heartbeat</code>: နောက် scheduled heartbeat ကို စောင့်ဆိုင်းသည်။</li>
+</ul>
+<p>Noise များသော၊ မကြာခဏ ဖြစ်ပေါ်သော၊ သို့မဟုတ် “နောက်ခံအလုပ်များ” အတွက် isolated jobs ကို အသုံးပြုပါ၊ main chat history ကို မစွပ်စွဲစေရန်။</p>
+<h3 id="payload-shapes-what-runs">Payload shapes (what runs)<a class="toc-anchor" href="#payload-shapes-what-runs" title="Permanent link">¶</a></h3>
+<p>Payload အမျိုးအစား နှစ်မျိုးကို ပံ့ပိုးပါသည်—</p>
+<ul>
+<li><code>systemEvent</code>: main-session only, heartbeat prompt မှတဆင့် route လုပ်သည်။</li>
+<li><code>agentTurn</code>: isolated-session only, သီးသန့် agent turn ကို လည်ပတ်စေသည်။</li>
+</ul>
+<p>ပုံမှန် <code>agentTurn</code> fields—</p>
+<ul>
+<li><code>message</code>: မဖြစ်မနေ လိုအပ်သော text prompt။</li>
+<li><code>model</code> / <code>thinking</code>: ရွေးချယ်နိုင်သော override များ (အောက်တွင် ကြည့်ပါ)။</li>
+<li><code>timeoutSeconds</code>: ရွေးချယ်နိုင်သော timeout override။</li>
+</ul>
+<p>Delivery config (isolated jobs only)—</p>
+<ul>
+<li><code>delivery.mode</code>: <code>none</code> | <code>announce</code>။</li>
+<li><code>delivery.channel</code>: <code>last</code> သို့မဟုတ် သီးသန့် channel တစ်ခု။</li>
+<li><code>delivery.to</code>: channel-specific target (ဖုန်း/ချက်/ချန်နယ် id)။</li>
+<li><code>delivery.bestEffort</code>: announce delivery မအောင်မြင်ပါက job ကို မဖျက်သိမ်းရန်။</li>
+</ul>
+<ol start="21">
+<li>Announce delivery သည် run အတွင်း messaging tool send များကို ဖိနှိပ်ထားသည်။ Chat ကို ရည်ညွှန်းရန် <code>delivery.channel</code>/<code>delivery.to</code> ကို အသုံးပြုပါ။ 22. <code>delivery.mode = "none"</code> ဖြစ်ပါက main session သို့ summary ကို မတင်ပါ။</li>
+</ol>
+<p>Isolated jobs များအတွက် <code>delivery</code> မသတ်မှတ်ထားပါက OpenClaw သည် ပုံမှန်အားဖြင့် <code>announce</code> ကို အသုံးပြုပါသည်။</p>
+<h4 id="announce-delivery-flow">Announce delivery flow<a class="toc-anchor" href="#announce-delivery-flow" title="Permanent link">¶</a></h4>
+<p>When <code>delivery.mode = "announce"</code>, cron delivers directly via the outbound channel adapters.
+24. စာကို ဖန်တီးခြင်း သို့မဟုတ် လွှဲပြောင်းပို့ခြင်းအတွက် main agent ကို မဖွင့်ပေးပါ။</p>
+<p>အပြုအမူ အသေးစိတ်—</p>
+<ul>
+<li>Content: isolated run ၏ outbound payloads (text/media) ကို ပုံမှန် chunking နှင့် channel formatting ဖြင့် ပို့ဆောင်ပါသည်။</li>
+<li>Heartbeat-only responses (<code>HEARTBEAT_OK</code> သာပါပြီး အမှန်တကယ် content မပါပါက) ကို မပို့ဆောင်ပါ။</li>
+<li>Isolated run က message tool ဖြင့် တူညီသော target သို့ မက်ဆေ့ချ် ပို့ပြီးသားဖြစ်ပါက duplicate မဖြစ်စေရန် delivery ကို ကျော်လွှားပါသည်။</li>
+<li>Delivery target မရှိခြင်း သို့မဟုတ် မမှန်ကန်ပါက <code>delivery.bestEffort = true</code> မရှိလျှင် job ကို fail လုပ်ပါသည်။</li>
+<li><code>delivery.mode = "announce"</code> ဖြစ်သည့်အခါမှသာ main session သို့ အတိုချုပ် တင်ပါသည်။</li>
+<li>Main-session summary သည် <code>wakeMode</code> ကို လေးစားပါသည်—<code>now</code> သည် ချက်ချင်း heartbeat ကို ဖြစ်စေပြီး <code>next-heartbeat</code> သည် နောက် scheduled heartbeat ကို စောင့်ပါသည်။</li>
+</ul>
+<h3 id="model-thinking-overrides">Model နှင့် thinking overrides<a class="toc-anchor" href="#model-thinking-overrides" title="Permanent link">¶</a></h3>
+<p>Isolated jobs (<code>agentTurn</code>) များသည် model နှင့် thinking level ကို override လုပ်နိုင်ပါသည်—</p>
+<ul>
+<li><code>model</code>: Provider/model string (ဥပမာ <code>anthropic/claude-sonnet-4-20250514</code>) သို့မဟုတ် alias (ဥပမာ <code>opus</code>)</li>
+<li><code>thinking</code>: Thinking level (<code>off</code>, <code>minimal</code>, <code>low</code>, <code>medium</code>, <code>high</code>, <code>xhigh</code>; GPT-5.2 + Codex models များသာ)</li>
+</ul>
+<ol start="25">
+<li>မှတ်ချက်: main-session job များတွင်လည်း <code>model</code> ကို သတ်မှတ်နိုင်သော်လည်း shared main session model ကို ပြောင်းလဲသွားစေသည်။ 26. မမျှော်လင့်သော context ပြောင်းလဲမှုများကို ရှောင်ရှားရန် isolated job များအတွက်သာ model override များကို အကြံပြုပါသည်။</li>
+</ol>
+<p>Resolution priority—</p>
+<ol>
+<li>Job payload override (အမြင့်ဆုံး)</li>
+<li>Hook-specific defaults (ဥပမာ <code>hooks.gmail.model</code>)</li>
+<li>Agent config default</li>
+</ol>
+<h3 id="delivery-channel-target">Delivery (channel + target)<a class="toc-anchor" href="#delivery-channel-target" title="Permanent link">¶</a></h3>
+<p>Isolated jobs များသည် အပေါ်ဆုံး <code>delivery</code> config မှတဆင့် channel သို့ output ပို့ဆောင်နိုင်ပါသည်—</p>
+<ul>
+<li><code>delivery.mode</code>: <code>announce</code> (အကျဉ်းချုပ် ပို့ဆောင်) သို့မဟုတ် <code>none</code>။</li>
+<li><code>delivery.channel</code>: <code>whatsapp</code> / <code>telegram</code> / <code>discord</code> / <code>slack</code> / <code>mattermost</code> (plugin) / <code>signal</code> / <code>imessage</code> / <code>last</code>။</li>
+<li><code>delivery.to</code>: channel-specific recipient target။</li>
+</ul>
+<p>Delivery config သည် isolated jobs များအတွက်သာ အသုံးပြုနိုင်ပါသည် (<code>sessionTarget: "isolated"</code>)။</p>
+<p><code>delivery.channel</code> သို့မဟုတ် <code>delivery.to</code> မသတ်မှတ်ထားပါက cron သည် main session ၏ “last route” (agent နောက်ဆုံး ပြန်ကြားခဲ့သည့် နေရာ) ကို အသုံးပြုနိုင်ပါသည်။</p>
+<p>Target format သတိပေးချက်များ—</p>
+<ul>
+<li>Slack/Discord/Mattermost (plugin) targets များတွင် မရှုပ်ထွေးစေရန် <code>channel:&lt;id&gt;</code>, <code>user:&lt;id&gt;</code> ကဲ့သို့သော explicit prefixes ကို အသုံးပြုပါ။</li>
+<li>Telegram topics များတွင် <code>:topic:</code> ပုံစံကို အသုံးပြုပါ (အောက်တွင် ကြည့်ပါ)။</li>
+</ul>
+<h4 id="telegram-delivery-targets-topics-forum-threads">Telegram delivery targets (topics / forum threads)<a class="toc-anchor" href="#telegram-delivery-targets-topics-forum-threads" title="Permanent link">¶</a></h4>
+<ol start="27">
+<li>Telegram သည် <code>message_thread_id</code> ဖြင့် forum topic များကို ထောက်ပံ့သည်။ 28. Cron delivery အတွက် topic/thread ကို <code>to</code> field ထဲတွင် encode လုပ်နိုင်သည်။</li>
+</ol>
+<ul>
+<li><code>-1001234567890</code> (chat id သာ)</li>
+<li><code>-1001234567890:topic:123</code> (အကြံပြု: explicit topic marker)</li>
+<li><code>-1001234567890:123</code> (shorthand: numeric suffix)</li>
+</ul>
+<p><code>telegram:...</code> / <code>telegram:group:...</code> ကဲ့သို့သော prefixed targets များကိုလည်း လက်ခံပါသည်—</p>
+<ul>
+<li><code>telegram:group:-1001234567890:topic:123</code></li>
+</ul>
+<h2 id="json-schema-for-tool-calls">JSON schema for tool calls<a class="toc-anchor" href="#json-schema-for-tool-calls" title="Permanent link">¶</a></h2>
+<ol start="29">
+<li>Gateway <code>cron.*</code> tool များကို တိုက်ရိုက်ခေါ်သောအခါ (agent tool call သို့မဟုတ် RPC) ဤ shape များကို အသုံးပြုပါ။</li>
+<li>CLI flag များသည် <code>20m</code> ကဲ့သို့ လူသားနားလည်လွယ်သော duration များကို လက်ခံသော်လည်း tool call များတွင် <code>schedule.at</code> အတွက် ISO 8601 string နှင့် <code>schedule.everyMs</code> အတွက် milliseconds ကို အသုံးပြုရမည်။</li>
+</ol>
+<h3 id="cronadd-params">cron.add params<a class="toc-anchor" href="#cronadd-params" title="Permanent link">¶</a></h3>
+<p>တစ်ကြိမ်တည်း၊ main session job (system event)—</p>
+<pre class="highlight"><code class="language-json">{
+  "name": "Reminder",
+  "schedule": { "kind": "at", "at": "2026-02-01T16:00:00Z" },
+  "sessionTarget": "main",
+  "wakeMode": "now",
+  "payload": { "kind": "systemEvent", "text": "Reminder text" },
+  "deleteAfterRun": true
+}
+</code></pre>
+<p>Delivery ပါရှိသော recurring, isolated job—</p>
+<pre class="highlight"><code class="language-json">{
+  "name": "Morning brief",
+  "schedule": { "kind": "cron", "expr": "0 7 * * *", "tz": "America/Los_Angeles" },
+  "sessionTarget": "isolated",
+  "wakeMode": "next-heartbeat",
+  "payload": {
+    "kind": "agentTurn",
+    "message": "Summarize overnight updates."
+  },
+  "delivery": {
+    "mode": "announce",
+    "channel": "slack",
+    "to": "channel:C1234567890",
+    "bestEffort": true
+  }
+}
+</code></pre>
+<p>မှတ်ချက်များ—</p>
+<ul>
+<li><code>schedule.kind</code>: <code>at</code> (<code>at</code>), <code>every</code> (<code>everyMs</code>), သို့မဟုတ် <code>cron</code> (<code>expr</code>, ရွေးချယ်နိုင်သော <code>tz</code>)။</li>
+<li><code>schedule.at</code> သည် ISO 8601 ကို လက်ခံပါသည် (timezone ရွေးချယ်နိုင်; မပါပါက UTC ဟု သတ်မှတ်ပါသည်)။</li>
+<li><code>everyMs</code> သည် milliseconds ဖြစ်ပါသည်။</li>
+<li><code>sessionTarget</code> သည် <code>"main"</code> သို့မဟုတ် <code>"isolated"</code> ဖြစ်ရမည်ဖြစ်ပြီး <code>payload.kind</code> နှင့် ကိုက်ညီရပါမည်။</li>
+<li>ရွေးချယ်နိုင်သော fields: <code>agentId</code>, <code>description</code>, <code>enabled</code>, <code>deleteAfterRun</code> (<code>at</code> အတွက် default true),
+  <code>delivery</code>။</li>
+<li><code>wakeMode</code> ကို မသတ်မှတ်ပါက <code>"now"</code> ကို default အဖြစ် အသုံးပြုပါသည်။</li>
+</ul>
+<h3 id="cronupdate-params">cron.update params<a class="toc-anchor" href="#cronupdate-params" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-json">{
+  "jobId": "job-123",
+  "patch": {
+    "enabled": false,
+    "schedule": { "kind": "every", "everyMs": 3600000 }
+  }
+}
+</code></pre>
+<p>မှတ်ချက်များ—</p>
+<ul>
+<li><code>jobId</code> သည် canonical ဖြစ်ပြီး <code>id</code> ကို compatibility အတွက် လက်ခံပါသည်။</li>
+<li>Agent binding ကို ဖယ်ရှားရန် patch ထဲတွင် <code>agentId: null</code> ကို အသုံးပြုပါ။</li>
+</ul>
+<h3 id="cronrun-cronremove-params">cron.run နှင့် cron.remove params<a class="toc-anchor" href="#cronrun-cronremove-params" title="Permanent link">¶</a></h3>
+<pre class="highlight"><code class="language-json">{ "jobId": "job-123", "mode": "force" }
+</code></pre>
+<pre class="highlight"><code class="language-json">{ "jobId": "job-123" }
+</code></pre>
+<h2 id="storage-history">Storage &amp; history<a class="toc-anchor" href="#storage-history" title="Permanent link">¶</a></h2>
+<ul>
+<li>Job store: <code>~/.openclaw/cron/jobs.json</code> (Gateway-managed JSON)။</li>
+<li>Run history: <code>~/.openclaw/cron/runs/&lt;jobId&gt;.jsonl</code> (JSONL, auto-pruned)။</li>
+<li>Store path ကို override လုပ်ရန်: config ထဲရှိ <code>cron.store</code>။</li>
+</ul>
+<h2 id="configuration">Configuration<a class="toc-anchor" href="#configuration" title="Permanent link">¶</a></h2>
+<pre class="highlight"><code class="language-json5">{
+  cron: {
+    enabled: true, // default true
+    store: "~/.openclaw/cron/jobs.json",
+    maxConcurrentRuns: 1, // default 1
+  },
+}
+</code></pre>
+<p>Cron ကို လုံးဝ ပိတ်ရန်—</p>
+<ul>
+<li><code>cron.enabled: false</code> (config)</li>
+<li><code>OPENCLAW_SKIP_CRON=1</code> (env)</li>
+</ul>
+<h2 id="cli-quickstart">CLI quickstart<a class="toc-anchor" href="#cli-quickstart" title="Permanent link">¶</a></h2>
+<p>တစ်ကြိမ်တည်း reminder (UTC ISO, အောင်မြင်ပြီးနောက် auto-delete)—</p>
+<pre class="highlight"><code class="language-bash">openclaw cron add \
+  --name "Send reminder" \
+  --at "2026-01-12T18:00:00Z" \
+  --session main \
+  --system-event "Reminder: submit expense report." \
+  --wake now \
+  --delete-after-run
+</code></pre>
+<p>တစ်ကြိမ်တည်း reminder (main session, ချက်ချင်း နိုး)—</p>
+<pre class="highlight"><code class="language-bash">openclaw cron add \
+  --name "Calendar check" \
+  --at "20m" \
+  --session main \
+  --system-event "Next heartbeat: check calendar." \
+  --wake now
+</code></pre>
+<p>Recurring isolated job (WhatsApp သို့ announce)—</p>
+<pre class="highlight"><code class="language-bash">openclaw cron add \
+  --name "Morning status" \
+  --cron "0 7 * * *" \
+  --tz "America/Los_Angeles" \
+  --session isolated \
+  --message "Summarize inbox + calendar for today." \
+  --announce \
+  --channel whatsapp \
+  --to "+15551234567"
+</code></pre>
+<p>Recurring isolated job (Telegram topic သို့ ပို့ဆောင်)—</p>
+<pre class="highlight"><code class="language-bash">openclaw cron add \
+  --name "Nightly summary (topic)" \
+  --cron "0 22 * * *" \
+  --tz "America/Los_Angeles" \
+  --session isolated \
+  --message "Summarize today; send to the nightly topic." \
+  --announce \
+  --channel telegram \
+  --to "-1001234567890:topic:123"
+</code></pre>
+<p>Model နှင့် thinking override ပါရှိသော isolated job—</p>
+<pre class="highlight"><code class="language-bash">openclaw cron add \
+  --name "Deep analysis" \
+  --cron "0 6 * * 1" \
+  --tz "America/Los_Angeles" \
+  --session isolated \
+  --message "Weekly deep analysis of project progress." \
+  --model "opus" \
+  --thinking high \
+  --announce \
+  --channel whatsapp \
+  --to "+15551234567"
+</code></pre>
+<p>Agent ရွေးချယ်မှု (multi-agent setups)—</p>
+<pre class="highlight"><code class="language-bash"># Pin a job to agent "ops" (falls back to default if that agent is missing)
+openclaw cron add --name "Ops sweep" --cron "0 6 * * *" --session isolated --message "Check ops queue" --agent ops
+
+# Switch or clear the agent on an existing job
+openclaw cron edit &lt;jobId&gt; --agent ops
+openclaw cron edit &lt;jobId&gt; --clear-agent
+</code></pre>
+<p>Manual run (force သည် default ဖြစ်ပြီး due ဖြစ်သည့်အခါသာ လည်ပတ်စေရန် <code>--due</code> ကို အသုံးပြုပါ)—</p>
+<pre class="highlight"><code class="language-bash">openclaw cron run &lt;jobId&gt;
+openclaw cron run &lt;jobId&gt; --due
+</code></pre>
+<p>ရှိပြီးသား job ကို ပြင်ဆင်ရန် (patch fields)—</p>
+<pre class="highlight"><code class="language-bash">openclaw cron edit &lt;jobId&gt; \
+  --message "Updated prompt" \
+  --model "opus" \
+  --thinking low
+</code></pre>
+<p>Run history—</p>
+<pre class="highlight"><code class="language-bash">openclaw cron runs --id &lt;jobId&gt; --limit 50
+</code></pre>
+<p>Job မဖန်တီးဘဲ ချက်ချင်း system event—</p>
+<pre class="highlight"><code class="language-bash">openclaw system event --mode now --text "Next heartbeat: check battery."
+</code></pre>
+<h2 id="gateway-api-surface">Gateway API surface<a class="toc-anchor" href="#gateway-api-surface" title="Permanent link">¶</a></h2>
+<ul>
+<li><code>cron.list</code>, <code>cron.status</code>, <code>cron.add</code>, <code>cron.update</code>, <code>cron.remove</code></li>
+<li><code>cron.run</code> (force သို့မဟုတ် due), <code>cron.runs</code>
+  Job မပါဘဲ ချက်ချင်း system events အတွက် <a href="/cli/system"><code>openclaw system event</code></a> ကို အသုံးပြုပါ။</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting<a class="toc-anchor" href="#troubleshooting" title="Permanent link">¶</a></h2>
+<h3 id="_3">“ဘာမှ မလည်ပတ်ပါ”<a class="toc-anchor" href="#_3" title="Permanent link">¶</a></h3>
+<ul>
+<li>Cron ဖွင့်ထားခြင်း ရှိမရှိ စစ်ဆေးပါ—<code>cron.enabled</code> နှင့် <code>OPENCLAW_SKIP_CRON</code>။</li>
+<li>Gateway သည် အမြဲတမ်း လည်ပတ်နေကြောင်း စစ်ဆေးပါ (cron သည် Gateway process အတွင်း လည်ပတ်သည်)။</li>
+<li><code>cron</code> schedules များအတွက် timezone (<code>--tz</code>) နှင့် host timezone ကို အတည်ပြုပါ။</li>
+</ul>
+<h3 id="recurring-job">Recurring job တစ်ခုသည် မအောင်မြင်မှုများနောက်တွင် ဆက်လက် နောက်ကျနေပါသည်<a class="toc-anchor" href="#recurring-job" title="Permanent link">¶</a></h3>
+<ul>
+<li>OpenClaw သည် ဆက်တိုက် error များဖြစ်ပါက recurring jobs များအတွက် exponential retry backoff ကို အသုံးပြုပါသည်—
+  30s, 1m, 5m, 15m, ထို့နောက် retry တစ်ခုချင်းအကြား 60m။</li>
+<li>နောက်တစ်ကြိမ် အောင်မြင်သော run ဖြစ်ပြီးနောက် backoff သည် အလိုအလျောက် reset ဖြစ်ပါသည်။</li>
+<li>တစ်ကြိမ်တည်း (<code>at</code>) jobs များသည် terminal run (<code>ok</code>, <code>error</code>, သို့မဟုတ် <code>skipped</code>) အပြီးတွင် disable ဖြစ်ပြီး retry မလုပ်ပါ။</li>
+</ul>
+<h3 id="telegram">Telegram သည် မှားသော နေရာသို့ ပို့နေပါသည်<a class="toc-anchor" href="#telegram" title="Permanent link">¶</a></h3>
+<ul>
+<li>Forum topics အတွက် <code>-100…:topic:&lt;id&gt;</code> ကို အသုံးပြုပါ၊ ထင်ရှားပြီး မရှုပ်ထွေးစေရန်။</li>
+<li>Logs သို့မဟုတ် သိမ်းဆည်းထားသော “last route” targets များတွင် <code>telegram:...</code> prefixes ကို မြင်တွေ့ပါက ပုံမှန်ဖြစ်ပါသည်;
+  cron delivery သည် ၎င်းတို့ကို လက်ခံပြီး topic IDs များကို မှန်ကန်စွာ parse လုပ်နိုင်ပါသည်။</li>
+</ul></div><div class="px-0.5 flex items-center text-sm font-semibold text-gray-700 dark:text-gray-200" id="pagination"><a class="flex items-center space-x-3 group" href="hooks.html"><svg class="h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><span class="group-hover:text-gray-900 dark:group-hover:text-white">Hooks</span></a><a class="flex items-center ml-auto space-x-3 group" href="cron-vs-heartbeat.html"><span class="group-hover:text-gray-900 dark:group-hover:text-white">Cron vs Heartbeat</span><svg class="rotate-180 h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a></div><div class="left-0 right-0 sticky sm:px-4 pb-4 sm:pb-6 bottom-0 pt-1 flex flex-col items-center w-full overflow-hidden z-20 pointer-events-none print:hidden"><div class="chat-assistant-floating-input z-10 w-full sm:w-96 focus-within:w-full group/assistant-bar sm:focus-within:w-[30rem] hover:scale-100 sm:hover:scale-105 focus-within:hover:scale-100 [transition:width_400ms,left_200ms,transform_500ms,opacity_200ms]"><div class="translate-y-[100px] opacity-0"><div class="flex flex-col w-full rounded-2xl pointer-events-auto bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border border-gray-200 dark:border-white/30 focus-within:border-primary dark:focus-within:border-primary-light transition-colors sm:shadow-xl"><div class="relative flex items-end"><textarea aria-label="Ask a question..." autocomplete="off" class="chat-assistant-input w-full bg-transparent border-0 peer/input text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 !outline-none focus:!outline-none focus:ring-0 py-2.5 pl-3.5 pr-10 font-bodyWeight text-sm" id="chat-assistant-textarea" placeholder="Ask a question..." style="resize:none"></textarea><span class="absolute right-11 bottom-3 text-xs font-medium text-gray-400 dark:text-gray-500 select-none pointer-events-none peer-focus/input:hidden hidden sm:inline">⌘<!-- -->I</span><button aria-label="Send message" class="chat-assistant-send-button flex justify-center items-center rounded-full p-1 size-6 bg-primary/30 dark:bg-primary-dark/30 absolute right-2.5 bottom-2" disabled=""><svg class="lucide lucide-arrow-up text-white dark:text-white size-3.5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></div></div></div></div><footer class="flex gap-12 justify-between pt-10 border-t border-gray-100 sm:flex dark:border-gray-800/50 pb-28" id="footer"><div class="flex items-center justify-between"><div class="sm:flex"><a class="group flex items-baseline gap-1 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-nowrap" href="https://www.mintlify.com?utm_campaign=poweredBy&amp;utm_medium=referral&amp;utm_source=clawdhub" rel="noreferrer" target="_blank"><span>Powered by</span><svg class="h-3.5 w-auto translate-y-[3px]" fill="none" height="367" viewbox="0 0 1274 367" width="1274" xmlns="http://www.w3.org/2000/svg"><path d="M1154.38 366.038H1097.86L1137.69 276.14L1058.04 97.1046H1114.93L1161.35 209.337C1162.97 213.26 1168.53 213.253 1170.14 209.325L1216.21 97.1046H1273.49L1154.38 366.038Z" fill="currentColor"></path><path d="M982.714 286.761V142.622H944.403V97.1041H982.714V72.4488C982.714 49.9429 989.542 32.2416 1003.2 19.345C1016.85 6.44832 1034.17 0 1055.16 0C1068.06 0 1079.06 1.39081 1088.16 4.17244V50.0693C1082.09 47.7934 1075.01 46.6555 1066.92 46.6555C1055.54 46.6555 1047.32 49.1843 1042.27 54.2418C1037.21 59.0464 1034.68 67.2648 1034.68 78.8971V97.1041H1088.16V142.622H1034.68V286.761H982.714Z" fill="currentColor"></path><path d="M897.916 66.0005C889.066 66.0005 881.353 62.8395 874.778 56.5176C868.203 49.9429 864.916 42.1037 864.916 33.0002C864.916 23.8967 868.203 16.184 874.778 9.86215C881.353 3.28738 889.066 0 897.916 0C907.273 0 915.112 3.28738 921.434 9.86215C928.008 16.184 931.296 23.8967 931.296 33.0002C931.296 42.1037 928.008 49.9429 921.434 56.5176C915.112 62.8395 907.273 66.0005 897.916 66.0005ZM872.123 286.761V97.1041H924.089V286.761H872.123Z" fill="currentColor"></path><path d="M781.638 286.761V2.27609H833.604V286.761H781.638Z" fill="currentColor"></path><path d="M722.934 289.037C701.693 289.037 684.244 283.221 670.589 271.588C657.187 259.703 650.485 242.634 650.485 220.381V142.622H612.175V97.1044H650.485V44.3799H702.451V97.1044H755.934V142.622H702.451V210.14C702.451 221.772 704.98 230.117 710.038 235.174C715.095 239.979 723.313 242.381 734.693 242.381C742.785 242.381 749.865 241.243 755.934 238.967V284.864C746.831 287.646 735.831 289.037 722.934 289.037Z" fill="currentColor"></path><path d="M417.674 286.761V97.1041H469.64V110.967C469.64 113.311 472.83 114.347 474.382 112.591C485.967 99.4848 502.467 92.9317 523.881 92.9317C546.64 92.9317 564.468 100.518 577.365 115.69C590.514 130.61 597.089 150.587 597.089 175.622V286.761H545.123V184.346C545.123 170.438 542.215 159.691 536.399 152.105C530.583 144.265 522.364 140.346 511.743 140.346C499.1 140.346 488.858 144.898 481.019 154.001C473.433 163.105 469.64 176.507 469.64 194.208V286.761H417.674Z" fill="currentColor"></path><path d="M352.981 66.0005C344.13 66.0005 336.417 62.8395 329.843 56.5176C323.268 49.9429 319.98 42.1037 319.98 33.0002C319.98 23.8967 323.268 16.184 329.843 9.86215C336.417 3.28738 344.13 0 352.981 0C362.337 0 370.176 3.28738 376.498 9.86215C383.073 16.184 386.36 23.8967 386.36 33.0002C386.36 42.1037 383.073 49.9429 376.498 56.5176C370.176 62.8395 362.337 66.0005 352.981 66.0005ZM327.187 286.761V97.1041H379.153V286.761H327.187Z" fill="currentColor"></path><path d="M238.967 286.761V185.484C238.967 155.392 229.105 140.346 209.381 140.346C198.001 140.346 188.898 144.645 182.07 153.242C175.495 161.84 171.955 174.61 171.449 191.553V286.761H119.484V185.484C119.484 155.392 109.621 140.346 89.8972 140.346C78.2649 140.346 69.035 144.898 62.2073 154.001C55.3797 163.105 51.9659 176.507 51.9659 194.208V286.761H0V97.1041H51.9659V111.103C51.9659 113.435 55.1014 114.462 56.633 112.704C68.1136 99.5223 83.3741 92.9317 102.415 92.9317C127.436 92.9317 146.283 103.262 158.953 123.923C159.953 125.553 162.412 125.527 163.406 123.894C168.884 114.891 176.496 107.731 186.243 102.415C197.369 96.0926 208.622 92.9317 220.002 92.9317C242.507 92.9317 259.956 100.392 272.347 115.311C284.738 130.231 290.933 150.714 290.933 176.76V286.761H238.967Z" fill="currentColor"></path></svg></a></div></div></footer></div></div><!--$--><!--/$--></div></div></div></div></div>
+<div class="veiseule-footer"><a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Community translations maintained by <a href="http://blog.law-kelly.com/2026/02/open-source-means-open-language.html">John Kelly</a>. Improve translations on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a>.</div>
+<script>
+(function(){
+  var btn = document.querySelector('[aria-label="Toggle dark mode"]');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var html = document.documentElement;
+    var isDark = html.classList.contains('dark');
+    if(isDark){
+      html.classList.remove('dark');
+      html.style.colorScheme = 'light';
+      try { localStorage.setItem('isDarkMode','light'); } catch(e){}
+    } else {
+      html.classList.add('dark');
+      html.style.colorScheme = 'dark';
+      try { localStorage.setItem('isDarkMode','dark'); } catch(e){}
+    }
+  });
+})();
+</script></body></html>

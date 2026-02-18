@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html class="__variable_47c970 __variable_3bbdad" data-banner-state="visible" data-page-mode="none" lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/bb3ef058b751a6ad-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/c4b700dcb2187787-s.p.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/mintlify-assets/_next/static/media/e4af272ccee01ff0-s.p.woff2" rel="preload" type="font/woff2"/><link as="image" href="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26" rel="preload"/><link as="image" href="https://d3gk2c5xim1je2.cloudfront.net/flags/FR.svg" rel="preload"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/b864dec2fc058581.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/6f9b80d484ead711.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><link data-precedence="next" href="https://docs.openclaw.ai/mintlify-assets/_next/static/css/05d6d8fcb903870d.css?dpl=dpl_xvk8RhTryiE2pXDVRjpGqPQrnT7j" rel="stylesheet"/><meta content="" name="next-size-adjust"/><title>Tests - OpenClaw</title><meta content="OpenClaw" name="application-name"/><meta content="Mintlify" name="generator"/><meta content="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/browserconfig.xml" name="msapplication-config"/><meta content="OpenClaw" name="apple-mobile-web-app-title"/><meta content="#FF5A36" name="msapplication-TileColor"/><meta content="utf-8" name="charset"/><meta content="OpenClaw" name="og:site_name"/><meta content="https://docs.openclaw.ai/help/testing" name="canonical"/><link href="testing.html" rel="canonical"/><link href="/sitemap.xml" rel="alternate" type="application/xml"/><meta content="Testing - OpenClaw" property="og:title"/><meta content="https://docs.openclaw.ai/help/testing" property="og:url"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DEnvironment%2Band%2Bdebugging%26title%3DTesting%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="website" property="og:type"/><meta content="summary_large_image" name="twitter:card"/><meta content="Testing - OpenClaw" name="twitter:title"/><meta content="https://clawdhub.mintlify.app/mintlify-assets/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DEnvironment%2Band%2Bdebugging%26title%3DTesting%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclawdhub%252F4rYvG-uuZrMK_URE%252Fassets%252Fpixel-lobster.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253D4rYvG-uuZrMK_URE%2526q%253D85%2526s%253Dda2032e9eac3b5d9bfe7eb96ca6a8a26%26primaryColor%3D%2523FF5A36%26lightColor%3D%2523FF8A6B%26darkColor%3D%2523FF5A36%26backgroundLight%3D%2523ffffff%26backgroundDark%3D%25230e0c0d&amp;w=1200&amp;q=100" name="twitter:image"/><meta content="1200" name="twitter:image:width"/><meta content="630" name="twitter:image:height"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-16x16.png" media="(prefers-color-scheme: light)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon-32x32.png" media="(prefers-color-scheme: light)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon/favicon.ico" media="(prefers-color-scheme: light)" rel="shortcut icon" type="image/x-icon"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-16x16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon-32x32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/><link href="/mintlify-assets/_mintlify/favicons/clawdhub/ucs7o4TpbxDUKhVW/_generated/favicon-dark/favicon.ico" media="(prefers-color-scheme: dark)" rel="shortcut icon" type="image/x-icon"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link as="style" href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css" rel="preload"/><script type="text/javascript">(function(a,b){try{let c=document.getElementById("banner")?.innerText;if(c){for(let d=0;d<localStorage.length;d++){let e=localStorage.key(d);if(e?.endsWith(a)&&localStorage.getItem(e)===c)return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible");return}for(let c=0;c<localStorage.length;c++){let d=localStorage.key(c);if(d?.endsWith(a)&&localStorage.getItem(d))return void document.documentElement.setAttribute(b,"hidden")}document.documentElement.setAttribute(b,"visible")}catch(a){document.documentElement.setAttribute(b,"hidden")}})(
+  "bannerDismissed",
+  "data-banner-state",
+)</script><style id="veiseule-branding">
+.veiseule-bar{position:fixed;top:0;left:0;right:0;z-index:99999;background:#2E4A3A;color:#E0E0E0;text-align:center;padding:8px 16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;box-shadow:0 2px 4px rgba(0,0,0,0.15)}
+.veiseule-bar a{color:#A9B8A1;text-decoration:underline}
+.veiseule-bar a:hover{color:#fff}
+.veiseule-footer{background:#1A2E20;color:#E0E0E0;text-align:center;padding:16px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;border-top:1px solid #2E4A3A}
+.veiseule-footer a{color:#A9B8A1;text-decoration:underline}
+.veiseule-footer a:hover{color:#fff}
+body{padding-top:36px !important}
+</style>
+<style>
+.toc-anchor { text-decoration: none; margin-left: 0.3em; opacity: 0.3; }
+.toc-anchor:hover { opacity: 1; }
+.toc-anchor { color: #999; }
+.dark .toc-anchor { color: #555; }
+</style></head><body>
+<div class="veiseule-bar">Traductions communautaires par <a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Help improve them on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a></div>
+<div hidden=""><!--$--><!--/$--></div><script>((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","isDarkMode","system",null,["dark","light","true","false","system"],{"true":"dark","false":"light","dark":"dark","light":"light"},true,true)</script><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/><style>:root {
+  --font-family-headings-custom: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  --font-family-body-custom: "Fragment Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  
+  
+  
+}</style><style>:root {
+    --primary: 255 90 54;
+    --primary-light: 255 138 107;
+    --primary-dark: 255 90 54;
+    --tooltip-foreground: 255 255 255;
+    --background-light: 255 255 255;
+    --background-dark: 14 12 13;
+    --gray-50: 250 245 244;
+    --gray-100: 245 240 239;
+    --gray-200: 230 225 224;
+    --gray-300: 213 208 207;
+    --gray-400: 166 161 160;
+    --gray-500: 119 114 113;
+    --gray-600: 87 82 81;
+    --gray-700: 70 65 64;
+    --gray-800: 45 40 38;
+    --gray-900: 30 25 24;
+    --gray-950: 17 12 11;
+  }</style><script type="text/javascript">
+          (function() {
+            function loadKatex() {
+              const link = document.querySelector('link[href="https://d4tuoctqmanu0.cloudfront.net/katex.min.css"]');
+              if (link) link.rel = 'stylesheet';
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', loadKatex);
+            } else {
+              loadKatex();
+            }
+          })();
+        </script><div class="relative antialiased text-gray-500 dark:text-gray-400"><a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:p-2 focus:text-sm focus:bg-background-light dark:focus:bg-background-dark focus:rounded-md focus:outline-primary dark:focus:outline-primary-light" href="testing.html#content-area">Aller au contenu principal</a><div class="max-lg:contents lg:flex lg:w-full"><div class="max-lg:contents lg:flex-1 lg:min-w-0 lg:overflow-x-clip"><div class="z-30 fixed lg:sticky top-0 w-full peer is-not-custom peer is-not-center peer is-not-wide peer is-not-frame" id="navbar"><div class="absolute w-full h-full backdrop-blur flex-none transition-colors duration-500 border-b border-gray-500/5 dark:border-gray-300/[0.06] data-[is-opaque=true]:bg-background-light data-[is-opaque=true]:supports-backdrop-blur:bg-background-light/95 data-[is-opaque=true]:dark:bg-background-dark/75 data-[is-opaque=false]:supports-backdrop-blur:bg-background-light/60 data-[is-opaque=false]:dark:bg-transparent" data-is-opaque="false" id="navbar-transition"></div><div class="max-w-8xl mx-auto relative"><div><div class="relative"><div class="flex items-center lg:px-12 h-16 min-w-0 mx-4 lg:mx-0"><div class="h-full relative flex-1 flex items-center gap-x-4 min-w-0 border-b border-gray-500/5 dark:border-gray-300/[0.06]"><div class="flex-1 flex items-center gap-x-4"><a class="select-none" data-slot="context-menu-trigger" data-state="closed" href="../index.html" style="-webkit-touch-callout:none"><span class="sr-only">OpenClaw 🦞<!-- --> Page d’accueil</span><img alt="light logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 block dark:hidden" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/><img alt="dark logo" class="nav-logo w-auto h-7 relative object-contain shrink-0 hidden dark:block" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&amp;auto=format&amp;n=4rYvG-uuZrMK_URE&amp;q=85&amp;s=da2032e9eac3b5d9bfe7eb96ca6a8a26"/></a><div class="hidden lg:flex items-center gap-x-2"><button aria-expanded="false" aria-haspopup="menu" class="group disabled:pointer-events-none [&amp;&gt;span]:line-clamp-1 overflow-hidden group group-hover:text-gray-950/70 dark:group-hover:text-white/70 py-1.5 px-2.5 rounded-xl hover:!bg-gray-600/5 dark:hover:!bg-gray-200/5 aria-[expanded=true]:bg-gray-600/5 dark:aria-[expanded=true]:bg-gray-200/5 text-sm font-medium text-gray-900 h-8 focus-visible:outline-primary dark:text-gray-300 group/trigger flex items-center gap-2 whitespace-nowrap" data-state="closed" id="localization-select-trigger" type="button"><div class="relative size-4 rounded-full shrink-0"><img alt="FR" class="w-full h-full rounded-full" src="https://d3gk2c5xim1je2.cloudfront.net/flags/FR.svg"/><div class="absolute top-0 left-0 w-full h-full border rounded-full bg-primary-light/10 border-black/10"></div></div><span class="truncate max-w-[12.5rem]">Français</span><svg class="transition-transform text-gray-400 overflow-visible group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400 rotate-90 ml-auto group-aria-[expanded=true]/trigger:rotate-[270deg]" height="24" viewbox="0 -9 3 24" width="8"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></button></div></div><div class="relative hidden lg:flex items-center flex-1 z-20 justify-center"><button aria-label="Ouvrir la recherche" class="flex pointer-events-auto rounded-xl w-full items-center text-sm leading-6 h-9 pl-3.5 pr-3 text-gray-500 dark:text-white/50 bg-background-light dark:bg-background-dark dark:brightness-[1.1] dark:ring-1 dark:hover:brightness-[1.25] ring-1 ring-gray-400/30 hover:ring-gray-600/30 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 justify-between truncate gap-2 min-w-[43px]" id="search-bar-entry" type="button"><div class="flex items-center gap-2 min-w-[42px]"><svg class="lucide lucide-search min-w-4 flex-none text-gray-700 hover:text-gray-800 dark:text-gray-400 hover:dark:text-gray-200" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><div class="truncate min-w-0">Rechercher...</div></div><span class="flex-none text-xs font-semibold">⌘<!-- -->K</span></button></div><div class="flex-1 relative hidden lg:flex items-center ml-auto justify-end space-x-4"><nav class="text-sm"><ul class="flex space-x-6 items-center"><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/brands/github.svg);mask-repeat:no-repeat;mask-position:center"></svg>GitHub</a></li><li class="navbar-link"><a class="flex items-center gap-1.5 whitespace-nowrap font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="https://github.com/openclaw/openclaw/releases" target="_blank"><svg class="h-4 w-4 bg-gray-800 dark:bg-gray-100" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/lucide/v0.545.0/package.svg);mask-repeat:no-repeat;mask-position:center;mask-size:100%"></svg>Releases</a></li></ul></nav><div class="flex items-center"><button aria-label="Activer/désactiver le mode sombre" class="group p-2 flex items-center justify-center"><svg class="h-4 w-4 block text-gray-400 dark:hidden group-hover:text-gray-600" fill="none" height="16" stroke="currentColor" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2880_7340)"><path d="M8 1.11133V2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 3.12891L12.2427 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M14.8889 8H14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M12.8711 12.8711L12.2427 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8 14.8889V14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 12.8711L3.75735 12.2427" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M1.11133 8H2.00022" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M3.12891 3.12891L3.75735 3.75735" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M8.00043 11.7782C10.0868 11.7782 11.7782 10.0868 11.7782 8.00043C11.7782 5.91402 10.0868 4.22266 8.00043 4.22266C5.91402 4.22266 4.22266 5.91402 4.22266 8.00043C4.22266 10.0868 5.91402 11.7782 8.00043 11.7782Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g><defs><clippath id="clip0_2880_7340"><rect fill="white" height="16" width="16"></rect></clippath></defs></svg><svg class="lucide lucide-moon h-4 w-4 hidden dark:block text-gray-500 dark:group-hover:text-gray-300" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button></div></div><div class="flex lg:hidden items-center gap-3"><button aria-label="Ouvrir la recherche" class="text-gray-500 w-8 h-8 flex items-center justify-center hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300" id="search-bar-entry-mobile" type="button"><span class="sr-only">Rechercher...</span><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/magnifying-glass.svg);mask-repeat:no-repeat;mask-position:center"></svg></button><button aria-label="Plus d’actions" class="h-7 w-5 flex items-center justify-end"><svg class="h-4 w-4 bg-gray-500 dark:bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300" style="-webkit-mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url(https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/solid/ellipsis-vertical.svg);mask-repeat:no-repeat;mask-position:center"></svg></button></div></div></div><button class="flex items-center h-14 py-4 px-5 lg:hidden focus:outline-0 w-full text-left" type="button"><div class="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300"><span class="sr-only">Navigation</span><svg class="h-4" fill="currentColor" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></div><div class="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0 space-x-3 overflow-hidden"><div class="flex items-center space-x-3 flex-shrink-0"><span>Environnement et débogage</span><svg class="h-5 rotate-0 overflow-visible fill-gray-400" height="24" viewbox="0 -9 3 24" width="3"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></div><div class="font-semibold text-gray-900 truncate dark:text-gray-200 min-w-0 flex-1">Testing</div></div></button></div><div class="hidden lg:flex px-12 h-12"><div class="nav-tabs h-full flex text-sm gap-x-6"><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../index.html">Commencer<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../install.html">Installer<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../channels.html">Canaux<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../concepts/architecture.html">Agents<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../tools.html">Outils<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../providers.html">Modèles<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../platforms.html">Plateformes<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../gateway.html">Gateway &amp; Ops<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300" href="../cli.html">Référence<div class="absolute bottom-0 h-[1.5px] w-full left-0 group-hover:bg-gray-200 dark:group-hover:bg-gray-700"></div></a><a class="link nav-tabs-item group relative h-full gap-2 flex items-center font-medium hover:text-gray-800 dark:hover:text-gray-300 text-gray-800 dark:text-gray-200 [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor]" href="../help.html">Aide<div class="absolute bottom-0 h-[1.5px] w-full left-0 bg-primary dark:bg-primary-light"></div></a></div></div></div></div><span hidden="" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"></span></div><div class="scroll-mt-[var(--scroll-mt)] peer-[.is-custom]:max-w-none peer-[.is-center]:max-w-3xl peer-[.is-not-custom]:peer-[.is-not-center]:max-w-8xl peer-[.is-not-custom]:px-4 peer-[.is-not-custom]:mx-auto peer-[.is-not-custom]:lg:px-8 peer-[.is-wide]:[&amp;&gt;div:last-child]:max-w-6xl peer-[.is-custom]:[&amp;&gt;div:first-child]:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-custom]:[&amp;&gt;div:first-child]:xl:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:sm:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:md:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:lg:!hidden peer-[.is-center]:[&amp;&gt;div:first-child]:xl:!hidden"><div class="z-20 hidden lg:block fixed bottom-0 right-auto w-[18rem]" id="sidebar" style="top:7rem"><div class="absolute inset-0 z-10 stable-scrollbar-gutter overflow-auto pr-8 pb-10" id="sidebar-content"><div class="relative lg:text-sm lg:leading-6"><div class="sticky top-0 h-8 z-10 bg-gradient-to-b from-background-light dark:from-background-dark"></div><div id="navigation-items"><div class=""><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200">Aide</div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Help" id="/help"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../help.html" style="padding-left:1rem">Aide</a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Troubleshooting" id="/help/troubleshooting"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="troubleshooting.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Troubleshooting</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="FAQ" id="/help/faq"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="faq.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">FAQ</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200">Communauté</div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="OpenClaw Lore" id="/start/lore"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../start/lore.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">OpenClaw Lore</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200">Environnement et débogage</div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Environment Variables" id="/help/environment"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="environment.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Environment Variables</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Debugging" id="/help/debugging"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="debugging.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Debugging</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Testing" id="/help/testing"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] bg-primary/10 text-primary [text-shadow:-0.2px_0_0_currentColor,0.2px_0_0_currentColor] dark:text-primary-light dark:bg-primary-light/10" href="testing.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Testing</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Scripts" id="/help/scripts"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="scripts.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Scripts</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200">Runtime Node</div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Node.js" id="/install/node"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../install/node.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Node.js</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200">Internes de compaction</div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Session Management Deep Dive" id="/reference/session-management-compaction"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../reference/session-management-compaction.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Session Management Deep Dive</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200">Configuration développeur</div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Setup" id="/start/setup"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left break-words hyphens-auto rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../start/setup.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Setup</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200">Contribuer</div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="CI Pipeline" id="/ci"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../ci.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">CI Pipeline</div></div></a></li></ul></div><div class="mt-6 lg:mt-8"><div class="sidebar-group-header flex items-center gap-2.5 pl-4 mb-3.5 lg:mb-2.5 font-semibold text-gray-900 dark:text-gray-200">Méta documentation</div><ul class="sidebar-group space-y-px" id="sidebar-group"><li class="relative scroll-m-4 first:scroll-m-20" data-title="Docs Hubs" id="/start/hubs"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../start/hubs.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Docs Hubs</div></div></a></li><li class="relative scroll-m-4 first:scroll-m-20" data-title="Docs directory" id="/start/docs-directory"><a class="group flex items-center pr-3 py-1.5 cursor-pointer gap-x-3 text-left rounded-xl w-full outline-offset-[-1px] hover:bg-gray-600/5 dark:hover:bg-gray-200/5 text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="../start/docs-directory.html" style="padding-left:1rem"><div class="flex-1 flex items-center space-x-2.5"><div class="">Docs directory</div></div></a></li></ul></div></div></div></div></div><div id="content-container"><span class="fixed inset-0 bg-background-light dark:bg-background-dark -z-10 pointer-events-none" id="almond-background-color"></span><style data-custom-css-index="0" data-custom-css-path="style.css">#content > h1:first-of-type {
+  display: none !important;
+}
+</style><div class="flex flex-row-reverse gap-12 box-border w-full pt-40 lg:pt-10"><div class="hidden xl:flex self-start sticky xl:flex-col max-w-[28rem] z-[21] h-[calc(100vh-9.5rem)] top-[calc(9.5rem-var(--sidenav-move-up,0px))]" id="content-side-layout"><div class="z-10 hidden xl:flex box-border max-h-full pl-10 w-[19rem]" id="table-of-contents-layout"><div class="text-gray-600 text-sm leading-6 w-[16.5rem] overflow-y-auto space-y-2 pb-4 -mt-10 pt-10" id="table-of-contents"><button class="text-gray-700 dark:text-gray-300 font-medium flex items-center space-x-2 hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer"><svg class="h-3 w-3" fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.44434 12.6665H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 3.3335H13.5554" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.44434 8H7.33323" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Sur cette page</span></button><ul class="toc" id="table-of-contents-content"><li class="toc-item relative" data-depth="0"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#tests">Tests</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#demarrage-rapide">Démarrage rapide</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#suites-de-test-ou-sexecute-quoi">Suites de test (où s’exécute quoi)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#unitaire-integration-par-defaut">Unitaire / intégration (par défaut)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#e2e-smoke-de-la-gateway">E2E (smoke de la gateway)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#live-fournisseurs-reels-modeles-reels">Live (fournisseurs réels + modèles réels)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#quelle-suite-doisje-executer">Quelle suite dois‑je exécuter ?</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#live-smoke-de-modeles-cles-de-profil">Live : smoke de modèles (clés de profil)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#couche-1-completion-directe-du-modele-sans-gateway">Couche 1 : complétion directe du modèle (sans gateway)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#couche-2-smoke-gateway-agent-de-dev-ce-que-openclaw-fait-reellement">Couche 2 : smoke Gateway + agent de dev (ce que « @openclaw » fait réellement)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#live-smoke-du-setup-token-anthropic">Live : smoke du setup-token Anthropic</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#live-smoke-du-backend-cli-claude-code-cli-ou-autres-clis-locaux">Live : smoke du backend CLI (Claude Code CLI ou autres CLIs locaux)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#recettes-live-recommandees">Recettes live recommandées</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#live-matrice-de-modeles-ce-que-nous-couvrons">Live : matrice de modèles (ce que nous couvrons)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#ensemble-smoke-moderne-appels-doutils-image">Ensemble smoke moderne (appels d’outils + image)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#base-appels-doutils-read-exec-optionnel">Base : appels d’outils (Read + Exec optionnel)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#vision-envoi-dimage-piece-jointe-message-multimodal">Vision : envoi d’image (pièce jointe → message multimodal)</a></li><li class="toc-item relative" data-depth="2"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#agregateurs-gateways-alternatives">Agrégateurs / gateways alternatives</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#identifiants-ne-jamais-committer">Identifiants (ne jamais committer)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#live-deepgram-transcription-audio">Live Deepgram (transcription audio)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#runners-docker-verifications-optionnelles-fonctionne-sous-linux">Runners Docker (vérifications optionnelles « fonctionne sous Linux »)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#sanity-des-docs">Sanity des docs</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#regressions-hors-ligne-compatibles-ci">Régressions hors ligne (compatibles CI)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#evaluations-de-fiabilite-de-lagent-skills">Évaluations de fiabilité de l’agent (Skills)</a></li><li class="toc-item relative" data-depth="1"><a class="break-words py-1 block font-medium hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300" href="help/testing.html#ajouter-des-regressions-recommandations">Ajouter des régressions (recommandations)</a></li></ul></div></div></div><div class="relative grow box-border flex-col w-full mx-auto px-1 lg:pl-[23.7rem] lg:-ml-12 xl:w-[calc(100%-28rem)]" id="content-area"><header class="relative leading-none" id="header"><div class="mt-0.5 space-y-2.5"><div class="eyebrow h-5 text-primary dark:text-primary-light text-sm font-semibold">Environnement et débogage</div><div class="flex flex-col sm:flex-row items-start sm:items-center relative gap-2 min-w-0"><h1 class="text-2xl sm:text-3xl text-gray-900 tracking-tight dark:text-gray-200 [overflow-wrap:anywhere] font-bold break-all" id="page-title">Testing</h1></div></div></header><div class="mdx-content relative mt-8 mb-14 prose prose-gray dark:prose-invert [contain:inline-size] isolate" data-page-href="/help/testing" data-page-title="Testing" id="content"><h1 id="tests">Tests<a class="toc-anchor" href="#tests" title="Permanent link">¶</a></h1>
+<p>OpenClaw dispose de trois suites Vitest (unitaire/intégration, e2e, live) et d’un petit ensemble de runners Docker.</p>
+<p>Ce document est un guide « comment nous testons » :</p>
+<ul>
+<li>Ce que couvre chaque suite (et ce qu’elle ne couvre délibérément <em>pas</em>)</li>
+<li>Quelles commandes exécuter pour les workflows courants (local, avant push, débogage)</li>
+<li>Comment les tests live découvrent les identifiants et sélectionnent les modèles/fournisseurs</li>
+<li>Comment ajouter des régressions pour des problèmes réels de modèles/fournisseurs</li>
+</ul>
+<h2 id="demarrage-rapide">Démarrage rapide<a class="toc-anchor" href="#demarrage-rapide" title="Permanent link">¶</a></h2>
+<p>La plupart des jours :</p>
+<ul>
+<li>Garde complète (attendue avant push) : <code>pnpm build &amp;&amp; pnpm check &amp;&amp; pnpm test</code></li>
+</ul>
+<p>Quand vous modifiez des tests ou voulez plus de confiance :</p>
+<ul>
+<li>Garde de couverture : <code>pnpm test:coverage</code></li>
+<li>Suite E2E : <code>pnpm test:e2e</code></li>
+</ul>
+<p>Pour déboguer des fournisseurs/modèles réels (nécessite de vrais identifiants) :</p>
+<ul>
+<li>Suite live (modèles + sondes d’outils/images de la gateway) : <code>pnpm test:live</code></li>
+</ul>
+<p>Astuce : quand vous n’avez besoin que d’un seul cas en échec, préférez restreindre les tests live via les variables d’environnement d’allowlist décrites ci-dessous.</p>
+<h2 id="suites-de-test-ou-sexecute-quoi">Suites de test (où s’exécute quoi)<a class="toc-anchor" href="#suites-de-test-ou-sexecute-quoi" title="Permanent link">¶</a></h2>
+<p>Considérez les suites comme une « augmentation du réalisme » (et de la fragilité/coût) :</p>
+<h3 id="unitaire-integration-par-defaut">Unitaire / intégration (par défaut)<a class="toc-anchor" href="#unitaire-integration-par-defaut" title="Permanent link">¶</a></h3>
+<ul>
+<li>Commande : <code>pnpm test</code></li>
+<li>Config: <code>scripts/test-parallel.mjs</code> (runs <code>vitest.unit.config.ts</code>, <code>vitest.extensions.config.ts</code>, <code>vitest.gateway.config.ts</code>)</li>
+<li>Fichiers : <code>src/**/*.test.ts</code></li>
+<li>Portée :</li>
+<li>Tests unitaires purs</li>
+<li>Tests d’intégration en processus (authentification de la gateway, routage, outillage, parsing, configuration)</li>
+<li>Régressions déterministes pour des bugs connus</li>
+<li>Attentes :</li>
+<li>S’exécute en CI</li>
+<li>Aucune clé réelle requise</li>
+<li>Doit être rapide et stable</li>
+<li>Pool note:</li>
+<li>OpenClaw uses Vitest <code>vmForks</code> on Node 22/23 for faster unit shards.</li>
+<li>On Node 24+, OpenClaw automatically falls back to regular <code>forks</code> to avoid Node VM linking errors (<code>ERR_VM_MODULE_LINK_FAILURE</code> / <code>module is already linked</code>).</li>
+<li>Override manually with <code>OPENCLAW_TEST_VM_FORKS=0</code> (force <code>forks</code>) or <code>OPENCLAW_TEST_VM_FORKS=1</code> (force <code>vmForks</code>).</li>
+</ul>
+<h3 id="e2e-smoke-de-la-gateway">E2E (smoke de la gateway)<a class="toc-anchor" href="#e2e-smoke-de-la-gateway" title="Permanent link">¶</a></h3>
+<ul>
+<li>Commande : <code>pnpm test:e2e</code></li>
+<li>Config : <code>vitest.e2e.config.ts</code></li>
+<li>Fichiers : <code>src/**/*.e2e.test.ts</code></li>
+<li>Runtime defaults:</li>
+<li>Uses Vitest <code>vmForks</code> for faster file startup.</li>
+<li>Uses adaptive workers (CI: 2-4, local: 4-8).</li>
+<li>Runs in silent mode by default to reduce console I/O overhead.</li>
+<li>Useful overrides:</li>
+<li><code>OPENCLAW_E2E_WORKERS=&lt;n&gt;</code> to force worker count (capped at 16).</li>
+<li><code>OPENCLAW_E2E_VERBOSE=1</code> to re-enable verbose console output.</li>
+<li>Portée :</li>
+<li>Comportement end-to-end de la gateway multi‑instances</li>
+<li>Surfaces WebSocket/HTTP, appairage de nœuds et réseau plus lourd</li>
+<li>Attentes :</li>
+<li>S’exécute en CI (lorsqu’activée dans le pipeline)</li>
+<li>Aucune clé réelle requise</li>
+<li>Plus d’éléments mobiles que les tests unitaires (peut être plus lent)</li>
+</ul>
+<h3 id="live-fournisseurs-reels-modeles-reels">Live (fournisseurs réels + modèles réels)<a class="toc-anchor" href="#live-fournisseurs-reels-modeles-reels" title="Permanent link">¶</a></h3>
+<ul>
+<li>Commande : <code>pnpm test:live</code></li>
+<li>Config : <code>vitest.live.config.ts</code></li>
+<li>Fichiers : <code>src/**/*.live.test.ts</code></li>
+<li>Par défaut : <strong>activée</strong> par <code>pnpm test:live</code> (définit <code>OPENCLAW_LIVE_TEST=1</code>)</li>
+<li>Portée :</li>
+<li>« Ce fournisseur/modèle fonctionne‑t‑il vraiment <em>aujourd’hui</em> avec de vrais identifiants ? »</li>
+<li>Détecter les changements de format des fournisseurs, les particularités d’appel d’outils, les problèmes d’authentification et le comportement des limites de débit</li>
+<li>Attentes :</li>
+<li>Non stable en CI par conception (réseaux réels, politiques fournisseurs réelles, quotas, pannes)</li>
+<li>Coûte de l’argent / consomme des quotas</li>
+<li>Préférez exécuter des sous‑ensembles ciblés plutôt que « tout »</li>
+<li>Les exécutions live sourcent <code>~/.profile</code> pour récupérer les clés API manquantes</li>
+<li>Rotation des clés Anthropic : définissez <code>OPENCLAW_LIVE_ANTHROPIC_KEYS="sk-...,sk-..."</code> (ou <code>OPENCLAW_LIVE_ANTHROPIC_KEY=sk-...</code>) ou plusieurs variables <code>ANTHROPIC_API_KEY*</code> ; les tests réessaieront en cas de limite de débit</li>
+</ul>
+<h2 id="quelle-suite-doisje-executer">Quelle suite dois‑je exécuter ?<a class="toc-anchor" href="#quelle-suite-doisje-executer" title="Permanent link">¶</a></h2>
+<p>Utilisez ce tableau de décision :</p>
+<ul>
+<li>Édition de logique/tests : exécutez <code>pnpm test</code> (et <code>pnpm test:coverage</code> si vous avez beaucoup modifié)</li>
+<li>Toucher au réseau de la gateway / protocole WS / appairage : ajoutez <code>pnpm test:e2e</code></li>
+<li>Déboguer « mon bot est en panne » / échecs spécifiques à un fournisseur / appels d’outils : exécutez un <code>pnpm test:live</code> restreint</li>
+</ul>
+<h2 id="live-smoke-de-modeles-cles-de-profil">Live : smoke de modèles (clés de profil)<a class="toc-anchor" href="#live-smoke-de-modeles-cles-de-profil" title="Permanent link">¶</a></h2>
+<p>Les tests live sont scindés en deux couches pour isoler les pannes :</p>
+<ul>
+<li>« Modèle direct » indique si le fournisseur/modèle peut répondre avec la clé donnée.</li>
+<li>« Smoke de la gateway » indique si tout le pipeline gateway+agent fonctionne pour ce modèle (sessions, historique, outils, politique de sandbox, etc.).</li>
+</ul>
+<h3 id="couche-1-completion-directe-du-modele-sans-gateway">Couche 1 : complétion directe du modèle (sans gateway)<a class="toc-anchor" href="#couche-1-completion-directe-du-modele-sans-gateway" title="Permanent link">¶</a></h3>
+<ul>
+<li>Test : <code>src/agents/models.profiles.live.test.ts</code></li>
+<li>Objectif :</li>
+<li>Énumérer les modèles découverts</li>
+<li>Utiliser <code>getApiKeyForModel</code> pour sélectionner les modèles pour lesquels vous avez des identifiants</li>
+<li>Exécuter une petite complétion par modèle (et des régressions ciblées si nécessaire)</li>
+<li>Comment activer :</li>
+<li><code>pnpm test:live</code> (ou <code>OPENCLAW_LIVE_TEST=1</code> si Vitest est invoqué directement)</li>
+<li>Définissez <code>OPENCLAW_LIVE_MODELS=modern</code> (ou <code>all</code>, alias moderne) pour réellement exécuter cette suite ; sinon elle est ignorée afin de garder <code>pnpm test:live</code> focalisé sur le smoke de la gateway</li>
+<li>Sélection des modèles :</li>
+<li><code>OPENCLAW_LIVE_MODELS=modern</code> pour exécuter l’allowlist moderne (Opus/Sonnet/Haiku 4.5, GPT‑5.x + Codex, Gemini 3, GLM 4.7, MiniMax M2.1, Grok 4)</li>
+<li><code>OPENCLAW_LIVE_MODELS=all</code> est un alias de l’allowlist moderne</li>
+<li>ou <code>OPENCLAW_LIVE_MODELS="openai/gpt-5.2,anthropic/claude-opus-4-6,..."</code> (allowlist séparée par des virgules)</li>
+<li>Sélection des fournisseurs :</li>
+<li><code>OPENCLAW_LIVE_PROVIDERS="google,google-antigravity,google-gemini-cli"</code> (allowlist séparée par des virgules)</li>
+<li>Origine des clés :</li>
+<li>Par défaut : magasin de profils et secours via variables d’environnement</li>
+<li>Définissez <code>OPENCLAW_LIVE_REQUIRE_PROFILE_KEYS=1</code> pour imposer <strong>uniquement le magasin de profils</strong></li>
+<li>Pourquoi cela existe :</li>
+<li>Sépare « l’API du fournisseur est cassée / la clé est invalide » de « le pipeline d’agent de la gateway est cassé »</li>
+<li>Contient de petites régressions isolées (exemple : relecture du raisonnement OpenAI Responses/Codex Responses + flux d’appel d’outils)</li>
+</ul>
+<h3 id="couche-2-smoke-gateway-agent-de-dev-ce-que-openclaw-fait-reellement">Couche 2 : smoke Gateway + agent de dev (ce que « @openclaw » fait réellement)<a class="toc-anchor" href="#couche-2-smoke-gateway-agent-de-dev-ce-que-openclaw-fait-reellement" title="Permanent link">¶</a></h3>
+<ul>
+<li>Test : <code>src/gateway/gateway-models.profiles.live.test.ts</code></li>
+<li>Objectif :</li>
+<li>Démarrer une gateway en processus</li>
+<li>Créer/modifier une session <code>agent:dev:*</code> (override de modèle par exécution)</li>
+<li>Parcourir les modèles‑avec‑clés et vérifier :<ul>
+<li>une réponse « significative » (sans outils)</li>
+<li>qu’un véritable appel d’outil fonctionne (sonde de lecture)</li>
+<li>des sondes d’outils supplémentaires optionnelles (sonde exec+read)</li>
+<li>que les chemins de régression OpenAI (outil‑seul → suivi) continuent de fonctionner</li>
+</ul>
+</li>
+<li>Détails des sondes (pour expliquer rapidement les échecs) :</li>
+<li>Sonde <code>read</code> : le test écrit un fichier nonce dans l’espace de travail et demande à l’agent de le <code>read</code> et de renvoyer le nonce.</li>
+<li>Sonde <code>exec+read</code> : le test demande à l’agent d’<code>exec</code>‑écrire un nonce dans un fichier temporaire, puis de le <code>read</code>.</li>
+<li>Sonde image : le test joint un PNG généré (chat + code aléatoire) et attend que le modèle renvoie <code>cat &lt;CODE&gt;</code>.</li>
+<li>Référence d’implémentation : <code>src/gateway/gateway-models.profiles.live.test.ts</code> et <code>src/gateway/live-image-probe.ts</code>.</li>
+<li>Comment activer :</li>
+<li><code>pnpm test:live</code> (ou <code>OPENCLAW_LIVE_TEST=1</code> si Vitest est invoqué directement)</li>
+<li>Sélection des modèles :</li>
+<li>Par défaut : allowlist moderne (Opus/Sonnet/Haiku 4.5, GPT‑5.x + Codex, Gemini 3, GLM 4.7, MiniMax M2.1, Grok 4)</li>
+<li><code>OPENCLAW_LIVE_GATEWAY_MODELS=all</code> est un alias de l’allowlist moderne</li>
+<li>Ou définissez <code>OPENCLAW_LIVE_GATEWAY_MODELS="provider/model"</code> (ou une liste séparée par des virgules) pour restreindre</li>
+<li>Sélection des fournisseurs (évitez « OpenRouter tout ») :</li>
+<li><code>OPENCLAW_LIVE_GATEWAY_PROVIDERS="google,google-antigravity,google-gemini-cli,openai,anthropic,zai,minimax"</code> (allowlist séparée par des virgules)</li>
+<li>Les sondes d’outils + image sont toujours actives dans ce test live :</li>
+<li>Sonde <code>read</code> + sonde <code>exec+read</code> (stress d’outils)</li>
+<li>La sonde image s’exécute lorsque le modèle annonce le support des entrées image</li>
+<li>Flux (haut niveau):<ul>
+<li>Le test génère un petit PNG avec « CAT » + code aléatoire (<code>src/gateway/live-image-probe.ts</code>)</li>
+<li>L’envoie via <code>agent</code> <code>attachments: [{ mimeType: "image/png", content: "&lt;base64&gt;" }]</code></li>
+<li>La gateway analyse les pièces jointes en <code>images[]</code> (<code>src/gateway/server-methods/agent.ts</code> + <code>src/gateway/chat-attachments.ts</code>)</li>
+<li>L’agent embarqué transmet un message utilisateur multimodal au modèle</li>
+<li>Assertion : la réponse contient <code>cat</code> + le code (tolérance OCR : erreurs mineures autorisées)</li>
+</ul>
+</li>
+</ul>
+<p>Astuce : pour voir ce que vous pouvez tester sur votre machine (et les identifiants <code>provider/model</code> exacts), exécutez :</p>
+<pre class="highlight"><code class="language-bash">openclaw models list
+openclaw models list --json
+</code></pre>
+<h2 id="live-smoke-du-setup-token-anthropic">Live : smoke du setup-token Anthropic<a class="toc-anchor" href="#live-smoke-du-setup-token-anthropic" title="Permanent link">¶</a></h2>
+<ul>
+<li>Test : <code>src/agents/anthropic.setup-token.live.test.ts</code></li>
+<li>Objectif : vérifier que le setup-token de Claude Code CLI (ou un profil de setup-token collé) peut compléter une invite Anthropic.</li>
+<li>Activation :</li>
+<li><code>pnpm test:live</code> (ou <code>OPENCLAW_LIVE_TEST=1</code> si Vitest est invoqué directement)</li>
+<li><code>OPENCLAW_LIVE_SETUP_TOKEN=1</code></li>
+<li>Sources de jeton (choisissez une) :</li>
+<li>Profil : <code>OPENCLAW_LIVE_SETUP_TOKEN_PROFILE=anthropic:setup-token-test</code></li>
+<li>Jeton brut : <code>OPENCLAW_LIVE_SETUP_TOKEN_VALUE=sk-ant-oat01-...</code></li>
+<li>Override de modèle (optionnel) :</li>
+<li><code>OPENCLAW_LIVE_SETUP_TOKEN_MODEL=anthropic/claude-opus-4-6</code></li>
+</ul>
+<p>Exemple de configuration :</p>
+<pre class="highlight"><code class="language-bash">openclaw models auth paste-token --provider anthropic --profile-id anthropic:setup-token-test
+OPENCLAW_LIVE_SETUP_TOKEN=1 OPENCLAW_LIVE_SETUP_TOKEN_PROFILE=anthropic:setup-token-test pnpm test:live src/agents/anthropic.setup-token.live.test.ts
+</code></pre>
+<h2 id="live-smoke-du-backend-cli-claude-code-cli-ou-autres-clis-locaux">Live : smoke du backend CLI (Claude Code CLI ou autres CLIs locaux)<a class="toc-anchor" href="#live-smoke-du-backend-cli-claude-code-cli-ou-autres-clis-locaux" title="Permanent link">¶</a></h2>
+<ul>
+<li>Test : <code>src/gateway/gateway-cli-backend.live.test.ts</code></li>
+<li>Objectif : valider le pipeline Gateway + agent en utilisant un backend CLI local, sans toucher à votre configuration par défaut.</li>
+<li>Activation :</li>
+<li><code>pnpm test:live</code> (ou <code>OPENCLAW_LIVE_TEST=1</code> si Vitest est invoqué directement)</li>
+<li><code>OPENCLAW_LIVE_CLI_BACKEND=1</code></li>
+<li>Valeurs par défaut :</li>
+<li>Modèle : <code>claude-cli/claude-sonnet-4-5</code></li>
+<li>Commande : <code>claude</code></li>
+<li>Arguments : <code>["-p","--output-format","json","--dangerously-skip-permissions"]</code></li>
+<li>Overrides (optionnels) :</li>
+<li><code>OPENCLAW_LIVE_CLI_BACKEND_MODEL="claude-cli/claude-opus-4-6"</code></li>
+<li><code>OPENCLAW_LIVE_CLI_BACKEND_MODEL="codex-cli/gpt-5.3-codex"</code></li>
+<li><code>OPENCLAW_LIVE_CLI_BACKEND_COMMAND="/full/path/to/claude"</code></li>
+<li><code>OPENCLAW_LIVE_CLI_BACKEND_ARGS='["-p","--output-format","json","--permission-mode","bypassPermissions"]'</code></li>
+<li><code>OPENCLAW_LIVE_CLI_BACKEND_CLEAR_ENV='["ANTHROPIC_API_KEY","ANTHROPIC_API_KEY_OLD"]'</code></li>
+<li><code>OPENCLAW_LIVE_CLI_BACKEND_IMAGE_PROBE=1</code> pour envoyer une véritable pièce jointe image (les chemins sont injectés dans l’invite).</li>
+<li><code>OPENCLAW_LIVE_CLI_BACKEND_IMAGE_ARG="--image"</code> pour passer les chemins des fichiers image comme arguments CLI au lieu d’une injection dans l’invite.</li>
+<li><code>OPENCLAW_LIVE_CLI_BACKEND_IMAGE_MODE="repeat"</code> (ou <code>"list"</code>) pour contrôler la manière dont les arguments image sont passés lorsque <code>IMAGE_ARG</code> est défini.</li>
+<li><code>OPENCLAW_LIVE_CLI_BACKEND_RESUME_PROBE=1</code> pour envoyer un second tour et valider le flux de reprise.</li>
+<li><code>OPENCLAW_LIVE_CLI_BACKEND_DISABLE_MCP_CONFIG=0</code> pour conserver la configuration MCP de Claude Code CLI activée (par défaut, la configuration MCP est désactivée via un fichier vide temporaire).</li>
+</ul>
+<p>Exemple :</p>
+<pre class="highlight"><code class="language-bash">OPENCLAW_LIVE_CLI_BACKEND=1 \
+  OPENCLAW_LIVE_CLI_BACKEND_MODEL="claude-cli/claude-sonnet-4-5" \
+  pnpm test:live src/gateway/gateway-cli-backend.live.test.ts
+</code></pre>
+<h3 id="recettes-live-recommandees">Recettes live recommandées<a class="toc-anchor" href="#recettes-live-recommandees" title="Permanent link">¶</a></h3>
+<p>Des allowlists étroites et explicites sont les plus rapides et les moins fragiles :</p>
+<ul>
+<li>Modèle unique, direct (sans gateway) :</li>
+<li>
+<p><code>OPENCLAW_LIVE_MODELS="openai/gpt-5.2" pnpm test:live src/agents/models.profiles.live.test.ts</code></p>
+</li>
+<li>
+<p>Modèle unique, smoke de la gateway :</p>
+</li>
+<li>
+<p><code>OPENCLAW_LIVE_GATEWAY_MODELS="openai/gpt-5.2" pnpm test:live src/gateway/gateway-models.profiles.live.test.ts</code></p>
+</li>
+<li>
+<p>Appels d’outils sur plusieurs fournisseurs :</p>
+</li>
+<li>
+<p><code>OPENCLAW_LIVE_GATEWAY_MODELS="openai/gpt-5.2,anthropic/claude-opus-4-6,google/gemini-3-flash-preview,zai/glm-4.7,minimax/minimax-m2.1" pnpm test:live src/gateway/gateway-models.profiles.live.test.ts</code></p>
+</li>
+<li>
+<p>Focus Google (clé API Gemini + Antigravity) :</p>
+</li>
+<li>Gemini (clé API) : <code>OPENCLAW_LIVE_GATEWAY_MODELS="google/gemini-3-flash-preview" pnpm test:live src/gateway/gateway-models.profiles.live.test.ts</code></li>
+<li>Antigravity (OAuth) : <code>OPENCLAW_LIVE_GATEWAY_MODELS="google-antigravity/claude-opus-4-6-thinking,google-antigravity/gemini-3-pro-high" pnpm test:live src/gateway/gateway-models.profiles.live.test.ts</code></li>
+</ul>
+<p>Remarques :</p>
+<ul>
+<li><code>google/...</code> utilise l’API Gemini (clé API).</li>
+<li><code>google-antigravity/...</code> utilise le pont OAuth Antigravity (endpoint d’agent de type Cloud Code Assist).</li>
+<li><code>google-gemini-cli/...</code> utilise la CLI Gemini locale sur votre machine (authentification distincte + particularités d’outillage).</li>
+<li>API Gemini vs CLI Gemini :</li>
+<li>API : OpenClaw appelle l’API Gemini hébergée de Google via HTTP (clé API / authentification de profil) ; c’est ce que la plupart des utilisateurs entendent par « Gemini ».</li>
+<li>CLI : OpenClaw appelle un binaire local <code>gemini</code> ; il a sa propre authentification et peut se comporter différemment (streaming/support des outils/décalage de version).</li>
+</ul>
+<h2 id="live-matrice-de-modeles-ce-que-nous-couvrons">Live : matrice de modèles (ce que nous couvrons)<a class="toc-anchor" href="#live-matrice-de-modeles-ce-que-nous-couvrons" title="Permanent link">¶</a></h2>
+<p>Il n’existe pas de « liste de modèles CI » fixe (le live est opt‑in), mais voici les modèles <strong>recommandés</strong> à couvrir régulièrement sur une machine de dev avec des clés.</p>
+<h3 id="ensemble-smoke-moderne-appels-doutils-image">Ensemble smoke moderne (appels d’outils + image)<a class="toc-anchor" href="#ensemble-smoke-moderne-appels-doutils-image" title="Permanent link">¶</a></h3>
+<p>C’est l’exécution « modèles courants » que nous attendons comme fonctionnelle :</p>
+<ul>
+<li>OpenAI (hors Codex) : <code>openai/gpt-5.2</code> (optionnel : <code>openai/gpt-5.1</code>)</li>
+<li>OpenAI Codex : <code>openai-codex/gpt-5.3-codex</code> (optionnel : <code>openai-codex/gpt-5.3-codex-codex</code>)</li>
+<li>Anthropic : <code>anthropic/claude-opus-4-6</code> (ou <code>anthropic/claude-sonnet-4-5</code>)</li>
+<li>Google (API Gemini) : <code>google/gemini-3-pro-preview</code> et <code>google/gemini-3-flash-preview</code> (évitez les anciens modèles Gemini 2.x)</li>
+<li>Google (Antigravity) : <code>google-antigravity/claude-opus-4-6-thinking</code> et <code>google-antigravity/gemini-3-flash</code></li>
+<li>Z.AI (GLM) : <code>zai/glm-4.7</code></li>
+<li>MiniMax : <code>minimax/minimax-m2.1</code></li>
+</ul>
+<p>Exécuter le smoke de la gateway avec outils + image :
+<code>OPENCLAW_LIVE_GATEWAY_MODELS="openai/gpt-5.2,openai-codex/gpt-5.3-codex,anthropic/claude-opus-4-6,google/gemini-3-pro-preview,google/gemini-3-flash-preview,google-antigravity/claude-opus-4-6-thinking,google-antigravity/gemini-3-flash,zai/glm-4.7,minimax/minimax-m2.1" pnpm test:live src/gateway/gateway-models.profiles.live.test.ts</code></p>
+<h3 id="base-appels-doutils-read-exec-optionnel">Base : appels d’outils (Read + Exec optionnel)<a class="toc-anchor" href="#base-appels-doutils-read-exec-optionnel" title="Permanent link">¶</a></h3>
+<p>Choisissez au moins un par famille de fournisseurs :</p>
+<ul>
+<li>OpenAI : <code>openai/gpt-5.2</code> (ou <code>openai/gpt-5-mini</code>)</li>
+<li>Anthropic : <code>anthropic/claude-opus-4-6</code> (ou <code>anthropic/claude-sonnet-4-5</code>)</li>
+<li>Google : <code>google/gemini-3-flash-preview</code> (ou <code>google/gemini-3-pro-preview</code>)</li>
+<li>Z.AI (GLM) : <code>zai/glm-4.7</code></li>
+<li>MiniMax : <code>minimax/minimax-m2.1</code></li>
+</ul>
+<p>Couverture additionnelle optionnelle (agréable à avoir) :</p>
+<ul>
+<li>xAI : <code>xai/grok-4</code> (ou la plus récente disponible)</li>
+<li>Mistral : <code>mistral/</code>… (choisissez un modèle « tools » que vous avez activé)</li>
+<li>Cerebras : <code>cerebras/</code>… (si vous y avez accès)</li>
+<li>LM Studio : <code>lmstudio/</code>… (local ; l’appel d’outils dépend du mode API)</li>
+</ul>
+<h3 id="vision-envoi-dimage-piece-jointe-message-multimodal">Vision : envoi d’image (pièce jointe → message multimodal)<a class="toc-anchor" href="#vision-envoi-dimage-piece-jointe-message-multimodal" title="Permanent link">¶</a></h3>
+<p>Incluez au moins un modèle capable d’images dans <code>OPENCLAW_LIVE_GATEWAY_MODELS</code> (Claude/Gemini/OpenAI avec vision, etc.) pour exercer la sonde image.</p>
+<h3 id="agregateurs-gateways-alternatives">Agrégateurs / gateways alternatives<a class="toc-anchor" href="#agregateurs-gateways-alternatives" title="Permanent link">¶</a></h3>
+<p>Si vous avez des clés activées, nous prenons aussi en charge les tests via :</p>
+<ul>
+<li>OpenRouter : <code>openrouter/...</code> (des centaines de modèles ; utilisez <code>openclaw models scan</code> pour trouver des candidats capables d’outils+image)</li>
+<li>OpenCode Zen : <code>opencode/...</code> (auth via <code>OPENCODE_API_KEY</code> / <code>OPENCODE_ZEN_API_KEY</code>)</li>
+</ul>
+<p>Autres fournisseurs que vous pouvez inclure dans la matrice live (si vous avez des identifiants/configuration) :</p>
+<ul>
+<li>Intégrés : <code>openai</code>, <code>openai-codex</code>, <code>anthropic</code>, <code>google</code>, <code>google-vertex</code>, <code>google-antigravity</code>, <code>google-gemini-cli</code>, <code>zai</code>, <code>openrouter</code>, <code>opencode</code>, <code>xai</code>, <code>groq</code>, <code>cerebras</code>, <code>mistral</code>, <code>github-copilot</code></li>
+<li>Via <code>models.providers</code> (endpoints personnalisés) : <code>minimax</code> (cloud/API), plus tout proxy compatible OpenAI/Anthropic (LM Studio, vLLM, LiteLLM, etc.)</li>
+</ul>
+<p>Astuce : n’essayez pas de coder en dur « tous les modèles » dans la documentation. La liste faisant autorité est celle que <code>discoverModels(...)</code> renvoie sur votre machine + les clés disponibles.</p>
+<h2 id="identifiants-ne-jamais-committer">Identifiants (ne jamais committer)<a class="toc-anchor" href="#identifiants-ne-jamais-committer" title="Permanent link">¶</a></h2>
+<p>Les tests live découvrent les identifiants de la même manière que la CLI. Implications pratiques :</p>
+<ul>
+<li>
+<p>Si la CLI fonctionne, les tests live devraient trouver les mêmes clés.</p>
+</li>
+<li>
+<p>Si un test live indique « pas d’identifiants », déboguez comme vous le feriez pour <code>openclaw models list</code> / la sélection de modèle.</p>
+</li>
+<li>
+<p>Magasin de profils : <code>~/.openclaw/credentials/</code> (préféré ; c’est ce que signifient les « clés de profil » dans les tests)</p>
+</li>
+<li>
+<p>Configuration : <code>~/.openclaw/openclaw.json</code> (ou <code>OPENCLAW_CONFIG_PATH</code>)</p>
+</li>
+</ul>
+<p>Si vous souhaitez vous appuyer sur des clés via variables d’environnement (p. ex. exportées dans votre <code>~/.profile</code>), exécutez les tests locaux après <code>source ~/.profile</code>, ou utilisez les runners Docker ci‑dessous (ils peuvent monter <code>~/.profile</code> dans le conteneur).</p>
+<h2 id="live-deepgram-transcription-audio">Live Deepgram (transcription audio)<a class="toc-anchor" href="#live-deepgram-transcription-audio" title="Permanent link">¶</a></h2>
+<ul>
+<li>Test : <code>src/media-understanding/providers/deepgram/audio.live.test.ts</code></li>
+<li>Activation : <code>DEEPGRAM_API_KEY=... DEEPGRAM_LIVE_TEST=1 pnpm test:live src/media-understanding/providers/deepgram/audio.live.test.ts</code></li>
+</ul>
+<h2 id="runners-docker-verifications-optionnelles-fonctionne-sous-linux">Runners Docker (vérifications optionnelles « fonctionne sous Linux »)<a class="toc-anchor" href="#runners-docker-verifications-optionnelles-fonctionne-sous-linux" title="Permanent link">¶</a></h2>
+<p>Ils exécutent <code>pnpm test:live</code> dans l’image Docker du dépôt, en montant votre répertoire de configuration local et l’espace de travail (et en sourçant <code>~/.profile</code> s’il est monté) :</p>
+<ul>
+<li>Modèles directs : <code>pnpm test:docker:live-models</code> (script : <code>scripts/test-live-models-docker.sh</code>)</li>
+<li>Gateway + agent de dev : <code>pnpm test:docker:live-gateway</code> (script : <code>scripts/test-live-gateway-models-docker.sh</code>)</li>
+<li>Assistant de prise en main (TTY, scaffolding complet) : <code>pnpm test:docker:onboard</code> (script : <code>scripts/e2e/onboard-docker.sh</code>)</li>
+<li>Réseau de la gateway (deux conteneurs, auth WS + santé) : <code>pnpm test:docker:gateway-network</code> (script : <code>scripts/e2e/gateway-network-docker.sh</code>)</li>
+<li>Plugins (chargement d’extensions personnalisées + smoke du registre) : <code>pnpm test:docker:plugins</code> (script : <code>scripts/e2e/plugins-docker.sh</code>)</li>
+</ul>
+<p>Variables utiles de l'env :</p>
+<ul>
+<li><code>OPENCLAW_CONFIG_DIR=...</code> (par défaut : <code>~/.openclaw</code>) monté sur <code>/home/node/.openclaw</code></li>
+<li><code>OPENCLAW_WORKSPACE_DIR=...</code> (par défaut : <code>~/.openclaw/workspace</code>) monté sur <code>/home/node/.openclaw/workspace</code></li>
+<li><code>OPENCLAW_PROFILE_FILE=...</code> (par défaut : <code>~/.profile</code>) monté sur <code>/home/node/.profile</code> et sourcé avant l’exécution des tests</li>
+<li><code>OPENCLAW_LIVE_GATEWAY_MODELS=...</code> / <code>OPENCLAW_LIVE_MODELS=...</code> pour restreindre l’exécution</li>
+<li><code>OPENCLAW_LIVE_REQUIRE_PROFILE_KEYS=1</code> pour garantir que les identifiants proviennent du magasin de profils (et non des variables d’environnement)</li>
+</ul>
+<h2 id="sanity-des-docs">Sanity des docs<a class="toc-anchor" href="#sanity-des-docs" title="Permanent link">¶</a></h2>
+<p>Exécutez les vérifications de documentation après des modifications de docs : <code>pnpm docs:list</code>.</p>
+<h2 id="regressions-hors-ligne-compatibles-ci">Régressions hors ligne (compatibles CI)<a class="toc-anchor" href="#regressions-hors-ligne-compatibles-ci" title="Permanent link">¶</a></h2>
+<p>Ce sont des régressions « pipeline réel » sans fournisseurs réels :</p>
+<ul>
+<li>Appels d’outils de la gateway (OpenAI simulé, vraie boucle gateway + agent) : <code>src/gateway/gateway.tool-calling.mock-openai.test.ts</code></li>
+<li>Assistant de la gateway (WS <code>wizard.start</code>/<code>wizard.next</code>, écrit la config + authentification imposée) : <code>src/gateway/gateway.wizard.e2e.test.ts</code></li>
+</ul>
+<h2 id="evaluations-de-fiabilite-de-lagent-skills">Évaluations de fiabilité de l’agent (Skills)<a class="toc-anchor" href="#evaluations-de-fiabilite-de-lagent-skills" title="Permanent link">¶</a></h2>
+<p>Nous avons déjà quelques tests compatibles CI qui se comportent comme des « évaluations de fiabilité de l’agent » :</p>
+<ul>
+<li>Appels d’outils simulés via la vraie boucle gateway + agent (<code>src/gateway/gateway.tool-calling.mock-openai.test.ts</code>).</li>
+<li>Flux d’assistant end‑to‑end qui valident le câblage des sessions et les effets de configuration (<code>src/gateway/gateway.wizard.e2e.test.ts</code>).</li>
+</ul>
+<p>Ce qui manque encore pour les skills (voir <a href="/tools/skills">Skills</a>) :</p>
+<ul>
+<li><strong>Décision</strong> : lorsque les skills sont listées dans l’invite, l’agent choisit‑il la bonne skill (ou évite‑t‑il les non pertinentes) ?</li>
+<li><strong>Conformité</strong> : l’agent lit‑il <code>SKILL.md</code> avant utilisation et suit‑il les étapes/arguments requis ?</li>
+<li><strong>Contrats de workflow</strong> : scénarios multi‑tours qui valident l’ordre des outils, le report de l’historique de session et les limites de sandbox.</li>
+</ul>
+<p>Les futures évaluations doivent rester déterministes d’abord :</p>
+<ul>
+<li>Un runner de scénarios utilisant des fournisseurs simulés pour vérifier les appels d’outils + l’ordre, la lecture des fichiers de skills et le câblage des sessions.</li>
+<li>Une petite suite de scénarios axés sur les skills (utiliser vs éviter, gating, injection d’invite).</li>
+<li>Des évaluations live optionnelles (opt‑in, contrôlées par env) uniquement après la mise en place de la suite compatible CI.</li>
+</ul>
+<h2 id="ajouter-des-regressions-recommandations">Ajouter des régressions (recommandations)<a class="toc-anchor" href="#ajouter-des-regressions-recommandations" title="Permanent link">¶</a></h2>
+<p>Lorsque vous corrigez un problème de fournisseur/modèle découvert en live :</p>
+<ul>
+<li>Ajoutez une régression compatible CI si possible (fournisseur simulé/stub, ou capture exacte de la transformation de la forme de requête)</li>
+<li>Si c’est intrinsèquement live‑only (limites de débit, politiques d’authentification), gardez le test live étroit et opt‑in via des variables d’environnement</li>
+<li>Ciblez de préférence la couche la plus petite qui attrape le bug :</li>
+<li>bug de conversion/relecture de requête fournisseur → test des modèles directs</li>
+<li>bug du pipeline de session/historique/outils de la gateway → smoke live de la gateway ou test mock de la gateway compatible CI</li>
+</ul></div><div class="px-0.5 flex items-center text-sm font-semibold text-gray-700 dark:text-gray-200" id="pagination"><a class="flex items-center space-x-3 group" href="debugging.html"><svg class="h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><span class="group-hover:text-gray-900 dark:group-hover:text-white">Debugging</span></a><a class="flex items-center ml-auto space-x-3 group" href="scripts.html"><span class="group-hover:text-gray-900 dark:group-hover:text-white">Scripts</span><svg class="rotate-180 h-1.5 stroke-gray-400 overflow-visible group-hover:stroke-gray-600 dark:group-hover:stroke-gray-300" viewbox="0 0 3 6"><path d="M3 0L0 3L3 6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a></div><div class="left-0 right-0 sticky sm:px-4 pb-4 sm:pb-6 bottom-0 pt-1 flex flex-col items-center w-full overflow-hidden z-20 pointer-events-none print:hidden"><div class="chat-assistant-floating-input z-10 w-full sm:w-96 focus-within:w-full group/assistant-bar sm:focus-within:w-[30rem] hover:scale-100 sm:hover:scale-105 focus-within:hover:scale-100 [transition:width_400ms,left_200ms,transform_500ms,opacity_200ms]"><div class="translate-y-[100px] opacity-0"><div class="flex flex-col w-full rounded-2xl pointer-events-auto bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border border-gray-200 dark:border-white/30 focus-within:border-primary dark:focus-within:border-primary-light transition-colors sm:shadow-xl"><div class="relative flex items-end"><textarea aria-label="Ask a question..." autocomplete="off" class="chat-assistant-input w-full bg-transparent border-0 peer/input text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 !outline-none focus:!outline-none focus:ring-0 py-2.5 pl-3.5 pr-10 font-bodyWeight text-sm" id="chat-assistant-textarea" placeholder="Ask a question..." style="resize:none"></textarea><span class="absolute right-11 bottom-3 text-xs font-medium text-gray-400 dark:text-gray-500 select-none pointer-events-none peer-focus/input:hidden hidden sm:inline">⌘<!-- -->I</span><button aria-label="Envoyer un message" class="chat-assistant-send-button flex justify-center items-center rounded-full p-1 size-6 bg-primary/30 dark:bg-primary-dark/30 absolute right-2.5 bottom-2" disabled=""><svg class="lucide lucide-arrow-up text-white dark:text-white size-3.5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></div></div></div></div><footer class="flex gap-12 justify-between pt-10 border-t border-gray-100 sm:flex dark:border-gray-800/50 pb-28" id="footer"><div class="flex items-center justify-between"><div class="sm:flex"><a class="group flex items-baseline gap-1 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-nowrap" href="https://www.mintlify.com?utm_campaign=poweredBy&amp;utm_medium=referral&amp;utm_source=clawdhub" rel="noreferrer" target="_blank"><span>Propulsé par</span><svg class="h-3.5 w-auto translate-y-[3px]" fill="none" height="367" viewbox="0 0 1274 367" width="1274" xmlns="http://www.w3.org/2000/svg"><path d="M1154.38 366.038H1097.86L1137.69 276.14L1058.04 97.1046H1114.93L1161.35 209.337C1162.97 213.26 1168.53 213.253 1170.14 209.325L1216.21 97.1046H1273.49L1154.38 366.038Z" fill="currentColor"></path><path d="M982.714 286.761V142.622H944.403V97.1041H982.714V72.4488C982.714 49.9429 989.542 32.2416 1003.2 19.345C1016.85 6.44832 1034.17 0 1055.16 0C1068.06 0 1079.06 1.39081 1088.16 4.17244V50.0693C1082.09 47.7934 1075.01 46.6555 1066.92 46.6555C1055.54 46.6555 1047.32 49.1843 1042.27 54.2418C1037.21 59.0464 1034.68 67.2648 1034.68 78.8971V97.1041H1088.16V142.622H1034.68V286.761H982.714Z" fill="currentColor"></path><path d="M897.916 66.0005C889.066 66.0005 881.353 62.8395 874.778 56.5176C868.203 49.9429 864.916 42.1037 864.916 33.0002C864.916 23.8967 868.203 16.184 874.778 9.86215C881.353 3.28738 889.066 0 897.916 0C907.273 0 915.112 3.28738 921.434 9.86215C928.008 16.184 931.296 23.8967 931.296 33.0002C931.296 42.1037 928.008 49.9429 921.434 56.5176C915.112 62.8395 907.273 66.0005 897.916 66.0005ZM872.123 286.761V97.1041H924.089V286.761H872.123Z" fill="currentColor"></path><path d="M781.638 286.761V2.27609H833.604V286.761H781.638Z" fill="currentColor"></path><path d="M722.934 289.037C701.693 289.037 684.244 283.221 670.589 271.588C657.187 259.703 650.485 242.634 650.485 220.381V142.622H612.175V97.1044H650.485V44.3799H702.451V97.1044H755.934V142.622H702.451V210.14C702.451 221.772 704.98 230.117 710.038 235.174C715.095 239.979 723.313 242.381 734.693 242.381C742.785 242.381 749.865 241.243 755.934 238.967V284.864C746.831 287.646 735.831 289.037 722.934 289.037Z" fill="currentColor"></path><path d="M417.674 286.761V97.1041H469.64V110.967C469.64 113.311 472.83 114.347 474.382 112.591C485.967 99.4848 502.467 92.9317 523.881 92.9317C546.64 92.9317 564.468 100.518 577.365 115.69C590.514 130.61 597.089 150.587 597.089 175.622V286.761H545.123V184.346C545.123 170.438 542.215 159.691 536.399 152.105C530.583 144.265 522.364 140.346 511.743 140.346C499.1 140.346 488.858 144.898 481.019 154.001C473.433 163.105 469.64 176.507 469.64 194.208V286.761H417.674Z" fill="currentColor"></path><path d="M352.981 66.0005C344.13 66.0005 336.417 62.8395 329.843 56.5176C323.268 49.9429 319.98 42.1037 319.98 33.0002C319.98 23.8967 323.268 16.184 329.843 9.86215C336.417 3.28738 344.13 0 352.981 0C362.337 0 370.176 3.28738 376.498 9.86215C383.073 16.184 386.36 23.8967 386.36 33.0002C386.36 42.1037 383.073 49.9429 376.498 56.5176C370.176 62.8395 362.337 66.0005 352.981 66.0005ZM327.187 286.761V97.1041H379.153V286.761H327.187Z" fill="currentColor"></path><path d="M238.967 286.761V185.484C238.967 155.392 229.105 140.346 209.381 140.346C198.001 140.346 188.898 144.645 182.07 153.242C175.495 161.84 171.955 174.61 171.449 191.553V286.761H119.484V185.484C119.484 155.392 109.621 140.346 89.8972 140.346C78.2649 140.346 69.035 144.898 62.2073 154.001C55.3797 163.105 51.9659 176.507 51.9659 194.208V286.761H0V97.1041H51.9659V111.103C51.9659 113.435 55.1014 114.462 56.633 112.704C68.1136 99.5223 83.3741 92.9317 102.415 92.9317C127.436 92.9317 146.283 103.262 158.953 123.923C159.953 125.553 162.412 125.527 163.406 123.894C168.884 114.891 176.496 107.731 186.243 102.415C197.369 96.0926 208.622 92.9317 220.002 92.9317C242.507 92.9317 259.956 100.392 272.347 115.311C284.738 130.231 290.933 150.714 290.933 176.76V286.761H238.967Z" fill="currentColor"></path></svg></a></div></div></footer></div></div><!--$--><!--/$--></div></div></div></div></div>
+<div class="veiseule-footer"><a href="https://openclaw.veiseule.ai">veiseule.ai</a> — Community translations maintained by <a href="http://blog.law-kelly.com/2026/02/open-source-means-open-language.html">John Kelly</a>. Improve translations on <a href="https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17">Crowdin</a>.</div>
+<script>
+(function(){
+  var btn = document.querySelector('[aria-label="Toggle dark mode"]');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var html = document.documentElement;
+    var isDark = html.classList.contains('dark');
+    if(isDark){
+      html.classList.remove('dark');
+      html.style.colorScheme = 'light';
+      try { localStorage.setItem('isDarkMode','light'); } catch(e){}
+    } else {
+      html.classList.add('dark');
+      html.style.colorScheme = 'dark';
+      try { localStorage.setItem('isDarkMode','dark'); } catch(e){}
+    }
+  });
+})();
+</script></body></html>
