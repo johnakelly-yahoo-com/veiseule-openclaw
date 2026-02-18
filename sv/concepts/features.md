@@ -7,22 +7,28 @@ title: "”Funktioner”"
 <Columns>
   <Card title="Channels" icon="message-square">
     WhatsApp, Telegram, Discord och iMessage med en enda Gateway (nätverksgateway).
-  </Card>
+  
+</Card>
   <Card title="Plugins" icon="plug">
     Lägg till Mattermost och mer med tillägg.
-  </Card>
+  
+</Card>
   <Card title="Routing" icon="route">
     Routing med flera agenter och isolerade sessioner.
-  </Card>
+  
+</Card>
   <Card title="Media" icon="image">
     Bilder, ljud och dokument in och ut.
-  </Card>
+  
+</Card>
   <Card title="Apps and UI" icon="monitor">
     Web Control UI och macOS companion-app.
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     iOS- och Android-noder med Canvas-stöd.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Fullständig lista

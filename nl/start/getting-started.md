@@ -30,21 +30,26 @@ Controleer je Node-versie met `node --version` als je het niet zeker weet.
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     ```
     <Note>
     Andere installatiemethoden en vereisten: [Installeren](/install).
-    </Note>
+    
+</Note>
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Run the onboarding wizard">
     ```bash
     openclaw onboard --install-daemon
@@ -55,7 +60,8 @@ Controleer je Node-versie met `node --version` als je het niet zeker weet.
     Zie [Onboarding Wizard](/start/wizard) voor details.
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Check the Gateway">
     Als je de service hebt geïnstalleerd, zou deze al moeten draaien:
 
@@ -65,12 +71,14 @@ Controleer je Node-versie met `node --version` als je het niet zeker weet.
     ```
     ````
 
-  </Step>
+  
+</Step>
   <Step title="Open the Control UI">
     ```bash
     openclaw dashboard
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 <Check>
@@ -89,7 +97,8 @@ Als de Control UI laadt, is je Gateway klaar voor gebruik.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Send a test message">
     Vereist een geconfigureerd kanaal.
 
@@ -99,7 +108,8 @@ Als de Control UI laadt, is je Gateway klaar voor gebruik.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Nuttige omgevingsvariabelen
@@ -117,10 +127,12 @@ Volledige referentie van omgevingsvariabelen: [Omgevingsvariabelen](/help/enviro
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
     Volledige CLI-wizardreferentie en geavanceerde opties.
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     Eerste-runflow voor de macOS-app.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Wat je hebt

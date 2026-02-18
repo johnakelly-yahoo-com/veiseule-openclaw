@@ -21,7 +21,8 @@ sidebarTitle: "विज़ार्ड संदर्भ"
       - केवल कॉन्फ़िग
       - कॉन्फ़िग + क्रेडेंशियल्स + सेशन्स
       - पूर्ण रीसेट (वर्कस्पेस भी हटाता है)
-  </Step>
+  
+</Step>
   <Step title="Model/Auth">
     - **Anthropic API key (recommended)**: यदि `ANTHROPIC_API_KEY` मौजूद है तो उसका उपयोग करता है या कुंजी के लिए पूछता है, फिर डेमन उपयोग के लिए सहेजता है।
     - **Anthropic OAuth (Claude Code CLI)**: macOS पर विज़ार्ड Keychain आइटम "Claude Code-credentials" की जाँच करता है (launchd स्टार्ट ब्लॉक न हों इसके लिए "Always Allow" चुनें); Linux/Windows पर यदि मौजूद हो तो `~/.claude/.credentials.json` का पुनः उपयोग करता है।
@@ -53,19 +54,23 @@ sidebarTitle: "विज़ार्ड संदर्भ"
     हेडलेस/सर्वर सुझाव: ब्राउज़र वाली मशीन पर OAuth पूरा करें, फिर
     `~/.openclaw/credentials/oauth.json` (या `$OPENCLAW_STATE_DIR/credentials/oauth.json`) को
     Gateway होस्ट पर कॉपी करें।
-    </Note>
-  </Step>
+    
+</Note>
+  
+</Step>
   <Step title="Workspace">
     - डिफ़ॉल्ट `~/.openclaw/workspace` (कॉन्फ़िगर करने योग्य)।
     - एजेंट bootstrap ritual के लिए आवश्यक वर्कस्पेस फ़ाइलें तैयार करता है।
     - पूर्ण वर्कस्पेस लेआउट + बैकअप मार्गदर्शिका: [Agent workspace](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Port, bind, auth mode, tailscale exposure।
     - Auth सिफारिश: loopback पर भी **Token** रखें ताकि स्थानीय WS क्लाइंट्स को authenticate करना पड़े।
     - केवल तभी auth अक्षम करें जब आप हर स्थानीय प्रक्रिया पर पूर्ण भरोसा करते हों।
     - Non‑loopback bind पर भी auth आवश्यक है।
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): वैकल्पिक QR लॉगिन।
     - [Telegram](/channels/telegram): bot token।
@@ -76,7 +81,8 @@ sidebarTitle: "विज़ार्ड संदर्भ"
     - [BlueBubbles](/channels/bluebubbles): **iMessage के लिए अनुशंसित**; server URL + password + webhook।
     - [iMessage](/channels/imessage): legacy `imsg` CLI path + DB access।
     - DM सुरक्षा: डिफ़ॉल्ट रूप से pairing। पहला DM एक कोड भेजता है; `openclaw pairing approve <channel> <code>` के ज़रिए अनुमोदित करें या allowlists का उपयोग करें।
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent  
       - लॉग‑इन किया हुआ यूज़र सेशन आवश्यक; हेडलेस के लिए कस्टम LaunchDaemon उपयोग करें (शिप नहीं किया गया)।
@@ -84,19 +90,23 @@ sidebarTitle: "विज़ार्ड संदर्भ"
       - विज़ार्ड `loginctl enable-linger <user>` के ज़रिए lingering सक्षम करने की कोशिश करता है ताकि लॉगआउट के बाद भी Gateway चालू रहे।  
       - sudo के लिए पूछ सकता है (`/var/lib/systemd/linger` लिखता है); पहले बिना sudo के कोशिश करता है।
     - **Runtime चयन:** Node (अनुशंसित; WhatsApp/Telegram के लिए आवश्यक)। Bun **अनुशंसित नहीं** है।
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - Gateway शुरू करता है (यदि आवश्यक हो) और `openclaw health` चलाता है।
     - टिप: `openclaw status --deep` स्टेटस आउटपुट में gateway health probes जोड़ता है (पहुंच योग्य gateway आवश्यक)।
-  </Step>
+  
+</Step>
   <Step title="Skills (recommended)">
     - उपलब्ध skills पढ़ता है और आवश्यकताओं की जाँच करता है।
     - आपको node manager चुनने देता है: **npm / pnpm** (bun अनुशंसित नहीं)।
     - वैकल्पिक dependencies इंस्टॉल करता है (कुछ macOS पर Homebrew का उपयोग करती हैं)।
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - सारांश + अगले कदम, जिनमें अतिरिक्त फीचर्स के लिए iOS/Android/macOS ऐप्स शामिल हैं।
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -136,7 +146,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI example">
     ```bash
     openclaw onboard --non-interactive \
@@ -146,7 +157,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -156,7 +168,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -168,7 +181,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot example">
     ```bash
     openclaw onboard --non-interactive \
@@ -178,7 +192,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic example">
     ```bash
     openclaw onboard --non-interactive \
@@ -188,7 +203,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen example">
     ```bash
     openclaw onboard --non-interactive \
@@ -198,7 +214,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ### एजेंट जोड़ें (non-interactive)

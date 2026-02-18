@@ -26,7 +26,8 @@ Om detta skriver ut `v22.x.x` eller högre är du redo. Om Node inte är install
 
     Eller ladda ner macOS-installationsprogrammet från [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
@@ -43,7 +44,8 @@ Om detta skriver ut `v22.x.x` eller högre är du redo. Om Node inte är install
 
     Eller använd en versionshanterare (se nedan).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget** (rekommenderas):
 
@@ -59,7 +61,8 @@ Om detta skriver ut `v22.x.x` eller högre är du redo. Om Node inte är install
 
     Eller ladda ner Windows-installationsprogrammet från [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
@@ -78,7 +81,8 @@ fnm use 22
 
   <Warning>
   Se till att din versionshanterare är initierad i din skalstartfil (`~/.zshrc` eller `~/.bashrc`). Om den inte är det kan `openclaw` inte hittas i nya terminalsessioner eftersom PATH inte kommer att inkludera Nodes bin-katalog.
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## Felsökning
@@ -92,7 +96,8 @@ Detta betyder nästan alltid att npm:s globala bin-katalog inte finns på din PA
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
@@ -100,7 +105,8 @@ Detta betyder nästan alltid att npm:s globala bin-katalog inte finns på din PA
 
     Leta efter `<npm-prefix>/bin` (macOS/Linux) eller `<npm-prefix>` (Windows) i utdata.
 
-  </Step>
+  
+</Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -111,13 +117,17 @@ Detta betyder nästan alltid att npm:s globala bin-katalog inte finns på din PA
         ```
 
         Öppna sedan en ny terminal (eller kör `rehash` i zsh / `hash -r` i bash).
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         Lägg till utdata från `npm prefix -g` i din system-PATH via Inställningar → System → Miljövariabler.
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Behörighetsfel på `npm install -g` (Linux)

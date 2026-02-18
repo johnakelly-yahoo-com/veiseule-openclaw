@@ -34,21 +34,25 @@ sidebarTitle: "CLI リファレンス"
       - 設定のみ  
       - 設定 + 認証情報 + セッション  
       - 完全リセット（ワークスペースも削除）
-  </Step>
+  
+</Step>
   <Step title="Model and auth">
     - 完全な選択肢一覧は [認証とモデルのオプション](#auth-and-model-options) を参照してください。
-  </Step>
+  
+</Step>
   <Step title="Workspace">
     - デフォルトは `~/.openclaw/workspace`（設定可能）です。  
     - 初回実行時のブートストラップに必要なワークスペースファイルを生成します。  
     - ワークスペース構成: [Agent ワークスペース](/concepts/agent-workspace)。
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - ポート、バインド、認証モード、Tailscale 公開設定を入力します。  
     - 推奨: ループバックのみでもトークン認証を有効にし、ローカル WS クライアントが認証を必要とするようにします。  
     - すべてのローカルプロセスを完全に信頼している場合のみ認証を無効にしてください。  
     - ループバック以外のバインドでも認証は必須です。
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): 任意の QR ログイン  
     - [Telegram](/channels/telegram): ボットトークン  
@@ -60,7 +64,8 @@ sidebarTitle: "CLI リファレンス"
     - [iMessage](/channels/imessage): レガシー `imsg` CLI パス + DB アクセス  
     - DM セキュリティ: デフォルトはペアリングです。最初の DM でコードが送信されます。  
       `openclaw pairing approve <channel> <code>` で承認するか、許可リストを使用します。
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent  
       - ログイン中のユーザーセッションが必要です。ヘッドレス環境ではカスタム LaunchDaemon（同梱されていません）を使用してください。  
@@ -68,19 +73,23 @@ sidebarTitle: "CLI リファレンス"
       - ウィザードは `loginctl enable-linger <user>` を試み、ログアウト後もゲートウェイが起動し続けるようにします。  
       - sudo を求められる場合があります（`/var/lib/systemd/linger` へ書き込み）。まず sudo なしで試行します。  
     - ランタイム選択: Node（推奨。WhatsApp と Telegram に必須）。Bun は推奨されません。
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - 必要に応じてゲートウェイを起動し、`openclaw health` を実行します。  
     - `openclaw status --deep` はゲートウェイのヘルスプローブをステータス出力に追加します。
-  </Step>
+  
+</Step>
   <Step title="Skills">
     - 利用可能なスキルを読み取り、要件を確認します。  
     - Node マネージャーを選択できます: npm または pnpm（bun は推奨されません）。  
     - 任意の依存関係をインストールします（一部は macOS で Homebrew を使用します）。
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - iOS、Android、macOS アプリのオプションを含む概要と次のステップを表示します。
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -113,65 +122,80 @@ Control UI アセットが不足している場合、ウィザードはビルド
 <AccordionGroup>
   <Accordion title="Anthropic API key (recommended)">
     `ANTHROPIC_API_KEY` が存在する場合はそれを使用し、なければキーの入力を求め、デーモン利用のために保存します。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic OAuth (Claude Code CLI)">
     - macOS: キーチェーン項目「Claude Code-credentials」を確認します  
     - Linux および Windows: `~/.claude/.credentials.json` が存在すれば再利用します  
 
     macOS では「常に許可」を選択し、launchd 起動時にブロックされないようにしてください。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
     任意のマシンで `claude setup-token` を実行し、そのトークンを貼り付けます。  
     名前を付けることができます。空欄の場合はデフォルトを使用します。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (Codex CLI reuse)">
     `~/.codex/auth.json` が存在する場合、ウィザードで再利用できます。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (OAuth)">
     ブラウザーフローを実行し、`code#state` を貼り付けます。
 
     モデルが未設定、または `openai/*` の場合、`agents.defaults.model` を `openai-codex/gpt-5.3-codex` に設定します。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI API key">
     `OPENAI_API_KEY` が存在する場合はそれを使用し、なければキーの入力を求め、  
     launchd が読み取れるよう `~/.openclaw/.env` に保存します。
 
     モデルが未設定、`openai/*`、または `openai-codex/*` の場合、  
     `agents.defaults.model` を `openai/gpt-5.1-codex` に設定します。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="xAI (Grok) API key">
     `XAI_API_KEY` の入力を求め、xAI をモデルプロバイダーとして構成します。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen">
     `OPENCODE_API_KEY`（または `OPENCODE_ZEN_API_KEY`）の入力を求めます。  
     セットアップ URL: [opencode.ai/auth](https://opencode.ai/auth)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="API key (generic)">
     キーを保存します。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway">
     `AI_GATEWAY_API_KEY` の入力を求めます。  
     詳細: [Vercel AI Gateway](/providers/vercel-ai-gateway)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway">
     アカウント ID、ゲートウェイ ID、`CLOUDFLARE_AI_GATEWAY_API_KEY` の入力を求めます。  
     詳細: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="MiniMax M2.1">
     設定は自動的に書き込まれます。  
     詳細: [MiniMax](/providers/minimax)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic (Anthropic-compatible)">
     `SYNTHETIC_API_KEY` の入力を求めます。  
     詳細: [Synthetic](/providers/synthetic)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot and Kimi Coding">
     Moonshot（Kimi K2）および Kimi Coding の設定は自動的に書き込まれます。  
     詳細: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Skip">
     認証は未設定のままにします。
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 モデルの挙動:

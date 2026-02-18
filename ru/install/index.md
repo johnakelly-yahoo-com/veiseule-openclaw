@@ -31,13 +31,16 @@ title: "Установка"
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     Готово — скрипт выполняет обнаружение Node, установку и первичную настройку.
 
@@ -48,17 +51,21 @@ title: "Установка"
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     Все флаги, переменные окружения и варианты для CI/автоматизации см. в разделе [Внутреннее устройство установщика](/install/installer).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     Если у вас уже есть Node 22+ и вы предпочитаете управлять установкой самостоятельно:
@@ -78,8 +85,10 @@ title: "Установка"
           ```
 
           Если вы видите `sharp: Please add node-gyp to your dependencies`, установите инструменты сборки (macOS: Xcode CLT + `npm install -g node-gyp`) или используйте указанную выше переменную окружения.
-        </Accordion>
-      </Tab>
+        
+</Accordion>
+      
+</Tab>
       <Tab title="pnpm">
         ```bash
         pnpm add -g openclaw@latest
@@ -89,11 +98,15 @@ title: "Установка"
 
         <Note>
         pnpm требует явного подтверждения для пакетов со скриптами сборки. После того как первая установка покажет предупреждение «Ignored build scripts», выполните `pnpm approve-builds -g` и выберите перечисленные пакеты.
-        </Note>
-      </Tab>
-    </Tabs>
+        
+</Note>
+      
+</Tab>
+    
+</Tabs>
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="From source" icon="github">
     Для контрибьюторов или тех, кто хочет запускать из локального репозитория.
@@ -109,7 +122,8 @@ title: "Установка"
         pnpm ui:build
         pnpm build
         ```
-      </Step>
+      
+</Step>
       <Step title="Подключить CLI">
         Сделайте команду `openclaw` доступной глобально:
 
@@ -118,17 +132,21 @@ title: "Установка"
         ```
 
         Либо пропустите связывание и запускайте команды через `pnpm openclaw ...` изнутри репозитория.
-      </Step>
+      
+</Step>
       <Step title="Запустить первичную настройку">
         ```bash
         openclaw onboard --install-daemon
         ```
-      </Step>
-    </Steps>
+      
+</Step>
+    
+</Steps>
 
     Для более глубоких рабочих процессов разработки см. раздел [Настройка](/start/setup).
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Другие способы установки
@@ -136,19 +154,24 @@ title: "Установка"
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     Контейнеризованные или headless-развёртывания.
-  </Card>
+  
+</Card>
   <Card title="Podman" href="/install/podman" icon="container">
     Беспривилегированный контейнер: запустите `setup-podman.sh` один раз, затем скрипт запуска.
-  </Card>
+  
+</Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     Декларативная установка через Nix.
-  </Card>
+  
+</Card>
   <Card title="Ansible" href="/install/ansible" icon="server">
     Автоматизированное развёртывание парка.
-  </Card>
+  
+</Card>
   <Card title="Bun" href="/install/bun" icon="zap">
     Использование только CLI через рантайм Bun.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## После установки
@@ -199,12 +222,15 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 <CardGroup cols={3}>
   <Card title="Updating" href="/install/updating" icon="refresh-cw">
     Поддерживайте OpenClaw в актуальном состоянии.
-  </Card>
+  
+</Card>
   <Card title="Migrating" href="/install/migrating" icon="arrow-right">
     Перенос на новую машину.
-  </Card>
+  
+</Card>
   <Card title="Uninstall" href="/install/uninstall" icon="trash-2">
     Полностью удалить OpenClaw.
-  </Card>
+  
+</Card>
 </CardGroup>
 

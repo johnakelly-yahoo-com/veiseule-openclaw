@@ -11,10 +11,12 @@ Hızlı Başlangıç artık [Başlarken](/start/getting-started) bölümünün b
 <Columns>
   <Card title="Getting Started" href="/start/getting-started">
     OpenClaw’ı yükleyin ve ilk sohbetinizi dakikalar içinde çalıştırın.
-  </Card>
+  
+</Card>
   <Card title="Onboarding Wizard" href="/start/wizard">
     Kapsamlı CLI sihirbazı başvurusu ve gelişmiş seçenekler.
-  </Card>
+  
+</Card>
 </Columns>
 
 

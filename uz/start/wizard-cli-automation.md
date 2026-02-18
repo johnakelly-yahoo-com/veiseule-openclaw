@@ -37,7 +37,8 @@ openclaw onboard --non-interactive \
   --gemini-api-key "$GEMINI_API_KEY" \
   --gateway-port 18789 \
   --gateway-bind loopback
-```</Accordion>
+```
+</Accordion>
   <Accordion title="Z.AI example">```bash
 openclaw onboard --non-interactive \
   --mode local \
@@ -45,7 +46,8 @@ openclaw onboard --non-interactive \
   --zai-api-key "$ZAI_API_KEY" \
   --gateway-port 18789 \
   --gateway-bind loopback
-```</Accordion>
+```
+</Accordion>
   <Accordion title="Vercel AI Gateway example">```bash
 openclaw onboard --non-interactive \
   --mode local \
@@ -53,7 +55,8 @@ openclaw onboard --non-interactive \
   --ai-gateway-api-key "$AI_GATEWAY_API_KEY" \
   --gateway-port 18789 \
   --gateway-bind loopback
-```</Accordion>
+```
+</Accordion>
   <Accordion title="Cloudflare AI Gateway example">```bash
 openclaw onboard --non-interactive \
   --mode local \
@@ -63,7 +66,8 @@ openclaw onboard --non-interactive \
   --cloudflare-ai-gateway-api-key "$CLOUDFLARE_AI_GATEWAY_API_KEY" \
   --gateway-port 18789 \
   --gateway-bind loopback
-```</Accordion>
+```
+</Accordion>
   <Accordion title="Moonshot example">```bash
 openclaw onboard --non-interactive \
   --mode local \
@@ -71,7 +75,8 @@ openclaw onboard --non-interactive \
   --moonshot-api-key "$MOONSHOT_API_KEY" \
   --gateway-port 18789 \
   --gateway-bind loopback
-```</Accordion>
+```
+</Accordion>
   <Accordion title="Synthetic example">```bash
 openclaw onboard --non-interactive \
   --mode local \
@@ -79,7 +84,8 @@ openclaw onboard --non-interactive \
   --synthetic-api-key "$SYNTHETIC_API_KEY" \
   --gateway-port 18789 \
   --gateway-bind loopback
-```</Accordion>
+```
+</Accordion>
   <Accordion title="OpenCode Zen example">```bash
 openclaw onboard --non-interactive \
   --mode local \
@@ -87,7 +93,8 @@ openclaw onboard --non-interactive \
   --opencode-zen-api-key "$OPENCODE_API_KEY" \
   --gateway-port 18789 \
   --gateway-bind loopback
-```</Accordion>
+```
+</Accordion>
 </AccordionGroup>
 
 ## Yana bir agent qo‘shish

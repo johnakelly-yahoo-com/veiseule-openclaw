@@ -48,10 +48,12 @@ Guiden starter med **Hurtig start** (standarder) vs **Avanceret** (fuld kontrol)
     - Gateway-autentificering **Token** (auto‑genereret, selv på loopback)
     - Tailscale-eksponering **Fra**
     - Telegram + WhatsApp DMs er som standard **tilladelsesliste** (du bliver bedt om dit telefonnummer)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - Eksponerer hvert trin (tilstand, workspace, gateway, kanaler, daemon, skills).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Hvad guiden konfigurerer

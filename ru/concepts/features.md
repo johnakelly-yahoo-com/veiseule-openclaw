@@ -7,22 +7,28 @@ title: "Возможности"
 <Columns>
   <Card title="Channels" icon="message-square">
     WhatsApp, Telegram, Discord и iMessage с одним Gateway (шлюзом).
-  </Card>
+  
+</Card>
   <Card title="Plugins" icon="plug">
     Добавляйте Mattermost и другие системы с помощью расширений.
-  </Card>
+  
+</Card>
   <Card title="Routing" icon="route">
     Мультиагентная маршрутизация с изолированными сеансами.
-  </Card>
+  
+</Card>
   <Card title="Media" icon="image">
     Изображения, аудио и документы — на вход и на выход.
-  </Card>
+  
+</Card>
   <Card title="Apps and UI" icon="monitor">
     Веб-интерфейс управления и сопутствующее приложение для macOS.
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     Узлы iOS и Android с поддержкой Canvas.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Полный список

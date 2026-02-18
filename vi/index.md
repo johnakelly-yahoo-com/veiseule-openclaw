@@ -10,14 +10,12 @@ sidebarTitle: "OpenClaw"
         src="/assets/openclaw-logo-text-dark.png"
         alt="OpenClaw"
         width="500"
-        class="dark:hidden"
-    />
+        class="dark:hidden"></img>
     <img
         src="/assets/openclaw-logo-text.png"
         alt="OpenClaw"
         width="500"
-        class="hidden dark:block"
-    />
+        class="hidden dark:block"></img>
 </p>
 
 > _"TẨY TẾ BÀO CHẾT! TẨY TẾ BÀO CHẾT!"_ — Có lẽ là một con tôm hùm ngoài không gian
@@ -30,13 +28,16 @@ sidebarTitle: "OpenClaw"
 <Columns>
   <Card title="Get Started" href="/start/getting-started" icon="rocket">
     Cài đặt OpenClaw và khởi chạy Gateway chỉ trong vài phút.
-  </Card>
+  
+</Card>
   <Card title="Run the Wizard" href="/start/wizard" icon="sparkles">
     Thiết lập có hướng dẫn với `openclaw onboard` và các luồng ghép cặp.
-  </Card>
+  
+</Card>
   <Card title="Open the Control UI" href="/web/control-ui" icon="layout-dashboard">
     Khởi chạy bảng điều khiển trên trình duyệt để chat, cấu hình và quản lý phiên.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## OpenClaw là gì?
@@ -73,22 +74,28 @@ Gateway là nguồn sự thật duy nhất cho các phiên, định tuyến và 
 <Columns>
   <Card title="Multi-channel gateway" icon="network">
     WhatsApp, Telegram, Discord và iMessage với một tiến trình Gateway duy nhất.
-  </Card>
+  
+</Card>
   <Card title="Plugin channels" icon="plug">
     Thêm Mattermost và nhiều kênh khác bằng các gói mở rộng.
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" icon="route">
     Phiên được cô lập theo từng tác tử, workspace hoặc người gửi.
-  </Card>
+  
+</Card>
   <Card title="Media support" icon="image">
     Gửi và nhận hình ảnh, âm thanh và tài liệu.
-  </Card>
+  
+</Card>
   <Card title="Web Control UI" icon="monitor">
     Bảng điều khiển trên trình duyệt cho chat, cấu hình, phiên và node.
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     Ghép cặp node iOS và Android với hỗ trợ Canvas.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Khởi động nhanh
@@ -98,18 +105,21 @@ Gateway là nguồn sự thật duy nhất cho các phiên, định tuyến và 
     ```bash
     npm install -g openclaw@latest
     ```
-  </Step>
+  
+</Step>
   <Step title="Onboard and install the service">
     ```bash
     openclaw onboard --install-daemon
     ```
-  </Step>
+  
+</Step>
   <Step title="Pair WhatsApp and start the Gateway">
     ```bash
     openclaw channels login
     openclaw gateway --port 18789
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 Plugins bổ sung Mattermost và nhiều hơn nữa. See [Quick start](/start/quickstart).
@@ -122,7 +132,7 @@ Mở Control UI trên trình duyệt sau khi Gateway khởi động.
 - Truy cập từ xa: [Web surfaces](/web) và [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420" />
+  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Cấu hình (tùy chọn)
@@ -151,22 +161,28 @@ Ví dụ:
 <Columns>
   <Card title="Docs hubs" href="/start/hubs" icon="book-open">
     Tất cả tài liệu và hướng dẫn, được tổ chức theo từng trường hợp sử dụng.
-  </Card>
+  
+</Card>
   <Card title="Configuration" href="/gateway/configuration" icon="settings">
     Thiết lập Gateway cốt lõi, token và cấu hình nhà cung cấp.
-  </Card>
+  
+</Card>
   <Card title="Remote access" href="/gateway/remote" icon="globe">
     Các mô hình truy cập qua SSH và tailnet.
-  </Card>
+  
+</Card>
   <Card title="Channels" href="/channels/telegram" icon="message-square">
     Thiết lập theo từng kênh cho WhatsApp, Telegram, Discord và nhiều kênh khác.
-  </Card>
+  
+</Card>
   <Card title="Nodes" href="/nodes" icon="smartphone">
     Node iOS và Android với ghép cặp và Canvas.
-  </Card>
+  
+</Card>
   <Card title="Help" href="/help" icon="life-buoy">
     Các bản sửa lỗi phổ biến và điểm vào xử lý sự cố.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Tìm hiểu thêm
@@ -174,19 +190,24 @@ Ví dụ:
 <Columns>
   <Card title="Full feature list" href="/concepts/features" icon="list">
     Toàn bộ khả năng về kênh, định tuyến và media.
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" href="/concepts/multi-agent" icon="route">
     Cô lập workspace và phiên theo từng tác tử.
-  </Card>
+  
+</Card>
   <Card title="Security" href="/gateway/security" icon="shield">
     Token, danh sách cho phép và các kiểm soát an toàn.
-  </Card>
+  
+</Card>
   <Card title="Troubleshooting" href="/gateway/troubleshooting" icon="wrench">
     Chẩn đoán Gateway và các lỗi thường gặp.
-  </Card>
+  
+</Card>
   <Card title="About and credits" href="/reference/credits" icon="info">
     Nguồn gốc dự án, người đóng góp và giấy phép.
-  </Card>
+  
+</Card>
 </Columns>
 
 

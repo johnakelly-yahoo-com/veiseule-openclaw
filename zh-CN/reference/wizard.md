@@ -21,7 +21,8 @@ sidebarTitle: 向导参考
       - 仅配置
       - 配置 + 凭证 + 会话
       - 完全重置（同时移除工作区）
-  </Step>
+  
+</Step>
   <Step title="模型 / 认证">
     - **Anthropic API key（推荐）**：如果存在则使用 `ANTHROPIC_API_KEY`，否则提示输入密钥，然后保存以供守护进程使用。
     - **Anthropic OAuth（Claude Code CLI）**：在 macOS 上向导会检查钥匙串项目 “Claude Code-credentials”（请选择“始终允许”，以免 launchd 启动被阻止）；在 Linux/Windows 上如果存在则复用 `~/.claude/.credentials.json`。
@@ -52,19 +53,23 @@ sidebarTitle: 向导参考
     <Note>
     无头 / 服务器提示：请在有浏览器的机器上完成 OAuth，然后将  
     `~/.openclaw/credentials/oauth.json`（或 `$OPENCLAW_STATE_DIR/credentials/oauth.json`）复制到网关主机。
-    </Note>
-  </Step>
+    
+</Note>
+  
+</Step>
   <Step title="工作区">
     - 默认 `~/.openclaw/workspace`（可配置）。
     - 为代理引导流程初始化所需的工作区文件。
     - 完整工作区结构与备份指南：[Agent workspace](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="网关">
     - 端口、绑定地址、认证模式、Tailscale 暴露。
     - 认证建议：即使仅 loopback 也保持 **Token**，这样本地 WS 客户端必须进行认证。
     - 仅在你完全信任所有本地进程时才禁用认证。
     - 非 loopback 绑定仍然需要认证。
-  </Step>
+  
+</Step>
   <Step title="渠道">
     - [WhatsApp](/channels/whatsapp)：可选二维码登录。
     - [Telegram](/channels/telegram)：机器人 token。
@@ -75,7 +80,8 @@ sidebarTitle: 向导参考
     - [BlueBubbles](/channels/bluebubbles)：**iMessage 推荐方案**；服务器 URL + 密码 + webhook。
     - [iMessage](/channels/imessage)：传统 `imsg` CLI 路径 + 数据库访问。
     - 私信安全：默认使用配对。首次私信会发送验证码；通过 `openclaw pairing approve <channel> <code>` 批准，或使用允许列表。
-  </Step>
+  
+</Step>
   <Step title="安装守护进程">
     - macOS：LaunchAgent  
       - 需要已登录的用户会话；无头环境需使用自定义 LaunchDaemon（未随附）。
@@ -83,19 +89,23 @@ sidebarTitle: 向导参考
       - 向导会尝试通过 `loginctl enable-linger <user>` 启用 lingering，使网关在注销后仍保持运行。
       - 可能提示输入 sudo（写入 `/var/lib/systemd/linger`）；会先尝试无 sudo。
     - **运行时选择：**Node（推荐；WhatsApp/Telegram 必需）。不推荐 Bun。
-  </Step>
+  
+</Step>
   <Step title="健康检查">
     - 启动网关（如需要）并运行 `openclaw health`。
     - 提示：`openclaw status --deep` 会在状态输出中添加网关健康探测（需要可访问的网关）。
-  </Step>
+  
+</Step>
   <Step title="技能（推荐）">
     - 读取可用技能并检查依赖要求。
     - 选择 node 管理器：**npm / pnpm**（不推荐 bun）。
     - 安装可选依赖（部分在 macOS 上使用 Homebrew）。
-  </Step>
+  
+</Step>
   <Step title="完成">
     - 总结 + 后续步骤，包括 iOS / Android / macOS 应用以启用更多功能。
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -135,7 +145,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI 示例">
     ```bash
     openclaw onboard --non-interactive \
@@ -145,7 +156,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway 示例">
     ```bash
     openclaw onboard --non-interactive \
@@ -155,7 +167,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway 示例">
     ```bash
     openclaw onboard --non-interactive \
@@ -167,7 +180,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot 示例">
     ```bash
     openclaw onboard --non-interactive \
@@ -177,7 +191,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic 示例">
     ```bash
     openclaw onboard --non-interactive \
@@ -187,7 +202,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen 示例">
     ```bash
     openclaw onboard --non-interactive \
@@ -197,7 +213,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ### 添加代理（非交互）

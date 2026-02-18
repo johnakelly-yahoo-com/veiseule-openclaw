@@ -31,13 +31,16 @@ title: "التثبيت"
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     هذا كل شيء — يتكفّل البرنامج باكتشاف Node وتثبيته والتهيئة الأولية.
 
@@ -48,17 +51,21 @@ title: "التثبيت"
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     للاطلاع على جميع الأعلام ومتغيرات البيئة وخيارات CI/الأتمتة، راجع [Installer internals](/install/installer).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     إذا كان لديك بالفعل Node 22+ وتفضّل إدارة التثبيت بنفسك:
@@ -78,8 +85,10 @@ title: "التثبيت"
           ```
 
           إذا رأيت `sharp: Please add node-gyp to your dependencies`، فإمّا أن تثبّت أدوات البناء (macOS: Xcode CLT + `npm install -g node-gyp`) أو استخدم متغير البيئة أعلاه.
-        </Accordion>
-      </Tab>
+        
+</Accordion>
+      
+</Tab>
       <Tab title="pnpm">
         ```bash
         pnpm add -g openclaw@latest
@@ -89,11 +98,15 @@ title: "التثبيت"
 
         <Note>
         يتطلّب pnpm موافقة صريحة للحِزم التي تحتوي على نصوص بناء. بعد أن يُظهر التثبيت الأول تحذير "Ignored build scripts"، شغّل `pnpm approve-builds -g` واختر الحِزم المدرجة.
-        </Note>
-      </Tab>
-    </Tabs>
+        
+</Note>
+      
+</Tab>
+    
+</Tabs>
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="From source" icon="github">
     للمساهمين أو لأي شخص يرغب في التشغيل من نسخة محلية.
@@ -109,7 +122,8 @@ title: "التثبيت"
         pnpm ui:build
         pnpm build
         ```
-      </Step>
+      
+</Step>
       <Step title="ربط CLI">
         اجعل الأمر `openclaw` متاحًا بشكل عام:
 
@@ -118,17 +132,21 @@ title: "التثبيت"
         ```
 
         بديلًا عن ذلك، يمكنك تجاوز الربط وتشغيل الأوامر عبر `pnpm openclaw ...` من داخل المستودع.
-      </Step>
+      
+</Step>
       <Step title="تشغيل التهيئة الأولية">
         ```bash
         openclaw onboard --install-daemon
         ```
-      </Step>
-    </Steps>
+      
+</Step>
+    
+</Steps>
 
     لمزيد من مسارات العمل التطويرية المتقدمة، راجع [الإعداد](/start/setup).
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## طرق تثبيت أخرى
@@ -136,19 +154,24 @@ title: "التثبيت"
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     عمليات نشر مُحاوَاة بالحاويات أو دون واجهة.
-  </Card>
+  
+</Card>
   <Card title="Podman" href="/install/podman" icon="container">
     حاوية بدون صلاحيات root: شغّل `setup-podman.sh` مرة واحدة، ثم شغّل سكربت الإطلاق.
-  </Card>
+  
+</Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     تثبيت تصريحي عبر Nix.
-  </Card>
+  
+</Card>
   <Card title="Ansible" href="/install/ansible" icon="server">
     توفير الأسطول الآلي.
-  </Card>
+  
+</Card>
   <Card title="Bun" href="/install/bun" icon="zap">
     استخدام CLI فقط عبر بيئة Bun.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## بعد التثبيت
@@ -199,12 +222,15 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 <CardGroup cols={3}>
   <Card title="Updating" href="/install/updating" icon="refresh-cw">
     حافظ على تحديث OpenClaw.
-  </Card>
+  
+</Card>
   <Card title="Migrating" href="/install/migrating" icon="arrow-right">
     الانتقال إلى جهاز جديد.
-  </Card>
+  
+</Card>
   <Card title="Uninstall" href="/install/uninstall" icon="trash-2">
     إزالة OpenClaw بالكامل.
-  </Card>
+  
+</Card>
 </CardGroup>
 

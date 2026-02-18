@@ -36,22 +36,26 @@ Siehe die [vollständige Referenz](/gateway/configuration-reference) für alle v
     openclaw onboard       # vollständiger Einrichtungsassistent
     openclaw configure     # Konfigurationsassistent
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="CLI (Einzeiler)">
     ```bash
     openclaw config get agents.defaults.workspace
     openclaw config set agents.defaults.heartbeat.every "2h"
     openclaw config unset tools.web.search.apiKey
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Control UI">
     Öffnen Sie [http://127.0.0.1:18789](http://127.0.0.1:18789) und verwenden Sie den Tab **Config**.  
     Die Control UI rendert ein Formular aus dem Konfigurationsschema mit einem **Raw JSON**‑Editor als Notausgang.
-  </Tab>
+  
+</Tab>
   <Tab title="Direkt bearbeiten">
     Bearbeiten Sie `~/.openclaw/openclaw.json` direkt.  
     Das Gateway überwacht die Datei und wendet Änderungen automatisch an (siehe [Hot Reload](#config-hot-reload)).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Strikte Validierung
@@ -99,7 +103,8 @@ Wenn die Validierung fehlschlägt:
       },
     }
     ```
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Modelle auswählen und konfigurieren">
     Primäres Modell und optionale Fallbacks festlegen:
@@ -126,7 +131,8 @@ Wenn die Validierung fehlschlägt:
     - Siehe [Models CLI](/concepts/models) für Modellwechsel im Chat und [Model Failover](/concepts/model-failover) für Auth‑Rotation und Fallback‑Verhalten.
     - Für benutzerdefinierte/self‑hosted Provider siehe [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Steuern, wer dem Bot Nachrichten senden darf">
     DM‑Zugriff wird pro Kanal über `dmPolicy` gesteuert:
@@ -140,7 +146,8 @@ Wenn die Validierung fehlschlägt:
 
     Siehe die [vollständige Referenz](/gateway/configuration-reference#dm-and-group-access).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Gruppen‑Mention‑Gating konfigurieren">
     Gruppennachrichten erfordern standardmäßig eine **Erwähnung**. Konfiguration pro Agent:
@@ -169,7 +176,8 @@ Wenn die Validierung fehlschlägt:
     - **Textmuster**: Regex‑Patterns in `mentionPatterns`
     - Siehe [vollständige Referenz](/gateway/configuration-reference#group-chat-mention-gating).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Sitzungen und Resets konfigurieren">
     Sitzungen steuern Gesprächskontinuität und Isolation:
@@ -190,7 +198,8 @@ Wenn die Validierung fehlschlägt:
     - `dmScope`: `main` | `per-peer` | `per-channel-peer` | `per-account-channel-peer`
     - Siehe [Session Management](/concepts/session) und die [vollständige Referenz](/gateway/configuration-reference#session).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Sandboxing aktivieren">
     Agent‑Sitzungen in isolierten Docker‑Containern ausführen:
@@ -212,7 +221,8 @@ Wenn die Validierung fehlschlägt:
 
     Siehe [Sandboxing](/gateway/sandboxing).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Heartbeat (periodische Check‑ins) einrichten">
     ```json5
@@ -232,7 +242,8 @@ Wenn die Validierung fehlschlägt:
     - `target`: `last` | `whatsapp` | `telegram` | `discord` | `none`
     - Siehe [Heartbeat](/gateway/heartbeat).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Cron‑Jobs konfigurieren">
     ```json5
@@ -247,7 +258,8 @@ Wenn die Validierung fehlschlägt:
 
     Siehe [Cron jobs](/automation/cron-jobs).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Webhooks (Hooks) einrichten">
     HTTP‑Webhook‑Endpunkte aktivieren:
@@ -275,7 +287,8 @@ Wenn die Validierung fehlschlägt:
 
     Siehe die [vollständige Referenz](/gateway/configuration-reference#hooks).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Multi‑Agent‑Routing konfigurieren">
     Mehrere isolierte Agenten mit separaten Workspaces:
@@ -297,7 +310,8 @@ Wenn die Validierung fehlschlägt:
 
     Siehe [Multi-Agent](/concepts/multi-agent).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Konfiguration in mehrere Dateien aufteilen ($include)">
     `$include` verwenden, um große Konfigurationen zu organisieren:
@@ -320,7 +334,8 @@ Wenn die Validierung fehlschlägt:
     - **Relative Pfade**: relativ zur inkludierenden Datei
     - **Fehlerbehandlung**: klare Fehlermeldungen
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Config Hot Reload

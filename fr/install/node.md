@@ -26,7 +26,8 @@ Si cela affiche `v22.x.x` ou supérieur, vous êtes bon. Si Node n'est pas insta
 
     Ou téléchargez l’installateur macOS depuis [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian :**
 
@@ -43,7 +44,8 @@ Si cela affiche `v22.x.x` ou supérieur, vous êtes bon. Si Node n'est pas insta
 
     Ou utilisez un gestionnaire de versions (voir ci-dessous).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget** (recommandé) :
 
@@ -59,7 +61,8 @@ Si cela affiche `v22.x.x` ou supérieur, vous êtes bon. Si Node n'est pas insta
 
     Ou téléchargez l’installateur Windows depuis [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
@@ -78,7 +81,8 @@ fnm use 22
 
   <Warning>
   Assurez-vous que votre gestionnaire de versions est initialisé dans le fichier de démarrage de votre shell (`~/.zshrc` ou `~/.bashrc`). Sinon, `openclaw` peut ne pas être trouvé dans les nouvelles sessions de terminal, car le PATH n’inclura pas le répertoire bin de Node.
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## Problemes courants
@@ -92,7 +96,8 @@ Cela signifie presque toujours que le répertoire global npm n’est pas présen
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
@@ -100,7 +105,8 @@ Cela signifie presque toujours que le répertoire global npm n’est pas présen
 
     Recherchez `<npm-prefix>/bin` (macOS/Linux) ou `<npm-prefix>` (Windows) dans la sortie.
 
-  </Step>
+  
+</Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -111,13 +117,17 @@ Cela signifie presque toujours que le répertoire global npm n’est pas présen
         ```
 
         Ouvrez ensuite un nouveau terminal (ou exécutez `rehash` dans zsh / `hash -r` dans bash).
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         Ajoutez la sortie de `npm prefix -g` à votre PATH système via Paramètres → Système → Variables d’environnement.
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Permission errors on `npm install -g` (Linux)

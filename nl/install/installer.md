@@ -26,7 +26,8 @@ OpenClaw levert drie installerscripts, geserveerd vanaf `openclaw.ai`.
     ```
     ````
 
-  </Tab>
+  
+</Tab>
   <Tab title="install-cli.sh">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash
@@ -38,7 +39,8 @@ OpenClaw levert drie installerscripts, geserveerd vanaf `openclaw.ai`.
     ```
     ````
 
-  </Tab>
+  
+</Tab>
   <Tab title="install.ps1">
     ```powershell
     iwr -useb https://openclaw.ai/install.ps1 | iex
@@ -50,7 +52,8 @@ OpenClaw levert drie installerscripts, geserveerd vanaf `openclaw.ai`.
     ```
     ````
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Note>
@@ -70,22 +73,27 @@ Aanbevolen voor de meeste interactieve installaties op macOS/Linux/WSL.
 <Steps>
   <Step title="Detect OS">
     Ondersteunt macOS en Linux (inclusief WSL). Als macOS wordt gedetecteerd, wordt Homebrew geïnstalleerd als het ontbreekt.
-  </Step>
+  
+</Step>
   <Step title="Ensure Node.js 22+">
     Controleert de Node-versie en installeert Node 22 indien nodig (Homebrew op macOS, NodeSource-setup scripts op Linux apt/dnf/yum).
-  </Step>
+  
+</Step>
   <Step title="Ensure Git">
     Installeert Git als het ontbreekt.
-  </Step>
+  
+</Step>
   <Step title="Install OpenClaw">
     - `npm`-methode (standaard): globale npm-installatie
     - `git`-methode: repo klonen/bijwerken, dependencies installeren met pnpm, bouwen en vervolgens de wrapper installeren op `~/.local/bin/openclaw`
-  </Step>
+  
+</Step>
   <Step title="Post-install tasks">
     - Voert `openclaw doctor --non-interactive` uit bij upgrades en git-installaties (best effort)
     - Probeert onboarding uit te voeren wanneer passend (TTY beschikbaar, onboarding niet uitgeschakeld en bootstrap/config-controles geslaagd)
     - Standaard `SHARP_IGNORE_GLOBAL_LIBVIPS=1`
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Detectie van source checkout
@@ -106,22 +114,26 @@ Het script eindigt met exitcode `2` bij een ongeldige methodekeuze of ongeldige 
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Skip onboarding">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --no-onboard
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Git install">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --install-method git
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Dry run">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --dry-run
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -143,7 +155,8 @@ Het script eindigt met exitcode `2` bij een ongeldige methodekeuze of ongeldige 
 | `--verbose`                       | Debug-uitvoer inschakelen (`set -x`, npm notice-level logs)                                                   |
 | `--help`                          | Gebruik tonen (`-h`)                                                                                          |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -161,7 +174,8 @@ Het script eindigt met exitcode `2` bij een ongeldige methodekeuze of ongeldige 
 | `OPENCLAW_NPM_LOGLEVEL=error\\|warn\\|notice` | npm-logniveau                                                                        |
 | `SHARP_IGNORE_GLOBAL_LIBVIPS=0\\|1`            | Gedrag van sharp/libvips bepalen (standaard: `1`) |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ---
@@ -177,13 +191,16 @@ Ontworpen voor omgevingen waar je alles onder een lokaal prefix wilt hebben (sta
 <Steps>
   <Step title="Install local Node runtime">
     Downloadt Node-tarball (standaard `22.22.0`) naar `<prefix>/tools/node-v<version>` en verifieert SHA-256.
-  </Step>
+  
+</Step>
   <Step title="Ensure Git">
     Als Git ontbreekt, probeert het te installeren via apt/dnf/yum op Linux of Homebrew op macOS.
-  </Step>
+  
+</Step>
   <Step title="Install OpenClaw under prefix">
     Installeert met npm via `--prefix <prefix>` en schrijft vervolgens de wrapper naar `<prefix>/bin/openclaw`.
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Voorbeelden (install-cli.sh)
@@ -193,22 +210,26 @@ Ontworpen voor omgevingen waar je alles onder een lokaal prefix wilt hebben (sta
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Custom prefix + version">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --prefix /opt/openclaw --version latest
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Automation JSON output">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --json --prefix /opt/openclaw
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Run onboarding">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --onboard
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -225,7 +246,8 @@ Ontworpen voor omgevingen waar je alles onder een lokaal prefix wilt hebben (sta
 | `--set-npm-prefix`     | Op Linux: npm-prefix forceren naar `~/.npm-global` als het huidige prefix niet beschrijfbaar is |
 | `--help`               | Gebruik tonen (`-h`)                                                                         |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -239,7 +261,8 @@ Ontworpen voor omgevingen waar je alles onder een lokaal prefix wilt hebben (sta
 | `OPENCLAW_GIT_DIR=<path>`                       | Legacy cleanup-zoekpad (gebruikt bij het verwijderen van oude `Peekaboo` submodule-checkout) |
 | `SHARP_IGNORE_GLOBAL_LIBVIPS=0\\|1`            | Gedrag van sharp/libvips bepalen (standaard: `1`)                            |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ---
@@ -251,17 +274,21 @@ Ontworpen voor omgevingen waar je alles onder een lokaal prefix wilt hebben (sta
 <Steps>
   <Step title="Ensure PowerShell + Windows environment">
     Vereist PowerShell 5+.
-  </Step>
+  
+</Step>
   <Step title="Ensure Node.js 22+">
     Als het ontbreekt, probeert het te installeren via winget, daarna Chocolatey en vervolgens Scoop.
-  </Step>
+  
+</Step>
   <Step title="Install OpenClaw">
     - `npm`-methode (standaard): globale npm-installatie met geselecteerde `-Tag`
     - `git`-methode: repo klonen/bijwerken, installeren/bouwen met pnpm en de wrapper installeren op `%USERPROFILE%\.local\bin\openclaw.cmd`
-  </Step>
+  
+</Step>
   <Step title="Post-install tasks">
     Voegt waar mogelijk de benodigde bin-directory toe aan de gebruikers-PATH en voert vervolgens `openclaw doctor --non-interactive` uit bij upgrades en git-installaties (best effort).
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Voorbeelden (install.ps1)
@@ -271,22 +298,26 @@ Ontworpen voor omgevingen waar je alles onder een lokaal prefix wilt hebben (sta
     ```powershell
     iwr -useb https://openclaw.ai/install.ps1 | iex
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Git install">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -InstallMethod git
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Custom git directory">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -InstallMethod git -GitDir "C:\openclaw"
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Dry run">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -DryRun
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -301,7 +332,8 @@ Ontworpen voor omgevingen waar je alles onder een lokaal prefix wilt hebben (sta
 | `-NoGitUpdate`              | `git pull` overslaan                                                                         |
 | `-DryRun`                   | Alleen acties afdrukken                                                                      |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -313,7 +345,8 @@ Ontworpen voor omgevingen waar je alles onder een lokaal prefix wilt hebben (sta
 | `OPENCLAW_GIT_UPDATE=0`              | Git pull uitschakelen |
 | `OPENCLAW_DRY_RUN=1`                 | Dry run-modus         |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 <Note>
@@ -331,23 +364,27 @@ Gebruik niet-interactieve flags/omgevingsvariabelen voor voorspelbare runs.
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --no-prompt --no-onboard
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install.sh (non-interactive git)">
     ```bash
     OPENCLAW_INSTALL_METHOD=git OPENCLAW_NO_PROMPT=1 \
       curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install-cli.sh (JSON)">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --json --prefix /opt/openclaw
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install.ps1 (skip onboarding)">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ---
@@ -357,11 +394,13 @@ Gebruik niet-interactieve flags/omgevingsvariabelen voor voorspelbare runs.
 <AccordionGroup>
   <Accordion title="Why is Git required?">
     Git is vereist voor de `git`-installatiemethode. Voor `npm`-installaties wordt Git nog steeds gecontroleerd/geïnstalleerd om `spawn git ENOENT`-fouten te voorkomen wanneer dependencies git-URL's gebruiken.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Why does npm hit EACCES on Linux?">
     Sommige Linux-configuraties wijzen het npm globale prefix toe aan paden die eigendom zijn van root. `install.sh` kan het prefix wijzigen naar `~/.npm-global` en PATH-exports toevoegen aan shell rc-bestanden (wanneer die bestanden bestaan).
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="sharp/libvips issues">
     De scripts stellen standaard `SHARP_IGNORE_GLOBAL_LIBVIPS=1` in om te voorkomen dat sharp tegen de systeem-libvips bouwt. Om te overschrijven:
@@ -372,19 +411,23 @@ Gebruik niet-interactieve flags/omgevingsvariabelen voor voorspelbare runs.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title='Windows: "npm error spawn git / ENOENT"'>
     Installeer Git for Windows, heropen PowerShell en voer de installer opnieuw uit.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title='Windows: "openclaw is not recognized"'>
     Voer `npm config get prefix` uit, voeg `\bin` toe, voeg die directory toe aan de gebruikers-PATH en heropen vervolgens PowerShell.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="openclaw not found after install">
     Meestal een PATH-probleem. Zie [Node.js troubleshooting](/install/node#troubleshooting).
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 

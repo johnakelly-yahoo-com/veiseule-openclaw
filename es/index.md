@@ -10,14 +10,12 @@ sidebarTitle: "OpenClaw"
         src="/assets/openclaw-logo-text-dark.png"
         alt="OpenClaw"
         width="500"
-        class="dark:hidden"
-    />
+        class="dark:hidden"></img>
     <img
         src="/assets/openclaw-logo-text.png"
         alt="OpenClaw"
         width="500"
-        class="hidden dark:block"
-    />
+        class="hidden dark:block"></img>
 </p>
 
 > _"¡EXFOLIA! ¡EXFOLIA!"_ — Una langosta espacial, probablemente
@@ -30,13 +28,16 @@ sidebarTitle: "OpenClaw"
 <Columns>
   <Card title="Get Started" href="/start/getting-started" icon="rocket">
     Instale OpenClaw y ponga en marcha el Gateway en minutos.
-  </Card>
+  
+</Card>
   <Card title="Run the Wizard" href="/start/wizard" icon="sparkles">
     Configuración guiada con `openclaw onboard` y flujos de emparejamiento.
-  </Card>
+  
+</Card>
   <Card title="Open the Control UI" href="/web/control-ui" icon="layout-dashboard">
     Inicie el panel del navegador para chat, configuración y sesiones.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## ¿Qué es OpenClaw?
@@ -73,22 +74,28 @@ El Gateway es la única fuente de verdad para las sesiones, el enrutamiento y la
 <Columns>
   <Card title="Multi-channel gateway" icon="network">
     WhatsApp, Telegram, Discord e iMessage con un solo proceso del Gateway.
-  </Card>
+  
+</Card>
   <Card title="Plugin channels" icon="plug">
     Agregue Mattermost y más con paquetes de extensión.
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" icon="route">
     Sesiones aisladas por agente, espacio de trabajo o remitente.
-  </Card>
+  
+</Card>
   <Card title="Media support" icon="image">
     Envíe y reciba imágenes, audio y documentos.
-  </Card>
+  
+</Card>
   <Card title="Web Control UI" icon="monitor">
     Panel del navegador para chat, configuración, sesiones y nodos.
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     Empareje nodos iOS y Android con soporte de Canvas.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Inicio rápido
@@ -98,18 +105,21 @@ El Gateway es la única fuente de verdad para las sesiones, el enrutamiento y la
     ```bash
     npm install -g openclaw@latest
     ```
-  </Step>
+  
+</Step>
   <Step title="Onboard and install the service">
     ```bash
     openclaw onboard --install-daemon
     ```
-  </Step>
+  
+</Step>
   <Step title="Pair WhatsApp and start the Gateway">
     ```bash
     openclaw channels login
     openclaw gateway --port 18789
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 ¿Necesita la instalación completa y la configuración de desarrollo? Consulte [Inicio rápido](/start/quickstart).
@@ -122,7 +132,7 @@ Abra la IU de control en el navegador después de que se inicie el Gateway.
 - Acceso remoto: [Superficies web](/web) y [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420" />
+  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Configuración (opcional)
@@ -151,22 +161,28 @@ Ejemplo:
 <Columns>
   <Card title="Docs hubs" href="/start/hubs" icon="book-open">
     Toda la documentación y guías, organizadas por caso de uso.
-  </Card>
+  
+</Card>
   <Card title="Configuration" href="/gateway/configuration" icon="settings">
     Ajustes principales del Gateway, tokens y configuración de proveedores.
-  </Card>
+  
+</Card>
   <Card title="Remote access" href="/gateway/remote" icon="globe">
     Patrones de acceso por SSH y tailnet.
-  </Card>
+  
+</Card>
   <Card title="Channels" href="/channels/telegram" icon="message-square">
     Configuración específica por canal para WhatsApp, Telegram, Discord y más.
-  </Card>
+  
+</Card>
   <Card title="Nodes" href="/nodes" icon="smartphone">
     Nodos iOS y Android con emparejamiento y Canvas.
-  </Card>
+  
+</Card>
   <Card title="Help" href="/help" icon="life-buoy">
     Correcciones comunes y punto de entrada a la solución de problemas.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Aprenda más
@@ -174,19 +190,24 @@ Ejemplo:
 <Columns>
   <Card title="Full feature list" href="/concepts/features" icon="list">
     Capacidades completas de canales, enrutamiento y medios.
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" href="/concepts/multi-agent" icon="route">
     Aislamiento por espacio de trabajo y sesiones por agente.
-  </Card>
+  
+</Card>
   <Card title="Security" href="/gateway/security" icon="shield">
     Tokens, listas de permitidos y controles de seguridad.
-  </Card>
+  
+</Card>
   <Card title="Troubleshooting" href="/gateway/troubleshooting" icon="wrench">
     Diagnósticos del Gateway y errores comunes.
-  </Card>
+  
+</Card>
   <Card title="About and credits" href="/reference/credits" icon="info">
     Orígenes del proyecto, colaboradores y licencia.
-  </Card>
+  
+</Card>
 </Columns>
 
 

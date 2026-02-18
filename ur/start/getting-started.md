@@ -30,21 +30,26 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     ```
     <Note>
     دیگر انسٹال طریقے اور تقاضے: [Install](/install)۔
-    </Note>
+    
+</Note>
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Run the onboarding wizard">
     ```bash
     openclaw onboard --install-daemon
@@ -55,7 +60,8 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
     تفصیلات کے لیے [Onboarding Wizard](/start/wizard) دیکھیں۔
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Check the Gateway">
     اگر آپ نے سروس انسٹال کی ہے تو یہ پہلے ہی چل رہی ہونی چاہیے:
 
@@ -65,12 +71,14 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
     ```
     ````
 
-  </Step>
+  
+</Step>
   <Step title="Open the Control UI">
     ```bash
     openclaw dashboard
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 <Check>
@@ -89,7 +97,8 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Send a test message">
     کنفیگر شدہ چینل درکار ہے۔
 
@@ -99,7 +108,8 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## مفید ماحولیاتی متغیرات
@@ -117,10 +127,12 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
     مکمل CLI وِزارڈ حوالہ اور جدید اختیارات۔
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     macOS ایپ کے لیے پہلی بار چلانے کا عمل۔
-  </Card>
+  
+</Card>
 </Columns>
 
 ## آپ کے پاس کیا ہوگا

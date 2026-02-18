@@ -20,12 +20,14 @@ OpenClaw 需要 Node 22 或更新版本。
     ```bash
     npm install -g openclaw@latest
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="pnpm">
     ```bash
     pnpm add -g openclaw@latest
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## 新手引导并运行 Gateway 网关
@@ -35,17 +37,20 @@ OpenClaw 需要 Node 22 或更新版本。
     ```bash
     openclaw onboard --install-daemon
     ```
-  </Step>
+  
+</Step>
   <Step title="配对 WhatsApp">
     ```bash
     openclaw channels login
     ```
-  </Step>
+  
+</Step>
   <Step title="启动 Gateway 网关">
     ```bash
     openclaw gateway --port 18789
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 完成新手引导后，Gateway 网关将通过用户服务运行。你也可以使用 `openclaw gateway` 手动启动。

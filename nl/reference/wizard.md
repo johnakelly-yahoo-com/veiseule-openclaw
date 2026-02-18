@@ -21,7 +21,8 @@ Voor een overzicht op hoog niveau, zie [Onboarding Wizard](/start/wizard).
       - Alleen config
       - Config + inloggegevens + sessies
       - Volledige reset (verwijdert ook de werkruimte)
-  </Step>
+  
+</Step>
   <Step title="Model/Auth">
     - **Anthropic API-sleutel (aanbevolen)**: gebruikt `ANTHROPIC_API_KEY` indien aanwezig of vraagt om een sleutel en slaat deze vervolgens op voor daemon-gebruik.
     - **Anthropic OAuth (Claude Code CLI)**: op macOS controleert de wizard het Sleutelhangerelement "Claude Code-credentials" (kies "Altijd toestaan" zodat launchd-starts niet blokkeren); op Linux/Windows hergebruikt hij `~/.claude/.credentials.json` indien aanwezig.
@@ -53,19 +54,23 @@ Voor een overzicht op hoog niveau, zie [Onboarding Wizard](/start/wizard).
     Tip voor headless/server: voltooi OAuth op een machine met een browser en kopieer
     `~/.openclaw/credentials/oauth.json` (of `$OPENCLAW_STATE_DIR/credentials/oauth.json`) naar de
     Gateway-host.
-    </Note>
-  </Step>
+    
+</Note>
+  
+</Step>
   <Step title="Workspace">
     - Standaard `~/.openclaw/workspace` (configureerbaar).
     - Initialiseert de werkruimtebestanden die nodig zijn voor het bootstrap-ritueel van de agent.
     - Volledige werkruimte-indeling + back-upgids: [Agent workspace](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Poort, bind, auth-modus, Tailscale-blootstelling.
     - Auth-aanbeveling: houd **Token** aan, zelfs voor loopback, zodat lokale WS-clients zich moeten authenticeren.
     - Schakel auth alleen uit als je elk lokaal proces volledig vertrouwt.
     - Niet-loopback binds vereisen nog steeds auth.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): optionele QR-login.
     - [Telegram](/channels/telegram): bot-token.
@@ -76,7 +81,8 @@ Voor een overzicht op hoog niveau, zie [Onboarding Wizard](/start/wizard).
     - [BlueBubbles](/channels/bluebubbles): **aanbevolen voor iMessage**; server-URL + wachtwoord + webhook.
     - [iMessage](/channels/imessage): legacy `imsg` CLI-pad + DB-toegang.
     - DM-beveiliging: standaard is koppelen. De eerste DM stuurt een code; keur goed via `openclaw pairing approve <channel> <code>` of gebruik toegestane lijsten.
-  </Step>
+  
+</Step>
   <Step title="Daemon-installatie">
     - macOS: LaunchAgent
       - Vereist een aangemelde gebruikerssessie; voor headless gebruik een aangepaste LaunchDaemon (niet meegeleverd).
@@ -84,19 +90,23 @@ Voor een overzicht op hoog niveau, zie [Onboarding Wizard](/start/wizard).
       - De wizard probeert lingering in te schakelen via `loginctl enable-linger <user>` zodat de Gateway actief blijft na uitloggen.
       - Kan om sudo vragen (schrijft `/var/lib/systemd/linger`); probeert eerst zonder sudo.
     - **Runtimekeuze:** Node (aanbevolen; vereist voor WhatsApp/Telegram). Bun wordt **niet aanbevolen**.
-  </Step>
+  
+</Step>
   <Step title="Gezondheidscheck">
     - Start de Gateway (indien nodig) en voert `openclaw health` uit.
     - Tip: `openclaw status --deep` voegt gateway-gezondheidsprobes toe aan de statusuitvoer (vereist een bereikbare Gateway).
-  </Step>
+  
+</Step>
   <Step title="Skills (aanbevolen)">
     - Leest de beschikbare Skills en controleert vereisten.
     - Laat je een node manager kiezen: **npm / pnpm** (bun niet aanbevolen).
     - Installeert optionele afhankelijkheden (sommige gebruiken Homebrew op macOS).
-  </Step>
+  
+</Step>
   <Step title="Afronden">
     - Samenvatting + volgende stappen, inclusief iOS/Android/macOS-apps voor extra functies.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -136,7 +146,8 @@ Voeg `--json` toe voor een machineleesbare samenvatting.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI example">
     ```bash
     openclaw onboard --non-interactive \
@@ -146,7 +157,8 @@ Voeg `--json` toe voor een machineleesbare samenvatting.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -156,7 +168,8 @@ Voeg `--json` toe voor een machineleesbare samenvatting.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -168,7 +181,8 @@ Voeg `--json` toe voor een machineleesbare samenvatting.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot example">
     ```bash
     openclaw onboard --non-interactive \
@@ -178,7 +192,8 @@ Voeg `--json` toe voor een machineleesbare samenvatting.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic example">
     ```bash
     openclaw onboard --non-interactive \
@@ -188,7 +203,8 @@ Voeg `--json` toe voor een machineleesbare samenvatting.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen example">
     ```bash
     openclaw onboard --non-interactive \
@@ -198,7 +214,8 @@ Voeg `--json` toe voor een machineleesbare samenvatting.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ### Agent toevoegen (niet-interactief)

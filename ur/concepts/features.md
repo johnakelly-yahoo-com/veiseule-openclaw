@@ -7,22 +7,28 @@ title: "خصوصیات"
 <Columns>
   <Card title="Channels" icon="message-square">
     ایک ہی Gateway کے ساتھ WhatsApp، Telegram، Discord، اور iMessage۔
-  </Card>
+  
+</Card>
   <Card title="Plugins" icon="plug">
     ایکسٹینشنز کے ذریعے Mattermost اور مزید شامل کریں۔
-  </Card>
+  
+</Card>
   <Card title="Routing" icon="route">
     الگ تھلگ سیشنز کے ساتھ ملٹی ایجنٹ روٹنگ۔
-  </Card>
+  
+</Card>
   <Card title="Media" icon="image">
     تصاویر، آڈیو، اور دستاویزات کا اندر اور باہر تبادلہ۔
-  </Card>
+  
+</Card>
   <Card title="Apps and UI" icon="monitor">
     ویب کنٹرول UI اور macOS معاون ایپ۔
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     Canvas سپورٹ کے ساتھ iOS اور Android نوڈز۔
-  </Card>
+  
+</Card>
 </Columns>
 
 ## مکمل فہرست

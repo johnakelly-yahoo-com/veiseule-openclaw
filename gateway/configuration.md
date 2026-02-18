@@ -36,21 +36,25 @@ See the [full reference](/gateway/configuration-reference) for every available f
     openclaw onboard       # full setup wizard
     openclaw configure     # config wizard
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="CLI (one-liners)">
     ```bash
     openclaw config get agents.defaults.workspace
     openclaw config set agents.defaults.heartbeat.every "2h"
     openclaw config unset tools.web.search.apiKey
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Control UI">
     Open [http://127.0.0.1:18789](http://127.0.0.1:18789) and use the **Config** tab.
     The Control UI renders a form from the config schema, with a **Raw JSON** editor as an escape hatch.
-  </Tab>
+  
+</Tab>
   <Tab title="Direct edit">
     Edit `~/.openclaw/openclaw.json` directly. The Gateway watches the file and applies changes automatically (see [hot reload](#config-hot-reload)).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Strict validation
@@ -97,7 +101,8 @@ When validation fails:
     }
     ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Choose and configure models">
     Set the primary model and optional fallbacks:
@@ -124,7 +129,8 @@ When validation fails:
     - See [Models CLI](/concepts/models) for switching models in chat and [Model Failover](/concepts/model-failover) for auth rotation and fallback behavior.
     - For custom/self-hosted providers, see [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls) in the reference.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Control who can message the bot">
     DM access is controlled per channel via `dmPolicy`:
@@ -138,7 +144,8 @@ When validation fails:
 
     See the [full reference](/gateway/configuration-reference#dm-and-group-access) for per-channel details.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Set up group chat mention gating">
     Group messages default to **require mention**. Configure patterns per agent:
@@ -167,7 +174,8 @@ When validation fails:
     - **Text patterns**: regex patterns in `mentionPatterns`
     - See [full reference](/gateway/configuration-reference#group-chat-mention-gating) for per-channel overrides and self-chat mode.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Configure sessions and resets">
     Sessions control conversation continuity and isolation:
@@ -189,7 +197,8 @@ When validation fails:
     - See [Session Management](/concepts/session) for scoping, identity links, and send policy.
     - See [full reference](/gateway/configuration-reference#session) for all fields.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Enable sandboxing">
     Run agent sessions in isolated Docker containers:
@@ -211,7 +220,8 @@ When validation fails:
 
     See [Sandboxing](/gateway/sandboxing) for the full guide and [full reference](/gateway/configuration-reference#sandbox) for all options.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Set up heartbeat (periodic check-ins)">
     ```json5
@@ -231,7 +241,8 @@ When validation fails:
     - `target`: `last` | `whatsapp` | `telegram` | `discord` | `none`
     - See [Heartbeat](/gateway/heartbeat) for the full guide.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Configure cron jobs">
     ```json5
@@ -246,7 +257,8 @@ When validation fails:
 
     See [Cron jobs](/automation/cron-jobs) for the feature overview and CLI examples.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Set up webhooks (hooks)">
     Enable HTTP webhook endpoints on the Gateway:
@@ -274,7 +286,8 @@ When validation fails:
 
     See [full reference](/gateway/configuration-reference#hooks) for all mapping options and Gmail integration.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Configure multi-agent routing">
     Run multiple isolated agents with separate workspaces and sessions:
@@ -296,7 +309,8 @@ When validation fails:
 
     See [Multi-Agent](/concepts/multi-agent) and [full reference](/gateway/configuration-reference#multi-agent-routing) for binding rules and per-agent access profiles.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Split config into multiple files ($include)">
     Use `$include` to organize large configs:
@@ -319,7 +333,8 @@ When validation fails:
     - **Relative paths**: resolved relative to the including file
     - **Error handling**: clear errors for missing files, parse errors, and circular includes
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Config hot reload
@@ -370,7 +385,8 @@ Most fields hot-apply without downtime. In `hybrid` mode, restart-required chang
 
     <Warning>
     `config.apply` replaces the **entire config**. Use `config.patch` for partial updates, or `openclaw config set` for single keys.
-    </Warning>
+    
+</Warning>
 
     Params:
 
@@ -389,7 +405,8 @@ Most fields hot-apply without downtime. In `hybrid` mode, restart-required chang
     }'
     ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="config.patch (partial update)">
     Merges a partial update into the existing config (JSON merge patch semantics):
@@ -411,7 +428,8 @@ Most fields hot-apply without downtime. In `hybrid` mode, restart-required chang
     }'
     ```
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Environment variables

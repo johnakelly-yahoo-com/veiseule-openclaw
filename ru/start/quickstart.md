@@ -11,10 +11,12 @@ title: "Быстрый старт"
 <Columns>
   <Card title="Getting Started" href="/start/getting-started">
     Установите OpenClaw и запустите первый чат за считанные минуты.
-  </Card>
+  
+</Card>
   <Card title="Onboarding Wizard" href="/start/wizard">
     Полная справка по мастеру CLI и расширенные параметры.
-  </Card>
+  
+</Card>
 </Columns>
 
 

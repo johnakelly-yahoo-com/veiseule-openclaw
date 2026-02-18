@@ -21,7 +21,8 @@ Para sa high-level na overview, tingnan ang [Onboarding Wizard](/start/wizard).
       - Config lamang
       - Config + mga kredensyal + mga session
       - Buong pag-reset (inaalis din ang workspace)
-  </Step>
+  
+</Step>
   <Step title="Model/Auth">
     - **Anthropic API key (inirerekomenda)**: ginagamit ang `ANTHROPIC_API_KEY` kung mayroon o hihiling ng key, pagkatapos ay ise-save ito para sa paggamit ng daemon.
     - **Anthropic OAuth (Claude Code CLI)**: sa macOS, sinusuri ng wizard ang Keychain item na "Claude Code-credentials" (piliin ang "Always Allow" upang hindi maharang ang pagsisimula ng launchd); sa Linux/Windows, muling ginagamit ang `~/.claude/.credentials.json` kung mayroon.
@@ -53,19 +54,23 @@ Para sa high-level na overview, tingnan ang [Onboarding Wizard](/start/wizard).
     Tip para sa headless/server: kumpletuhin ang OAuth sa isang machine na may browser, pagkatapos ay kopyahin
     ang `~/.openclaw/credentials/oauth.json` (o `$OPENCLAW_STATE_DIR/credentials/oauth.json`) papunta sa
     host ng Gateway.
-    </Note>
-  </Step>
+    
+</Note>
+  
+</Step>
   <Step title="Workspace">
     - Default `~/.openclaw/workspace` (configurable).
     - Inilalagay ang mga workspace file na kailangan para sa agent bootstrap ritual.
     - Buong layout ng workspace + gabay sa backup: [Agent workspace](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Port, bind, auth mode, tailscale exposure.
     - Rekomendasyon sa auth: panatilihin ang **Token** kahit para sa loopback upang ang mga lokal na WS client ay kailangang mag-authenticate.
     - I-disable lamang ang auth kung lubos mong pinagkakatiwalaan ang bawat lokal na proseso.
     - Ang mga non‑loopback bind ay nangangailangan pa rin ng auth.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): optional QR login.
     - [Telegram](/channels/telegram): bot token.
@@ -76,7 +81,8 @@ Para sa high-level na overview, tingnan ang [Onboarding Wizard](/start/wizard).
     - [BlueBubbles](/channels/bluebubbles): **recommended for iMessage**; server URL + password + webhook.
     - [iMessage](/channels/imessage): legacy `imsg` CLI path + DB access.
     - DM security: default ay pairing. Ang unang DM ay nagpapadala ng code; aprubahan gamit ang `openclaw pairing approve <channel> <code>` o gumamit ng mga allowlist.
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - Nangangailangan ng naka-login na user session; para sa headless, gumamit ng custom LaunchDaemon (hindi kasama).
@@ -84,19 +90,23 @@ Para sa high-level na overview, tingnan ang [Onboarding Wizard](/start/wizard).
       - Sinusubukan ng wizard na i-enable ang lingering sa pamamagitan ng `loginctl enable-linger <user>` upang manatiling nakaandar ang Gateway pagkatapos mag-logout.
       - Maaaring humingi ng sudo (nagsusulat sa `/var/lib/systemd/linger`); sinusubukan muna nito nang walang sudo.
     - **Runtime selection:** Node (inirerekomenda; kinakailangan para sa WhatsApp/Telegram). Ang Bun ay **hindi inirerekomenda**.
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - Sinisimulan ang Gateway (kung kinakailangan) at pinapatakbo ang `openclaw health`.
     - Tip: ang `openclaw status --deep` ay nagdaragdag ng gateway health probes sa status output (nangangailangan ng reachable na gateway).
-  </Step>
+  
+</Step>
   <Step title="Skills (recommended)">
     - Binabasa ang mga available na skills at sinusuri ang mga requirement.
     - Hinahayaan kang pumili ng node manager: **npm / pnpm** (hindi inirerekomenda ang bun).
     - Ini-install ang mga optional dependency (ang ilan ay gumagamit ng Homebrew sa macOS).
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - Buod + mga susunod na hakbang, kabilang ang iOS/Android/macOS apps para sa dagdag na feature.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -136,7 +146,8 @@ Ang `--json` ay **hindi** nangangahulugang non-interactive mode. Gamitin ang `--
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI example">
     ```bash
     openclaw onboard --non-interactive \
@@ -146,7 +157,8 @@ Ang `--json` ay **hindi** nangangahulugang non-interactive mode. Gamitin ang `--
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -156,7 +168,8 @@ Ang `--json` ay **hindi** nangangahulugang non-interactive mode. Gamitin ang `--
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -168,7 +181,8 @@ Ang `--json` ay **hindi** nangangahulugang non-interactive mode. Gamitin ang `--
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot example">
     ```bash
     openclaw onboard --non-interactive \
@@ -178,7 +192,8 @@ Ang `--json` ay **hindi** nangangahulugang non-interactive mode. Gamitin ang `--
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic example">
     ```bash
     openclaw onboard --non-interactive \
@@ -188,7 +203,8 @@ Ang `--json` ay **hindi** nangangahulugang non-interactive mode. Gamitin ang `--
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen example">
     ```bash
     openclaw onboard --non-interactive \
@@ -198,7 +214,8 @@ Ang `--json` ay **hindi** nangangahulugang non-interactive mode. Gamitin ang `--
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ### Magdagdag ng agent (non-interactive)

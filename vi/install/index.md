@@ -31,13 +31,16 @@ Trên Windows, chúng tôi đặc biệt khuyến nghị chạy OpenClaw dưới
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     Vậy là xong — script sẽ xử lý việc phát hiện Node, cài đặt và onboarding.
 
@@ -48,17 +51,21 @@ Trên Windows, chúng tôi đặc biệt khuyến nghị chạy OpenClaw dưới
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     Để xem tất cả cờ, biến môi trường và tùy chọn CI/tự động hóa, xem [Installer internals](/install/installer).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     Nếu bạn đã có Node 22+ và muốn tự quản lý việc cài đặt:
@@ -78,8 +85,10 @@ Trên Windows, chúng tôi đặc biệt khuyến nghị chạy OpenClaw dưới
           ```
 
           Nếu bạn thấy `sharp: Please add node-gyp to your dependencies`, hãy cài công cụ build (macOS: Xcode CLT + `npm install -g node-gyp`) hoặc dùng biến môi trường ở trên.
-        </Accordion>
-      </Tab>
+        
+</Accordion>
+      
+</Tab>
       <Tab title="pnpm">
         ```bash
         pnpm add -g openclaw@latest
@@ -89,11 +98,15 @@ Trên Windows, chúng tôi đặc biệt khuyến nghị chạy OpenClaw dưới
 
         <Note>
         pnpm yêu cầu phê duyệt rõ ràng cho các gói có script build. Sau khi lần cài đầu tiên hiển thị cảnh báo "Ignored build scripts", hãy chạy `pnpm approve-builds -g` và chọn các gói được liệt kê.
-        </Note>
-      </Tab>
-    </Tabs>
+        
+</Note>
+      
+</Tab>
+    
+</Tabs>
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="From source" icon="github">
     Dành cho người đóng góp hoặc bất kỳ ai muốn chạy từ bản checkout cục bộ.
@@ -109,7 +122,8 @@ Trên Windows, chúng tôi đặc biệt khuyến nghị chạy OpenClaw dưới
         pnpm ui:build
         pnpm build
         ```
-      </Step>
+      
+</Step>
       <Step title="Liên kết CLI">
         Làm cho lệnh `openclaw` khả dụng toàn cục:
 
@@ -118,17 +132,21 @@ Trên Windows, chúng tôi đặc biệt khuyến nghị chạy OpenClaw dưới
         ```
 
         Hoặc bỏ qua bước liên kết và chạy lệnh qua `pnpm openclaw ...` từ bên trong repo.
-      </Step>
+      
+</Step>
       <Step title="Chạy onboarding">
         ```bash
         openclaw onboard --install-daemon
         ```
-      </Step>
-    </Steps>
+      
+</Step>
+    
+</Steps>
 
     Để xem các quy trình phát triển chuyên sâu hơn, xem [Thiết lập](/start/setup).
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Các phương thức cài đặt khác
@@ -136,19 +154,24 @@ Trên Windows, chúng tôi đặc biệt khuyến nghị chạy OpenClaw dưới
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     Triển khai dạng container hoặc headless.
-  </Card>
+  
+</Card>
   <Card title="Podman" href="/install/podman" icon="container">
     Rootless container: run `setup-podman.sh` once, then the launch script.
-  </Card>
+  
+</Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     Cài đặt khai báo qua Nix.
-  </Card>
+  
+</Card>
   <Card title="Ansible" href="/install/ansible" icon="server">
     Cấp phát đội máy tự động.
-  </Card>
+  
+</Card>
   <Card title="Bun" href="/install/bun" icon="zap">
     Chỉ dùng CLI qua runtime Bun.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## Sau khi cài đặt
@@ -199,12 +222,15 @@ Then open a new terminal (or `rehash` in zsh / `hash -r` in bash).
 <CardGroup cols={3}>
   <Card title="Updating" href="/install/updating" icon="refresh-cw">
     Giữ OpenClaw luôn được cập nhật.
-  </Card>
+  
+</Card>
   <Card title="Migrating" href="/install/migrating" icon="arrow-right">
     Chuyển sang máy mới.
-  </Card>
+  
+</Card>
   <Card title="Uninstall" href="/install/uninstall" icon="trash-2">
     Gỡ OpenClaw hoàn toàn.
-  </Card>
+  
+</Card>
 </CardGroup>
 

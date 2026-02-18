@@ -26,7 +26,8 @@ node -v
 
     หรือดาวน์โหลดตัวติดตั้ง macOS จาก [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
@@ -43,7 +44,8 @@ node -v
 
     หรือใช้ตัวจัดการเวอร์ชัน (ดูด้านล่าง)
 
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget** (แนะนำ):
 
@@ -59,7 +61,8 @@ node -v
 
     หรือดาวน์โหลดตัวติดตั้ง Windows จาก [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
@@ -78,7 +81,8 @@ fnm use 22
 
   <Warning>
   ตรวจสอบให้แน่ใจว่าตัวจัดการเวอร์ชันของคุณถูกเริ่มต้นในไฟล์เริ่มต้นของเชลล์ (`~/.zshrc` หรือ `~/.bashrc`) หากไม่ได้ตั้งค่าไว้ `openclaw` อาจไม่ถูกพบในเซสชันเทอร์มินัลใหม่ เนื่องจาก PATH จะไม่รวมไดเรกทอรี bin ของ Node
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## การแก้ไขปัญหา
@@ -92,7 +96,8 @@ fnm use 22
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
@@ -100,7 +105,8 @@ fnm use 22
 
     มองหา `<npm-prefix>/bin` (macOS/Linux) หรือ `<npm-prefix>` (Windows) ในเอาต์พุต
 
-  </Step>
+  
+</Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -111,13 +117,17 @@ fnm use 22
         ```
 
         จากนั้นเปิดเทอร์มินัลใหม่ (หรือรัน `rehash` ใน zsh / `hash -r` ใน bash)
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         เพิ่มเอาต์พุตของ `npm prefix -g` ลงใน system PATH ผ่าน Settings → System → Environment Variables.
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
-  </Step>
+  
+</Step>
 </Steps>
 
 ### ข้อผิดพลาดด้านสิทธิ์บน `npm install -g` (Linux)

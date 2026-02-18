@@ -56,10 +56,12 @@ which stores `tools.web.search.apiKey`. 1. 文件：[Web 工具](/tools/web)。
     - Gateway 閘道器身分驗證 **Token**（即使在 loopback 也會自動產生）
     - Tailscale 對外暴露 **關閉**
     - Telegram + WhatsApp 私訊預設為 **allowlist**（系統會提示你輸入電話號碼）
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - 公開每個步驟（模式、工作區、Gateway、頻道、常駐程式、技能）。
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## 精靈會設定的項目

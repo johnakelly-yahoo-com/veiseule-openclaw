@@ -21,7 +21,8 @@ Aby uzyskać przegląd wysokiego poziomu, zobacz [Onboarding Wizard](/start/wiza
       - Tylko konfiguracja
       - Konfiguracja + poświadczenia + sesje
       - Pełny reset (usuwa także obszar roboczy)
-  </Step>
+  
+</Step>
   <Step title="Model/Auth">
     - **Klucz API Anthropic (zalecane)**: używa `ANTHROPIC_API_KEY`, jeśli jest obecny, lub prosi o klucz, a następnie zapisuje go do użytku przez demona.
     - **Anthropic OAuth (Claude Code CLI)**: na macOS kreator sprawdza element pęku kluczy „Claude Code-credentials” (wybierz „Always Allow”, aby uruchomienia launchd nie były blokowane); na Linux/Windows ponownie używa `~/.claude/.credentials.json`, jeśli jest obecny.
@@ -53,19 +54,23 @@ Aby uzyskać przegląd wysokiego poziomu, zobacz [Onboarding Wizard](/start/wiza
     Wskazówka dla trybu headless/serwerowego: ukończ OAuth na maszynie z przeglądarką, a następnie skopiuj
     `~/.openclaw/credentials/oauth.json` (lub `$OPENCLAW_STATE_DIR/credentials/oauth.json`) na
     host gateway.
-    </Note>
-  </Step>
+    
+</Note>
+  
+</Step>
   <Step title="Obszar roboczy">
     - Domyślny `~/.openclaw/workspace` (konfigurowalne).
     - Inicjuje pliki obszaru roboczego potrzebne do rytuału bootstrapu agenta.
     - Pełny układ obszaru roboczego + przewodnik kopii zapasowych: [Agent workspace](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Port, bindowanie, tryb uwierzytelniania, ekspozycja Tailscale.
     - Rekomendacja uwierzytelniania: zachowaj **Token** nawet dla loopback, aby lokalni klienci WS musieli się uwierzytelniać.
     - Wyłącz uwierzytelnianie tylko wtedy, gdy w pełni ufasz każdemu lokalnemu procesowi.
     - Powiązania inne niż loopback nadal wymagają uwierzytelniania.
-  </Step>
+  
+</Step>
   <Step title="Kanały">
     - [WhatsApp](/channels/whatsapp): opcjonalne logowanie QR.
     - [Telegram](/channels/telegram): token bota.
@@ -76,7 +81,8 @@ Aby uzyskać przegląd wysokiego poziomu, zobacz [Onboarding Wizard](/start/wiza
     - [BlueBubbles](/channels/bluebubbles): **zalecane dla iMessage**; URL serwera + hasło + webhook.
     - [iMessage](/channels/imessage): przestarzała ścieżka CLI `imsg` + dostęp do DB.
     - Bezpieczeństwo DM-ów: domyślnie parowanie. Pierwsza wiadomość DM wysyła kod; zatwierdź przez `openclaw pairing approve <channel> <code>` lub użyj list dozwolonych.
-  </Step>
+  
+</Step>
   <Step title="Instalacja demona">
     - macOS: LaunchAgent
       - Wymaga zalogowanej sesji użytkownika; dla trybu headless użyj niestandardowego LaunchDaemon (nie jest dostarczany).
@@ -84,19 +90,23 @@ Aby uzyskać przegląd wysokiego poziomu, zobacz [Onboarding Wizard](/start/wiza
       - Kreator próbuje włączyć lingering przez `loginctl enable-linger <user>`, aby Gateway pozostał uruchomiony po wylogowaniu.
       - Może poprosić o sudo (zapisuje `/var/lib/systemd/linger`); najpierw próbuje bez sudo.
     - **Wybór środowiska uruchomieniowego:** Node (zalecane; wymagane dla WhatsApp/Telegram). Bun jest **niezalecany**.
-  </Step>
+  
+</Step>
   <Step title="Kontrola zdrowia">
     - Uruchamia Gateway (jeśli potrzeba) i wykonuje `openclaw health`.
     - Wskazówka: `openclaw status --deep` dodaje sondy zdrowia gateway do wyjścia statusu (wymaga osiągalnego gateway).
-  </Step>
+  
+</Step>
   <Step title="Skills (zalecane)">
     - Odczytuje dostępne Skills i sprawdza wymagania.
     - Pozwala wybrać menedżera węzłów: **npm / pnpm** (bun niezalecany).
     - Instaluje opcjonalne zależności (niektóre używają Homebrew na macOS).
-  </Step>
+  
+</Step>
   <Step title="Zakończenie">
     - Podsumowanie + następne kroki, w tym aplikacje iOS/Android/macOS dla dodatkowych funkcji.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -136,7 +146,8 @@ Dodaj `--json` dla podsumowania w formacie nadającym się do odczytu maszynoweg
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI example">
     ```bash
     openclaw onboard --non-interactive \
@@ -146,7 +157,8 @@ Dodaj `--json` dla podsumowania w formacie nadającym się do odczytu maszynoweg
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -156,7 +168,8 @@ Dodaj `--json` dla podsumowania w formacie nadającym się do odczytu maszynoweg
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -168,7 +181,8 @@ Dodaj `--json` dla podsumowania w formacie nadającym się do odczytu maszynoweg
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot example">
     ```bash
     openclaw onboard --non-interactive \
@@ -178,7 +192,8 @@ Dodaj `--json` dla podsumowania w formacie nadającym się do odczytu maszynoweg
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic example">
     ```bash
     openclaw onboard --non-interactive \
@@ -188,7 +203,8 @@ Dodaj `--json` dla podsumowania w formacie nadającym się do odczytu maszynoweg
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen example">
     ```bash
     openclaw onboard --non-interactive \
@@ -198,7 +214,8 @@ Dodaj `--json` dla podsumowania w formacie nadającym się do odczytu maszynoweg
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ### Dodawanie agenta (tryb nieinteraktywny)

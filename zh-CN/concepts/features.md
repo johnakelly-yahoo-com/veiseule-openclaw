@@ -14,22 +14,28 @@ x-i18n:
 <Columns>
   <Card title="渠道" icon="message-square">
     通过单个 Gateway 网关支持 WhatsApp、Telegram、Discord 和 iMessage。
-  </Card>
+  
+</Card>
   <Card title="插件" icon="plug">
     通过扩展添加 Mattermost 等更多平台。
-  </Card>
+  
+</Card>
   <Card title="路由" icon="route">
     多智能体路由，支持隔离会话。
-  </Card>
+  
+</Card>
   <Card title="媒体" icon="image">
     支持图片、音频和文档的收发。
-  </Card>
+  
+</Card>
   <Card title="应用与界面" icon="monitor">
     Web 控制界面和 macOS 配套应用。
-  </Card>
+  
+</Card>
   <Card title="移动节点" icon="smartphone">
     iOS 和 Android 节点，支持 Canvas。
-  </Card>
+  
+</Card>
 </Columns>
 
 ## 完整列表

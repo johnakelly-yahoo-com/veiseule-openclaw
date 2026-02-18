@@ -31,13 +31,16 @@ Het **installatiescript** is de aanbevolen manier om OpenClaw te installeren. He
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     Dat is alles — het script regelt Node-detectie, installatie en onboarding.
 
@@ -48,17 +51,21 @@ Het **installatiescript** is de aanbevolen manier om OpenClaw te installeren. He
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     Voor alle flags, omgevingsvariabelen en CI-/automatiseringsopties, zie [Installer internals](/install/installer).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     Als je Node 22+ al hebt en de installatie zelf wilt beheren:
@@ -78,8 +85,10 @@ Het **installatiescript** is de aanbevolen manier om OpenClaw te installeren. He
           ```
 
           Als je `sharp: Please add node-gyp to your dependencies` ziet, installeer dan build-tooling (macOS: Xcode CLT + `npm install -g node-gyp`) of gebruik de bovenstaande omgevingsvariabele.
-        </Accordion>
-      </Tab>
+        
+</Accordion>
+      
+</Tab>
       <Tab title="pnpm">
         ```bash
         pnpm add -g openclaw@latest
@@ -89,11 +98,15 @@ Het **installatiescript** is de aanbevolen manier om OpenClaw te installeren. He
 
         <Note>
         pnpm vereist expliciete goedkeuring voor pakketten met build-scripts. Nadat de eerste installatie de waarschuwing "Ignored build scripts" toont, voer `pnpm approve-builds -g` uit en selecteer de vermelde pakketten.
-        </Note>
-      </Tab>
-    </Tabs>
+        
+</Note>
+      
+</Tab>
+    
+</Tabs>
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="From source" icon="github">
     Voor bijdragers of iedereen die vanuit een lokale checkout wil draaien.
@@ -109,7 +122,8 @@ Het **installatiescript** is de aanbevolen manier om OpenClaw te installeren. He
         pnpm ui:build
         pnpm build
         ```
-      </Step>
+      
+</Step>
       <Step title="De CLI koppelen">
         Maak het `openclaw`-commando globaal beschikbaar:
 
@@ -118,17 +132,21 @@ Het **installatiescript** is de aanbevolen manier om OpenClaw te installeren. He
         ```
 
         Je kunt ook het koppelen overslaan en opdrachten uitvoeren via `pnpm openclaw ...` vanuit de repo.
-      </Step>
+      
+</Step>
       <Step title="Onboarding uitvoeren">
         ```bash
         openclaw onboard --install-daemon
         ```
-      </Step>
-    </Steps>
+      
+</Step>
+    
+</Steps>
 
     Voor uitgebreidere ontwikkelworkflows, zie [Installatie](/start/setup).
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Andere installatiemethoden
@@ -136,19 +154,24 @@ Het **installatiescript** is de aanbevolen manier om OpenClaw te installeren. He
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     Gecontaineriseerde of headless deployments.
-  </Card>
+  
+</Card>
   <Card title="Podman" href="/install/podman" icon="container">
     Rootless container: run `setup-podman.sh` once, then the launch script.
-  </Card>
+  
+</Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     Declaratieve installatie via Nix.
-  </Card>
+  
+</Card>
   <Card title="Ansible" href="/install/ansible" icon="server">
     Geautomatiseerde provisioning van fleets.
-  </Card>
+  
+</Card>
   <Card title="Bun" href="/install/bun" icon="zap">
     Alleen-CLI-gebruik via de Bun-runtime.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## Na installatie
@@ -199,12 +222,15 @@ Open daarna een nieuwe terminal (of `rehash` in zsh / `hash -r` in bash).
 <CardGroup cols={3}>
   <Card title="Updating" href="/install/updating" icon="refresh-cw">
     Houd OpenClaw up-to-date.
-  </Card>
+  
+</Card>
   <Card title="Migrating" href="/install/migrating" icon="arrow-right">
     Verhuizen naar een nieuwe machine.
-  </Card>
+  
+</Card>
   <Card title="Uninstall" href="/install/uninstall" icon="trash-2">
     OpenClaw volledig verwijderen.
-  </Card>
+  
+</Card>
 </CardGroup>
 

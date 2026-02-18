@@ -36,21 +36,26 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     ```
     <Note>
     其他安裝方式與需求請參考： [Install](/install)。
-    </Note>
+    
+</Note>
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Run the onboarding wizard">
     ```bash
     openclaw onboard --install-daemon
@@ -60,7 +65,8 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
     15. 精靈會設定驗證、gateway 設定，以及可選的頻道。詳情請見 [Onboarding Wizard](/start/wizard)。
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Check the Gateway">
     如果你已安裝服務，它應該已經在執行中：
 
@@ -70,12 +76,14 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
     ```
     ````
 
-  </Step>
+  
+</Step>
   <Step title="Open the Control UI">
     ```bash
     openclaw dashboard
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 <Check>
@@ -94,7 +102,8 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Send a test message">
     需要已設定的頻道。
 
@@ -104,7 +113,8 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## 33. 有用的環境變數
@@ -122,10 +132,12 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
 完整的 CLI 精靈參考與進階選項。
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     macOS 應用程式首次執行流程。
-  </Card>
+  
+</Card>
 </Columns>
 
 ## 您將擁有的內容

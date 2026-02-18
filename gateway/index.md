@@ -9,10 +9,12 @@ Use this page for day-1 startup and day-2 operations of the Gateway service.
 <CardGroup cols={2}>
   <Card title="Deep troubleshooting" icon="siren" href="/gateway/troubleshooting">
     Symptom-first diagnostics with exact command ladders and log signatures.
-  </Card>
+  
+</Card>
   <Card title="Configuration" icon="sliders" href="/gateway/configuration">
     Task-oriented setup guide + full configuration reference.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## 5-minute local startup
@@ -28,7 +30,8 @@ openclaw gateway --port 18789 --verbose
 openclaw gateway --force
 ```
 
-  </Step>
+  
+</Step>
 
   <Step title="Verify service health">
 
@@ -40,7 +43,8 @@ openclaw logs --follow
 
 Healthy baseline: `Runtime: running` and `RPC probe: ok`.
 
-  </Step>
+  
+</Step>
 
   <Step title="Validate channel readiness">
 
@@ -48,7 +52,8 @@ Healthy baseline: `Runtime: running` and `RPC probe: ok`.
 openclaw channels status --probe
 ```
 
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -128,7 +133,8 @@ openclaw gateway stop
 
 LaunchAgent labels are `ai.openclaw.gateway` (default) or `ai.openclaw.<profile>` (named profile). `openclaw doctor` audits and repairs service config drift.
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="Linux (systemd user)">
 
@@ -144,7 +150,8 @@ For persistence after logout, enable lingering:
 sudo loginctl enable-linger <user>
 ```
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="Linux (system service)">
 
@@ -155,7 +162,8 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now openclaw-gateway[-<profile>].service
 ```
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Multiple gateways on one host

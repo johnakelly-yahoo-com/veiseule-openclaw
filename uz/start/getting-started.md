@@ -26,11 +26,14 @@ Agar ishonchingiz komil bo‘lmasa, `node --version` buyrug‘i yordamida Node v
 <Steps>
   <Step title="Install OpenClaw (recommended)">
     <Tabs>
-      <Tab title="macOS/Linux">Tezkor sozlash (CLI)</Tab>
+      <Tab title="macOS/Linux">Tezkor sozlash (CLI)
+</Tab>
       <Tab title="Windows (PowerShell)">```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
-```</Tab>
-    </Tabs>
+```
+</Tab>
+    
+</Tabs>
 
     ````
     ```powershell
@@ -38,8 +41,10 @@ curl -fsSL https://openclaw.ai/install.sh | bash
     ```
     ````
 
-  </Step>
-  <Step title="Run the onboarding wizard"></Step>
+  
+</Step>
+  <Step title="Run the onboarding wizard">
+</Step>
 
     ````
     ```bash
@@ -47,20 +52,25 @@ curl -fsSL https://openclaw.ai/install.sh | bash
     ```
     ````
 
-  </Step>
-  <Step title="Check the Gateway"></Step>
+  
+</Step>
+  <Step title="Check the Gateway">
+</Step>
 
     ```
     Agar siz xizmatni o‘rnatgan bo‘lsangiz, u allaqachon ishlayotgan bo‘lishi kerak:
     ```
 
-  </Step>
-  <Step title="Open the Control UI"></Step></Step>
+  
+</Step>
+  <Step title="Open the Control UI">
+</Step></Step>
 </Steps>
 
 <Check>```bash
 openclaw dashboard
-```</Check>
+```
+</Check>
 
 ## Agar Control UI yuklansa, Gateway foydalanishga tayyor.
 
@@ -71,8 +81,10 @@ openclaw dashboard
     Tezkor sinovlar yoki nosozliklarni aniqlash uchun foydali.
     ```
 
-  </Accordion>
-  <Accordion title="Send a test message"></Accordion>
+  
+</Accordion>
+  <Accordion title="Send a test message">
+</Accordion>
 
     ````
     ```bash
@@ -80,7 +92,8 @@ openclaw dashboard
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Foydali muhit o‘zgaruvchilari
@@ -98,10 +111,12 @@ Full environment variable reference: [Environment vars](/help/environment).
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
     Full CLI wizard reference and advanced options.
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     First run flow for the macOS app.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## What you will have

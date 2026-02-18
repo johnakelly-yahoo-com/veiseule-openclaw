@@ -9,13 +9,16 @@ Status: production-ready for DMs + channels via Slack app integrations. Default 
 <CardGroup cols={3}>
   <Card title="Pairing" icon="link" href="/channels/pairing">
     Slack DMs default to pairing mode.
-  </Card>
+  
+</Card>
   <Card title="Slash commands" icon="terminal" href="/tools/slash-commands">
     Native command behavior and command catalog.
-  </Card>
+  
+</Card>
   <Card title="Channel troubleshooting" icon="wrench" href="/channels/troubleshooting">
     Cross-channel diagnostics and repair playbooks.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## Quick setup
@@ -29,7 +32,8 @@ Status: production-ready for DMs + channels via Slack app integrations. Default 
         - enable **Socket Mode**
         - create **App Token** (`xapp-...`) with `connections:write`
         - install app and copy **Bot Token** (`xoxb-...`)
-      </Step>
+      
+</Step>
 
       <Step title="Configure OpenClaw">
 
@@ -53,7 +57,8 @@ SLACK_APP_TOKEN=xapp-...
 SLACK_BOT_TOKEN=xoxb-...
 ```
 
-      </Step>
+      
+</Step>
 
       <Step title="Subscribe app events">
         Subscribe bot events for:
@@ -66,7 +71,8 @@ SLACK_BOT_TOKEN=xoxb-...
         - `pin_added`, `pin_removed`
 
         Also enable App Home **Messages Tab** for DMs.
-      </Step>
+      
+</Step>
 
       <Step title="Start gateway">
 
@@ -74,10 +80,13 @@ SLACK_BOT_TOKEN=xoxb-...
 openclaw gateway
 ```
 
-      </Step>
-    </Steps>
+      
+</Step>
+    
+</Steps>
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="HTTP Events API mode">
     <Steps>
@@ -87,7 +96,8 @@ openclaw gateway
         - copy Slack **Signing Secret**
         - set Event Subscriptions + Interactivity + Slash command Request URL to the same webhook path (default `/slack/events`)
 
-      </Step>
+      
+</Step>
 
       <Step title="Configure OpenClaw HTTP mode">
 
@@ -105,16 +115,20 @@ openclaw gateway
 }
 ```
 
-      </Step>
+      
+</Step>
 
       <Step title="Use unique webhook paths for multi-account HTTP">
         Per-account HTTP mode is supported.
 
         Give each account a distinct `webhookPath` so registrations do not collide.
-      </Step>
-    </Steps>
+      
+</Step>
+    
+</Steps>
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Token model
@@ -151,7 +165,8 @@ For actions/directory reads, user token can be preferred when configured. For wr
 
     Pairing in DMs uses `openclaw pairing approve slack <code>`.
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="Channel policy">
     `channels.slack.groupPolicy` controls channel handling:
@@ -169,7 +184,8 @@ For actions/directory reads, user token can be preferred when configured. For wr
     - channel allowlist entries and DM allowlist entries are resolved at startup when token access allows
     - unresolved entries are kept as configured
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="Mentions and channel users">
     Channel messages are mention-gated by default.
@@ -189,7 +205,8 @@ For actions/directory reads, user token can be preferred when configured. For wr
     - `systemPrompt`
     - `tools`, `toolsBySender`
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Commands and slash behavior
@@ -242,14 +259,16 @@ Note: `replyToMode="off"` disables implicit reply threading. Explicit `[[reply_t
 
     Runtime inbound size cap defaults to `20MB` unless overridden by `channels.slack.mediaMaxMb`.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Outbound text and files">
     - text chunks use `channels.slack.textChunkLimit` (default 4000)
     - `channels.slack.chunkMode="newline"` enables paragraph-first splitting
     - file sends use Slack upload APIs and can include thread replies (`thread_ts`)
     - outbound media cap follows `channels.slack.mediaMaxMb` when configured; otherwise channel sends use MIME-kind defaults from media pipeline
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Delivery targets">
     Preferred explicit targets:
@@ -259,7 +278,8 @@ Note: `replyToMode="off"` disables implicit reply threading. Explicit `[[reply_t
 
     Slack DMs are opened via Slack conversation APIs when sending to user targets.
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Actions and gates
@@ -372,7 +392,8 @@ Notes:
 }
 ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Optional user-token scopes (read operations)">
     If you configure `channels.slack.userToken`, typical read scopes are:
@@ -385,7 +406,8 @@ Notes:
     - `emoji:read`
     - `search:read` (if you depend on Slack search reads)
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Troubleshooting
@@ -407,7 +429,8 @@ openclaw logs --follow
 openclaw doctor
 ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="DM messages ignored">
     Check:
@@ -420,11 +443,13 @@ openclaw doctor
 openclaw pairing list slack
 ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Socket mode not connecting">
     Validate bot + app tokens and Socket Mode enablement in Slack app settings.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="HTTP mode not receiving events">
     Validate:
@@ -434,7 +459,8 @@ openclaw pairing list slack
     - Slack Request URLs (Events + Interactivity + Slash Commands)
     - unique `webhookPath` per HTTP account
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Native/slash commands not firing">
     Verify whether you intended:
@@ -444,7 +470,8 @@ openclaw pairing list slack
 
     Also check `commands.useAccessGroups` and channel/user allowlists.
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Configuration reference pointers

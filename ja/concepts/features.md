@@ -7,22 +7,28 @@ title: "機能"
 <Columns>
   <Card title="Channels" icon="message-square">
     単一の Gateway（ゲートウェイ）で WhatsApp、Telegram、Discord、iMessage に対応します。
-  </Card>
+  
+</Card>
   <Card title="Plugins" icon="plug">
     拡張機能で Mattermost などを追加できます。
-  </Card>
+  
+</Card>
   <Card title="Routing" icon="route">
     分離されたセッションによるマルチエージェントルーティング。
-  </Card>
+  
+</Card>
   <Card title="Media" icon="image">
     画像、音声、ドキュメントの入出力。
-  </Card>
+  
+</Card>
   <Card title="Apps and UI" icon="monitor">
     Web Control UI と macOS コンパニオンアプリ。
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     Canvas 対応の iOS および Android ノード。
-  </Card>
+  
+</Card>
 </Columns>
 
 ## 全リスト

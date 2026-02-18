@@ -10,22 +10,22 @@ sidebarTitle: "온보딩: macOS 앱"
 <Steps>
 <Step title="Approve macOS warning">
 <Frame>
-<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt="" />
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Approve find local networks">
 <Frame>
-<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt="" />
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Welcome and security notice">
 <Frame caption="표시되는 보안 안내를 읽고 그에 따라 결정하십시오">
-<img src="/assets/macos-onboarding/03-security-notice.png" alt="" />
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
 </Frame>
 </Step>
 <Step title="Local vs Remote">
 <Frame>
-<img src="/assets/macos-onboarding/04-choose-gateway.png" alt="" />
+<img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
 **Gateway(게이트웨이)** 는 어디에서 실행됩니까?
@@ -43,7 +43,7 @@ sidebarTitle: "온보딩: macOS 앱"
 </Step>
 <Step title="Permissions">
 <Frame caption="OpenClaw 에 부여할 권한을 선택하십시오">
-<img src="/assets/macos-onboarding/05-permissions.png" alt="" />
+<img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
 온보딩은 다음에 필요한 TCC 권한을 요청합니다:
@@ -59,7 +59,8 @@ sidebarTitle: "온보딩: macOS 앱"
 
 </Step>
 <Step title="CLI">
-  <Info>이 단계는 선택 사항입니다</Info>
+  <Info>이 단계는 선택 사항입니다
+</Info>
   앱은 npm/pnpm 을 통해 전역 `openclaw` CLI 를 설치할 수 있으므로, 터미널 워크플로와 launchd 작업이 즉시 동작합니다.
 </Step>
 <Step title="Onboarding Chat (dedicated session)">

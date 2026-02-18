@@ -57,10 +57,12 @@ openclaw agents add <name>
     - การยืนยันตัวตน Gateway แบบ **Token** (สร้างอัตโนมัติ แม้บน loopback)
     - การเปิดเผยผ่าน Tailscale **ปิด**
     - Telegram + WhatsApp DMs ตั้งค่าเริ่มต้นเป็น **allowlist** (ระบบจะขอหมายเลขโทรศัพท์ของคุณ)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - เปิดเผยทุกขั้นตอน (โหมด เวิร์กสเปซ เกตเวย์ ช่องทาง เดมอน Skills)
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## สิ่งที่วิซาร์ดกำหนดค่า

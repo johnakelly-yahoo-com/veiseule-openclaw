@@ -48,10 +48,12 @@ Kreator rozpoczyna się od wyboru **Szybki start** (ustawienia domyślne) lub **
     - Uwierzytelnianie Gateway **Token** (automatycznie generowane, nawet na loopback)
     - Ekspozycja Tailscale **Wyłączone**
     - DM-y Telegram i WhatsApp domyślnie ustawione na **lista dozwolonych** (zostaniesz poproszony o numer telefonu)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - Ujawnia każdy krok (tryb, obszar roboczy, gateway, kanały, demon, Skills).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Co konfiguruje kreator

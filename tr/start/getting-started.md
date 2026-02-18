@@ -30,21 +30,26 @@ Emin değilseniz Node sürümünüzü `node --version` ile kontrol edin.
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     ```
     <Note>
     Diğer yükleme yöntemleri ve gereksinimler: [Install](/install).
-    </Note>
+    
+</Note>
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Run the onboarding wizard">
     ```bash
     openclaw onboard --install-daemon
@@ -55,7 +60,8 @@ Emin değilseniz Node sürümünüzü `node --version` ile kontrol edin.
     Ayrıntılar için [Onboarding Wizard](/start/wizard) sayfasına bakın.
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Check the Gateway">
     Hizmeti yüklediyseniz, zaten çalışıyor olmalıdır:
 
@@ -65,12 +71,14 @@ Emin değilseniz Node sürümünüzü `node --version` ile kontrol edin.
     ```
     ````
 
-  </Step>
+  
+</Step>
   <Step title="Open the Control UI">
     ```bash
     openclaw dashboard
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 <Check>
@@ -89,7 +97,8 @@ Control UI yükleniyorsa, Gateway'iniz kullanıma hazırdır.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Send a test message">
     Yapılandırılmış bir kanal gerektirir.
 
@@ -99,7 +108,8 @@ Control UI yükleniyorsa, Gateway'iniz kullanıma hazırdır.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Kullanışlı ortam değişkenleri
@@ -117,10 +127,12 @@ Tüm ortam değişkenleri referansı: [Environment vars](/help/environment).
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
     Tam CLI sihirbaz başvurusu ve gelişmiş seçenekler.
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     macOS uygulaması için ilk çalıştırma akışı.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Neye sahip olacaksınız

@@ -34,21 +34,25 @@ Er wordt niets geïnstalleerd of gewijzigd op de remote host.
       - Alleen config
       - Config + credentials + sessies
       - Volledige reset (verwijdert ook de werkruimte)
-  </Step>
+  
+</Step>
   <Step title="Model and auth">
     - De volledige optiematrix staat in [Auth- en modelopties](#auth-and-model-options).
-  </Step>
+  
+</Step>
   <Step title="Workspace">
     - Standaard `~/.openclaw/workspace` (configureerbaar).
     - Zaait werkruimtebestanden die nodig zijn voor het bootstrapritueel bij de eerste run.
     - Werkruimte-indeling: [Agent-werkruimte](/concepts/agent-workspace).
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Vraagt om poort, bind, auth-modus en Tailscale-exposure.
     - Aanbevolen: houd token-auth ingeschakeld, zelfs voor loopback, zodat lokale WS-clients zich moeten authenticeren.
     - Schakel auth alleen uit als je elk lokaal proces volledig vertrouwt.
     - Niet-loopback binds vereisen nog steeds auth.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): optionele QR-login
     - [Telegram](/channels/telegram): bot-token
@@ -60,7 +64,8 @@ Er wordt niets geïnstalleerd of gewijzigd op de remote host.
     - [iMessage](/channels/imessage): legacy `imsg` CLI-pad + DB-toegang
     - DM-beveiliging: standaard is koppelen. De eerste DM stuurt een code; goedkeuren via
       `openclaw pairing approve <channel> <code>` of gebruik toegestane lijsten.
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - Vereist een ingelogde gebruikerssessie; voor headless gebruik een aangepaste LaunchDaemon (niet meegeleverd).
@@ -68,19 +73,23 @@ Er wordt niets geïnstalleerd of gewijzigd op de remote host.
       - De wizard probeert `loginctl enable-linger <user>` zodat de gateway actief blijft na uitloggen.
       - Kan om sudo vragen (schrijft `/var/lib/systemd/linger`); hij probeert eerst zonder sudo.
     - Runtimeselectie: Node (aanbevolen; vereist voor WhatsApp en Telegram). Bun wordt niet aanbevolen.
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - Start de gateway (indien nodig) en voert `openclaw health` uit.
     - `openclaw status --deep` voegt gateway-gezondheidsprobes toe aan de statusuitvoer.
-  </Step>
+  
+</Step>
   <Step title="Skills">
     - Leest beschikbare skills en controleert vereisten.
     - Laat je een node manager kiezen: npm of pnpm (bun niet aanbevolen).
     - Installeert optionele afhankelijkheden (sommige gebruiken Homebrew op macOS).
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - Samenvatting en volgende stappen, inclusief iOS-, Android- en macOS-appopties.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -113,64 +122,78 @@ Wat je instelt:
 <AccordionGroup>
   <Accordion title="Anthropic API key (recommended)">
     Gebruikt `ANTHROPIC_API_KEY` indien aanwezig of vraagt om een sleutel, en slaat deze vervolgens op voor daemon-gebruik.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic OAuth (Claude Code CLI)">
     - macOS: controleert Keychain-item "Claude Code-credentials"
     - Linux en Windows: hergebruikt `~/.claude/.credentials.json` indien aanwezig
 
     Op macOS, kies "Always Allow" zodat launchd-starts niet blokkeren.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
     Voer `claude setup-token` uit op een willekeurige machine en plak vervolgens het token.
     Je kunt het een naam geven; leeg gebruikt de standaard.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (Codex CLI reuse)">
     Als `~/.codex/auth.json` bestaat, kan de wizard dit hergebruiken.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (OAuth)">
     Browserflow; plak `code#state`.
 
     Stelt `agents.defaults.model` in op `openai-codex/gpt-5.3-codex` wanneer het model niet is ingesteld of `openai/*`.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI API key">
     Gebruikt `OPENAI_API_KEY` indien aanwezig of vraagt om een sleutel, en slaat deze vervolgens op in
     `~/.openclaw/.env` zodat launchd deze kan lezen.
 
     Stelt `agents.defaults.model` in op `openai/gpt-5.1-codex` wanneer het model niet is ingesteld, `openai/*` of `openai-codex/*`.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="xAI (Grok) API key">
     Vraagt om `XAI_API_KEY` en configureert xAI als modelprovider.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen">
     Vraagt om `OPENCODE_API_KEY` (of `OPENCODE_ZEN_API_KEY`).
     Setup-URL: [opencode.ai/auth](https://opencode.ai/auth).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="API key (generic)">
     Slaat de sleutel voor je op.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway">
     Vraagt om `AI_GATEWAY_API_KEY`.
     Meer detail: [Vercel AI Gateway](/providers/vercel-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway">
     Vraagt om account-ID, gateway-ID en `CLOUDFLARE_AI_GATEWAY_API_KEY`.
     Meer detail: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="MiniMax M2.1">
     Config wordt automatisch weggeschreven.
     Meer detail: [MiniMax](/providers/minimax).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic (Anthropic-compatible)">
     Vraagt om `SYNTHETIC_API_KEY`.
     Meer detail: [Synthetic](/providers/synthetic).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot and Kimi Coding">
     Moonshot (Kimi K2) en Kimi Coding-configs worden automatisch weggeschreven.
     Meer detail: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Custom provider">
     Werkt met OpenAI-compatibele en Anthropic-compatibele endpoints.
 
@@ -182,10 +205,12 @@ Wat je instelt:
     - `--custom-provider-id` (optioneel)
     - `--custom-compatibility <openai|anthropic>` (optioneel; standaard `openai`)
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Skip">
     Laat auth ongeconfigureerd.
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 Modelgedrag:

@@ -34,21 +34,25 @@ Uzak ana makinede hiçbir şey kurmaz veya değiştirmez.
       - Yalnızca yapılandırma
       - Yapılandırma + kimlik bilgileri + oturumlar
       - Tam sıfırlama (çalışma alanını da kaldırır)
-  </Step>
+  
+</Step>
   <Step title="Model and auth">
     - Tüm seçenek matrisi [Kimlik doğrulama ve model seçenekleri](#auth-and-model-options) bölümündedir.
-  </Step>
+  
+</Step>
   <Step title="Workspace">
     - Varsayılan `~/.openclaw/workspace` (yapılandırılabilir).
     - İlk çalıştırma bootstrap ritüeli için gereken çalışma alanı dosyalarını oluşturur.
     - Çalışma alanı düzeni: [Ajan çalışma alanı](/concepts/agent-workspace).
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Port, bind, auth modu ve tailscale açılımı için sorular sorar.
     - Önerilen: local loopback için bile belirteç tabanlı kimlik doğrulamayı açık tutun; böylece yerel WS istemcileri kimlik doğrulamak zorunda kalır.
     - Yalnızca tüm yerel süreçlere tamamen güveniyorsanız kimlik doğrulamayı devre dışı bırakın.
     - Loopback olmayan bind’ler yine kimlik doğrulama gerektirir.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): isteğe bağlı QR girişi
     - [Telegram](/channels/telegram): bot belirteci
@@ -60,7 +64,8 @@ Uzak ana makinede hiçbir şey kurmaz veya değiştirmez.
     - [iMessage](/channels/imessage): eski `imsg` CLI yolu + DB erişimi
     - DM güvenliği: varsayılan eşleştirmedir. İlk DM bir kod gönderir; şu şekilde onaylayın:
       `openclaw pairing approve <channel> <code>` veya izin listelerini kullanın.
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - Oturum açmış kullanıcı oturumu gerektirir; headless için özel bir LaunchDaemon kullanın (paketle gelmez).
@@ -68,19 +73,23 @@ Uzak ana makinede hiçbir şey kurmaz veya değiştirmez.
       - Wizard, çıkıştan sonra gateway’in çalışmaya devam etmesi için `loginctl enable-linger <user>` denemesi yapar.
       - Sudo isteyebilir (`/var/lib/systemd/linger` yazar); önce sudo olmadan dener.
     - Runtime selection: Node (önerilir; WhatsApp ve Telegram için gereklidir). Bun önerilmez.
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - Gerekirse gateway’i başlatır ve `openclaw health` çalıştırır.
     - `openclaw status --deep`, durum çıktısına gateway sağlık problarını ekler.
-  </Step>
+  
+</Step>
   <Step title="Skills">
     - Mevcut Skills’i okur ve gereksinimleri kontrol eder.
     - Node yöneticisini seçmenizi sağlar: npm veya pnpm (bun önerilmez).
     - İsteğe bağlı bağımlılıkları kurar (bazıları macOS’ta Homebrew kullanır).
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - iOS, Android ve macOS uygulama seçenekleri dahil olmak üzere özet ve sonraki adımlar.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -113,64 +122,78 @@ Ayarladıklarınız:
 <AccordionGroup>
   <Accordion title="Anthropic API key (recommended)">
     Mevcutsa `ANTHROPIC_API_KEY` kullanır veya bir anahtar ister; ardından daemon kullanımı için kaydeder.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic OAuth (Claude Code CLI)">
     - macOS: Keychain öğesi "Claude Code-credentials" kontrol edilir
     - Linux ve Windows: mevcutsa `~/.claude/.credentials.json` yeniden kullanılır
 
     macOS’ta, launchd başlatmalarının engellenmemesi için "Always Allow" seçin.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
     Herhangi bir makinede `claude setup-token` çalıştırın, ardından belirteci yapıştırın.
     İsim verebilirsiniz; boş bırakılırsa varsayılan kullanılır.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (Codex CLI reuse)">
     `~/.codex/auth.json` varsa, wizard bunu yeniden kullanabilir.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (OAuth)">
     Tarayıcı akışı; `code#state` yapıştırın.
 
     Sets `agents.defaults.model` to `openai-codex/gpt-5.3-codex` when model is unset or `openai/*`.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI API key">
     Mevcutsa `OPENAI_API_KEY` kullanır veya bir anahtar ister; ardından launchd’ın okuyabilmesi için
     `~/.openclaw/.env` içine kaydeder.
 
     Sets `agents.defaults.model` to `openai/gpt-5.1-codex` when model is unset, `openai/*`, or `openai-codex/*`.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="xAI (Grok) API key">
     `XAI_API_KEY` ister ve xAI’yi bir model sağlayıcı olarak yapılandırır.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen">
     `OPENCODE_API_KEY` (veya `OPENCODE_ZEN_API_KEY`) ister.
     Kurulum URL’si: [opencode.ai/auth](https://opencode.ai/auth).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="API key (generic)">
     Anahtarı sizin için saklar.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway">
     `AI_GATEWAY_API_KEY` ister.
     Daha fazla ayrıntı: [Vercel AI Gateway](/providers/vercel-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway">
     Hesap kimliği, gateway kimliği ve `CLOUDFLARE_AI_GATEWAY_API_KEY` ister.
     Daha fazla ayrıntı: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="MiniMax M2.1">
     Yapılandırma otomatik olarak yazılır.
     Daha fazla ayrıntı: [MiniMax](/providers/minimax).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic (Anthropic-compatible)">
     `SYNTHETIC_API_KEY` ister.
     Daha fazla ayrıntı: [Synthetic](/providers/synthetic).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot and Kimi Coding">
     Moonshot (Kimi K2) ve Kimi Coding yapılandırmaları otomatik yazılır.
     Daha fazla ayrıntı: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Custom provider">
     OpenAI-compatible ve Anthropic-compatible endpoint’lerle çalışır.
 
@@ -182,10 +205,12 @@ Ayarladıklarınız:
     - `--custom-provider-id` (isteğe bağlı)
     - `--custom-compatibility <openai|anthropic>` (isteğe bağlı; varsayılan `openai`)
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Skip">
     Kimlik doğrulamayı yapılandırmadan bırakır.
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 Model davranışı:

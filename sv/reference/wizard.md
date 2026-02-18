@@ -21,7 +21,8 @@ För en överblick på hög nivå, se [Onboarding Wizard](/start/wizard).
       - Endast konfiguration
       - Konfiguration + autentiseringsuppgifter + sessioner
       - Fullständig återställning (tar även bort arbetsytan)
-  </Step>
+  
+</Step>
   <Step title="Model/Auth">
     - **Anthropic API-nyckel (rekommenderas)**: använder `ANTHROPIC_API_KEY` om den finns eller ber om en nyckel och sparar den för daemon-användning.
     - **Anthropic OAuth (Claude Code CLI)**: på macOS kontrollerar guiden nyckelringselementet "Claude Code-credentials" (välj "Always Allow" så att launchd-starter inte blockeras); på Linux/Windows återanvänds `~/.claude/.credentials.json` om den finns.
@@ -53,19 +54,23 @@ För en överblick på hög nivå, se [Onboarding Wizard](/start/wizard).
     Tips för headless/server: slutför OAuth på en maskin med webbläsare och kopiera
     `~/.openclaw/credentials/oauth.json` (eller `$OPENCLAW_STATE_DIR/credentials/oauth.json`) till
     gateway-värden.
-    </Note>
-  </Step>
+    
+</Note>
+  
+</Step>
   <Step title="Workspace">
     - Standard är `~/.openclaw/workspace` (kan konfigureras).
     - Skapar de arbetsytefiler som behövs för agentens bootstrap-ritual.
     - Fullständig arbetsytelayout + guide för säkerhetskopiering: [Agent workspace](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Port, bindning, autentiseringsläge, Tailscale-exponering.
     - Rekommendation: behåll **Token** även för loopback så att lokala WS-klienter måste autentisera.
     - Inaktivera autentisering endast om du helt litar på alla lokala processer.
     - Icke‑loopback-bindningar kräver fortfarande autentisering.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): valfri QR-inloggning.
     - [Telegram](/channels/telegram): bot-token.
@@ -76,7 +81,8 @@ För en överblick på hög nivå, se [Onboarding Wizard](/start/wizard).
     - [BlueBubbles](/channels/bluebubbles): **rekommenderas för iMessage**; server-URL + lösenord + webhook.
     - [iMessage](/channels/imessage): äldre `imsg` CLI-sökväg + DB-åtkomst.
     - DM-säkerhet: standard är parkoppling. Första DM skickar en kod; godkänn via `openclaw pairing approve <channel> <code>` eller använd allowlists.
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - Kräver en inloggad användarsession; för headless, använd en anpassad LaunchDaemon (medföljer inte).
@@ -84,19 +90,23 @@ För en överblick på hög nivå, se [Onboarding Wizard](/start/wizard).
       - Guiden försöker aktivera lingering via `loginctl enable-linger <user>` så att Gateway fortsätter köra efter utloggning.
       - Kan be om sudo (skriver `/var/lib/systemd/linger`); den försöker utan sudo först.
     - **Val av runtime:** Node (rekommenderas; krävs för WhatsApp/Telegram). Bun är **inte rekommenderat**.
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - Startar Gateway (vid behov) och kör `openclaw health`.
     - Tips: `openclaw status --deep` lägger till gateway-hälsokontroller i statusutdata (kräver en nåbar gateway).
-  </Step>
+  
+</Step>
   <Step title="Skills (recommended)">
     - Läser tillgängliga skills och kontrollerar krav.
     - Låter dig välja en node manager: **npm / pnpm** (bun rekommenderas inte).
     - Installerar valfria beroenden (vissa använder Homebrew på macOS).
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - Sammanfattning + nästa steg, inklusive iOS/Android/macOS-appar för extra funktioner.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -136,7 +146,8 @@ Lägg till `--json` för en maskinläsbar sammanfattning.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI example">
     ```bash
     openclaw onboard --non-interactive \
@@ -146,7 +157,8 @@ Lägg till `--json` för en maskinläsbar sammanfattning.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -156,7 +168,8 @@ Lägg till `--json` för en maskinläsbar sammanfattning.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -168,7 +181,8 @@ Lägg till `--json` för en maskinläsbar sammanfattning.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot example">
     ```bash
     openclaw onboard --non-interactive \
@@ -178,7 +192,8 @@ Lägg till `--json` för en maskinläsbar sammanfattning.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic example">
     ```bash
     openclaw onboard --non-interactive \
@@ -188,7 +203,8 @@ Lägg till `--json` för en maskinläsbar sammanfattning.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen example">
     ```bash
     openclaw onboard --non-interactive \
@@ -198,7 +214,8 @@ Lägg till `--json` för en maskinläsbar sammanfattning.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ### Lägg till agent (icke-interaktivt)

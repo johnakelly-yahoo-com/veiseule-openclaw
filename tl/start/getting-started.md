@@ -30,21 +30,26 @@ Suriin ang iyong bersyon ng Node gamit ang `node --version` kung hindi ka sigura
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     ```
     <Note>
     Iba pang mga paraan ng pag-install at mga kinakailangan: [Install](/install).
-    </Note>
+    
+</Note>
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Run the onboarding wizard">
     ```bash
     openclaw onboard --install-daemon
@@ -55,7 +60,8 @@ Suriin ang iyong bersyon ng Node gamit ang `node --version` kung hindi ka sigura
     Tingnan ang [Onboarding Wizard](/start/wizard) para sa mga detalye.
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Check the Gateway">
     Kung na-install mo ang service, dapat ay tumatakbo na ito:
 
@@ -65,12 +71,14 @@ Suriin ang iyong bersyon ng Node gamit ang `node --version` kung hindi ka sigura
     ```
     ````
 
-  </Step>
+  
+</Step>
   <Step title="Open the Control UI">
     ```bash
     openclaw dashboard
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 <Check>
@@ -89,7 +97,8 @@ Kung naglo-load ang Control UI, handa na ang iyong Gateway para gamitin.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Send a test message">
     Nangangailangan ng naka-configure na channel.
 
@@ -99,7 +108,8 @@ Kung naglo-load ang Control UI, handa na ang iyong Gateway para gamitin.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Mga kapaki-pakinabang na environment variable
@@ -117,10 +127,12 @@ Buong sanggunian ng environment variable: [Environment vars](/help/environment).
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
     Kumpletong sanggunian ng CLI wizard at mga advanced na opsyon.
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     First run flow para sa macOS app.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Ano ang magkakaroon ka

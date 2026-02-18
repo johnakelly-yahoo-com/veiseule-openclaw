@@ -26,7 +26,8 @@ Nagpapadala ang OpenClaw ng tatlong installer script, na inihahain mula sa `open
     ```
     ````
 
-  </Tab>
+  
+</Tab>
   <Tab title="install-cli.sh">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash
@@ -38,7 +39,8 @@ Nagpapadala ang OpenClaw ng tatlong installer script, na inihahain mula sa `open
     ```
     ````
 
-  </Tab>
+  
+</Tab>
   <Tab title="install.ps1">
     ```powershell
     iwr -useb https://openclaw.ai/install.ps1 | iex
@@ -50,7 +52,8 @@ Nagpapadala ang OpenClaw ng tatlong installer script, na inihahain mula sa `open
     ```
     ````
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Note>
@@ -70,22 +73,27 @@ Inirerekomenda para sa karamihan ng interactive na install sa macOS/Linux/WSL.
 <Steps>
   <Step title="Detect OS">
     45. Sinusuportahan ang macOS at Linux (kasama ang WSL). Kung matukoy ang macOS, mag-iinstall ito ng Homebrew kung wala pa.
-  </Step>
+  
+</Step>
   <Step title="Ensure Node.js 22+">
     Sinusuri ang bersyon ng Node at nag-i-install ng Node 22 kung kailangan (Homebrew sa macOS, NodeSource setup scripts sa Linux apt/dnf/yum).
-  </Step>
+  
+</Step>
   <Step title="Ensure Git">
     Nag-i-install ng Git kung wala.
-  </Step>
+  
+</Step>
   <Step title="Install OpenClaw">
     - `npm` na paraan (default): global npm install
     - `git` na paraan: i-clone/i-update ang repo, i-install ang deps gamit ang pnpm, i-build, at pagkatapos ay i-install ang wrapper sa `~/.local/bin/openclaw`
-  </Step>
+  
+</Step>
   <Step title="Post-install tasks">
     - Pinapatakbo ang `openclaw doctor --non-interactive` sa mga upgrade at git install (best effort)
     - Sinusubukang patakbuhin ang onboarding kapag naaangkop (may TTY, hindi naka-disable ang onboarding, at pumasa ang bootstrap/config checks)
     - Default na `SHARP_IGNORE_GLOBAL_LIBVIPS=1`
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Pag-detect ng source checkout
@@ -106,22 +114,26 @@ Lumalabas ang script na may code na `2` para sa hindi wastong pagpili ng paraan 
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Skip onboarding">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --no-onboard
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Git install">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --install-method git
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Dry run">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --dry-run
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -143,7 +155,8 @@ Lumalabas ang script na may code na `2` para sa hindi wastong pagpili ng paraan 
 | `--verbose`                       | I-enable ang debug output (`set -x`, npm notice-level logs)                                                         |
 | `--help`                          | Ipakita ang paggamit (`-h`)                                                                                         |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -161,7 +174,8 @@ Lumalabas ang script na may code na `2` para sa hindi wastong pagpili ng paraan 
 | `OPENCLAW_NPM_LOGLEVEL=error\\|warn\\|notice` | Antas ng npm log                                                                      |
 | `SHARP_IGNORE_GLOBAL_LIBVIPS=0\\|1`            | Kontrolin ang gawi ng sharp/libvips (default: `1`) |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ---
@@ -177,13 +191,16 @@ Dinisenyo para sa mga environment kung saan gusto mong nasa ilalim ng isang loca
 <Steps>
   <Step title="Install local Node runtime">
     Dina-download ang Node tarball (default `22.22.0`) sa `<prefix>/tools/node-v<version>` at sine-verify ang SHA-256.
-  </Step>
+  
+</Step>
   <Step title="Ensure Git">
     Kung wala ang Git, sinusubukang mag-install sa pamamagitan ng apt/dnf/yum sa Linux o Homebrew sa macOS.
-  </Step>
+  
+</Step>
   <Step title="Install OpenClaw under prefix">
     Nag-i-install gamit ang npm gamit ang `--prefix <prefix>`, pagkatapos ay nagsusulat ng wrapper sa `<prefix>/bin/openclaw`.
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Mga halimbawa (install-cli.sh)
@@ -193,22 +210,26 @@ Dinisenyo para sa mga environment kung saan gusto mong nasa ilalim ng isang loca
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Custom prefix + version">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --prefix /opt/openclaw --version latest
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Automation JSON output">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --json --prefix /opt/openclaw
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Run onboarding">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --onboard
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -225,7 +246,8 @@ Dinisenyo para sa mga environment kung saan gusto mong nasa ilalim ng isang loca
 | `--set-npm-prefix`     | Sa Linux, pilitin ang npm prefix sa `~/.npm-global` kung hindi writable ang kasalukuyang prefix |
 | `--help`               | Ipakita ang paggamit (`-h`)                                                  |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -239,7 +261,8 @@ Dinisenyo para sa mga environment kung saan gusto mong nasa ilalim ng isang loca
 | `OPENCLAW_GIT_DIR=<path>`                       | Legacy cleanup lookup path (ginagamit kapag inaalis ang lumang `Peekaboo` submodule checkout) |
 | `SHARP_IGNORE_GLOBAL_LIBVIPS=0\\|1`            | Kontrolin ang gawi ng sharp/libvips (default: `1`)                            |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ---
@@ -251,17 +274,21 @@ Dinisenyo para sa mga environment kung saan gusto mong nasa ilalim ng isang loca
 <Steps>
   <Step title="Ensure PowerShell + Windows environment">
     Nangangailangan ng PowerShell 5+.
-  </Step>
+  
+</Step>
   <Step title="Ensure Node.js 22+">
     Kung wala, sinusubukang mag-install sa pamamagitan ng winget, pagkatapos ay Chocolatey, pagkatapos ay Scoop.
-  </Step>
+  
+</Step>
   <Step title="Install OpenClaw">
     - `npm` na paraan (default): global npm install gamit ang napiling `-Tag`
     - `git` na paraan: i-clone/i-update ang repo, mag-install/mag-build gamit ang pnpm, at i-install ang wrapper sa `%USERPROFILE%\.local\bin\openclaw.cmd`
-  </Step>
+  
+</Step>
   <Step title="Post-install tasks">
     Idinadagdag ang kinakailangang bin directory sa user PATH kapag posible, pagkatapos ay pinapatakbo ang `openclaw doctor --non-interactive` sa mga upgrade at git install (best effort).
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Mga halimbawa (install.ps1)
@@ -271,22 +298,26 @@ Dinisenyo para sa mga environment kung saan gusto mong nasa ilalim ng isang loca
     ```powershell
     iwr -useb https://openclaw.ai/install.ps1 | iex
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Git install">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -InstallMethod git
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Custom git directory">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -InstallMethod git -GitDir "C:\openclaw"
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Dry run">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -DryRun
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -301,7 +332,8 @@ Dinisenyo para sa mga environment kung saan gusto mong nasa ilalim ng isang loca
 | `-NoGitUpdate`              | Laktawan ang `git pull`                                                                        |
 | `-DryRun`                   | I-print lamang ang mga aksyon                                                                  |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -313,7 +345,8 @@ Dinisenyo para sa mga environment kung saan gusto mong nasa ilalim ng isang loca
 | `OPENCLAW_GIT_UPDATE=0`              | I-disable ang git pull  |
 | `OPENCLAW_DRY_RUN=1`                 | Dry run mode            |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 <Note>
@@ -331,23 +364,27 @@ Gumamit ng mga non-interactive na flag/env vars para sa predictable na mga run.
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --no-prompt --no-onboard
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install.sh (non-interactive git)">
     ```bash
     OPENCLAW_INSTALL_METHOD=git OPENCLAW_NO_PROMPT=1 \
       curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install-cli.sh (JSON)">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --json --prefix /opt/openclaw
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install.ps1 (skip onboarding)">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ---
@@ -357,11 +394,13 @@ Gumamit ng mga non-interactive na flag/env vars para sa predictable na mga run.
 <AccordionGroup>
   <Accordion title="Why is Git required?">
     Kailangan ang Git para sa `git` na paraan ng pag-install. Para sa mga `npm` install, chine-check/ini-install pa rin ang Git upang maiwasan ang `spawn git ENOENT` na mga failure kapag gumagamit ang dependencies ng mga git URL.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Why does npm hit EACCES on Linux?">
     May ilang Linux setup na itinuturo ang npm global prefix sa mga path na pagmamay-ari ng root. Maaaring ilipat ng `install.sh` ang prefix sa `~/.npm-global` at magdagdag ng PATH exports sa mga shell rc file (kapag umiiral ang mga file na iyon).
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="sharp/libvips issues">
     Default na sine-set ng mga script ang `SHARP_IGNORE_GLOBAL_LIBVIPS=1` upang maiwasan ang pag-build ng sharp laban sa system libvips. Upang i-override:
@@ -372,19 +411,23 @@ Gumamit ng mga non-interactive na flag/env vars para sa predictable na mga run.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title='Windows: "npm error spawn git / ENOENT"'>
     I-install ang Git for Windows, muling buksan ang PowerShell, at muling patakbuhin ang installer.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title='Windows: "openclaw is not recognized"'>
     Patakbuhin ang `npm config get prefix`, idagdag ang `\bin`, idagdag ang direktoryong iyon sa user PATH, pagkatapos ay muling buksan ang PowerShell.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="openclaw not found after install">
     Karaniwan itong isyu sa PATH. Tingnan ang [Node.js troubleshooting](/install/node#troubleshooting).
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 

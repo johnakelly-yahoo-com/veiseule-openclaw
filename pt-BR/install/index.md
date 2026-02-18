@@ -31,13 +31,16 @@ O **script de instalação** é a forma recomendada de instalar o OpenClaw. Ele 
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     É isso — o script cuida da detecção do Node, da instalação e da integração inicial.
 
@@ -48,17 +51,21 @@ O **script de instalação** é a forma recomendada de instalar o OpenClaw. Ele 
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     Para todas as flags, variáveis de ambiente e opções de CI/automação, consulte [Detalhes internos do instalador](/install/installer).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     Se você já tem o Node 22+ e prefere gerenciar a instalação por conta própria:
@@ -78,8 +85,10 @@ O **script de instalação** é a forma recomendada de instalar o OpenClaw. Ele 
           ```
 
           Se você vir `sharp: Please add node-gyp to your dependencies`, instale as ferramentas de build (macOS: Xcode CLT + `npm install -g node-gyp`) ou use a variável de ambiente acima.
-        </Accordion>
-      </Tab>
+        
+</Accordion>
+      
+</Tab>
       <Tab title="pnpm">
         ```bash
         pnpm add -g openclaw@latest
@@ -89,11 +98,15 @@ O **script de instalação** é a forma recomendada de instalar o OpenClaw. Ele 
 
         <Note>
         O pnpm exige aprovação explícita para pacotes com scripts de build. Depois que a primeira instalação mostrar o aviso "Ignored build scripts", execute `pnpm approve-builds -g` e selecione os pacotes listados.
-        </Note>
-      </Tab>
-    </Tabs>
+        
+</Note>
+      
+</Tab>
+    
+</Tabs>
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="From source" icon="github">
     Para colaboradores ou qualquer pessoa que queira executar a partir de um checkout local.
@@ -109,7 +122,8 @@ O **script de instalação** é a forma recomendada de instalar o OpenClaw. Ele 
         pnpm ui:build
         pnpm build
         ```
-      </Step>
+      
+</Step>
       <Step title="Vincular a CLI">
         Torne o comando `openclaw` disponível globalmente:
 
@@ -118,17 +132,21 @@ O **script de instalação** é a forma recomendada de instalar o OpenClaw. Ele 
         ```
 
         Como alternativa, pule o vínculo e execute os comandos via `pnpm openclaw ...` de dentro do repositório.
-      </Step>
+      
+</Step>
       <Step title="Executar a integração inicial">
         ```bash
         openclaw onboard --install-daemon
         ```
-      </Step>
-    </Steps>
+      
+</Step>
+    
+</Steps>
 
     Para fluxos de desenvolvimento mais avançados, consulte [Configuração](/start/setup).
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Outros métodos de instalação
@@ -136,19 +154,24 @@ O **script de instalação** é a forma recomendada de instalar o OpenClaw. Ele 
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     Implantações conteinerizadas ou headless.
-  </Card>
+  
+</Card>
   <Card title="Podman" href="/install/podman" icon="container">
     Container rootless: execute `setup-podman.sh` uma vez, depois o script de inicialização.
-  </Card>
+  
+</Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     Instalação declarativa via Nix.
-  </Card>
+  
+</Card>
   <Card title="Ansible" href="/install/ansible" icon="server">
     Provisionamento automatizado de frotas.
-  </Card>
+  
+</Card>
   <Card title="Bun" href="/install/bun" icon="zap">
     Uso somente da CLI via o runtime Bun.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## Após a instalação
@@ -199,12 +222,15 @@ Em seguida, abra um novo terminal (ou `rehash` no zsh / `hash -r` no bash).
 <CardGroup cols={3}>
   <Card title="Updating" href="/install/updating" icon="refresh-cw">
     Mantenha o OpenClaw atualizado.
-  </Card>
+  
+</Card>
   <Card title="Migrating" href="/install/migrating" icon="arrow-right">
     Mude para uma nova máquina.
-  </Card>
+  
+</Card>
   <Card title="Uninstall" href="/install/uninstall" icon="trash-2">
     Remova o OpenClaw completamente.
-  </Card>
+  
+</Card>
 </CardGroup>
 

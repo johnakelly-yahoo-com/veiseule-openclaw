@@ -7,22 +7,28 @@ title: "الميزات"
 <Columns>
   <Card title="Channels" icon="message-square">
     WhatsApp وTelegram وDiscord وiMessage عبر Gateway واحد.
-  </Card>
+  
+</Card>
   <Card title="Plugins" icon="plug">
     أضِف Mattermost والمزيد عبر الامتدادات.
-  </Card>
+  
+</Card>
   <Card title="Routing" icon="route">
     توجيه متعدد الوكلاء مع جلسات معزولة.
-  </Card>
+  
+</Card>
   <Card title="Media" icon="image">
     صور وصوت ومستندات إدخالًا وإخراجًا.
-  </Card>
+  
+</Card>
   <Card title="Apps and UI" icon="monitor">
     واجهة تحكم ويب وتطبيق مرافق لنظام macOS.
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     عُقد iOS وAndroid مع دعم Canvas.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## القائمة الكاملة

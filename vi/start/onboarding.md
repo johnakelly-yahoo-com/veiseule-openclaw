@@ -10,22 +10,22 @@ Tài liệu này mô tả luồng onboarding chạy lần đầu **hiện tại*
 <Steps>
 <Step title="Approve macOS warning">
 <Frame>
-<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt="" />
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Approve find local networks">
 <Frame>
-<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt="" />
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Welcome and security notice">
 <Frame caption="Đọc thông báo bảo mật được hiển thị và quyết định cho phù hợp">
-<img src="/assets/macos-onboarding/03-security-notice.png" alt="" />
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
 </Frame>
 </Step>
 <Step title="Local vs Remote">
 <Frame>
-<img src="/assets/macos-onboarding/04-choose-gateway.png" alt="" />
+<img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
 **Gateway** chạy ở đâu?
@@ -45,7 +45,7 @@ Tài liệu này mô tả luồng onboarding chạy lần đầu **hiện tại*
 </Step>
 <Step title="Permissions">
 <Frame caption="Chọn các quyền bạn muốn cấp cho OpenClaw">
-<img src="/assets/macos-onboarding/05-permissions.png" alt="" />
+<img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
 Hướng dẫn ban đầu yêu cầu các quyền TCC cần thiết cho:
@@ -61,7 +61,8 @@ Hướng dẫn ban đầu yêu cầu các quyền TCC cần thiết cho:
 
 </Step>
 <Step title="CLI">
-  <Info>Bước này là tùy chọn</Info>
+  <Info>Bước này là tùy chọn
+</Info>
   Ứng dụng có thể cài đặt CLI `openclaw` toàn cục qua npm/pnpm để các
   quy trình làm việc trên terminal và các tác vụ launchd hoạt động ngay.
 </Step>

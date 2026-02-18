@@ -48,10 +48,12 @@ O assistente começa com **Início Rápido** (padrões) vs **Avançado** (contro
     - Autenticação do Gateway **Token** (gerado automaticamente, mesmo em loopback)
     - Exposição via Tailscale **Desligada**
     - DMs do Telegram + WhatsApp com **lista de permissões** por padrão (você será solicitado a informar seu número de telefone)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - Expõe todas as etapas (modo, workspace, gateway, canais, daemon, skills).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## O que o assistente configura

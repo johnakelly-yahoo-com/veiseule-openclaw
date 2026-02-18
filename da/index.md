@@ -10,14 +10,12 @@ sidebarTitle: "OpenClaw"
         src="/assets/openclaw-logo-text-dark.png"
         alt="OpenClaw"
         width="500"
-        class="dark:hidden"
-    />
+        class="dark:hidden"></img>
     <img
         src="/assets/openclaw-logo-text.png"
         alt="OpenClaw"
         width="500"
-        class="hidden dark:block"
-    />
+        class="hidden dark:block"></img>
 </p>
 
 > _"EXFOLIATE! EKFOLIATE!"_ — En rumhummer, sandsynligvis
@@ -30,13 +28,16 @@ sidebarTitle: "OpenClaw"
 <Columns>
   <Card title="Get Started" href="/start/getting-started" icon="rocket">
     Installér OpenClaw og få Gateway op at køre på få minutter.
-  </Card>
+  
+</Card>
   <Card title="Run the Wizard" href="/start/wizard" icon="sparkles">
     Guidet opsætning med `openclaw onboard` og parringsflows.
-  </Card>
+  
+</Card>
   <Card title="Open the Control UI" href="/web/control-ui" icon="layout-dashboard">
     Start browser-dashboardet til chat, konfiguration og sessioner.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Hvad er OpenClaw?
@@ -73,22 +74,28 @@ Gateway er den eneste sandhedskilde for sessioner, routing og kanalfobindelser.
 <Columns>
   <Card title="Multi-channel gateway" icon="network">
     WhatsApp, Telegram, Discord og iMessage med én Gateway-proces.
-  </Card>
+  
+</Card>
   <Card title="Plugin channels" icon="plug">
     Tilføj Mattermost og mere med udvidelsespakker.
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" icon="route">
     Isolerede sessioner pr. agent, workspace eller afsender.
-  </Card>
+  
+</Card>
   <Card title="Media support" icon="image">
     Send og modtag billeder, lyd og dokumenter.
-  </Card>
+  
+</Card>
   <Card title="Web Control UI" icon="monitor">
     Browser-dashboard til chat, konfiguration, sessioner og noder.
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     Par iOS- og Android-noder med Canvas-understøttelse.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Hurtig start
@@ -98,18 +105,21 @@ Gateway er den eneste sandhedskilde for sessioner, routing og kanalfobindelser.
     ```bash
     npm install -g openclaw@latest
     ```
-  </Step>
+  
+</Step>
   <Step title="Onboard and install the service">
     ```bash
     openclaw onboard --install-daemon
     ```
-  </Step>
+  
+</Step>
   <Step title="Pair WhatsApp and start the Gateway">
     ```bash
     openclaw channels login
     openclaw gateway --port 18789
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 Har du brug for den fulde installation og dev opsætning? Se [Hurtig start](/start/quickstart).
@@ -122,7 +132,7 @@ Har du brug for den fulde installation og dev opsætning? Se [Hurtig start](/sta
 - Fjernadgang: [Web surfaces](/web) og [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420" />
+  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Konfiguration (valgfrit)
@@ -151,22 +161,28 @@ Eksempel:
 <Columns>
   <Card title="Docs hubs" href="/start/hubs" icon="book-open">
     Al dokumentation og guides, organiseret efter brugsscenarie.
-  </Card>
+  
+</Card>
   <Card title="Configuration" href="/gateway/configuration" icon="settings">
     Centrale Gateway-indstillinger, tokens og udbyderkonfiguration.
-  </Card>
+  
+</Card>
   <Card title="Remote access" href="/gateway/remote" icon="globe">
     SSH- og tailnet-adgangsmønstre.
-  </Card>
+  
+</Card>
   <Card title="Channels" href="/channels/telegram" icon="message-square">
     Kanal-specifik opsætning for WhatsApp, Telegram, Discord og mere.
-  </Card>
+  
+</Card>
   <Card title="Nodes" href="/nodes" icon="smartphone">
     iOS- og Android-noder med parring og Canvas.
-  </Card>
+  
+</Card>
   <Card title="Help" href="/help" icon="life-buoy">
     Almindelige løsninger og indgang til fejlfinding.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Lær mere
@@ -174,19 +190,24 @@ Eksempel:
 <Columns>
   <Card title="Full feature list" href="/concepts/features" icon="list">
     Komplette kanal-, routing- og mediefunktioner.
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" href="/concepts/multi-agent" icon="route">
     Workspace-isolation og sessioner pr. agent.
-  </Card>
+  
+</Card>
   <Card title="Security" href="/gateway/security" icon="shield">
     Tokens, tilladelseslister og sikkerhedskontroller.
-  </Card>
+  
+</Card>
   <Card title="Troubleshooting" href="/gateway/troubleshooting" icon="wrench">
     Gateway-diagnostik og almindelige fejl.
-  </Card>
+  
+</Card>
   <Card title="About and credits" href="/reference/credits" icon="info">
     Projektets oprindelse, bidragydere og licens.
-  </Card>
+  
+</Card>
 </Columns>
 
 

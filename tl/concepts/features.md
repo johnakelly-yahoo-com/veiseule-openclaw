@@ -7,22 +7,28 @@ title: "Mga tampok"
 <Columns>
   <Card title="Channels" icon="message-square">
     WhatsApp, Telegram, Discord, at iMessage gamit ang iisang Gateway.
-  </Card>
+  
+</Card>
   <Card title="Plugins" icon="plug">
     Magdagdag ng Mattermost at iba pa gamit ang mga extension.
-  </Card>
+  
+</Card>
   <Card title="Routing" icon="route">
     Multi-agent routing na may mga nakahiwalay na session.
-  </Card>
+  
+</Card>
   <Card title="Media" icon="image">
     Mga larawan, audio, at dokumento papasok at palabas.
-  </Card>
+  
+</Card>
   <Card title="Apps and UI" icon="monitor">
     Web Control UI at macOS companion app.
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     Mga iOS at Android node na may suporta sa Canvas.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Buong listahan

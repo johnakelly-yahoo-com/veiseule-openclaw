@@ -25,7 +25,8 @@ node -v
     ```
 
     या [nodejs.org](https://nodejs.org/) से macOS इंस्टॉलर डाउनलोड करें।
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
@@ -41,7 +42,8 @@ node -v
     ```
 
     या किसी संस्करण प्रबंधक का उपयोग करें (नीचे देखें)।
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget** (अनुशंसित):
 
@@ -56,7 +58,8 @@ node -v
     ```
 
     या [nodejs.org](https://nodejs.org/) से Windows इंस्टॉलर डाउनलोड करें।
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
@@ -75,7 +78,8 @@ fnm use 22
 
   <Warning>
   सुनिश्चित करें कि आपका version manager आपके शेल स्टार्टअप फ़ाइल (`~/.zshrc` या `~/.bashrc`) में initialized है। यदि ऐसा नहीं है, तो नई टर्मिनल सेशंस में `openclaw` नहीं मिलेगा क्योंकि PATH में Node की bin डिरेक्टरी शामिल नहीं होगी।
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## समस्या-निवारण
@@ -89,14 +93,16 @@ fnm use 22
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
     ```
 
     आउटपुट में `<npm-prefix>/bin` (macOS/Linux) या `<npm-prefix>` (Windows) खोजें।
-  </Step>
+  
+</Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -107,12 +113,16 @@ fnm use 22
         ```
 
         फिर नया टर्मिनल खोलें (या zsh में `rehash` / bash में `hash -r` चलाएँ)।
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         Settings → System → Environment Variables के माध्यम से `npm prefix -g` के आउटपुट को अपने सिस्टम PATH में जोड़ें।
-      </Tab>
-    </Tabs>
-  </Step>
+      
+</Tab>
+    
+</Tabs>
+  
+</Step>
 </Steps>
 
 ### `npm install -g` पर अनुमति संबंधी त्रुटियाँ (Linux)

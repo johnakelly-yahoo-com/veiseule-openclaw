@@ -11,10 +11,12 @@ title: "त्वरित प्रारंभ"
 <Columns>
   <Card title="Getting Started" href="/start/getting-started">
     OpenClaw इंस्टॉल करें और कुछ ही मिनटों में अपनी पहली चैट चलाएँ।
-  </Card>
+  
+</Card>
   <Card title="Onboarding Wizard" href="/start/wizard">
     पूर्ण CLI विज़ार्ड संदर्भ और उन्नत विकल्प।
-  </Card>
+  
+</Card>
 </Columns>
 
 

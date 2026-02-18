@@ -7,20 +7,26 @@ title: "Xususiyatlar"
 <Columns>
   <Card title="Channels" icon="message-square">
 WhatsApp, Telegram, Discord va iMessage yagona Gateway orqali.
-  </Card>
-  <Card title="Plugins" icon="plug">Chunklash qoidalari</Card>
+  
+</Card>
+  <Card title="Plugins" icon="plug">Chunklash qoidalari
+</Card>
   <Card title="Routing" icon="route">
     Multi-agent routing with isolated sessions.
-  </Card>
+  
+</Card>
   <Card title="Media" icon="image">
     Images, audio, and documents in and out.
-  </Card>
+  
+</Card>
   <Card title="Apps and UI" icon="monitor">
     Web Control UI and macOS companion app.
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     iOS and Android nodes with Canvas support.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Full list

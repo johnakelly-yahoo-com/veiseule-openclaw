@@ -11,10 +11,12 @@ title: "快速開始"
 <Columns>
   <Card title="Getting Started" href="/start/getting-started">
     安裝 OpenClaw，並在幾分鐘內執行您的第一個聊天。
-  </Card>
+  
+</Card>
   <Card title="Onboarding Wizard" href="/start/wizard">
     完整的 CLI 精靈參考與進階選項。
-  </Card>
+  
+</Card>
 </Columns>
 
 

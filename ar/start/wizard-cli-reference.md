@@ -34,21 +34,25 @@ sidebarTitle: "مرجع CLI"
       - التهيئة فقط
       - التهيئة + بيانات الاعتماد + الجلسات
       - إعادة ضبط كاملة (تزيل مساحة العمل أيضًا)
-  </Step>
+  
+</Step>
   <Step title="Model and auth">
     - مصفوفة الخيارات الكاملة موجودة في [خيارات المصادقة والنموذج](#auth-and-model-options).
-  </Step>
+  
+</Step>
   <Step title="Workspace">
     - الافتراضي `~/.openclaw/workspace` (قابل للتهيئة).
     - يزرع ملفات مساحة العمل اللازمة لطقس التمهيد في التشغيل الأول.
     - تخطيط مساحة العمل: [مساحة عمل الوكيل](/concepts/agent-workspace).
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - يطالب بالمنفذ والربط ونمط المصادقة والتعرّض عبر Tailscale.
     - المُوصى به: الإبقاء على مصادقة الرمز مفعّلة حتى مع loopback حتى يتطلب عملاء WS المحليون المصادقة.
     - عطّل المصادقة فقط إذا كنت تثق تمامًا بكل عملية محلية.
     - الربط غير المعتمد على loopback لا يزال يتطلب المصادقة.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): تسجيل دخول اختياري عبر QR
     - [Telegram](/channels/telegram): رمز البوت
@@ -60,7 +64,8 @@ sidebarTitle: "مرجع CLI"
     - [iMessage](/channels/imessage): مسار CLI قديم لـ `imsg` + وصول إلى قاعدة البيانات
     - أمان الرسائل الخاصة: الافتراضي هو الإقران. أول رسالة خاصة ترسل رمزًا؛ وافق عبر
       `openclaw pairing approve <channel> <code>` أو استخدم قوائم السماح.
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - يتطلب جلسة مستخدم مسجّل الدخول؛ للوضع بدون واجهة، استخدم LaunchDaemon مخصصًا (غير مشحون).
@@ -68,19 +73,23 @@ sidebarTitle: "مرجع CLI"
       - يحاول المعالج `loginctl enable-linger <user>` حتى يبقى Gateway يعمل بعد تسجيل الخروج.
       - قد يطلب sudo (يكتب `/var/lib/systemd/linger`)؛ يحاول دون sudo أولًا.
     - اختيار بيئة التشغيل: Node (مُوصى به؛ مطلوب لـ WhatsApp وTelegram). لا يُنصح بـ Bun.
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - يبدأ Gateway (إن لزم) ويشغّل `openclaw health`.
     - يضيف `openclaw status --deep` مجسّات سلامة Gateway إلى مخرجات الحالة.
-  </Step>
+  
+</Step>
   <Step title="Skills">
     - يقرأ Skills المتاحة ويتحقق من المتطلبات.
     - يتيح لك اختيار مدير الحزم: npm أو pnpm (لا يُنصح بـ bun).
     - يثبّت التبعيات الاختيارية (بعضها يستخدم Homebrew على macOS).
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - ملخص وخطوات تالية، بما في ذلك خيارات تطبيقات iOS وAndroid وmacOS.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -113,61 +122,75 @@ sidebarTitle: "مرجع CLI"
 <AccordionGroup>
   <Accordion title="Anthropic API key (recommended)">
     يستخدم `ANTHROPIC_API_KEY` إن وُجد أو يطالب بمفتاح، ثم يحفظه لاستخدام الخدمة الخلفية.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic OAuth (Claude Code CLI)">
     - macOS: يتحقق من عنصر Keychain باسم "Claude Code-credentials"
     - Linux وWindows: يعيد استخدام `~/.claude/.credentials.json` إن وُجد
 
     على macOS، اختر "Always Allow" حتى لا تمنع عمليات بدء launchd.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
     شغّل `claude setup-token` على أي جهاز، ثم الصق الرمز.
     يمكنك تسميته؛ تركه فارغًا يستخدم الافتراضي.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (Codex CLI reuse)">
     إذا كان `~/.codex/auth.json` موجودًا، يمكن للمعالج إعادة استخدامه.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (OAuth)">
     تدفّق عبر المتصفح؛ الصق `code#state`.
 
     يضبط `agents.defaults.model` على `openai-codex/gpt-5.3-codex` عندما يكون النموذج غير مضبوط أو `openai/*`.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI API key">
     يستخدم `OPENAI_API_KEY` إن وُجد أو يطالب بمفتاح، ثم يحفظه في
     `~/.openclaw/.env` حتى يتمكن launchd من قراءته.
 
     يضبط `agents.defaults.model` على `openai/gpt-5.1-codex` عندما يكون النموذج غير مضبوط، `openai/*`، أو `openai-codex/*`.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="xAI (Grok) API key">
     يطالب بـ `XAI_API_KEY` ويهيّئ xAI كمزوّد نماذج.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen">
     يطالب بـ `OPENCODE_API_KEY` (أو `OPENCODE_ZEN_API_KEY`).
     عنوان الإعداد: [opencode.ai/auth](https://opencode.ai/auth).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="API key (generic)">
     يخزّن المفتاح لك.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway">
     يطالب بـ `AI_GATEWAY_API_KEY`.
     مزيد من التفاصيل: [Vercel AI Gateway](/providers/vercel-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway">
     يطالب بمعرّف الحساب ومعرّف Gateway و`CLOUDFLARE_AI_GATEWAY_API_KEY`.
     مزيد من التفاصيل: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="MiniMax M2.1">
     تُكتب التهيئة تلقائيًا.
     مزيد من التفاصيل: [MiniMax](/providers/minimax).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic (Anthropic-compatible)">
     يطالب بـ `SYNTHETIC_API_KEY`.
     مزيد من التفاصيل: [Synthetic](/providers/synthetic).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot and Kimi Coding">
     تُكتب تهيئات Moonshot (Kimi K2) وKimi Coding تلقائيًا.
     مزيد من التفاصيل: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Custom provider">
     يعمل مع نقاط نهاية متوافقة مع OpenAI ومتوافقة مع Anthropic.
 
@@ -178,10 +201,12 @@ sidebarTitle: "مرجع CLI"
     - `--custom-api-key` (اختياري؛ يعود إلى `CUSTOM_API_KEY`)
     - `--custom-provider-id` (اختياري)
     - `--custom-compatibility <openai|anthropic>` (اختياري؛ الافتراضي `openai`)
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Skip">
     يترك المصادقة غير معدّلة.
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 سلوك النموذج:

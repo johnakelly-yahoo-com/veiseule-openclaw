@@ -26,7 +26,8 @@ node -v
 
     または [nodejs.org](https://nodejs.org/) から macOS インストーラーをダウンロードしてください。
 
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
@@ -43,7 +44,8 @@ node -v
 
     もしくは、バージョンマネージャーを使用してください（下記参照）。
 
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget**（推奨）:
 
@@ -59,7 +61,8 @@ node -v
 
     または [nodejs.org](https://nodejs.org/) から Windows インストーラーをダウンロードしてください。
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
@@ -78,7 +81,8 @@ fnm use 22
 
   <Warning>
   バージョンマネージャーがシェルの起動ファイル（`~/.zshrc` または `~/.bashrc`）で初期化されていることを確認してください。初期化されていない場合、PATH に Node の bin ディレクトリが含まれないため、新しいターミナルセッションで `openclaw` が見つからないことがあります。
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## トラブルシューティング
@@ -92,7 +96,8 @@ fnm use 22
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
@@ -100,7 +105,8 @@ fnm use 22
 
     出力内に `<npm-prefix>/bin`（macOS / Linux）または `<npm-prefix>`（Windows）が含まれているか確認してください。
 
-  </Step>
+  
+</Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -111,13 +117,17 @@ fnm use 22
         ```
 
         その後、新しいターミナルを開く（または zsh では `rehash`、bash では `hash -r` を実行）してください。
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         `npm prefix -g` の出力を、設定 → システム → 環境変数 からシステム PATH に追加してください。
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
-  </Step>
+  
+</Step>
 </Steps>
 
 ### `npm install -g` に関する権限エラー（Linux）

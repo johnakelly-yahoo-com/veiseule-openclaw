@@ -10,14 +10,12 @@ sidebarTitle: "OpenClaw"
         src="/assets/openclaw-logo-text-dark.png"
         alt="OpenClaw"
         width="500"
-        class="dark:hidden"
-    />
+        class="dark:hidden"></img>
     <img
         src="/assets/openclaw-logo-text.png"
         alt="OpenClaw"
         width="500"
-        class="hidden dark:block"
-    />
+        class="hidden dark:block"></img>
 </p>
 
 > _「EXFOLIATE! EXFOLIATE!」_ — たぶん宇宙ロブスター
@@ -32,13 +30,16 @@ sidebarTitle: "OpenClaw"
 <Columns>
   <Card title="Get Started" href="/start/getting-started" icon="rocket">
     OpenClaw をインストールし、数分で Gateway（ゲートウェイ）を起動します。
-  </Card>
+  
+</Card>
   <Card title="Run the Wizard" href="/start/wizard" icon="sparkles">
     `openclaw onboard` とペアリングフローによるガイド付きセットアップ。
-  </Card>
+  
+</Card>
   <Card title="Open the Control UI" href="/web/control-ui" icon="layout-dashboard">
     チャット、設定、セッションのためのブラウザ ダッシュボードを起動します。
-  </Card>
+  
+</Card>
 </Columns>
 
 ## What is OpenClaw?
@@ -76,22 +77,28 @@ Gateway は、セッション、ルーティング、チャンネル接続にお
 <Columns>
   <Card title="Multi-channel gateway" icon="network">
     単一の Gateway プロセスで WhatsApp、Telegram、Discord、iMessage を提供します。
-  </Card>
+  
+</Card>
   <Card title="Plugin channels" icon="plug">
     拡張パッケージで Mattermost などを追加できます。
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" icon="route">
     エージェント、ワークスペース、送信者ごとに分離されたセッション。
-  </Card>
+  
+</Card>
   <Card title="Media support" icon="image">
     画像、音声、ドキュメントの送受信に対応。
-  </Card>
+  
+</Card>
   <Card title="Web Control UI" icon="monitor">
     チャット、設定、セッション、ノードのためのブラウザ ダッシュボード。
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     Canvas 対応の iOS および Android ノードをペアリング。
-  </Card>
+  
+</Card>
 </Columns>
 
 ## クイックスタート
@@ -101,18 +108,21 @@ Gateway は、セッション、ルーティング、チャンネル接続にお
     ```bash
     npm install -g openclaw@latest
     ```
-  </Step>
+  
+</Step>
   <Step title="Onboard and install the service">
     ```bash
     openclaw onboard --install-daemon
     ```
-  </Step>
+  
+</Step>
   <Step title="Pair WhatsApp and start the Gateway">
     ```bash
     openclaw channels login
     openclaw gateway --port 18789
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 完全なインストール手順と開発者向けセットアップが必要ですか？ [クイックスタート](/start/quickstart) を参照してください。 [Quick start](/start/quickstart) を参照してください。
@@ -125,7 +135,7 @@ Gateway の起動後に、ブラウザの Control UI を開きます。
 - リモート アクセス: [Web surfaces](/web) および [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420" />
+  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## 設定（任意）
@@ -154,22 +164,28 @@ Gateway の起動後に、ブラウザの Control UI を開きます。
 <Columns>
   <Card title="Docs hubs" href="/start/hubs" icon="book-open">
     すべてのドキュメントとガイドを、ユースケース別に整理しています。
-  </Card>
+  
+</Card>
   <Card title="Configuration" href="/gateway/configuration" icon="settings">
     中核となる Gateway 設定、トークン、プロバイダー設定。
-  </Card>
+  
+</Card>
   <Card title="Remote access" href="/gateway/remote" icon="globe">
     SSH および tailnet によるアクセス パターン。
-  </Card>
+  
+</Card>
   <Card title="Channels" href="/channels/telegram" icon="message-square">
     WhatsApp、Telegram、Discord などのチャンネル別セットアップ。
-  </Card>
+  
+</Card>
   <Card title="Nodes" href="/nodes" icon="smartphone">
     ペアリングと Canvas に対応した iOS および Android ノード。
-  </Card>
+  
+</Card>
   <Card title="Help" href="/help" icon="life-buoy">
     一般的な対処法とトラブルシューティングの入口。
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Learn more
@@ -177,19 +193,24 @@ Gateway の起動後に、ブラウザの Control UI を開きます。
 <Columns>
   <Card title="Full feature list" href="/concepts/features" icon="list">
     チャンネル、ルーティング、メディア機能の完全な一覧。
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" href="/concepts/multi-agent" icon="route">
     ワークスペースの分離とエージェントごとのセッション。
-  </Card>
+  
+</Card>
   <Card title="Security" href="/gateway/security" icon="shield">
     トークン、許可リスト、安全制御。
-  </Card>
+  
+</Card>
   <Card title="Troubleshooting" href="/gateway/troubleshooting" icon="wrench">
     Gateway の診断と一般的なエラー。
-  </Card>
+  
+</Card>
   <Card title="About and credits" href="/reference/credits" icon="info">
     プロジェクトの起源、貢献者、ライセンス。
-  </Card>
+  
+</Card>
 </Columns>
 
 

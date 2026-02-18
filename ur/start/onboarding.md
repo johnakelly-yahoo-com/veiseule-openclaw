@@ -10,22 +10,22 @@ sidebarTitle: "آن بورڈنگ: macOS ایپ"
 <Steps>
 <Step title="Approve macOS warning">
 <Frame>
-<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt="" />
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Approve find local networks">
 <Frame>
-<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt="" />
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Welcome and security notice">
 <Frame caption="نمایاں کیے گئے سکیورٹی نوٹس کو پڑھیں اور اسی کے مطابق فیصلہ کریں">
-<img src="/assets/macos-onboarding/03-security-notice.png" alt="" />
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
 </Frame>
 </Step>
 <Step title="Local vs Remote">
 <Frame>
-<img src="/assets/macos-onboarding/04-choose-gateway.png" alt="" />
+<img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
 **Gateway** کہاں چلتا ہے؟
@@ -45,7 +45,7 @@ sidebarTitle: "آن بورڈنگ: macOS ایپ"
 </Step>
 <Step title="Permissions">
 <Frame caption="منتخب کریں کہ آپ OpenClaw کو کون سی اجازتیں دینا چاہتے ہیں">
-<img src="/assets/macos-onboarding/05-permissions.png" alt="" />
+<img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
 آن بورڈنگ درج ذیل کے لیے درکار TCC اجازتیں مانگتی ہے:
@@ -61,7 +61,8 @@ sidebarTitle: "آن بورڈنگ: macOS ایپ"
 
 </Step>
 <Step title="CLI">
-  <Info>یہ مرحلہ اختیاری ہے</Info>
+  <Info>یہ مرحلہ اختیاری ہے
+</Info>
   ایپ npm/pnpm کے ذریعے عالمی `openclaw` CLI انسٹال کر سکتی ہے تاکہ ٹرمینل
   ورک فلو اور launchd ٹاسکس بطورِ طے شدہ درست طور پر کام کریں۔
 </Step>

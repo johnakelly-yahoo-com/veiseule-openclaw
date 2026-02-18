@@ -13,22 +13,22 @@ For a general overview of onboarding paths, see [Onboarding Overview](/start/onb
 <Steps>
 <Step title="Approve macOS warning">
 <Frame>
-<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt="" />
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Approve find local networks">
 <Frame>
-<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt="" />
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Welcome and security notice">
 <Frame caption="Read the security notice displayed and decide accordingly">
-<img src="/assets/macos-onboarding/03-security-notice.png" alt="" />
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
 </Frame>
 </Step>
 <Step title="Local vs Remote">
 <Frame>
-<img src="/assets/macos-onboarding/04-choose-gateway.png" alt="" />
+<img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
 Where does the **Gateway** run?
@@ -48,7 +48,7 @@ Where does the **Gateway** run?
 </Step>
 <Step title="Permissions">
 <Frame caption="Choose what permissions do you want to give OpenClaw">
-<img src="/assets/macos-onboarding/05-permissions.png" alt="" />
+<img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
 Onboarding requests TCC permissions needed for:
@@ -64,7 +64,8 @@ Onboarding requests TCC permissions needed for:
 
 </Step>
 <Step title="CLI">
-  <Info>This step is optional</Info>
+  <Info>This step is optional
+</Info>
   The app can install the global `openclaw` CLI via npm/pnpm so terminal
   workflows and launchd tasks work out of the box.
 </Step>

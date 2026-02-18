@@ -30,21 +30,26 @@ title: "بدء الاستخدام"
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     ```
     <Note>
     طرق التثبيت الأخرى والمتطلبات: [Install](/install).
-    </Note>
+    
+</Note>
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Run the onboarding wizard">
     ```bash
     openclaw onboard --install-daemon
@@ -55,7 +60,8 @@ title: "بدء الاستخدام"
     راجع [Onboarding Wizard](/start/wizard) للتفاصيل.
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Check the Gateway">
     إذا قمت بتثبيت الخدمة، فيجب أن تكون قيد التشغيل بالفعل:
 
@@ -65,12 +71,14 @@ title: "بدء الاستخدام"
     ```
     ````
 
-  </Step>
+  
+</Step>
   <Step title="Open the Control UI">
     ```bash
     openclaw dashboard
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 <Check>
@@ -89,7 +97,8 @@ title: "بدء الاستخدام"
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Send a test message">
     يتطلب قناة مُهيّأة.
 
@@ -99,7 +108,8 @@ title: "بدء الاستخدام"
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## متغيرات البيئة المفيدة
@@ -117,10 +127,12 @@ title: "بدء الاستخدام"
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
     مرجع كامل لمعالج CLI وخيارات متقدمة.
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     مسار التشغيل الأول لتطبيق macOS.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## ما الذي ستحصل عليه

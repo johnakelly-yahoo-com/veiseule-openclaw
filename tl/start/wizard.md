@@ -48,10 +48,12 @@ Nagsisimula ang wizard sa **QuickStart** (mga default) kumpara sa **Advanced** (
     - Gateway auth **Token** (auto‑generated, kahit sa loopback)
     - Tailscale exposure **Naka-off**
     - Ang Telegram + WhatsApp DMs ay naka-default sa **allowlist** (hihingan ka ng iyong phone number)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - Inilalantad ang bawat hakbang (mode, workspace, gateway, channels, daemon, skills).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Ano ang kino-configure ng wizard

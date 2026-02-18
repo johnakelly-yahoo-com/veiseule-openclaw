@@ -7,22 +7,28 @@ title: "คุณสมบัติ"
 <Columns>
   <Card title="Channels" icon="message-square">
     WhatsApp,Telegram,DiscordและiMessageด้วยGatewayเดียว
-  </Card>
+  
+</Card>
   <Card title="Plugins" icon="plug">
     เพิ่มMattermostและอื่นๆด้วยส่วนขยาย
-  </Card>
+  
+</Card>
   <Card title="Routing" icon="route">
     การกำหนดเส้นทางแบบหลายเอเจนต์พร้อมเซสชันที่แยกจากกัน
-  </Card>
+  
+</Card>
   <Card title="Media" icon="image">
     รองรับรูปภาพ เสียง และเอกสารทั้งขาเข้าและขาออก
-  </Card>
+  
+</Card>
   <Card title="Apps and UI" icon="monitor">
     Web Control UIและแอปคู่หูmacOS
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     โหนดiOSและAndroidพร้อมรองรับCanvas
-  </Card>
+  
+</Card>
 </Columns>
 
 ## รายการทั้งหมด

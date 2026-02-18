@@ -34,21 +34,25 @@ sidebarTitle: "เอกสารอ้างอิง CLI"
       - เฉพาะคอนฟิก
       - คอนฟิก + ข้อมูลรับรอง + เซสชัน
       - รีเซ็ตทั้งหมด (ลบ workspace ด้วย)
-  </Step>
+  
+</Step>
   <Step title="Model and auth">
     - เมทริกซ์ตัวเลือกแบบเต็มอยู่ที่ [Auth and model options](#auth-and-model-options)
-  </Step>
+  
+</Step>
   <Step title="Workspace">
     - ค่าเริ่มต้น `~/.openclaw/workspace` (ปรับได้)
     - สร้างไฟล์ Workspace ที่จำเป็นสำหรับพิธี bootstrap ครั้งแรก
     - โครงสร้าง Workspace: [Agent workspace](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - ถามค่า port, bind, โหมดการยืนยันตัวตน และการเปิดใช้งานผ่าน tailscale
     - แนะนำ: คงการยืนยันตัวตนด้วยโทเคนไว้ แม้จะเป็น loopback เพื่อให้ไคลเอนต์ WS ภายในเครื่องต้องยืนยันตัวตน
     - ปิดการยืนยันตัวตนเฉพาะเมื่อคุณเชื่อถือทุกโปรเซสภายในเครื่องอย่างสมบูรณ์
     - การ bind ที่ไม่ใช่ loopback ยังคงต้องมีการยืนยันตัวตน
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): การล็อกอินด้วย QR แบบไม่บังคับ
     - [Telegram](/channels/telegram): โทเคนบอต
@@ -60,7 +64,8 @@ sidebarTitle: "เอกสารอ้างอิง CLI"
     - [iMessage](/channels/imessage): เส้นทาง CLI รุ่นเก่า `imsg` + การเข้าถึง DB
     - ความปลอดภัยของ DM: ค่าเริ่มต้นคือการจับคู่ (pairing) DM แรกจะส่งโค้ด; อนุมัติผ่าน
       `openclaw pairing approve <channel> <code>` หรือใช้ allowlists
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - ต้องมีเซสชันผู้ใช้ที่ล็อกอินอยู่; สำหรับ headless ให้ใช้ LaunchDaemon แบบกำหนดเอง (ไม่ได้จัดส่ง)
@@ -68,19 +73,23 @@ sidebarTitle: "เอกสารอ้างอิง CLI"
       - วิซาร์ดพยายาม `loginctl enable-linger <user>` เพื่อให้ gateway ยังทำงานหลังจากออกจากระบบ
       - อาจขอ sudo (เขียน `/var/lib/systemd/linger`); จะพยายามโดยไม่ใช้ sudo ก่อน
     - การเลือกรันไทม์: Node (แนะนำ; จำเป็นสำหรับ WhatsApp และ Telegram) ไม่แนะนำ Bun
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - เริ่ม gateway (หากจำเป็น) และรัน `openclaw health`
     - `openclaw status --deep` จะเพิ่ม gateway health probes ในเอาต์พุตสถานะ
-  </Step>
+  
+</Step>
   <Step title="Skills">
     - อ่าน Skills ที่มีและตรวจสอบข้อกำหนด
     - ให้คุณเลือกตัวจัดการแพ็กเกจ Node: npm หรือ pnpm (ไม่แนะนำ bun)
     - ติดตั้ง dependency เสริมแบบไม่บังคับ (บางรายการใช้ Homebrew บน macOS)
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - สรุปและขั้นตอนถัดไป รวมถึงตัวเลือกแอป iOS, Android และ macOS
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -113,61 +122,75 @@ sidebarTitle: "เอกสารอ้างอิง CLI"
 <AccordionGroup>
   <Accordion title="Anthropic API key (recommended)">
     ใช้ `ANTHROPIC_API_KEY` หากมีอยู่ หรือจะขอคีย์แล้วบันทึกไว้เพื่อใช้กับเดมอน
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic OAuth (Claude Code CLI)">
     - macOS: ตรวจสอบรายการ Keychain ชื่อ "Claude Code-credentials"
     - Linux และ Windows: ใช้ `~/.claude/.credentials.json` ซ้ำหากมีอยู่
 
     บน macOS ให้เลือก "Always Allow" เพื่อไม่ให้การเริ่มต้นด้วย launchd ถูกบล็อก
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
     รัน `claude setup-token` บนเครื่องใดก็ได้ แล้ววางโทเคน  
     คุณสามารถตั้งชื่อได้; เว้นว่างจะใช้ค่าเริ่มต้น
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (Codex CLI reuse)">
     หากมี `~/.codex/auth.json` วิซาร์ดสามารถนำมาใช้ซ้ำได้
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (OAuth)">
     โฟลว์ผ่านเบราว์เซอร์; วาง `code#state`
 
     ตั้งค่า `agents.defaults.model` เป็น `openai-codex/gpt-5.3-codex` เมื่อยังไม่ได้ตั้งค่าโมเดลหรือเป็น `openai/*`
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI API key">
     ใช้ `OPENAI_API_KEY` หากมีอยู่ หรือจะขอคีย์แล้วบันทึกไปที่
     `~/.openclaw/.env` เพื่อให้ launchd อ่านได้
 
     ตั้งค่า `agents.defaults.model` เป็น `openai/gpt-5.1-codex` เมื่อยังไม่ได้ตั้งค่าโมเดล, เป็น `openai/*` หรือ `openai-codex/*`
-  </Accordion>
+  
+</Accordion>
   <Accordion title="xAI (Grok) API key">
     ขอ `XAI_API_KEY` และกำหนดค่า xAI เป็นผู้ให้บริการโมเดล
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen">
     ขอ `OPENCODE_API_KEY` (หรือ `OPENCODE_ZEN_API_KEY`)  
     URL การตั้งค่า: [opencode.ai/auth](https://opencode.ai/auth).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="API key (generic)">
     จัดเก็บคีย์ให้คุณ
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway">
     ขอ `AI_GATEWAY_API_KEY`  
     รายละเอียดเพิ่มเติม: [Vercel AI Gateway](/providers/vercel-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway">
     ขอ account ID, gateway ID และ `CLOUDFLARE_AI_GATEWAY_API_KEY`  
     รายละเอียดเพิ่มเติม: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="MiniMax M2.1">
     คอนฟิกจะถูกเขียนให้อัตโนมัติ  
     รายละเอียดเพิ่มเติม: [MiniMax](/providers/minimax).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic (Anthropic-compatible)">
     ขอ `SYNTHETIC_API_KEY`  
     รายละเอียดเพิ่มเติม: [Synthetic](/providers/synthetic).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot and Kimi Coding">
     คอนฟิกของ Moonshot (Kimi K2) และ Kimi Coding จะถูกเขียนอัตโนมัติ  
     รายละเอียดเพิ่มเติม: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Custom provider">
     ใช้งานได้กับ endpoint ที่รองรับ OpenAI-compatible และ Anthropic-compatible
 
@@ -178,10 +201,12 @@ sidebarTitle: "เอกสารอ้างอิง CLI"
     - `--custom-api-key` (ไม่บังคับ; หากไม่ระบุจะใช้ `CUSTOM_API_KEY`)
     - `--custom-provider-id` (ไม่บังคับ)
     - `--custom-compatibility <openai|anthropic>` (ไม่บังคับ; ค่าเริ่มต้นคือ `openai`)
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Skip">
     ปล่อยให้การยืนยันตัวตนยังไม่ถูกกำหนดค่า
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 พฤติกรรมของโมเดล:

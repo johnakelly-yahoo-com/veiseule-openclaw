@@ -45,10 +45,12 @@ Wizard **QuickStart** (standartlar) yoki **Advanced** (to‘liq nazorat) bilan b
     - Gateway autentifikatsiyasi **Token** (loopback’da ham avtomatik yaratiladi)
     - Tailscale orqali ochish **O‘chiq**
     - Telegram + WhatsApp DM’lari **allowlist** ga standartlanadi (telefon raqamingiz so‘raladi)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - Har bir qadamni ochib beradi (rejim, workspace, gateway, kanallar, daemon, ko‘nikmalar).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Wizard nimani sozlaydi

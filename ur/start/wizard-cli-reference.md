@@ -34,21 +34,25 @@ sidebarTitle: "CLI حوالہ"
       - صرف کنفیگ
       - کنفیگ + اسناد + سیشنز
       - مکمل Reset (ورک اسپیس بھی ہٹا دیتا ہے)
-  </Step>
+  
+</Step>
   <Step title="Model and auth">
     - مکمل اختیارات کی فہرست [Auth and model options](#auth-and-model-options) میں ہے۔
-  </Step>
+  
+</Step>
   <Step title="Workspace">
     - ڈیفالٹ `~/.openclaw/workspace` (قابلِ ترتیب)۔
     - پہلی بار چلانے کے bootstrap ritual کے لیے درکار ورک اسپیس فائلیں تیار کرتا ہے۔
     - ورک اسپیس لے آؤٹ: [Agent workspace](/concepts/agent-workspace).
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - پورٹ، بائنڈ، auth موڈ، اور tailscale ایکسپوژر کے لیے پرامپٹ کرتا ہے۔
     - تجویز کردہ: لوپ بیک کے لیے بھی token auth فعال رکھیں تاکہ لوکل WS کلائنٹس کو تصدیق کرنی پڑے۔
     - auth صرف اسی صورت غیر فعال کریں جب آپ ہر لوکل پراسیس پر مکمل اعتماد رکھتے ہوں۔
     - نان-لوپ بیک بائنڈز میں بھی auth درکار ہوتا ہے۔
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): اختیاری QR لاگ اِن
     - [Telegram](/channels/telegram): بوٹ ٹوکن
@@ -60,7 +64,8 @@ sidebarTitle: "CLI حوالہ"
     - [iMessage](/channels/imessage): لیگیسی `imsg` CLI پاتھ + DB رسائی
     - DM سیکیورٹی: بطورِ طے شدہ pairing۔ پہلا DM ایک کوڈ بھیجتا ہے؛ منظوری دیں
       `openclaw pairing approve <channel> <code>` کے ذریعے یا allowlists استعمال کریں۔
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - لاگ اِن شدہ یوزر سیشن درکار ہے؛ ہیڈلیس کے لیے کسٹم LaunchDaemon استعمال کریں (فراہم نہیں کیا جاتا)۔
@@ -68,19 +73,23 @@ sidebarTitle: "CLI حوالہ"
       - وزرڈ `loginctl enable-linger <user>` کی کوشش کرتا ہے تاکہ لاگ آؤٹ کے بعد بھی gateway چلتا رہے۔
       - sudo کے لیے پرامپٹ آ سکتا ہے ( `/var/lib/systemd/linger` لکھتا ہے )؛ پہلے بغیر sudo کوشش کرتا ہے۔
     - رن ٹائم انتخاب: Node (تجویز کردہ؛ WhatsApp اور Telegram کے لیے درکار)۔ Bun تجویز نہیں کیا جاتا۔
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - gateway شروع کرتا ہے (اگر ضرورت ہو) اور `openclaw health` چلاتا ہے۔
     - `openclaw status --deep` اسٹیٹس آؤٹ پٹ میں gateway ہیلتھ پروبز شامل کرتا ہے۔
-  </Step>
+  
+</Step>
   <Step title="Skills">
     - دستیاب skills پڑھتا ہے اور تقاضے چیک کرتا ہے۔
     - node manager منتخب کرنے دیتا ہے: npm یا pnpm (bun تجویز نہیں کیا جاتا)۔
     - اختیاری dependencies انسٹال کرتا ہے (کچھ macOS پر Homebrew استعمال کرتی ہیں)۔
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - خلاصہ اور اگلے مراحل، بشمول iOS، Android، اور macOS ایپ کے اختیارات۔
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -113,61 +122,75 @@ sidebarTitle: "CLI حوالہ"
 <AccordionGroup>
   <Accordion title="Anthropic API key (recommended)">
     اگر موجود ہو تو `ANTHROPIC_API_KEY` استعمال کرتا ہے یا کلید کے لیے پرامپٹ کرتا ہے، پھر ڈیمَن کے استعمال کے لیے محفوظ کرتا ہے۔
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic OAuth (Claude Code CLI)">
     - macOS: Keychain آئٹم "Claude Code-credentials" چیک کرتا ہے
     - Linux اور Windows: اگر موجود ہو تو `~/.claude/.credentials.json` دوبارہ استعمال کرتا ہے
 
     macOS پر "Always Allow" منتخب کریں تاکہ launchd اسٹارٹس بلاک نہ ہوں۔
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
     کسی بھی مشین پر `claude setup-token` چلائیں، پھر ٹوکن پیسٹ کریں۔
     آپ اسے نام دے سکتے ہیں؛ خالی چھوڑنے پر ڈیفالٹ استعمال ہوگا۔
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (Codex CLI reuse)">
     اگر `~/.codex/auth.json` موجود ہو تو وزرڈ اسے دوبارہ استعمال کر سکتا ہے۔
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (OAuth)">
     براؤزر فلو؛ `code#state` پیسٹ کریں۔
 
     جب ماڈل غیر سیٹ ہو یا `openai/*` ہو تو `agents.defaults.model` کو `openai-codex/gpt-5.3-codex` پر سیٹ کرتا ہے۔
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI API key">
     اگر موجود ہو تو `OPENAI_API_KEY` استعمال کرتا ہے یا کلید کے لیے پرامپٹ کرتا ہے، پھر اسے
     `~/.openclaw/.env` میں محفوظ کرتا ہے تاکہ launchd اسے پڑھ سکے۔
 
     جب ماڈل غیر سیٹ ہو، `openai/*` ہو، یا `openai-codex/*` ہو تو `agents.defaults.model` کو `openai/gpt-5.1-codex` پر سیٹ کرتا ہے۔
-  </Accordion>
+  
+</Accordion>
   <Accordion title="xAI (Grok) API key">
     `XAI_API_KEY` کے لیے پرامپٹ کرتا ہے اور xAI کو ماڈل فراہم کنندہ کے طور پر کنفیگر کرتا ہے۔
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen">
     `OPENCODE_API_KEY` (یا `OPENCODE_ZEN_API_KEY`) کے لیے پرامپٹ کرتا ہے۔
     سیٹ اپ URL: [opencode.ai/auth](https://opencode.ai/auth).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="API key (generic)">
     کلید آپ کے لیے محفوظ کرتا ہے۔
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway">
     `AI_GATEWAY_API_KEY` کے لیے پرامپٹ کرتا ہے۔
     مزید تفصیل: [Vercel AI Gateway](/providers/vercel-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway">
     اکاؤنٹ ID، gateway ID، اور `CLOUDFLARE_AI_GATEWAY_API_KEY` کے لیے پرامپٹ کرتا ہے۔
     مزید تفصیل: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="MiniMax M2.1">
     کنفیگ خودکار طور پر لکھا جاتا ہے۔
     مزید تفصیل: [MiniMax](/providers/minimax).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic (Anthropic-compatible)">
     `SYNTHETIC_API_KEY` کے لیے پرامپٹ کرتا ہے۔
     مزید تفصیل: [Synthetic](/providers/synthetic).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot and Kimi Coding">
     Moonshot (Kimi K2) اور Kimi Coding کی کنفیگز خودکار طور پر لکھی جاتی ہیں۔
     مزید تفصیل: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Custom provider">
     OpenAI-compatible اور Anthropic-compatible endpoints کے ساتھ کام کرتا ہے۔
 
@@ -178,10 +201,12 @@ sidebarTitle: "CLI حوالہ"
     - `--custom-api-key` (اختیاری؛ بصورت دیگر `CUSTOM_API_KEY` استعمال ہوگا)
     - `--custom-provider-id` (اختیاری)
     - `--custom-compatibility <openai|anthropic>` (اختیاری؛ ڈیفالٹ `openai`)
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Skip">
     تصدیق کو غیر کنفیگرڈ چھوڑ دیتا ہے۔
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ماڈل کا رویّہ:

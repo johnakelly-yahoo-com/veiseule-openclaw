@@ -9,13 +9,16 @@ title: "Telegram"
 <CardGroup cols={3}>
   <Card title="ペアリング" icon="link" href="/channels/pairing">
     Telegram のデフォルト DM ポリシーはペアリングです。
-  </Card>
+  
+</Card>
   <Card title="チャンネルトラブルシューティング" icon="wrench" href="/channels/troubleshooting">
     クロスチャネル診断と修復プレイブック。
-  </Card>
+  
+</Card>
   <Card title="ゲートウェイ設定" icon="settings" href="/gateway/configuration">
     チャンネル設定パターンと完全な例。
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## クイックセットアップ
@@ -26,7 +29,8 @@ title: "Telegram"
 
     `/newbot` を実行し、指示に従ってトークンを保存します。
 
-  </Step>
+  
+</Step>
 
   <Step title="トークンと DM ポリシーを設定">
 
@@ -45,7 +49,8 @@ title: "Telegram"
 
     環境変数フォールバック: `TELEGRAM_BOT_TOKEN=...`（デフォルトアカウントのみ）。
 
-  </Step>
+  
+</Step>
 
   <Step title="ゲートウェイを起動し、最初の DM を承認">
 
@@ -57,11 +62,13 @@ openclaw pairing approve telegram <CODE>
 
     ペアリングコードは 1 時間で失効します。
 
-  </Step>
+  
+</Step>
 
   <Step title="ボットをグループに追加">
     ボットをグループに追加し、アクセスモデルに合わせて `channels.telegram.groups` と `groupPolicy` を設定します。
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -81,21 +88,24 @@ openclaw pairing approve telegram <CODE>
 
     プライバシーモードを切り替えた場合は、各グループからボットを削除して再追加し、変更を適用させてください。
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="グループ権限">
     管理者ステータスは Telegram グループ設定で制御されます。
 
     管理者ボットはすべてのグループメッセージを受信できるため、常時有効なグループ動作に便利です。
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="便利な BotFather トグル">
 
     - `/setjoingroups` — グループ追加の許可／拒否
     - `/setprivacy` — グループ可視性の制御
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## アクセス制御とアクティベーション
@@ -129,7 +139,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
 
     サードパーティ（プライバシー低）: `@userinfobot` または `@getidsbot`。
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="グループポリシーと allowlist">
     2 つの独立した制御があります。
@@ -163,7 +174,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
 }
 ```
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="メンション動作">
     グループ返信はデフォルトでメンションが必要です。
@@ -202,7 +214,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
     - または `openclaw logs --follow` で `chat.id` を確認
     - または Bot API `getUpdates` を確認
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## 実行時の動作
@@ -252,7 +265,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
     - `/reasoning stream` は生成中に推論をライブプレビューへ送信
     - 最終回答は推論テキストなしで送信
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 More help: [Channel troubleshooting](/channels/troubleshooting).

@@ -9,13 +9,16 @@ Status: production-ready via WhatsApp Web (Baileys). Gateway owns linked session
 <CardGroup cols={3}>
   <Card title="Pairing" icon="link" href="/channels/pairing">
     Default DM policy is pairing for unknown senders.
-  </Card>
+  
+</Card>
   <Card title="Channel troubleshooting" icon="wrench" href="/channels/troubleshooting">
     Cross-channel diagnostics and repair playbooks.
-  </Card>
+  
+</Card>
   <Card title="Gateway configuration" icon="settings" href="/gateway/configuration">
     Full channel config patterns and examples.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## Quick setup
@@ -36,7 +39,8 @@ Status: production-ready via WhatsApp Web (Baileys). Gateway owns linked session
 }
 ```
 
-  </Step>
+  
+</Step>
 
   <Step title="Link WhatsApp (QR)">
 
@@ -50,7 +54,8 @@ openclaw channels login --channel whatsapp
 openclaw channels login --channel whatsapp --account work
 ```
 
-  </Step>
+  
+</Step>
 
   <Step title="Start the gateway">
 
@@ -58,7 +63,8 @@ openclaw channels login --channel whatsapp --account work
 openclaw gateway
 ```
 
-  </Step>
+  
+</Step>
 
   <Step title="Approve first pairing request (if using pairing mode)">
 
@@ -69,7 +75,8 @@ openclaw pairing approve whatsapp <CODE>
 
     Pairing requests expire after 1 hour. Pending requests are capped at 3 per channel.
 
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -99,7 +106,8 @@ OpenClaw recommends running WhatsApp on a separate number when possible. (The ch
     }
     ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Personal-number fallback">
     Onboarding supports personal-number mode and writes a self-chat-friendly baseline:
@@ -110,14 +118,16 @@ OpenClaw recommends running WhatsApp on a separate number when possible. (The ch
 
     In runtime, self-chat protections key off the linked self number and `allowFrom`.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="WhatsApp Web-only channel scope">
     The messaging platform channel is WhatsApp Web-based (`Baileys`) in current OpenClaw channel architecture.
 
     There is no separate Twilio WhatsApp messaging channel in the built-in chat-channel registry.
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Runtime model
@@ -149,7 +159,8 @@ OpenClaw recommends running WhatsApp on a separate number when possible. (The ch
     - if no allowlist is configured, the linked self number is allowed by default
     - outbound `fromMe` DMs are never auto-paired
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="Group policy + allowlists">
     Group access has two layers:
@@ -169,7 +180,8 @@ OpenClaw recommends running WhatsApp on a separate number when possible. (The ch
 
     Note: if no `channels.whatsapp` block exists at all, runtime group-policy fallback is effectively `open`.
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="Mentions + /activation">
     Group replies require mention by default.
@@ -187,7 +199,8 @@ OpenClaw recommends running WhatsApp on a separate number when possible. (The ch
 
     `activation` updates session state (not global config). It is owner-gated.
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Personal-number and self-chat behavior
@@ -214,7 +227,8 @@ When the linked self number is also present in `allowFrom`, WhatsApp self-chat s
 
     Reply metadata fields are also populated when available (`ReplyToId`, `ReplyToBody`, `ReplyToSender`, sender JID/E.164).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Media placeholders and location/contact extraction">
     Media-only inbound messages are normalized with placeholders such as:
@@ -227,7 +241,8 @@ When the linked self number is also present in `allowFrom`, WhatsApp self-chat s
 
     Location and contact payloads are normalized into textual context before routing.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Pending group history injection">
     For groups, unprocessed messages can be buffered and injected as context when the bot is finally triggered.
@@ -242,7 +257,8 @@ When the linked self number is also present in `allowFrom`, WhatsApp self-chat s
     - `[Chat messages since your last reply - for context]`
     - `[Current message - respond to this]`
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Read receipts">
     Read receipts are enabled by default for accepted inbound WhatsApp messages.
@@ -277,7 +293,8 @@ When the linked self number is also present in `allowFrom`, WhatsApp self-chat s
 
     Self-chat turns skip read receipts even when globally enabled.
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Delivery, chunking, and media
@@ -287,7 +304,8 @@ When the linked self number is also present in `allowFrom`, WhatsApp self-chat s
     - default chunk limit: `channels.whatsapp.textChunkLimit = 4000`
     - `channels.whatsapp.chunkMode = "length" | "newline"`
     - `newline` mode prefers paragraph boundaries (blank lines), then falls back to length-safe chunking
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Outbound media behavior">
     - supports image, video, audio (PTT voice-note), and document payloads
@@ -295,14 +313,16 @@ When the linked self number is also present in `allowFrom`, WhatsApp self-chat s
     - animated GIF playback is supported via `gifPlayback: true` on video sends
     - captions are applied to the first media item when sending multi-media reply payloads
     - media source can be HTTP(S), `file://`, or local paths
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Media size limits and fallback behavior">
     - inbound media save cap: `channels.whatsapp.mediaMaxMb` (default `50`)
     - outbound media cap for auto-replies: `agents.defaults.mediaMaxMb` (default `5MB`)
     - images are auto-optimized (resize/quality sweep) to fit limits
     - on media send failure, first-item fallback sends text warning instead of dropping the response silently
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Acknowledgment reactions
@@ -337,20 +357,23 @@ Behavior notes:
     - account ids come from `channels.whatsapp.accounts`
     - default account selection: `default` if present, otherwise first configured account id (sorted)
     - account ids are normalized internally for lookup
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Credential paths and legacy compatibility">
     - current auth path: `~/.openclaw/credentials/whatsapp/<accountId>/creds.json`
     - backup file: `creds.json.bak`
     - legacy default auth in `~/.openclaw/credentials/` is still recognized/migrated for default-account flows
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Logout behavior">
     `openclaw channels logout --channel whatsapp [--account <id>]` clears WhatsApp auth state for that account.
 
     In legacy auth directories, `oauth.json` is preserved while Baileys auth files are removed.
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Tools, actions, and config writes
@@ -374,7 +397,8 @@ Behavior notes:
     openclaw channels status
     ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Linked but disconnected / reconnect loop">
     Symptom: linked account with repeated disconnects or reconnect attempts.
@@ -388,14 +412,16 @@ Behavior notes:
 
     If needed, re-link with `channels login`.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="No active listener when sending">
     Outbound sends fail fast when no active gateway listener exists for the target account.
 
     Make sure gateway is running and the account is linked.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Group messages unexpectedly ignored">
     Check in this order:
@@ -405,11 +431,13 @@ Behavior notes:
     - `groups` allowlist entries
     - mention gating (`requireMention` + mention patterns)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Bun runtime warning">
     WhatsApp gateway runtime should use Node. Bun is flagged as incompatible for stable WhatsApp/Telegram gateway operation.
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Configuration reference pointers

@@ -12,22 +12,22 @@ wizard en laat de agent zichzelf bootstrapen.
 <Steps>
 <Step title="Approve macOS warning">
 <Frame>
-<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt="" />
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Approve find local networks">
 <Frame>
-<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt="" />
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Welcome and security notice">
 <Frame caption="Lees de weergegeven beveiligingsmelding en beslis dienovereenkomstig">
-<img src="/assets/macos-onboarding/03-security-notice.png" alt="" />
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
 </Frame>
 </Step>
 <Step title="Local vs Remote">
 <Frame>
-<img src="/assets/macos-onboarding/04-choose-gateway.png" alt="" />
+<img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
 Waar draait de **Gateway**?
@@ -47,7 +47,7 @@ Waar draait de **Gateway**?
 </Step>
 <Step title="Permissions">
 <Frame caption="Kies welke rechten je aan OpenClaw wilt geven">
-<img src="/assets/macos-onboarding/05-permissions.png" alt="" />
+<img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
 Onboarding vraagt TCC-rechten aan die nodig zijn voor:
@@ -63,7 +63,8 @@ Onboarding vraagt TCC-rechten aan die nodig zijn voor:
 
 </Step>
 <Step title="CLI">
-  <Info>Deze stap is optioneel</Info>
+  <Info>Deze stap is optioneel
+</Info>
   De app kan de globale `openclaw` CLI via npm/pnpm installeren zodat terminal‑
   workflows en launchd‑taken direct werken.
 </Step>

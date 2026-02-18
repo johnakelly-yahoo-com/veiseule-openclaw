@@ -34,21 +34,25 @@ U masofaviy xostda hech narsa o‘rnatmaydi yoki o‘zgartirmaydi.
       - Faqat konfiguratsiya
       - Konfiguratsiya + hisob ma’lumotlari + sessiyalar
       - To‘liq reset (ishchi makonni ham olib tashlaydi)
-  </Step>
+  
+</Step>
   <Step title="Model and auth">
     - To‘liq variantlar matritsasi [Autentifikatsiya va model variantlari](#auth-and-model-options) bo‘limida keltirilgan.
-  </Step>
+  
+</Step>
   <Step title="Workspace">
     - Sukut bo‘yicha `~/.openclaw/workspace` (sozlanishi mumkin).
     - Birinchi ishga tushirish bootstrap jarayoni uchun zarur bo‘lgan workspace fayllarini yaratadi.
     - Ishchi makon tuzilishi: [Agent workspace](/concepts/agent-workspace).
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Port, bind, auth rejimi va tailscale ochiqligi bo‘yicha so‘rovlar beradi.
     - Tavsiya etiladi: loopback uchun ham token autentifikatsiyasini yoqilgan holda saqlang, shunda mahalliy WS mijozlari autentifikatsiyadan o‘tishi shart bo‘ladi.
     - Auth’ni faqat barcha mahalliy jarayonlarga to‘liq ishonsangizgina o‘chiring.
     - Non-loopback bind’lar baribir auth talab qiladi.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): ixtiyoriy QR login
     - [Telegram](/channels/telegram): bot token
@@ -60,7 +64,8 @@ U masofaviy xostda hech narsa o‘rnatmaydi yoki o‘zgartirmaydi.
     - [iMessage](/channels/imessage): legacy `imsg` CLI yo‘li + DB kirish
     - DM xavfsizligi: standart — pairing. Birinchi DM kod yuboradi; tasdiqlash:
       `openclaw pairing approve <channel> <code>` yoki allowlist’dan foydalaning.
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - Tizimga kirilgan foydalanuvchi sessiyasini talab qiladi; headless holat uchun maxsus LaunchDaemon’dan foydalaning (taqdim etilmaydi).
@@ -68,19 +73,23 @@ U masofaviy xostda hech narsa o‘rnatmaydi yoki o‘zgartirmaydi.
       - Sehrgar `loginctl enable-linger <user>` ni ishga tushirishga urinadi, shunda gateway logout’dan keyin ham ishlashda davom etadi.
       - Sudo so‘rashi mumkin (`/var/lib/systemd/linger` yozadi); avval sudo’siz urinib ko‘radi.
     - Runtime tanlovi: Node (tavsiya etiladi; WhatsApp va Telegram uchun talab qilinadi). Bun tavsiya etilmaydi.
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - Gateway’ni (kerak bo‘lsa) ishga tushiradi va `openclaw health` ni bajaradi.
     - `openclaw status --deep` status chiqishiga gateway health probe’larini qo‘shadi.
-  </Step>
+  
+</Step>
   <Step title="Skills">
     - Mavjud skills’larni o‘qiydi va talablarni tekshiradi.
     - Node manager tanlash imkonini beradi: npm yoki pnpm (bun tavsiya etilmaydi).
     - Ixtiyoriy bog‘liqliklarni o‘rnatadi (ba’zilari macOS’da Homebrew’dan foydalanadi).
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - Xulosa va keyingi qadamlar, jumladan iOS, Android va macOS ilova variantlari.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -113,64 +122,78 @@ Siz sozlaysiz:
 <AccordionGroup>
   <Accordion title="Anthropic API key (recommended)">
     Agar mavjud bo‘lsa `ANTHROPIC_API_KEY` dan foydalanadi yoki kalitni so‘raydi, so‘ng uni daemon foydalanishi uchun saqlaydi.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic OAuth (Claude Code CLI)">
     - macOS: Keychain’dagi "Claude Code-credentials" elementini tekshiradi
     - Linux va Windows: agar mavjud bo‘lsa `~/.claude/.credentials.json` dan foydalanadi
 
     macOS’da "Always Allow" ni tanlang, shunda launchd ishga tushirishlari bloklanmaydi.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
     `claude setup-token` buyrug‘ini istalgan mashinada ishga tushiring, so‘ng tokenni joylashtiring.
     Nom berishingiz mumkin; bo‘sh qoldirilsa, standart qiymat ishlatiladi.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (Codex CLI reuse)">
     Agar `~/.codex/auth.json` mavjud bo‘lsa, wizard undan qayta foydalanishi mumkin.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (OAuth)">
     Brauzer oqimi; `code#state` ni joylashtiring.
 
     Agar model o‘rnatilmagan yoki `openai/*` bo‘lsa, `agents.defaults.model` ni `openai-codex/gpt-5.3-codex` ga o‘rnatadi.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI API key">
     Agar mavjud bo‘lsa `OPENAI_API_KEY` dan foydalanadi yoki kalitni so‘raydi, so‘ng launchd o‘qishi uchun
     uni `~/.openclaw/.env` ga saqlaydi.
 
     Agar model o‘rnatilmagan, `openai/*` yoki `openai-codex/*` bo‘lsa, `agents.defaults.model` ni `openai/gpt-5.1-codex` ga o‘rnatadi.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="xAI (Grok) API key">
     `XAI_API_KEY` ni so‘raydi va xAI’ni model provayderi sifatida sozlaydi.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen">
     `OPENCODE_API_KEY` (yoki `OPENCODE_ZEN_API_KEY`) ni so‘raydi.
     Sozlash URL’i: [opencode.ai/auth](https://opencode.ai/auth).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="API key (generic)">
     Kalitni siz uchun saqlaydi.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway">
     `AI_GATEWAY_API_KEY` ni so‘raydi.
     Batafsil: [Vercel AI Gateway](/providers/vercel-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway">
     Hisob ID’si, gateway ID’si va `CLOUDFLARE_AI_GATEWAY_API_KEY` ni so‘raydi.
     Batafsil: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="MiniMax M2.1">
     Konfiguratsiya avtomatik yoziladi.
     Batafsil: [MiniMax](/providers/minimax).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic (Anthropic-compatible)">
     `SYNTHETIC_API_KEY` ni so‘raydi.
     Batafsil: [Synthetic](/providers/synthetic).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot and Kimi Coding">
     Moonshot (Kimi K2) va Kimi Coding konfiguratsiyalari avtomatik yoziladi.
     Batafsil: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Custom provider">
     OpenAI-compatible va Anthropic-compatible endpoint’lar bilan ishlaydi.
 
@@ -182,10 +205,12 @@ Siz sozlaysiz:
     - `--custom-provider-id` (ixtiyoriy)
     - `--custom-compatibility <openai|anthropic>` (ixtiyoriy; standart `openai`)
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Skip">
     Autentifikatsiyani sozlanmagan holda qoldiradi.
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 Model xulqi:

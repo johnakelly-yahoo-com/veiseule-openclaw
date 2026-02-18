@@ -26,7 +26,8 @@ Agar natijada `v22.x.x` yoki undan yuqori versiya chiqsa, hammasi joyida. Agar N
 
     Yoki macOS o‘rnatuvchisini [nodejs.org](https://nodejs.org/) saytidan yuklab oling.
 
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
@@ -43,7 +44,8 @@ Agar natijada `v22.x.x` yoki undan yuqori versiya chiqsa, hammasi joyida. Agar N
 
     Yoki versiya menejeridan foydalaning (quyida qarang).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget** (tavsiya etiladi):
 
@@ -59,7 +61,8 @@ Agar natijada `v22.x.x` yoki undan yuqori versiya chiqsa, hammasi joyida. Agar N
 
     Yoki Windows o‘rnatkichini [nodejs.org](https://nodejs.org/) saytidan yuklab oling.
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Versiya menejeridan foydalanish (nvm, fnm, mise, asdf)">
@@ -78,7 +81,8 @@ fnm use 22
 
   <Warning>
   Versiya menejeringiz shell ishga tushish faylida (`~/.zshrc` yoki `~/.bashrc`) ishga tushirilganiga ishonch hosil qiling. Aks holda, yangi terminal sessiyalarida `openclaw` topilmasligi mumkin, chunki PATH Node’ning bin katalogini o‘z ichiga olmaydi.
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## Nosozliklarni bartaraf etish
@@ -92,7 +96,8 @@ Bu deyarli har doim npm’ning global bin katalogi PATH’da yo‘qligini anglat
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="PATH’da borligini tekshiring">
     ```bash
     echo "$PATH"
@@ -100,7 +105,8 @@ Bu deyarli har doim npm’ning global bin katalogi PATH’da yo‘qligini anglat
 
     Natijada `<npm-prefix>/bin` (macOS/Linux) yoki `<npm-prefix>` (Windows) borligini tekshiring.
 
-  </Step>
+  
+</Step>
   <Step title="Shell ishga tushish fayliga qo‘shing">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -111,13 +117,17 @@ Bu deyarli har doim npm’ning global bin katalogi PATH’da yo‘qligini anglat
         ```
 
         So‘ng yangi terminal oching (yoki zsh’da `rehash` / bash’da `hash -r` ni ishga tushiring).
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         `npm prefix -g` chiqishini Sozlamalar → Tizim → Atrof-muhit o‘zgaruvchilari orqali tizim PATH’iga qo‘shing.
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
-  </Step>
+  
+</Step>
 </Steps>
 
 ### `npm install -g` da ruxsat xatolari (Linux)

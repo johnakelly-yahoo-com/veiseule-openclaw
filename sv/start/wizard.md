@@ -48,10 +48,12 @@ Guiden börjar med **Snabbstart** (standard) vs **Avancerat** (full kontroll).
     - Gateway‑autentisering **Token** (autogenererad, även på loopback)
     - Tailscale‑exponering **Av**
     - Telegram + WhatsApp‑DM:er är som standard **tillåtelselista** (du blir ombedd att ange ditt telefonnummer)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - Exponerar varje steg (läge, arbetsyta, gateway, kanaler, daemon, Skills).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Vad guiden konfigurerar

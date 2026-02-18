@@ -11,10 +11,12 @@ Quick start is now part of [Getting Started](/start/getting-started).
 <Columns>
   <Card title="Getting Started" href="/start/getting-started">
     Install OpenClaw and run your first chat in minutes.
-  </Card>
+  
+</Card>
   <Card title="Onboarding Wizard" href="/start/wizard">
     Full CLI wizard reference and advanced options.
-  </Card>
+  
+</Card>
 </Columns>
 
 

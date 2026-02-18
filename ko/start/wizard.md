@@ -45,10 +45,12 @@ openclaw agents add <name>
     - Gateway 인증 **Token**(loopback 에서도 자동 생성)
     - Tailscale 노출 **끔**
     - Telegram + WhatsApp 다이렉트 메시지는 기본적으로 **allowlist**(전화번호를 입력하라는 안내가 표시됩니다)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - 모든 단계(모드, 워크스페이스, 게이트웨이, 채널, 데몬, Skills)를 노출합니다.
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## 마법사가 구성하는 항목

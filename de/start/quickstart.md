@@ -11,10 +11,12 @@ Der Schnellstart ist jetzt Teil von [Erste Schritte](/start/getting-started).
 <Columns>
   <Card title="Getting Started" href="/start/getting-started">
     Installieren Sie OpenClaw und führen Sie in wenigen Minuten Ihren ersten Chat aus.
-  </Card>
+  
+</Card>
   <Card title="Onboarding Wizard" href="/start/wizard">
     Vollständige CLI-Assistentenreferenz und erweiterte Optionen.
-  </Card>
+  
+</Card>
 </Columns>
 
 

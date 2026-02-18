@@ -24,7 +24,8 @@ OpenClaw `openclaw.ai` dan taqdim etiladigan uchta o‘rnatish skriptini yetkazi
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --help
     ```
 
-  </Tab>
+  
+</Tab>
   <Tab title="install-cli.sh">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash
@@ -34,7 +35,8 @@ OpenClaw `openclaw.ai` dan taqdim etiladigan uchta o‘rnatish skriptini yetkazi
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --help
     ```
 
-  </Tab>
+  
+</Tab>
   <Tab title="install.ps1">
     ```powershell
     iwr -useb https://openclaw.ai/install.ps1 | iex
@@ -44,7 +46,8 @@ OpenClaw `openclaw.ai` dan taqdim etiladigan uchta o‘rnatish skriptini yetkazi
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -Tag beta -NoOnboard -DryRun
     ```
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Note>
@@ -64,22 +67,27 @@ Recommended for most interactive installs on macOS/Linux/WSL.
 <Steps>
   <Step title="Detect OS">
     macOS va Linux (jumladan WSL) qo‘llab-quvvatlanadi. Agar macOS aniqlansa, Homebrew mavjud bo‘lmasa o‘rnatiladi.
-  </Step>
+  
+</Step>
   <Step title="Ensure Node.js 22+">
     Node versiyasini tekshiradi va kerak bo‘lsa Node 22 ni o‘rnatadi (macOS’da Homebrew, Linux’da apt/dnf/yum uchun NodeSource skriptlari orqali).
-  </Step>
+  
+</Step>
   <Step title="Ensure Git">
     Agar Git mavjud bo‘lmasa, o‘rnatadi.
-  </Step>
+  
+</Step>
   <Step title="Install OpenClaw">
     - `npm` usuli (standart): global npm install
     - `git` usuli: repozitoriyani clone/update qiladi, pnpm bilan bog‘liqliklarni o‘rnatadi, build qiladi, so‘ng wrapper’ni `~/.local/bin/openclaw` ga o‘rnatadi
-  </Step>
+  
+</Step>
   <Step title="Post-install tasks">
     - Yangilanishlar va git o‘rnatishlarda `openclaw doctor --non-interactive` ni ishga tushiradi (imkon qadar)
     - Mos sharoitda onboarding’ni ishga tushirishga urinadi (TTY mavjud, onboarding o‘chirilmagan va bootstrap/config tekshiruvlari muvaffaqiyatli)
     - Standart ravishda `SHARP_IGNORE_GLOBAL_LIBVIPS=1` ni o‘rnatadi
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Source checkout detection
@@ -100,22 +108,26 @@ Noto‘g‘ri usul tanlanganda yoki noto‘g‘ri `--install-method` qiymati ber
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Skip onboarding">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --no-onboard
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Git install">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --install-method git
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Dry run">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --dry-run
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -137,7 +149,8 @@ Noto‘g‘ri usul tanlanganda yoki noto‘g‘ri `--install-method` qiymati ber
 | `--verbose`                     | Debug chiqishini yoqish (`set -x`, npm notice-darajadagi loglar) |
 | `--help`                        | Foydalanish bo‘yicha ma’lumotni ko‘rsatish (`-h`)          |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -155,7 +168,8 @@ Noto‘g‘ri usul tanlanganda yoki noto‘g‘ri `--install-method` qiymati ber
 | `OPENCLAW_NPM_LOGLEVEL=error\|warn\|notice` | npm log darajasi                          |
 | `SHARP_IGNORE_GLOBAL_LIBVIPS=0\|1`          | sharp/libvips xatti-harakatini boshqarish (standart: `1`) |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ---
@@ -171,13 +185,16 @@ Mahalliy prefiks ostida hammasi bo‘lishini xohlaydigan muhitlar uchun mo‘lja
 <Steps>
   <Step title="Install local Node runtime">
     Node tarball’ni (standart `22.22.0`) `<prefix>/tools/node-v<version>` ga yuklab oladi va SHA-256 ni tekshiradi.
-  </Step>
+  
+</Step>
   <Step title="Ensure Git">
     Agar Git mavjud bo‘lmasa, Linux’da apt/dnf/yum yoki macOS’da Homebrew orqali o‘rnatishga urinadi.
-  </Step>
+  
+</Step>
   <Step title="Install OpenClaw under prefix">
     npm orqali `--prefix <prefix>` yordamida o‘rnatadi, so‘ng wrapper’ni `<prefix>/bin/openclaw` ga yozadi.
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Misollar (install-cli.sh)
@@ -187,22 +204,26 @@ Mahalliy prefiks ostida hammasi bo‘lishini xohlaydigan muhitlar uchun mo‘lja
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Custom prefix + version">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --prefix /opt/openclaw --version latest
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Automation JSON output">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --json --prefix /opt/openclaw
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Run onboarding">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --onboard
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -219,7 +240,8 @@ Mahalliy prefiks ostida hammasi bo‘lishini xohlaydigan muhitlar uchun mo‘lja
 | `--set-npm-prefix`     | Linux’da joriy prefiks yozish uchun ruxsatli bo‘lmasa, npm prefiksini majburan `~/.npm-global` ga o‘rnatadi |
 | `--help`               | Foydalanishni ko‘rsatadi (`-h`)                                                  |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -233,7 +255,8 @@ Mahalliy prefiks ostida hammasi bo‘lishini xohlaydigan muhitlar uchun mo‘lja
 | `OPENCLAW_GIT_DIR=<path>`              | Eski tozalash uchun qidiruv yo‘li (eski `Peekaboo` submodule checkout’ni olib tashlashda ishlatiladi) |
 | `SHARP_IGNORE_GLOBAL_LIBVIPS=0\|1`     | sharp/libvips xatti-harakatini boshqarish (standart: `1`)                   |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ---
@@ -245,17 +268,21 @@ Mahalliy prefiks ostida hammasi bo‘lishini xohlaydigan muhitlar uchun mo‘lja
 <Steps>
   <Step title="Ensure PowerShell + Windows environment">
     PowerShell 5+ talab qilinadi.
-  </Step>
+  
+</Step>
   <Step title="Ensure Node.js 22+">
     Agar mavjud bo‘lmasa, avval winget orqali, so‘ng Chocolatey, undan keyin Scoop orqali o‘rnatishga urinadi.
-  </Step>
+  
+</Step>
   <Step title="Install OpenClaw">
     - `npm` usuli (standart): tanlangan `-Tag` bilan global npm install
     - `git` usuli: repozitoriyani clone/update qiladi, pnpm bilan install/build qiladi va wrapper’ni `%USERPROFILE%\.local\bin\openclaw.cmd` ga o‘rnatadi
-  </Step>
+  
+</Step>
   <Step title="Post-install tasks">
     Imkon bo‘lsa kerakli bin katalogini foydalanuvchi PATH’iga qo‘shadi, so‘ng yangilanishlar va git o‘rnatishlarda `openclaw doctor --non-interactive` ni ishga tushiradi (imkon qadar).
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Examples (install.ps1)
@@ -265,22 +292,26 @@ Mahalliy prefiks ostida hammasi bo‘lishini xohlaydigan muhitlar uchun mo‘lja
     ```powershell
     iwr -useb https://openclaw.ai/install.ps1 | iex
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Git install">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -InstallMethod git
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Custom git directory">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -InstallMethod git -GitDir "C:\openclaw"
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Dry run">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -DryRun
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Debug trace">
     ```powershell
     # install.ps1 has no dedicated -Verbose flag yet.
@@ -288,7 +319,8 @@ Mahalliy prefiks ostida hammasi bo‘lishini xohlaydigan muhitlar uchun mo‘lja
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
     Set-PSDebug -Trace 0
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -303,7 +335,8 @@ Mahalliy prefiks ostida hammasi bo‘lishini xohlaydigan muhitlar uchun mo‘lja
 | `-NoGitUpdate`            | Skip `git pull`                                        |
 | `-DryRun`                 | Print actions only                                     |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -315,7 +348,8 @@ Mahalliy prefiks ostida hammasi bo‘lishini xohlaydigan muhitlar uchun mo‘lja
 | `OPENCLAW_GIT_UPDATE=0`            | Disable git pull   |
 | `OPENCLAW_DRY_RUN=1`               | Dry run mode       |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 <Note>
@@ -333,23 +367,27 @@ Use non-interactive flags/env vars for predictable runs.
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --no-prompt --no-onboard
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install.sh (non-interactive git)">
     ```bash
     OPENCLAW_INSTALL_METHOD=git OPENCLAW_NO_PROMPT=1 \
       curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install-cli.sh (JSON)">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --json --prefix /opt/openclaw
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install.ps1 (skip onboarding)">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ---
@@ -359,11 +397,13 @@ Use non-interactive flags/env vars for predictable runs.
 <AccordionGroup>
   <Accordion title="Why is Git required?">
     Git `git` o‘rnatish usuli uchun talab qilinadi. `npm` orqali o‘rnatishda ham, bog‘liqliklar git URL’lardan foydalanganda `spawn git ENOENT` xatolarini oldini olish uchun Git tekshiriladi/o‘rnatiladi.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Why does npm hit EACCES on Linux?">
     Ba’zi Linux sozlamalarida npm global prefix root egasiga tegishli yo‘llarga ko‘rsatilgan bo‘ladi. `install.sh` prefixni `~/.npm-global` ga o‘zgartirishi va (agar mavjud bo‘lsa) shell rc fayllariga PATH eksportlarini qo‘shishi mumkin.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="sharp/libvips issues">
     Skriptlar sharp’ning tizimdagi libvips bilan qurilishini oldini olish uchun sukut bo‘yicha `SHARP_IGNORE_GLOBAL_LIBVIPS=1` ni o‘rnatadi. Bekor qilish uchun:
@@ -372,15 +412,18 @@ Use non-interactive flags/env vars for predictable runs.
     SHARP_IGNORE_GLOBAL_LIBVIPS=0 curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title='Windows: "npm error spawn git / ENOENT"'>
     Git for Windows’ni o‘rnating, PowerShell’ni qayta oching, o‘rnatuvchini yana ishga tushiring.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title='Windows: "openclaw is not recognized"'>
     `npm config get prefix` ni ishga tushiring, oxiriga `\bin` qo‘shing, o‘sha katalogni foydalanuvchi PATH’iga qo‘shing, so‘ng PowerShell’ni qayta oching.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Windows: how to get verbose installer output">
     `install.ps1` hozircha `-Verbose` flag’ini qo‘llab-quvvatlamaydi.
@@ -392,10 +435,12 @@ Use non-interactive flags/env vars for predictable runs.
     Set-PSDebug -Trace 0
     ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="openclaw not found after install">
     Odatda bu PATH bilan bog‘liq muammo. [Node.js troubleshooting](/install/node#troubleshooting) ga qarang.
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 

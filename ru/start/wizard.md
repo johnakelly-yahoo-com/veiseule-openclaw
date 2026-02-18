@@ -48,10 +48,12 @@ openclaw agents add <name>
     - Аутентификация Gateway (шлюза): **Token** (автогенерируется, даже для loopback)
     - Экспозиция через Tailscale: **Off**
     - Личные сообщения Telegram + WhatsApp по умолчанию используют **allowlist** (вас попросят указать номер телефона)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - Открывает каждый шаг (режим, рабочее пространство, Gateway (шлюз), каналы, демон, Skills).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Что настраивает мастер

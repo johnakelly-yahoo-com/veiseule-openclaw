@@ -31,13 +31,16 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     بس اتنا ہی — اسکرپٹ Node کی شناخت، انسٹالیشن، اور آن بورڈنگ سب سنبھالتا ہے۔
 
@@ -48,17 +51,21 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     تمام فلیگز، env vars، اور CI/automation اختیارات کے لیے [Installer internals](/install/installer) دیکھیں۔
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     اگر آپ کے پاس پہلے ہی Node 22+ ہے اور آپ انسٹالیشن خود منظم کرنا چاہتے ہیں:
@@ -78,8 +85,10 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
           ```
 
           اگر آپ کو `sharp: Please add node-gyp to your dependencies` نظر آئے، تو یا تو بلڈ ٹولنگ انسٹال کریں (macOS: Xcode CLT + `npm install -g node-gyp`) یا اوپر دیا گیا env var استعمال کریں۔
-        </Accordion>
-      </Tab>
+        
+</Accordion>
+      
+</Tab>
       <Tab title="pnpm">
         ```bash
         pnpm add -g openclaw@latest
@@ -89,11 +98,15 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
 
         <Note>
         pnpm اُن پیکیجز کے لیے جن میں build scripts ہوں، واضح منظوری کا تقاضا کرتا ہے۔ پہلی انسٹال کے بعد جب "Ignored build scripts" کی وارننگ دکھائی دے، تو `pnpm approve-builds -g` چلائیں اور فہرست میں موجود پیکیجز منتخب کریں۔
-        </Note>
-      </Tab>
-    </Tabs>
+        
+</Note>
+      
+</Tab>
+    
+</Tabs>
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="From source" icon="github">
     شراکت داروں یا اُن کے لیے جو مقامی چیک آؤٹ سے چلانا چاہتے ہوں۔
@@ -109,7 +122,8 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
         pnpm ui:build
         pnpm build
         ```
-      </Step>
+      
+</Step>
       <Step title="CLI کو لنک کریں">
         `openclaw` کمانڈ کو عالمی طور پر دستیاب بنائیں:
 
@@ -118,17 +132,21 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
         ```
 
         متبادل طور پر، لنک چھوڑ دیں اور ریپو کے اندر سے `pnpm openclaw ...` کے ذریعے کمانڈز چلائیں۔
-      </Step>
+      
+</Step>
       <Step title="آن بورڈنگ چلائیں">
         ```bash
         openclaw onboard --install-daemon
         ```
-      </Step>
-    </Steps>
+      
+</Step>
+    
+</Steps>
 
     مزید گہرے ڈیولپمنٹ ورک فلو کے لیے [Setup](/start/setup) دیکھیں۔
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## دیگر انسٹال طریقے
@@ -136,19 +154,24 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     کنٹینرائزڈ یا ہیڈ لیس تعیناتیاں۔
-  </Card>
+  
+</Card>
   <Card title="Podman" href="/install/podman" icon="container">
     Rootless کنٹینر: `setup-podman.sh` ایک بار چلائیں، پھر لانچ اسکرپٹ۔
-  </Card>
+  
+</Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     Nix کے ذریعے ڈیکلیریٹو انسٹال۔
-  </Card>
+  
+</Card>
   <Card title="Ansible" href="/install/ansible" icon="server">
     خودکار فلیٹ پروویژننگ۔
-  </Card>
+  
+</Card>
   <Card title="Bun" href="/install/bun" icon="zap">
     Bun رن ٹائم کے ذریعے صرف CLI استعمال۔
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## انسٹال کے بعد
@@ -199,12 +222,15 @@ Windows پر، `npm prefix -g` کے آؤٹ پٹ کو اپنے PATH میں شام
 <CardGroup cols={3}>
   <Card title="Updating" href="/install/updating" icon="refresh-cw">
     OpenClaw کو تازہ ترین رکھیں۔
-  </Card>
+  
+</Card>
   <Card title="Migrating" href="/install/migrating" icon="arrow-right">
     نئی مشین پر منتقل کریں۔
-  </Card>
+  
+</Card>
   <Card title="Uninstall" href="/install/uninstall" icon="trash-2">
     OpenClaw کو مکمل طور پر ہٹا دیں۔
-  </Card>
+  
+</Card>
 </CardGroup>
 

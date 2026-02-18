@@ -56,10 +56,12 @@ openclaw agents add <name>
     - ゲートウェイ認証 **Token**（loopback でも自動生成）
     - Tailscale 公開 **オフ**
     - Telegram + WhatsApp のダイレクトメッセージは **許可リスト** がデフォルト（電話番号の入力を求められます）
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - すべての手順（モード、ワークスペース、ゲートウェイ、チャンネル、デーモン、Skills）を公開します。
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## ウィザードが設定する内容

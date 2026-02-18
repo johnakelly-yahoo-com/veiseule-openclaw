@@ -48,10 +48,12 @@ Trình hướng dẫn bắt đầu với **QuickStart** (mặc định) so với
     - Xác thực Gateway **Token** (tự tạo, ngay cả trên loopback)
     - Phơi bày Tailscale **Tắt**
     - DM Telegram + WhatsApp mặc định dùng **allowlist** (bạn sẽ được nhắc nhập số điện thoại)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - Hiển thị mọi bước (chế độ, workspace, gateway, kênh, daemon, skills).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Những gì trình hướng dẫn cấu hình

@@ -26,7 +26,8 @@ node -v
 
     သို့မဟုတ် [nodejs.org](https://nodejs.org/) မှ macOS installer ကို ဒေါင်းလုဒ်လုပ်နိုင်ပါသည်။
 
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
@@ -43,7 +44,8 @@ node -v
 
     သို့မဟုတ် version manager ကို အသုံးပြုနိုင်ပါသည် (အောက်တွင် ကြည့်ပါ)။
 
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget** (အကြံပြု):
 
@@ -59,7 +61,8 @@ node -v
 
     သို့မဟုတ် [nodejs.org](https://nodejs.org/) မှ Windows installer ကို ဒေါင်းလုဒ်လုပ်နိုင်ပါသည်။
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
@@ -78,7 +81,8 @@ fnm use 22
 
   <Warning>
   သင့် shell startup ဖိုင် (`~/.zshrc` သို့မဟုတ် `~/.bashrc`) ထဲတွင် version manager ကို initialize လုပ်ထားကြောင်း သေချာပါစေ။ မလုပ်ထားပါက terminal session အသစ်များတွင် PATH ထဲ၌ Node ၏ bin directory မပါဝင်နိုင်သဖြင့် `openclaw` ကို မတွေ့နိုင်ပါ။
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## ပြဿနာဖြေရှင်းခြင်း
@@ -92,7 +96,8 @@ fnm use 22
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
@@ -100,7 +105,8 @@ fnm use 22
 
     ရလဒ်ထဲတွင် `<npm-prefix>/bin` (macOS/Linux) သို့မဟုတ် `<npm-prefix>` (Windows) ကို ရှာပါ။
 
-  </Step>
+  
+</Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -111,13 +117,17 @@ fnm use 22
         ```
 
         ထို့နောက် terminal အသစ်တစ်ခုကို ဖွင့်ပါ (သို့မဟုတ် zsh တွင် `rehash` / bash တွင် `hash -r` ကို လည်ပတ်ပါ)။
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         `npm prefix -g` ၏ ရလဒ်ကို Settings → System → Environment Variables မှတဆင့် system PATH ထဲသို့ ထည့်ပါ။
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
-  </Step>
+  
+</Step>
 </Steps>
 
 ### `npm install -g` တွင် Permission errors (Linux)

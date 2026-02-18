@@ -34,21 +34,25 @@ sidebarTitle: "CLI 參考"
       - 僅設定
       - 設定 + 憑證 + sessions
       - 完整重設（同時移除 workspace）
-  </Step>
+  
+</Step>
   <Step title="Model and auth">
     - 完整選項矩陣請見 [驗證與模型選項](#auth-and-model-options)。
-  </Step>
+  
+</Step>
   <Step title="Workspace">
     - 預設為 `~/.openclaw/workspace`（可設定）。  
     - 會建立首次啟動 bootstrap 所需的 workspace 檔案。  
     - 工作區配置請見：[Agent workspace](/concepts/agent-workspace)。
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - 會提示設定連接埠、bind、驗證模式與 tailscale 對外暴露。  
     - 建議：即使是 loopback 也保留 token 驗證，讓本機 WS 用戶端仍需驗證。  
     - 僅在完全信任所有本機程序時才停用驗證。  
     - 非 loopback 綁定仍然需要驗證。
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp)：選用的 QR 登入  
     - [Telegram](/channels/telegram)：機器人權杖  
@@ -60,7 +64,8 @@ sidebarTitle: "CLI 參考"
     - [iMessage](/channels/imessage)：舊版 `imsg` CLI 路徑 + DB 存取  
     - 私訊安全性：預設為配對。第一則私訊會傳送代碼；透過  
       `openclaw pairing approve <channel> <code>` 核准，或使用允許清單。
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS：LaunchAgent  
       - 需要已登入的使用者工作階段；無頭環境請使用自訂 LaunchDaemon（未隨附）。  
@@ -68,19 +73,23 @@ sidebarTitle: "CLI 參考"
       - 精靈會嘗試執行 `loginctl enable-linger <user>`，使 gateway 在登出後仍持續運行。  
       - 可能會要求 sudo（寫入 `/var/lib/systemd/linger`）；會先嘗試不使用 sudo。  
     - 執行環境選擇：Node（建議；WhatsApp 與 Telegram 需要）。不建議使用 Bun。
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - 啟動 gateway（如有需要）並執行 `openclaw health`。  
     - `openclaw status --deep` 會在狀態輸出中加入 gateway 健康探測。
-  </Step>
+  
+</Step>
   <Step title="Skills">
     - 讀取可用的 skills 並檢查需求。  
     - 可選擇 node manager：npm 或 pnpm（不建議 bun）。  
     - 安裝選用相依套件（部分在 macOS 上使用 Homebrew）。
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - 顯示摘要與後續步驟，包括 iOS、Android 與 macOS 應用程式選項。
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -113,61 +122,75 @@ sidebarTitle: "CLI 參考"
 <AccordionGroup>
   <Accordion title="Anthropic API key (recommended)">
     若存在 `ANTHROPIC_API_KEY` 則使用，否則提示輸入金鑰，並儲存供常駐程式使用。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic OAuth (Claude Code CLI)">
     - macOS：檢查鑰匙圈項目「Claude Code-credentials」  
     - Linux 與 Windows：若存在則重用 `~/.claude/.credentials.json`  
 
     在 macOS 上，請選擇「Always Allow」，以避免 launchd 啟動被阻擋。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
     在任一機器上執行 `claude setup-token`，然後貼上該 token。  
     你可以為其命名；留空則使用預設名稱。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (Codex CLI reuse)">
     若存在 `~/.codex/auth.json`，精靈可重用它。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (OAuth)">
     瀏覽器流程；貼上 `code#state`。  
 
     當模型未設定或為 `openai/*` 時，會將 `agents.defaults.model` 設為 `openai-codex/gpt-5.3-codex`。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI API key">
     若存在 `OPENAI_API_KEY` 則使用，否則提示輸入金鑰，並將其儲存至  
     `~/.openclaw/.env` 以供 launchd 讀取。  
 
     當模型未設定、為 `openai/*`，或為 `openai-codex/*` 時，會將 `agents.defaults.model` 設為 `openai/gpt-5.1-codex`。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="xAI (Grok) API key">
     提示輸入 `XAI_API_KEY`，並將 xAI 設定為模型提供者。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen">
     提示輸入 `OPENCODE_API_KEY`（或 `OPENCODE_ZEN_API_KEY`）。  
     設定 URL：[opencode.ai/auth](https://opencode.ai/auth)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="API key (generic)">
     為你儲存金鑰。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway">
     提示輸入 `AI_GATEWAY_API_KEY`。  
     更多說明：[Vercel AI Gateway](/providers/vercel-ai-gateway)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway">
     提示輸入帳戶 ID、Gateway ID，以及 `CLOUDFLARE_AI_GATEWAY_API_KEY`。  
     更多說明：[Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="MiniMax M2.1">
     設定會自動寫入。  
     更多說明：[MiniMax](/providers/minimax)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic (Anthropic-compatible)">
     提示輸入 `SYNTHETIC_API_KEY`。  
     更多說明：[Synthetic](/providers/synthetic)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot and Kimi Coding">
     Moonshot（Kimi K2）與 Kimi Coding 的設定會自動寫入。  
     更多說明：[Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Custom provider">
     可搭配 OpenAI-compatible 與 Anthropic-compatible 端點使用。  
 
@@ -178,10 +201,12 @@ sidebarTitle: "CLI 參考"
     - `--custom-api-key`（選用；預設為 `CUSTOM_API_KEY`）
     - `--custom-provider-id`（選用）
     - `--custom-compatibility <openai|anthropic>`（選用；預設為 `openai`）
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Skip">
     保持未設定驗證。
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 模型行為：

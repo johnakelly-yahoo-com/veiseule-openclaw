@@ -10,22 +10,22 @@ sidebarTitle: "オンボーディング：macOSアプリ"
 <Steps>
 <Step title="Approve macOS warning">
 <Frame>
-<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt="" />
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Approve find local networks">
 <Frame>
-<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt="" />
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Welcome and security notice">
 <Frame caption="表示されるセキュリティに関する注意を読み、内容に応じて判断してください">
-<img src="/assets/macos-onboarding/03-security-notice.png" alt="" />
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
 </Frame>
 </Step>
 <Step title="Local vs Remote">
 <Frame>
-<img src="/assets/macos-onboarding/04-choose-gateway.png" alt="" />
+<img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
 **Gateway（ゲートウェイ）** はどこで実行しますか？
@@ -47,7 +47,7 @@ sidebarTitle: "オンボーディング：macOSアプリ"
 </Step>
 <Step title="Permissions">
 <Frame caption="OpenClaw に付与する権限を選択します">
-<img src="/assets/macos-onboarding/05-permissions.png" alt="" />
+<img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
 オンボーディングでは、以下に必要な TCC 権限を要求します。
@@ -63,7 +63,8 @@ sidebarTitle: "オンボーディング：macOSアプリ"
 
 </Step>
 <Step title="CLI">
-  <Info>このステップは任意です</Info>
+  <Info>このステップは任意です
+</Info>
   アプリは、npm/pnpm を通じてグローバルな `openclaw` CLI をインストールできます。これにより、ターミナルのワークフローや launchd タスクがすぐに利用可能になります。
 </Step>
 <Step title="Onboarding Chat (dedicated session)">

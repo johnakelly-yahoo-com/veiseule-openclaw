@@ -26,7 +26,8 @@ node -v
 
     یا [nodejs.org](https://nodejs.org/) سے macOS انسٹالر ڈاؤن لوڈ کریں۔
 
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
@@ -43,7 +44,8 @@ node -v
 
     یا ورژن مینیجر استعمال کریں (نیچے دیکھیں)۔
 
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget** (سفارش کردہ):
 
@@ -59,7 +61,8 @@ node -v
 
     یا [nodejs.org](https://nodejs.org/) سے Windows انسٹالر ڈاؤن لوڈ کریں۔
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
@@ -78,7 +81,8 @@ fnm use 22
 
   <Warning>
   یقینی بنائیں کہ آپ کا ورژن مینیجر آپ کی شیل اسٹارٹ اپ فائل (`~/.zshrc` یا `~/.bashrc`) میں initialized ہے۔ اگر ایسا نہیں ہے تو نئی ٹرمینل سیشنز میں `openclaw` نہیں ملے گا کیونکہ PATH میں Node کی bin ڈائریکٹری شامل نہیں ہوگی۔
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## خرابیوں کا ازالہ
@@ -92,7 +96,8 @@ fnm use 22
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
@@ -100,7 +105,8 @@ fnm use 22
 
     آؤٹ پٹ میں `<npm-prefix>/bin` (macOS/Linux) یا `<npm-prefix>` (Windows) تلاش کریں۔
 
-  </Step>
+  
+</Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -111,13 +117,17 @@ fnm use 22
         ```
 
         پھر نئی ٹرمینل کھولیں (یا zsh میں `rehash` چلائیں / bash میں `hash -r`)۔
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         `npm prefix -g` کے آؤٹ پٹ کو Settings → System → Environment Variables کے ذریعے اپنے سسٹم PATH میں شامل کریں۔
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
-  </Step>
+  
+</Step>
 </Steps>
 
 ### `npm install -g` پر اجازت کی غلطیاں (Linux)

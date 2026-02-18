@@ -34,21 +34,25 @@ Det installerer eller ændrer ikke noget på den eksterne vært.
       - Kun konfiguration
       - Konfiguration + legitimationsoplysninger + sessioner
       - Fuld nulstilling (fjerner også arbejdsområdet)
-  </Step>
+  
+</Step>
   <Step title="Model and auth">
     - Den fulde valgmatrix findes i [Auth and model options](#auth-and-model-options).
-  </Step>
+  
+</Step>
   <Step title="Workspace">
     - Standard `~/.openclaw/workspace` (kan konfigureres).
     - Opretter arbejdsområdefiler, der er nødvendige til første bootstrap-kørsel.
     - Arbejdsområdets struktur: [Agent workspace](/concepts/agent-workspace).
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Spørger efter port, bind, auth-tilstand og tailscale-eksponering.
     - Anbefalet: Behold token-auth aktiveret selv for loopback, så lokale WS-klienter skal godkendes.
     - Deaktivér kun auth, hvis du har fuld tillid til alle lokale processer.
     - Non-loopback binds kræver stadig auth.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): valgfri QR-login
     - [Telegram](/channels/telegram): bot-token
@@ -60,7 +64,8 @@ Det installerer eller ændrer ikke noget på den eksterne vært.
     - [iMessage](/channels/imessage): legacy `imsg` CLI-sti + DB-adgang
     - DM-sikkerhed: Standard er parring. Første DM sender en kode; godkend via
       `openclaw pairing approve <channel> <code>` eller brug tilladelseslister.
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - Kræver en logget ind brugersession; til headless brug en brugerdefineret LaunchDaemon (medfølger ikke).
@@ -68,19 +73,23 @@ Det installerer eller ændrer ikke noget på den eksterne vært.
       - Guiden forsøger `loginctl enable-linger <user>`, så gatewayen forbliver kørende efter logout.
       - Kan bede om sudo (skriver til `/var/lib/systemd/linger`); den forsøger uden sudo først.
     - Runtime-valg: Node (anbefalet; kræves for WhatsApp og Telegram). Bun anbefales ikke.
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - Starter gatewayen (hvis nødvendigt) og kører `openclaw health`.
     - `openclaw status --deep` tilføjer gateway health-probes til statusoutputtet.
-  </Step>
+  
+</Step>
   <Step title="Skills">
     - Læser tilgængelige skills og kontrollerer krav.
     - Lader dig vælge node manager: npm eller pnpm (bun anbefales ikke).
     - Installerer valgfrie afhængigheder (nogle bruger Homebrew på macOS).
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - Resumé og næste trin, herunder iOS-, Android- og macOS-appmuligheder.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -113,61 +122,75 @@ Det, du indstiller:
 <AccordionGroup>
   <Accordion title="Anthropic API key (recommended)">
     Bruger `ANTHROPIC_API_KEY`, hvis den findes, eller beder om en nøgle og gemmer den til daemon-brug.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic OAuth (Claude Code CLI)">
     - macOS: tjekker Keychain-elementet "Claude Code-credentials"
     - Linux og Windows: genbruger `~/.claude/.credentials.json`, hvis den findes
 
     På macOS skal du vælge "Always Allow", så launchd-start ikke blokeres.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
     Kør `claude setup-token` på en hvilken som helst maskine, og indsæt derefter tokenet.
     Du kan navngive det; tomt felt bruger standard.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (Codex CLI reuse)">
     Hvis `~/.codex/auth.json` findes, kan guiden genbruge den.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (OAuth)">
     Browser-flow; indsæt `code#state`.
 
     Sætter `agents.defaults.model` til `openai-codex/gpt-5.3-codex`, når modellen ikke er angivet eller er `openai/*`.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI API key">
     Bruger `OPENAI_API_KEY`, hvis den findes, eller beder om en nøgle og gemmer den i
     `~/.openclaw/.env`, så launchd kan læse den.
 
     Sætter `agents.defaults.model` til `openai/gpt-5.1-codex`, når modellen ikke er angivet, er `openai/*` eller `openai-codex/*`.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="xAI (Grok) API key">
     Beder om `XAI_API_KEY` og konfigurerer xAI som modeludbyder.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen">
     Beder om `OPENCODE_API_KEY` (eller `OPENCODE_ZEN_API_KEY`).
     Setup URL: [opencode.ai/auth](https://opencode.ai/auth).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="API key (generic)">
     Gemmer nøglen for dig.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway">
     Beder om `AI_GATEWAY_API_KEY`.
     Flere detaljer: [Vercel AI Gateway](/providers/vercel-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway">
     Beder om konto-ID, gateway-ID og `CLOUDFLARE_AI_GATEWAY_API_KEY`.
     Flere detaljer: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="MiniMax M2.1">
     Konfigurationen skrives automatisk.
     Flere detaljer: [MiniMax](/providers/minimax).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic (Anthropic-compatible)">
     Beder om `SYNTHETIC_API_KEY`.
     Flere detaljer: [Synthetic](/providers/synthetic).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot and Kimi Coding">
     Moonshot (Kimi K2) og Kimi Coding-konfigurationer skrives automatisk.
     Flere detaljer: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Custom provider">
     Fungerer med OpenAI-kompatible og Anthropic-kompatible endpoints.
 
@@ -178,10 +201,12 @@ Det, du indstiller:
     - `--custom-api-key` (valgfri; falder tilbage til `CUSTOM_API_KEY`)
     - `--custom-provider-id` (valgfri)
     - `--custom-compatibility <openai|anthropic>` (valgfri; standard er `openai`)
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Skip">
     Efterlader auth ukonfigureret.
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 Modeladfærd:

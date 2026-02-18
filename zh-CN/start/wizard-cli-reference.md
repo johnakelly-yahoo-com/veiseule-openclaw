@@ -34,21 +34,25 @@ sidebarTitle: "CLI 参考"
       - 仅配置
       - 配置 + 凭证 + 会话
       - 完全重置（同时移除工作区）
-  </Step>
+  
+</Step>
   <Step title="模型与认证">
     - 完整选项矩阵见 [Auth and model options](#auth-and-model-options)。
-  </Step>
+  
+</Step>
   <Step title="工作区">
     - 默认 `~/.openclaw/workspace`（可配置）。
     - 初始化首次运行所需的工作区文件。
     - 工作区结构：[Agent workspace](/concepts/agent-workspace)。
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - 提示输入端口、绑定地址、认证模式和 tailscale 暴露方式。
     - 推荐：即使仅绑定到 loopback，也保持启用 token 认证，以确保本地 WS 客户端必须进行身份验证。
     - 仅在完全信任所有本地进程时才禁用认证。
     - 非 loopback 绑定仍然需要认证。
-  </Step>
+  
+</Step>
   <Step title="渠道">
     - [WhatsApp](/channels/whatsapp)：可选 QR 登录
     - [Telegram](/channels/telegram)：bot token
@@ -60,7 +64,8 @@ sidebarTitle: "CLI 参考"
     - [iMessage](/channels/imessage)：传统 `imsg` CLI 路径 + DB 访问
     - DM 安全：默认启用配对。首次 DM 会发送验证码；通过
       `openclaw pairing approve <channel> <code>` 批准，或使用 allowlists。
-  </Step>
+  
+</Step>
   <Step title="守护进程安装">
     - macOS：LaunchAgent
       - 需要已登录的用户会话；如需无头模式，请使用自定义 LaunchDaemon（未随软件提供）。
@@ -68,19 +73,23 @@ sidebarTitle: "CLI 参考"
       - 向导会尝试执行 `loginctl enable-linger <user>`，以便在注销后 gateway 仍保持运行。
       - 可能会提示 sudo（写入 `/var/lib/systemd/linger`）；会先尝试无 sudo 执行。
     - 运行时选择：Node（推荐；WhatsApp 和 Telegram 必需）。不推荐使用 Bun。
-  </Step>
+  
+</Step>
   <Step title="健康检查">
     - 启动 gateway（如有需要）并运行 `openclaw health`。
     - `openclaw status --deep` 会在状态输出中添加 gateway 健康探测。
-  </Step>
+  
+</Step>
   <Step title="技能">
     - 读取可用技能并检查其要求。
     - 选择 node 管理器：npm 或 pnpm（不推荐 bun）。
     - 安装可选依赖（部分在 macOS 上使用 Homebrew）。
-  </Step>
+  
+</Step>
   <Step title="完成">
     - 显示摘要和后续步骤，包括 iOS、Android 和 macOS 应用选项。
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -113,64 +122,78 @@ sidebarTitle: "CLI 参考"
 <AccordionGroup>
   <Accordion title="Anthropic API key（推荐）">
     如果存在 `ANTHROPIC_API_KEY` 则使用，否则提示输入 key，然后保存以供守护进程使用。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic OAuth（Claude Code CLI）">
     - macOS：检查 Keychain 项目 "Claude Code-credentials"
     - Linux 和 Windows：如果存在则复用 `~/.claude/.credentials.json`
 
     在 macOS 上请选择“Always Allow”，以避免 launchd 启动时被阻塞。
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic token（setup-token 粘贴）">
     在任意机器上运行 `claude setup-token`，然后粘贴 token。
     你可以为其命名；留空则使用默认名称。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription（复用 Codex CLI）">
     如果存在 `~/.codex/auth.json`，向导可以复用。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription（OAuth）">
     浏览器流程；粘贴 `code#state`。
 
     当模型未设置或为 `openai/*` 时，将 `agents.defaults.model` 设置为 `openai-codex/gpt-5.3-codex`。
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI API key">
     如果存在 `OPENAI_API_KEY` 则使用，否则提示输入 key，然后保存到
     `~/.openclaw/.env` 以便 launchd 读取。
 
     当模型未设置、为 `openai/*` 或 `openai-codex/*` 时，将 `agents.defaults.model` 设置为 `openai/gpt-5.1-codex`。
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="xAI（Grok）API key">
     提示输入 `XAI_API_KEY` 并将 xAI 配置为模型提供商。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen">
     提示输入 `OPENCODE_API_KEY`（或 `OPENCODE_ZEN_API_KEY`）。
     设置地址：[opencode.ai/auth](https://opencode.ai/auth)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="API key（通用）">
     为你保存该 key。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway">
     提示输入 `AI_GATEWAY_API_KEY`。
     更多信息：[Vercel AI Gateway](/providers/vercel-ai-gateway)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway">
     提示输入 account ID、gateway ID 和 `CLOUDFLARE_AI_GATEWAY_API_KEY`。
     更多信息：[Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="MiniMax M2.1">
     自动写入配置。
     更多信息：[MiniMax](/providers/minimax)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic（Anthropic 兼容）">
     提示输入 `SYNTHETIC_API_KEY`。
     更多信息：[Synthetic](/providers/synthetic)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot 和 Kimi Coding">
     自动写入 Moonshot（Kimi K2）和 Kimi Coding 配置。
     更多信息：[Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)。
-  </Accordion>
+  
+</Accordion>
   <Accordion title="自定义提供商">
     适用于 OpenAI 兼容和 Anthropic 兼容端点。
 
@@ -182,10 +205,12 @@ sidebarTitle: "CLI 参考"
     - `--custom-provider-id`（可选）
     - `--custom-compatibility <openai|anthropic>`（可选；默认 `openai`）
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="跳过">
     不配置认证。
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 模型行为：

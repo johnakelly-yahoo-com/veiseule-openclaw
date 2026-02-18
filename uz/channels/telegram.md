@@ -9,13 +9,16 @@ Status: grammY orqali bot DM + guruhlar uchun production-ready. Long polling suk
 <CardGroup cols={3}>
   <Card title="Juftlash (Pairing)" icon="link" href="/channels/pairing">
     Telegram uchun sukut bo‘yicha DM siyosati — juftlash (pairing).
-  </Card>
+  
+</Card>
   <Card title="Kanal nosozliklari" icon="wrench" href="/channels/troubleshooting">
     Kanallar bo‘yicha diagnostika va tuzatish qo‘llanmalari.
-  </Card>
+  
+</Card>
   <Card title="Gateway konfiguratsiyasi" icon="settings" href="/gateway/configuration">
     Kanal konfiguratsiyasi naqshlari va to‘liq misollar.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## Tezkor sozlash
@@ -26,7 +29,8 @@ Status: grammY orqali bot DM + guruhlar uchun production-ready. Long polling suk
 
     `/newbot` buyrug‘ini bajaring, ko‘rsatmalarga amal qiling va tokenni saqlang.
 
-  </Step>
+  
+</Step>
 
   <Step title="Token va DM siyosatini sozlang">
 
@@ -45,7 +49,8 @@ Status: grammY orqali bot DM + guruhlar uchun production-ready. Long polling suk
 
     Muhit varianti: `TELEGRAM_BOT_TOKEN=...` (faqat sukut bo‘yicha akkaunt uchun).
 
-  </Step>
+  
+</Step>
 
   <Step title="Gateway’ni ishga tushiring va birinchi DM’ni tasdiqlang">
 
@@ -57,11 +62,13 @@ openclaw pairing approve telegram <CODE>
 
     Juftlash kodlari 1 soatdan keyin muddati tugaydi.
 
-  </Step>
+  
+</Step>
 
   <Step title="Botni guruhga qo‘shing">
     Botni guruhingizga qo‘shing, so‘ng `channels.telegram.groups` va `groupPolicy` ni kirish modelingizga moslab sozlang.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -81,21 +88,24 @@ Token aniqlash tartibi akkauntga bog‘liq. Amalda konfiguratsiya qiymatlari muh
 
     Privacy mode’ni o‘zgartirgandan so‘ng, Telegram o‘zgarishni qo‘llashi uchun botni har bir guruhdan olib tashlab, qayta qo‘shing.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Guruh ruxsatlari">
     Admin maqomi Telegram guruh sozlamalarida boshqariladi.
 
     Admin botlar barcha guruh xabarlarini oladi, bu doimiy faol guruh xatti-harakati uchun foydali.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Foydali BotFather sozlamalari">
 
     - `/setjoingroups` — guruhlarga qo‘shishni ruxsat berish/taqiqlash
     - `/setprivacy` — guruh ko‘rinish xatti-harakatini boshqarish
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Kirish nazorati va faollashtirish
@@ -129,7 +139,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
 
     Uchinchi tomon (kamroq maxfiy): `@userinfobot` yoki `@getidsbot`.
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="Guruh siyosati va allowlist’lar">
     Ikkita mustaqil boshqaruv mavjud:
@@ -163,7 +174,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
 }
 ```
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="Mention xatti-harakati">
     Guruh javoblari sukut bo‘yicha mention talab qiladi.
@@ -202,7 +214,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
     - yoki `openclaw logs --follow` dan `chat.id` ni o‘qing
     - yoki Bot API `getUpdates` ni tekshiring
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Ishlash xatti-harakati

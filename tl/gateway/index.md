@@ -9,10 +9,12 @@ Gamitin ang pahinang ito para sa day-1 startup at day-2 operations ng Gateway se
 <CardGroup cols={2}>
   <Card title="Malalim na troubleshooting" icon="siren" href="/gateway/troubleshooting">
     Symptom-first na diagnostics na may eksaktong command ladders at log signatures.
-  </Card>
+  
+</Card>
   <Card title="Configuration" icon="sliders" href="/gateway/configuration">
     Task-oriented na gabay sa setup + kumpletong configuration reference.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## 5-minutong local startup
@@ -28,7 +30,8 @@ openclaw gateway --port 18789 --verbose
 openclaw gateway --force
 ```
 
-  </Step>
+  
+</Step>
 
   <Step title="I-verify ang service health">
 
@@ -40,7 +43,8 @@ openclaw logs --follow
 
 Healthy baseline: `Runtime: running` at `RPC probe: ok`.
 
-  </Step>
+  
+</Step>
 
   <Step title="I-validate ang channel readiness">
 
@@ -48,7 +52,8 @@ Healthy baseline: `Runtime: running` at `RPC probe: ok`.
 openclaw channels status --probe
 ```
 
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -128,7 +133,8 @@ openclaw gateway stop
 
 Ang mga LaunchAgent label ay `ai.openclaw.gateway` (default) o `ai.openclaw.<profile>` (named profile). Ang `openclaw doctor` ay nag-a-audit at nag-aayos ng service config drift.
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="Linux (systemd user)">
 
@@ -144,7 +150,8 @@ Para magpatuloy kahit mag-logout, i-enable ang lingering:
 sudo loginctl enable-linger <user>
 ```
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="Linux (system service)">
 
@@ -155,7 +162,8 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now openclaw-gateway[-<profile>].service
 ```
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Maramihang gateway sa iisang host

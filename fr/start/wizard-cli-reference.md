@@ -34,21 +34,25 @@ Il n’installe ni ne modifie quoi que ce soit sur l’hote distant.
       - Configuration uniquement
       - Configuration + informations d’identification + sessions
       - Reinitialisation complete (supprime aussi l’espace de travail)
-  </Step>
+  
+</Step>
   <Step title="Modele et authentification">
     - La matrice complete des options est disponible dans [Options d’authentification et de modele](#auth-and-model-options).
-  </Step>
+  
+</Step>
   <Step title="Espace de travail">
     - Par defaut `~/.openclaw/workspace` (configurable).
     - Initialise les fichiers d’espace de travail necessaires au rituel de bootstrap du premier lancement.
     - Structure de l’espace de travail : [Espace de travail de l’agent](/concepts/agent-workspace).
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Invite a definir le port, le bind, le mode d’authentification et l’exposition Tailscale.
     - Recommande : conserver l’authentification par jeton activee meme pour le loopback afin que les clients WS locaux doivent s’authentifier.
     - Desactivez l’authentification uniquement si vous faites pleinement confiance a chaque processus local.
     - Les binds non loopback exigent toujours l’authentification.
-  </Step>
+  
+</Step>
   <Step title="Canaux">
     - [WhatsApp](/channels/whatsapp) : connexion QR optionnelle
     - [Telegram](/channels/telegram) : jeton de bot
@@ -60,7 +64,8 @@ Il n’installe ni ne modifie quoi que ce soit sur l’hote distant.
     - [iMessage](/channels/imessage) : chemin CLI herite `imsg` + acces a la base de donnees
     - Securite des messages prives : par defaut, appairage. Le premier message prive envoie un code ; approuvez via
       `openclaw pairing approve <channel> <code>` ou utilisez des listes d’autorisation.
-  </Step>
+  
+</Step>
   <Step title="Installation du daemon">
     - macOS : LaunchAgent
       - Necessite une session utilisateur connectee ; pour le sans tete, utilisez un LaunchDaemon personnalise (non fourni).
@@ -68,19 +73,23 @@ Il n’installe ni ne modifie quoi que ce soit sur l’hote distant.
       - L’assistant tente `loginctl enable-linger <user>` afin que la Gateway reste active apres deconnexion.
       - Peut demander sudo (ecrit `/var/lib/systemd/linger`) ; il essaie d’abord sans sudo.
     - Selection du runtime : Node (recommande ; requis pour WhatsApp et Telegram). Bun n’est pas recommande.
-  </Step>
+  
+</Step>
   <Step title="Controle d’etat">
     - Demarre la Gateway (si necessaire) et execute `openclaw health`.
     - `openclaw status --deep` ajoute des sondes d’etat de la Gateway a la sortie de statut.
-  </Step>
+  
+</Step>
   <Step title="Skills">
     - Lit les Skills disponibles et verifie les prerequis.
     - Vous permet de choisir le gestionnaire Node : npm ou pnpm (bun non recommande).
     - Installe les dependances optionnelles (certaines utilisent Homebrew sur macOS).
-  </Step>
+  
+</Step>
   <Step title="Fin">
     - Resume et prochaines etapes, y compris les options d’applications iOS, Android et macOS.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -113,64 +122,78 @@ Ce que vous configurez :
 <AccordionGroup>
   <Accordion title="Anthropic API key (recommended)">
     Utilise `ANTHROPIC_API_KEY` si present ou demande une cle, puis l’enregistre pour l’usage du daemon.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic OAuth (Claude Code CLI)">
     - macOS : verifie l’element du Trousseau « Claude Code-credentials »
     - Linux et Windows : reutilise `~/.claude/.credentials.json` si present
 
     Sur macOS, choisissez « Toujours autoriser » afin que les demarrages via launchd ne soient pas bloques.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
     Executez `claude setup-token` sur n’importe quelle machine, puis collez le jeton.
     Vous pouvez le nommer ; vide utilise la valeur par defaut.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (Codex CLI reuse)">
     Si `~/.codex/auth.json` existe, l’assistant peut le reutiliser.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (OAuth)">
     Flux via navigateur ; collez `code#state`.
 
     Definit `agents.defaults.model` sur `openai-codex/gpt-5.3-codex` lorsque le modele n’est pas defini ou vaut `openai/*`.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI API key">
     Utilise `OPENAI_API_KEY` si present ou demande une cle, puis l’enregistre dans
     `~/.openclaw/.env` afin que launchd puisse la lire.
 
     Definit `agents.defaults.model` sur `openai/gpt-5.1-codex` lorsque le modele n’est pas defini, vaut `openai/*` ou `openai-codex/*`.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="xAI (Grok) API key">
     Invite pour `XAI_API_KEY` et configure xAI en tant que fournisseur de modeles.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen">
     Invite a fournir `OPENCODE_API_KEY` (ou `OPENCODE_ZEN_API_KEY`).
     URL de configuration : [opencode.ai/auth](https://opencode.ai/auth).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="API key (generic)">
     Stocke la cle pour vous.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway">
     Invite a fournir `AI_GATEWAY_API_KEY`.
     Plus de details : [Vercel AI Gateway](/providers/vercel-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway">
     Invite a fournir l’ID de compte, l’ID de Gateway et `CLOUDFLARE_AI_GATEWAY_API_KEY`.
     Plus de details : [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="MiniMax M2.1">
     La configuration est ecrite automatiquement.
     Plus de details : [MiniMax](/providers/minimax).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic (Anthropic-compatible)">
     Invite a fournir `SYNTHETIC_API_KEY`.
     Plus de details : [Synthetic](/providers/synthetic).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot and Kimi Coding">
     Les configurations Moonshot (Kimi K2) et Kimi Coding sont ecrites automatiquement.
     Plus de details : [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Custom provider">
     Fonctionne avec des endpoints compatibles OpenAI et Anthropic.
 
@@ -182,10 +205,12 @@ Ce que vous configurez :
     - `--custom-provider-id` (optionnel)
     - `--custom-compatibility <openai|anthropic>` (optionnel ; `openai` par defaut)
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Skip">
     Laisse l’authentification non configuree.
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 Comportement du modele :

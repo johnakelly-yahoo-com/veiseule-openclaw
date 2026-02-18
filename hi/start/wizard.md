@@ -48,10 +48,12 @@ Recommended: set up a Brave Search API key so the agent can use `web_search`
     - Gateway प्रमाणीकरण **Token** (loopback पर भी स्वतः‑उत्पन्न)
     - Tailscale एक्सपोज़र **Off**
     - Telegram + WhatsApp DMs डिफ़ॉल्ट रूप से **allowlist** (आपसे आपका फ़ोन नंबर पूछा जाएगा)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - प्रत्येक चरण को उजागर करता है (मोड, वर्कस्पेस, गेटवे, चैनल, डेमन, Skills)।
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## विज़ार्ड क्या विन्यस्त करता है

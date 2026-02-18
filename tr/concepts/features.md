@@ -7,22 +7,28 @@ title: "Özellikler"
 <Columns>
   <Card title="Channels" icon="message-square">
     Tek bir Gateway ile WhatsApp, Telegram, Discord ve iMessage.
-  </Card>
+  
+</Card>
   <Card title="Plugins" icon="plug">
     Uzantılarla Mattermost ve daha fazlasını ekleyin.
-  </Card>
+  
+</Card>
   <Card title="Routing" icon="route">
     İzole oturumlarla çoklu ajan yönlendirmesi.
-  </Card>
+  
+</Card>
   <Card title="Media" icon="image">
     Görseller, ses ve belgeler; giriş ve çıkış.
-  </Card>
+  
+</Card>
   <Card title="Apps and UI" icon="monitor">
     Web Control UI ve macOS yardımcı uygulaması.
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     Canvas desteğiyle iOS ve Android düğümleri.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Tam liste

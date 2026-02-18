@@ -7,22 +7,28 @@ title: "기능"
 <Columns>
   <Card title="Channels" icon="message-square">
     단일 Gateway(게이트웨이)로 WhatsApp, Telegram, Discord, iMessage 를 지원합니다.
-  </Card>
+  
+</Card>
   <Card title="Plugins" icon="plug">
     확장으로 Mattermost 등 다양한 서비스를 추가합니다.
-  </Card>
+  
+</Card>
   <Card title="Routing" icon="route">
     격리된 세션을 갖춘 다중 에이전트 라우팅.
-  </Card>
+  
+</Card>
   <Card title="Media" icon="image">
     이미지, 오디오, 문서의 입출력.
-  </Card>
+  
+</Card>
   <Card title="Apps and UI" icon="monitor">
     웹 제어 UI 와 macOS 컴패니언 앱.
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     Canvas 지원을 포함한 iOS 및 Android 노드.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## 전체 목록

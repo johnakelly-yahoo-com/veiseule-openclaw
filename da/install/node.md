@@ -26,7 +26,8 @@ Hvis dette udskriver `v22.x.x` eller højere, er du klar. Hvis Node ikke er inst
 
     Eller download macOS-installationsprogrammet fra [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
@@ -43,7 +44,8 @@ Hvis dette udskriver `v22.x.x` eller højere, er du klar. Hvis Node ikke er inst
 
     Eller brug en versionsmanager (se nedenfor).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget** (anbefalet):
 
@@ -59,7 +61,8 @@ Hvis dette udskriver `v22.x.x` eller højere, er du klar. Hvis Node ikke er inst
 
     Eller download Windows-installationsprogrammet fra [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
@@ -78,7 +81,8 @@ fnm use 22
 
   <Warning>
   Sørg for, at din version manager er initialiseret i din shell-opstartsfil (`~/.zshrc` eller `~/.bashrc`). Hvis den ikke er det, kan `openclaw` muligvis ikke findes i nye terminalsessioner, fordi PATH ikke inkluderer Node’s bin-mappe.
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## Fejlfinding
@@ -92,7 +96,8 @@ Det betyder næsten altid, at npm’s globale bin-mappe ikke er på din PATH.
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
@@ -100,7 +105,8 @@ Det betyder næsten altid, at npm’s globale bin-mappe ikke er på din PATH.
 
     Kig efter `<npm-prefix>/bin` (macOS/Linux) eller `<npm-prefix>` (Windows) i outputtet.
 
-  </Step>
+  
+</Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -111,13 +117,17 @@ Det betyder næsten altid, at npm’s globale bin-mappe ikke er på din PATH.
         ```
 
         Åbn derefter en ny terminal (eller kør `rehash` i zsh / `hash -r` i bash).
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         Tilføj outputtet af `npm prefix -g` til din system-PATH via Indstillinger → System → Miljøvariabler.
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Tilladelsesfejl på `npm install -g` (Linux)

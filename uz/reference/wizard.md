@@ -21,7 +21,8 @@ Yuqori darajadagi umumiy ko‘rinish uchun [Onboarding Wizard](/start/wizard) sa
       - Faqat konfiguratsiya
       - Konfiguratsiya + credentiallar + sessiyalar
       - To‘liq reset (workspace ham o‘chiriladi)
-  </Step>
+  
+</Step>
   <Step title="Model/Auth">
     - **Anthropic API key (tavsiya etiladi)**: agar mavjud bo‘lsa `ANTHROPIC_API_KEY` dan foydalanadi yoki kalitni so‘raydi, so‘ngra uni daemon foydalanishi uchun saqlaydi.
     - **Anthropic OAuth (Claude Code CLI)**: macOS’da wizard Keychain’dagi "Claude Code-credentials" elementini tekshiradi ("Always Allow" ni tanlang, shunda launchd ishga tushganda bloklanmaydi); Linux/Windows’da mavjud bo‘lsa `~/.claude/.credentials.json` dan foydalanadi.
@@ -53,19 +54,23 @@ Yuqori darajadagi umumiy ko‘rinish uchun [Onboarding Wizard](/start/wizard) sa
     Headless/server uchun maslahat: OAuth jarayonini brauzerli mashinada yakunlang, so‘ng
     `~/.openclaw/credentials/oauth.json` (yoki `$OPENCLAW_STATE_DIR/credentials/oauth.json`) faylini
     gateway hostiga ko‘chiring.
-    </Note>
-  </Step>
+    
+</Note>
+  
+</Step>
   <Step title="Workspace">
     - Standart `~/.openclaw/workspace` (o‘zgartirilishi mumkin).
     - Agent bootstrap jarayoni uchun zarur workspace fayllarini yaratadi.
     - To‘liq workspace tuzilmasi + zaxira qo‘llanmasi: [Agent workspace](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Port, bind, auth rejimi, tailscale orqali ochish.
     - Auth bo‘yicha tavsiya: hatto loopback uchun ham **Token** ni saqlang, shunda mahalliy WS mijozlari autentifikatsiyadan o‘tadi.
     - Faqat barcha mahalliy jarayonlarga to‘liq ishonchingiz bo‘lsa auth’ni o‘chiring.
     - Non‑loopback bind’lar ham auth talab qiladi.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): ixtiyoriy QR login.
     - [Telegram](/channels/telegram): bot tokeni.
@@ -76,7 +81,8 @@ Yuqori darajadagi umumiy ko‘rinish uchun [Onboarding Wizard](/start/wizard) sa
     - [BlueBubbles](/channels/bluebubbles): **iMessage uchun tavsiya etiladi**; server URL + parol + webhook.
     - [iMessage](/channels/imessage): eski `imsg` CLI yo‘li + DB kirishi.
     - DM xavfsizligi: standart holatda pairing. Birinchi DM kod yuboradi; `openclaw pairing approve <channel> <code>` orqali tasdiqlang yoki allowlist’dan foydalaning.
-  </Step>
+  
+</Step>
   <Step title="Daemon o‘rnatish">
     - macOS: LaunchAgent
       - Tizimga kirilgan foydalanuvchi sessiyasi talab qilinadi; headless uchun maxsus LaunchDaemon’dan foydalaning (taqdim etilmaydi).
@@ -84,19 +90,23 @@ Yuqori darajadagi umumiy ko‘rinish uchun [Onboarding Wizard](/start/wizard) sa
       - Gateway logout’dan keyin ham ishlashi uchun wizard `loginctl enable-linger <user>` ni yoqishga harakat qiladi.
       - sudo so‘rashi mumkin (`/var/lib/systemd/linger` ga yozadi); avval sudo’siz urinib ko‘radi.
     - **Runtime tanlash:** Node (tavsiya etiladi; WhatsApp/Telegram uchun talab qilinadi). Bun **tavsiya etilmaydi**.
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - Gateway’ni ishga tushiradi (agar kerak bo‘lsa) va `openclaw health` ni ishga tushiradi.
     - Maslahat: `openclaw status --deep` status chiqishiga gateway health tekshiruvlarini qo‘shadi (gateway mavjud bo‘lishi kerak).
-  </Step>
+  
+</Step>
   <Step title="Skills (tavsiya etiladi)">
     - Mavjud skills’larni o‘qiydi va talablarni tekshiradi.
     - Node manager tanlash imkonini beradi: **npm / pnpm** (bun tavsiya etilmaydi).
     - Ixtiyoriy bog‘liqliklarni o‘rnatadi (ba’zilari macOS’da Homebrew’dan foydalanadi).
-  </Step>
+  
+</Step>
   <Step title="Yakunlash">
     - Xulosa + keyingi qadamlar, jumladan qo‘shimcha funksiyalar uchun iOS/Android/macOS ilovalari.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -136,7 +146,8 @@ Mashina o‘qiy oladigan xulosa uchun `--json` ni qo‘shing.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI misoli">
     ```bash
     openclaw onboard --non-interactive \
@@ -146,7 +157,8 @@ Mashina o‘qiy oladigan xulosa uchun `--json` ni qo‘shing.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway misoli">
     ```bash
     openclaw onboard --non-interactive \
@@ -156,7 +168,8 @@ Mashina o‘qiy oladigan xulosa uchun `--json` ni qo‘shing.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway misoli">
     ```bash
     openclaw onboard --non-interactive \
@@ -168,7 +181,8 @@ Mashina o‘qiy oladigan xulosa uchun `--json` ni qo‘shing.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot misoli">
     ```bash
     openclaw onboard --non-interactive \
@@ -178,7 +192,8 @@ Mashina o‘qiy oladigan xulosa uchun `--json` ni qo‘shing.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic misoli">
     ```bash
     openclaw onboard --non-interactive \
@@ -188,7 +203,8 @@ Mashina o‘qiy oladigan xulosa uchun `--json` ni qo‘shing.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen misoli">
     ```bash
     openclaw onboard --non-interactive \
@@ -198,7 +214,8 @@ Mashina o‘qiy oladigan xulosa uchun `--json` ni qo‘shing.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ### Agent qo‘shish (non-interactive)

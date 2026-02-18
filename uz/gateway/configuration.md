@@ -36,21 +36,25 @@ Barcha mavjud maydonlar uchun [to‘liq ma’lumotnoma](/gateway/configuration-r
     openclaw onboard       # to‘liq sozlash ustasi
     openclaw configure     # konfiguratsiya ustasi
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="CLI (bir qatorli buyruqlar)">
     ```bash
     openclaw config get agents.defaults.workspace
     openclaw config set agents.defaults.heartbeat.every "2h"
     openclaw config unset tools.web.search.apiKey
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Control UI">
     [http://127.0.0.1:18789](http://127.0.0.1:18789) manzilini oching va **Config** yorlig‘idan foydalaning.  
     Control UI konfiguratsiya sxemasi asosida forma chizadi va zarurat bo‘lsa **Raw JSON** muharririni taqdim etadi.
-  </Tab>
+  
+</Tab>
   <Tab title="To‘g‘ridan-to‘g‘ri tahrirlash">
     `~/.openclaw/openclaw.json` faylini bevosita tahrirlang. Gateway faylni kuzatadi va o‘zgarishlarni avtomatik qo‘llaydi (qarang: [hot reload](#config-hot-reload)).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Qat’iy tekshiruv (Strict validation)
@@ -97,7 +101,8 @@ Tekshiruv muvaffaqiyatsiz bo‘lsa:
     }
     ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Modelni tanlash va sozlash">
     Asosiy model va ixtiyoriy zaxira variantlarni belgilang:
@@ -124,7 +129,8 @@ Tekshiruv muvaffaqiyatsiz bo‘lsa:
     - Chatda modelni almashtirish uchun [Models CLI](/concepts/models), zaxira xatti-harakati uchun [Model Failover](/concepts/model-failover) sahifalariga qarang.
     - Maxsus/self-hosted provayderlar uchun [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls) ga qarang.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Botga kim xabar yubora olishini boshqarish">
     DM kirishi kanal bo‘yicha `dmPolicy` orqali boshqariladi:
@@ -138,7 +144,8 @@ Tekshiruv muvaffaqiyatsiz bo‘lsa:
 
     Batafsil ma’lumot uchun [to‘liq ma’lumotnoma](/gateway/configuration-reference#dm-and-group-access) ga qarang.
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Config hot reload

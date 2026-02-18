@@ -81,7 +81,8 @@ flowchart TD
     - [/channels/troubleshooting](/channels/troubleshooting)
     - [/channels/pairing](/channels/pairing)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Dashboard yoki Control UI ulanmaydi">
     ```bash
@@ -110,7 +111,8 @@ flowchart TD
     - [/web/control-ui](/web/control-ui)
     - [/gateway/authentication](/gateway/authentication)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Gateway ishga tushmaydi yoki xizmat o‘rnatilgan, lekin ishlamayapti">
     ```bash
@@ -139,7 +141,8 @@ flowchart TD
     - [/gateway/background-process](/gateway/background-process)
     - [/gateway/configuration](/gateway/configuration)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Kanal ulanadi, lekin xabarlar oqimi yo‘q">
     ```bash
@@ -167,7 +170,8 @@ flowchart TD
     - [/gateway/troubleshooting#channel-connected-messages-not-flowing](/gateway/troubleshooting#channel-connected-messages-not-flowing)
     - [/channels/troubleshooting](/channels/troubleshooting)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Cron yoki heartbeat ishga tushmadi yoki yetkazilmadi">
     ```bash
@@ -198,7 +202,8 @@ flowchart TD
     - [/automation/troubleshooting](/automation/troubleshooting)
     - [/gateway/heartbeat](/gateway/heartbeat)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Tugun ulangan, lekin kamera/canvas/screen/exec asbobi ishlamaydi">
     ```bash
@@ -228,7 +233,8 @@ flowchart TD
     - [/nodes/troubleshooting](/nodes/troubleshooting)
     - [/tools/exec-approvals](/tools/exec-approvals)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Browser asbobi ishlamaydi">
     ```bash
@@ -257,6 +263,7 @@ flowchart TD
     - [/tools/browser-linux-troubleshooting](/tools/browser-linux-troubleshooting)
     - [/tools/chrome-extension](/tools/chrome-extension)
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 

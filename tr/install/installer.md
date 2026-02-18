@@ -28,7 +28,8 @@ Git yoksa kurar.
     ```
     ````
 
-  </Tab>
+  
+</Tab>
   <Tab title="install-cli.sh">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash
@@ -40,7 +41,8 @@ Git yoksa kurar.
     ```
     ````
 
-  </Tab>
+  
+</Tab>
   <Tab title="install.ps1">
     ```powershell
     iwr -useb https://openclaw.ai/install.ps1 | iex
@@ -52,7 +54,8 @@ Git yoksa kurar.
     ```
     ````
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Note>
@@ -72,21 +75,26 @@ macOS/Linux/WSL üzerinde çoğu etkileşimli kurulum için önerilir.
 <Steps>
   <Step title="Detect OS">
     macOS ve Linux’u (WSL dahil) destekler. macOS algılanırsa, eksikse Homebrew kurar.
-  </Step>
+  
+</Step>
   <Step title="Ensure Node.js 22+">
     Node sürümünü denetler ve gerekirse Node 22’yi kurar (macOS’ta Homebrew, Linux’ta NodeSource kurulum betikleri ile apt/dnf/yum).
-  </Step>
+  
+</Step>
   <Step title="Ensure Git">
-    npm ile `--prefix </Step>
+    npm ile `--prefix 
+</Step>
   <Step title="Install OpenClaw">
     - `npm` yöntemi (varsayılan): global npm kurulumu
     - `git` yöntemi: depoyu klonla/güncelle, pnpm ile bağımlılıkları kur, derle, ardından sarmalayıcıyı `~/.local/bin/openclaw` konumuna kur
-  </Step>
+  
+</Step>
   <Step title="Post-install tasks">
     - Yükseltmelerde ve git kurulumlarında `openclaw doctor --non-interactive` çalıştırır (en iyi çaba)
     - Uygun olduğunda onboarding’i dener (TTY mevcut, onboarding devre dışı değil ve bootstrap/yapılandırma kontrolleri geçer)
     - Varsayılan olarak `SHARP_IGNORE_GLOBAL_LIBVIPS=1`
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Kaynak checkout algılama
@@ -107,22 +115,26 @@ Geçersiz yöntem seçimi veya geçersiz `--install-method` değerleri için bet
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Skip onboarding">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --no-onboard
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Git install">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --install-method git
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Dry run">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --dry-run
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -144,7 +156,8 @@ Geçersiz yöntem seçimi veya geçersiz `--install-method` değerleri için bet
 | `--verbose`                       | Hata ayıklama çıktısını etkinleştir (`set -x`, npm notice-level günlükleri)                                     |
 | `--help`                          | Kullanımı göster (`-h`)                                                                                         |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -162,7 +175,8 @@ Geçersiz yöntem seçimi veya geçersiz `--install-method` değerleri için bet
 | `OPENCLAW_NPM_LOGLEVEL=error\\|warn\\|notice` | npm günlük düzeyi                                                                      |
 | `SHARP_IGNORE_GLOBAL_LIBVIPS=0\\|1`            | sharp/libvips davranışını denetle (varsayılan: `1`) |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ---
@@ -178,12 +192,15 @@ Her şeyin yerel bir önek altında olmasını (varsayılan `~/.openclaw`) ve si
 <Steps>
   <Step title="Install local Node runtime">
     Node tarball’unu (varsayılan `22.22.0`) `<prefix>/tools/node-v<version>` konumuna indirir ve SHA-256’yı doğrular.
-  </Step>
+  
+</Step>
   <Step title="Ensure Git">
     Git yoksa, Linux’ta apt/dnf/yum veya macOS’ta Homebrew ile kurmayı dener.
-  </Step>
+  
+</Step>
   <Step title="Install OpenClaw under prefix">`, kullanarak kurar, ardından sarmalayıcıyı `<prefix>Tanıtımı atla (varsayılan)<prefix>/bin/openclaw` konumuna yazar.
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Örnekler (install-cli.sh)
@@ -193,22 +210,26 @@ Her şeyin yerel bir önek altında olmasını (varsayılan `~/.openclaw`) ve si
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Custom prefix + version">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --prefix /opt/openclaw --version latest
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Automation JSON output">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --json --prefix /opt/openclaw
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Run onboarding">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --onboard
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -225,7 +246,8 @@ Her şeyin yerel bir önek altında olmasını (varsayılan `~/.openclaw`) ve si
 | `--set-npm-prefix`     | Linux’ta, mevcut önek yazılabilir değilse npm önekini `~/.npm-global`’ye zorla          |
 | `--help`               | Kullanımı göster (`-h`)                                              |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -239,7 +261,8 @@ Her şeyin yerel bir önek altında olmasını (varsayılan `~/.openclaw`) ve si
 | `OPENCLAW_GIT_DIR=<path>`                       | Eski temizlik arama yolu (eski `Peekaboo` alt modül checkout’ı kaldırılırken kullanılır) |
 | `SHARP_IGNORE_GLOBAL_LIBVIPS=0\\|1`            | sharp/libvips davranışını denetle (varsayılan: `1`)                      |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ---
@@ -251,17 +274,21 @@ Her şeyin yerel bir önek altında olmasını (varsayılan `~/.openclaw`) ve si
 <Steps>
   <Step title="Ensure PowerShell + Windows environment">
     PowerShell 5+ gerektirir.
-  </Step>
+  
+</Step>
   <Step title="Ensure Node.js 22+">
     If missing, attempts install via winget, then Chocolatey, then Scoop.
-  </Step>
+  
+</Step>
   <Step title="Install OpenClaw">
     - `npm` yöntemi (varsayılan): seçilen `-Tag` kullanılarak global npm kurulumu
     - `git` yöntemi: depoyu klonla/güncelle, pnpm ile kur/derle ve sarmalayıcıyı `%USERPROFILE%\.local\bin\openclaw.cmd` konumuna kur
-  </Step>
+  
+</Step>
   <Step title="Post-install tasks">
     Mümkün olduğunda gerekli bin dizinini kullanıcı PATH’ine ekler, ardından yükseltmelerde ve git kurulumlarında `openclaw doctor --non-interactive` çalıştırır (en iyi çaba).
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Örnekler (install.ps1)
@@ -271,22 +298,26 @@ Her şeyin yerel bir önek altında olmasını (varsayılan `~/.openclaw`) ve si
     ```powershell
     iwr -useb https://openclaw.ai/install.ps1 | iex
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Git install">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -InstallMethod git
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Custom git directory">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -InstallMethod git -GitDir "C:\openclaw"
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Dry run">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -DryRun
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -301,7 +332,8 @@ Her şeyin yerel bir önek altında olmasını (varsayılan `~/.openclaw`) ve si
 | `-NoGitUpdate`              | `git pull`’i atla                                                                          |
 | `-DryRun`                   | Yalnızca eylemleri yazdır                                                                  |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -313,7 +345,8 @@ Her şeyin yerel bir önek altında olmasını (varsayılan `~/.openclaw`) ve si
 | `OPENCLAW_GIT_UPDATE=0`              | git pull’u devre dışı bırak |
 | `OPENCLAW_DRY_RUN=1`                 | Dry run modu                |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 <Note>
@@ -331,23 +364,27 @@ Her şeyin yerel bir önek altında olmasını (varsayılan `~/.openclaw`) ve si
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --no-prompt --no-onboard
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install.sh (non-interactive git)">
     ```bash
     OPENCLAW_INSTALL_METHOD=git OPENCLAW_NO_PROMPT=1 \
       curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install-cli.sh (JSON)">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --json --prefix /opt/openclaw
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install.ps1 (skip onboarding)">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ---
@@ -357,11 +394,13 @@ Her şeyin yerel bir önek altında olmasını (varsayılan `~/.openclaw`) ve si
 <AccordionGroup>
   <Accordion title="Why is Git required?">
     Git, `git` kurulum yöntemi için gereklidir. `npm` kurulumlarında da, bağımlılıkların git URL’leri kullandığında `spawn git ENOENT` hatalarını önlemek için Git yine denetlenir/kurulur.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Why does npm hit EACCES on Linux?">
     Bazı Linux kurulumları npm global önekini root’a ait yollara işaret eder. `install.sh`, öneki `~/.npm-global`’ye değiştirebilir ve PATH dışa aktarımlarını kabuk rc dosyalarına ekleyebilir (bu dosyalar mevcutsa).
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="sharp/libvips issues">
     Betikler, sharp’ın sistem libvips’e karşı derlenmesini önlemek için varsayılan olarak `SHARP_IGNORE_GLOBAL_LIBVIPS=1` ayarlar. Geçersiz kılmak için:
@@ -372,19 +411,23 @@ Her şeyin yerel bir önek altında olmasını (varsayılan `~/.openclaw`) ve si
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title='Windows: "npm error spawn git / ENOENT"'>
     Git for Windows’u kurun, PowerShell’i yeniden açın, yükleyiciyi yeniden çalıştırın.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title='Windows: "openclaw is not recognized"'>
     `npm config get prefix` çalıştırın, `\bin` ekleyin, bu dizini kullanıcı PATH’ine ekleyin, ardından PowerShell’i yeniden açın.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="openclaw not found after install">
     Genellikle bir PATH sorunudur. [Node.js sorun giderme](/install/node#troubleshooting) bölümüne bakın.
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 

@@ -11,10 +11,12 @@ title: "クイックスタート"
 <Columns>
   <Card title="Getting Started" href="/start/getting-started">
     OpenClaw をインストールし、数分で最初のチャットを実行できます。
-  </Card>
+  
+</Card>
   <Card title="Onboarding Wizard" href="/start/wizard">
     CLI ウィザードの完全なリファレンスと高度なオプション。
-  </Card>
+  
+</Card>
 </Columns>
 
 

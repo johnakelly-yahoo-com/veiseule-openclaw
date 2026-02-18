@@ -33,21 +33,25 @@ Check your Node version with `node --version` if you are unsure.
         <img
   src="/assets/install-script.svg"
   alt="Install Script Process"
-  className="rounded-lg"
-/>
-      </Tab>
+  className="rounded-lg"></img>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     <Note>
     Other install methods and requirements: [Install](/install).
-    </Note>
+    
+</Note>
 
-  </Step>
+  
+</Step>
   <Step title="Run the onboarding wizard">
     ```bash
     openclaw onboard --install-daemon
@@ -56,7 +60,8 @@ Check your Node version with `node --version` if you are unsure.
     The wizard configures auth, gateway settings, and optional channels.
     See [Onboarding Wizard](/start/wizard) for details.
 
-  </Step>
+  
+</Step>
   <Step title="Check the Gateway">
     If you installed the service, it should already be running:
 
@@ -64,12 +69,14 @@ Check your Node version with `node --version` if you are unsure.
     openclaw gateway status
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Open the Control UI">
     ```bash
     openclaw dashboard
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 <Check>
@@ -86,7 +93,8 @@ If the Control UI loads, your Gateway is ready for use.
     openclaw gateway --port 18789
     ```
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Send a test message">
     Requires a configured channel.
 
@@ -94,7 +102,8 @@ If the Control UI loads, your Gateway is ready for use.
     openclaw message send --target +15555550123 --message "Hello from OpenClaw"
     ```
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Useful environment variables
@@ -112,10 +121,12 @@ Full environment variable reference: [Environment vars](/help/environment).
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
     Full CLI wizard reference and advanced options.
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     First run flow for the macOS app.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## What you will have

@@ -48,10 +48,12 @@ Der Assistent startet mit **Schnellstart** (Standards) vs. **Erweitert** (volle 
     - Gateway-Authentifizierung **Token** (automatisch generiert, auch bei loopback)
     - Tailscale-Exponierung **Aus**
     - Telegram- und WhatsApp-Direktnachrichten standardmäßig auf **Allowlist** (Sie werden nach Ihrer Telefonnummer gefragt)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - Legt jeden Schritt offen (Modus, Workspace, Gateway, Kanäle, Daemon, Skills).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Was der Assistent konfiguriert

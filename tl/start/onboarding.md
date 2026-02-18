@@ -12,22 +12,22 @@ wizard, and let the agent bootstrap itself.
 <Steps>
 <Step title="Approve macOS warning">
 <Frame>
-<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt="" />
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Approve find local networks">
 <Frame>
-<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt="" />
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Welcome and security notice">
 <Frame caption="Basahin ang ipinapakitang abiso sa seguridad at magpasya nang naaayon">
-<img src="/assets/macos-onboarding/03-security-notice.png" alt="" />
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
 </Frame>
 </Step>
 <Step title="Local vs Remote">
 <Frame>
-<img src="/assets/macos-onboarding/04-choose-gateway.png" alt="" />
+<img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
 Saan tatakbo ang **Gateway**?
@@ -47,7 +47,7 @@ Saan tatakbo ang **Gateway**?
 </Step>
 <Step title="Permissions">
 <Frame caption="Piliin kung aling mga permiso ang nais mong ibigay sa OpenClaw">
-<img src="/assets/macos-onboarding/05-permissions.png" alt="" />
+<img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
 Humihingi ang onboarding ng mga TCC permission na kailangan para sa:
@@ -63,7 +63,8 @@ Humihingi ang onboarding ng mga TCC permission na kailangan para sa:
 
 </Step>
 <Step title="CLI">
-  <Info>Opsyonal ang hakbang na ito</Info>
+  <Info>Opsyonal ang hakbang na ito
+</Info>
   Maaaring i-install ng app ang global `openclaw` CLI sa pamamagitan ng npm/pnpm upang gumana agad ang mga terminal
   workflow at mga launchd task.
 </Step>

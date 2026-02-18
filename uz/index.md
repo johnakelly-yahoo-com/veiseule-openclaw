@@ -11,14 +11,12 @@ sidebarTitle: "OpenClaw"
         src="/assets/openclaw-logo-text-dark.png"
         alt="OpenClaw"
         width="500"
-        class="dark:hidden"
-    />
+        class="dark:hidden"></img>
     <img
         src="/assets/openclaw-logo-text.png"
         alt="OpenClaw"
         width="500"
-        class="hidden dark:block"
-    />
+        class="hidden dark:block"></img>
 </p>
 
 > _"EXFOLIATE! EXFOLIATE!"_ — ehtimol, kosmik omar
@@ -31,13 +29,16 @@ sidebarTitle: "OpenClaw"
 <Columns>
   <Card title="Boshlash" href="/start/getting-started" icon="rocket">
     OpenClaw’ni o‘rnating va Gateway’ni bir necha daqiqada ishga tushiring.
-  </Card>
+  
+</Card>
   <Card title="Sehrgarni ishga tushiring" href="/start/wizard" icon="sparkles">
     `openclaw onboard` va juftlash jarayonlari bilan boshqariladigan sozlash.
-  </Card>
+  
+</Card>
   <Card title="Control UI’ni oching" href="/web/control-ui" icon="layout-dashboard">
     Chat, konfiguratsiya va sessiyalar uchun brauzer boshqaruv panelini ishga tushiring.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## OpenClaw nima?
@@ -74,22 +75,28 @@ Gateway sessiyalar, marshrutlash va kanal ulanishlari uchun yagona haqiqat manba
 <Columns>
   <Card title="Ko‘p kanalli gateway" icon="network">
     Bitta Gateway jarayoni bilan WhatsApp, Telegram, Discord va iMessage.
-  </Card>
+  
+</Card>
   <Card title="Plagin kanallari" icon="plug">
     Kengaytma paketlari orqali Mattermost va boshqalarni qo‘shing.
-  </Card>
+  
+</Card>
   <Card title="Ko‘p agentli marshrutlash" icon="route">
     Har bir agent, ish maydoni yoki jo‘natuvchi uchun alohida sessiyalar.
-  </Card>
+  
+</Card>
   <Card title="Media qo‘llab-quvvatlash" icon="image">
     Rasm, audio va hujjatlarni yuborish va qabul qilish.
-  </Card>
+  
+</Card>
   <Card title="Web Control UI" icon="monitor">
     Chat, konfiguratsiya, sessiyalar va tugunlar uchun brauzer boshqaruv paneli.
-  </Card>
+  
+</Card>
   <Card title="Mobil tugunlar" icon="smartphone">
     Canvas qo‘llab-quvvatlovi bilan iOS va Android tugunlarini juftlash.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Tezkor boshlash
@@ -99,18 +106,21 @@ Gateway sessiyalar, marshrutlash va kanal ulanishlari uchun yagona haqiqat manba
     ```bash
     npm install -g openclaw@latest
     ```
-  </Step>
+  
+</Step>
   <Step title="Onboard qiling va xizmatni o‘rnating">
     ```bash
     openclaw onboard --install-daemon
     ```
-  </Step>
+  
+</Step>
   <Step title="WhatsApp’ni juftlang va Gateway’ni ishga tushiring">
     ```bash
     openclaw channels login
     openclaw gateway --port 18789
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 To‘liq o‘rnatish va ishlab chiqish sozlamalari kerakmi? [Quick start](/start/quickstart) ga qarang.
@@ -123,7 +133,7 @@ Gateway ishga tushgach, brauzer Control UI’ni oching.
 - Masofaviy kirish: [Web surfaces](/web) va [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420" />
+  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Konfiguratsiya (ixtiyoriy)
@@ -152,22 +162,28 @@ Misol:
 <Columns>
   <Card title="Hujjatlar markazi" href="/start/hubs" icon="book-open">
     Foydalanish holatlari bo‘yicha tartiblangan barcha hujjatlar va qo‘llanmalar.
-  </Card>
+  
+</Card>
   <Card title="Konfiguratsiya" href="/gateway/configuration" icon="settings">
     Asosiy Gateway sozlamalari, tokenlar va provider konfiguratsiyasi.
-  </Card>
+  
+</Card>
   <Card title="Masofaviy kirish" href="/gateway/remote" icon="globe">
     SSH va tailnet kirish usullari.
-  </Card>
+  
+</Card>
   <Card title="Kanallar" href="/channels/telegram" icon="message-square">
     WhatsApp, Telegram, Discord va boshqalar uchun kanalga xos sozlash.
-  </Card>
+  
+</Card>
   <Card title="Tugunlar" href="/nodes" icon="smartphone">
     Juftlash va Canvas bilan iOS va Android tugunlari.
-  </Card>
+  
+</Card>
   <Card title="Yordam" href="/help" icon="life-buoy">
     Keng tarqalgan tuzatishlar va muammolarni bartaraf etish bo‘limi.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Batafsil ma’lumot
@@ -175,18 +191,23 @@ Misol:
 <Columns>
   <Card title="To‘liq imkoniyatlar ro‘yxati" href="/concepts/features" icon="list">
     Kanal, marshrutlash va media imkoniyatlarining to‘liq tavsifi.
-  </Card>
+  
+</Card>
   <Card title="Ko‘p agentli marshrutlash" href="/concepts/multi-agent" icon="route">
     Workspace izolyatsiyasi va har bir agent uchun alohida sessiyalar.
-  </Card>
+  
+</Card>
   <Card title="Xavfsizlik" href="/gateway/security" icon="shield">
     Tokenlar, allowlist’lar va xavfsizlik boshqaruvlari.
-  </Card>
+  
+</Card>
   <Card title="Muammolarni bartaraf etish" href="/gateway/troubleshooting" icon="wrench">
     Gateway diagnostikasi va keng tarqalgan xatolar.
-  </Card>
+  
+</Card>
   <Card title="Loyiha va mualliflar" href="/reference/credits" icon="info">
     Loyiha kelib chiqishi, hissa qo‘shuvchilar va litsenziya.
-  </Card>
+  
+</Card>
 </Columns>
 

@@ -36,21 +36,25 @@ Se [fuld reference](/gateway/configuration-reference) for alle tilgængelige fel
     openclaw onboard       # fuld opsætningsguide
     openclaw configure     # konfigurationsguide
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="CLI (one-liners)">
     ```bash
     openclaw config get agents.defaults.workspace
     openclaw config set agents.defaults.heartbeat.every "2h"
     openclaw config unset tools.web.search.apiKey
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Control UI">
     Åbn [http://127.0.0.1:18789](http://127.0.0.1:18789) og brug fanen **Config**.  
     Control UI genererer en formular fra konfigurationsskemaet med en **Raw JSON**-editor som nødudgang.
-  </Tab>
+  
+</Tab>
   <Tab title="Direkte redigering">
     Redigér `~/.openclaw/openclaw.json` direkte. Gateway overvåger filen og anvender ændringer automatisk (se [hot reload](#config-hot-reload)).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Streng validering
@@ -96,7 +100,8 @@ Når validering fejler:
       },
     }
     ```
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Vælg og konfigurer modeller">
     Sæt primær model og eventuelle fallbacks:
@@ -123,7 +128,8 @@ Når validering fejler:
     - Se [Models CLI](/concepts/models) for at skifte model i chat og [Model Failover](/concepts/model-failover) for fallback-adfærd.
     - For brugerdefinerede/self-hosted udbydere, se [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Styr hvem der kan skrive til botten">
     DM-adgang styres pr. kanal via `dmPolicy`:
@@ -137,7 +143,8 @@ Når validering fejler:
 
     Se [fuld reference](/gateway/configuration-reference#dm-and-group-access) for detaljer.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Opsæt mention-gating i gruppechat">
     Gruppebeskeder kræver som standard **mention**. Konfigurer mønstre pr. agent:
@@ -166,7 +173,8 @@ Når validering fejler:
     - **Tekstmønstre**: regex-mønstre i `mentionPatterns`
     - Se [fuld reference](/gateway/configuration-reference#group-chat-mention-gating) for overrides pr. kanal og self-chat-tilstand.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Konfigurer sessioner og nulstillinger">
     Sessioner styrer samtalekontinuitet og isolation:
@@ -188,7 +196,8 @@ Når validering fejler:
     - Se [Session Management](/concepts/session) for scoping og identitetslinks.
     - Se [fuld reference](/gateway/configuration-reference#session) for alle felter.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Aktivér sandboxing">
     Kør agent-sessioner i isolerede Docker-containere:
@@ -210,7 +219,8 @@ Når validering fejler:
 
     Se [Sandboxing](/gateway/sandboxing) for fuld guide og [fuld reference](/gateway/configuration-reference#sandbox) for alle muligheder.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Opsæt heartbeat (periodiske check-ins)">
     ```json5
@@ -230,7 +240,8 @@ Når validering fejler:
     - `target`: `last` | `whatsapp` | `telegram` | `discord` | `none`
     - Se [Heartbeat](/gateway/heartbeat).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Konfigurer cron-jobs">
     ```json5
@@ -245,7 +256,8 @@ Når validering fejler:
 
     Se [Cron jobs](/automation/cron-jobs).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Opsæt webhooks (hooks)">
     Aktivér HTTP webhook-endpoints på Gateway:
@@ -273,7 +285,8 @@ Når validering fejler:
 
     Se [fuld reference](/gateway/configuration-reference#hooks).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Konfigurer multi-agent routing">
     Kør flere isolerede agenter med separate workspaces og sessioner:
@@ -295,7 +308,8 @@ Når validering fejler:
 
     Se [Multi-Agent](/concepts/multi-agent) og [fuld reference](/gateway/configuration-reference#multi-agent-routing).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Opdel config i flere filer ($include)">
     Brug `$include` til at organisere store configs:
@@ -318,7 +332,8 @@ Når validering fejler:
     - **Relative stier**: opløses relativt til inkluderende fil
     - **Fejlhåndtering**: klare fejl ved manglende filer, parse-fejl og cirkulære includes
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Config hot reload

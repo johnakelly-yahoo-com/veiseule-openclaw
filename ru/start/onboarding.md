@@ -12,22 +12,22 @@ sidebarTitle: "Онбординг: приложение для macOS"
 <Steps>
 <Step title="Approve macOS warning">
 <Frame>
-<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt="" />
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Approve find local networks">
 <Frame>
-<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt="" />
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Welcome and security notice">
 <Frame caption="Прочитайте отображаемое уведомление о безопасности и примите решение">
-<img src="/assets/macos-onboarding/03-security-notice.png" alt="" />
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
 </Frame>
 </Step>
 <Step title="Local vs Remote">
 <Frame>
-<img src="/assets/macos-onboarding/04-choose-gateway.png" alt="" />
+<img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
 Где работает **Gateway (шлюз)**?
@@ -47,7 +47,7 @@ sidebarTitle: "Онбординг: приложение для macOS"
 </Step>
 <Step title="Permissions">
 <Frame caption="Выберите, какие разрешения вы хотите предоставить OpenClaw">
-<img src="/assets/macos-onboarding/05-permissions.png" alt="" />
+<img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
 Онбординг запрашивает разрешения TCC, необходимые для:
@@ -63,7 +63,8 @@ sidebarTitle: "Онбординг: приложение для macOS"
 
 </Step>
 <Step title="CLI">
-  <Info>Этот шаг необязателен</Info>
+  <Info>Этот шаг необязателен
+</Info>
   Приложение может установить глобальный CLI `openclaw` через npm/pnpm, чтобы
   рабочие процессы в терминале и задачи launchd работали сразу «из коробки».
 </Step>

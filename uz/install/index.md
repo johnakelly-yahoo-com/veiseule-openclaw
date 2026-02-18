@@ -31,13 +31,16 @@ Windows’da OpenClaw’ni [WSL2](https://learn.microsoft.com/en-us/windows/wsl/
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     Shu bilan tamom — skript Node’ni aniqlash, o‘rnatish va boshlang‘ich sozlashni o‘zi bajaradi.
 
@@ -48,17 +51,21 @@ Windows’da OpenClaw’ni [WSL2](https://learn.microsoft.com/en-us/windows/wsl/
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     Barcha flaglar, muhit o‘zgaruvchilari va CI/avtomatlashtirish variantlari uchun [Installer internals](/install/installer) sahifasiga qarang.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     Agar sizda allaqachon Node 22+ mavjud bo‘lsa va o‘rnatishni o‘zingiz boshqarishni xohlasangiz:
@@ -78,8 +85,10 @@ Windows’da OpenClaw’ni [WSL2](https://learn.microsoft.com/en-us/windows/wsl/
           ```
 
           Agar `sharp: Please add node-gyp to your dependencies` xabarini ko‘rsangiz, yoki qurilish vositalarini o‘rnating (macOS: Xcode CLT + `npm install -g node-gyp`), yoki yuqoridagi muhit o‘zgaruvchisidan foydalaning.
-        </Accordion>
-      </Tab>
+        
+</Accordion>
+      
+</Tab>
       <Tab title="pnpm">
         ```bash
         pnpm add -g openclaw@latest
@@ -89,11 +98,15 @@ Windows’da OpenClaw’ni [WSL2](https://learn.microsoft.com/en-us/windows/wsl/
 
         <Note>
         pnpm qurilish skriptlariga ega paketlar uchun aniq tasdiqlashni talab qiladi. Birinchi o‘rnatishda "Ignored build scripts" ogohlantirishi chiqqach, `pnpm approve-builds -g` buyrug‘ini ishga tushiring va ro‘yxatdagi paketlarni tanlang.
-        </Note>
-      </Tab>
-    </Tabs>
+        
+</Note>
+      
+</Tab>
+    
+</Tabs>
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="From source" icon="github">
     Hissa qo‘shuvchilar yoki lokal checkout’dan ishga tushirmoqchi bo‘lganlar uchun.
@@ -109,7 +122,8 @@ Windows’da OpenClaw’ni [WSL2](https://learn.microsoft.com/en-us/windows/wsl/
         pnpm ui:build
         pnpm build
         ```
-      </Step>
+      
+</Step>
       <Step title="Link the CLI">
         `openclaw` buyrug‘ini global mavjud qiling:
 
@@ -118,17 +132,21 @@ Windows’da OpenClaw’ni [WSL2](https://learn.microsoft.com/en-us/windows/wsl/
         ```
 
         Yoki link qilmasdan, repozitoriya ichidan `pnpm openclaw ...` orqali buyruqlarni ishga tushiring.
-      </Step>
+      
+</Step>
       <Step title="Run onboarding">
         ```bash
         openclaw onboard --install-daemon
         ```
-      </Step>
-    </Steps>
+      
+</Step>
+    
+</Steps>
 
     Chuqurroq ishlab chiqish jarayonlari uchun [Setup](/start/setup) sahifasiga qarang.
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Boshqa o‘rnatish usullari
@@ -136,19 +154,24 @@ Windows’da OpenClaw’ni [WSL2](https://learn.microsoft.com/en-us/windows/wsl/
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     Konteynerlangan yoki headless joylashtirishlar.
-  </Card>
+  
+</Card>
   <Card title="Podman" href="/install/podman" icon="container">
     Rootless konteyner: `setup-podman.sh` ni bir marta ishga tushiring, so‘ng launch skriptini.
-  </Card>
+  
+</Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     Nix orqali deklarativ o‘rnatish.
-  </Card>
+  
+</Card>
   <Card title="Ansible" href="/install/ansible" icon="server">
     Avtomatlashtirilgan park (fleet) tayyorlash.
-  </Card>
+  
+</Card>
   <Card title="Bun" href="/install/bun" icon="zap">
     Bun runtime orqali faqat CLI’dan foydalanish.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## O‘rnatilgandan so‘ng
@@ -199,12 +222,15 @@ So‘ng yangi terminal oching (yoki zsh’da `rehash` / bash’da `hash -r`).
 <CardGroup cols={3}>
   <Card title="Updating" href="/install/updating" icon="refresh-cw">
     OpenClaw’ni yangilab turing.
-  </Card>
+  
+</Card>
   <Card title="Migrating" href="/install/migrating" icon="arrow-right">
     Yangi kompyuterga ko‘chirish.
-  </Card>
+  
+</Card>
   <Card title="Uninstall" href="/install/uninstall" icon="trash-2">
     OpenClaw’ni to‘liq olib tashlash.
-  </Card>
+  
+</Card>
 </CardGroup>
 

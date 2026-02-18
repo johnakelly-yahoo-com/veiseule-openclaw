@@ -13,22 +13,22 @@ bootstrap etmesine izin vermek.
 <Steps>
 <Step title="Approve macOS warning">
 <Frame>
-<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt="" />
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Approve find local networks">
 <Frame>
-<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt="" />
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Welcome and security notice">
 <Frame caption="Görüntülenen güvenlik bildirimini okuyun ve buna göre karar verin">
-<img src="/assets/macos-onboarding/03-security-notice.png" alt="" />
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
 </Frame>
 </Step>
 <Step title="Local vs Remote">
 <Frame>
-<img src="/assets/macos-onboarding/04-choose-gateway.png" alt="" />
+<img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
 **Gateway** nerede çalışır?
@@ -52,7 +52,7 @@ bootstrap etmesine izin vermek.
 </Step>
 <Step title="Permissions">
 <Frame caption="OpenClaw’a hangi izinleri vermek istediğinizi seçin">
-<img src="/assets/macos-onboarding/05-permissions.png" alt="" />
+<img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
 Onboarding, aşağıdakiler için gerekli TCC izinlerini ister:
@@ -68,7 +68,8 @@ Onboarding, aşağıdakiler için gerekli TCC izinlerini ister:
 
 </Step>
 <Step title="CLI">
-  <Info>Bu adım isteğe bağlıdır</Info>
+  <Info>Bu adım isteğe bağlıdır
+</Info>
   Uygulama, terminal iş akışlarının ve launchd görevlerinin kutudan çıktığı gibi
   çalışması için npm/pnpm üzerinden global `openclaw` CLI’yı kurabilir.
 </Step>

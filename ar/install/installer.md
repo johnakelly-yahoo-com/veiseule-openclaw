@@ -24,7 +24,8 @@ title: "متدرب المثبت"
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --help
     ```
 
-  </Tab>
+  
+</Tab>
   <Tab title="install-cli.sh">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash
@@ -34,7 +35,8 @@ title: "متدرب المثبت"
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --help
     ```
 
-  </Tab>
+  
+</Tab>
   <Tab title="install.ps1">
     ```powershell
     iwr -useb https://openclaw.ai/install.ps1 | iex
@@ -44,7 +46,8 @@ title: "متدرب المثبت"
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -Tag beta -NoOnboard -DryRun
     ```
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Note>
@@ -64,22 +67,27 @@ title: "متدرب المثبت"
 <Steps>
   <Step title="Detect OS">
     يدعم macOS وLinux (بما في ذلك WSL). عند اكتشاف macOS، يثبّت Homebrew إذا كان مفقودًا.
-  </Step>
+  
+</Step>
   <Step title="Ensure Node.js 22+">
     يتحقّق من إصدار Node ويثبّت Node 22 عند الحاجة (Homebrew على macOS، وسكربتات إعداد NodeSource على Linux عبر apt/dnf/yum).
-  </Step>
+  
+</Step>
   <Step title="Ensure Git">
     يثبّت Git إذا كان مفقودًا.
-  </Step>
+  
+</Step>
   <Step title="Install OpenClaw">
     - طريقة `npm` (الافتراضية): تثبيت npm عالمي
     - طريقة `git`: استنساخ/تحديث المستودع، تثبيت الاعتمادات عبر pnpm، البناء، ثم تثبيت الغلاف في `~/.local/bin/openclaw`
-  </Step>
+  
+</Step>
   <Step title="Post-install tasks">
     - تشغيل `openclaw doctor --non-interactive` عند الترقيات وتثبيتات git (بأفضل جهد)
     - محاولة التهيئة الأولية عند الاقتضاء (توفر TTY، وعدم تعطيل التهيئة الأولية، واجتياز فحوصات bootstrap/التهيئة)
     - الضبط الافتراضي `SHARP_IGNORE_GLOBAL_LIBVIPS=1`
-  </Step>
+  
+</Step>
 </Steps>
 
 ### اكتشاف نسخة المصدر
@@ -100,22 +108,26 @@ title: "متدرب المثبت"
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Skip onboarding">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --no-onboard
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Git install">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --install-method git
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Dry run">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --dry-run
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -137,7 +149,8 @@ title: "متدرب المثبت"
 | `--verbose`                     | تمكين مخرجات التصحيح (`set -x`, سجلات npm بمستوى الإشعار) |
 | `--help`                        | عرض الاستخدام (`-h`)                                       |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -155,7 +168,8 @@ title: "متدرب المثبت"
 | `OPENCLAW_NPM_LOGLEVEL=error\|warn\|notice` | مستوى سجلات npm                              |
 | `SHARP_IGNORE_GLOBAL_LIBVIPS=0\|1`          | التحكم في سلوك sharp/libvips (الافتراضي: `1`) |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ---
@@ -171,13 +185,16 @@ title: "متدرب المثبت"
 <Steps>
   <Step title="Install local Node runtime">
     تنزيل حزمة Node (الافتراضي `22.22.0`) إلى `<prefix>/tools/node-v<version>` والتحقق من SHA-256.
-  </Step>
+  
+</Step>
   <Step title="Ensure Git">
     إذا كان Git مفقودًا، يحاول التثبيت عبر apt/dnf/yum على Linux أو Homebrew على macOS.
-  </Step>
+  
+</Step>
   <Step title="Install OpenClaw under prefix">
     يثبّت باستخدام npm مع `--prefix <prefix>`، ثم يكتب الغلاف إلى `<prefix>/bin/openclaw`.
-  </Step>
+  
+</Step>
 </Steps>
 
 ### أمثلة (install-cli.sh)
@@ -187,22 +204,26 @@ title: "متدرب المثبت"
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Custom prefix + version">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --prefix /opt/openclaw --version latest
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Automation JSON output">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --json --prefix /opt/openclaw
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Run onboarding">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --onboard
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -219,7 +240,8 @@ title: "متدرب المثبت"
 | `--set-npm-prefix`     | على Linux، فرض بادئة npm إلى `~/.npm-global` إذا كانت البادئة الحالية غير قابلة للكتابة |
 | `--help`               | عرض الاستخدام (`-h`)                                                            |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -233,7 +255,8 @@ title: "متدرب المثبت"
 | `OPENCLAW_GIT_DIR=<path>`                   | مسار بحث تنظيف قديم (يُستخدم عند إزالة نسخة قديمة من `Peekaboo` كنسخة فرعية) |
 | `SHARP_IGNORE_GLOBAL_LIBVIPS=0\|1`          | التحكم في سلوك sharp/libvips (الافتراضي: `1`)                                   |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ---
@@ -245,17 +268,21 @@ title: "متدرب المثبت"
 <Steps>
   <Step title="Ensure PowerShell + Windows environment">
     يتطلّب PowerShell 5+.
-  </Step>
+  
+</Step>
   <Step title="Ensure Node.js 22+">
     إذا كان مفقودًا، يحاول التثبيت عبر winget، ثم Chocolatey، ثم Scoop.
-  </Step>
+  
+</Step>
   <Step title="Install OpenClaw">
     - طريقة `npm` (الافتراضية): تثبيت npm عالمي باستخدام `-Tag` المحدد
     - طريقة `git`: استنساخ/تحديث المستودع، التثبيت/البناء عبر pnpm، وتثبيت الغلاف في `%USERPROFILE%\.local\bin\openclaw.cmd`
-  </Step>
+  
+</Step>
   <Step title="Post-install tasks">
     يضيف دليل bin المطلوب إلى PATH للمستخدم عند الإمكان، ثم يشغّل `openclaw doctor --non-interactive` عند الترقيات وتثبيتات git (بأفضل جهد).
-  </Step>
+  
+</Step>
 </Steps>
 
 ### أمثلة (install.ps1)
@@ -265,22 +292,26 @@ title: "متدرب المثبت"
     ```powershell
     iwr -useb https://openclaw.ai/install.ps1 | iex
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Git install">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -InstallMethod git
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Custom git directory">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -InstallMethod git -GitDir "C:\openclaw"
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Dry run">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -DryRun
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Debug trace">
     ```powershell
     # install.ps1 has no dedicated -Verbose flag yet.
@@ -288,7 +319,8 @@ title: "متدرب المثبت"
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
     Set-PSDebug -Trace 0
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -303,7 +335,8 @@ title: "متدرب المثبت"
 | `-NoGitUpdate`            | تخطي `git pull`                                        |
 | `-DryRun`                 | طباعة الإجراءات فقط                                   |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -315,7 +348,8 @@ title: "متدرب المثبت"
 | `OPENCLAW_GIT_UPDATE=0`            | تعطيل git pull    |
 | `OPENCLAW_DRY_RUN=1`               | وضع التشغيل الجاف |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 <Note>
@@ -333,23 +367,27 @@ title: "متدرب المثبت"
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --no-prompt --no-onboard
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install.sh (non-interactive git)">
     ```bash
     OPENCLAW_INSTALL_METHOD=git OPENCLAW_NO_PROMPT=1 \
       curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install-cli.sh (JSON)">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --json --prefix /opt/openclaw
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install.ps1 (skip onboarding)">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ---
@@ -359,11 +397,13 @@ title: "متدرب المثبت"
 <AccordionGroup>
   <Accordion title="Why is Git required?">
     Git مطلوب لطريقة التثبيت `git`. بالنسبة لتثبيتات `npm`، لا يزال يتم التحقق من Git/تثبيته لتجنّب إخفاقات `spawn git ENOENT` عندما تستخدم الاعتمادات عناوين URL عبر git.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Why does npm hit EACCES on Linux?">
     تشير بعض إعدادات Linux إلى أن بادئة npm العالمية موجّهة إلى مسارات مملوكة لـ root. يمكن لـ `install.sh` تبديل البادئة إلى `~/.npm-global` وإلحاق صادرات PATH بملفات rc الخاصة بالصدفة (عندما تكون تلك الملفات موجودة).
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="sharp/libvips issues">
     تضبط السكربتات افتراضيًا `SHARP_IGNORE_GLOBAL_LIBVIPS=1` لتجنّب قيام sharp بالبناء مقابل libvips النظام. للتجاوز:
@@ -372,15 +412,18 @@ title: "متدرب المثبت"
     SHARP_IGNORE_GLOBAL_LIBVIPS=0 curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title='Windows: "npm error spawn git / ENOENT"'>
     ثبّت Git for Windows، أعد فتح PowerShell، ثم أعد تشغيل المُثبّت.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title='Windows: "openclaw is not recognized"'>
     شغّل `npm config get prefix`، وألحق `\bin`، وأضِف ذلك الدليل إلى PATH للمستخدم، ثم أعد فتح PowerShell.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Windows: how to get verbose installer output">
     لا يوفّر `install.ps1` حاليًا خيار `-Verbose`.
@@ -392,9 +435,11 @@ title: "متدرب المثبت"
     Set-PSDebug -Trace 0
     ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="openclaw not found after install">
     غالبًا ما تكون مشكلة PATH. راجع [استكشاف أخطاء Node.js وإصلاحها](/install/node#troubleshooting).
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>

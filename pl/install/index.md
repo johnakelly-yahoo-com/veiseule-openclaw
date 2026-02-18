@@ -31,13 +31,16 @@ W systemie Windows zdecydowanie zalecamy uruchamianie OpenClaw w [WSL2](https://
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     To wszystko — skrypt zajmuje się wykrywaniem Node, instalacją i onboardingiem.
 
@@ -48,17 +51,21 @@ W systemie Windows zdecydowanie zalecamy uruchamianie OpenClaw w [WSL2](https://
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     Wszystkie flagi, zmienne środowiskowe oraz opcje CI/automatyzacji znajdziesz w [Wnętrzu instalatora](/install/installer).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     Jeśli masz już Node 22+ i wolisz samodzielnie zarządzać instalacją:
@@ -78,8 +85,10 @@ W systemie Windows zdecydowanie zalecamy uruchamianie OpenClaw w [WSL2](https://
           ```
 
           Jeśli zobaczysz `sharp: Please add node-gyp to your dependencies`, zainstaluj narzędzia do budowania (macOS: Xcode CLT + `npm install -g node-gyp`) albo użyj powyższej zmiennej środowiskowej.
-        </Accordion>
-      </Tab>
+        
+</Accordion>
+      
+</Tab>
       <Tab title="pnpm">
         ```bash
         pnpm add -g openclaw@latest
@@ -89,11 +98,15 @@ W systemie Windows zdecydowanie zalecamy uruchamianie OpenClaw w [WSL2](https://
 
         <Note>
         pnpm wymaga jawnej zgody dla pakietów ze skryptami budowania. Po pierwszej instalacji, gdy pojawi się ostrzeżenie „Ignored build scripts”, uruchom `pnpm approve-builds -g` i wybierz wymienione pakiety.
-        </Note>
-      </Tab>
-    </Tabs>
+        
+</Note>
+      
+</Tab>
+    
+</Tabs>
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="From source" icon="github">
     Dla współtwórców lub każdego, kto chce uruchamiać z lokalnego checkoutu.
@@ -109,7 +122,8 @@ W systemie Windows zdecydowanie zalecamy uruchamianie OpenClaw w [WSL2](https://
         pnpm ui:build
         pnpm build
         ```
-      </Step>
+      
+</Step>
       <Step title="Podlinkowanie CLI">
         Udostępnij polecenie `openclaw` globalnie:
 
@@ -118,17 +132,21 @@ W systemie Windows zdecydowanie zalecamy uruchamianie OpenClaw w [WSL2](https://
         ```
 
         Alternatywnie pomiń linkowanie i uruchamiaj polecenia przez `pnpm openclaw ...` z poziomu repozytorium.
-      </Step>
+      
+</Step>
       <Step title="Uruchom onboarding">
         ```bash
         openclaw onboard --install-daemon
         ```
-      </Step>
-    </Steps>
+      
+</Step>
+    
+</Steps>
 
     Bardziej zaawansowane przepływy deweloperskie znajdziesz w [Konfiguracji](/start/setup).
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Inne metody instalacji
@@ -136,19 +154,24 @@ W systemie Windows zdecydowanie zalecamy uruchamianie OpenClaw w [WSL2](https://
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     Wdrożenia kontenerowe lub bez interfejsu.
-  </Card>
+  
+</Card>
   <Card title="Podman" href="/install/podman" icon="container">
     Rootless container: run `setup-podman.sh` once, then the launch script.
-  </Card>
+  
+</Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     Deklaratywna instalacja przez Nix.
-  </Card>
+  
+</Card>
   <Card title="Ansible" href="/install/ansible" icon="server">
     Zautomatyzowane wdrażanie floty.
-  </Card>
+  
+</Card>
   <Card title="Bun" href="/install/bun" icon="zap">
     Użycie wyłącznie CLI przez środowisko uruchomieniowe Bun.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## Po instalacji
@@ -199,12 +222,15 @@ Następnie otwórz nowy terminal (lub `rehash` w zsh / `hash -r` w bash).
 <CardGroup cols={3}>
   <Card title="Updating" href="/install/updating" icon="refresh-cw">
     Utrzymuj OpenClaw na bieżąco.
-  </Card>
+  
+</Card>
   <Card title="Migrating" href="/install/migrating" icon="arrow-right">
     Przenieś się na nową maszynę.
-  </Card>
+  
+</Card>
   <Card title="Uninstall" href="/install/uninstall" icon="trash-2">
     Całkowicie usuń OpenClaw.
-  </Card>
+  
+</Card>
 </CardGroup>
 

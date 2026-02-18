@@ -24,7 +24,8 @@ title: "28.\
 - [/tools/browser-linux-troubleshooting](/tools/browser-linux-troubleshooting)
 - [/tools/chrome-extension](/tools/chrome-extension)
 
-30. </Accordion> 31. SOUL Evil hook (SOUL.md o‘rniga SOUL_EVIL.md ni almashtirish)
+30. 
+</Accordion> 31. SOUL Evil hook (SOUL.md o‘rniga SOUL_EVIL.md ni almashtirish)
 
 ## 32. Siz SOUL Evil hook’ni yoqmoqchisiz yoki sozlamoqchisiz
 

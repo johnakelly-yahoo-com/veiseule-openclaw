@@ -87,7 +87,7 @@ Full setup walkthrough (28m) by VelvetShark.
 
 OpenCode finishes the change → opens a PR → OpenClaw reviews the diff and replies in Telegram with “minor suggestions” plus a clear merge verdict (including critical fixes to apply first).
 
-  <img src="/assets/showcase/pr-review-telegram.jpg" alt="OpenClaw PR review feedback delivered in Telegram" />
+  <img src="/assets/showcase/pr-review-telegram.jpg" alt="OpenClaw PR review feedback delivered in Telegram"></img>
 </Card>
 
 <Card title="Wine Cellar Skill in Minutes" icon="wine-glass" href="https://x.com/i/status/2010916352454791216">
@@ -95,7 +95,7 @@ OpenCode finishes the change → opens a PR → OpenClaw reviews the diff and re
 
 Asked “Robby” (@openclaw) for a local wine cellar skill. It requests a sample CSV export + where to store it, then builds/tests the skill fast (962 bottles in the example).
 
-  <img src="/assets/showcase/wine-cellar-skill.jpg" alt="OpenClaw building a local wine cellar skill from CSV" />
+  <img src="/assets/showcase/wine-cellar-skill.jpg" alt="OpenClaw building a local wine cellar skill from CSV"></img>
 </Card>
 
 <Card title="Tesco Shop Autopilot" icon="cart-shopping" href="https://x.com/i/status/2009724862470689131">
@@ -103,7 +103,7 @@ Asked “Robby” (@openclaw) for a local wine cellar skill. It requests a sampl
 
 Weekly meal plan → regulars → book delivery slot → confirm order. No APIs, just browser control.
 
-  <img src="/assets/showcase/tesco-shop.jpg" alt="Tesco shop automation via chat" />
+  <img src="/assets/showcase/tesco-shop.jpg" alt="Tesco shop automation via chat"></img>
 </Card>
 
 <Card title="SNAG Screenshot-to-Markdown" icon="scissors" href="https://github.com/am-will/snag">
@@ -111,7 +111,7 @@ Weekly meal plan → regulars → book delivery slot → confirm order. No APIs,
 
 Hotkey a screen region → Gemini vision → instant Markdown in your clipboard.
 
-  <img src="/assets/showcase/snag.png" alt="SNAG screenshot-to-markdown tool" />
+  <img src="/assets/showcase/snag.png" alt="SNAG screenshot-to-markdown tool"></img>
 </Card>
 
 <Card title="Agents UI" icon="window-maximize" href="https://releaseflow.net/kitze/agents-ui">
@@ -119,7 +119,7 @@ Hotkey a screen region → Gemini vision → instant Markdown in your clipboard.
 
 Desktop app to manage skills/commands across Agents, Claude, Codex, and OpenClaw.
 
-  <img src="/assets/showcase/agents-ui.jpg" alt="Agents UI app" />
+  <img src="/assets/showcase/agents-ui.jpg" alt="Agents UI app"></img>
 </Card>
 
 <Card title="Telegram Voice Notes (papla.media)" icon="microphone" href="https://papla.media/docs">
@@ -127,7 +127,7 @@ Desktop app to manage skills/commands across Agents, Claude, Codex, and OpenClaw
 
 Wraps papla.media TTS and sends results as Telegram voice notes (no annoying autoplay).
 
-  <img src="/assets/showcase/papla-tts.jpg" alt="Telegram voice note output from TTS" />
+  <img src="/assets/showcase/papla-tts.jpg" alt="Telegram voice note output from TTS"></img>
 </Card>
 
 <Card title="CodexMonitor" icon="eye" href="https://clawhub.com/odrobnik/codexmonitor">
@@ -135,7 +135,7 @@ Wraps papla.media TTS and sends results as Telegram voice notes (no annoying aut
 
 Homebrew-installed helper to list/inspect/watch local OpenAI Codex sessions (CLI + VS Code).
 
-  <img src="/assets/showcase/codexmonitor.png" alt="CodexMonitor on ClawHub" />
+  <img src="/assets/showcase/codexmonitor.png" alt="CodexMonitor on ClawHub"></img>
 </Card>
 
 <Card title="Bambu 3D Printer Control" icon="print" href="https://clawhub.com/tobiasbischoff/bambu-cli">
@@ -143,7 +143,7 @@ Homebrew-installed helper to list/inspect/watch local OpenAI Codex sessions (CLI
 
 Control and troubleshoot BambuLab printers: status, jobs, camera, AMS, calibration, and more.
 
-  <img src="/assets/showcase/bambu-cli.png" alt="Bambu CLI skill on ClawHub" />
+  <img src="/assets/showcase/bambu-cli.png" alt="Bambu CLI skill on ClawHub"></img>
 </Card>
 
 <Card title="Vienna Transport (Wiener Linien)" icon="train" href="https://clawhub.com/hjanuschka/wienerlinien">
@@ -151,7 +151,7 @@ Control and troubleshoot BambuLab printers: status, jobs, camera, AMS, calibrati
 
 Real-time departures, disruptions, elevator status, and routing for Vienna's public transport.
 
-  <img src="/assets/showcase/wienerlinien.png" alt="Wiener Linien skill on ClawHub" />
+  <img src="/assets/showcase/wienerlinien.png" alt="Wiener Linien skill on ClawHub"></img>
 </Card>
 
 <Card title="ParentPay School Meals" icon="utensils" href="#">
@@ -171,7 +171,7 @@ Upload to Cloudflare R2/S3 and generate secure presigned download links. Perfect
 
 Built a complete iOS app with maps and voice recording, deployed to TestFlight entirely via Telegram chat.
 
-  <img src="/assets/showcase/ios-testflight.jpg" alt="iOS app on TestFlight" />
+  <img src="/assets/showcase/ios-testflight.jpg" alt="iOS app on TestFlight"></img>
 </Card>
 
 <Card title="Oura Ring Health Assistant" icon="heart-pulse" href="#">
@@ -179,7 +179,7 @@ Built a complete iOS app with maps and voice recording, deployed to TestFlight e
 
 Personal AI health assistant integrating Oura ring data with calendar, appointments, and gym schedule.
 
-  <img src="/assets/showcase/oura-health.png" alt="Oura ring health assistant" />
+  <img src="/assets/showcase/oura-health.png" alt="Oura ring health assistant"></img>
 </Card>
 <Card title="Kev's Dream Team (14+ Agents)" icon="robot" href="https://github.com/adam91holt/orchestrated-ai-articles">
   **@adam91holt** • `multi-agent` `orchestration` `architecture` `manifesto`
@@ -210,7 +210,7 @@ Read, send, and archive messages via Beeper Desktop. Uses Beeper local MCP API s
 
 Claude Code discovered and confirmed the purifier controls, then OpenClaw takes over to manage room air quality.
 
-  <img src="/assets/showcase/winix-air-purifier.jpg" alt="Winix air purifier control via OpenClaw" />
+  <img src="/assets/showcase/winix-air-purifier.jpg" alt="Winix air purifier control via OpenClaw"></img>
 </Card>
 
 <Card title="Pretty Sky Camera Shots" icon="camera" href="https://x.com/signalgaining/status/2010523120604746151">
@@ -218,7 +218,7 @@ Claude Code discovered and confirmed the purifier controls, then OpenClaw takes 
 
 Triggered by a roof camera: ask OpenClaw to snap a sky photo whenever it looks pretty — it designed a skill and took the shot.
 
-  <img src="/assets/showcase/roof-camera-sky.jpg" alt="Roof camera sky snapshot captured by OpenClaw" />
+  <img src="/assets/showcase/roof-camera-sky.jpg" alt="Roof camera sky snapshot captured by OpenClaw"></img>
 </Card>
 
 <Card title="Visual Morning Briefing Scene" icon="robot" href="https://x.com/buddyhadry/status/2010005331925954739">
@@ -232,7 +232,7 @@ A scheduled prompt generates a single "scene" image each morning (weather, tasks
   
   Playtomic availability checker + booking CLI. Never miss an open court again.
   
-  <img src="/assets/showcase/padel-screenshot.jpg" alt="padel-cli screenshot" />
+  <img src="/assets/showcase/padel-screenshot.jpg" alt="padel-cli screenshot"></img>
 </Card>
 
 <Card title="Accounting Intake" icon="file-invoice-dollar">
@@ -288,7 +288,7 @@ Watches company Slack channel, responds helpfully, and forwards notifications to
   
   Chinese learning engine with pronunciation feedback and study flows via OpenClaw.
   
-  <img src="/assets/showcase/xuezh-pronunciation.jpeg" alt="xuezh pronunciation feedback" />
+  <img src="/assets/showcase/xuezh-pronunciation.jpeg" alt="xuezh pronunciation feedback"></img>
 </Card>
 
 <Card title="WhatsApp Memory Vault" icon="vault">
@@ -368,7 +368,7 @@ Multi-lingual audio transcription via OpenRouter (Gemini, etc). Available on Cla
   
   Nix-native home automation with OpenClaw as the interface, plus beautiful Grafana dashboards.
   
-  <img src="/assets/showcase/gohome-grafana.png" alt="GoHome Grafana dashboard" />
+  <img src="/assets/showcase/gohome-grafana.png" alt="GoHome Grafana dashboard"></img>
 </Card>
 
 <Card title="Roborock Vacuum" icon="robot" href="https://github.com/joshp123/gohome/tree/main/plugins/roborock">
@@ -376,7 +376,7 @@ Multi-lingual audio transcription via OpenRouter (Gemini, etc). Available on Cla
   
   Control your Roborock robot vacuum through natural conversation.
   
-  <img src="/assets/showcase/roborock-screenshot.jpg" alt="Roborock status" />
+  <img src="/assets/showcase/roborock-screenshot.jpg" alt="Roborock status"></img>
 </Card>
 
 </CardGroup>
@@ -402,13 +402,16 @@ Have something to share? We'd love to feature it!
 <Steps>
   <Step title="Share It">
     Post in [#showcase on Discord](https://discord.gg/clawd) or [tweet @openclaw](https://x.com/openclaw)
-  </Step>
+  
+</Step>
   <Step title="Include Details">
     Tell us what it does, link to the repo/demo, share a screenshot if you have one
-  </Step>
+  
+</Step>
   <Step title="Get Featured">
     We'll add standout projects to this page
-  </Step>
+  
+</Step>
 </Steps>
 
 

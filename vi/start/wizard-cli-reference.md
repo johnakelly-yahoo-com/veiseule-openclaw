@@ -34,21 +34,25 @@ Nó không cài đặt hay sửa đổi bất cứ thứ gì trên host từ xa.
       - Chỉ cấu hình
       - Cấu hình + thông tin xác thực + phiên làm việc
       - Đặt lại hoàn toàn (cũng xóa workspace)
-  </Step>
+  
+</Step>
   <Step title="Model and auth">
     - Ma trận tùy chọn đầy đủ nằm trong [Tùy chọn xác thực và mô hình](#auth-and-model-options).
-  </Step>
+  
+</Step>
   <Step title="Workspace">
     - Mặc định `~/.openclaw/workspace` (có thể cấu hình).
     - Tạo sẵn các tệp workspace cần thiết cho quy trình khởi tạo lần chạy đầu tiên.
     - Bố cục không gian làm việc: [Agent workspace](/concepts/agent-workspace).
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Hỏi về cổng, bind, chế độ xác thực và mức phơi bày tailscale.
     - Khuyến nghị: giữ bật xác thực bằng token ngay cả cho loopback để các client WS cục bộ vẫn phải xác thực.
     - Chỉ tắt xác thực nếu bạn hoàn toàn tin tưởng mọi tiến trình cục bộ.
     - Các kết nối bind không phải loopback vẫn yêu cầu xác thực.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): đăng nhập QR tùy chọn
     - [Telegram](/channels/telegram): bot token
@@ -60,7 +64,8 @@ Nó không cài đặt hay sửa đổi bất cứ thứ gì trên host từ xa.
     - [iMessage](/channels/imessage): đường dẫn CLI `imsg` legacy + truy cập DB
     - Bảo mật DM: mặc định là ghép cặp. DM đầu tiên gửi một mã; phê duyệt bằng
       `openclaw pairing approve <channel> <code>` hoặc dùng allowlist.
-  </Step>
+  
+</Step>
   <Step title="Cài đặt daemon">
     - macOS: LaunchAgent
       - Yêu cầu phiên người dùng đã đăng nhập; với headless, dùng LaunchDaemon tùy chỉnh (không đi kèm).
@@ -68,19 +73,23 @@ Nó không cài đặt hay sửa đổi bất cứ thứ gì trên host từ xa.
       - Trình hướng dẫn cố gắng chạy `loginctl enable-linger <user>` để gateway vẫn hoạt động sau khi đăng xuất.
       - Có thể yêu cầu sudo (ghi vào `/var/lib/systemd/linger`); nó sẽ thử không dùng sudo trước.
     - Lựa chọn runtime: Node (khuyến nghị; bắt buộc cho WhatsApp và Telegram). Bun không được khuyến nghị.
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - Khởi động gateway (nếu cần) và chạy `openclaw health`.
     - `openclaw status --deep` thêm các probe kiểm tra sức khỏe gateway vào đầu ra trạng thái.
-  </Step>
+  
+</Step>
   <Step title="Skills">
     - Đọc các skill có sẵn và kiểm tra yêu cầu.
     - Cho phép bạn chọn trình quản lý node: npm hoặc pnpm (bun không được khuyến nghị).
     - Cài đặt các phụ thuộc tùy chọn (một số dùng Homebrew trên macOS).
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - Tóm tắt và các bước tiếp theo, bao gồm các tùy chọn ứng dụng iOS, Android và macOS.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -113,64 +122,78 @@ Những gì bạn thiết lập:
 <AccordionGroup>
   <Accordion title="Anthropic API key (recommended)">
     Sử dụng `ANTHROPIC_API_KEY` nếu có hoặc yêu cầu nhập khóa, sau đó lưu để daemon sử dụng.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic OAuth (Claude Code CLI)">
     - macOS: kiểm tra mục Keychain "Claude Code-credentials"
     - Linux và Windows: tái sử dụng `~/.claude/.credentials.json` nếu có
 
     Trên macOS, hãy chọn "Always Allow" để các lần khởi động launchd không bị chặn.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
     Chạy `claude setup-token` trên bất kỳ máy nào, sau đó dán token.
     Bạn có thể đặt tên; để trống sẽ dùng mặc định.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (Codex CLI reuse)">
     Nếu `~/.codex/auth.json` tồn tại, wizard có thể tái sử dụng.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (OAuth)">
     Luồng qua trình duyệt; dán `code#state`.
 
     Đặt `agents.defaults.model` thành `openai-codex/gpt-5.3-codex` khi mô hình chưa được đặt hoặc là `openai/*`.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI API key">
     Sử dụng `OPENAI_API_KEY` nếu có hoặc yêu cầu nhập khóa, sau đó lưu vào
     `~/.openclaw/.env` để launchd có thể đọc.
 
     Đặt `agents.defaults.model` thành `openai/gpt-5.1-codex` khi mô hình chưa được đặt, là `openai/*`, hoặc `openai-codex/*`.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="xAI (Grok) API key">
     Yêu cầu nhập `XAI_API_KEY` và cấu hình xAI làm nhà cung cấp mô hình.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen">
     Yêu cầu nhập `OPENCODE_API_KEY` (hoặc `OPENCODE_ZEN_API_KEY`).
     URL thiết lập: [opencode.ai/auth](https://opencode.ai/auth).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="API key (generic)">
     Lưu khóa cho bạn.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway">
     Nhắc nhập `AI_GATEWAY_API_KEY`.
     Thông tin chi tiết: [Vercel AI Gateway](/providers/vercel-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway">
     Nhắc nhập account ID, gateway ID và `CLOUDFLARE_AI_GATEWAY_API_KEY`.
     Thông tin chi tiết: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="MiniMax M2.1">
     Cấu hình được ghi tự động.
     Thông tin chi tiết: [MiniMax](/providers/minimax).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic (Anthropic-compatible)">
     Nhắc nhập `SYNTHETIC_API_KEY`.
     Thông tin chi tiết: [Synthetic](/providers/synthetic).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot and Kimi Coding">
     Cấu hình Moonshot (Kimi K2) và Kimi Coding được ghi tự động.
     Thông tin chi tiết: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Custom provider">
     Hoạt động với các endpoint tương thích OpenAI và Anthropic.
 
@@ -182,10 +205,12 @@ Những gì bạn thiết lập:
     - `--custom-provider-id` (tùy chọn)
     - `--custom-compatibility <openai|anthropic>` (tùy chọn; mặc định `openai`)
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Skip">
     Để xác thực chưa được cấu hình.
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 Hành vi mô hình:

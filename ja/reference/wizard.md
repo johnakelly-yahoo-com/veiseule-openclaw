@@ -19,7 +19,8 @@ sidebarTitle: "ウィザード リファレンス"
       - Config のみ
       - Config + credentials + sessions
       - フルリセット（workspace も削除）
-  </Step>
+  
+</Step>
   <Step title="Model/Auth">
     - **Anthropic API key (recommended)**: `ANTHROPIC_API_KEY` が存在すれば使用し、なければキー入力を求め、デーモン用に保存します。
     - **Anthropic OAuth (Claude Code CLI)**: macOS ではキーチェーン項目「Claude Code-credentials」を確認します（「Always Allow」を選択すると launchd 起動時にブロックされません）。Linux/Windows では `~/.claude/.credentials.json` が存在すれば再利用します。
@@ -51,19 +52,23 @@ sidebarTitle: "ウィザード リファレンス"
     ヘッドレス / サーバー向けのヒント: ブラウザのあるマシンで OAuth を完了し、  
     `~/.openclaw/credentials/oauth.json`（または `$OPENCLAW_STATE_DIR/credentials/oauth.json`）を  
     Gateway ホストへコピーしてください。
-    </Note>
-  </Step>
+    
+</Note>
+  
+</Step>
   <Step title="Workspace">
     - デフォルトは `~/.openclaw/workspace`（変更可能）。
     - エージェントのブートストラップ儀式に必要なワークスペースファイルをシードします。
     - 完全なワークスペース構成とバックアップガイド: [Agent workspace](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - ポート、bind、認証モード、Tailscale 公開を設定します。
     - 認証の推奨: ループバックのみでも **Token** を維持し、ローカル WS クライアントにも認証を必須にします。
     - すべてのローカルプロセスを完全に信頼できる場合のみ、認証を無効化してください。
     - ループバック以外の bind でも認証は必須です。
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): オプションの QR ログイン。
     - [Telegram](/channels/telegram): bot token。
@@ -74,7 +79,8 @@ sidebarTitle: "ウィザード リファレンス"
     - [BlueBubbles](/channels/bluebubbles): **iMessage に推奨**; server URL + password + webhook。
     - [iMessage](/channels/imessage): レガシー `imsg` CLI パス + DB アクセス。
     - DM セキュリティ: デフォルトはペアリングです。最初の DM でコードが送信されます。`openclaw pairing approve <channel> <code>` で承認するか、allowlist を使用します。
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - ログイン済みユーザーセッションが必要です。ヘッドレス環境ではカスタム LaunchDaemon（同梱されていません）を使用してください。
@@ -82,19 +88,23 @@ sidebarTitle: "ウィザード リファレンス"
       - ウィザードは `loginctl enable-linger <user>` を有効化し、ログアウト後も Gateway が起動し続けるよう試みます。
       - sudo を求められる場合があります（`/var/lib/systemd/linger` に書き込み）。まず sudo なしで試行します。
     - **Runtime selection:** Node（推奨; WhatsApp/Telegram に必須）。Bun は **非推奨**。
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - 必要に応じて Gateway を起動し、`openclaw health` を実行します。
     - ヒント: `openclaw status --deep` はステータス出力に gateway ヘルスプローブを追加します（到達可能な gateway が必要）。
-  </Step>
+  
+</Step>
   <Step title="Skills (recommended)">
     - 利用可能なスキルを読み取り、要件を確認します。
     - node manager を選択: **npm / pnpm**（bun は非推奨）。
     - 任意の依存関係をインストールします（一部は macOS で Homebrew を使用）。
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - サマリーと次のステップ（追加機能のための iOS/Android/macOS アプリを含む）。
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -134,7 +144,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI example">
     ```bash
     openclaw onboard --non-interactive \
@@ -144,7 +155,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -154,7 +166,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -166,7 +179,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot example">
     ```bash
     openclaw onboard --non-interactive \
@@ -176,7 +190,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic example">
     ```bash
     openclaw onboard --non-interactive \
@@ -186,7 +201,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen example">
     ```bash
     openclaw onboard --non-interactive \
@@ -196,7 +212,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ### エージェントの追加（非対話）

@@ -30,21 +30,26 @@ Jeśli nie masz pewności, sprawdź wersję Node poleceniem `node --version`.
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     ```
     <Note>
     Inne metody instalacji i wymagania: [Instalacja](/install).
-    </Note>
+    
+</Note>
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Run the onboarding wizard">
     ```bash
     openclaw onboard --install-daemon
@@ -55,7 +60,8 @@ Jeśli nie masz pewności, sprawdź wersję Node poleceniem `node --version`.
     Zobacz [Kreator wdrożenia](/start/wizard), aby poznać szczegóły.
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Check the Gateway">
     Jeśli zainstalowałeś usługę, powinna już działać:
 
@@ -65,12 +71,14 @@ Jeśli nie masz pewności, sprawdź wersję Node poleceniem `node --version`.
     ```
     ````
 
-  </Step>
+  
+</Step>
   <Step title="Open the Control UI">
     ```bash
     openclaw dashboard
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 <Check>
@@ -89,7 +97,8 @@ Jeśli Control UI się ładuje, Twój Gateway jest gotowy do użycia.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Send a test message">
     Wymaga skonfigurowanego kanału.
 
@@ -99,7 +108,8 @@ Jeśli Control UI się ładuje, Twój Gateway jest gotowy do użycia.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Przydatne zmienne środowiskowe
@@ -117,10 +127,12 @@ Pełna lista zmiennych środowiskowych: [Environment vars](/help/environment).
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
     Pełne odniesienie do kreatora CLI oraz opcje zaawansowane.
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     Przebieg pierwszego uruchomienia aplikacji na macOS.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Co będziesz mieć

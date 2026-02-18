@@ -9,16 +9,19 @@ sidebarTitle: "29. Onboarding: macOS ilovasi"
 
 <Steps>
 <Step title="Approve macOS warning">33. 
-<Frame><img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt="" />34. 
-</Frame></Step>
+<Frame><img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>34. 
+</Frame>
+</Step>
 <Step title="Approve find local networks">35. 
-<Frame><img src="/assets/macos-onboarding/02-local-networks.jpeg" alt="" />36. 
-</Frame></Step>
+<Frame><img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>36. 
+</Frame>
+</Step>
 <Step title="Welcome and security notice">37. 
-<Frame caption="Ko‘rsatilgan xavfsizlik ogohlantirishini o‘qing va shunga muvofiq qaror qabul qiling"><img src="/assets/macos-onboarding/03-security-notice.png" alt="" />38. 
-</Frame></Step>
+<Frame caption="Ko‘rsatilgan xavfsizlik ogohlantirishini o‘qing va shunga muvofiq qaror qabul qiling"><img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>38. 
+</Frame>
+</Step>
 <Step title="Local vs Remote">39. 
-<Frame><img src="/assets/macos-onboarding/04-choose-gateway.png" alt="" />
+<Frame><img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
 40. **Gateway** qayerda ishlaydi?
@@ -35,7 +38,7 @@ sidebarTitle: "29. Onboarding: macOS ilovasi"
 </Tip>
 </Step>
 <Step title="Permissions">48. 
-<Frame caption="OpenClawʼga qaysi ruxsatlarni berishni xohlayotganingizni tanlang"><img src="/assets/macos-onboarding/05-permissions.png" alt="" />
+<Frame caption="OpenClawʼga qaysi ruxsatlarni berishni xohlayotganingizni tanlang"><img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
 49. Onboarding quyidagilar uchun zarur bo‘lgan TCC ruxsatlarini so‘raydi:
@@ -51,7 +54,8 @@ sidebarTitle: "29. Onboarding: macOS ilovasi"
 
 </Step>
 <Step title="CLI">
-  <Info>This step is optional</Info>
+  <Info>This step is optional
+</Info>
   The app can install the global `openclaw` CLI via npm/pnpm so terminal
   workflows and launchd tasks work out of the box.
 </Step>

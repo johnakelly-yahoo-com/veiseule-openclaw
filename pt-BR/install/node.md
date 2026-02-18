@@ -26,7 +26,8 @@ Se isso imprimir `v22.x.x` ou superior, está tudo certo. Se o Node não estiver
 
     Ou baixe o instalador do macOS em [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
@@ -43,7 +44,8 @@ Se isso imprimir `v22.x.x` ou superior, está tudo certo. Se o Node não estiver
 
     Ou use um gerenciador de versões (veja abaixo).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget** (recomendado):
 
@@ -59,7 +61,8 @@ Se isso imprimir `v22.x.x` ou superior, está tudo certo. Se o Node não estiver
 
     Ou baixe o instalador do Windows em [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
@@ -78,7 +81,8 @@ fnm use 22
 
   <Warning>
   Certifique-se de que seu gerenciador de versões esteja inicializado no arquivo de inicialização do seu shell (`~/.zshrc` ou `~/.bashrc`). Se não estiver, `openclaw` pode não ser encontrado em novas sessões do terminal porque o PATH não incluirá o diretório bin do Node.
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## Solução de problemas
@@ -92,7 +96,8 @@ Isso quase sempre significa que o diretório bin global do npm não está no seu
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
@@ -100,7 +105,8 @@ Isso quase sempre significa que o diretório bin global do npm não está no seu
 
     Procure por `<npm-prefix>/bin` (macOS/Linux) ou `<npm-prefix>` (Windows) na saída.
 
-  </Step>
+  
+</Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -111,13 +117,17 @@ Isso quase sempre significa que o diretório bin global do npm não está no seu
         ```
 
         Em seguida, abra um novo terminal (ou execute `rehash` no zsh / `hash -r` no bash).
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         Adicione a saída de `npm prefix -g` ao PATH do sistema via Configurações → Sistema → Variáveis de Ambiente.
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Erros de permissão em `npm install -g` (Linux)

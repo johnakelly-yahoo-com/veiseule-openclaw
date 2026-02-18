@@ -26,7 +26,8 @@ node -v
 
     或從 [nodejs.org](https://nodejs.org/) 下載 macOS 安裝程式。
 
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian：**
 
@@ -43,7 +44,8 @@ node -v
 
     或使用版本管理工具（見下方）。
 
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget**（建議）：
 
@@ -59,7 +61,8 @@ node -v
 
     或從 [nodejs.org](https://nodejs.org/) 下載 Windows 安裝程式。
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
@@ -78,7 +81,8 @@ fnm use 22
 
   <Warning>
   請確保你的版本管理工具已在 Shell 啟動檔中初始化（`~/.zshrc` 或 `~/.bashrc`）。若未初始化，新的終端機工作階段中可能找不到 `openclaw`，因為 PATH 不會包含 Node 的 bin 目錄。
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## 疑難排解
@@ -92,7 +96,8 @@ fnm use 22
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
@@ -100,7 +105,8 @@ fnm use 22
 
     請在輸出中尋找 `<npm-prefix>/bin`（macOS/Linux）或 `<npm-prefix>`（Windows）。
 
-  </Step>
+  
+</Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -111,13 +117,17 @@ fnm use 22
         ```
 
         接著開啟新的終端機（或在 zsh 中執行 `rehash`／在 bash 中執行 `hash -r`）。
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         透過「設定 → 系統 → 環境變數」，將 `npm prefix -g` 的輸出加入系統 PATH。
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
-  </Step>
+  
+</Step>
 </Steps>
 
 ### 在 `npm install -g` 上的權限錯誤（Linux）

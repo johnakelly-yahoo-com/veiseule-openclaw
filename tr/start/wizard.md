@@ -48,10 +48,12 @@ Sihirbaz **QuickStart** (varsayılanlar) ile **Advanced** (tam kontrol) seçenek
     - Gateway kimlik doğrulaması **Token** (loopback’te bile otomatik üretilir)
     - Tailscale erişimi **Kapalı**
     - Telegram + WhatsApp DM’leri varsayılan olarak **izin listesi** (telefon numaranız sorulacaktır)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - Tüm adımları açar (mod, çalışma alanı, gateway, kanallar, daemon, skills).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Sihirbazın yapılandırdıkları

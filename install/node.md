@@ -26,7 +26,8 @@ If this prints `v22.x.x` or higher, you're good. If Node isn't installed or the 
 
     Or download the macOS installer from [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
@@ -43,7 +44,8 @@ If this prints `v22.x.x` or higher, you're good. If Node isn't installed or the 
 
     Or use a version manager (see below).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget** (recommended):
 
@@ -59,7 +61,8 @@ If this prints `v22.x.x` or higher, you're good. If Node isn't installed or the 
 
     Or download the Windows installer from [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
@@ -78,7 +81,8 @@ fnm use 22
 
   <Warning>
   Make sure your version manager is initialized in your shell startup file (`~/.zshrc` or `~/.bashrc`). If it isn't, `openclaw` may not be found in new terminal sessions because the PATH won't include Node's bin directory.
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## Troubleshooting
@@ -92,7 +96,8 @@ This almost always means npm's global bin directory isn't on your PATH.
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
@@ -100,7 +105,8 @@ This almost always means npm's global bin directory isn't on your PATH.
 
     Look for `<npm-prefix>/bin` (macOS/Linux) or `<npm-prefix>` (Windows) in the output.
 
-  </Step>
+  
+</Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -111,13 +117,17 @@ This almost always means npm's global bin directory isn't on your PATH.
         ```
 
         Then open a new terminal (or run `rehash` in zsh / `hash -r` in bash).
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         Add the output of `npm prefix -g` to your system PATH via Settings → System → Environment Variables.
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Permission errors on `npm install -g` (Linux)

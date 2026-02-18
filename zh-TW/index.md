@@ -10,14 +10,12 @@ sidebarTitle: "OpenClaw"
         src="/assets/openclaw-logo-text-dark.png"
         alt="OpenClaw"
         width="500"
-        class="dark:hidden"
-    />
+        class="dark:hidden"></img>
     <img
         src="/assets/openclaw-logo-text.png"
         alt="OpenClaw"
         width="500"
-        class="hidden dark:block"
-    />
+        class="hidden dark:block"></img>
 </p>
 
 > _「EXFOLIATE! EXFOLIATE!」_ — 可能是一隻太空龍蝦
@@ -32,13 +30,16 @@ sidebarTitle: "OpenClaw"
 <Columns>
   <Card title="Get Started" href="/start/getting-started" icon="rocket">
     安裝 OpenClaw，數分鐘內啟動 Gateway 閘道器。
-  </Card>
+  
+</Card>
   <Card title="Run the Wizard" href="/start/wizard" icon="sparkles">
     Guided setup with `openclaw onboard` and pairing flows.
-  </Card>
+  
+</Card>
   <Card title="Open the Control UI" href="/web/control-ui" icon="layout-dashboard">
     Launch the browser dashboard for chat, config, and sessions.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## What is OpenClaw?
@@ -75,22 +76,28 @@ The Gateway is the single source of truth for sessions, routing, and channel con
 <Columns>
   <Card title="Multi-channel gateway" icon="network">
     單一 Gateway 閘道器程序即可支援 WhatsApp、Telegram、Discord 與 iMessage。
-  </Card>
+  
+</Card>
   <Card title="Plugin channels" icon="plug">
     透過擴充套件加入 Mattermost 等更多通道。
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" icon="route">
     依代理程式、工作區或寄件者提供隔離的工作階段。
-  </Card>
+  
+</Card>
   <Card title="Media support" icon="image">
     傳送與接收圖片、音訊與文件。
-  </Card>
+  
+</Card>
   <Card title="Web Control UI" icon="monitor">
     Browser dashboard for chat, config, sessions, and nodes.
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     配對 iOS 與 Android 節點，支援 Canvas。
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Quick start
@@ -100,18 +107,21 @@ The Gateway is the single source of truth for sessions, routing, and channel con
     ```bash
     npm install -g openclaw@latest
     ```
-  </Step>
+  
+</Step>
   <Step title="Onboard and install the service">
     ```bash
     openclaw onboard --install-daemon
     ```
-  </Step>
+  
+</Step>
   <Step title="Pair WhatsApp and start the Gateway">
     ```bash
     openclaw channels login
     openclaw gateway --port 18789
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 需要完整安裝與開發設定嗎？請參閱 [Quick start](/start/quickstart)。 See [Quick start](/start/quickstart).
@@ -124,7 +134,7 @@ Gateway 閘道器啟動後，開啟瀏覽器 Control UI。
 - 遠端存取：[Web surfaces](/web) 與 [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420" />
+  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Configuration (optional)
@@ -153,22 +163,28 @@ Gateway 閘道器啟動後，開啟瀏覽器 Control UI。
 <Columns>
   <Card title="Docs hubs" href="/start/hubs" icon="book-open">
     依使用情境整理的所有文件與指南。
-  </Card>
+  
+</Card>
   <Card title="Configuration" href="/gateway/configuration" icon="settings">
     Core Gateway settings, tokens, and provider config.
-  </Card>
+  
+</Card>
   <Card title="Remote access" href="/gateway/remote" icon="globe">
     SSH 與 tailnet 的存取模式。
-  </Card>
+  
+</Card>
   <Card title="Channels" href="/channels/telegram" icon="message-square">
     WhatsApp、Telegram、Discord 等通道的專屬設定。
-  </Card>
+  
+</Card>
   <Card title="Nodes" href="/nodes" icon="smartphone">
     具備配對與 Canvas 的 iOS 與 Android 節點。
-  </Card>
+  
+</Card>
   <Card title="Help" href="/help" icon="life-buoy">
     Common fixes and troubleshooting entry point.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Learn more
@@ -176,19 +192,24 @@ Gateway 閘道器啟動後，開啟瀏覽器 Control UI。
 <Columns>
   <Card title="Full feature list" href="/concepts/features" icon="list">
     完整的通道、路由與媒體功能。
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" href="/concepts/multi-agent" icon="route">
     Workspace isolation and per-agent sessions.
-  </Card>
+  
+</Card>
   <Card title="Security" href="/gateway/security" icon="shield">
     Tokens, allowlists, and safety controls.
-  </Card>
+  
+</Card>
   <Card title="Troubleshooting" href="/gateway/troubleshooting" icon="wrench">
     Gateway diagnostics and common errors.
-  </Card>
+  
+</Card>
   <Card title="About and credits" href="/reference/credits" icon="info">
 專案起源、貢獻者與授權條款。
-  </Card>
+  
+</Card>
 </Columns>
 
 

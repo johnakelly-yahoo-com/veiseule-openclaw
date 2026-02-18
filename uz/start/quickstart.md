@@ -11,9 +11,11 @@ Tez boshlash endi [Getting Started](/start/getting-started) bo‘limining bir qi
 <Columns>
   <Card title="Getting Started" href="/start/getting-started">
     OpenClaw’ni o‘rnating va bir necha daqiqada birinchi chattingizni ishga tushiring.
-  </Card>
+  
+</Card>
   <Card title="Onboarding Wizard" href="/start/wizard">
     To‘liq CLI wizard ma’lumotnomasi va kengaytirilgan sozlamalar.
-  </Card>
+  
+</Card>
 </Columns>
 

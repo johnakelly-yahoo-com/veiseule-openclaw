@@ -34,21 +34,25 @@ sidebarTitle: "Справочник по CLI"
       - Только конфигурация
       - Конфигурация + учётные данные + сеансы
       - Полный сброс (также удаляет рабочее пространство)
-  </Step>
+  
+</Step>
   <Step title="Model and auth">
     - Полная матрица вариантов приведена в разделе [Параметры аутентификации и моделей](#auth-and-model-options).
-  </Step>
+  
+</Step>
   <Step title="Workspace">
     - По умолчанию `~/.openclaw/workspace` (настраивается).
     - Заполняет рабочее пространство файлами, необходимыми для первичного bootstrap-ритуала.
     - Структура рабочего пространства: [Agent workspace](/concepts/agent-workspace).
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Запрашивает порт, привязку, режим аутентификации и экспонирование через Tailscale.
     - Рекомендуется: оставить токенную аутентификацию включённой даже для loopback, чтобы локальные WS‑клиенты обязаны были аутентифицироваться.
     - Отключайте аутентификацию только если вы полностью доверяете каждому локальному процессу.
     - Привязки не к loopback по‑прежнему требуют аутентификации.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): необязательный вход по QR
     - [Telegram](/channels/telegram): токен бота
@@ -60,7 +64,8 @@ sidebarTitle: "Справочник по CLI"
     - [iMessage](/channels/imessage): устаревший путь CLI `imsg` + доступ к БД
     - Безопасность личных сообщений: по умолчанию — сопряжение. Первое личное сообщение отправляет код; подтвердите через
       `openclaw pairing approve <channel> <code>` или используйте списки разрешённых.
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - Требуется активная пользовательская сессия; для headless используйте кастомный LaunchDaemon (не поставляется).
@@ -68,19 +73,23 @@ sidebarTitle: "Справочник по CLI"
       - Мастер пытается выполнить `loginctl enable-linger <user>`, чтобы шлюз оставался запущенным после выхода из системы.
       - Может запросить sudo (запись `/var/lib/systemd/linger`); сначала пытается без sudo.
     - Выбор рантайма: Node (рекомендуется; обязателен для WhatsApp и Telegram). Bun не рекомендуется.
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - Запускает шлюз (если требуется) и выполняет `openclaw health`.
     - `openclaw status --deep` добавляет пробы здоровья шлюза в вывод статуса.
-  </Step>
+  
+</Step>
   <Step title="Skills">
     - Считывает доступные Skills и проверяет требования.
     - Позволяет выбрать менеджер пакетов Node: npm или pnpm (bun не рекомендуется).
     - Устанавливает необязательные зависимости (некоторые используют Homebrew на macOS).
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - Сводка и дальнейшие шаги, включая варианты приложений для iOS, Android и macOS.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -113,61 +122,75 @@ sidebarTitle: "Справочник по CLI"
 <AccordionGroup>
   <Accordion title="Anthropic API key (recommended)">
     Использует `ANTHROPIC_API_KEY`, если он присутствует, или запрашивает ключ, затем сохраняет его для использования демоном.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic OAuth (Claude Code CLI)">
     - macOS: проверяет элемент Keychain «Claude Code-credentials»
     - Linux и Windows: повторно использует `~/.claude/.credentials.json`, если он присутствует
 
     На macOS выберите «Always Allow», чтобы запуски через launchd не блокировались.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
     Запустите `claude setup-token` на любой машине, затем вставьте токен.
     Его можно назвать; пустое имя использует значение по умолчанию.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (Codex CLI reuse)">
     Если существует `~/.codex/auth.json`, мастер может повторно использовать его.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (OAuth)">
     Поток через браузер; вставьте `code#state`.
 
     Устанавливает `agents.defaults.model` в `openai-codex/gpt-5.3-codex`, когда модель не задана или `openai/*`.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI API key">
     Использует `OPENAI_API_KEY`, если он присутствует, или запрашивает ключ, затем сохраняет его в
     `~/.openclaw/.env`, чтобы launchd мог его читать.
 
     Устанавливает `agents.defaults.model` в `openai/gpt-5.1-codex`, когда модель не задана, `openai/*` или `openai-codex/*`.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="xAI (Grok) API key">
     Запрашивает `XAI_API_KEY` и настраивает xAI как провайдера моделей.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen">
     Запрашивает `OPENCODE_API_KEY` (или `OPENCODE_ZEN_API_KEY`).
     URL настройки: [opencode.ai/auth](https://opencode.ai/auth).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="API key (generic)">
     Сохраняет ключ за вас.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway">
     Запрашивает `AI_GATEWAY_API_KEY`.
     Подробнее: [Vercel AI Gateway](/providers/vercel-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway">
     Запрашивает ID аккаунта, ID шлюза и `CLOUDFLARE_AI_GATEWAY_API_KEY`.
     Подробнее: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="MiniMax M2.1">
     Конфигурация записывается автоматически.
     Подробнее: [MiniMax](/providers/minimax).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic (Anthropic-compatible)">
     Запрашивает `SYNTHETIC_API_KEY`.
     Подробнее: [Synthetic](/providers/synthetic).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot and Kimi Coding">
     Конфигурации Moonshot (Kimi K2) и Kimi Coding записываются автоматически.
     Подробнее: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Custom provider">
     Работает с OpenAI-совместимыми и Anthropic-совместимыми эндпоинтами.
 
@@ -178,10 +201,12 @@ sidebarTitle: "Справочник по CLI"
     - `--custom-api-key` (optional; falls back to `CUSTOM_API_KEY`)
     - `--custom-provider-id` (optional)
     - `--custom-compatibility <openai|anthropic>` (optional; default `openai`)
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Skip">
     Оставляет аутентификацию ненастроенной.
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 Поведение моделей:

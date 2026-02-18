@@ -48,10 +48,12 @@ L’assistant demarre avec **Démarrage rapide** (parametres par defaut) ou **Av
     - Authentification de la Gateway **Token** (genere automatiquement, meme en loopback)
     - Exposition Tailscale **Desactivee**
     - Les Messages prives Telegram + WhatsApp sont par defaut en **allowlist** (vous serez invite a saisir votre numero de telephone)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - Expose chaque etape (mode, espace de travail, Gateway, canaux, daemon, Skills).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Ce que configure l’assistant

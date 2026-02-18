@@ -30,21 +30,26 @@ Tjek din Node-version med `node --version`, hvis du er i tvivl.
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     ```
     <Note>
     Andre installationsmetoder og krav: [Install](/install).
-    </Note>
+    
+</Note>
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Run the onboarding wizard">
     ```bash
     openclaw onboard --install-daemon
@@ -55,7 +60,8 @@ Tjek din Node-version med `node --version`, hvis du er i tvivl.
     Se [Onboarding Wizard](/start/wizard) for detaljer.
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Check the Gateway">
     Hvis du installerede tjenesten, burde den allerede køre:
 
@@ -65,12 +71,14 @@ Tjek din Node-version med `node --version`, hvis du er i tvivl.
     ```
     ````
 
-  </Step>
+  
+</Step>
   <Step title="Open the Control UI">
     ```bash
     openclaw dashboard
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 <Check>
@@ -89,7 +97,8 @@ Hvis Control UI indlæses, er din Gateway klar til brug.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Send a test message">
     Kræver en konfigureret kanal.
 
@@ -99,7 +108,8 @@ Hvis Control UI indlæses, er din Gateway klar til brug.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Nyttige miljøvariabler
@@ -117,10 +127,12 @@ Fuld reference for miljøvariabler: [Environment vars](/help/environment).
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
     Fuld reference til CLI-guiden og avancerede indstillinger.
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     Første kørselsflow for macOS-appen.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Hvad du vil have

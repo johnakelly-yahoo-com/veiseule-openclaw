@@ -38,13 +38,16 @@ x-i18n:
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     就这么简单 —— 脚本会自动处理 Node 检测、安装和新手引导。
 
@@ -55,17 +58,21 @@ x-i18n:
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     有关所有标志、环境变量和 CI/自动化选项，请参阅[安装器内部原理](/install/installer)。
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     如果你已经安装了 Node 22+，并希望自行管理安装：
@@ -85,8 +92,10 @@ x-i18n:
           ```
 
           如果你看到 `sharp: Please add node-gyp to your dependencies`，请安装构建工具（macOS：Xcode CLT + `npm install -g node-gyp`），或使用上面的环境变量。
-        </Accordion>
-      </Tab>
+        
+</Accordion>
+      
+</Tab>
       <Tab title="pnpm">
         ```bash
         pnpm add -g openclaw@latest
@@ -96,11 +105,15 @@ x-i18n:
 
         <Note>
         pnpm 需要对带有构建脚本的包进行显式批准。首次安装出现 "Ignored build scripts" 警告后，运行 `pnpm approve-builds -g` 并选择列出的包。
-        </Note>
-      </Tab>
-    </Tabs>
+        
+</Note>
+      
+</Tab>
+    
+</Tabs>
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="从源代码" icon="github">
     适用于贡献者或希望从本地仓库运行的用户。
@@ -116,7 +129,8 @@ x-i18n:
         pnpm ui:build
         pnpm build
         ```
-      </Step>
+      
+</Step>
       <Step title="链接 CLI">
         使 `openclaw` 命令在全局可用：
 
@@ -125,17 +139,21 @@ x-i18n:
         ```
 
         或者跳过 link，在仓库目录中使用 `pnpm openclaw ...` 运行命令。
-      </Step>
+      
+</Step>
       <Step title="运行新手引导">
         ```bash
         openclaw onboard --install-daemon
         ```
-      </Step>
-    </Steps>
+      
+</Step>
+    
+</Steps>
 
     有关更深入的开发工作流，请参阅 [Setup](/start/setup)。
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## 其他安装方式
@@ -143,19 +161,24 @@ x-i18n:
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     容器化或无头部署。
-  </Card>
+  
+</Card>
   <Card title="Podman" href="/install/podman" icon="container">
     无 root 容器：先运行 `setup-podman.sh`，然后运行启动脚本。
-  </Card>
+  
+</Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     通过 Nix 进行声明式安装。
-  </Card>
+  
+</Card>
   <Card title="Ansible" href="/install/ansible" icon="server">
     自动化批量部署。
-  </Card>
+  
+</Card>
   <Card title="Bun" href="/install/bun" icon="zap">
     通过 Bun 运行时仅使用 CLI。
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## 安装后
@@ -206,12 +229,15 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 <CardGroup cols={3}>
   <Card title="更新" href="/install/updating" icon="refresh-cw">
     保持 OpenClaw 为最新版本。
-  </Card>
+  
+</Card>
   <Card title="迁移" href="/install/migrating" icon="arrow-right">
     迁移到新机器。
-  </Card>
+  
+</Card>
   <Card title="卸载" href="/install/uninstall" icon="trash-2">
     完全移除 OpenClaw。
-  </Card>
+  
+</Card>
 </CardGroup>
 

@@ -20,7 +20,8 @@ sidebarTitle: "وزارڈ حوالہ"
       - صرف کنفیگ
       - کنفیگ + اسناد + سیشنز
       - مکمل ری سیٹ (ورک اسپیس بھی ہٹا دی جاتی ہے)
-  </Step>
+  
+</Step>
   <Step title="Model/Auth">
     - **Anthropic API key (تجویز کردہ)**: اگر موجود ہو تو `ANTHROPIC_API_KEY` استعمال کرتا ہے یا کلید مانگتا ہے، پھر اسے ڈیمون کے استعمال کے لیے محفوظ کر لیتا ہے۔
     - **Anthropic OAuth (Claude Code CLI)**: macOS پر وزارڈ Keychain آئٹم "Claude Code-credentials" چیک کرتا ہے ("Always Allow" منتخب کریں تاکہ launchd اسٹارٹس بلاک نہ ہوں)؛ Linux/Windows پر اگر موجود ہو تو `~/.claude/.credentials.json` دوبارہ استعمال کرتا ہے۔
@@ -52,19 +53,23 @@ sidebarTitle: "وزارڈ حوالہ"
     ہیڈلیس/سرور مشورہ: براؤزر والی مشین پر OAuth مکمل کریں، پھر
     `~/.openclaw/credentials/oauth.json` (یا `$OPENCLAW_STATE_DIR/credentials/oauth.json`) کو
     گیٹ وے ہوسٹ پر کاپی کریں۔
-    </Note>
-  </Step>
+    
+</Note>
+  
+</Step>
   <Step title="Workspace">
     - ڈیفالٹ `~/.openclaw/workspace` (کنفیگریبل)۔
     - ایجنٹ کے بوٹسٹریپ مرحلے کے لیے درکار ورک اسپیس فائلیں تیار کرتا ہے۔
     - مکمل ورک اسپیس لے آؤٹ + بیک اپ گائیڈ: [Agent workspace](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - پورٹ، بائنڈ، آتھ موڈ، ٹیل اسکیل ایکسپوژر۔
     - آتھ کی سفارش: لوپ بیک کے لیے بھی **Token** برقرار رکھیں تاکہ لوکل WS کلائنٹس کو آتھنٹیکیٹ کرنا پڑے۔
     - آتھ صرف اسی صورت میں غیر فعال کریں جب آپ ہر لوکل پروسیس پر مکمل بھروسہ رکھتے ہوں۔
     - نان‑لوپ بیک بائنڈز کے لیے بھی آتھ درکار ہے۔
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): اختیاری QR لاگ اِن۔
     - [Telegram](/channels/telegram): بوٹ ٹوکن۔
@@ -75,7 +80,8 @@ sidebarTitle: "وزارڈ حوالہ"
     - [BlueBubbles](/channels/bluebubbles): **iMessage کے لیے تجویز کردہ**؛ سرور URL + پاس ورڈ + ویب ہوک۔
     - [iMessage](/channels/imessage): لیگیسی `imsg` CLI پاتھ + DB ایکسس۔
     - DM سیکیورٹی: ڈیفالٹ پیئرنگ ہے۔ پہلا DM ایک کوڈ بھیجتا ہے؛ `openclaw pairing approve <channel> <code>` کے ذریعے منظوری دیں یا allowlists استعمال کریں۔
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - لاگ اِن شدہ یوزر سیشن درکار؛ ہیڈلیس کے لیے کسٹم LaunchDaemon استعمال کریں (شپ نہیں کیا گیا)۔
@@ -83,19 +89,23 @@ sidebarTitle: "وزارڈ حوالہ"
       - وزارڈ `loginctl enable-linger <user>` کے ذریعے لِنگرنگ فعال کرنے کی کوشش کرتا ہے تاکہ لاگ آؤٹ کے بعد بھی گیٹ وے چلتا رہے۔
       - sudo کے لیے پرامپٹ ہو سکتا ہے (`/var/lib/systemd/linger` لکھتا ہے)؛ پہلے sudo کے بغیر کوشش کرتا ہے۔
     - **Runtime انتخاب:** Node (تجویز کردہ؛ WhatsApp/Telegram کے لیے درکار)۔ Bun **تجویز نہیں کیا جاتا**۔
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - گیٹ وے شروع کرتا ہے (اگر ضرورت ہو) اور `openclaw health` چلاتا ہے۔
     - ٹِپ: `openclaw status --deep` اسٹیٹس آؤٹ پٹ میں گیٹ وے ہیلتھ پروبز شامل کرتا ہے (قابلِ رسائی گیٹ وے درکار)۔
-  </Step>
+  
+</Step>
   <Step title="Skills (recommended)">
     - دستیاب اسکلز پڑھتا ہے اور تقاضوں کی جانچ کرتا ہے۔
     - آپ کو نوڈ مینیجر منتخب کرنے دیتا ہے: **npm / pnpm** (bun کی سفارش نہیں کی جاتی)۔
     - اختیاری ڈیپنڈنسیز انسٹال کرتا ہے (کچھ macOS پر Homebrew استعمال کرتی ہیں)۔
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - خلاصہ + اگلے اقدامات، جن میں اضافی خصوصیات کے لیے iOS/Android/macOS ایپس شامل ہیں۔
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -135,7 +145,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI example">
     ```bash
     openclaw onboard --non-interactive \
@@ -145,7 +156,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -155,7 +167,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -167,7 +180,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot example">
     ```bash
     openclaw onboard --non-interactive \
@@ -177,7 +191,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic example">
     ```bash
     openclaw onboard --non-interactive \
@@ -187,7 +202,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen example">
     ```bash
     openclaw onboard --non-interactive \
@@ -197,7 +213,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ### ایجنٹ شامل کریں (نان اِنٹرایکٹو)

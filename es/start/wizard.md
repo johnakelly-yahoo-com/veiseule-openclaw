@@ -48,10 +48,12 @@ El asistente comienza con **Inicio rápido** (valores predeterminados) vs **Avan
     - Autenticación del Gateway **Token** (generado automáticamente, incluso en loopback)
     - Exposición por Tailscale **Desactivada**
     - Los mensajes directos de Telegram + WhatsApp se configuran de forma predeterminada con **lista de permitidos** (se le pedirá su número de teléfono)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - Expone cada paso (modo, espacio de trabajo, Gateway, canales, daemon, Skills).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Qué configura el asistente

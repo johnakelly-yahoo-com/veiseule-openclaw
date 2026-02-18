@@ -7,22 +7,28 @@ title: "Tính năng"
 <Columns>
   <Card title="Channels" icon="message-square">
     WhatsApp, Telegram, Discord và iMessage với một Gateway duy nhất.
-  </Card>
+  
+</Card>
   <Card title="Plugins" icon="plug">
     Thêm Mattermost và nhiều nền tảng khác bằng các extension.
-  </Card>
+  
+</Card>
   <Card title="Routing" icon="route">
     Định tuyến đa tác tử với các phiên được cô lập.
-  </Card>
+  
+</Card>
   <Card title="Media" icon="image">
     Hình ảnh, âm thanh và tài liệu hai chiều.
-  </Card>
+  
+</Card>
   <Card title="Apps and UI" icon="monitor">
     Web Control UI và ứng dụng đồng hành macOS.
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     Các nút iOS và Android với hỗ trợ Canvas.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Danh sách đầy đủ

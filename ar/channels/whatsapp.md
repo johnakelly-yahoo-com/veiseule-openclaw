@@ -9,13 +9,16 @@ title: "WhatsApp"
 <CardGroup cols={3}>
   <Card title="الإقران" icon="link" href="/channels/pairing">
     السياسة الافتراضية للرسائل الخاصة من مرسلين غير معروفين هي الإقران.
-  </Card>
+  
+</Card>
   <Card title="استكشاف أخطاء القناة" icon="wrench" href="/channels/troubleshooting">
     تشخيصات متعددة القنوات وأدلة الإصلاح.
-  </Card>
+  
+</Card>
   <Card title="تهيئة Gateway" icon="settings" href="/gateway/configuration">
     أنماط وأمثلة تهيئة القناة الكاملة.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## الإعداد السريع
@@ -36,7 +39,8 @@ title: "WhatsApp"
 }
 ```
 
-  </Step>
+  
+</Step>
 
   <Step title="ربط WhatsApp (QR)">
 
@@ -50,7 +54,8 @@ openclaw channels login --channel whatsapp
 openclaw channels login --channel whatsapp --account work
 ```
 
-  </Step>
+  
+</Step>
 
   <Step title="تشغيل Gateway">
 
@@ -58,7 +63,8 @@ openclaw channels login --channel whatsapp --account work
 openclaw gateway
 ```
 
-  </Step>
+  
+</Step>
 
   <Step title="الموافقة على أول طلب إقران (عند استخدام وضع الإقران)">
 
@@ -69,7 +75,8 @@ openclaw pairing approve whatsapp <CODE>
 
     تنتهي طلبات الإقران بعد ساعة واحدة. الحد الأقصى للطلبات المعلّقة هو 3 لكل قناة.
 
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -99,7 +106,8 @@ openclaw pairing approve whatsapp <CODE>
     }
     ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="الرقم الشخصي (حل احتياطي)">
     يدعم الإعداد وضع الرقم الشخصي ويكتب إعدادًا أساسيًا مناسبًا للدردشة مع الذات:
@@ -110,14 +118,16 @@ openclaw pairing approve whatsapp <CODE>
 
     في وقت التشغيل، تعتمد حمايات الدردشة مع الذات على الرقم الذاتي المرتبط و `allowFrom`.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="نطاق قناة WhatsApp Web فقط">
     قناة المراسلة تعتمد على WhatsApp Web (`Baileys`) في بنية قنوات OpenClaw الحالية.
 
     لا توجد قناة Twilio WhatsApp منفصلة ضمن سجل القنوات المدمج.
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## نموذج وقت التشغيل
@@ -149,7 +159,8 @@ openclaw pairing approve whatsapp <CODE>
     - إذا لم يتم تكوين قائمة سماح، يُسمح بالرقم الذاتي المرتبط افتراضيًا
     - لا يتم أبدًا إقران رسائل DM الصادرة `fromMe` تلقائيًا
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="سياسة المجموعات + قوائم السماح">
     وصول المجموعات له طبقتان:
@@ -169,7 +180,8 @@ openclaw pairing approve whatsapp <CODE>
 
     ملاحظة: إذا لم يوجد أي قسم `channels.whatsapp` إطلاقًا، فإن احتياطي سياسة المجموعات يكون فعليًا `open`.
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="الإشارات + /activation">
     تتطلب ردود المجموعات إشارة (mention) افتراضيًا.
@@ -187,7 +199,8 @@ openclaw pairing approve whatsapp <CODE>
 
     يقوم `activation` بتحديث حالة الجلسة (وليس التهيئة العامة). وهو مقيّد بالمالك.
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## سلوك الرقم الشخصي والدردشة مع الذات
@@ -214,7 +227,8 @@ openclaw pairing approve whatsapp <CODE>
 
     كما يتم ملء حقول بيانات الرد الوصفية عند توفرها (`ReplyToId`, `ReplyToBody`, `ReplyToSender`, مرسل JID/E.164).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="عناصر الوسائط النائبة واستخراج الموقع/جهة الاتصال">
     يتم توحيد الرسائل الواردة التي تحتوي على وسائط فقط باستخدام عناصر نائبة مثل:
@@ -227,7 +241,8 @@ openclaw pairing approve whatsapp <CODE>
 
     يتم تحويل بيانات الموقع وجهات الاتصال إلى سياق نصي قبل التوجيه.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="حقن سجل المجموعات المعلّق">
     في المجموعات، يمكن تخزين الرسائل غير المعالجة مؤقتًا وحقنها كسياق عند تشغيل البوت أخيرًا.
@@ -242,7 +257,8 @@ openclaw pairing approve whatsapp <CODE>
     - `[Chat messages since your last reply - for context]`
     - `[Current message - respond to this]`
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="إيصالات القراءة">
     إيصالات القراءة مفعّلة افتراضيًا لرسائل WhatsApp الواردة المقبولة.
@@ -277,7 +293,8 @@ openclaw pairing approve whatsapp <CODE>
 
     تتجاوز دورات الدردشة مع الذات إيصالات القراءة حتى عند تفعيلها عالميًا.
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## التسليم، التجزئة، والوسائط
@@ -287,7 +304,8 @@ openclaw pairing approve whatsapp <CODE>
     - الحد الافتراضي للتجزئة: `channels.whatsapp.textChunkLimit = 4000`
     - `channels.whatsapp.chunkMode = "length" | "newline"`
     - وضع `newline` يفضّل حدود الفقرات (الأسطر الفارغة)، ثم يعود إلى تجزئة آمنة حسب الطول
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="سلوك الوسائط الصادرة">
     - يدعم الصور والفيديو والصوت (ملاحظة صوتية PTT) والمستندات
@@ -295,14 +313,16 @@ openclaw pairing approve whatsapp <CODE>
     - يتم دعم تشغيل GIF المتحرك عبر `gifPlayback: true` عند إرسال الفيديو
     - يتم تطبيق العنوان (Caption) على أول عنصر وسائط عند إرسال رد متعدد الوسائط
     - يمكن أن يكون مصدر الوسائط HTTP(S) أو `file://` أو مسارات محلية
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="حدود حجم الوسائط وسلوك الاحتياطي">
     - حد حفظ الوسائط الواردة: `channels.whatsapp.mediaMaxMb` (الافتراضي `50`)
     - حد الوسائط الصادرة للردود التلقائية: `agents.defaults.mediaMaxMb` (الافتراضي `5MB`)
     - يتم تحسين الصور تلقائيًا (تغيير الحجم/الجودة) لتناسب الحدود
     - عند فشل إرسال الوسائط، يتم إرسال تحذير نصي بدلاً من إسقاط الرد بصمت
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## تفاعلات الإقرار
@@ -337,20 +357,23 @@ openclaw pairing approve whatsapp <CODE>
     - تأتي معرّفات الحسابات من `channels.whatsapp.accounts`
     - اختيار الحساب الافتراضي: `default` إن وُجد، وإلا أول معرّف حساب مُهيّأ (مرتّب)
     - يتم تطبيع معرّفات الحسابات داخليًا لأغراض البحث
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="مسارات بيانات الاعتماد والتوافق القديم">
     - مسار المصادقة الحالي: `~/.openclaw/credentials/whatsapp/<accountId>/creds.json`
     - ملف احتياطي: `creds.json.bak`
     - يتم التعرف على المصادقة الافتراضية القديمة في `~/.openclaw/credentials/` وترحيلها عند الحاجة
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="سلوك تسجيل الخروج">
     `openclaw channels logout --channel whatsapp [--account <id>]` يمسح حالة مصادقة WhatsApp لذلك الحساب.
 
     في أدلة المصادقة القديمة، يتم الاحتفاظ بـ `oauth.json` بينما تُحذف ملفات Baileys.
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## الأدوات، الإجراءات، وكتابة التهيئة
@@ -374,7 +397,8 @@ openclaw pairing approve whatsapp <CODE>
     openclaw channels status
     ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="مرتبط لكن غير متصل / حلقة إعادة اتصال">
     العَرَض: حساب مرتبط مع انقطاعات متكررة أو محاولات إعادة اتصال.
@@ -388,14 +412,16 @@ openclaw pairing approve whatsapp <CODE>
 
     عند الحاجة، أعد الربط باستخدام `channels login`.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="لا يوجد مستمع نشط عند الإرسال">
     تفشل عمليات الإرسال الصادر فورًا عند عدم وجود مستمع Gateway نشط للحساب المستهدف.
 
     تأكد من أن الـ Gateway يعمل وأن الحساب مرتبط.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="يتم تجاهل رسائل المجموعات بشكل غير متوقع">
     تحقق بالترتيب التالي:
@@ -405,11 +431,13 @@ openclaw pairing approve whatsapp <CODE>
     - إدخالات قائمة سماح `groups`
     - تقييد الإشارة (`requireMention` + أنماط الإشارة)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="تحذير بيئة Bun">
     يجب تشغيل بيئة WhatsApp في الـ Gateway باستخدام Node. يتم وضع علامة على Bun كغير متوافق للتشغيل المستقر لقنوات WhatsApp/Telegram.
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## مراجع التهيئة

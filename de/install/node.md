@@ -26,7 +26,8 @@ Wenn dies `v22.x.x` oder höher ausgibt, ist alles in Ordnung. Wenn Node nicht i
 
     Oder laden Sie den macOS-Installer von [nodejs.org](https://nodejs.org/) herunter.
 
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
@@ -43,7 +44,8 @@ Wenn dies `v22.x.x` oder höher ausgibt, ist alles in Ordnung. Wenn Node nicht i
 
     Oder verwenden Sie einen Versionsmanager (siehe unten).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget** (empfohlen):
 
@@ -59,7 +61,8 @@ Wenn dies `v22.x.x` oder höher ausgibt, ist alles in Ordnung. Wenn Node nicht i
 
     Oder laden Sie den Windows-Installer von [nodejs.org](https://nodejs.org/) herunter.
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
@@ -78,7 +81,8 @@ fnm use 22
 
   <Warning>
   Stellen Sie sicher, dass Ihr Versionsmanager in Ihrer Shell-Startdatei initialisiert ist (`~/.zshrc` oder `~/.bashrc`). Ist dies nicht der Fall, wird `openclaw` in neuen Terminal-Sitzungen möglicherweise nicht gefunden, da der PATH das bin-Verzeichnis von Node nicht enthält.
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## Fehlerbehebung
@@ -92,7 +96,8 @@ Das bedeutet fast immer, dass das globale bin-Verzeichnis von npm nicht in Ihrem
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
@@ -100,7 +105,8 @@ Das bedeutet fast immer, dass das globale bin-Verzeichnis von npm nicht in Ihrem
 
     Suchen Sie in der Ausgabe nach `<npm-prefix>/bin` (macOS/Linux) oder `<npm-prefix>` (Windows).
 
-  </Step>
+  
+</Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -111,13 +117,17 @@ Das bedeutet fast immer, dass das globale bin-Verzeichnis von npm nicht in Ihrem
         ```
 
         Öffnen Sie anschließend ein neues Terminal (oder führen Sie `rehash` in zsh / `hash -r` in bash aus).
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         Fügen Sie die Ausgabe von `npm prefix -g` über Einstellungen → System → Umgebungsvariablen zu Ihrem System-PATH hinzu.
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Berechtigungsfehler bei `npm install -g` (Linux)

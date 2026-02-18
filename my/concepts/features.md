@@ -7,22 +7,28 @@ title: "အင်္ဂါရပ်များ"
 <Columns>
   <Card title="Channels" icon="message-square">
     Gateway တစ်ခုတည်းဖြင့် WhatsApp၊ Telegram၊ Discord နှင့် iMessage ကို ပံ့ပိုးပါသည်။
-  </Card>
+  
+</Card>
   <Card title="Plugins" icon="plug">
     တိုးချဲ့မှုများဖြင့် Mattermost နှင့် အခြားများကို ထည့်သွင်းနိုင်ပါသည်။
-  </Card>
+  
+</Card>
   <Card title="Routing" icon="route">
     သီးခြားဆက်ရှင်များပါဝင်သည့် အေးဂျင့်အများအပြား လမ်းကြောင်းချမှတ်မှု။
-  </Card>
+  
+</Card>
   <Card title="Media" icon="image">
     ပုံများ၊ အသံနှင့် စာရွက်စာတမ်းများကို အဝင်အထွက် ပံ့ပိုးပါသည်။
-  </Card>
+  
+</Card>
   <Card title="Apps and UI" icon="monitor">
     Web Control UI နှင့် macOS အတူတကွ အသုံးပြုသော အက်ပ်။
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     Canvas ပံ့ပိုးမှုပါဝင်သည့် iOS နှင့် Android နိုဒ်များ။
-  </Card>
+  
+</Card>
 </Columns>
 
 ## စာရင်းအပြည့်အစုံ

@@ -26,7 +26,8 @@ Bu komut `v22.x.x` veya daha yeni bir sürüm yazdırıyorsa sorun yok. Node yü
 
     Ya da macOS yükleyicisini [nodejs.org](https://nodejs.org/) üzerinden indirin.
 
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
@@ -43,7 +44,8 @@ Bu komut `v22.x.x` veya daha yeni bir sürüm yazdırıyorsa sorun yok. Node yü
 
     Alternatif olarak bir sürüm yöneticisi kullanabilirsiniz (aşağıya bakın).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget** (önerilen):
 
@@ -59,7 +61,8 @@ Bu komut `v22.x.x` veya daha yeni bir sürüm yazdırıyorsa sorun yok. Node yü
 
     Ya da Windows yükleyicisini [nodejs.org](https://nodejs.org/) üzerinden indirin.
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
@@ -78,7 +81,8 @@ fnm use 22
 
   <Warning>
   Sürüm yöneticinizin kabuk başlangıç dosyanızda (`~/.zshrc` veya `~/.bashrc`) başlatıldığından emin olun. Aksi halde, PATH Node’un bin dizinini içermeyeceği için yeni terminal oturumlarında `openclaw` bulunamayabilir.
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## Sorun Giderme
@@ -92,7 +96,8 @@ Bu, neredeyse her zaman npm’in global bin dizininin PATH’inizde olmadığı 
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
@@ -100,7 +105,8 @@ Bu, neredeyse her zaman npm’in global bin dizininin PATH’inizde olmadığı 
 
     Çıktıda `<npm-prefix>/bin` (macOS/Linux) veya `<npm-prefix>` (Windows) ifadesini arayın.
 
-  </Step>
+  
+</Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -111,13 +117,17 @@ Bu, neredeyse her zaman npm’in global bin dizininin PATH’inizde olmadığı 
         ```
 
         Ardından yeni bir terminal açın (veya zsh’te `rehash`, bash’te `hash -r` çalıştırın).
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         `npm prefix -g` çıktısını Ayarlar → Sistem → Ortam Değişkenleri üzerinden sistem PATH’inize ekleyin.
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
-  </Step>
+  
+</Step>
 </Steps>
 
 ### `npm install -g` üzerinde izin hataları (Linux)

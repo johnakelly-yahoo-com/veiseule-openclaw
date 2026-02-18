@@ -10,14 +10,12 @@ sidebarTitle: "OpenClaw"
         src="/assets/openclaw-logo-text-dark.png"
         alt="OpenClaw"
         width="500"
-        class="dark:hidden"
-    />
+        class="dark:hidden"></img>
     <img
         src="/assets/openclaw-logo-text.png"
         alt="OpenClaw"
         width="500"
-        class="hidden dark:block"
-    />
+        class="hidden dark:block"></img>
 </p>
 
 > _"EXFOLIATE!
@@ -30,13 +28,16 @@ sidebarTitle: "OpenClaw"
 <Columns>
   <Card title="Get Started" href="/start/getting-started" icon="rocket">
     OpenClaw इंस्टॉल करें और मिनटों में Gateway चालू करें।
-  </Card>
+  
+</Card>
   <Card title="Run the Wizard" href="/start/wizard" icon="sparkles">
     `openclaw onboard` और पेयरिंग फ़्लोज़ के साथ निर्देशित सेटअप।
-  </Card>
+  
+</Card>
   <Card title="Open the Control UI" href="/web/control-ui" icon="layout-dashboard">
     चैट, विन्यास और सत्रों के लिए ब्राउज़र डैशबोर्ड लॉन्च करें।
-  </Card>
+  
+</Card>
 </Columns>
 
 ## OpenClaw क्या है?
@@ -73,22 +74,28 @@ Gateway सत्रों, रूटिंग, और चैनल कनेक
 <Columns>
   <Card title="Multi-channel gateway" icon="network">
     एक ही Gateway प्रक्रिया के साथ WhatsApp, Telegram, Discord, और iMessage।
-  </Card>
+  
+</Card>
   <Card title="Plugin channels" icon="plug">
     एक्सटेंशन पैकेजों के साथ Mattermost और अन्य जोड़ें।
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" icon="route">
     प्रति एजेंट, वर्कस्पेस, या प्रेषक पृथक सत्र।
-  </Card>
+  
+</Card>
   <Card title="Media support" icon="image">
     छवियाँ, ऑडियो, और दस्तावेज़ भेजें और प्राप्त करें।
-  </Card>
+  
+</Card>
   <Card title="Web Control UI" icon="monitor">
     चैट, विन्यास, सत्रों, और नोड्स के लिए ब्राउज़र डैशबोर्ड।
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     Canvas समर्थन के साथ iOS और Android नोड्स को पेयर करें।
-  </Card>
+  
+</Card>
 </Columns>
 
 ## त्वरित प्रारंभ
@@ -98,18 +105,21 @@ Gateway सत्रों, रूटिंग, और चैनल कनेक
     ```bash
     npm install -g openclaw@latest
     ```
-  </Step>
+  
+</Step>
   <Step title="Onboard and install the service">
     ```bash
     openclaw onboard --install-daemon
     ```
-  </Step>
+  
+</Step>
   <Step title="Pair WhatsApp and start the Gateway">
     ```bash
     openclaw channels login
     openclaw gateway --port 18789
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 क्या आपको पूरा install और dev setup चाहिए? openclaw-ansible repo, Ansible डिप्लॉयमेंट के लिए source of truth है।
@@ -122,7 +132,7 @@ Gateway शुरू होने के बाद ब्राउज़र Cont
 - दूरस्थ एक्सेस: [Web surfaces](/web) और [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420" />
+  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## विन्यास (वैकल्पिक)
@@ -151,22 +161,28 @@ Gateway शुरू होने के बाद ब्राउज़र Cont
 <Columns>
   <Card title="Docs hubs" href="/start/hubs" icon="book-open">
     उपयोग-केस के अनुसार व्यवस्थित सभी डॉक्स और गाइड्स।
-  </Card>
+  
+</Card>
   <Card title="Configuration" href="/gateway/configuration" icon="settings">
     कोर Gateway सेटिंग्स, टोकन, और प्रदाता विन्यास।
-  </Card>
+  
+</Card>
   <Card title="Remote access" href="/gateway/remote" icon="globe">
     SSH और टेलनेट एक्सेस पैटर्न।
-  </Card>
+  
+</Card>
   <Card title="Channels" href="/channels/telegram" icon="message-square">
     WhatsApp, Telegram, Discord, और अन्य के लिए चैनल-विशिष्ट सेटअप।
-  </Card>
+  
+</Card>
   <Card title="Nodes" href="/nodes" icon="smartphone">
     पेयरिंग और Canvas के साथ iOS और Android नोड्स।
-  </Card>
+  
+</Card>
   <Card title="Help" href="/help" icon="life-buoy">
     सामान्य समाधान और समस्या-निवारण का प्रवेश बिंदु।
-  </Card>
+  
+</Card>
 </Columns>
 
 ## और जानें
@@ -174,19 +190,24 @@ Gateway शुरू होने के बाद ब्राउज़र Cont
 <Columns>
   <Card title="Full feature list" href="/concepts/features" icon="list">
     संपूर्ण चैनल, रूटिंग, और मीडिया क्षमताएँ।
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" href="/concepts/multi-agent" icon="route">
     वर्कस्पेस आइसोलेशन और प्रति-एजेंट सत्र।
-  </Card>
+  
+</Card>
   <Card title="Security" href="/gateway/security" icon="shield">
     टोकन, allowlists, और सुरक्षा नियंत्रण।
-  </Card>
+  
+</Card>
   <Card title="Troubleshooting" href="/gateway/troubleshooting" icon="wrench">
     Gateway निदान और सामान्य त्रुटियाँ।
-  </Card>
+  
+</Card>
   <Card title="About and credits" href="/reference/credits" icon="info">
     परियोजना की उत्पत्ति, योगदानकर्ता, और लाइसेंस।
-  </Card>
+  
+</Card>
 </Columns>
 
 

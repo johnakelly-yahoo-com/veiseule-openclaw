@@ -10,22 +10,22 @@ Este documento describe el flujo de incorporación **actual** en el primer inici
 <Steps>
 <Step title="Approve macOS warning">
 <Frame>
-<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt="" />
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Approve find local networks">
 <Frame>
-<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt="" />
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Welcome and security notice">
 <Frame caption="Lea el aviso de seguridad mostrado y decida en consecuencia">
-<img src="/assets/macos-onboarding/03-security-notice.png" alt="" />
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
 </Frame>
 </Step>
 <Step title="Local vs Remote">
 <Frame>
-<img src="/assets/macos-onboarding/04-choose-gateway.png" alt="" />
+<img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
 ¿Dónde se ejecuta el **Gateway**?
@@ -43,7 +43,7 @@ Este documento describe el flujo de incorporación **actual** en el primer inici
 </Step>
 <Step title="Permissions">
 <Frame caption="Elija qué permisos desea otorgar a OpenClaw">
-<img src="/assets/macos-onboarding/05-permissions.png" alt="" />
+<img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
 La incorporación solicita permisos TCC necesarios para:
@@ -59,7 +59,8 @@ La incorporación solicita permisos TCC necesarios para:
 
 </Step>
 <Step title="CLI">
-  <Info>Este paso es opcional</Info>
+  <Info>Este paso es opcional
+</Info>
   La app puede instalar la CLI global `openclaw` mediante npm/pnpm para que
   los flujos de trabajo en terminal y las tareas de launchd funcionen de inmediato.
 </Step>

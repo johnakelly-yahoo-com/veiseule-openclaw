@@ -26,7 +26,8 @@ node -v
 
     أو قم بتنزيل مُثبّت macOS من [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
@@ -43,7 +44,8 @@ node -v
 
     أو استخدم مدير إصدارات (انظر أدناه).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget** (موصى به):
 
@@ -59,7 +61,8 @@ node -v
 
     أو قم بتنزيل مُثبّت Windows من [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
@@ -78,7 +81,8 @@ fnm use 22
 
   <Warning>
   تأكد من تهيئة مدير الإصدارات في ملف بدء تشغيل الصدفة لديك (`~/.zshrc` أو `~/.bashrc`). إذا لم يكن كذلك، فقد لا يتم العثور على `openclaw` في جلسات الطرفية الجديدة لأن PATH لن يتضمن دليل bin الخاص بـ Node.
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## استكشاف الأخطاء وإصلاحها
@@ -92,7 +96,8 @@ fnm use 22
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
@@ -100,7 +105,8 @@ fnm use 22
 
     ابحث عن `<npm-prefix>/bin` (macOS/Linux) أو `<npm-prefix>` (Windows) في المخرجات.
 
-  </Step>
+  
+</Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -111,13 +117,17 @@ fnm use 22
         ```
 
         ثم افتح طرفية جديدة (أو شغّل `rehash` في zsh / `hash -r` في bash).
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         أضِف مخرجات `npm prefix -g` إلى PATH الخاص بالنظام عبر الإعدادات → النظام → متغيرات البيئة.
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
-  </Step>
+  
+</Step>
 </Steps>
 
 ### أخطاء الأذونات على `npm install -g` (Linux)

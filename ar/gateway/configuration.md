@@ -36,21 +36,25 @@ title: "التهيئة"
     openclaw onboard       # معالج الإعداد الكامل
     openclaw configure     # معالج التهيئة
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="CLI (أوامر سريعة)">
     ```bash
     openclaw config get agents.defaults.workspace
     openclaw config set agents.defaults.heartbeat.every "2h"
     openclaw config unset tools.web.search.apiKey
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="واجهة التحكم">
     افتح [http://127.0.0.1:18789](http://127.0.0.1:18789) واستخدم تبويب **Config**.
     تقوم واجهة التحكم بإنشاء نموذج من مخطط التهيئة، مع محرّر **Raw JSON** كخيار متقدم.
-  </Tab>
+  
+</Tab>
   <Tab title="تعديل مباشر">
     عدّل الملف `~/.openclaw/openclaw.json` مباشرةً. تقوم البوابة بمراقبة الملف وتطبيق التغييرات تلقائيًا (انظر [إعادة التحميل الساخن](#config-hot-reload)).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## التحقق الصارم
@@ -97,7 +101,8 @@ title: "التهيئة"
     }
     ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="اختيار وتكوين النماذج">
     عيّن النموذج الأساسي مع بدائل احتياطية:
@@ -124,7 +129,8 @@ title: "التهيئة"
     - راجع [Models CLI](/concepts/models) لتبديل النماذج داخل الدردشة و[Model Failover](/concepts/model-failover) لسلوك التبديل الاحتياطي.
     - لمزوّدين مخصّصين/مستضافين ذاتيًا، راجع [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="التحكم في من يمكنه مراسلة البوت">
     يتم التحكم في الوصول إلى الرسائل الخاصة لكل قناة عبر `dmPolicy`:
@@ -138,7 +144,8 @@ title: "التهيئة"
 
     راجع [المرجع الكامل](/gateway/configuration-reference#dm-and-group-access) للتفاصيل.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="بوابة الإشارات في دردشات المجموعات">
     رسائل المجموعات تتطلب الإشارة افتراضيًا. قم بالتهيئة لكل وكيل:
@@ -167,7 +174,8 @@ title: "التهيئة"
     - **أنماط نصية**: تعابير regex في `mentionPatterns`
     - راجع [المرجع الكامل](/gateway/configuration-reference#group-chat-mention-gating).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="تهيئة الجلسات وإعادة الضبط">
     تتحكم الجلسات في استمرارية المحادثة:
@@ -188,7 +196,8 @@ title: "التهيئة"
     - `dmScope`: `main` | `per-peer` | `per-channel-peer` | `per-account-channel-peer`
     - راجع [Session Management](/concepts/session) و[المرجع الكامل](/gateway/configuration-reference#session).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="تفعيل العزل (Sandboxing)">
     تشغيل جلسات الوكيل داخل حاويات Docker معزولة:
@@ -210,7 +219,8 @@ title: "التهيئة"
 
     راجع [Sandboxing](/gateway/sandboxing) و[المرجع الكامل](/gateway/configuration-reference#sandbox).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="إعداد heartbeat (فحوصات دورية)">
     ```json5
@@ -230,7 +240,8 @@ title: "التهيئة"
     - `target`: `last` | `whatsapp` | `telegram` | `discord` | `none`
     - راجع [Heartbeat](/gateway/heartbeat).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="إعداد مهام Cron">
     ```json5
@@ -245,7 +256,8 @@ title: "التهيئة"
 
     راجع [Cron jobs](/automation/cron-jobs).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="إعداد Webhooks (Hooks)">
     تفعيل نقاط HTTP في البوابة:
@@ -273,7 +285,8 @@ title: "التهيئة"
 
     راجع [المرجع الكامل](/gateway/configuration-reference#hooks).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="توجيه متعدد الوكلاء">
     تشغيل عدة وكلاء معزولين:
@@ -295,7 +308,8 @@ title: "التهيئة"
 
     راجع [Multi-Agent](/concepts/multi-agent) و[المرجع الكامل](/gateway/configuration-reference#multi-agent-routing).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="تقسيم التهيئة إلى عدة ملفات (`$include`)">
     استخدم `$include` لتنظيم التهيئات الكبيرة:
@@ -318,7 +332,8 @@ title: "التهيئة"
     - **مسارات نسبية**: نسبةً إلى الملف المُضمِّن
     - **معالجة الأخطاء**: رسائل واضحة للملفات المفقودة أو الدائرية
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## إعادة التحميل الساخن للتهيئة

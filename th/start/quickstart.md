@@ -11,10 +11,12 @@ Quick start ตอนนี้เป็นส่วนหนึ่งของ [
 <Columns>
   <Card title="Getting Started" href="/start/getting-started">
     ติดตั้ง OpenClaw และรันแชตแรกของคุณได้ภายในไม่กี่นาที
-  </Card>
+  
+</Card>
   <Card title="Onboarding Wizard" href="/start/wizard">
     เอกสารอ้างอิง Wizard ของ CLI แบบครบถ้วนและตัวเลือกขั้นสูง
-  </Card>
+  
+</Card>
 </Columns>
 
 

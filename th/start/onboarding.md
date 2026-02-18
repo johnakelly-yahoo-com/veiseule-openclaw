@@ -10,22 +10,22 @@ sidebarTitle: "การเริ่มต้นใช้งาน: แอป ma
 <Steps>
 <Step title="Approve macOS warning">
 <Frame>
-<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt="" />
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Approve find local networks">
 <Frame>
-<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt="" />
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Welcome and security notice">
 <Frame caption="อ่านประกาศด้านความปลอดภัยที่แสดงและตัดสินใจตามความเหมาะสม">
-<img src="/assets/macos-onboarding/03-security-notice.png" alt="" />
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
 </Frame>
 </Step>
 <Step title="Local vs Remote">
 <Frame>
-<img src="/assets/macos-onboarding/04-choose-gateway.png" alt="" />
+<img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
 **Gateway** ทำงานอยู่ที่ใด?
@@ -47,7 +47,7 @@ sidebarTitle: "การเริ่มต้นใช้งาน: แอป ma
 </Step>
 <Step title="Permissions">
 <Frame caption="เลือกสิทธิ์ที่คุณต้องการมอบให้ OpenClaw">
-<img src="/assets/macos-onboarding/05-permissions.png" alt="" />
+<img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
 การเริ่มต้นใช้งานจะขอสิทธิ์ TCC ที่จำเป็นสำหรับ:
@@ -63,7 +63,8 @@ sidebarTitle: "การเริ่มต้นใช้งาน: แอป ma
 
 </Step>
 <Step title="CLI">
-  <Info>ขั้นตอนนี้ไม่บังคับ</Info>
+  <Info>ขั้นตอนนี้ไม่บังคับ
+</Info>
   แอปสามารถติดตั้ง `openclaw` CLI แบบส่วนกลางผ่าน npm/pnpm เพื่อให้เวิร์กโฟลว์ในเทอร์มินัลและงาน launchd ใช้งานได้ทันที
 </Step>
 <Step title="Onboarding Chat (dedicated session)">

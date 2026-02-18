@@ -48,10 +48,12 @@ which stores `tools.web.search.apiKey`. Docs: [Web tools](/tools/web).
     - Gateway تصدیق **Token** (خودکار طور پر تیار شدہ، حتیٰ کہ loopback پر بھی)
     - Tailscale ایکسپوژر **Off**
     - Telegram + WhatsApp DMs بطورِ ڈیفالٹ **allowlist** پر (آپ سے فون نمبر پوچھا جائے گا)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - ہر مرحلہ ظاہر کرتا ہے (موڈ، ورک اسپیس، گیٹ وے، چینلز، ڈیمون، Skills)۔
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## وزارڈ کیا کنفیگر کرتا ہے

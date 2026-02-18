@@ -21,7 +21,8 @@ sidebarTitle: "Справочник мастера"
       - Только конфиг
       - Конфиг + учётные данные + сеансы
       - Полный сброс (также удаляет рабочее пространство)
-  </Step>
+  
+</Step>
   <Step title="Model/Auth">
     - **Ключ API Anthropic (рекомендуется)**: использует `ANTHROPIC_API_KEY`, если он есть, или запрашивает ключ, затем сохраняет его для использования демоном.
     - **Anthropic OAuth (Claude Code CLI)**: на macOS мастер проверяет элемент Keychain «Claude Code-credentials» (выберите «Always Allow», чтобы запуски launchd не блокировались); на Linux/Windows повторно использует `~/.claude/.credentials.json`, если он есть.
@@ -53,19 +54,23 @@ sidebarTitle: "Справочник мастера"
     Совет для headless/серверов: завершите OAuth на машине с браузером, затем скопируйте
     `~/.openclaw/credentials/oauth.json` (или `$OPENCLAW_STATE_DIR/credentials/oauth.json`) на
     хост шлюза.
-    </Note>
-  </Step>
+    
+</Note>
+  
+</Step>
   <Step title="Workspace">
     - По умолчанию `~/.openclaw/workspace` (настраивается).
     - Создаёт файлы рабочего пространства, необходимые для ритуала инициализации агента.
     - Полная структура рабочего пространства + руководство по резервному копированию: [Рабочее пространство агента](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Порт, привязка, режим аутентификации, экспонирование через Tailscale.
     - Рекомендация по аутентификации: сохраняйте **Token** даже для loopback, чтобы локальные WS‑клиенты должны были проходить аутентификацию.
     - Отключайте аутентификацию только если вы полностью доверяете каждому локальному процессу.
     - Привязки не к loopback всё равно требуют аутентификации.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): необязательный вход по QR.
     - [Telegram](/channels/telegram): токен бота.
@@ -76,7 +81,8 @@ sidebarTitle: "Справочник мастера"
     - [BlueBubbles](/channels/bluebubbles): **рекомендуется для iMessage**; URL сервера + пароль + вебхук.
     - [iMessage](/channels/imessage): устаревший путь CLI `imsg` + доступ к БД.
     - Безопасность личных сообщений: по умолчанию — сопряжение. Первое личное сообщение отправляет код; подтвердите через `openclaw pairing approve <channel> <code>` или используйте списки разрешённых.
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - Требуется активная пользовательская сессия; для headless используйте пользовательский LaunchDaemon (не поставляется).
@@ -84,19 +90,23 @@ sidebarTitle: "Справочник мастера"
       - Мастер пытается включить lingering через `loginctl enable-linger <user>`, чтобы Gateway оставался запущенным после выхода из системы.
       - Может запросить sudo (записывает `/var/lib/systemd/linger`); сначала пробует без sudo.
     - **Выбор рантайма:** Node (рекомендуется; обязателен для WhatsApp/Telegram). Bun **не рекомендуется**.
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - Запускает Gateway (при необходимости) и выполняет `openclaw health`.
     - Совет: `openclaw status --deep` добавляет пробы здоровья Gateway в вывод статуса (требуется доступный Gateway).
-  </Step>
+  
+</Step>
   <Step title="Skills (recommended)">
     - Считывает доступные Skills и проверяет требования.
     - Позволяет выбрать менеджер узлов: **npm / pnpm** (bun не рекомендуется).
     - Устанавливает необязательные зависимости (некоторые используют Homebrew на macOS).
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - Сводка + дальнейшие шаги, включая приложения для iOS/Android/macOS для дополнительных возможностей.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -136,7 +146,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI example">
     ```bash
     openclaw onboard --non-interactive \
@@ -146,7 +157,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -156,7 +168,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -168,7 +181,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot example">
     ```bash
     openclaw onboard --non-interactive \
@@ -178,7 +192,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic example">
     ```bash
     openclaw onboard --non-interactive \
@@ -188,7 +203,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen example">
     ```bash
     openclaw onboard --non-interactive \
@@ -198,7 +214,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ### Добавить агента (неинтерактивно)

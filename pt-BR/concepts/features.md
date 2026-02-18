@@ -7,22 +7,28 @@ title: "Funcionalidades"
 <Columns>
   <Card title="Channels" icon="message-square">
     WhatsApp, Telegram, Discord e iMessage com um único Gateway.
-  </Card>
+  
+</Card>
   <Card title="Plugins" icon="plug">
     Adicione Mattermost e mais com extensões.
-  </Card>
+  
+</Card>
   <Card title="Routing" icon="route">
     Roteamento multiagente com sessões isoladas.
-  </Card>
+  
+</Card>
   <Card title="Media" icon="image">
     Imagens, áudio e documentos de entrada e saída.
-  </Card>
+  
+</Card>
   <Card title="Apps and UI" icon="monitor">
     UI de Controle Web e aplicativo complementar para macOS.
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     Nós iOS e Android com suporte a Canvas.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Lista completa

@@ -30,21 +30,26 @@ title: "Начало работы"
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     ```
     <Note>
     Другие способы установки и требования: [Установка](/install).
-    </Note>
+    
+</Note>
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Run the onboarding wizard">
     ```bash
     openclaw onboard --install-daemon
@@ -55,7 +60,8 @@ title: "Начало работы"
     Подробности см. в разделе [Мастер первичной настройки](/start/wizard).
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Check the Gateway">
     Если вы установили сервис, он уже должен быть запущен:
 
@@ -65,12 +71,14 @@ title: "Начало работы"
     ```
     ````
 
-  </Step>
+  
+</Step>
   <Step title="Open the Control UI">
     ```bash
     openclaw dashboard
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 <Check>
@@ -89,7 +97,8 @@ title: "Начало работы"
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Send a test message">
     Требуется настроенный канал.
 
@@ -99,7 +108,8 @@ title: "Начало работы"
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Полезные переменные окружения
@@ -117,10 +127,12 @@ title: "Начало работы"
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
     Полный справочник по CLI‑мастеру и расширенные параметры.
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     Процесс первого запуска приложения для macOS.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Что у вас будет

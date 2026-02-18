@@ -31,21 +31,26 @@ title: "आरंभ करें"
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     ```
     <Note>
     अन्य इंस्टॉल विधियाँ और आवश्यकताएँ: [Install](/install)।
-    </Note>
+    
+</Note>
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Run the onboarding wizard">
     ```bash
     openclaw onboard --install-daemon
@@ -56,7 +61,8 @@ title: "आरंभ करें"
     विवरण के लिए [Onboarding Wizard](/start/wizard) देखें।
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Check the Gateway">
     यदि आपने सेवा इंस्टॉल की है, तो यह पहले से चल रही होनी चाहिए:
 
@@ -66,12 +72,14 @@ title: "आरंभ करें"
     ```
     ````
 
-  </Step>
+  
+</Step>
   <Step title="Open the Control UI">
     ```bash
     openclaw dashboard
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 <Check>
@@ -90,7 +98,8 @@ title: "आरंभ करें"
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Send a test message">
     कॉन्फ़िगर किए गए चैनल की आवश्यकता होती है।
 
@@ -100,7 +109,8 @@ title: "आरंभ करें"
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## उपयोगी पर्यावरण चर
@@ -118,10 +128,12 @@ title: "आरंभ करें"
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
     पूर्ण CLI विज़ार्ड संदर्भ और उन्नत विकल्प।
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     macOS ऐप के लिए प्रथम-रन प्रवाह।
-  </Card>
+  
+</Card>
 </Columns>
 
 ## आपके पास क्या होगा

@@ -19,7 +19,8 @@ sidebarTitle: "مرجع المعالج"
       - التهيئة فقط
       - التهيئة + بيانات الاعتماد + الجلسات
       - إعادة ضبط كاملة (تزيل أيضًا مساحة العمل)
-  </Step>
+  
+</Step>
   <Step title="Model/Auth">
     - **مفتاح Anthropic API (موصى به)**: يستخدم `ANTHROPIC_API_KEY` إن وُجد أو يطلب مفتاحًا، ثم يحفظه لاستخدامه من قِبل الـ daemon.
     - **Anthropic OAuth (Claude Code CLI)**: على macOS يتحقق المعالج من عنصر Keychain "Claude Code-credentials" (اختر "Always Allow" كي لا تمنع عمليات بدء launchd)؛ على Linux/Windows يعيد استخدام `~/.claude/.credentials.json` إن وُجد.
@@ -50,19 +51,23 @@ sidebarTitle: "مرجع المعالج"
     <Note>
     نصيحة للرؤوس/الخوادم: أكمل OAuth على جهاز يحتوي على متصفح، ثم انسخ
     `~/.openclaw/credentials/oauth.json` (أو `$OPENCLAW_STATE_DIR/credentials/oauth.json`) إلى مضيف Gateway.
-    </Note>
-  </Step>
+    
+</Note>
+  
+</Step>
   <Step title="Workspace">
     - الافتراضي `~/.openclaw/workspace` (قابل للتهيئة).
     - يزرع ملفات مساحة العمل اللازمة لطقس تمهيد الوكيل.
     - مخطط مساحة العمل الكامل + دليل النسخ الاحتياطي: [Agent workspace](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - المنفذ، والربط، ووضع المصادقة، والتعرّض عبر Tailscale.
     - توصية المصادقة: الإبقاء على **Token** حتى مع loopback كي تضطر عملاء WS المحليين إلى المصادقة.
     - عطّل المصادقة فقط إذا كنت تثق تمامًا بكل عملية محلية.
     - الربط غير loopback يتطلب المصادقة أيضًا.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): تسجيل دخول QR اختياري.
     - [Telegram](/channels/telegram): رمز البوت.
@@ -73,7 +78,8 @@ sidebarTitle: "مرجع المعالج"
     - [BlueBubbles](/channels/bluebubbles): **موصى به لـ iMessage**؛ عنوان خادم + كلمة مرور + webhook.
     - [iMessage](/channels/imessage): مسار CLI قديم `imsg` + وصول إلى قاعدة البيانات.
     - أمان الرسائل الخاصة (DM): الافتراضي هو الإقران. ترسل أول رسالة خاصة رمزًا؛ وافق عبر `openclaw pairing approve <channel> <code>` أو استخدم قوائم السماح.
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - يتطلب جلسة مستخدم مسجّل الدخول؛ وللبيئات عديمة الواجهة، استخدم LaunchDaemon مخصصًا (غير مُضمّن).
@@ -81,19 +87,23 @@ sidebarTitle: "مرجع المعالج"
       - يحاول المعالج تمكين الاستمرار عبر `loginctl enable-linger <user>` ليظل Gateway يعمل بعد تسجيل الخروج.
       - قد يطلب sudo (يكتب `/var/lib/systemd/linger`)؛ يحاول بدون sudo أولًا.
     - **Runtime selection:** Node (موصى به؛ مطلوب لـ WhatsApp/Telegram). Bun **غير موصى به**.
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - يبدأ Gateway (إن لزم) ويشغّل `openclaw health`.
     - نصيحة: يضيف `openclaw status --deep` مجسّات صحة Gateway إلى مخرجات الحالة (يتطلب Gateway قابلًا للوصول).
-  </Step>
+  
+</Step>
   <Step title="Skills (موصى بها)">
     - يقرأ Skills المتاحة ويتحقق من المتطلبات.
     - يتيح لك اختيار مدير عُقد: **npm / pnpm** (bun غير موصى به).
     - يثبّت تبعيات اختيارية (بعضها يستخدم Homebrew على macOS).
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - ملخص + الخطوات التالية، بما في ذلك تطبيقات iOS/Android/macOS لميزات إضافية.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -133,7 +143,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI example">
     ```bash
     openclaw onboard --non-interactive \
@@ -143,7 +154,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -153,7 +165,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -165,7 +178,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot example">
     ```bash
     openclaw onboard --non-interactive \
@@ -175,7 +189,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic example">
     ```bash
     openclaw onboard --non-interactive \
@@ -185,7 +200,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen example">
     ```bash
     openclaw onboard --non-interactive \
@@ -195,7 +211,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ### إضافة وكيل (غير تفاعلي)

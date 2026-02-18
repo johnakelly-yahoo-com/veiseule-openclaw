@@ -31,13 +31,16 @@ På Windows rekommenderar vi starkt att köra OpenClaw under [WSL2](https://lear
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     Klart — skriptet hanterar Node-detektering, installation och onboarding.
 
@@ -48,17 +51,21 @@ På Windows rekommenderar vi starkt att köra OpenClaw under [WSL2](https://lear
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     För alla flaggor, miljövariabler och CI-/automationsalternativ, se [Installer internals](/install/installer).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     Om du redan har Node 22+ och föredrar att hantera installationen själv:
@@ -78,8 +85,10 @@ På Windows rekommenderar vi starkt att köra OpenClaw under [WSL2](https://lear
           ```
 
           Om du ser `sharp: Please add node-gyp to your dependencies`, installera antingen byggverktyg (macOS: Xcode CLT + `npm install -g node-gyp`) eller använd miljövariabeln ovan.
-        </Accordion>
-      </Tab>
+        
+</Accordion>
+      
+</Tab>
       <Tab title="pnpm">
         ```bash
         pnpm add -g openclaw@latest
@@ -89,11 +98,15 @@ På Windows rekommenderar vi starkt att köra OpenClaw under [WSL2](https://lear
 
         <Note>
         pnpm kräver uttryckligt godkännande för paket med byggskript. Efter att den första installationen visar varningen "Ignored build scripts", kör `pnpm approve-builds -g` och välj de listade paketen.
-        </Note>
-      </Tab>
-    </Tabs>
+        
+</Note>
+      
+</Tab>
+    
+</Tabs>
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="From source" icon="github">
     För bidragsgivare eller alla som vill köra från en lokal utcheckning.
@@ -109,7 +122,8 @@ På Windows rekommenderar vi starkt att köra OpenClaw under [WSL2](https://lear
         pnpm ui:build
         pnpm build
         ```
-      </Step>
+      
+</Step>
       <Step title="Länka CLI:t">
         Gör kommandot `openclaw` tillgängligt globalt:
 
@@ -118,17 +132,21 @@ På Windows rekommenderar vi starkt att köra OpenClaw under [WSL2](https://lear
         ```
 
         Alternativt kan du hoppa över länkningen och köra kommandon via `pnpm openclaw ...` inifrån repot.
-      </Step>
+      
+</Step>
       <Step title="Kör introduktionen">
         ```bash
         openclaw onboard --install-daemon
         ```
-      </Step>
-    </Steps>
+      
+</Step>
+    
+</Steps>
 
     För djupare utvecklingsarbetsflöden, se [Konfigurering](/start/setup).
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Andra installationsmetoder
@@ -136,19 +154,24 @@ På Windows rekommenderar vi starkt att köra OpenClaw under [WSL2](https://lear
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     Containeriserade eller headless-distributioner.
-  </Card>
+  
+</Card>
   <Card title="Podman" href="/install/podman" icon="container">
     Rootless container: run `setup-podman.sh` once, then the launch script.
-  </Card>
+  
+</Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     Deklarativ installation via Nix.
-  </Card>
+  
+</Card>
   <Card title="Ansible" href="/install/ansible" icon="server">
     Automatiserad provisionering av flottor.
-  </Card>
+  
+</Card>
   <Card title="Bun" href="/install/bun" icon="zap">
     Endast CLI-användning via Bun-runtime.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## Efter installation
@@ -199,12 +222,15 @@ På Windows, lägg till utdata från `npm prefix -g` i din PATH.
 <CardGroup cols={3}>
   <Card title="Updating" href="/install/updating" icon="refresh-cw">
     Håll OpenClaw uppdaterat.
-  </Card>
+  
+</Card>
   <Card title="Migrating" href="/install/migrating" icon="arrow-right">
     Flytta till en ny maskin.
-  </Card>
+  
+</Card>
   <Card title="Uninstall" href="/install/uninstall" icon="trash-2">
     Ta bort OpenClaw helt.
-  </Card>
+  
+</Card>
 </CardGroup>
 

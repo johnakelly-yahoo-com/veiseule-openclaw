@@ -21,7 +21,8 @@ Pour une vue d’ensemble, voir [Onboarding Wizard](/start/wizard).
       - Configuration uniquement
       - Configuration + identifiants + sessions
       - Réinitialisation complète (supprime aussi l’espace de travail)
-  </Step>
+  
+</Step>
   <Step title="Model/Auth">
     - **Clé API Anthropic (recommandé)** : utilise `ANTHROPIC_API_KEY` si présent ou demande une clé, puis l’enregistre pour l’utilisation par le daemon.
     - **OAuth Anthropic (Claude Code CLI)** : sur macOS, l’assistant vérifie l’élément Trousseau « Claude Code-credentials » (choisissez « Toujours autoriser » afin que les démarrages launchd ne soient pas bloqués) ; sur Linux/Windows, il réutilise `~/.claude/.credentials.json` s’il est présent.
@@ -52,19 +53,23 @@ Pour une vue d’ensemble, voir [Onboarding Wizard](/start/wizard).
     <Note>
     Astuce headless/serveur : terminez l’OAuth sur une machine avec un navigateur, puis copiez
     `~/.openclaw/credentials/oauth.json` (ou `$OPENCLAW_STATE_DIR/credentials/oauth.json`) vers l’hôte de la Gateway.
-    </Note>
-  </Step>
+    
+</Note>
+  
+</Step>
   <Step title="Workspace">
     - `~/.openclaw/workspace` par défaut (configurable).
     - Initialise les fichiers d’espace de travail nécessaires au rituel de démarrage de l’agent.
     - Disposition complète de l’espace de travail + guide de sauvegarde : [Agent workspace](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Port, liaison, mode d’authentification, exposition Tailscale.
     - Recommandation d’authentification : conservez **Token** même en loopback afin que les clients WS locaux doivent s’authentifier.
     - Désactivez l’authentification uniquement si vous faites entièrement confiance à chaque processus local.
     - Les liaisons non‑loopback nécessitent toujours une authentification.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp) : connexion QR optionnelle.
     - [Telegram](/channels/telegram) : jeton de bot.
@@ -75,7 +80,8 @@ Pour une vue d’ensemble, voir [Onboarding Wizard](/start/wizard).
     - [BlueBubbles](/channels/bluebubbles) : **recommandé pour iMessage** ; URL du serveur + mot de passe + webhook.
     - [iMessage](/channels/imessage) : chemin CLI `imsg` hérité + accès à la base de données.
     - Sécurité des messages privés : le mode par défaut est l’appairage. Le premier message privé envoie un code ; approuvez via `openclaw pairing approve <channel> <code>` ou utilisez des listes d’autorisation.
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS : LaunchAgent
       - Nécessite une session utilisateur connectée ; pour le headless, utilisez un LaunchDaemon personnalisé (non fourni).
@@ -83,19 +89,23 @@ Pour une vue d’ensemble, voir [Onboarding Wizard](/start/wizard).
       - L’assistant tente d’activer le lingering via `loginctl enable-linger <user>` afin que la Gateway reste active après la déconnexion.
       - Peut demander sudo (écrit `/var/lib/systemd/linger`) ; il essaie d’abord sans sudo.
     - **Sélection du runtime :** Node (recommandé ; requis pour WhatsApp/Telegram). Bun n’est **pas recommandé**.
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - Démarre la Gateway (si nécessaire) et exécute `openclaw health`.
     - Astuce : `openclaw status --deep` ajoute des sondes de santé de la Gateway à la sortie d’état (nécessite une Gateway accessible).
-  </Step>
+  
+</Step>
   <Step title="Skills (recommended)">
     - Lit les Skills disponibles et vérifie les prérequis.
     - Vous permet de choisir un gestionnaire Node : **npm / pnpm** (bun non recommandé).
     - Installe les dépendances optionnelles (certaines utilisent Homebrew sur macOS).
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - Récapitulatif + étapes suivantes, y compris les applications iOS/Android/macOS pour des fonctionnalités supplémentaires.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -135,7 +145,8 @@ Ajoutez `--json` pour un récapitulatif lisible par machine.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI example">
     ```bash
     openclaw onboard --non-interactive \
@@ -145,7 +156,8 @@ Ajoutez `--json` pour un récapitulatif lisible par machine.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -155,7 +167,8 @@ Ajoutez `--json` pour un récapitulatif lisible par machine.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -167,7 +180,8 @@ Ajoutez `--json` pour un récapitulatif lisible par machine.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot example">
     ```bash
     openclaw onboard --non-interactive \
@@ -177,7 +191,8 @@ Ajoutez `--json` pour un récapitulatif lisible par machine.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic example">
     ```bash
     openclaw onboard --non-interactive \
@@ -187,7 +202,8 @@ Ajoutez `--json` pour un récapitulatif lisible par machine.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen example">
     ```bash
     openclaw onboard --non-interactive \
@@ -197,7 +213,8 @@ Ajoutez `--json` pour un récapitulatif lisible par machine.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ### Ajouter un agent (non interactif)

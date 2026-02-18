@@ -20,7 +20,8 @@ sidebarTitle: "reference/wizard.md"
       - 僅設定
       - 設定 + 憑證 + 工作階段
       - 完整重設（也會移除工作區）
-  </Step>
+  
+</Step>
   <Step title="Model/Auth">
     - **Anthropic API 金鑰（建議）**：若存在則使用 `ANTHROPIC_API_KEY`，否則提示輸入金鑰，接著儲存以供 daemon 使用。
     - **Anthropic OAuth（Claude Code CLI）**：在 macOS 上，精靈會檢查 Keychain 項目「Claude Code-credentials」（請選擇「Always Allow」以避免 launchd 啟動時被阻擋）；在 Linux/Windows 上，若存在則重用 `~/.claude/.credentials.json`。
@@ -52,19 +53,23 @@ sidebarTitle: "reference/wizard.md"
     無頭／伺服器提示：請在有瀏覽器的機器上完成 OAuth，然後將
     `~/.openclaw/credentials/oauth.json`（或 `$OPENCLAW_STATE_DIR/credentials/oauth.json`）複製到
     Gateway 主機。
-    </Note>
-  </Step>
+    
+</Note>
+  
+</Step>
   <Step title="Workspace">
     - 預設為 `~/.openclaw/workspace`（可設定）。
     - 產生代理程式啟動流程所需的工作區檔案。
     - 完整工作區配置與備份指南：[代理程式工作區](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - 連接埠、bind、驗證模式、Tailscale 對外暴露。
     - 驗證建議：即使是 loopback，也請保留 **Token**，讓本機 WS 用戶端必須驗證。
     - 只有在你完全信任所有本機程序時才停用驗證。
     - 非 loopback 的 bind 仍然需要驗證。
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp)：可選 QR 登入。
     - [Telegram](/channels/telegram)：bot token。
@@ -75,7 +80,8 @@ sidebarTitle: "reference/wizard.md"
     - [BlueBubbles](/channels/bluebubbles)：**iMessage 建議方案**；server URL + password + webhook。
     - [iMessage](/channels/imessage)：舊版 `imsg` CLI 路徑 + DB 存取。
     - DM 安全性：預設為配對。第一則 DM 會傳送代碼；透過 `openclaw pairing approve <channel> <code>` 核准，或使用允許清單。
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS：LaunchAgent
       - 需要已登入的使用者工作階段；若為無頭環境，請使用自訂 LaunchDaemon（未隨附）。
@@ -83,19 +89,23 @@ sidebarTitle: "reference/wizard.md"
       - 精靈會嘗試透過 `loginctl enable-linger <user>` 啟用 lingering，讓 Gateway 在登出後仍持續運行。
       - 可能會提示 sudo（寫入 `/var/lib/systemd/linger`）；會先嘗試不使用 sudo。
     - **執行環境選擇：** Node（建議；WhatsApp/Telegram 必須）。**不建議** 使用 Bun。
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - 啟動 Gateway（如有需要）並執行 `openclaw health`。
     - 提示：`openclaw status --deep` 會在狀態輸出中加入 gateway 健康探測（需要可連線的 gateway）。
-  </Step>
+  
+</Step>
   <Step title="Skills (recommended)">
     - 讀取可用的 Skills 並檢查需求。
     - 讓你選擇 node 管理工具：**npm / pnpm**（不建議使用 bun）。
     - 安裝選用相依套件（部分在 macOS 上使用 Homebrew）。
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - 摘要與後續步驟，包括 iOS/Android/macOS 應用程式以啟用額外功能。
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -135,7 +145,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI example">
     ```bash
     openclaw onboard --non-interactive \
@@ -145,7 +156,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -155,7 +167,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -167,7 +180,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot example">
     ```bash
     openclaw onboard --non-interactive \
@@ -177,7 +191,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic example">
     ```bash
     openclaw onboard --non-interactive \
@@ -187,7 +202,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen example">
     ```bash
     openclaw onboard --non-interactive \
@@ -197,7 +213,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ### 新增代理程式（非互動）

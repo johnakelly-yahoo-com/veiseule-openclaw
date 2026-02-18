@@ -10,14 +10,12 @@ sidebarTitle: "OpenClaw"
         src="/assets/openclaw-logo-text-dark.png"
         alt="OpenClaw"
         width="500"
-        class="dark:hidden"
-    />
+        class="dark:hidden"></img>
     <img
         src="/assets/openclaw-logo-text.png"
         alt="OpenClaw"
         width="500"
-        class="hidden dark:block"
-    />
+        class="hidden dark:block"></img>
 </p>
 
 > _"EXFOLIATE! <strong>Anumang OS gateway para sa mga AI agent sa WhatsApp, Telegram, Discord, iMessage, at higit pa.</strong>
@@ -29,13 +27,16 @@ sidebarTitle: "OpenClaw"
 <Columns>
   <Card title="Get Started" href="/start/getting-started" icon="rocket">
     I-install ang OpenClaw at patakbuhin ang Gateway sa loob ng ilang minuto.
-  </Card>
+  
+</Card>
   <Card title="Run the Wizard" href="/start/wizard" icon="sparkles">
     Guided na setup gamit ang `openclaw onboard` at mga pairing flow.
-  </Card>
+  
+</Card>
   <Card title="Open the Control UI" href="/web/control-ui" icon="layout-dashboard">
     Ilunsad ang browser dashboard para sa chat, config, at mga session.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Ano ang OpenClaw?
@@ -72,22 +73,28 @@ Ang Gateway ang iisang source of truth para sa mga session, routing, at mga kone
 <Columns>
   <Card title="Multi-channel gateway" icon="network">
     WhatsApp, Telegram, Discord, at iMessage gamit ang iisang proseso ng Gateway.
-  </Card>
+  
+</Card>
   <Card title="Plugin channels" icon="plug">
     Magdagdag ng Mattermost at iba pa gamit ang mga extension package.
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" icon="route">
     Hiwalay na mga session kada agent, workspace, o sender.
-  </Card>
+  
+</Card>
   <Card title="Media support" icon="image">
     Magpadala at tumanggap ng mga larawan, audio, at dokumento.
-  </Card>
+  
+</Card>
   <Card title="Web Control UI" icon="monitor">
     Browser dashboard para sa chat, config, mga session, at node.
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     I-pair ang mga iOS at Android node na may Canvas support.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Mabilis na pagsisimula
@@ -97,18 +104,21 @@ Ang Gateway ang iisang source of truth para sa mga session, routing, at mga kone
     ```bash
     npm install -g openclaw@latest
     ```
-  </Step>
+  
+</Step>
   <Step title="Onboard and install the service">
     ```bash
     openclaw onboard --install-daemon
     ```
-  </Step>
+  
+</Step>
   <Step title="Pair WhatsApp and start the Gateway">
     ```bash
     openclaw channels login
     openclaw gateway --port 18789
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 Dapat **port 22 lamang** (SSH) ang bukas. See [Quick start](/start/quickstart).
@@ -121,7 +131,7 @@ Buksan ang browser Control UI pagkatapos magsimula ang Gateway.
 - Remote access: [Web surfaces](/web) at [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420" />
+  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Configuration (opsyonal)
@@ -150,22 +160,28 @@ Halimbawa:
 <Columns>
   <Card title="Docs hubs" href="/start/hubs" icon="book-open">
     Lahat ng docs at gabay, inayos ayon sa use case.
-  </Card>
+  
+</Card>
   <Card title="Configuration" href="/gateway/configuration" icon="settings">
     Mga pangunahing setting ng Gateway, mga token, at provider config.
-  </Card>
+  
+</Card>
   <Card title="Remote access" href="/gateway/remote" icon="globe">
     Mga pattern ng SSH at tailnet access.
-  </Card>
+  
+</Card>
   <Card title="Channels" href="/channels/telegram" icon="message-square">
     Channel-specific na setup para sa WhatsApp, Telegram, Discord, at iba pa.
-  </Card>
+  
+</Card>
   <Card title="Nodes" href="/nodes" icon="smartphone">
     Mga iOS at Android node na may pairing at Canvas.
-  </Card>
+  
+</Card>
   <Card title="Help" href="/help" icon="life-buoy">
     Mga karaniwang ayos at entry point para sa pag-troubleshoot.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Alamin pa
@@ -173,19 +189,24 @@ Halimbawa:
 <Columns>
   <Card title="Full feature list" href="/concepts/features" icon="list">
     Kumpletong kakayahan sa channel, routing, at media.
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" href="/concepts/multi-agent" icon="route">
     Workspace isolation at per-agent na mga session.
-  </Card>
+  
+</Card>
   <Card title="Security" href="/gateway/security" icon="shield">
     Mga token, allowlist, at mga kontrol sa kaligtasan.
-  </Card>
+  
+</Card>
   <Card title="Troubleshooting" href="/gateway/troubleshooting" icon="wrench">
     Mga diagnostic ng Gateway at karaniwang error.
-  </Card>
+  
+</Card>
   <Card title="About and credits" href="/reference/credits" icon="info">
     Pinagmulan ng proyekto, mga contributor, at lisensya.
-  </Card>
+  
+</Card>
 </Columns>
 
 

@@ -12,22 +12,22 @@ smidig ”dag 0” upplevelse: välj var Gateway går, anslut auth, kör
 <Steps>
 <Step title="Approve macOS warning">
 <Frame>
-<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt="" />
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Approve find local networks">
 <Frame>
-<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt="" />
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Welcome and security notice">
 <Frame caption="Läs säkerhetsmeddelandet som visas och fatta beslut därefter">
-<img src="/assets/macos-onboarding/03-security-notice.png" alt="" />
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
 </Frame>
 </Step>
 <Step title="Local vs Remote">
 <Frame>
-<img src="/assets/macos-onboarding/04-choose-gateway.png" alt="" />
+<img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
 Var körs **Gateway**?
@@ -45,7 +45,7 @@ Var körs **Gateway**?
 </Step>
 <Step title="Permissions">
 <Frame caption="Välj vilka behörigheter du vill ge OpenClaw">
-<img src="/assets/macos-onboarding/05-permissions.png" alt="" />
+<img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
 Introduktionen begär TCC-behörigheter som behövs för:
@@ -61,7 +61,8 @@ Introduktionen begär TCC-behörigheter som behövs för:
 
 </Step>
 <Step title="CLI">
-  <Info>Detta steg är valfritt</Info>
+  <Info>Detta steg är valfritt
+</Info>
   Appen kan installera den globala `openclaw` CLI via npm/pnpm så att
   terminalarbetsflöden och launchd-uppgifter fungerar direkt.
 </Step>

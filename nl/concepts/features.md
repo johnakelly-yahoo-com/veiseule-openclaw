@@ -7,22 +7,28 @@ title: "Functies"
 <Columns>
   <Card title="Channels" icon="message-square">
     WhatsApp, Telegram, Discord en iMessage met één Gateway.
-  </Card>
+  
+</Card>
   <Card title="Plugins" icon="plug">
     Voeg Mattermost en meer toe met extensies.
-  </Card>
+  
+</Card>
   <Card title="Routing" icon="route">
     Multi-agent-routering met geïsoleerde sessies.
-  </Card>
+  
+</Card>
   <Card title="Media" icon="image">
     Afbeeldingen, audio en documenten in en uit.
-  </Card>
+  
+</Card>
   <Card title="Apps and UI" icon="monitor">
     Web Control UI en macOS Companion-app.
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     iOS- en Android-nodes met Canvas-ondersteuning.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Volledige lijst

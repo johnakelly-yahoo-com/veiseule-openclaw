@@ -48,10 +48,12 @@ openclaw agents add <name>
     - مصادقة Gateway **Token** (يتم إنشاؤه تلقائيًا، حتى على loopback)
     - تعريض Tailscale **مُعطّل**
     - الرسائل الخاصة عبر Telegram وWhatsApp افتراضيًا على **allowlist** (سيُطلب منك رقم هاتفك)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - يعرض كل خطوة (الوضع، مساحة العمل، Gateway، القنوات، الخادم، Skills).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## ما هي تشكيلات المعالج

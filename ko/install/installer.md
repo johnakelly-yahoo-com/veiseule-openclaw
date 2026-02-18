@@ -23,7 +23,8 @@ OpenClaw 는 `openclaw.ai` 에서 제공되는 세 가지 설치 스크립트를
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --help
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install-cli.sh">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash
@@ -32,7 +33,8 @@ OpenClaw 는 `openclaw.ai` 에서 제공되는 세 가지 설치 스크립트를
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --help
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install.ps1">
     ```powershell
     iwr -useb https://openclaw.ai/install.ps1 | iex
@@ -41,7 +43,8 @@ OpenClaw 는 `openclaw.ai` 에서 제공되는 세 가지 설치 스크립트를
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -Tag beta -NoOnboard -DryRun
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Note>
@@ -61,22 +64,27 @@ macOS/Linux/WSL 에서 대부분의 대화형 설치에 권장됩니다.
 <Steps>
   <Step title="Detect OS">
     macOS 와 Linux(WSL 포함)를 지원합니다. macOS 가 감지되면 Homebrew 가 없을 경우 설치합니다.
-  </Step>
+  
+</Step>
   <Step title="Ensure Node.js 22+">
     Node 버전을 확인하고 필요 시 Node 22 를 설치합니다(macOS 는 Homebrew, Linux apt/dnf/yum 은 NodeSource 설정 스크립트 사용).
-  </Step>
+  
+</Step>
   <Step title="Ensure Git">
     Git 이 없으면 설치합니다.
-  </Step>
+  
+</Step>
   <Step title="Install OpenClaw">
     - `npm` 방식(기본값): 전역 npm 설치  
     - `git` 방식: 저장소를 clone/update 하고 pnpm 으로 의존성을 설치 및 빌드한 뒤, `~/.local/bin/openclaw` 에 래퍼를 설치합니다
-  </Step>
+  
+</Step>
   <Step title="Post-install tasks">
     - 업그레이드 및 git 설치 시 `openclaw doctor --non-interactive` 실행(최선의 노력)  
     - 적절한 경우 온보딩을 시도합니다(TTY 사용 가능, 온보딩 비활성화 아님, bootstrap/구성 검사 통과)  
     - 기본값은 `SHARP_IGNORE_GLOBAL_LIBVIPS=1` 입니다
-  </Step>
+  
+</Step>
 </Steps>
 
 ### 소스 체크아웃 감지
@@ -97,22 +105,26 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Skip onboarding">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --no-onboard
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Git install">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --install-method git
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Dry run">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --dry-run
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -134,7 +146,8 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
 | `--verbose`                          | 디버그 출력 활성화(`set -x`, npm notice-level 로그) |
 | `--help`                             | 사용법 표시(`-h`) |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -152,7 +165,8 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
 | `OPENCLAW_NPM_LOGLEVEL=error\|warn\|notice` | npm 로그 레벨 |
 | `SHARP_IGNORE_GLOBAL_LIBVIPS=0\|1`     | sharp/libvips 동작 제어(기본값: `1`) |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ---
@@ -168,13 +182,16 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
 <Steps>
   <Step title="Install local Node runtime">
     Node tarball(기본값 `22.22.0`)을 `<prefix>/tools/node-v<version>` 에 다운로드하고 SHA-256 을 검증합니다.
-  </Step>
+  
+</Step>
   <Step title="Ensure Git">
     Git 이 없으면 Linux 에서는 apt/dnf/yum, macOS 에서는 Homebrew 로 설치를 시도합니다.
-  </Step>
+  
+</Step>
   <Step title="Install OpenClaw under prefix">
     npm 을 `--prefix <prefix>` 옵션과 함께 사용하여 설치한 뒤, `<prefix>/bin/openclaw` 에 래퍼를 작성합니다.
-  </Step>
+  
+</Step>
 </Steps>
 
 ### 예제 (install-cli.sh)
@@ -184,22 +201,26 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Custom prefix + version">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --prefix /opt/openclaw --version latest
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Automation JSON output">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --json --prefix /opt/openclaw
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Run onboarding">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --onboard
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -216,7 +237,8 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
 | `--set-npm-prefix`    | Linux 에서 현재 프리픽스에 쓰기 권한이 없으면 npm 프리픽스를 `~/.npm-global` 로 강제 |
 | `--help`              | 사용법 표시(`-h`) |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -230,7 +252,8 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
 | `OPENCLAW_GIT_DIR=<path>`              | 레거시 정리 조회 경로(이전 `Peekaboo` 서브모듈 체크아웃 제거 시 사용) |
 | `SHARP_IGNORE_GLOBAL_LIBVIPS=0\|1`     | sharp/libvips 동작 제어(기본값: `1`) |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ---
@@ -242,17 +265,21 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
 <Steps>
   <Step title="Ensure PowerShell + Windows environment">
     PowerShell 5+ 가 필요합니다.
-  </Step>
+  
+</Step>
   <Step title="Ensure Node.js 22+">
     없으면 winget, 그 다음 Chocolatey, 그 다음 Scoop 순으로 설치를 시도합니다.
-  </Step>
+  
+</Step>
   <Step title="Install OpenClaw">
     - `npm` 방식(기본값): 선택된 `-Tag` 를 사용하여 전역 npm 설치  
     - `git` 방식: 저장소를 clone/update 하고 pnpm 으로 설치/빌드한 뒤, `%USERPROFILE%\.local\bin\openclaw.cmd` 에 래퍼를 설치합니다
-  </Step>
+  
+</Step>
   <Step title="Post-install tasks">
     가능하면 필요한 bin 디렉토리를 사용자 PATH 에 추가한 다음, 업그레이드 및 git 설치 시 `openclaw doctor --non-interactive` 를 실행합니다(최선의 노력).
-  </Step>
+  
+</Step>
 </Steps>
 
 ### 예제 (install.ps1)
@@ -262,22 +289,26 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
     ```powershell
     iwr -useb https://openclaw.ai/install.ps1 | iex
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Git install">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -InstallMethod git
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Custom git directory">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -InstallMethod git -GitDir "C:\openclaw"
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Dry run">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -DryRun
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Debug trace">
     ```powershell
     # install.ps1 has no dedicated -Verbose flag yet.
@@ -285,7 +316,8 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
     Set-PSDebug -Trace 0
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <AccordionGroup>
@@ -300,7 +332,8 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
 | `-NoGitUpdate`             | `git pull` 건너뛰기 |
 | `-DryRun`                  | 작업만 출력 |
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Environment variables reference">
 
@@ -312,7 +345,8 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
 | `OPENCLAW_GIT_UPDATE=0`            | git pull 비활성화 |
 | `OPENCLAW_DRY_RUN=1`               | 드라이 런 모드 |
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 <Note>
@@ -330,23 +364,27 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --no-prompt --no-onboard
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install.sh (non-interactive git)">
     ```bash
     OPENCLAW_INSTALL_METHOD=git OPENCLAW_NO_PROMPT=1 \
       curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install-cli.sh (JSON)">
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --json --prefix /opt/openclaw
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="install.ps1 (skip onboarding)">
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
     ```
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ---
@@ -356,11 +394,13 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
 <AccordionGroup>
   <Accordion title="Why is Git required?">
     Git 은 `git` 설치 방식에 필요합니다. `npm` 설치의 경우에도, 의존성이 git URL 을 사용할 때 발생할 수 있는 `spawn git ENOENT` 실패를 피하기 위해 Git 을 확인/설치합니다.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Why does npm hit EACCES on Linux?">
     일부 Linux 설정에서는 npm 전역 프리픽스가 root 소유 경로를 가리킵니다. `install.sh` 는 프리픽스를 `~/.npm-global` 로 전환하고, 해당 파일이 존재할 경우 셸 rc 파일에 PATH export 를 추가할 수 있습니다.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="sharp/libvips issues">
     스크립트는 기본적으로 시스템 libvips 에 대해 sharp 가 빌드되는 것을 피하기 위해 `SHARP_IGNORE_GLOBAL_LIBVIPS=1` 를 설정합니다. 재정의하려면 다음을 사용하십시오.
@@ -369,15 +409,18 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
     SHARP_IGNORE_GLOBAL_LIBVIPS=0 curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title='Windows: "npm error spawn git / ENOENT"'>
     Git for Windows 를 설치하고 PowerShell 을 다시 연 뒤 설치 프로그램을 다시 실행하십시오.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title='Windows: "openclaw is not recognized"'>
     `npm config get prefix` 를 실행하고 `\bin` 를 추가한 다음, 해당 디렉토리를 사용자 PATH 에 추가하고 PowerShell 을 다시 여십시오.
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Windows: how to get verbose installer output">
     `install.ps1` 는 현재 `-Verbose` 스위치를 제공하지 않습니다.  
@@ -388,10 +431,12 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
     Set-PSDebug -Trace 0
     ```
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="openclaw not found after install">
     보통 PATH 문제입니다. [Node.js 문제 해결](/install/node#troubleshooting)을 참고하십시오.
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 

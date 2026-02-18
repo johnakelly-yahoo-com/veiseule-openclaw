@@ -30,21 +30,26 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     ```
     <Note>
     အခြား ထည့်သွင်းနည်းများနှင့် လိုအပ်ချက်များ — [Install](/install)။
-    </Note>
+    
+</Note>
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Run the onboarding wizard">
     ```bash
     openclaw onboard --install-daemon
@@ -55,7 +60,8 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
     အသေးစိတ်အတွက် [Onboarding Wizard](/start/wizard) ကို ကြည့်ပါ။
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Check the Gateway">
     ဝန်ဆောင်မှုကို ထည့်သွင်းထားပါက ယခုအချိန်တွင် လည်ပတ်နေပြီးသား ဖြစ်သင့်ပါသည် —
 
@@ -65,12 +71,14 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
     ```
     ````
 
-  </Step>
+  
+</Step>
   <Step title="Open the Control UI">
     ```bash
     openclaw dashboard
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 <Check>
@@ -89,7 +97,8 @@ Control UI ကို ဖွင့်လို့ရပါက သင့် Gatewa
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Send a test message">
     ချန်နယ်တစ်ခုကို ဖွဲ့စည်းပြင်ဆင်ထားရန် လိုအပ်သည်။
 
@@ -99,7 +108,8 @@ Control UI ကို ဖွင့်လို့ရပါက သင့် Gatewa
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## 33. အသုံးဝင်သော environment variable များ
@@ -117,10 +127,12 @@ Control UI ကို ဖွင့်လို့ရပါက သင့် Gatewa
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
     CLI wizard အပြည့်အစုံ ရည်ညွှန်းချက်နှင့် အဆင့်မြင့် ရွေးချယ်မှုများ။
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     macOS အက်ပ်အတွက် ပထမဆုံး လည်ပတ်မှု လုပ်ငန်းစဉ်။
-  </Card>
+  
+</Card>
 </Columns>
 
 ## သင်ရရှိမည့်အရာများ

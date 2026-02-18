@@ -10,14 +10,12 @@ sidebarTitle: "OpenClaw"
         src="/assets/openclaw-logo-text-dark.png"
         alt="OpenClaw"
         width="500"
-        class="dark:hidden"
-    />
+        class="dark:hidden"></img>
     <img
         src="/assets/openclaw-logo-text.png"
         alt="OpenClaw"
         width="500"
-        class="hidden dark:block"
-    />
+        class="hidden dark:block"></img>
 </p>
 
 > _"EXFOLIATE! EXFOLIATE!"_ — Een ruimtekreeft, waarschijnlijk
@@ -30,13 +28,16 @@ sidebarTitle: "OpenClaw"
 <Columns>
   <Card title="Get Started" href="/start/getting-started" icon="rocket">
     Installeer OpenClaw en start de Gateway binnen enkele minuten.
-  </Card>
+  
+</Card>
   <Card title="Run the Wizard" href="/start/wizard" icon="sparkles">
     Begeleide installatie met `openclaw onboard` en koppelingsflows.
-  </Card>
+  
+</Card>
   <Card title="Open the Control UI" href="/web/control-ui" icon="layout-dashboard">
     Start het browserdashboard voor chat, config en sessies.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Wat is OpenClaw?
@@ -73,22 +74,28 @@ De Gateway is de enige bron van waarheid voor sessies, routing en kanaalverbindi
 <Columns>
   <Card title="Multi-channel gateway" icon="network">
     WhatsApp, Telegram, Discord en iMessage met één enkel Gateway‑proces.
-  </Card>
+  
+</Card>
   <Card title="Plugin channels" icon="plug">
     Voeg Mattermost en meer toe met extensiepakketten.
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" icon="route">
     Geïsoleerde sessies per agent, werkruimte of afzender.
-  </Card>
+  
+</Card>
   <Card title="Media support" icon="image">
     Afbeeldingen, audio en documenten verzenden en ontvangen.
-  </Card>
+  
+</Card>
   <Card title="Web Control UI" icon="monitor">
     Browserdashboard voor chat, config, sessies en nodes.
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     iOS‑ en Android‑nodes koppelen met Canvas‑ondersteuning.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Snelle start
@@ -98,18 +105,21 @@ De Gateway is de enige bron van waarheid voor sessies, routing en kanaalverbindi
     ```bash
     npm install -g openclaw@latest
     ```
-  </Step>
+  
+</Step>
   <Step title="Onboard and install the service">
     ```bash
     openclaw onboard --install-daemon
     ```
-  </Step>
+  
+</Step>
   <Step title="Pair WhatsApp and start the Gateway">
     ```bash
     openclaw channels login
     openclaw gateway --port 18789
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 Heb je de volledige installatie- en ontwikkelsetup nodig? Zie [Snelle start](/start/quickstart).
@@ -122,7 +132,7 @@ Open de browser‑Control UI nadat de Gateway is gestart.
 - Externe toegang: [Web surfaces](/web) en [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420" />
+  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Configuratie (optioneel)
@@ -151,22 +161,28 @@ Voorbeeld:
 <Columns>
   <Card title="Docs hubs" href="/start/hubs" icon="book-open">
     Alle documentatie en handleidingen, geordend per use‑case.
-  </Card>
+  
+</Card>
   <Card title="Configuration" href="/gateway/configuration" icon="settings">
     Kern‑Gateway‑instellingen, tokens en providerconfig.
-  </Card>
+  
+</Card>
   <Card title="Remote access" href="/gateway/remote" icon="globe">
     SSH‑ en tailnet‑toegangspatronen.
-  </Card>
+  
+</Card>
   <Card title="Channels" href="/channels/telegram" icon="message-square">
     Kanaalspecifieke installatie voor WhatsApp, Telegram, Discord en meer.
-  </Card>
+  
+</Card>
   <Card title="Nodes" href="/nodes" icon="smartphone">
     iOS‑ en Android‑nodes met koppeling en Canvas.
-  </Card>
+  
+</Card>
   <Card title="Help" href="/help" icon="life-buoy">
     veelvoorkomende oplossingen en het oplossen van problemen invoerpunt.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Meer leren
@@ -174,19 +190,24 @@ Voorbeeld:
 <Columns>
   <Card title="Full feature list" href="/concepts/features" icon="list">
     Complete kanaal-, routing‑ en mediacapaciteiten.
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" href="/concepts/multi-agent" icon="route">
     Isolatie van werkruimtes en per‑agent sessies.
-  </Card>
+  
+</Card>
   <Card title="Security" href="/gateway/security" icon="shield">
     Tokens, toegestane lijsten en veiligheidscontroles.
-  </Card>
+  
+</Card>
   <Card title="Troubleshooting" href="/gateway/troubleshooting" icon="wrench">
     Gateway‑diagnostiek en veelvoorkomende fouten.
-  </Card>
+  
+</Card>
   <Card title="About and credits" href="/reference/credits" icon="info">
     Oorsprong van het project, bijdragers en licentie.
-  </Card>
+  
+</Card>
 </Columns>
 
 

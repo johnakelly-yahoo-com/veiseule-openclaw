@@ -26,7 +26,8 @@ Als dit `v22.x.x` of hoger weergeeft, zit je goed. Als Node niet is geïnstallee
 
     Of download het macOS-installatieprogramma van [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
@@ -43,7 +44,8 @@ Als dit `v22.x.x` of hoger weergeeft, zit je goed. Als Node niet is geïnstallee
 
     Of gebruik een versiebeheerder (zie hieronder).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget** (aanbevolen):
 
@@ -59,7 +61,8 @@ Als dit `v22.x.x` of hoger weergeeft, zit je goed. Als Node niet is geïnstallee
 
     Of download het Windows-installatieprogramma van [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
@@ -78,7 +81,8 @@ fnm use 22
 
   <Warning>
   Zorg ervoor dat je versiebeheerder is geïnitialiseerd in het opstartbestand van je shell (`~/.zshrc` of `~/.bashrc`). Als dat niet zo is, wordt `openclaw` mogelijk niet gevonden in nieuwe terminalsessies omdat de PATH de bin-map van Node niet bevat.
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## Problemen oplossen
@@ -92,7 +96,8 @@ Dit betekent bijna altijd dat de globale bin-map van npm niet in je PATH staat.
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
@@ -100,7 +105,8 @@ Dit betekent bijna altijd dat de globale bin-map van npm niet in je PATH staat.
 
     Zoek in de uitvoer naar `<npm-prefix>/bin` (macOS/Linux) of `<npm-prefix>` (Windows).
 
-  </Step>
+  
+</Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -111,13 +117,17 @@ Dit betekent bijna altijd dat de globale bin-map van npm niet in je PATH staat.
         ```
 
         Open daarna een nieuwe terminal (of voer `rehash` uit in zsh / `hash -r` in bash).
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         Voeg de uitvoer van `npm prefix -g` toe aan je systeem-PATH via Instellingen → Systeem → Omgevingsvariabelen.
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Rechtenfouten bij `npm install -g` (Linux)

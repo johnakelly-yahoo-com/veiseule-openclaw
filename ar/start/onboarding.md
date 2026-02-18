@@ -12,22 +12,22 @@ sidebarTitle: "بدء الاستخدام: تطبيق macOS"
 <Steps>
 <Step title="Approve macOS warning">
 <Frame>
-<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt="" />
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Approve find local networks">
 <Frame>
-<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt="" />
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Welcome and security notice">
 <Frame caption="اقرأ إشعار الأمان المعروض واتخذ القرار وفقًا لذلك">
-<img src="/assets/macos-onboarding/03-security-notice.png" alt="" />
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
 </Frame>
 </Step>
 <Step title="Local vs Remote">
 <Frame>
-<img src="/assets/macos-onboarding/04-choose-gateway.png" alt="" />
+<img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
 أين يعمل **Gateway** (البوابة)؟
@@ -45,7 +45,7 @@ sidebarTitle: "بدء الاستخدام: تطبيق macOS"
 </Step>
 <Step title="Permissions">
 <Frame caption="اختر الأذونات التي تريد منحها لـ OpenClaw">
-<img src="/assets/macos-onboarding/05-permissions.png" alt="" />
+<img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
 تطلب التهيئة الأولية أذونات TCC اللازمة لـ:
@@ -61,7 +61,8 @@ sidebarTitle: "بدء الاستخدام: تطبيق macOS"
 
 </Step>
 <Step title="CLI">
-  <Info>هذه الخطوة اختيارية</Info>
+  <Info>هذه الخطوة اختيارية
+</Info>
   يمكن للتطبيق تثبيت CLI العالمي `openclaw` عبر npm/pnpm بحيث تعمل
   تدفقات العمل في الطرفية ومهام launchd مباشرة دون إعداد إضافي.
 </Step>

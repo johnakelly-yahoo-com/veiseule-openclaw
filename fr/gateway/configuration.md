@@ -36,21 +36,25 @@ Voir la [référence complète](/gateway/configuration-reference) pour tous les 
     openclaw onboard       # assistant de configuration complet
     openclaw configure     # assistant de configuration
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="CLI (one-liners)">
     ```bash
     openclaw config get agents.defaults.workspace
     openclaw config set agents.defaults.heartbeat.every "2h"
     openclaw config unset tools.web.search.apiKey
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Interface de contrôle">
     Ouvrez [http://127.0.0.1:18789](http://127.0.0.1:18789) et utilisez l’onglet **Config**.  
     L’interface génère un formulaire à partir du schéma de configuration, avec un éditeur **Raw JSON** comme échappatoire.
-  </Tab>
+  
+</Tab>
   <Tab title="Édition directe">
     Modifiez directement `~/.openclaw/openclaw.json`. La Gateway surveille le fichier et applique automatiquement les changements (voir [rechargement à chaud](#config-hot-reload)).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Validation stricte
@@ -97,7 +101,8 @@ En cas d’échec de validation :
     }
     ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Choisir et configurer les modèles">
     Définissez le modèle principal et des replis optionnels :
@@ -124,7 +129,8 @@ En cas d’échec de validation :
     - Voir [Models CLI](/concepts/models) pour changer de modèle en chat et [Model Failover](/concepts/model-failover) pour la rotation d’authentification et les replis.
     - Pour les fournisseurs personnalisés/self-hosted, voir [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Contrôler qui peut envoyer des messages au bot">
     L’accès DM est contrôlé par canal via `dmPolicy` :
@@ -138,7 +144,8 @@ En cas d’échec de validation :
 
     Voir la [référence complète](/gateway/configuration-reference#dm-and-group-access) pour les détails par canal.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Configurer le filtrage par mention en groupe">
     Les messages de groupe nécessitent par défaut une **mention**. Configurez les motifs par agent :
@@ -167,7 +174,8 @@ En cas d’échec de validation :
     - **Motifs texte** : regex définies dans `mentionPatterns`
     - Voir la [référence complète](/gateway/configuration-reference#group-chat-mention-gating).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Configurer les sessions et réinitialisations">
     Les sessions contrôlent la continuité des conversations :
@@ -188,7 +196,8 @@ En cas d’échec de validation :
     - `dmScope`: `main` | `per-peer` | `per-channel-peer` | `per-account-channel-peer`
     - Voir [Session Management](/concepts/session) et la [référence complète](/gateway/configuration-reference#session).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Activer le sandboxing">
     Exécutez les sessions agent dans des conteneurs Docker isolés :
@@ -210,7 +219,8 @@ En cas d’échec de validation :
 
     Voir [Sandboxing](/gateway/sandboxing).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Configurer le heartbeat (vérifications périodiques)">
     ```json5
@@ -230,7 +240,8 @@ En cas d’échec de validation :
     - `target` : `last` | `whatsapp` | `telegram` | `discord` | `none`
     - Voir [Heartbeat](/gateway/heartbeat).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Configurer les tâches cron">
     ```json5
@@ -245,7 +256,8 @@ En cas d’échec de validation :
 
     Voir [Cron jobs](/automation/cron-jobs).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Configurer les webhooks (hooks)">
     ```json5
@@ -271,7 +283,8 @@ En cas d’échec de validation :
 
     Voir la [référence complète](/gateway/configuration-reference#hooks).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Configurer le routage multi-agents">
     ```json5
@@ -291,7 +304,8 @@ En cas d’échec de validation :
 
     Voir [Multi-Agent](/concepts/multi-agent).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Diviser la configuration en plusieurs fichiers ($include)">
     ```json5
@@ -312,7 +326,8 @@ En cas d’échec de validation :
     - **Chemins relatifs** : résolus depuis le fichier incluant
     - **Erreurs** : messages clairs pour fichiers manquants, erreurs de parsing ou boucles
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Rechargement à chaud de la configuration

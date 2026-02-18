@@ -21,7 +21,8 @@ sidebarTitle: "마법사 레퍼런스"
       - 설정만
       - 설정 + 자격 증명 + 세션
       - 전체 초기화(워크스페이스도 제거)
-  </Step>
+  
+</Step>
   <Step title="Model/Auth">
     - **Anthropic API 키(권장)**: 존재하면 `ANTHROPIC_API_KEY` 를 사용하거나 키 입력을 요청한 뒤, 데몬 사용을 위해 저장합니다.
     - **Anthropic OAuth (Claude Code CLI)**: macOS 에서는 Keychain 항목 "Claude Code-credentials" 를 확인합니다("Always Allow" 를 선택해야 launchd 시작이 차단되지 않음). Linux/Windows 에서는 존재할 경우 `~/.claude/.credentials.json` 을 재사용합니다.
@@ -53,19 +54,23 @@ sidebarTitle: "마법사 레퍼런스"
     헤드리스/서버 팁: 브라우저가 있는 머신에서 OAuth 를 완료한 뒤
     `~/.openclaw/credentials/oauth.json` (또는 `$OPENCLAW_STATE_DIR/credentials/oauth.json`) 를
     게이트웨이 호스트로 복사하십시오.
-    </Note>
-  </Step>
+    
+</Note>
+  
+</Step>
   <Step title="Workspace">
     - 기본값은 `~/.openclaw/workspace` (구성 가능).
     - 에이전트 부트스트랩 의식을 위해 필요한 워크스페이스 파일을 시드합니다.
     - 전체 워크스페이스 레이아웃 + 백업 가이드: [Agent workspace](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - 포트, 바인드, 인증 모드, tailscale 노출.
     - 인증 권장 사항: 로컬 loopback 이더라도 **Token** 을 유지하여 로컬 WS 클라이언트가 반드시 인증하도록 하십시오.
     - 모든 로컬 프로세스를 완전히 신뢰하는 경우에만 인증을 비활성화하십시오.
     - non‑loopback 바인드는 여전히 인증이 필요합니다.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): 선택적 QR 로그인.
     - [Telegram](/channels/telegram): 봇 토큰.
@@ -76,7 +81,8 @@ sidebarTitle: "마법사 레퍼런스"
     - [BlueBubbles](/channels/bluebubbles): **iMessage 권장**; 서버 URL + 비밀번호 + 웹훅.
     - [iMessage](/channels/imessage): 레거시 `imsg` CLI 경로 + DB 접근.
     - 다이렉트 메시지 보안: 기본값은 페어링입니다. 첫 다이렉트 메시지는 코드를 전송하며, `openclaw pairing approve <channel> <code>` 를 통해 승인하거나 허용 목록을 사용하십시오.
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - 로그인된 사용자 세션이 필요합니다. 헤드리스의 경우 사용자 정의 LaunchDaemon 을 사용하십시오(제공되지 않음).
@@ -84,19 +90,23 @@ sidebarTitle: "마법사 레퍼런스"
       - 로그아웃 후에도 Gateway 가 유지되도록 `loginctl enable-linger <user>` 를 통해 lingering 활성화를 시도합니다.
       - sudo 를 요청할 수 있습니다(`/var/lib/systemd/linger` 기록). 먼저 sudo 없이 시도합니다.
     - **런타임 선택:** Node (권장; WhatsApp/Telegram 에 필수). Bun 은 **권장되지 않음**.
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - 필요 시 Gateway 를 시작하고 `openclaw health` 를 실행합니다.
     - 팁: `openclaw status --deep` 는 상태 출력에 게이트웨이 헬스 프로브를 추가합니다(접근 가능한 게이트웨이 필요).
-  </Step>
+  
+</Step>
   <Step title="Skills (권장)">
     - 사용 가능한 Skills 를 읽고 요구 사항을 확인합니다.
     - 노드 매니저를 선택합니다: **npm / pnpm** (bun 은 권장되지 않음).
     - 선택적 의존성을 설치합니다(일부는 macOS 에서 Homebrew 사용).
-  </Step>
+  
+</Step>
   <Step title="마침">
     - 요약 + 다음 단계, 추가 기능을 위한 iOS/Android/macOS 앱 포함.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -136,7 +146,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI example">
     ```bash
     openclaw onboard --non-interactive \
@@ -146,7 +157,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -156,7 +168,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -168,7 +181,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot example">
     ```bash
     openclaw onboard --non-interactive \
@@ -178,7 +192,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic example">
     ```bash
     openclaw onboard --non-interactive \
@@ -188,7 +203,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen example">
     ```bash
     openclaw onboard --non-interactive \
@@ -198,7 +214,8 @@ openclaw onboard --non-interactive \
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ### 에이전트 추가(비대화형)

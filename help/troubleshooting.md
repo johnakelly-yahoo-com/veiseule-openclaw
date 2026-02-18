@@ -81,7 +81,8 @@ flowchart TD
     - [/channels/troubleshooting](/channels/troubleshooting)
     - [/channels/pairing](/channels/pairing)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Dashboard or Control UI will not connect">
     ```bash
@@ -110,7 +111,8 @@ flowchart TD
     - [/web/control-ui](/web/control-ui)
     - [/gateway/authentication](/gateway/authentication)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Gateway will not start or service installed but not running">
     ```bash
@@ -139,7 +141,8 @@ flowchart TD
     - [/gateway/background-process](/gateway/background-process)
     - [/gateway/configuration](/gateway/configuration)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Channel connects but messages do not flow">
     ```bash
@@ -167,7 +170,8 @@ flowchart TD
     - [/gateway/troubleshooting#channel-connected-messages-not-flowing](/gateway/troubleshooting#channel-connected-messages-not-flowing)
     - [/channels/troubleshooting](/channels/troubleshooting)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Cron or heartbeat did not fire or did not deliver">
     ```bash
@@ -198,7 +202,8 @@ flowchart TD
     - [/automation/troubleshooting](/automation/troubleshooting)
     - [/gateway/heartbeat](/gateway/heartbeat)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Node is paired but tool fails camera canvas screen exec">
     ```bash
@@ -228,7 +233,8 @@ flowchart TD
     - [/nodes/troubleshooting](/nodes/troubleshooting)
     - [/tools/exec-approvals](/tools/exec-approvals)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Browser tool fails">
     ```bash
@@ -257,7 +263,8 @@ flowchart TD
     - [/tools/browser-linux-troubleshooting](/tools/browser-linux-troubleshooting)
     - [/tools/chrome-extension](/tools/chrome-extension)
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 

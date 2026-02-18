@@ -21,7 +21,8 @@ For en oversigt på højt niveau, se [Onboardingguide](/start/wizard).
       - Kun konfiguration
       - Konfiguration + legitimationsoplysninger + sessioner
       - Fuld nulstilling (fjerner også workspace)
-  </Step>
+  
+</Step>
   <Step title="Model/Auth">
     - **Anthropic API-nøgle (anbefalet)**: bruger `ANTHROPIC_API_KEY` hvis den findes eller beder om en nøgle og gemmer den til brug for dæmonen.
     - **Anthropic OAuth (Claude Code CLI)**: på macOS kontrollerer guiden Keychain-elementet "Claude Code-credentials" (vælg "Always Allow", så launchd-start ikke blokeres); på Linux/Windows genbruger den `~/.claude/.credentials.json`, hvis den findes.
@@ -53,19 +54,23 @@ For en oversigt på højt niveau, se [Onboardingguide](/start/wizard).
     Tip til headless/server: gennemfør OAuth på en maskine med browser, og kopiér derefter
     `~/.openclaw/credentials/oauth.json` (eller `$OPENCLAW_STATE_DIR/credentials/oauth.json`) til
     gateway-værten.
-    </Note>
-  </Step>
+    
+</Note>
+  
+</Step>
   <Step title="Workspace">
     - Standard `~/.openclaw/workspace` (kan konfigureres).
     - Seeder de workspace-filer, der er nødvendige for agentens bootstrap-ritual.
     - Fuld workspace-struktur + backup-guide: [Agent workspace](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Port, bind, auth-tilstand, Tailscale-eksponering.
     - Auth-anbefaling: behold **Token** selv for loopback, så lokale WS-klienter skal godkendes.
     - Deaktivér kun auth, hvis du fuldt ud stoler på alle lokale processer.
     - Ikke-loopback binds kræver stadig auth.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): valgfri QR-login.
     - [Telegram](/channels/telegram): bot-token.
@@ -76,7 +81,8 @@ For en oversigt på højt niveau, se [Onboardingguide](/start/wizard).
     - [BlueBubbles](/channels/bluebubbles): **anbefales til iMessage**; server-URL + adgangskode + webhook.
     - [iMessage](/channels/imessage): ældre `imsg` CLI-sti + DB-adgang.
     - DM-sikkerhed: standard er parring. Første DM sender en kode; godkend via `openclaw pairing approve <channel> <code>` eller brug tilladelseslister.
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - Kræver en aktiv brugersession; til headless bruges en brugerdefineret LaunchDaemon (medfølger ikke).
@@ -84,19 +90,23 @@ For en oversigt på højt niveau, se [Onboardingguide](/start/wizard).
       - Guiden forsøger at aktivere lingering via `loginctl enable-linger <user>`, så Gateway forbliver kørende efter logout.
       - Kan bede om sudo (skriver til `/var/lib/systemd/linger`); den forsøger uden sudo først.
     - **Runtime selection:** Node (anbefalet; kræves for WhatsApp/Telegram). Bun er **ikke anbefalet**.
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - Starter Gateway (hvis nødvendigt) og kører `openclaw health`.
     - Tip: `openclaw status --deep` tilføjer gateway health-probes til statusoutput (kræver en tilgængelig gateway).
-  </Step>
+  
+</Step>
   <Step title="Skills (recommended)">
     - Læser de tilgængelige skills og kontrollerer krav.
     - Lader dig vælge en node manager: **npm / pnpm** (bun anbefales ikke).
     - Installerer valgfrie afhængigheder (nogle bruger Homebrew på macOS).
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - Oversigt + næste trin, inklusive iOS/Android/macOS-apps for ekstra funktioner.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -136,7 +146,8 @@ Tilføj `--json` for en maskinlæsbar opsummering.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI example">
     ```bash
     openclaw onboard --non-interactive \
@@ -146,7 +157,8 @@ Tilføj `--json` for en maskinlæsbar opsummering.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -156,7 +168,8 @@ Tilføj `--json` for en maskinlæsbar opsummering.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -168,7 +181,8 @@ Tilføj `--json` for en maskinlæsbar opsummering.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot example">
     ```bash
     openclaw onboard --non-interactive \
@@ -178,7 +192,8 @@ Tilføj `--json` for en maskinlæsbar opsummering.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic example">
     ```bash
     openclaw onboard --non-interactive \
@@ -188,7 +203,8 @@ Tilføj `--json` for en maskinlæsbar opsummering.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen example">
     ```bash
     openclaw onboard --non-interactive \
@@ -198,7 +214,8 @@ Tilføj `--json` for en maskinlæsbar opsummering.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ### Tilføj agent (ikke-interaktiv)

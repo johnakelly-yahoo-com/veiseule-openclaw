@@ -10,22 +10,22 @@ Este documento descreve o fluxo **atual** de integração inicial na primeira ex
 <Steps>
 <Step title="Approve macOS warning">
 <Frame>
-<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt="" />
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Approve find local networks">
 <Frame>
-<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt="" />
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Welcome and security notice">
 <Frame caption="Leia o aviso de segurança exibido e decida conforme apropriado">
-<img src="/assets/macos-onboarding/03-security-notice.png" alt="" />
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
 </Frame>
 </Step>
 <Step title="Local vs Remote">
 <Frame>
-<img src="/assets/macos-onboarding/04-choose-gateway.png" alt="" />
+<img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
 Onde o **Gateway** roda?
@@ -43,7 +43,7 @@ Onde o **Gateway** roda?
 </Step>
 <Step title="Permissions">
 <Frame caption="Escolha quais permissões você deseja conceder ao OpenClaw">
-<img src="/assets/macos-onboarding/05-permissions.png" alt="" />
+<img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
 A integração inicial solicita permissões TCC necessárias para:
@@ -59,7 +59,8 @@ A integração inicial solicita permissões TCC necessárias para:
 
 </Step>
 <Step title="CLI">
-  <Info>Esta etapa é opcional</Info>
+  <Info>Esta etapa é opcional
+</Info>
   O app pode instalar a CLI global `openclaw` via npm/pnpm para que fluxos de trabalho no terminal e tarefas do launchd funcionem imediatamente.
 </Step>
 <Step title="Onboarding Chat (dedicated session)">

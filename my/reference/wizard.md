@@ -19,7 +19,8 @@ sidebarTitle: "Wizard အညွှန်း"
       - Config only
       - Config + credentials + sessions
       - Full reset (workspace ကိုပါ ဖယ်ရှားသည်)
-  </Step>
+  
+</Step>
   <Step title="Model/Auth">
     - **Anthropic API key (recommended)**: `ANTHROPIC_API_KEY` ရှိပါက အသုံးပြုပါသည် သို့မဟုတ် key ထည့်ရန် မေးမြန်းပြီး daemon အတွက် သိမ်းဆည်းပါသည်။
     - **Anthropic OAuth (Claude Code CLI)**: macOS တွင် wizard သည် Keychain item "Claude Code-credentials" ကို စစ်ဆေးပါသည် ("Always Allow" ကို ရွေးချယ်ပါ၊ launchd စတင်ရာတွင် မတားဆီးစေရန်); Linux/Windows တွင် `~/.claude/.credentials.json` ရှိပါက ပြန်လည်အသုံးပြုပါသည်။
@@ -51,19 +52,23 @@ sidebarTitle: "Wizard အညွှန်း"
     Headless/server အကြံပြုချက်: browser ပါသော စက်တစ်လုံးတွင် OAuth ကို ပြီးစီးစေပြီးနောက်
     `~/.openclaw/credentials/oauth.json` (သို့မဟုတ် `$OPENCLAW_STATE_DIR/credentials/oauth.json`) ကို
     gateway host သို့ ကူးယူပါ။
-    </Note>
-  </Step>
+    
+</Note>
+  
+</Step>
   <Step title="Workspace">
     - Default `~/.openclaw/workspace` (configure လုပ်နိုင်သည်)။
     - Agent bootstrap ritual အတွက် လိုအပ်သော workspace ဖိုင်များကို seed လုပ်ပါသည်။
     - Workspace အပြည့်အစုံ ဖွဲ့စည်းပုံနှင့် backup လမ်းညွှန်: [Agent workspace](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Port, bind, auth mode, tailscale exposure။
     - Auth အကြံပြုချက်: loopback အတွက်တောင် **Token** ကို ထိန်းထားပါ၊ ဒါမှ local WS clients များသည် authenticate လုပ်ရပါမည်။
     - Local process အားလုံးကို အပြည့်အဝ ယုံကြည်မှသာ auth ကို disable လုပ်ပါ။
     - Non‑loopback bind များသည် auth လိုအပ်နေဆဲ ဖြစ်သည်။
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): optional QR login။
     - [Telegram](/channels/telegram): bot token။
@@ -74,7 +79,8 @@ sidebarTitle: "Wizard အညွှန်း"
     - [BlueBubbles](/channels/bluebubbles): **iMessage အတွက် အကြံပြုထားသည်**; server URL + password + webhook။
     - [iMessage](/channels/imessage): legacy `imsg` CLI path + DB access။
     - DM security: default သည် pairing ဖြစ်သည်။ ပထမဆုံး DM တွင် code တစ်ခု ပို့ပါသည်; `openclaw pairing approve <channel> <code>` ဖြင့် အတည်ပြုပါ သို့မဟုတ် allowlists ကို အသုံးပြုပါ။
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - Logged-in user session လိုအပ်သည်; headless အတွက် custom LaunchDaemon ကို အသုံးပြုပါ (မပို့ပေးထားပါ)။
@@ -82,19 +88,23 @@ sidebarTitle: "Wizard အညွှန်း"
       - Logout ပြီးနောက် Gateway ဆက်လက်လုပ်ဆောင်ရန် wizard သည် `loginctl enable-linger <user>` ဖြင့် lingering ကို enable လုပ်ရန် ကြိုးပမ်းပါသည်။
       - sudo ကို မေးမြန်းနိုင်ပါသည် (`/var/lib/systemd/linger` ကို ရေးသားသည်); ပထမဦးစွာ sudo မလိုဘဲ ကြိုးပမ်းပါသည်။
     - **Runtime ရွေးချယ်မှု:** Node (အကြံပြုထားသည်; WhatsApp/Telegram အတွက် လိုအပ်သည်)။ Bun ကို **အကြံမပြုပါ**။
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - Gateway ကို (လိုအပ်ပါက) စတင်ပြီး `openclaw health` ကို လုပ်ဆောင်ပါသည်။
     - အကြံပြုချက်: `openclaw status --deep` သည် status output ထဲသို့ gateway health probes များကို ထပ်ထည့်ပေးပါသည် (အသုံးပြုနိုင်သော gateway လိုအပ်သည်)။
-  </Step>
+  
+</Step>
   <Step title="Skills (recommended)">
     - ရရှိနိုင်သော skills များကို ဖတ်ရှုပြီး လိုအပ်ချက်များကို စစ်ဆေးပါသည်။
     - Node manager ကို ရွေးချယ်နိုင်ပါသည်: **npm / pnpm** (bun ကို အကြံမပြုပါ)။
     - Optional dependencies များကို ထည့်သွင်းပါသည် (အချို့သည် macOS တွင် Homebrew ကို အသုံးပြုပါသည်)။
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - Summary နှင့် next steps များကို ပြသပါသည်၊ အပို features များအတွက် iOS/Android/macOS apps များ ပါဝင်သည်။
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -134,7 +144,8 @@ Machine‑readable summary ရရှိရန် `--json` ကို ထပ်ထ
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI example">
     ```bash
     openclaw onboard --non-interactive \
@@ -144,7 +155,8 @@ Machine‑readable summary ရရှိရန် `--json` ကို ထပ်ထ
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -154,7 +166,8 @@ Machine‑readable summary ရရှိရန် `--json` ကို ထပ်ထ
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -166,7 +179,8 @@ Machine‑readable summary ရရှိရန် `--json` ကို ထပ်ထ
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot example">
     ```bash
     openclaw onboard --non-interactive \
@@ -176,7 +190,8 @@ Machine‑readable summary ရရှိရန် `--json` ကို ထပ်ထ
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic example">
     ```bash
     openclaw onboard --non-interactive \
@@ -186,7 +201,8 @@ Machine‑readable summary ရရှိရန် `--json` ကို ထပ်ထ
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen example">
     ```bash
     openclaw onboard --non-interactive \
@@ -196,7 +212,8 @@ Machine‑readable summary ရရှိရန် `--json` ကို ထပ်ထ
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ### Add agent (non-interactive)

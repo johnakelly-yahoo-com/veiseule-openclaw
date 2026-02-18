@@ -9,13 +9,16 @@ Status: WhatsApp Web orqali Baileys yordamida production-ready. Gateway ulangan 
 <CardGroup cols={3}>
   <Card title="Pairing" icon="link" href="/channels/pairing">
     Noma’lum yuboruvchilar uchun standart DM siyosati — pairing.
-  </Card>
+  
+</Card>
   <Card title="Kanal troubleshooting" icon="wrench" href="/channels/troubleshooting">
     Kanallararo diagnostika va tuzatish bo‘yicha qo‘llanmalar.
-  </Card>
+  
+</Card>
   <Card title="Gateway konfiguratsiyasi" icon="settings" href="/gateway/configuration">
     To‘liq kanal konfiguratsiya naqshlari va misollar.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## Quick setup
@@ -36,7 +39,8 @@ Status: WhatsApp Web orqali Baileys yordamida production-ready. Gateway ulangan 
 }
 ```
 
-  </Step>
+  
+</Step>
 
   <Step title="WhatsApp’ni ulang (QR)">
 
@@ -50,7 +54,8 @@ openclaw channels login --channel whatsapp
 openclaw channels login --channel whatsapp --account work
 ```
 
-  </Step>
+  
+</Step>
 
   <Step title="Gateway’ni ishga tushiring">
 
@@ -58,7 +63,8 @@ openclaw channels login --channel whatsapp --account work
 openclaw gateway
 ```
 
-  </Step>
+  
+</Step>
 
   <Step title="Birinchi pairing so‘rovini tasdiqlang (agar pairing rejimi ishlatilsa)">
 
@@ -69,7 +75,8 @@ openclaw pairing approve whatsapp <CODE>
 
     Pairing so‘rovlari 1 soatdan keyin muddati tugaydi. Kutilayotgan so‘rovlar har bir kanal uchun 3 ta bilan cheklangan.
 
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -99,7 +106,8 @@ OpenClaw imkon qadar WhatsApp’ni alohida telefon raqamida ishlatishni tavsiya 
     }
     ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Shaxsiy raqam (fallback)">
     Onboarding shaxsiy raqam rejimini qo‘llab-quvvatlaydi va self-chat uchun mos boshlang‘ich sozlamani yozadi:
@@ -110,13 +118,15 @@ OpenClaw imkon qadar WhatsApp’ni alohida telefon raqamida ishlatishni tavsiya 
 
     Runtime’da self-chat himoyasi ulangan self raqam va `allowFrom` asosida ishlaydi.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="WhatsApp Web-only kanal qamrovi">
     Joriy OpenClaw arxitekturasida xabar almashish kanali WhatsApp Web (`Baileys`) asosida ishlaydi.
 
     Built-in chat-channel registry’da alohida Twilio WhatsApp messaging kanali mavjud emas.
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Runtime model
@@ -148,7 +158,8 @@ OpenClaw imkon qadar WhatsApp’ni alohida telefon raqamida ishlatishni tavsiya 
     - agar allowlist sozlanmagan bo‘lsa, ulangan self raqam sukut bo‘yicha ruxsat etiladi
     - chiquvchi `fromMe` DM’lar hech qachon avtomatik pairing qilinmaydi
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="Group policy + allowlists">
     Guruh kirishi ikki qatlamdan iborat:
@@ -168,7 +179,8 @@ OpenClaw imkon qadar WhatsApp’ni alohida telefon raqamida ishlatishni tavsiya 
 
     Eslatma: agar umuman `channels.whatsapp` bloki mavjud bo‘lmasa, runtime group-policy fallback amalda `open` bo‘ladi.
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="Mentions + /activation">
     Guruh javoblari sukut bo‘yicha mention talab qiladi.
@@ -186,7 +198,8 @@ OpenClaw imkon qadar WhatsApp’ni alohida telefon raqamida ishlatishni tavsiya 
 
     `activation` global konfiguratsiyani emas, sessiya holatini yangilaydi. Faqat owner tomonidan bajarilishi mumkin.
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Related

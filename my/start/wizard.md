@@ -45,10 +45,12 @@ wizard သည် **QuickStart** (default များ) နှင့် **Advance
     - Gateway auth **Token** (loopback ပေါ်တွင်တောင် auto‑generated ဖြစ်သည်)
     - Tailscale exposure **Off**
     - Telegram + WhatsApp DM များကို **allowlist** အဖြစ် default သတ်မှတ်သည် (သင့်ဖုန်းနံပါတ်ကို မေးမြန်းမည်)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - အဆင့်တိုင်းကို ဖော်ပြပေးသည် (mode, workspace, gateway, channels, daemon, skills)။
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Wizard က ဖွဲ့စည်းပြင်ဆင်ပေးသည့် အရာများ

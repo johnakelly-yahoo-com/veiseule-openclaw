@@ -39,7 +39,8 @@ Add `--json` for a machine-readable summary.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI example">
     ```bash
     openclaw onboard --non-interactive \
@@ -49,7 +50,8 @@ Add `--json` for a machine-readable summary.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -59,7 +61,8 @@ Add `--json` for a machine-readable summary.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -71,7 +74,8 @@ Add `--json` for a machine-readable summary.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot example">
     ```bash
     openclaw onboard --non-interactive \
@@ -81,7 +85,8 @@ Add `--json` for a machine-readable summary.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic example">
     ```bash
     openclaw onboard --non-interactive \
@@ -91,7 +96,8 @@ Add `--json` for a machine-readable summary.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen example">
     ```bash
     openclaw onboard --non-interactive \
@@ -101,7 +107,8 @@ Add `--json` for a machine-readable summary.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Custom provider example">
     ```bash
     openclaw onboard --non-interactive \
@@ -118,7 +125,8 @@ Add `--json` for a machine-readable summary.
 
     `--custom-api-key` is optional. If omitted, onboarding checks `CUSTOM_API_KEY`.
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Add another agent

@@ -11,10 +11,12 @@ title: "البدء السريع"
 <Columns>
   <Card title="Getting Started" href="/start/getting-started">
     ثبّت OpenClaw وشغّل أول محادثة لك خلال دقائق.
-  </Card>
+  
+</Card>
   <Card title="Onboarding Wizard" href="/start/wizard">
     مرجع كامل لمعالج CLI وخيارات متقدمة.
-  </Card>
+  
+</Card>
 </Columns>
 
 

@@ -9,13 +9,16 @@ Status: production-ready for bot DMs + groups via grammY. Long polling is the de
 <CardGroup cols={3}>
   <Card title="Pairing" icon="link" href="/channels/pairing">
     Default DM policy for Telegram is pairing.
-  </Card>
+  
+</Card>
   <Card title="Channel troubleshooting" icon="wrench" href="/channels/troubleshooting">
     Cross-channel diagnostics and repair playbooks.
-  </Card>
+  
+</Card>
   <Card title="Gateway configuration" icon="settings" href="/gateway/configuration">
     Full channel config patterns and examples.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## Quick setup
@@ -26,7 +29,8 @@ Status: production-ready for bot DMs + groups via grammY. Long polling is the de
 
     Run `/newbot`, follow prompts, and save the token.
 
-  </Step>
+  
+</Step>
 
   <Step title="Configure token and DM policy">
 
@@ -45,7 +49,8 @@ Status: production-ready for bot DMs + groups via grammY. Long polling is the de
 
     Env fallback: `TELEGRAM_BOT_TOKEN=...` (default account only).
 
-  </Step>
+  
+</Step>
 
   <Step title="Start gateway and approve first DM">
 
@@ -57,11 +62,13 @@ openclaw pairing approve telegram <CODE>
 
     Pairing codes expire after 1 hour.
 
-  </Step>
+  
+</Step>
 
   <Step title="Add the bot to a group">
     Add the bot to your group, then set `channels.telegram.groups` and `groupPolicy` to match your access model.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -81,21 +88,24 @@ Token resolution order is account-aware. In practice, config values win over env
 
     When toggling privacy mode, remove + re-add the bot in each group so Telegram applies the change.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Group permissions">
     Admin status is controlled in Telegram group settings.
 
     Admin bots receive all group messages, which is useful for always-on group behavior.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Helpful BotFather toggles">
 
     - `/setjoingroups` to allow/deny group adds
     - `/setprivacy` for group visibility behavior
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Access control and activation
@@ -129,7 +139,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
 
     Third-party method (less private): `@userinfobot` or `@getidsbot`.
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="Group policy and allowlists">
     There are two independent controls:
@@ -163,7 +174,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
 }
 ```
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="Mention behavior">
     Group replies require mention by default.
@@ -202,7 +214,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
     - or read `chat.id` from `openclaw logs --follow`
     - or inspect Bot API `getUpdates`
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Runtime behavior
@@ -252,7 +265,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
     - `/reasoning stream` sends reasoning to the live preview while generating
     - final answer is sent without reasoning text
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Formatting and HTML fallback">
     Outbound text uses Telegram `parse_mode: "HTML"`.
@@ -263,7 +277,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
 
     Link previews are enabled by default and can be disabled with `channels.telegram.linkPreview: false`.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Native commands and custom commands">
     Telegram command menu registration is handled at startup with `setMyCommands`.
@@ -315,7 +330,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
 
     More details: [Pairing](/channels/pairing#pair-via-telegram-recommended-for-ios).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Inline buttons">
     Configure inline keyboard scope:
@@ -381,7 +397,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
     Callback clicks are passed to the agent as text:
     `callback_data: <value>`
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Telegram message actions for agents and automation">
     Telegram tool actions include:
@@ -403,7 +420,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
 
     Reaction removal semantics: [/tools/reactions](/tools/reactions)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Reply threading tags">
     Telegram supports explicit reply threading tags in generated output:
@@ -419,7 +437,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
 
     Note: `off` disables implicit reply threading. Explicit `[[reply_to_*]]` tags are still honored.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Forum topics and thread behavior">
     Forum supergroups:
@@ -445,7 +464,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
 
     - private chats with `message_thread_id` keep DM routing but use thread-aware session keys/reply targets.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Audio, video, and stickers">
     ### Audio messages
@@ -543,7 +563,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
 }
 ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Reaction notifications">
     Telegram reactions arrive as `message_reaction` updates (separate from message payloads).
@@ -566,7 +587,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
 
     `allowed_updates` for polling/webhook include `message_reaction` automatically.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Ack reactions">
     `ackReaction` sends an acknowledgement emoji while OpenClaw is processing an inbound message.
@@ -583,7 +605,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
     - Telegram expects unicode emoji (for example "👀").
     - Use `""` to disable the reaction for a channel or account.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Config writes from Telegram events and commands">
     Channel config writes are enabled by default (`configWrites !== false`).
@@ -605,7 +628,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
 }
 ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Long polling vs webhook">
     Default: long polling.
@@ -622,7 +646,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
     If your public endpoint differs, place a reverse proxy in front and point `webhookUrl` at the public URL.
     Set `webhookHost` (for example `0.0.0.0`) when you intentionally need external ingress.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Limits, retry, and CLI targets">
     - `channels.telegram.textChunkLimit` default is 4000.
@@ -642,7 +667,8 @@ openclaw message send --channel telegram --target 123456789 --message "hi"
 openclaw message send --channel telegram --target @name --message "hi"
 ```
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Troubleshooting
@@ -657,7 +683,8 @@ openclaw message send --channel telegram --target @name --message "hi"
     - `openclaw channels status --probe` can check explicit numeric group IDs; wildcard `"*"` cannot be membership-probed.
     - quick session test: `/activation always`.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Bot not seeing group messages at all">
 
@@ -665,7 +692,8 @@ openclaw message send --channel telegram --target @name --message "hi"
     - verify bot membership in group
     - review logs: `openclaw logs --follow` for skip reasons
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Commands work partially or not at all">
 
@@ -673,7 +701,8 @@ openclaw message send --channel telegram --target @name --message "hi"
     - command authorization still applies even when group policy is `open`
     - `setMyCommands failed` usually indicates DNS/HTTPS reachability issues to `api.telegram.org`
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Polling or network instability">
 
@@ -686,7 +715,8 @@ dig +short api.telegram.org A
 dig +short api.telegram.org AAAA
 ```
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 More help: [Channel troubleshooting](/channels/troubleshooting).

@@ -10,22 +10,22 @@ Ten dokument opisuje **aktualny** proces wdrożenia przy pierwszym uruchomieniu.
 <Steps>
 <Step title="Approve macOS warning">
 <Frame>
-<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt="" />
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Approve find local networks">
 <Frame>
-<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt="" />
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Welcome and security notice">
 <Frame caption="Przeczytaj wyświetloną informację o bezpieczeństwie i zdecyduj odpowiednio">
-<img src="/assets/macos-onboarding/03-security-notice.png" alt="" />
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
 </Frame>
 </Step>
 <Step title="Local vs Remote">
 <Frame>
-<img src="/assets/macos-onboarding/04-choose-gateway.png" alt="" />
+<img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
 Gdzie działa **Gateway**?
@@ -43,7 +43,7 @@ Gdzie działa **Gateway**?
 </Step>
 <Step title="Permissions">
 <Frame caption="Wybierz, jakie uprawnienia chcesz przyznać OpenClaw">
-<img src="/assets/macos-onboarding/05-permissions.png" alt="" />
+<img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
 Wdrożenie prosi o uprawnienia TCC potrzebne do:
@@ -59,7 +59,8 @@ Wdrożenie prosi o uprawnienia TCC potrzebne do:
 
 </Step>
 <Step title="CLI">
-  <Info>Ten krok jest opcjonalny</Info>
+  <Info>Ten krok jest opcjonalny
+</Info>
   Aplikacja może zainstalować globalne CLI `openclaw` przez npm/pnpm, aby
   przepływy pracy w terminalu oraz zadania launchd działały od razu.
 </Step>

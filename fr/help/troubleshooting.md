@@ -81,7 +81,8 @@ flowchart TD
     - [/channels/troubleshooting](/channels/troubleshooting)
     - [/channels/pairing](/channels/pairing)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Le tableau de bord ou l’UI de contrôle ne se connecte pas">
     ```bash
@@ -110,7 +111,8 @@ flowchart TD
     - [/web/control-ui](/web/control-ui)
     - [/gateway/authentication](/gateway/authentication)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="La passerelle ne démarre pas ou le service est installé mais non lancé">
     ```bash
@@ -139,7 +141,8 @@ flowchart TD
     - [/gateway/background-process](/gateway/background-process)
     - [/gateway/configuration](/gateway/configuration)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Le canal se connecte mais les messages ne circulent pas">
     ```bash
@@ -167,7 +170,8 @@ flowchart TD
     - [/gateway/troubleshooting#channel-connected-messages-not-flowing](/gateway/troubleshooting#channel-connected-messages-not-flowing)
     - [/channels/troubleshooting](/channels/troubleshooting)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Cron ou heartbeat ne s’est pas déclenché ou n’a pas été livré">
     ```bash
@@ -198,7 +202,8 @@ flowchart TD
     - [/automation/troubleshooting](/automation/troubleshooting)
     - [/gateway/heartbeat](/gateway/heartbeat)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Le nœud est appairé mais un outil camera/canvas/screen/exec échoue">
     ```bash
@@ -228,7 +233,8 @@ flowchart TD
     - [/nodes/troubleshooting](/nodes/troubleshooting)
     - [/tools/exec-approvals](/tools/exec-approvals)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="L’outil navigateur échoue">
     ```bash
@@ -257,6 +263,7 @@ flowchart TD
     - [/tools/browser-linux-troubleshooting](/tools/browser-linux-troubleshooting)
     - [/tools/chrome-extension](/tools/chrome-extension)
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 

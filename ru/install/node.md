@@ -26,7 +26,8 @@ node -v
 
     Либо загрузите установщик для macOS с [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
@@ -43,7 +44,8 @@ node -v
 
     Либо используйте менеджер версий (см. ниже).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget** (рекомендуется):
 
@@ -59,7 +61,8 @@ node -v
 
     Либо загрузите установщик для Windows с [nodejs.org](https://nodejs.org/).
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
@@ -78,7 +81,8 @@ fnm use 22
 
   <Warning>
   Убедитесь, что менеджер версий инициализируется в файле запуска вашей оболочки (`~/.zshrc` или `~/.bashrc`). Если это не так, `openclaw` может не находиться в новых сессиях терминала, поскольку PATH не будет включать каталог bin Node.
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## Устранение неполадок
@@ -92,7 +96,8 @@ fnm use 22
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
@@ -100,7 +105,8 @@ fnm use 22
 
     Ищите `<npm-prefix>/bin` (macOS/Linux) или `<npm-prefix>` (Windows) в выводе.
 
-  </Step>
+  
+</Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -111,13 +117,17 @@ fnm use 22
         ```
 
         Затем откройте новый терминал (или выполните `rehash` в zsh / `hash -r` в bash).
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         Добавьте вывод `npm prefix -g` в системный PATH через «Параметры → Система → Переменные среды».
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
-  </Step>
+  
+</Step>
 </Steps>
 
 ### Ошибки прав доступа на `npm install -g` (Linux)

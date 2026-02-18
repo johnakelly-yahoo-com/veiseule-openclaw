@@ -48,10 +48,12 @@ De wizard start met **QuickStart** (standaardwaarden) versus **Advanced** (volle
     - Gateway-auth **Token** (automatisch gegenereerd, zelfs op loopback)
     - Tailscale-blootstelling **Uit**
     - Telegram + WhatsApp-DM's staan standaard op **toegestane lijst** (je wordt gevraagd om je telefoonnummer)
-  </Tab>
+  
+</Tab>
   <Tab title="Advanced (full control)">
     - Toont elke stap (modus, werkruimte, Gateway, kanalen, daemon, skills).
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Wat de wizard configureert

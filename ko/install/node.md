@@ -26,7 +26,8 @@ node -v
 
     또는 [nodejs.org](https://nodejs.org/) 에서 macOS 설치 프로그램을 다운로드하십시오.
 
-  </Tab>
+  
+</Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
@@ -43,7 +44,8 @@ node -v
 
     또는 버전 매니저를 사용할 수 있습니다(아래 참조).
 
-  </Tab>
+  
+</Tab>
   <Tab title="Windows">
     **winget** (권장):
 
@@ -59,7 +61,8 @@ node -v
 
     또는 [nodejs.org](https://nodejs.org/) 에서 Windows 설치 프로그램을 다운로드하십시오.
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
@@ -78,7 +81,8 @@ fnm use 22
 
   <Warning>
   버전 매니저가 셸 시작 파일(`~/.zshrc` 또는 `~/.bashrc`)에서 초기화되어 있는지 확인하십시오. 초기화되어 있지 않으면 PATH 에 Node 의 bin 디렉토리가 포함되지 않아 새 터미널 세션에서 `openclaw` 를 찾지 못할 수 있습니다.
-  </Warning>
+  
+</Warning>
 </Accordion>
 
 ## 문제 해결
@@ -92,7 +96,8 @@ fnm use 22
     ```bash
     npm prefix -g
     ```
-  </Step>
+  
+</Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
@@ -100,7 +105,8 @@ fnm use 22
 
     출력에서 `<npm-prefix>/bin` (macOS/Linux) 또는 `<npm-prefix>` (Windows) 를 확인하십시오.
 
-  </Step>
+  
+</Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
@@ -111,13 +117,17 @@ fnm use 22
         ```
 
         그런 다음 새 터미널을 열거나(zsh 에서는 `rehash`, bash 에서는 `hash -r` 실행) 변경 사항을 적용하십시오.
-      </Tab>
+      
+</Tab>
       <Tab title="Windows">
         `npm prefix -g` 의 출력 값을 설정 → 시스템 → 환경 변수에서 시스템 PATH 에 추가하십시오.
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
-  </Step>
+  
+</Step>
 </Steps>
 
 ### `npm install -g` 에서의 권한 오류 (Linux)

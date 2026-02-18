@@ -30,21 +30,26 @@ Verifique sua versão do Node com `node --version` se tiver dúvidas.
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     ```
     <Note>
     Outros métodos de instalação e requisitos: [Instalar](/install).
-    </Note>
+    
+</Note>
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Run the onboarding wizard">
     ```bash
     openclaw onboard --install-daemon
@@ -55,7 +60,8 @@ Verifique sua versão do Node com `node --version` se tiver dúvidas.
     Veja [Onboarding Wizard](/start/wizard) para detalhes.
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Check the Gateway">
     Se voce instalou o serviço, ele já deve estar em execução:
 
@@ -65,12 +71,14 @@ Verifique sua versão do Node com `node --version` se tiver dúvidas.
     ```
     ````
 
-  </Step>
+  
+</Step>
   <Step title="Open the Control UI">
     ```bash
     openclaw dashboard
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 <Check>
@@ -89,7 +97,8 @@ Se a Control UI carregar, seu Gateway está pronto para uso.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Send a test message">
     Requer um canal configurado.
 
@@ -99,7 +108,8 @@ Se a Control UI carregar, seu Gateway está pronto para uso.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Variáveis de ambiente úteis
@@ -117,10 +127,12 @@ Referência completa das variáveis de ambiente: [Variáveis de ambiente](/help/
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
     Referência completa do assistente de CLI e opções avançadas.
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     Fluxo da primeira execução para o app macOS.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## O que voce terá

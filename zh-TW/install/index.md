@@ -31,13 +31,16 @@ title: "安裝"
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows（PowerShell）">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     就這樣 — 腳本會處理 Node 偵測、安裝與入門引導。
 
@@ -48,17 +51,21 @@ title: "安裝"
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows（PowerShell）">
         ```powershell
         & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     所有旗標、環境變數與 CI／自動化選項，請參閱 [Installer internals](/install/installer)。
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     若你已具備 Node 22+，並偏好自行管理安裝：
@@ -78,8 +85,10 @@ title: "安裝"
           ```
 
           若看到 `sharp: Please add node-gyp to your dependencies`，請安裝建置工具（macOS：Xcode CLT + `npm install -g node-gyp`），或使用上述環境變數。
-        </Accordion>
-      </Tab>
+        
+</Accordion>
+      
+</Tab>
       <Tab title="pnpm">
         ```bash
         pnpm add -g openclaw@latest
@@ -89,11 +98,15 @@ title: "安裝"
 
         <Note>
         pnpm 需要對含有建置腳本的套件給予明確核准。首次安裝出現「Ignored build scripts」警告後，請執行 `pnpm approve-builds -g`，並選取列出的套件。
-        </Note>
-      </Tab>
-    </Tabs>
+        
+</Note>
+      
+</Tab>
+    
+</Tabs>
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="From source" icon="github">
     適用於貢獻者或任何想要從本機檢出執行的人。
@@ -109,7 +122,8 @@ title: "安裝"
         pnpm ui:build
         pnpm build
         ```
-      </Step>
+      
+</Step>
       <Step title="連結 CLI">
         讓 `openclaw` 指令可全域使用：
 
@@ -118,17 +132,21 @@ title: "安裝"
         ```
 
         或者略過連結，直接在 repo 內透過 `pnpm openclaw ...` 執行指令。
-      </Step>
+      
+</Step>
       <Step title="執行入門引導">
         ```bash
         openclaw onboard --install-daemon
         ```
-      </Step>
-    </Steps>
+      
+</Step>
+    
+</Steps>
 
     更深入的開發流程，請參閱 [Setup](/start/setup)。
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## 其他安裝方式
@@ -136,19 +154,24 @@ title: "安裝"
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     容器化或無介面部署。
-  </Card>
+  
+</Card>
   <Card title="Podman" href="/install/podman" icon="container">
     Rootless container: run `setup-podman.sh` once, then the launch script.
-  </Card>
+  
+</Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     透過 Nix 進行宣告式安裝。
-  </Card>
+  
+</Card>
   <Card title="Ansible" href="/install/ansible" icon="server">
     自動化叢集佈署。
-  </Card>
+  
+</Card>
   <Card title="Bun" href="/install/bun" icon="zap">
     透過 Bun 執行階段進行僅 CLI 的使用。
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## 安裝後
@@ -199,12 +222,15 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 <CardGroup cols={3}>
   <Card title="Updating" href="/install/updating" icon="refresh-cw">
     讓 OpenClaw 保持最新。
-  </Card>
+  
+</Card>
   <Card title="Migrating" href="/install/migrating" icon="arrow-right">
     移轉到新機器。
-  </Card>
+  
+</Card>
   <Card title="Uninstall" href="/install/uninstall" icon="trash-2">
     完整移除 OpenClaw。
-  </Card>
+  
+</Card>
 </CardGroup>
 

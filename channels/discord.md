@@ -9,13 +9,16 @@ Status: ready for DMs and guild channels via the official Discord gateway.
 <CardGroup cols={3}>
   <Card title="Pairing" icon="link" href="/channels/pairing">
     Discord DMs default to pairing mode.
-  </Card>
+  
+</Card>
   <Card title="Slash commands" icon="terminal" href="/tools/slash-commands">
     Native command behavior and command catalog.
-  </Card>
+  
+</Card>
   <Card title="Channel troubleshooting" icon="wrench" href="/channels/troubleshooting">
     Cross-channel diagnostics and repair flow.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## Quick setup
@@ -27,7 +30,8 @@ Status: ready for DMs and guild channels via the official Discord gateway.
     - **Message Content Intent**
     - **Server Members Intent** (required for role allowlists and role-based routing; recommended for name-to-ID allowlist matching)
 
-  </Step>
+  
+</Step>
 
   <Step title="Configure token">
 
@@ -48,7 +52,8 @@ Status: ready for DMs and guild channels via the official Discord gateway.
 DISCORD_BOT_TOKEN=...
 ```
 
-  </Step>
+  
+</Step>
 
   <Step title="Invite the bot and start gateway">
     Invite the bot to your server with message permissions.
@@ -57,7 +62,8 @@ DISCORD_BOT_TOKEN=...
 openclaw gateway
 ```
 
-  </Step>
+  
+</Step>
 
   <Step title="Approve first DM pairing">
 
@@ -68,7 +74,8 @@ openclaw pairing approve discord <CODE>
 
     Pairing codes expire after 1 hour.
 
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -104,7 +111,8 @@ Token resolution is account-aware. Config token values win over env fallback. `D
 
     Bare numeric IDs are ambiguous and rejected unless an explicit user/channel target kind is provided.
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="Guild policy">
     Guild handling is controlled by `channels.discord.groupPolicy`:
@@ -147,7 +155,8 @@ Token resolution is account-aware. Config token values win over env fallback. `D
 
     If you only set `DISCORD_BOT_TOKEN` and do not create a `channels.discord` block, runtime fallback is `groupPolicy="open"` (with a warning in logs).
 
-  </Tab>
+  
+</Tab>
 
   <Tab title="Mentions and group DMs">
     Guild messages are mention-gated by default.
@@ -165,7 +174,8 @@ Token resolution is account-aware. Config token values win over env fallback. `D
     - default: ignored (`dm.groupEnabled=false`)
     - optional allowlist via `dm.groupChannels` (channel IDs or slugs)
 
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ### Role-based agent routing
@@ -203,7 +213,8 @@ Use `bindings[].match.roles` to route Discord guild members to different agents 
     2. **Bot** -> **Add Bot**
     3. Copy bot token
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Privileged intents">
     In **Bot -> Privileged Gateway Intents**, enable:
@@ -213,7 +224,8 @@ Use `bindings[].match.roles` to route Discord guild members to different agents 
 
     Presence intent is optional and only required if you want to receive presence updates. Setting bot presence (`setPresence`) does not require enabling presence updates for members.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="OAuth scopes and baseline permissions">
     OAuth URL generator:
@@ -231,7 +243,8 @@ Use `bindings[].match.roles` to route Discord guild members to different agents 
 
     Avoid `Administrator` unless explicitly needed.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Copy IDs">
     Enable Discord Developer Mode, then copy:
@@ -242,7 +255,8 @@ Use `bindings[].match.roles` to route Discord guild members to different agents 
 
     Prefer numeric IDs in OpenClaw config for reliable audits and probes.
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Native commands and command auth
@@ -274,7 +288,8 @@ See [Slash commands](/tools/slash-commands) for command catalog and behavior.
 
     Message IDs are surfaced in context/history so agents can target specific messages.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="History, context, and thread behavior">
     Guild history context:
@@ -296,7 +311,8 @@ See [Slash commands](/tools/slash-commands) for command catalog and behavior.
 
     Channel topics are injected as **untrusted** context (not as system prompt).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Reaction notifications">
     Per-guild reaction notification mode:
@@ -308,7 +324,8 @@ See [Slash commands](/tools/slash-commands) for command catalog and behavior.
 
     Reaction events are turned into system events and attached to the routed Discord session.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Ack reactions">
     `ackReaction` sends an acknowledgement emoji while OpenClaw is processing an inbound message.
@@ -325,7 +342,8 @@ See [Slash commands](/tools/slash-commands) for command catalog and behavior.
     - Discord accepts unicode emoji or custom emoji names.
     - Use `""` to disable the reaction for a channel or account.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Config writes">
     Channel-initiated config writes are enabled by default.
@@ -344,7 +362,8 @@ See [Slash commands](/tools/slash-commands) for command catalog and behavior.
 }
 ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Gateway proxy">
     Route Discord gateway WebSocket traffic through an HTTP(S) proxy with `channels.discord.proxy`.
@@ -375,7 +394,8 @@ See [Slash commands](/tools/slash-commands) for command catalog and behavior.
 }
 ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="PluralKit support">
     Enable PluralKit resolution to map proxied messages to system member identity:
@@ -400,7 +420,8 @@ See [Slash commands](/tools/slash-commands) for command catalog and behavior.
     - lookups use original message ID and are time-window constrained
     - if lookup fails, proxied messages are treated as bot messages and dropped unless `allowBots=true`
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Presence configuration">
     Presence updates are applied only when you set a status or activity field.
@@ -453,7 +474,8 @@ See [Slash commands](/tools/slash-commands) for command catalog and behavior.
     - 4: Custom (uses the activity text as the status state; emoji is optional)
     - 5: Competing
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Exec approvals in Discord">
     Discord supports button-based exec approvals in DMs and can optionally post approval prompts in the originating channel.
@@ -471,7 +493,8 @@ See [Slash commands](/tools/slash-commands) for command catalog and behavior.
 
     Related docs: [Exec approvals](/tools/exec-approvals)
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Tools and action gates
@@ -545,7 +568,8 @@ message(action="send", channel="discord", target="channel:123", path="/path/to/a
     - enable Server Members Intent when you depend on user/member resolution
     - restart gateway after changing intents
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Guild messages blocked unexpectedly">
 
@@ -562,7 +586,8 @@ openclaw channels status --probe
 openclaw logs --follow
 ```
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Require mention false but still blocked">
     Common causes:
@@ -571,14 +596,16 @@ openclaw logs --follow
     - `requireMention` configured in the wrong place (must be under `channels.discord.guilds` or channel entry)
     - sender blocked by guild/channel `users` allowlist
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Permissions audit mismatches">
     `channels status --probe` permission checks only work for numeric channel IDs.
 
     If you use slug keys, runtime matching can still work, but probe cannot fully verify permissions.
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="DM and pairing issues">
 
@@ -586,14 +613,16 @@ openclaw logs --follow
     - DM policy disabled: `channels.discord.dmPolicy="disabled"` (legacy: `channels.discord.dm.policy`)
     - awaiting pairing approval in `pairing` mode
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="Bot to bot loops">
     By default bot-authored messages are ignored.
 
     If you set `channels.discord.allowBots=true`, use strict mention and allowlist rules to avoid loop behavior.
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Configuration reference pointers

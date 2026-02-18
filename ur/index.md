@@ -10,14 +10,12 @@ sidebarTitle: "OpenClaw"
         src="/assets/openclaw-logo-text-dark.png"
         alt="OpenClaw"
         width="500"
-        class="dark:hidden"
-    />
+        class="dark:hidden"></img>
     <img
         src="/assets/openclaw-logo-text.png"
         alt="OpenClaw"
         width="500"
-        class="hidden dark:block"
-    />
+        class="hidden dark:block"></img>
 </p>
 
 > _"ایکسفولی ایٹ! ایکسفولی ایٹ!"_ — شاید کوئی خلائی لابسٹر
@@ -30,13 +28,16 @@ sidebarTitle: "OpenClaw"
 <Columns>
   <Card title="Get Started" href="/start/getting-started" icon="rocket">
     OpenClaw انسٹال کریں اور چند منٹوں میں Gateway شروع کریں۔
-  </Card>
+  
+</Card>
   <Card title="Run the Wizard" href="/start/wizard" icon="sparkles">
     `openclaw onboard` اور pairing فلو کے ساتھ رہنمائی پر مبنی سیٹ اپ۔
-  </Card>
+  
+</Card>
   <Card title="Open the Control UI" href="/web/control-ui" icon="layout-dashboard">
     چیٹ، کنفیگ، اور سیشنز کے لیے براؤزر ڈیش بورڈ لانچ کریں۔
-  </Card>
+  
+</Card>
 </Columns>
 
 ## OpenClaw کیا ہے؟
@@ -73,22 +74,28 @@ Gateway سیشنز، routing، اور چینل کنکشنز کے لیے واحد
 <Columns>
   <Card title="Multi-channel gateway" icon="network">
     ایک واحد Gateway پروسیس کے ساتھ WhatsApp، Telegram، Discord، اور iMessage۔
-  </Card>
+  
+</Card>
   <Card title="Plugin channels" icon="plug">
     ایکسٹینشن پیکیجز کے ذریعے Mattermost اور مزید شامل کریں۔
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" icon="route">
     ہر ایجنٹ، ورک اسپیس، یا ارسال کنندہ کے لیے الگ تھلگ سیشنز۔
-  </Card>
+  
+</Card>
   <Card title="Media support" icon="image">
     تصاویر، آڈیو، اور دستاویزات بھیجیں اور وصول کریں۔
-  </Card>
+  
+</Card>
   <Card title="Web Control UI" icon="monitor">
     چیٹ، کنفیگ، سیشنز، اور نوڈز کے لیے براؤزر ڈیش بورڈ۔
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     Canvas سپورٹ کے ساتھ iOS اور Android نوڈز کو pair کریں۔
-  </Card>
+  
+</Card>
 </Columns>
 
 ## فوری شروعات
@@ -98,18 +105,21 @@ Gateway سیشنز، routing، اور چینل کنکشنز کے لیے واحد
     ```bash
     npm install -g openclaw@latest
     ```
-  </Step>
+  
+</Step>
   <Step title="Onboard and install the service">
     ```bash
     openclaw onboard --install-daemon
     ```
-  </Step>
+  
+</Step>
   <Step title="Pair WhatsApp and start the Gateway">
     ```bash
     openclaw channels login
     openclaw gateway --port 18789
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 مکمل انسٹال اور ڈیولپمنٹ سیٹ اپ درکار ہے؟ دیکھیں [Quick start](/start/quickstart).
@@ -122,7 +132,7 @@ Gateway شروع ہونے کے بعد براؤزر Control UI کھولیں۔
 - ریموٹ رسائی: [Web surfaces](/web) اور [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420" />
+  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Configuration (optional)
@@ -151,22 +161,28 @@ Gateway شروع ہونے کے بعد براؤزر Control UI کھولیں۔
 <Columns>
   <Card title="Docs hubs" href="/start/hubs" icon="book-open">
     تمام دستاویزات اور گائیڈز، استعمال کے کیس کے مطابق منظم۔
-  </Card>
+  
+</Card>
   <Card title="Configuration" href="/gateway/configuration" icon="settings">
     بنیادی Gateway سیٹنگز، ٹوکنز، اور فراہم کنندہ کی کنفیگ۔
-  </Card>
+  
+</Card>
   <Card title="Remote access" href="/gateway/remote" icon="globe">
     SSH اور tailnet رسائی کے پیٹرنز۔
-  </Card>
+  
+</Card>
   <Card title="Channels" href="/channels/telegram" icon="message-square">
     WhatsApp، Telegram، Discord، اور مزید کے لیے چینل مخصوص سیٹ اپ۔
-  </Card>
+  
+</Card>
   <Card title="Nodes" href="/nodes" icon="smartphone">
     pairing اور Canvas کے ساتھ iOS اور Android نوڈز۔
-  </Card>
+  
+</Card>
   <Card title="Help" href="/help" icon="life-buoy">
     عام حل اور خرابیوں کا ازالہ کرنے کا نقطۂ آغاز۔
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Learn more
@@ -174,19 +190,24 @@ Gateway شروع ہونے کے بعد براؤزر Control UI کھولیں۔
 <Columns>
   <Card title="Full feature list" href="/concepts/features" icon="list">
     چینلز، routing، اور میڈیا کی مکمل صلاحیتیں۔
-  </Card>
+  
+</Card>
   <Card title="Multi-agent routing" href="/concepts/multi-agent" icon="route">
     ورک اسپیس کی علیحدگی اور ہر ایجنٹ کے لیے سیشنز۔
-  </Card>
+  
+</Card>
   <Card title="Security" href="/gateway/security" icon="shield">
     ٹوکنز، اجازت فہرستیں، اور حفاظتی کنٹرولز۔
-  </Card>
+  
+</Card>
   <Card title="Troubleshooting" href="/gateway/troubleshooting" icon="wrench">
     Gateway کی تشخیص اور عام غلطیاں۔
-  </Card>
+  
+</Card>
   <Card title="About and credits" href="/reference/credits" icon="info">
     منصوبے کی ابتدا، معاونین، اور لائسنس۔
-  </Card>
+  
+</Card>
 </Columns>
 
 

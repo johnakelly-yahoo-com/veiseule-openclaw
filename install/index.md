@@ -31,13 +31,16 @@ The **installer script** is the recommended way to install OpenClaw. It handles 
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     That's it — the script handles Node detection, installation, and onboarding.
 
@@ -48,17 +51,21 @@ The **installer script** is the recommended way to install OpenClaw. It handles 
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     For all flags, env vars, and CI/automation options, see [Installer internals](/install/installer).
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     If you already have Node 22+ and prefer to manage the install yourself:
@@ -78,8 +85,10 @@ The **installer script** is the recommended way to install OpenClaw. It handles 
           ```
 
           If you see `sharp: Please add node-gyp to your dependencies`, either install build tooling (macOS: Xcode CLT + `npm install -g node-gyp`) or use the env var above.
-        </Accordion>
-      </Tab>
+        
+</Accordion>
+      
+</Tab>
       <Tab title="pnpm">
         ```bash
         pnpm add -g openclaw@latest
@@ -89,11 +98,15 @@ The **installer script** is the recommended way to install OpenClaw. It handles 
 
         <Note>
         pnpm requires explicit approval for packages with build scripts. After the first install shows the "Ignored build scripts" warning, run `pnpm approve-builds -g` and select the listed packages.
-        </Note>
-      </Tab>
-    </Tabs>
+        
+</Note>
+      
+</Tab>
+    
+</Tabs>
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="From source" icon="github">
     For contributors or anyone who wants to run from a local checkout.
@@ -109,7 +122,8 @@ The **installer script** is the recommended way to install OpenClaw. It handles 
         pnpm ui:build
         pnpm build
         ```
-      </Step>
+      
+</Step>
       <Step title="Link the CLI">
         Make the `openclaw` command available globally:
 
@@ -118,17 +132,21 @@ The **installer script** is the recommended way to install OpenClaw. It handles 
         ```
 
         Alternatively, skip the link and run commands via `pnpm openclaw ...` from inside the repo.
-      </Step>
+      
+</Step>
       <Step title="Run onboarding">
         ```bash
         openclaw onboard --install-daemon
         ```
-      </Step>
-    </Steps>
+      
+</Step>
+    
+</Steps>
 
     For deeper development workflows, see [Setup](/start/setup).
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Other install methods
@@ -136,19 +154,24 @@ The **installer script** is the recommended way to install OpenClaw. It handles 
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     Containerized or headless deployments.
-  </Card>
+  
+</Card>
   <Card title="Podman" href="/install/podman" icon="container">
     Rootless container: run `setup-podman.sh` once, then the launch script.
-  </Card>
+  
+</Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     Declarative install via Nix.
-  </Card>
+  
+</Card>
   <Card title="Ansible" href="/install/ansible" icon="server">
     Automated fleet provisioning.
-  </Card>
+  
+</Card>
   <Card title="Bun" href="/install/bun" icon="zap">
     CLI-only usage via the Bun runtime.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 ## After install
@@ -199,13 +222,16 @@ Then open a new terminal (or `rehash` in zsh / `hash -r` in bash).
 <CardGroup cols={3}>
   <Card title="Updating" href="/install/updating" icon="refresh-cw">
     Keep OpenClaw up to date.
-  </Card>
+  
+</Card>
   <Card title="Migrating" href="/install/migrating" icon="arrow-right">
     Move to a new machine.
-  </Card>
+  
+</Card>
   <Card title="Uninstall" href="/install/uninstall" icon="trash-2">
     Remove OpenClaw completely.
-  </Card>
+  
+</Card>
 </CardGroup>
 
 

@@ -7,22 +7,28 @@ title: "功能"
 <Columns>
   <Card title="Channels" icon="message-square">
     使用單一 Gateway 閘道器即可支援 WhatsApp、Telegram、Discord 與 iMessage。
-  </Card>
+  
+</Card>
   <Card title="Plugins" icon="plug">
 透過擴充功能新增 Mattermost 及更多功能。
-  </Card>
+  
+</Card>
   <Card title="Routing" icon="route">
     具備隔離工作階段的多代理程式路由。
-  </Card>
+  
+</Card>
   <Card title="Media" icon="image">
 支援影像、音訊與文件的輸入與輸出。
-  </Card>
+  
+</Card>
   <Card title="Apps and UI" icon="monitor">
     Web 控制 UI 與 macOS 配套應用程式。
-  </Card>
+  
+</Card>
   <Card title="Mobile nodes" icon="smartphone">
     支援 Canvas 的 iOS 與 Android 節點。
-  </Card>
+  
+</Card>
 </Columns>
 
 ## 完整清單

@@ -30,21 +30,26 @@ Verifique su versión de Node con `node --version` si no está seguro.
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     ```
     <Note>
     Otros métodos de instalación y requisitos: [Instalar](/install).
-    </Note>
+    
+</Note>
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Run the onboarding wizard">
     ```bash
     openclaw onboard --install-daemon
@@ -55,7 +60,8 @@ Verifique su versión de Node con `node --version` si no está seguro.
     Consulte [Asistente de incorporación](/start/wizard) para más detalles.
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Check the Gateway">
     Si instaló el servicio, ya debería estar en ejecución:
 
@@ -65,12 +71,14 @@ Verifique su versión de Node con `node --version` si no está seguro.
     ```
     ````
 
-  </Step>
+  
+</Step>
   <Step title="Open the Control UI">
     ```bash
     openclaw dashboard
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 <Check>
@@ -89,7 +97,8 @@ Si la Control UI carga, su Gateway está listo para usarse.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Send a test message">
     Requiere un canal configurado.
 
@@ -99,7 +108,8 @@ Si la Control UI carga, su Gateway está listo para usarse.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Variables de entorno útiles
@@ -117,10 +127,12 @@ Referencia completa de variables de entorno: [Environment vars](/help/environmen
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
     Referencia completa del asistente de la CLI y opciones avanzadas.
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     Flujo de primera ejecución para la app de macOS.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Lo que tendrá

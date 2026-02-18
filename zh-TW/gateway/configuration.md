@@ -36,21 +36,25 @@ OpenClaw 會從 `~/.openclaw/openclaw.json` 讀取一個可選的 <Tooltip tip="
     openclaw onboard       # 完整設定精靈
     openclaw configure     # 設定精靈
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="CLI（單行指令）">
     ```bash
     openclaw config get agents.defaults.workspace
     openclaw config set agents.defaults.heartbeat.every "2h"
     openclaw config unset tools.web.search.apiKey
     ```
-  </Tab>
+  
+</Tab>
   <Tab title="Control UI">
     開啟 [http://127.0.0.1:18789](http://127.0.0.1:18789) 並使用 **Config** 分頁。
     Control UI 會根據設定的 schema 產生表單，並提供 **Raw JSON** 編輯器作為進階選項。
-  </Tab>
+  
+</Tab>
   <Tab title="直接編輯">
     直接編輯 `~/.openclaw/openclaw.json`。Gateway 會監看檔案並自動套用變更（請參閱 [hot reload](#config-hot-reload)）。
-  </Tab>
+  
+</Tab>
 </Tabs>
 
 ## Strict validation
@@ -96,7 +100,8 @@ OpenClaw 僅接受完全符合 schema 的設定。未知的鍵、型別錯誤或
       },
     }
     ```
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="選擇並設定模型">
     設定主要模型與可選備援：
@@ -123,7 +128,8 @@ OpenClaw 僅接受完全符合 schema 的設定。未知的鍵、型別錯誤或
     - 請參閱 [Models CLI](/concepts/models) 了解聊天中切換模型，及 [Model Failover](/concepts/model-failover) 了解備援與驗證輪替。
     - 自訂／自架提供者請參閱參考文件中的 [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls)。
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="控制誰可以傳訊給機器人">
     每個通道透過 `dmPolicy` 控制私訊存取：
@@ -137,7 +143,8 @@ OpenClaw 僅接受完全符合 schema 的設定。未知的鍵、型別錯誤或
 
     詳細請參閱 [完整參考](/gateway/configuration-reference#dm-and-group-access)。
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="設定群組提及門控">
     群組訊息預設為 **需要提及**。可為每個 agent 設定：
@@ -166,7 +173,8 @@ OpenClaw 僅接受完全符合 schema 的設定。未知的鍵、型別錯誤或
     - **Text patterns**：`mentionPatterns` 中的正則模式
     - 請參閱 [完整參考](/gateway/configuration-reference#group-chat-mention-gating)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="設定工作階段與重置">
     工作階段控制對話連續性與隔離：
@@ -188,7 +196,8 @@ OpenClaw 僅接受完全符合 schema 的設定。未知的鍵、型別錯誤或
     - 請參閱 [Session Management](/concepts/session)
     - 完整欄位請參閱 [完整參考](/gateway/configuration-reference#session)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="啟用沙箱">
     在隔離的 Docker 容器中執行 agent：
@@ -210,7 +219,8 @@ OpenClaw 僅接受完全符合 schema 的設定。未知的鍵、型別錯誤或
 
     請參閱 [Sandboxing](/gateway/sandboxing)。
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="設定心跳（定期檢查）">
     ```json5
@@ -230,7 +240,8 @@ OpenClaw 僅接受完全符合 schema 的設定。未知的鍵、型別錯誤或
     - `target`: `last` | `whatsapp` | `telegram` | `discord` | `none`
     - 請參閱 [Heartbeat](/gateway/heartbeat)
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="設定 cron 任務">
     ```json5
@@ -245,7 +256,8 @@ OpenClaw 僅接受完全符合 schema 的設定。未知的鍵、型別錯誤或
 
     請參閱 [Cron jobs](/automation/cron-jobs)。
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="設定 Webhooks（hooks）">
     啟用 Gateway 上的 HTTP webhook：
@@ -273,7 +285,8 @@ OpenClaw 僅接受完全符合 schema 的設定。未知的鍵、型別錯誤或
 
     請參閱 [完整參考](/gateway/configuration-reference#hooks)。
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="多代理路由設定">
     在同一 Gateway 中執行多個隔離的 agent：
@@ -295,7 +308,8 @@ OpenClaw 僅接受完全符合 schema 的設定。未知的鍵、型別錯誤或
 
     請參閱 [Multi-Agent](/concepts/multi-agent)。
 
-  </Accordion>
+  
+</Accordion>
 
   <Accordion title="將設定拆分為多個檔案（$include）">
     使用 `$include` 組織大型設定：
@@ -318,7 +332,8 @@ OpenClaw 僅接受完全符合 schema 的設定。未知的鍵、型別錯誤或
     - **相對路徑**：相對於包含它的檔案
     - **錯誤處理**：缺檔、解析錯誤、循環 include 都會明確報錯
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Config hot reload

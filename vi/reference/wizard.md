@@ -21,7 +21,8 @@ sidebarTitle: "Tham khảo Trình hướng dẫn"
       - Chỉ config
       - Config + credentials + sessions
       - Reset toàn bộ (cũng xóa workspace)
-  </Step>
+  
+</Step>
   <Step title="Model/Auth">
     - **Anthropic API key (recommended)**: sử dụng `ANTHROPIC_API_KEY` nếu có hoặc yêu cầu nhập key, sau đó lưu để daemon sử dụng.
     - **Anthropic OAuth (Claude Code CLI)**: trên macOS, trình hướng dẫn kiểm tra mục Keychain "Claude Code-credentials" (chọn "Always Allow" để các lần khởi động qua launchd không bị chặn); trên Linux/Windows, tái sử dụng `~/.claude/.credentials.json` nếu có.
@@ -53,19 +54,23 @@ sidebarTitle: "Tham khảo Trình hướng dẫn"
     Mẹo cho headless/server: hoàn tất OAuth trên một máy có trình duyệt, sau đó sao chép
     `~/.openclaw/credentials/oauth.json` (hoặc `$OPENCLAW_STATE_DIR/credentials/oauth.json`) sang
     máy chủ gateway.
-    </Note>
-  </Step>
+    
+</Note>
+  
+</Step>
   <Step title="Workspace">
     - Mặc định `~/.openclaw/workspace` (có thể cấu hình).
     - Tạo các tệp workspace cần thiết cho nghi thức bootstrap của agent.
     - Bố cục workspace đầy đủ + hướng dẫn sao lưu: [Agent workspace](/concepts/agent-workspace)
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Port, bind, chế độ xác thực, phơi bày qua tailscale.
     - Khuyến nghị xác thực: giữ **Token** ngay cả cho loopback để các client WS cục bộ vẫn phải xác thực.
     - Chỉ tắt xác thực nếu bạn hoàn toàn tin tưởng mọi tiến trình cục bộ.
     - Các bind không phải loopback vẫn yêu cầu xác thực.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): đăng nhập QR tùy chọn.
     - [Telegram](/channels/telegram): bot token.
@@ -76,7 +81,8 @@ sidebarTitle: "Tham khảo Trình hướng dẫn"
     - [BlueBubbles](/channels/bluebubbles): **khuyến nghị cho iMessage**; server URL + password + webhook.
     - [iMessage](/channels/imessage): đường dẫn CLI `imsg` legacy + quyền truy cập DB.
     - Bảo mật DM: mặc định là ghép cặp. DM đầu tiên gửi một mã; phê duyệt qua `openclaw pairing approve <channel> <code>` hoặc dùng allowlists.
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - Yêu cầu có phiên người dùng đang đăng nhập; với môi trường headless, dùng LaunchDaemon tùy chỉnh (không kèm theo).
@@ -84,19 +90,23 @@ sidebarTitle: "Tham khảo Trình hướng dẫn"
       - Trình hướng dẫn cố gắng bật lingering bằng `loginctl enable-linger <user>` để Gateway tiếp tục chạy sau khi đăng xuất.
       - Có thể yêu cầu sudo (ghi vào `/var/lib/systemd/linger`); sẽ thử không dùng sudo trước.
     - **Lựa chọn runtime:** Node (khuyến nghị; bắt buộc cho WhatsApp/Telegram). Bun **không được khuyến nghị**.
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - Khởi động Gateway (nếu cần) và chạy `openclaw health`.
     - Mẹo: `openclaw status --deep` bổ sung các kiểm tra tình trạng gateway vào kết quả trạng thái (yêu cầu gateway có thể truy cập được).
-  </Step>
+  
+</Step>
   <Step title="Skills (recommended)">
     - Đọc các skills hiện có và kiểm tra các yêu cầu.
     - Cho phép bạn chọn trình quản lý node: **npm / pnpm** (bun không được khuyến nghị).
     - Cài đặt các phụ thuộc tùy chọn (một số sử dụng Homebrew trên macOS).
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - Tóm tắt + các bước tiếp theo, bao gồm ứng dụng iOS/Android/macOS để có thêm tính năng.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -136,7 +146,8 @@ Thêm `--json` để có bản tóm tắt dạng máy đọc được.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Z.AI example">
     ```bash
     openclaw onboard --non-interactive \
@@ -146,7 +157,8 @@ Thêm `--json` để có bản tóm tắt dạng máy đọc được.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -156,7 +168,8 @@ Thêm `--json` để có bản tóm tắt dạng máy đọc được.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
@@ -168,7 +181,8 @@ Thêm `--json` để có bản tóm tắt dạng máy đọc được.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot example">
     ```bash
     openclaw onboard --non-interactive \
@@ -178,7 +192,8 @@ Thêm `--json` để có bản tóm tắt dạng máy đọc được.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic example">
     ```bash
     openclaw onboard --non-interactive \
@@ -188,7 +203,8 @@ Thêm `--json` để có bản tóm tắt dạng máy đọc được.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen example">
     ```bash
     openclaw onboard --non-interactive \
@@ -198,7 +214,8 @@ Thêm `--json` để có bản tóm tắt dạng máy đọc được.
       --gateway-port 18789 \
       --gateway-bind loopback
     ```
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ### Thêm agent (không tương tác)

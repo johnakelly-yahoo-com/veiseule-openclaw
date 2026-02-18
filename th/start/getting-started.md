@@ -32,21 +32,26 @@ Fastest chat: open the Control UI (no channel setup needed).
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     ```
     <Note>
     วิธีติดตั้งอื่นๆและข้อกำหนด: [Install](/install).
-    </Note>
+    
+</Note>
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Run the onboarding wizard">
     ```bash
     openclaw onboard --install-daemon
@@ -57,7 +62,8 @@ Fastest chat: open the Control UI (no channel setup needed).
     ดูรายละเอียดที่ [Onboarding Wizard](/start/wizard)
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Check the Gateway">
     หากคุณติดตั้งบริการไว้แล้ว ควรกำลังทำงานอยู่:
 
@@ -67,12 +73,14 @@ Fastest chat: open the Control UI (no channel setup needed).
     ```
     ````
 
-  </Step>
+  
+</Step>
   <Step title="Open the Control UI">
     ```bash
     openclaw dashboard
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 <Check>
@@ -91,7 +99,8 @@ Fastest chat: open the Control UI (no channel setup needed).
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Send a test message">
     ต้องมีการตั้งค่าช่องทางแล้ว
 
@@ -101,7 +110,8 @@ Fastest chat: open the Control UI (no channel setup needed).
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## ตัวแปรสภาพแวดล้อมที่มีประโยชน์
@@ -119,10 +129,12 @@ Fastest chat: open the Control UI (no channel setup needed).
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
     เอกสารอ้างอิงวิซาร์ดCLIแบบครบถ้วนและตัวเลือกขั้นสูง
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     โฟลว์การใช้งานครั้งแรกสำหรับแอปmacOS
-  </Card>
+  
+</Card>
 </Columns>
 
 ## สิ่งที่คุณจะมี

@@ -30,21 +30,26 @@ Verifiez votre version de Node avec `node --version` si vous n’etes pas sur.
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     ```
     <Note>
     Autres methodes d’installation et exigences : [Install](/install).
-    </Note>
+    
+</Note>
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Run the onboarding wizard">
     ```bash
     openclaw onboard --install-daemon
@@ -55,7 +60,8 @@ Verifiez votre version de Node avec `node --version` si vous n’etes pas sur.
     Voir [Onboarding Wizard](/start/wizard) pour plus de details.
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Check the Gateway">
     Si vous avez installe le service, il devrait deja etre en cours d’execution :
 
@@ -65,12 +71,14 @@ Verifiez votre version de Node avec `node --version` si vous n’etes pas sur.
     ```
     ````
 
-  </Step>
+  
+</Step>
   <Step title="Open the Control UI">
     ```bash
     openclaw dashboard
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 <Check>
@@ -89,7 +97,8 @@ Si l’interface de controle se charge, votre Gateway est prete a l’emploi.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Send a test message">
     Necessite un canal configure.
 
@@ -99,7 +108,8 @@ Si l’interface de controle se charge, votre Gateway est prete a l’emploi.
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## Variables d’environnement utiles
@@ -117,10 +127,12 @@ Référence complète des variables d’environnement : [Variables d’environne
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
     Reference complete de l’assistant CLI et options avancees.
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     Parcours de premier lancement pour l’application macOS.
-  </Card>
+  
+</Card>
 </Columns>
 
 ## Ce que vous aurez

@@ -34,21 +34,25 @@ Nie instaluje ani nie modyfikuje niczego na hoście zdalnym.
       - Tylko konfiguracja
       - Konfiguracja + poświadczenia + sesje
       - Pełny reset (usuwa także obszar roboczy)
-  </Step>
+  
+</Step>
   <Step title="Model and auth">
     - Pełna macierz opcji znajduje się w [Auth and model options](#auth-and-model-options).
-  </Step>
+  
+</Step>
   <Step title="Workspace">
     - Domyślnie `~/.openclaw/workspace` (konfigurowalne).
     - Zasiewa pliki obszaru roboczego potrzebne do rytuału bootstrap przy pierwszym uruchomieniu.
     - Układ obszaru roboczego: [Agent workspace](/concepts/agent-workspace).
-  </Step>
+  
+</Step>
   <Step title="Gateway">
     - Pyta o port, bind, tryb auth oraz ekspozycję Tailscale.
     - Zalecane: pozostaw włączone uwierzytelnianie tokenem nawet dla loopback, aby lokalni klienci WS musieli się uwierzytelnić.
     - Wyłącz uwierzytelnianie tylko wtedy, gdy w pełni ufasz każdemu lokalnemu procesowi.
     - Bindowania inne niż loopback nadal wymagają uwierzytelniania.
-  </Step>
+  
+</Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): opcjonalne logowanie QR
     - [Telegram](/channels/telegram): token bota
@@ -60,7 +64,8 @@ Nie instaluje ani nie modyfikuje niczego na hoście zdalnym.
     - [iMessage](/channels/imessage): legacy ścieżka CLI `imsg` + dostęp do DB
     - Bezpieczeństwo DM-ów: domyślnie parowanie. Pierwszy DM wysyła kod; zatwierdź przez
       `openclaw pairing approve <channel> <code>` lub użyj list dozwolonych.
-  </Step>
+  
+</Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
       - Wymaga zalogowanej sesji użytkownika; dla trybu headless użyj niestandardowego LaunchDaemon (nie jest dostarczany).
@@ -68,19 +73,23 @@ Nie instaluje ani nie modyfikuje niczego na hoście zdalnym.
       - Kreator próbuje `loginctl enable-linger <user>`, aby gateway działał po wylogowaniu.
       - Może poprosić o sudo (zapisuje `/var/lib/systemd/linger`); najpierw próbuje bez sudo.
     - Wybór środowiska uruchomieniowego: Node (zalecane; wymagane dla WhatsApp i Telegram). Bun nie jest zalecany.
-  </Step>
+  
+</Step>
   <Step title="Health check">
     - Uruchamia gateway (jeśli potrzebne) i wykonuje `openclaw health`.
     - `openclaw status --deep` dodaje sondy zdrowia gatewaya do wyjścia statusu.
-  </Step>
+  
+</Step>
   <Step title="Skills">
     - Odczytuje dostępne Skills i sprawdza wymagania.
     - Pozwala wybrać menedżera pakietów Node: npm lub pnpm (bun nie jest zalecany).
     - Instaluje opcjonalne zależności (niektóre używają Homebrew na macOS).
-  </Step>
+  
+</Step>
   <Step title="Finish">
     - Podsumowanie i następne kroki, w tym opcje aplikacji na iOS, Android i macOS.
-  </Step>
+  
+</Step>
 </Steps>
 
 <Note>
@@ -113,64 +122,78 @@ Co ustawiasz:
 <AccordionGroup>
   <Accordion title="Anthropic API key (recommended)">
     Używa `ANTHROPIC_API_KEY`, jeśli jest obecny, lub prosi o klucz, a następnie zapisuje go do użycia przez demona.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic OAuth (Claude Code CLI)">
     - macOS: sprawdza element pęku kluczy „Claude Code-credentials”
     - Linux i Windows: ponownie wykorzystuje `~/.claude/.credentials.json`, jeśli jest obecny
 
     Na macOS wybierz „Always Allow”, aby uruchomienia launchd nie były blokowane.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
     Uruchom `claude setup-token` na dowolnej maszynie, a następnie wklej token.
     Możesz nadać mu nazwę; puste pole użyje domyślnej.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (Codex CLI reuse)">
     Jeśli istnieje `~/.codex/auth.json`, kreator może go ponownie wykorzystać.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI Code subscription (OAuth)">
     Przepływ w przeglądarce; wklej `code#state`.
 
     Ustawia `agents.defaults.model` na `openai-codex/gpt-5.3-codex`, gdy model nie jest ustawiony lub jest `openai/*`.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenAI API key">
     Używa `OPENAI_API_KEY`, jeśli jest obecny, lub prosi o klucz, a następnie zapisuje go do
     `~/.openclaw/.env`, aby launchd mógł go odczytać.
 
     Ustawia `agents.defaults.model` na `openai/gpt-5.1-codex`, gdy model nie jest ustawiony, jest `openai/*` lub `openai-codex/*`.
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="xAI (Grok) API key">
     Prosi o `XAI_API_KEY` i konfiguruje xAI jako dostawcę modeli.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="OpenCode Zen">
     Prosi o `OPENCODE_API_KEY` (lub `OPENCODE_ZEN_API_KEY`).
     URL konfiguracji: [opencode.ai/auth](https://opencode.ai/auth).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="API key (generic)">
     Przechowuje klucz za Ciebie.
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Vercel AI Gateway">
     Prosi o `AI_GATEWAY_API_KEY`.
     Więcej szczegółów: [Vercel AI Gateway](/providers/vercel-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Cloudflare AI Gateway">
     Prosi o identyfikator konta, identyfikator gatewaya oraz `CLOUDFLARE_AI_GATEWAY_API_KEY`.
     Więcej szczegółów: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="MiniMax M2.1">
     Konfiguracja jest zapisywana automatycznie.
     Więcej szczegółów: [MiniMax](/providers/minimax).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Synthetic (Anthropic-compatible)">
     Prosi o `SYNTHETIC_API_KEY`.
     Więcej szczegółów: [Synthetic](/providers/synthetic).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Moonshot and Kimi Coding">
     Konfiguracje Moonshot (Kimi K2) i Kimi Coding są zapisywane automatycznie.
     Więcej szczegółów: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Custom provider">
     Działa z endpointami zgodnymi z OpenAI oraz Anthropic.
 
@@ -182,10 +205,12 @@ Co ustawiasz:
     - `--custom-provider-id` (opcjonalnie)
     - `--custom-compatibility <openai|anthropic>` (opcjonalnie; domyślnie `openai`)
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Skip">
     Pozostawia uwierzytelnianie nieskonfigurowane.
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 Zachowanie modeli:

@@ -35,21 +35,26 @@ title: "はじめに"
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
-      </Tab>
+      
+</Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://openclaw.ai/install.ps1 | iex
         ```
-      </Tab>
-    </Tabs>
+      
+</Tab>
+    
+</Tabs>
 
     ```
     <Note>
     その他のインストール方法と要件: [Install](/install)。
-    </Note>
+    
+</Note>
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Run the onboarding wizard">
     ```bash
     openclaw onboard --install-daemon
@@ -60,7 +65,8 @@ title: "はじめに"
     詳細は [Onboarding Wizard](/start/wizard) を参照してください。
     ```
 
-  </Step>
+  
+</Step>
   <Step title="Check the Gateway">
     サービスをインストールしている場合、すでに実行中のはずです。
 
@@ -70,12 +76,14 @@ title: "はじめに"
     ```
     ````
 
-  </Step>
+  
+</Step>
   <Step title="Open the Control UI">
     ```bash
     openclaw dashboard
     ```
-  </Step>
+  
+</Step>
 </Steps>
 
 <Check>
@@ -94,7 +102,8 @@ Control UI がロードされた場合、ゲートウェイを使用する準備
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
   <Accordion title="Send a test message">
     設定済みのチャンネルが必要です。
 
@@ -104,7 +113,8 @@ Control UI がロードされた場合、ゲートウェイを使用する準備
     ```
     ````
 
-  </Accordion>
+  
+</Accordion>
 </AccordionGroup>
 
 ## 便利な環境変数
@@ -122,10 +132,12 @@ OpenClaw をサービスアカウントとして実行する場合や、config/s
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
     CLI ウィザードの完全なリファレンスと高度なオプション。
-  </Card>
+  
+</Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
     macOS アプリの初回起動フロー。
-  </Card>
+  
+</Card>
 </Columns>
 
 ## あなたが持っているもの

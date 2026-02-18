@@ -11,22 +11,22 @@ sidebarTitle: "ऑनबोर्डिंग: macOS ऐप"
 <Steps>
 <Step title="Approve macOS warning">
 <Frame>
-<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt="" />
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Approve find local networks">
 <Frame>
-<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt="" />
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
 </Frame>
 </Step>
 <Step title="Welcome and security notice">
 <Frame caption="प्रदर्शित सुरक्षा सूचना पढ़ें और उसके अनुसार निर्णय लें">
-<img src="/assets/macos-onboarding/03-security-notice.png" alt="" />
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
 </Frame>
 </Step>
 <Step title="Local vs Remote">
 <Frame>
-<img src="/assets/macos-onboarding/04-choose-gateway.png" alt="" />
+<img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
 **Gateway** कहाँ चलता है?
@@ -46,7 +46,7 @@ sidebarTitle: "ऑनबोर्डिंग: macOS ऐप"
 </Step>
 <Step title="Permissions">
 <Frame caption="चुनें कि आप OpenClaw को कौन‑सी अनुमतियाँ देना चाहते हैं">
-<img src="/assets/macos-onboarding/05-permissions.png" alt="" />
+<img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
 ऑनबोर्डिंग निम्न के लिए आवश्यक TCC अनुमतियों का अनुरोध करता है:
@@ -62,7 +62,8 @@ sidebarTitle: "ऑनबोर्डिंग: macOS ऐप"
 
 </Step>
 <Step title="CLI">
-  <Info>यह चरण वैकल्पिक है</Info>
+  <Info>यह चरण वैकल्पिक है
+</Info>
   ऐप npm/pnpm के माध्यम से वैश्विक `openclaw` CLI स्थापित कर सकता है ताकि टर्मिनल
   वर्कफ़्लो और launchd कार्य तुरंत काम करें।
 </Step>
