@@ -12,9 +12,9 @@
   },
   "favicon": "/assets/pixel-lobster.svg",
   "colors": {
-    "primary": "#2E4A3A",
-    "dark": "#4A7A5A",
-    "light": "#6BAF7A"
+    "primary": "#FF5A36",
+    "dark": "#FF5A36",
+    "light": "#FF8A6B"
   },
   "navbar": {
     "links": [
