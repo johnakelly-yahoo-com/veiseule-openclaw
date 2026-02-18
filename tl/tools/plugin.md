@@ -26,7 +26,9 @@ openclaw plugins list
 openclaw plugins install @openclaw/voice-call
 ```
 
-3. Restart the Gateway, then configure under `plugins.entries.<id>.config`.
+Npm specs ay **registry-only** (package name + optional version/tag). Hindi tinatanggap ang Git/URL/file specs.
+
+3. I-restart ang Gateway, pagkatapos ay i-configure sa ilalim ng `plugins.entries.<id>.config`.
 
 Tingnan ang [Voice Call](/plugins/voice-call) para sa isang konkretong halimbawa ng plugin.
 
@@ -46,7 +48,7 @@ Tingnan ang [Voice Call](/plugins/voice-call) para sa isang konkretong halimbawa
 - Qwen OAuth (provider auth) — bundled bilang `qwen-portal-auth` (disabled bilang default)
 - Copilot Proxy (provider auth) — lokal na VS Code Copilot Proxy bridge; hiwalay sa built-in na `github-copilot` device login (bundled, disabled bilang default)
 
-OpenClaw plugins are **TypeScript modules** loaded at runtime via jiti. 23. **Hindi nagpapatupad ng plugin code ang config validation**; ginagamit nito ang plugin manifest at JSON Schema sa halip. 24. Tingnan ang [Plugin manifest](/plugins/manifest).
+Ang OpenClaw plugins ay **TypeScript modules** na nilo-load sa runtime sa pamamagitan ng jiti. **Hindi nagpapatupad ng plugin code ang config validation**; ginagamit nito ang plugin manifest at JSON Schema sa halip. Tingnan ang [Plugin manifest](/plugins/manifest).
 
 Maaaring magrehistro ang mga plugin ng:
 
@@ -59,12 +61,11 @@ Maaaring magrehistro ang mga plugin ng:
 - **Skills** (sa pamamagitan ng paglista ng mga directory ng `skills` sa plugin manifest)
 - **Mga auto-reply command** (nag-e-execute nang hindi tinatawag ang AI agent)
 
-Plugins run **in‑process** with the Gateway, so treat them as trusted code.
-25. Gabay sa paggawa ng tool: [Plugin agent tools](/plugins/agent-tools).
+Ang mga plugin ay tumatakbo **in‑process** kasama ng Gateway, kaya ituring ang mga ito bilang pinagkakatiwalaang code. Gabay sa paggawa ng tool: [Plugin agent tools](/plugins/agent-tools).
 
 ## Mga runtime helper
 
-26. Maaaring ma-access ng mga plugin ang piling core helpers sa pamamagitan ng `api.runtime`. 27. Para sa telephony TTS:
+Maaaring ma-access ng mga plugin ang piling core helpers sa pamamagitan ng `api.runtime`. Para sa telephony TTS:
 
 ```ts
 const result = await api.runtime.tts.textToSpeechTelephony({
@@ -101,11 +102,12 @@ Ini-scan ng OpenClaw, sa pagkakasunod-sunod:
 
 - `<openclaw>/extensions/*`
 
-28. Ang mga bundled plugin ay dapat i-enable nang tahasan sa pamamagitan ng `plugins.entries.<id>`.enabled`or`openclaw plugins enable &lt;id&gt;\`. Installed plugins are enabled by default,
-    but can be disabled the same way.
+Ang mga bundled plugin ay dapat i-enable nang tahasan sa pamamagitan ng `plugins.entries.<id>.enabled`
+o `openclaw plugins enable <id>`. Ang mga installed plugin ay enabled bilang default,
+ngunit maaaring i-disable sa parehong paraan.
 
-Each plugin must include a `openclaw.plugin.json` file in its root. If a path
-points at a file, the plugin root is the file's directory and must contain the
+Ang bawat plugin ay dapat magsama ng `openclaw.plugin.json` file sa root nito. Kung ang isang path
+ay tumuturo sa isang file, ang plugin root ay ang directory ng file at dapat maglaman ng
 manifest.
 
 Kung maraming plugin ang nagre-resolve sa parehong id, ang unang tugma sa itaas na
@@ -124,16 +126,19 @@ Maaaring magsama ang isang plugin directory ng `package.json` na may `openclaw.e
 }
 ```
 
-Each entry becomes a plugin. If the pack lists multiple extensions, the plugin id
-becomes `name/<fileBase>`.
+Ang bawat entry ay nagiging isang plugin. Kung maraming extension ang nakalista sa pack, ang plugin id
+ay magiging `name/<fileBase>`.
 
-Kung ang iyong plugin ay nag-iimport ng mga npm dep, i-install ang mga ito sa directory na iyon para
+Kung ang iyong plugin ay nag-iimport ng mga npm dependency, i-install ang mga ito sa directory na iyon upang
 magamit ang `node_modules` (`npm install` / `pnpm install`).
+
+Security note: Ang `openclaw plugins install` ay nag-i-install ng mga dependency ng plugin gamit ang
+`npm install --ignore-scripts` (walang lifecycle scripts). Panatilihing "pure JS/TS" ang mga dependency tree ng plugin at iwasan ang mga package na nangangailangan ng `postinstall` builds.
 
 ### Metadata ng channel catalog
 
 Maaaring mag-anunsyo ang mga channel plugin ng onboarding metadata sa pamamagitan ng `openclaw.channel` at
-install hints via `openclaw.install`. This keeps the core catalog data-free.
+mga install hint sa pamamagitan ng `openclaw.install`. Pinapanatili nitong walang data ang core catalog.
 
 Halimbawa:
 
@@ -162,15 +167,15 @@ Halimbawa:
 ```
 
 Maaari ring pagsamahin ng OpenClaw ang **mga external na channel catalog** (halimbawa, isang MPM
-registry export). Drop a JSON file at one of:
+registry export). Maglagay ng JSON file sa isa sa:
 
 - `~/.openclaw/mpm/plugins.json`
 - `~/.openclaw/mpm/catalog.json`
 - `~/.openclaw/plugins/catalog.json`
 
 O ituro ang `OPENCLAW_PLUGIN_CATALOG_PATHS` (o `OPENCLAW_MPM_CATALOG_PATHS`) sa
-one or more JSON files (comma/semicolon/`PATH`-delimited). Each file should
-contain `{ "entries": [ { "name": "@scope/pkg", "openclaw": { "channel": {...}, "install": {...} } } ] }`.
+isa o higit pang JSON file (comma/semicolon/`PATH`-delimited). Ang bawat file ay dapat
+maglaman ng `{ "entries": [ { "name": "@scope/pkg", "openclaw": { "channel": {...}, "install": {...} } } ] }`.
 
 ## Mga Plugin ID
 
@@ -210,30 +215,30 @@ Ang mga pagbabago sa config ay **nangangailangan ng restart ng gateway**.
 
 Mga patakaran sa validation (mahigpit):
 
-- Ang mga hindi kilalang plugin id sa `entries`, `allow`, `deny`, o `slots` ay **error**.
-- Ang hindi kilalang `channels.<id>` na mga key ay **mga error** maliban kung ang isang plugin manifest ay nagdedeklara ng
-ang channel id.
+- Ang mga hindi kilalang plugin id sa `entries`, `allow`, `deny`, o `slots` ay **mga error**.
+- Ang mga hindi kilalang `channels.<id>` na key ay **mga error** maliban kung ang isang plugin manifest ay nagdedeklara ng
+  channel id.
 - Ang plugin config ay bino-validate gamit ang JSON Schema na naka-embed sa
-`openclaw.plugin.json` (`configSchema`).
+  `openclaw.plugin.json` (`configSchema`).
 - Kung ang isang plugin ay disabled, ang config nito ay pinapanatili at maglalabas ng **warning**.
 
 ## Mga plugin slot (eksklusibong kategorya)
 
-Some plugin categories are **exclusive** (only one active at a time). Use
-`plugins.slots` to select which plugin owns the slot:
+May ilang kategorya ng plugin na **eksklusibo** (isa lang ang maaaring aktibo sa isang pagkakataon). Gamitin ang
+`plugins.slots` upang piliin kung aling plugin ang may-ari ng slot:
 
 ```json5
 {
   plugins: {
     slots: {
-      memory: "memory-core", // or "none" to disable memory plugins
+      memory: "memory-core", // o "none" upang i-disable ang memory plugins
     },
   },
 }
 ```
 
-If multiple plugins declare `kind: "memory"`, only the selected one loads. Others
-are disabled with diagnostics.
+Kung maraming plugin ang nagdedeklara ng `kind: "memory"`, ang napili lamang ang ilo-load. Ang iba
+ay idi-disable na may diagnostics.
 
 ## Control UI (schema + labels)
 
@@ -241,8 +246,8 @@ Ginagamit ng Control UI ang `config.schema` (JSON Schema + `uiHints`) para mag-r
 
 Dinadagdagan ng OpenClaw ang `uiHints` sa runtime batay sa mga nadiskubreng plugin:
 
-- Adds per-plugin labels for `plugins.entries.<id>` / `.enabled` / `.config`
-- Merges optional plugin-provided config field hints under:
+- Nagdaragdag ng per-plugin labels para sa `plugins.entries.<id>` / `.enabled` / `.config`
+- Pinagsasama ang mga opsyonal na config field hint na ibinigay ng plugin sa ilalim ng:
   `plugins.entries.<id>.config.<field>`
 
 Kung gusto mong magpakita ng magagandang label/placeholder ang mga field ng config ng iyong plugin (at markahan ang mga secret bilang sensitive),
@@ -294,13 +299,13 @@ Maaari ring magrehistro ang mga plugin ng sarili nilang top‑level command (hal
 
 Ang mga plugin ay nag-e-export ng alinman sa:
 
-- A function: `(api) => { ... }`
-- An object: `{ id, name, configSchema, register(api) { ... } }`
+- Isang function: `(api) => { ... }`
+- Isang object: `{ id, name, configSchema, register(api) { ... } }`
 
 ## Mga plugin hook
 
-Plugins can ship hooks and register them at runtime. This lets a plugin bundle
-event-driven automation without a separate hook pack install.
+Maaaring magsama ang mga plugin ng mga hook at irehistro ang mga ito sa runtime. Pinapayagan nito ang isang plugin na magsama ng
+event-driven automation nang walang hiwalay na hook pack install.
 
 ### Halimbawa
 
@@ -315,7 +320,7 @@ export default function register(api) {
 Mga tala:
 
 - Ang mga directory ng hook ay sumusunod sa normal na hook structure (`HOOK.md` + `handler.ts`).
-- Patuloy na umiiral ang mga patakaran sa eligibility ng hook (OS/bin/env/config requirements).
+- Patuloy na umiiral ang mga patakaran sa eligibility ng hook (OS/bins/env/config requirements).
 - Ang mga hook na pinamamahalaan ng plugin ay lumalabas sa `openclaw hooks list` na may `plugin:<id>`.
 - Hindi mo maaaring i-enable/i-disable ang mga hook na pinamamahalaan ng plugin sa pamamagitan ng `openclaw hooks`; i-enable/i-disable ang plugin sa halip.
 
@@ -324,8 +329,8 @@ Mga tala:
 Maaaring magrehistro ang mga plugin ng **model provider auth** flow upang makapagpatakbo ang mga user ng OAuth o
 API-key setup sa loob ng OpenClaw (walang kailangang external script).
 
-Register a provider via `api.registerProvider(...)`. Each provider exposes one
-or more auth methods (OAuth, API key, device code, etc.). These methods power:
+Magrehistro ng provider sa pamamagitan ng `api.registerProvider(...)`. Ang bawat provider ay naglalantad ng isa
+o higit pang auth method (OAuth, API key, device code, atbp.). Pinapagana ng mga method na ito ang:
 
 - `openclaw models auth login --provider <id> [--method <id>]`
 
@@ -372,9 +377,9 @@ Mga tala:
 
 ### Magrehistro ng messaging channel
 
-Plugins can register **channel plugins** that behave like built‑in channels
-(WhatsApp, Telegram, etc.). Channel config lives under `channels.<id>` and is
-validated by your channel plugin code.
+Maaaring magrehistro ang mga plugin ng **channel plugins** na kumikilos tulad ng built‑in na mga channel
+(WhatsApp, Telegram, atbp.). Ang channel config ay nasa ilalim ng `channels.<id>` at
+vina-validate ng iyong channel plugin code.
 
 ```ts
 const myChannel = {
@@ -408,7 +413,7 @@ export default function (api) {
 
 Mga tala:
 
-- Put config under `channels.<id>` (not `plugins.entries`).
+- Ilagay ang config sa ilalim ng `channels.<id>` (hindi `plugins.entries`).
 - Ginagamit ang `meta.label` para sa mga label sa mga listahan ng CLI/UI.
 - Nagdaragdag ang `meta.aliases` ng mga alternatibong id para sa normalization at mga input ng CLI.
 - Inililista ng `meta.preferOver` ang mga channel id na lalaktawan ang auto-enable kapag parehong naka-configure.
@@ -416,13 +421,13 @@ Mga tala:
 
 ### Sumulat ng bagong messaging channel (hakbang‑hakbang)
 
-Use this when you want a **new chat surface** (a “messaging channel”), not a model provider.
-Model provider docs live under `/providers/*`.
+Gamitin ito kapag gusto mo ng **bagong chat surface** (isang “messaging channel”), hindi isang model provider.
+Ang mga doc ng model provider ay nasa ilalim ng `/providers/*`.
 
 1. Pumili ng id + hugis ng config
 
-- 29) Lahat ng channel config ay nasa ilalim ng \`channels.<id>\`\`.
-- Prefer `channels.<id>.accounts.<accountId>` for multi‑account setups.
+- Lahat ng channel config ay nasa ilalim ng `channels.<id>`.
+- Mas mainam ang `channels.<id>.accounts.<accountId>` para sa multi‑account setup.
 
 2. Tukuyin ang metadata ng channel
 
@@ -496,7 +501,8 @@ export default function (api) {
 }
 ```
 
-30. I-load ang plugin (extensions dir o `plugins.load.paths`), i-restart ang gateway, pagkatapos ay i-configure ang `channels.<id>`31. \` sa iyong config.
+I-load ang plugin (extensions dir o `plugins.load.paths`), i-restart ang gateway,
+pagkatapos ay i-configure ang `channels.<id>` sa iyong config.
 
 ### Mga agent tool
 
@@ -529,7 +535,7 @@ export default function (api) {
 
 ### Magrehistro ng mga auto-reply command
 
-32. Maaaring magrehistro ang mga plugin ng custom slash command na nag-e-execute **nang hindi tinatawag ang AI agent**. 33. Kapaki-pakinabang ito para sa mga toggle command, status check, o mabilisang aksyon na hindi nangangailangan ng LLM processing.
+Maaaring magrehistro ang mga plugin ng custom slash command na nag-e-execute **nang hindi tinatawag ang AI agent**. Kapaki-pakinabang ito para sa mga toggle command, status check, o mabilisang aksyon na hindi nangangailangan ng LLM processing.
 
 ```ts
 export default function (api) {
@@ -556,7 +562,7 @@ Mga opsyon ng command:
 
 - `name`: Pangalan ng command (walang leading `/`)
 - `description`: Help text na ipinapakita sa mga listahan ng command
-- 34. `acceptsArgs`: Kung tumatanggap ng mga argument ang command (default: false). 35. Kung false at may ibinigay na mga argument, hindi magmamatch ang command at ang mensahe ay dadaan sa iba pang handler.
+- `acceptsArgs`: Kung tumatanggap ng mga argument ang command (default: false). Kung false at may ibinigay na mga argument, hindi magmamatch ang command at ang mensahe ay dadaan sa iba pang handler
 - `requireAuth`: Kung kailangan ng awtorisadong nagpadala (default: true)
 - `handler`: Function na nagbabalik ng `{ text: string }` (maaaring async)
 
@@ -582,7 +588,7 @@ Mga tala:
 - Ang mga command ay globally registered at gumagana sa lahat ng channel
 - Ang mga pangalan ng command ay case-insensitive (`/MyStatus` ay tumutugma sa `/mystatus`)
 - Ang mga pangalan ng command ay dapat magsimula sa isang letra at maglaman lamang ng mga letra, numero, hyphen, at underscore
-- Reserved command names (like `help`, `status`, `reset`, etc.) 36. hindi maaaring i-override ng mga plugin
+- Ang mga reserved command name (tulad ng `help`, `status`, `reset`, atbp.) ay hindi maaaring i-override ng mga plugin
 - Ang duplicate na pagrehistro ng command sa iba’t ibang plugin ay mabibigo na may diagnostic error
 
 ### Magrehistro ng mga background service
@@ -606,7 +612,8 @@ export default function (api) {
 ## Skills
 
 Maaaring maghatid ang mga plugin ng isang skill sa repo (`skills/<name>/SKILL.md`).
-I-enable ito gamit ang `plugins.entries.<id>.enabled` (o iba pang config gates) at tiyaking
+I-enable ito gamit ang `plugins.entries.<id>.enabled` (o iba pang config gate) at tiyaking
+naroroon ito sa iyong workspace/managed skills locations.
 
 ## Distribusyon (npm)
 
@@ -638,7 +645,7 @@ Tingnan ang [Voice Call](/plugins/voice-call) at ang `extensions/voice-call/READ
 
 ## Mga tala sa kaligtasan
 
-naroroon ito sa iyong workspace/managed skills locations. 37. Ituring ang mga ito bilang pinagkakatiwalaang code:
+Ang mga plugin ay tumatakbo in-process kasama ng Gateway. Ituring ang mga ito bilang pinagkakatiwalaang code:
 
 - Mag-install lamang ng mga plugin na pinagkakatiwalaan mo.
 - Mas piliin ang mga `plugins.allow` allowlist.
