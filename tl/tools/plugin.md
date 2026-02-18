@@ -101,7 +101,7 @@ Ini-scan ng OpenClaw, sa pagkakasunod-sunod:
 
 - `<openclaw>/extensions/*`
 
-28. Ang mga bundled plugin ay dapat i-enable nang tahasan sa pamamagitan ng `plugins.entries.<id>`.enabled`or`openclaw plugins enable <id>\`. Installed plugins are enabled by default,
+28. Ang mga bundled plugin ay dapat i-enable nang tahasan sa pamamagitan ng `plugins.entries.<id>`.enabled`or`openclaw plugins enable &lt;id&gt;\`. Installed plugins are enabled by default,
     but can be disabled the same way.
 
 Each plugin must include a `openclaw.plugin.json` file in its root. If a path

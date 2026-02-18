@@ -20,8 +20,8 @@ Para uma visão geral de alto nível, veja [Onboarding Wizard](/start/wizard).
     - A redefinição usa `trash` (nunca `rm`) e oferece escopos:
       - Apenas configuração
       - Configuração + credenciais + sessões
-      - Redefinição completa (também remove o workspace)  
-</Step>
+      - Redefinição completa (também remove o workspace)
+  </Step>
   <Step title="Model/Auth">
     - **Chave de API da Anthropic (recomendado)**: usa `ANTHROPIC_API_KEY` se existir ou solicita uma chave e, em seguida, salva para uso do daemon.
     - **OAuth da Anthropic (Claude Code CLI)**: no macOS o assistente verifica o item do Keychain "Claude Code-credentials" (escolha "Sempre Permitir" para que inicializações via launchd não bloqueiem); no Linux/Windows ele reutiliza `~/.claude/.credentials.json` se existir.
@@ -47,10 +47,9 @@ Para uma visão geral de alto nível, veja [Onboarding Wizard](/start/wizard).
     - **Pular**: nenhuma autenticação configurada ainda.
     - Escolha um modelo padrão entre as opções detectadas (ou informe provedor/modelo manualmente).
     - O assistente executa uma verificação do modelo e avisa se o modelo configurado é desconhecido ou não tem autenticação.
-    - As credenciais OAuth ficam em `~/.openclaw/credentials/oauth.json`; os perfis de autenticação ficam em `~/.openclaw/agents/
-    - Credenciais do OAuth vivem em '~/.openclaw/credenciais/oauth.json'; perfis de autenticação vivem em '~/.openclaw/agents/<agentId>/agent/auth-profiles.json` (chaves de API + OAuth).
-    - Mais detalhes: [/concepts/oauth](/concepts/oauth)    
-<Note>
+    - As credenciais OAuth ficam em `~/.openclaw/credentials/oauth.json`; os perfis de autenticação ficam em `~/.openclaw/agents/<agentId>/agent/auth-profiles.json` (chaves de API + OAuth).
+    - Mais detalhes: [/concepts/oauth](/concepts/oauth)
+    <Note>
     Dica para headless/servidor: conclua o OAuth em uma máquina com navegador e depois copie
     `~/.openclaw/credentials/oauth.json` (ou `$OPENCLAW_STATE_DIR/credentials/oauth.json`) para o
     host do Gateway.
@@ -59,8 +58,8 @@ Para uma visão geral de alto nível, veja [Onboarding Wizard](/start/wizard).
   <Step title="Workspace">
     - Padrão `~/.openclaw/workspace` (configurável).
     - Inicializa os arquivos de workspace necessários para o ritual de bootstrap do agente.
-    - Layout completo do workspace + guia de backup: [Agent workspace](/concepts/agent-workspace)  
-</Step>
+    - Layout completo do workspace + guia de backup: [Agent workspace](/concepts/agent-workspace)
+  </Step>
   <Step title="Gateway">
     - Porta, bind, modo de autenticação, exposição via Tailscale.
     - Recomendação de autenticação: mantenha **Token** mesmo para loopback para que clientes WS locais precisem se autenticar.
@@ -76,10 +75,9 @@ Para uma visão geral de alto nível, veja [Onboarding Wizard](/start/wizard).
     - [Signal](/channels/signal): instalação opcional de `signal-cli` + configuração da conta.
     - [BlueBubbles](/channels/bluebubbles): **recomendado para iMessage**; URL do servidor + senha + webhook.
     - [iMessage](/channels/imessage): caminho legado da CLI `imsg` + acesso ao DB.
-    - Segurança de DM: o padrão é pareamento. A primeira DM envia um código; aprove via `openclaw pairing approve <channel><code>` ou use listas de permissões.
-  </Step><code>` ou use listas de permissões.
+    - Segurança de DM: o padrão é pareamento. A primeira DM envia um código; aprove via `openclaw pairing approve <channel> <code>` ou use listas de permissões.
   </Step>
-  <Step title="Instalação do daemon">
+  <Step title="Daemon install">
     - macOS: LaunchAgent
       - Requer uma sessão de usuário logada; para headless, use um LaunchDaemon personalizado (não fornecido).
     - Linux (e Windows via WSL2): unidade de usuário do systemd
@@ -87,16 +85,16 @@ Para uma visão geral de alto nível, veja [Onboarding Wizard](/start/wizard).
       - Pode solicitar sudo (grava `/var/lib/systemd/linger`); ele tenta sem sudo primeiro.
     - **Seleção de runtime:** Node (recomendado; necessário para WhatsApp/Telegram). Bun **não é recomendado**.
   </Step>
-  <Step title="Verificação de saúde">
+  <Step title="Health check">
     - Inicia o Gateway (se necessário) e executa `openclaw health`.
     - Dica: `openclaw status --deep` adiciona sondas de saúde do gateway à saída de status (requer um gateway acessível).
   </Step>
-  <Step title="Skills (recomendado)">
+  <Step title="Skills (recommended)">
     - Lê as skills disponíveis e verifica requisitos.
     - Permite escolher um gerenciador de pacotes Node: **npm / pnpm** (bun não recomendado).
     - Instala dependências opcionais (algumas usam Homebrew no macOS).
   </Step>
-  <Step title="Finalizar">
+  <Step title="Finish">
     - Resumo + próximos passos, incluindo apps para iOS/Android/macOS para recursos extras.
   </Step>
 </Steps>
@@ -239,7 +237,7 @@ Campos típicos em `~/.openclaw/openclaw.json`:
 
 - `agents.defaults.workspace`
 - `agents.defaults.model` / `models.providers` (se Minimax for escolhido)
-- `gateway.*` (modo, bind, auth, Tailscale)
+- `gateway.*` (modo, bind, auth, tailscale)
 - `channels.telegram.botToken`, `channels.discord.token`, `channels.signal.*`, `channels.imessage.*`
 - Listas de permissões de canais (Slack/Discord/Matrix/Microsoft Teams) quando você opta durante os prompts (nomes resolvem para IDs quando possível).
 - `skills.install.nodeManager`

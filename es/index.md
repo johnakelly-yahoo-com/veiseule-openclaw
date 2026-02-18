@@ -21,7 +21,8 @@ title: "OpenClaw"
 
 > _"¡EXFOLIA! ¡EXFOLIA!"_ — Una langosta espacial, probablemente
 
-<p align="center"><strong>Gateway para cualquier sistema operativo para agentes de IA en WhatsApp, Telegram, Discord, iMessage y más.</strong><br />
+<p align="center">
+  <strong>Gateway para cualquier sistema operativo para agentes de IA en WhatsApp, Telegram, Discord, iMessage y más.</strong><br />
   Envíe un mensaje y obtenga la respuesta de un agente desde su bolsillo. Los plugins agregan Mattermost y más.
 </p>
 

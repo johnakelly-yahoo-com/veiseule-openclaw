@@ -2630,7 +2630,7 @@ Docs: [Gateway service runbook](/gateway).
 
 ### Мой навык создал imagePDF, но ничего не было отправлено
 
-Исходящие вложения от агента должны включать строку «MEDIA:<path-or-url>» (на собственной строке). См. [Настройка помощника OpenClaw](/start/openclaw) и [Отправка Агента](/tools/agent-send).
+Исходящие вложения от агента должны включать строку «MEDIA:&lt;path-or-url&gt;» (на собственной строке). См. [Настройка помощника OpenClaw](/start/openclaw) и [Отправка Агента](/tools/agent-send).
 
 Отправка CLI:
 

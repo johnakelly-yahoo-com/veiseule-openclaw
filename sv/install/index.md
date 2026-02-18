@@ -8,7 +8,7 @@ Redan följt [Komma igång](/start/getting-started)? Du är alla inställd — d
 
 ## Systemkrav
 
-- **[Node 22+](/install/node)** (installationsskriptet [installer script](#install-methods) installerar det om det saknas)
+- **[Node 22+](/install/node)** (installationsskriptet installerar det om det saknas)
 - macOS, Linux eller Windows
 - `pnpm` endast om du bygger från källkod
 
@@ -19,14 +19,13 @@ På Windows rekommenderar vi starkt att köra OpenClaw under [WSL2](https://lear
 ## Installationsmetoder
 
 <Tip>
-**installationsskript** är det rekommenderade sättet att installera OpenClaw. Den hanterar noddetektering, installation och onboarding i ett steg.
+**installationsskriptet** är det rekommenderade sättet att installera OpenClaw. Det hanterar Node-detektering, installation och onboarding i ett steg.
 </Tip>
 
 <AccordionGroup>
   <Accordion title="Installer script" icon="rocket" defaultOpen>
     Hämtar CLI:t, installerar det globalt via npm och startar introduktionsguiden.
 
-    ```
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -39,11 +38,11 @@ På Windows rekommenderar vi starkt att köra OpenClaw under [WSL2](https://lear
         ```
       </Tab>
     </Tabs>
-    
-    Klart — skriptet hanterar Node-detektering, installation och introduktion.
-    
+
+    Klart — skriptet hanterar Node-detektering, installation och onboarding.
+
     För att hoppa över introduktionen och bara installera binären:
-    
+
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -56,30 +55,28 @@ På Windows rekommenderar vi starkt att köra OpenClaw under [WSL2](https://lear
         ```
       </Tab>
     </Tabs>
-    
+
     För alla flaggor, miljövariabler och CI-/automationsalternativ, se [Installer internals](/install/installer).
-    ```
 
   </Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     Om du redan har Node 22+ och föredrar att hantera installationen själv:
 
-    ```
     <Tabs>
       <Tab title="npm">
         ```bash
         npm install -g openclaw@latest
         openclaw onboard --install-daemon
         ```
-    
+
         <Accordion title="sharp-byggfel?">
           Om du har libvips installerat globalt (vanligt på macOS via Homebrew) och `sharp` misslyckas, tvinga förbyggda binärer:
-    
+
           ```bash
           SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
           ```
-    
+
           Om du ser `sharp: Please add node-gyp to your dependencies`, installera antingen byggverktyg (macOS: Xcode CLT + `npm install -g node-gyp`) eller använd miljövariabeln ovan.
         </Accordion>
       </Tab>
@@ -89,24 +86,22 @@ På Windows rekommenderar vi starkt att köra OpenClaw under [WSL2](https://lear
         pnpm approve-builds -g        # approve openclaw, node-llama-cpp, sharp, etc.
         openclaw onboard --install-daemon
         ```
-    
+
         <Note>
-        pnpm kräver uttryckligt godkännande för paket med byggskript. Efter att den första installationen visar varningen ”Ignored build scripts”, kör `pnpm approve-builds -g` och välj de listade paketen.
+        pnpm kräver uttryckligt godkännande för paket med byggskript. Efter att den första installationen visar varningen "Ignored build scripts", kör `pnpm approve-builds -g` och välj de listade paketen.
         </Note>
       </Tab>
     </Tabs>
-    ```
 
   </Accordion>
 
   <Accordion title="From source" icon="github">
     För bidragsgivare eller alla som vill köra från en lokal utcheckning.
 
-    ```
     <Steps>
       <Step title="Klona och bygg">
         Klona [OpenClaw-repot](https://github.com/openclaw/openclaw) och bygg:
-    
+
         ```bash
         git clone https://github.com/openclaw/openclaw.git
         cd openclaw
@@ -117,11 +112,11 @@ På Windows rekommenderar vi starkt att köra OpenClaw under [WSL2](https://lear
       </Step>
       <Step title="Länka CLI:t">
         Gör kommandot `openclaw` tillgängligt globalt:
-    
+
         ```bash
         pnpm link --global
         ```
-    
+
         Alternativt kan du hoppa över länkningen och köra kommandon via `pnpm openclaw ...` inifrån repot.
       </Step>
       <Step title="Kör introduktionen">
@@ -130,9 +125,8 @@ På Windows rekommenderar vi starkt att köra OpenClaw under [WSL2](https://lear
         ```
       </Step>
     </Steps>
-    
+
     För djupare utvecklingsarbetsflöden, se [Konfigurering](/start/setup).
-    ```
 
   </Accordion>
 </AccordionGroup>
@@ -142,6 +136,9 @@ På Windows rekommenderar vi starkt att köra OpenClaw under [WSL2](https://lear
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     Containeriserade eller headless-distributioner.
+  </Card>
+  <Card title="Podman" href="/install/podman" icon="container">
+    Rootless container: run `setup-podman.sh` once, then the launch script.
   </Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     Deklarativ installation via Nix.
@@ -164,13 +161,13 @@ openclaw status         # gateway status
 openclaw dashboard      # open the browser UI
 ```
 
-If you need custom runtime paths, use:
+Om du behöver anpassade körsökvägar, använd:
 
-- `OPENCLAW_HOME` for home-directory based internal paths
-- `OPENCLAW_STATE_DIR` for mutable state location
-- `OPENCLAW_CONFIG_PATH` for config file location
+- `OPENCLAW_HOME` för interna sökvägar baserade på hemkatalogen
+- `OPENCLAW_STATE_DIR` för platsen för ändringsbart tillstånd
+- `OPENCLAW_CONFIG_PATH` för platsen för konfigurationsfilen
 
-See [Environment vars](/help/environment) for precedence and full details.
+Se [Environment vars](/help/environment) för prioriteringsordning och fullständig information.
 
 ## Felsökning: `openclaw` hittades inte
 
@@ -194,7 +191,8 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 
 På Windows, lägg till utdata från `npm prefix -g` i din PATH.
 
-Öppna sedan en ny terminal (eller `rehash` i zsh / `hash -r` i bash). </Accordion>
+Öppna sedan en ny terminal (eller `rehash` i zsh / `hash -r` i bash).
+</Accordion>
 
 ## Uppdatera / avinstallera
 

@@ -33,14 +33,13 @@ Ele não instala nem modifica nada no host remoto.
     - A redefinição usa `trash` e oferece escopos:
       - Apenas configuração
       - Configuração + credenciais + sessões
-      - Redefinição completa (também remove o workspace)  
-</Step>
+      - Redefinição completa (também remove o workspace)
+  </Step>
   <Step title="Model and auth">
     - A matriz completa de opções está em [Opções de autenticação e modelo](#auth-and-model-options).
   </Step>
   <Step title="Workspace">
     - Padrão `~/.openclaw/workspace` (configurável).
-    - Semeia arquivos de espaço de trabalho necessários para o ritual de inicialização de primeira execução.
     - Inicializa arquivos do workspace necessários para o ritual de bootstrap da primeira execução.
     - Layout do workspace: [Workspace do agente](/concepts/agent-workspace).
   </Step>
@@ -60,10 +59,9 @@ Ele não instala nem modifica nada no host remoto.
     - [BlueBubbles](/channels/bluebubbles): recomendado para iMessage; URL do servidor + senha + webhook
     - [iMessage](/channels/imessage): caminho legado da CLI `imsg` + acesso ao BD
     - Segurança de DM: o padrão é pareamento. A primeira DM envia um código; aprove via
-      `openclaw pairing approve <channel><code>` ou use listas de permissões.
-  </Step><code>` ou use listas de permissões.
+      `openclaw pairing approve <channel> <code>` ou use listas de permissões.
   </Step>
-  <Step title="Instalação do daemon">
+  <Step title="Daemon install">
     - macOS: LaunchAgent
       - Requer sessão de usuário logada; para headless, use um LaunchDaemon personalizado (não fornecido).
     - Linux e Windows via WSL2: unidade de usuário systemd
@@ -71,7 +69,7 @@ Ele não instala nem modifica nada no host remoto.
       - Pode solicitar sudo (grava `/var/lib/systemd/linger`); tenta sem sudo primeiro.
     - Seleção de runtime: Node (recomendado; obrigatório para WhatsApp e Telegram). Bun não é recomendado.
   </Step>
-  <Step title="Verificação de integridade">
+  <Step title="Health check">
     - Inicia o gateway (se necessário) e executa `openclaw health`.
     - `openclaw status --deep` adiciona sondas de integridade do gateway à saída de status.
   </Step>
@@ -80,7 +78,7 @@ Ele não instala nem modifica nada no host remoto.
     - Permite escolher o gerenciador de pacotes Node: npm ou pnpm (bun não é recomendado).
     - Instala dependências opcionais (algumas usam Homebrew no macOS).
   </Step>
-  <Step title="Finalizar">
+  <Step title="Finish">
     - Resumo e próximos passos, incluindo opções de apps para iOS, Android e macOS.
   </Step>
 </Steps>
@@ -120,9 +118,7 @@ O que você define:
     - macOS: verifica o item do Keychain "Claude Code-credentials"
     - Linux e Windows: reutiliza `~/.claude/.credentials.json` se presente
 
-    ```
     No macOS, escolha "Sempre permitir" para que inicializações via launchd não sejam bloqueadas.
-    ```
 
   </Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
@@ -135,18 +131,14 @@ O que você define:
   <Accordion title="OpenAI Code subscription (OAuth)">
     Fluxo no navegador; cole `code#state`.
 
-    ```
-    Define `agents.defaults.model` como `openai-codex/gpt-5.3-codex` quando o modelo não está definido ou é `openai/*`.
-    ```
+    Sets `agents.defaults.model` to `openai-codex/gpt-5.3-codex` when model is unset or `openai/*`.
 
   </Accordion>
   <Accordion title="OpenAI API key">
     Usa `OPENAI_API_KEY` se presente ou solicita uma chave, e então a salva em
     `~/.openclaw/.env` para que o launchd possa lê-la.
 
-    ```
-    Define `agents.defaults.model` como `openai/gpt-5.1-codex` quando o modelo não está definido, é `openai/*` ou `openai-codex/*`.
-    ```
+    Sets `agents.defaults.model` to `openai/gpt-5.1-codex` when model is unset, `openai/*`, or `openai-codex/*`.
 
   </Accordion>
   <Accordion title="xAI (Grok) API key">
@@ -178,6 +170,18 @@ O que você define:
   <Accordion title="Moonshot and Kimi Coding">
     As configurações do Moonshot (Kimi K2) e do Kimi Coding são escritas automaticamente.
     Mais detalhes: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
+  </Accordion>
+  <Accordion title="Custom provider">
+    Works with OpenAI-compatible and Anthropic-compatible endpoints.
+
+    Non-interactive flags:
+    - `--auth-choice custom-api-key`
+    - `--custom-base-url`
+    - `--custom-model-id`
+    - `--custom-api-key` (optional; falls back to `CUSTOM_API_KEY`)
+    - `--custom-provider-id` (optional)
+    - `--custom-compatibility <openai|anthropic>` (optional; default `openai`)
+
   </Accordion>
   <Accordion title="Skip">
     Deixa a autenticação não configurada.
@@ -226,7 +230,7 @@ Alguns canais são entregues como plugins. Quando selecionados durante a integra
 solicita a instalação do plugin (npm ou caminho local) antes da configuração do canal.
 </Note>
 
-RPC do assistente do Gateway:
+Gateway wizard RPC:
 
 - `wizard.start`
 - `wizard.next`

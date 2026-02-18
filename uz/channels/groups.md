@@ -243,7 +243,7 @@ Eslatmalar:
 - Agent bo‘yicha override: `agents.list[].groupChat.mentionPatterns` (bir nechta agentlar bitta guruhni bo‘lishganda foydali).
 - Mention gating is only enforced when mention detection is possible (native mentions or `mentionPatterns` are configured).
 - Discord standartlari `channels.discord.guilds."*"` da joylashgan (guild/kanal bo‘yicha o‘zgartirilishi mumkin).
-- Guruh tarix konteksti barcha kanallarda bir xil tarzda o‘raladi va **faqat pending** (mention gating sababli o‘tkazib yuborilgan xabarlar); global standart uchun `messages.groupChat.historyLimit` dan foydalaning va override uchun `channels.<channel>`.historyLimit`(yoki`channels.<channel>`.accounts.*.historyLimit`) dan foydalaning. O‘chirish uchun `0` ni o‘rnating.
+- Guruh tarix konteksti barcha kanallarda bir xil tarzda o‘raladi va **faqat pending** (mention gating sababli o‘tkazib yuborilgan xabarlar); global standart uchun `messages.groupChat.historyLimit` dan foydalaning va override uchun `channels.<channel>`.historyLimit`(yoki`channels.&lt;channel&gt;`.accounts.*.historyLimit`) dan foydalaning. O‘chirish uchun `0` ni o‘rnating.
 
 ## Guruh/kanal asbob cheklovlari (ixtiyoriy)
 

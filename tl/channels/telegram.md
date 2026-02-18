@@ -765,9 +765,9 @@ Mga opsyon ng provider:
   - `channels.telegram.groups.<id>`.allowFrom\`: per-group override ng sender allowlist.
   - `channels.telegram.groups.<id>`.systemPrompt\`: karagdagang system prompt para sa grupo.
   - `channels.telegram.groups.<id>`.enabled`: i-disable ang grupo kapag `false\`.
-  - `channels.telegram.groups.<id>`.topics.<threadId>`.*`: per-topic overrides (kaparehong mga field gaya ng group).
-  - `channels.telegram.groups.<id>`.topics.<threadId>`.groupPolicy`: per-topic override para sa groupPolicy (`open | allowlist | disabled`).
-  - `channels.telegram.groups.<id>`.topics.<threadId>`.requireMention`: per-topic override ng mention gating.
+  - `channels.telegram.groups.<id>`.topics.&lt;threadId&gt;`.*`: per-topic overrides (kaparehong mga field gaya ng group).
+  - `channels.telegram.groups.<id>`.topics.&lt;threadId&gt;`.groupPolicy`: per-topic override para sa groupPolicy (`open | allowlist | disabled`).
+  - `channels.telegram.groups.<id>`.topics.&lt;threadId&gt;`.requireMention`: per-topic override ng mention gating.
 - `channels.telegram.capabilities.inlineButtons`: `off | dm | group | all | allowlist` (default: allowlist).
 - `channels.telegram.accounts.<account>`.capabilities.inlineButtons\`: per-account override.
 - `channels.telegram.replyToMode`: `off | first | all` (default: `first`).

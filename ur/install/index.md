@@ -26,7 +26,6 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
   <Accordion title="Installer script" icon="rocket" defaultOpen>
     CLI ڈاؤن لوڈ کرتا ہے، npm کے ذریعے اسے عالمی طور پر انسٹال کرتا ہے، اور آن بورڈنگ وزارڈ شروع کرتا ہے۔
 
-    ```
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -39,11 +38,11 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
         ```
       </Tab>
     </Tabs>
-    
+
     بس اتنا ہی — اسکرپٹ Node کی شناخت، انسٹالیشن، اور آن بورڈنگ سب سنبھالتا ہے۔
-    
+
     آن بورڈنگ چھوڑ کر صرف بائنری انسٹال کرنے کے لیے:
-    
+
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -56,30 +55,28 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
         ```
       </Tab>
     </Tabs>
-    
+
     تمام فلیگز، env vars، اور CI/automation اختیارات کے لیے [Installer internals](/install/installer) دیکھیں۔
-    ```
 
   </Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     اگر آپ کے پاس پہلے ہی Node 22+ ہے اور آپ انسٹالیشن خود منظم کرنا چاہتے ہیں:
 
-    ```
     <Tabs>
       <Tab title="npm">
         ```bash
         npm install -g openclaw@latest
         openclaw onboard --install-daemon
         ```
-    
+
         <Accordion title="sharp بلڈ کی غلطیاں؟">
           اگر آپ کے سسٹم پر libvips عالمی طور پر انسٹال ہے (macOS پر Homebrew کے ذریعے یہ عام ہے) اور `sharp` ناکام ہو جاتا ہے، تو پہلے سے تیار شدہ بائنریز کو مجبور کریں:
-    
+
           ```bash
           SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
           ```
-    
+
           اگر آپ کو `sharp: Please add node-gyp to your dependencies` نظر آئے، تو یا تو بلڈ ٹولنگ انسٹال کریں (macOS: Xcode CLT + `npm install -g node-gyp`) یا اوپر دیا گیا env var استعمال کریں۔
         </Accordion>
       </Tab>
@@ -89,24 +86,22 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
         pnpm approve-builds -g        # approve openclaw, node-llama-cpp, sharp, etc.
         openclaw onboard --install-daemon
         ```
-    
+
         <Note>
         pnpm اُن پیکیجز کے لیے جن میں build scripts ہوں، واضح منظوری کا تقاضا کرتا ہے۔ پہلی انسٹال کے بعد جب "Ignored build scripts" کی وارننگ دکھائی دے، تو `pnpm approve-builds -g` چلائیں اور فہرست میں موجود پیکیجز منتخب کریں۔
         </Note>
       </Tab>
     </Tabs>
-    ```
 
   </Accordion>
 
   <Accordion title="From source" icon="github">
     شراکت داروں یا اُن کے لیے جو مقامی چیک آؤٹ سے چلانا چاہتے ہوں۔
 
-    ```
     <Steps>
       <Step title="کلون اور بلڈ کریں">
         [OpenClaw repo](https://github.com/openclaw/openclaw) کو کلون کریں اور بلڈ کریں:
-    
+
         ```bash
         git clone https://github.com/openclaw/openclaw.git
         cd openclaw
@@ -117,11 +112,11 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
       </Step>
       <Step title="CLI کو لنک کریں">
         `openclaw` کمانڈ کو عالمی طور پر دستیاب بنائیں:
-    
+
         ```bash
         pnpm link --global
         ```
-    
+
         متبادل طور پر، لنک چھوڑ دیں اور ریپو کے اندر سے `pnpm openclaw ...` کے ذریعے کمانڈز چلائیں۔
       </Step>
       <Step title="آن بورڈنگ چلائیں">
@@ -130,9 +125,8 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
         ```
       </Step>
     </Steps>
-    
+
     مزید گہرے ڈیولپمنٹ ورک فلو کے لیے [Setup](/start/setup) دیکھیں۔
-    ```
 
   </Accordion>
 </AccordionGroup>
@@ -142,6 +136,9 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     کنٹینرائزڈ یا ہیڈ لیس تعیناتیاں۔
+  </Card>
+  <Card title="Podman" href="/install/podman" icon="container">
+    Rootless کنٹینر: `setup-podman.sh` ایک بار چلائیں، پھر لانچ اسکرپٹ۔
   </Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     Nix کے ذریعے ڈیکلیریٹو انسٹال۔
@@ -164,13 +161,13 @@ openclaw status         # gateway status
 openclaw dashboard      # open the browser UI
 ```
 
-If you need custom runtime paths, use:
+اگر آپ کو کسٹم runtime paths درکار ہوں تو استعمال کریں:
 
-- `OPENCLAW_HOME` for home-directory based internal paths
-- `OPENCLAW_STATE_DIR` for mutable state location
-- `OPENCLAW_CONFIG_PATH` for config file location
+- `OPENCLAW_HOME` گھر کی ڈائریکٹری پر مبنی اندرونی راستوں کے لیے
+- `OPENCLAW_STATE_DIR` mutable state کی لوکیشن کے لیے
+- `OPENCLAW_CONFIG_PATH` کنفیگ فائل کی لوکیشن کے لیے
 
-See [Environment vars](/help/environment) for precedence and full details.
+ترجیح اور مکمل تفصیلات کے لیے [Environment vars](/help/environment) دیکھیں۔
 
 ## خرابیوں کا ازالہ: `openclaw` نہیں ملا
 
@@ -194,7 +191,8 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 
 Windows پر، `npm prefix -g` کے آؤٹ پٹ کو اپنے PATH میں شامل کریں۔
 
-Then open a new terminal (or `rehash` in zsh / `hash -r` in bash). </Accordion>
+پھر ایک نیا ٹرمینل کھولیں (یا zsh میں `rehash` / bash میں `hash -r` چلائیں)۔
+</Accordion>
 
 ## اپڈیٹ / ان انسٹال
 

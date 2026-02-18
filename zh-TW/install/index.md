@@ -4,13 +4,13 @@ title: "安裝"
 
 # 安裝
 
-34. 已經完成 [Getting Started](/start/getting-started)？ 一切就緒 — 本頁面提供替代安裝方式、平台特定指引與維護資訊。
+已經完成 [Getting Started](/start/getting-started)？ 一切就緒 — 本頁面提供替代安裝方式、平台特定指引與維護資訊。
 
 ## 系統需求
 
 - **[Node 22+](/install/node)**（若未安裝，[安裝程式腳本](#install-methods) 會自動安裝）
 - macOS、Linux 或 Windows
-- 36. 僅在從原始碼建置時才需要 `pnpm`
+- 僅在從原始碼建置時才需要 `pnpm`
 
 <Note>
 在 Windows 上，我們強烈建議於 [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install) 下執行 OpenClaw。
@@ -19,14 +19,13 @@ title: "安裝"
 ## 安裝方式
 
 <Tip>
-**安裝程式腳本** 是安裝 OpenClaw 的建議方式。 38. 它可在單一步驟中處理 Node 偵測、安裝與導覽設定。
+**安裝程式腳本** 是安裝 OpenClaw 的建議方式。它可在單一步驟中處理 Node 偵測、安裝與導覽設定。
 </Tip>
 
 <AccordionGroup>
   <Accordion title="Installer script" icon="rocket" defaultOpen>
     下載 CLI、透過 npm 全域安裝，並啟動入門引導精靈。
 
-    ```
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -39,11 +38,11 @@ title: "安裝"
         ```
       </Tab>
     </Tabs>
-    
+
     就這樣 — 腳本會處理 Node 偵測、安裝與入門引導。
-    
+
     若要略過入門引導、僅安裝二進位檔：
-    
+
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -56,30 +55,28 @@ title: "安裝"
         ```
       </Tab>
     </Tabs>
-    
+
     所有旗標、環境變數與 CI／自動化選項，請參閱 [Installer internals](/install/installer)。
-    ```
 
   </Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     若你已具備 Node 22+，並偏好自行管理安裝：
 
-    ```
     <Tabs>
       <Tab title="npm">
         ```bash
         npm install -g openclaw@latest
         openclaw onboard --install-daemon
         ```
-    
+
         <Accordion title="sharp 建置錯誤？">
           若你已全域安裝 libvips（在 macOS 上常見於 Homebrew），且 `sharp` 失敗，請強制使用預先建置的二進位檔：
-    
+
           ```bash
           SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
           ```
-    
+
           若看到 `sharp: Please add node-gyp to your dependencies`，請安裝建置工具（macOS：Xcode CLT + `npm install -g node-gyp`），或使用上述環境變數。
         </Accordion>
       </Tab>
@@ -89,24 +86,22 @@ title: "安裝"
         pnpm approve-builds -g        # approve openclaw, node-llama-cpp, sharp, etc.
         openclaw onboard --install-daemon
         ```
-    
+
         <Note>
         pnpm 需要對含有建置腳本的套件給予明確核准。首次安裝出現「Ignored build scripts」警告後，請執行 `pnpm approve-builds -g`，並選取列出的套件。
         </Note>
       </Tab>
     </Tabs>
-    ```
 
   </Accordion>
 
-  <Accordion title="From source" icon="github">39. 
-        適用於貢獻者或任何想要從本機檢出執行的人。
+  <Accordion title="From source" icon="github">
+    適用於貢獻者或任何想要從本機檢出執行的人。
 
-    ```
     <Steps>
       <Step title="複製並建置">
         複製 [OpenClaw repo](https://github.com/openclaw/openclaw) 並建置：
-    
+
         ```bash
         git clone https://github.com/openclaw/openclaw.git
         cd openclaw
@@ -117,11 +112,11 @@ title: "安裝"
       </Step>
       <Step title="連結 CLI">
         讓 `openclaw` 指令可全域使用：
-    
+
         ```bash
         pnpm link --global
         ```
-    
+
         或者略過連結，直接在 repo 內透過 `pnpm openclaw ...` 執行指令。
       </Step>
       <Step title="執行入門引導">
@@ -130,9 +125,8 @@ title: "安裝"
         ```
       </Step>
     </Steps>
-    
+
     更深入的開發流程，請參閱 [Setup](/start/setup)。
-    ```
 
   </Accordion>
 </AccordionGroup>
@@ -142,6 +136,9 @@ title: "安裝"
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     容器化或無介面部署。
+  </Card>
+  <Card title="Podman" href="/install/podman" icon="container">
+    Rootless container: run `setup-podman.sh` once, then the launch script.
   </Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     透過 Nix 進行宣告式安裝。
@@ -164,13 +161,13 @@ openclaw status         # gateway status
 openclaw dashboard      # open the browser UI
 ```
 
-14. 若需要自訂執行期路徑，請使用：
+若需要自訂執行期路徑，請使用：
 
-- 15. `OPENCLAW_HOME` 用於以家目錄為基礎的內部路徑
-- 16. `OPENCLAW_STATE_DIR` 用於可變狀態的位置
-- 17. `OPENCLAW_CONFIG_PATH` 用於設定檔位置
+- `OPENCLAW_HOME` 用於以家目錄為基礎的內部路徑
+- `OPENCLAW_STATE_DIR` 用於可變狀態的位置
+- `OPENCLAW_CONFIG_PATH` 用於設定檔位置
 
-18. 請參閱 [Environment vars](/help/environment) 以了解優先順序與完整細節。
+請參閱 [Environment vars](/help/environment) 以了解優先順序與完整細節。
 
 ## 疑難排解：找不到 `openclaw`
 
@@ -194,7 +191,8 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 
 在 Windows 上，請將 `npm prefix -g` 的輸出加入 PATH。
 
-接著開啟新的終端機（或在 zsh 中執行 `rehash`／在 bash 中執行 `hash -r`）。 </Accordion> </Accordion>
+接著開啟新的終端機（或在 zsh 中執行 `rehash`／在 bash 中執行 `hash -r`）。
+</Accordion>
 
 ## 更新／解除安裝
 

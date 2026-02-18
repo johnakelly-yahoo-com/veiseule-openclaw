@@ -156,8 +156,8 @@ Config:
   - `off`/`ack` သည် အေးဂျင့် reaction များကို ပိတ်သည် (message tool `react` သည် error ပြမည်)။
   - `minimal`/`extensive` သည် အေးဂျင့် reaction များကို ဖွင့်ပြီး လမ်းညွှန်မှု အဆင့်ကို သတ်မှတ်သည်။
 - Account တစ်ခုချင်းစီအလိုက် override များ: `channels.signal.accounts.<id>
-  .actions.reactions`, `channels.signal.accounts.<id>
-  .reactionLevel`။`channels.signal.allowFrom`: DM ခွင့်ပြုစာရင်း (E.164 သို့မဟုတ် `uuid:<id>`)။`open` သည် `"*"` ကို လိုအပ်ပါသည်။
+  .actions.reactions`, `channels.signal.accounts.&lt;id&gt;
+  .reactionLevel`။`channels.signal.allowFrom`: DM ခွင့်ပြုစာရင်း (E.164 သို့မဟုတ် `uuid:&lt;id&gt;`)။`open` သည် `"*"` ကို လိုအပ်ပါသည်။
 
 ## Delivery targets (CLI/cron)
 

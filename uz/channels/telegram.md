@@ -187,7 +187,7 @@ Eslatmalar:
 ```
 
 11. **Muhim:** `channels.telegram.groups` ni sozlash **allowlist** yaratadi — faqat ro‘yxatdagi guruhlar (yoki `"*"`) qabul qilinadi.
-12. Forum mavzulari ota-guruh konfiguratsiyasini (allowFrom, requireMention, skills, prompts) meros qilib oladi, agar siz `channels.telegram.groups.<groupId>` ostida mavzu bo‘yicha alohida sozlamalar qo‘shmasangiz13. .topics.<topicId>14. \`.
+12. Forum mavzulari ota-guruh konfiguratsiyasini (allowFrom, requireMention, skills, prompts) meros qilib oladi, agar siz `channels.telegram.groups.<groupId>` ostida mavzu bo‘yicha alohida sozlamalar qo‘shmasangiz13. .topics.&lt;topicId&gt;14. \`.
 
 15. Barcha guruhlarga doimo javob berishga ruxsat berish uchun:
 
@@ -259,7 +259,7 @@ Eslatmalar:
 - 42. Javoblar mavzuda qolishi uchun yozish indikatorlarini yuboradi va `message_thread_id` bilan javob beradi.
 - 43. Umumiy mavzu (thread id `1`) maxsus: xabar yuborishda `message_thread_id` qo‘shilmaydi (Telegram rad etadi), ammo yozish indikatorlari baribir uni o‘z ichiga oladi.
 - 44. Marshrutlash/shablonlash uchun shablon kontekstida `MessageThreadId` + `IsForum` ni ochib beradi.
-- 45. Mavzu bo‘yicha maxsus konfiguratsiya `channels.telegram.groups.<chatId>` ostida mavjud46. .topics.<threadId>47. \` (skills, allowlists, auto-reply, system prompts, disable).
+- 45. Mavzu bo‘yicha maxsus konfiguratsiya `channels.telegram.groups.<chatId>` ostida mavjud46. .topics.&lt;threadId&gt;47. \` (skills, allowlists, auto-reply, system prompts, disable).
 - 48. Mavzu konfiguratsiyalari guruh sozlamalarini (requireMention, allowlists, skills, prompts, enabled) meros qilib oladi, agar mavzu bo‘yicha alohida bekor qilinmasa.
 
 49. Shaxsiy chatlar ayrim chekka holatlarda `message_thread_id` ni o‘z ichiga olishi mumkin. 50. OpenClaw DM sessiya kalitini o‘zgartirmaydi, ammo u mavjud bo‘lsa, javoblar/qoralama oqimi uchun thread id dan foydalanadi.

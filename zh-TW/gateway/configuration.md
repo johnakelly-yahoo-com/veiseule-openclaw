@@ -605,7 +605,7 @@ Group messages default to **require mention** (either metadata mention or regex 
 }
 ```
 
-2. `messages.groupChat.historyLimit` 設定群組歷史上下文的全域預設值。 3. 頻道可以透過 `channels.<channel>` 覆寫.historyLimit`（或 `channels.<channel>4. `.accounts.*.historyLimit`（適用於多帳號）。 5. 設定為 `0` 以停用歷史包裝。
+2. `messages.groupChat.historyLimit` 設定群組歷史上下文的全域預設值。 3. 頻道可以透過 `channels.<channel>` 覆寫.historyLimit`（或 `channels.&lt;channel&gt;4. `.accounts.*.historyLimit`（適用於多帳號）。 5. 設定為 `0` 以停用歷史包裝。
 
 #### 6. 私訊（DM）歷史限制
 

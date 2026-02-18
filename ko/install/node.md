@@ -1,5 +1,6 @@
 ---
-title: "Node.js"---
+title: "Node.js"
+---
 
 # Node.js
 
@@ -19,50 +20,44 @@ node -v
   <Tab title="macOS">
     **Homebrew** (권장):
 
-    ````
     ```bash
     brew install node
     ```
-    
+
     또는 [nodejs.org](https://nodejs.org/) 에서 macOS 설치 프로그램을 다운로드하십시오.
-    ````
 
   </Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
-    ````
     ```bash
     curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ```
-    
+
     **Fedora / RHEL:**
-    
+
     ```bash
     sudo dnf install nodejs
     ```
-    
+
     또는 버전 매니저를 사용할 수 있습니다(아래 참조).
-    ````
 
   </Tab>
   <Tab title="Windows">
     **winget** (권장):
 
-    ````
     ```powershell
     winget install OpenJS.NodeJS.LTS
     ```
-    
+
     **Chocolatey:**
-    
+
     ```powershell
     choco install nodejs-lts
     ```
-    
+
     또는 [nodejs.org](https://nodejs.org/) 에서 Windows 설치 프로그램을 다운로드하십시오.
-    ````
 
   </Tab>
 </Tabs>
@@ -103,9 +98,7 @@ fnm use 22
     echo "$PATH"
     ```
 
-    ```
-    출력에서 `<npm-prefix>/bin` (macOS / Linux) 또는 `<npm-prefix>` (Windows) 를 확인하십시오.
-    ```
+    출력에서 `<npm-prefix>/bin` (macOS/Linux) 또는 `<npm-prefix>` (Windows) 를 확인하십시오.
 
   </Step>
   <Step title="Add it to your shell startup file">
@@ -113,18 +106,16 @@ fnm use 22
       <Tab title="macOS / Linux">
         `~/.zshrc` 또는 `~/.bashrc` 에 추가하십시오:
 
+        ```bash
+        export PATH="$(npm prefix -g)/bin:$PATH"
         ```
-            ```bash
-            export PATH="$(npm prefix -g)/bin:$PATH"
-            ```
-        
-            그런 다음 새 터미널을 열거나(zsh 에서는 `rehash`, bash 에서는 `hash -r` 실행) 변경 사항을 적용하십시오.
-          </Tab>
-          <Tab title="Windows">
-            `npm prefix -g` 의 출력 값을 설정 → 시스템 → 환경 변수에서 시스템 PATH 에 추가하십시오.
-          </Tab>
-        </Tabs>
-        ```
+
+        그런 다음 새 터미널을 열거나(zsh 에서는 `rehash`, bash 에서는 `hash -r` 실행) 변경 사항을 적용하십시오.
+      </Tab>
+      <Tab title="Windows">
+        `npm prefix -g` 의 출력 값을 설정 → 시스템 → 환경 변수에서 시스템 PATH 에 추가하십시오.
+      </Tab>
+    </Tabs>
 
   </Step>
 </Steps>

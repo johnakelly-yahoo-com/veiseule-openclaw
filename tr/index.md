@@ -21,7 +21,8 @@ title: "OpenClaw"
 
 > _"EXFOLIATE! EXFOLIATE!"_ — Muhtemelen bir uzay ıstakozu
 
-<p align="center"><strong>WhatsApp, Telegram, Discord, iMessage ve daha fazlası için AI ajanlarına yönelik herhangi bir işletim sisteminde çalışan gateway.</strong><br />
+<p align="center">
+  <strong>WhatsApp, Telegram, Discord, iMessage ve daha fazlası için AI ajanlarına yönelik herhangi bir işletim sisteminde çalışan gateway.</strong><br />
   Bir mesaj gönderin, cebinizden bir ajan yanıtı alın. Eklentiler Mattermost ve daha fazlasını ekler.
 </p>
 

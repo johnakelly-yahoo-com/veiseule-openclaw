@@ -2,460 +2,207 @@
 title: "Tác tử phụ"
 ---
 
-# Sub-Agents
+# Sub-agents
 
-Sub-agent cho phép bạn chạy các tác vụ nền mà không chặn cuộc hội thoại chính. Khi bạn tạo một sub-agent, nó chạy trong phiên cô lập riêng, thực hiện công việc của mình và thông báo kết quả trở lại cuộc trò chuyện khi hoàn tất.
+Sub-agents là các lần chạy agent nền được tạo ra từ một lần chạy agent hiện có. Chúng chạy trong phiên riêng (`agent:<agentId>:subagent:<uuid>`) và khi hoàn tất sẽ **thông báo** kết quả trở lại kênh chat của bên yêu cầu.
 
-**Các trường hợp sử dụng:**
+## Slash command
 
-- Nghiên cứu một chủ đề trong khi agent chính tiếp tục trả lời câu hỏi
-- Chạy song song nhiều tác vụ dài (thu thập dữ liệu web, phân tích mã, xử lý tệp)
-- Ủy quyền nhiệm vụ cho các agent chuyên biệt trong thiết lập đa agent
+Sử dụng `/subagents` để kiểm tra hoặc điều khiển các lần chạy sub-agent cho **phiên hiện tại**:
 
-## Khởi động nhanh
+- `/subagents list`
+- `/subagents kill <id|#|all>`
+- `/subagents log <id|#> [limit] [tools]`
+- `/subagents info <id|#>`
+- `/subagents send <id|#> <message>`
 
-Cách đơn giản nhất để sử dụng sub-agent là yêu cầu agent của bạn một cách tự nhiên:
+`/subagents info` hiển thị metadata của lần chạy (trạng thái, mốc thời gian, session id, đường dẫn transcript, cleanup).
 
-> "Tạo một sub-agent để nghiên cứu ghi chú phát hành Node.js mới nhất"
+Mục tiêu chính:
 
-Agent sẽ gọi công cụ `sessions_spawn` ở phía sau. Khi sub-agent hoàn tất, nó sẽ thông báo các phát hiện của mình trở lại cuộc trò chuyện của bạn.
+- Song song hóa các tác vụ "nghiên cứu / công việc dài / tool chậm" mà không chặn lần chạy chính.
+- Giữ sub-agent được cô lập theo mặc định (tách phiên + sandbox tùy chọn).
+- Giữ bề mặt công cụ khó bị lạm dụng: sub-agent **không** nhận session tools theo mặc định.
+- Hỗ trợ độ sâu lồng nhau có thể cấu hình cho các mẫu điều phối (orchestrator).
 
-Bạn cũng có thể chỉ định rõ các tùy chọn:
+Lưu ý về chi phí: mỗi sub-agent có **ngữ cảnh** và mức sử dụng token **riêng**. Với các tác vụ nặng hoặc lặp lại, hãy đặt model rẻ hơn cho sub-agent và giữ agent chính ở model chất lượng cao hơn.
+Bạn có thể cấu hình qua `agents.defaults.subagents.model` hoặc ghi đè theo từng agent.
 
-> "Tạo một sub-agent để phân tích nhật ký máy chủ từ hôm nay. Sử dụng gpt-5.2 và đặt thời gian chờ 5 phút."
+## Tool
 
-## Cách hoạt động
+Sử dụng `sessions_spawn`:
 
-<Steps>
-  <Step title="Main agent spawns">
-    Agent chính gọi `sessions_spawn` với mô tả nhiệm vụ. Lời gọi là **không chặn** — agent chính nhận lại `{ status: "accepted", runId, childSessionKey }` ngay lập tức.
-  </Step>
-  <Step title="Sub-agent runs in the background">Một phiên cô lập mới được tạo (`agent:<agentId>:subagent:<uuid>`) trên làn hàng đợi `subagent` chuyên dụng.</Step>
-  <Step title="Result is announced">
-    Khi sub-agent hoàn tất, nó sẽ thông báo các phát hiện của mình trở lại cuộc trò chuyện của người yêu cầu. Agent chính đăng một bản tóm tắt bằng ngôn ngữ tự nhiên.
-  </Step>
-  <Step title="Session is archived">
-    Phiên sub-agent được tự động lưu trữ sau 60 phút (có thể cấu hình). Bản ghi hội thoại được bảo tồn.
-  </Step>
-</Steps>
+- Bắt đầu một lần chạy sub-agent (`deliver: false`, global lane: `subagent`)
+- Sau đó chạy bước announce và đăng phản hồi announce lên kênh chat của bên yêu cầu
+- Model mặc định: kế thừa từ bên gọi trừ khi bạn đặt `agents.defaults.subagents.model` (hoặc `agents.list[].subagents.model`); nếu chỉ định rõ `sessions_spawn.model` thì sẽ được ưu tiên.
+- Thinking mặc định: kế thừa từ bên gọi trừ khi bạn đặt `agents.defaults.subagents.thinking` (hoặc `agents.list[].subagents.thinking`); nếu chỉ định rõ `sessions_spawn.thinking` thì sẽ được ưu tiên.
 
-<Tip>
-Mỗi sub-agent có **ngữ cảnh** và mức sử dụng token **riêng** của mình. Đặt một mô hình rẻ hơn cho sub-agent để tiết kiệm chi phí — xem [Setting a Default Model](#setting-a-default-model) bên dưới.
-</Tip>
+Tham số tool:
 
-## Cấu hình
+- `task` (bắt buộc)
+- `label?` (tùy chọn)
+- `agentId?` (tùy chọn; spawn dưới agent id khác nếu được phép)
+- `model?` (tùy chọn; ghi đè model cho sub-agent; giá trị không hợp lệ sẽ bị bỏ qua và sub-agent chạy với model mặc định kèm cảnh báo trong kết quả tool)
+- `thinking?` (tùy chọn; ghi đè mức thinking cho lần chạy sub-agent)
+- `runTimeoutSeconds?` (mặc định `0`; nếu đặt, lần chạy sub-agent sẽ bị hủy sau N giây)
+- `cleanup?` (`delete|keep`, mặc định `keep`)
 
-Sub-agent hoạt động ngay lập tức mà không cần cấu hình. Mặc định:
+Allowlist:
 
-- Mô hình: lựa chọn mô hình thông thường của agent mục tiêu (trừ khi `subagents.model` được đặt)
-- Tư duy: không có ghi đè cho sub-agent (trừ khi `subagents.thinking` được đặt)
-- Số lượng đồng thời tối đa: 8
-- Tự động lưu trữ: sau 60 phút
+- `agents.list[].subagents.allowAgents`: danh sách agent id có thể được nhắm tới qua `agentId` (`["*"]` để cho phép tất cả). Mặc định: chỉ agent bên yêu cầu.
 
-### Thiết lập Mô hình Mặc định
+Discovery:
 
-Sử dụng một mô hình rẻ hơn cho sub-agent để tiết kiệm chi phí token:
+- Sử dụng `agents_list` để xem những agent id nào hiện được phép cho `sessions_spawn`.
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        model: "minimax/MiniMax-M2.1",
-      },
-    },
-  },
-}
-```
+Auto-archive:
 
-### Thiết lập Mức độ Tư duy Mặc định
+- Phiên sub-agent tự động được lưu trữ sau `agents.defaults.subagents.archiveAfterMinutes` (mặc định: 60).
+- Lưu trữ sử dụng `sessions.delete` và đổi tên transcript thành `*.deleted.<timestamp>` (cùng thư mục).
+- `cleanup: "delete"` sẽ lưu trữ ngay sau announce (vẫn giữ transcript thông qua đổi tên).
+- Auto-archive là cơ chế best-effort; các bộ hẹn giờ đang chờ sẽ bị mất nếu gateway khởi động lại.
+- `runTimeoutSeconds` **không** tự động lưu trữ; nó chỉ dừng lần chạy. Phiên vẫn tồn tại cho đến khi auto-archive.
+- Auto-archive áp dụng như nhau cho phiên depth-1 và depth-2.
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        thinking: "low",
-      },
-    },
-  },
-}
-```
+## Nested Sub-Agents
 
-### Ghi đè theo từng agent
+Theo mặc định, sub-agent không thể tự spawn sub-agent khác (`maxSpawnDepth: 1`). Bạn có thể bật một cấp lồng nhau bằng cách đặt `maxSpawnDepth: 2`, cho phép **mẫu orchestrator**: main → orchestrator sub-agent → worker sub-sub-agents.
 
-Trong thiết lập đa agent, bạn có thể đặt mặc định sub-agent cho từng agent:
-
-```json5
-{
-  agents: {
-    list: [
-      {
-        id: "researcher",
-        subagents: {
-          model: "anthropic/claude-sonnet-4",
-        },
-      },
-      {
-        id: "assistant",
-        subagents: {
-          model: "minimax/MiniMax-M2.1",
-        },
-      },
-    ],
-  },
-}
-```
-
-### Đồng thời
-
-Kiểm soát số lượng sub-agent có thể chạy đồng thời:
+### How to enable
 
 ```json5
 {
   agents: {
     defaults: {
       subagents: {
-        maxConcurrent: 4, // default: 8
+        maxSpawnDepth: 2, // cho phép sub-agent spawn con (mặc định: 1)
+        maxChildrenPerAgent: 5, // số lượng con đang hoạt động tối đa mỗi phiên agent (mặc định: 5)
+        maxConcurrent: 8, // giới hạn đồng thời toàn cục của lane (mặc định: 8)
       },
     },
   },
 }
 ```
 
-Sub-agent sử dụng một làn hàng đợi riêng (`subagent`) tách biệt với hàng đợi agent chính, vì vậy các lần chạy sub-agent không chặn các phản hồi đến.
+### Depth levels
 
-### Tự động lưu trữ
+| Depth | Session key shape                            | Vai trò                                       | Có thể spawn?               |
+| ----- | -------------------------------------------- | --------------------------------------------- | --------------------------- |
+| 0     | `agent:<id>:main`                            | Main agent                                    | Luôn luôn                   |
+| 1     | `agent:<id>:subagent:<uuid>`                 | Sub-agent (orchestrator khi cho phép depth 2) | Chỉ nếu `maxSpawnDepth >= 2` |
+| 2     | `agent:<id>:subagent:<uuid>:subagent:<uuid>` | Sub-sub-agent (worker lá)                     | Không bao giờ               |
 
-Các phiên sub-agent được tự động lưu trữ sau một khoảng thời gian có thể cấu hình:
+### Announce chain
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        archiveAfterMinutes: 120, // default: 60
-      },
-    },
-  },
-}
-```
+Kết quả được truyền ngược lên theo chuỗi:
 
-<Note>
-Việc lưu trữ sẽ đổi tên bản ghi hội thoại thành `*.deleted.<timestamp>` (cùng thư mục) — các bản ghi hội thoại được bảo toàn, không bị xóa. Bộ hẹn giờ tự động lưu trữ là theo cơ chế best-effort; các bộ hẹn giờ đang chờ sẽ bị mất nếu gateway khởi động lại.
-</Note>
+1. Worker depth-2 hoàn tất → announce tới parent của nó (orchestrator depth-1)
+2. Orchestrator depth-1 nhận announce, tổng hợp kết quả, hoàn tất → announce tới main
+3. Main agent nhận announce và gửi tới người dùng
 
-## Công cụ `sessions_spawn`
+Mỗi cấp chỉ thấy announce từ các con trực tiếp của mình.
 
-Đây là công cụ mà agent gọi để tạo sub-agent.
+### Tool policy by depth
 
-### Tham số
+- **Depth 1 (orchestrator, khi `maxSpawnDepth >= 2`)**: Nhận `sessions_spawn`, `subagents`, `sessions_list`, `sessions_history` để có thể quản lý các agent con. Các session/system tools khác vẫn bị từ chối.
+- **Depth 1 (leaf, khi `maxSpawnDepth == 1`)**: Không có session tools (hành vi mặc định hiện tại).
+- **Depth 2 (leaf worker)**: Không có session tools — `sessions_spawn` luôn bị từ chối ở depth 2. Không thể spawn thêm con.
 
-| Tham số             | Type                 | Default                                  | Description                                                                                                      |
-| ------------------- | -------------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `task`              | string               | _(bắt buộc)_          | Sub-agent nên thực hiện điều gì                                                                                  |
-| `label`             | string               | —                                        | Nhãn ngắn để nhận diện                                                                                           |
-| `agentId`           | string               | _(agent của bên gọi)_ | Tạo dưới một agent id khác (phải được cho phép)                                               |
-| `mô hình`           | string               | _(tùy chọn)_          | Ghi đè model cho sub-agent này                                                                                   |
-| `thinking`          | string               | _(tùy chọn)_          | Ghi đè mức độ suy nghĩ (`off`, `low`, `medium`, `high`, v.v.) |
-| `runTimeoutSeconds` | số                   | `0` (không giới hạn)  | Hủy sub-agent sau N giây                                                                                         |
-| `dọn dẹp`           | "delete" \\| "keep" | "keep"                                   | "delete" lưu trữ ngay sau khi thông báo                                                                          |
+### Per-agent spawn limit
 
-### Thứ tự phân giải model
+Mỗi phiên agent (ở bất kỳ depth nào) có thể có tối đa `maxChildrenPerAgent` (mặc định: 5) agent con đang hoạt động cùng lúc. Điều này ngăn chặn việc fan-out mất kiểm soát từ một orchestrator.
 
-Model của sub-agent được phân giải theo thứ tự sau (khớp đầu tiên được dùng):
+### Cascade stop
 
-1. Tham số `model` được chỉ định rõ trong lời gọi `sessions_spawn`
-2. Cấu hình theo agent: `agents.list[].subagents.model`
-3. Mặc định toàn cục: `agents.defaults.subagents.model`
-4. Cơ chế phân giải model thông thường của agent mục tiêu cho phiên mới đó
+Dừng một orchestrator depth-1 sẽ tự động dừng tất cả các con depth-2 của nó:
 
-Mức độ suy nghĩ được phân giải theo thứ tự sau:
+- `/stop` trong chat chính sẽ dừng tất cả agent depth-1 và cascade tới các con depth-2 của chúng.
+- `/subagents kill <id>` dừng một sub-agent cụ thể và cascade tới các con của nó.
+- `/subagents kill all` dừng tất cả sub-agent của bên yêu cầu và cascade.
 
-1. Tham số `thinking` được chỉ định rõ trong lời gọi `sessions_spawn`
-2. Cấu hình theo agent: `agents.list[].subagents.thinking`
-3. Mặc định toàn cục: `agents.defaults.subagents.thinking`
-4. Nếu không, sẽ không áp dụng ghi đè mức độ suy nghĩ riêng cho sub-agent
-
-<Note>
-Các giá trị model không hợp lệ sẽ bị bỏ qua một cách im lặng — sub-agent sẽ chạy với giá trị mặc định hợp lệ tiếp theo và có cảnh báo trong kết quả công cụ.</Note>
-
-### Tạo sub-agent chéo giữa các agent
-
-Theo mặc định, các sub-agent chỉ có thể được spawn dưới chính agent id của chúng. Để cho phép một agent spawn sub-agent dưới các agent id khác:
-
-```json5
-{
-  agents: {
-    list: [
-      {
-        id: "orchestrator",
-        subagents: {
-          allowAgents: ["researcher", "coder"], // or ["*"] to allow any
-        },
-      },
-    ],
-  },
-}
-```
-
-<Tip>Sử dụng công cụ `agents_list` để khám phá những agent id nào hiện đang được phép cho `sessions_spawn`.</Tip>
-
-## Quản lý Sub-Agent (`/subagents`)
-
-Sử dụng lệnh slash `/subagents` để kiểm tra và điều khiển các lần chạy sub-agent cho phiên hiện tại:
-
-| Lệnh                                       | Mô tả                                                                                      |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `/subagents list`                          | Liệt kê tất cả các lần chạy sub-agent (đang hoạt động và đã hoàn thành) |
-| `/subagents stop <id\\|#\\|all>`         | Dừng một sub-agent đang chạy                                                               |
-| `/subagents log <id\\|#> [limit] [tools]` | Xem transcript của sub-agent                                                               |
-| `/subagents info <id\\|#>`                | Hiển thị metadata chi tiết của lần chạy                                                    |
-| `/subagents send <id\\|#> <message>`      | Gửi một tin nhắn tới sub-agent đang chạy                                                   |
-
-Bạn có thể tham chiếu sub-agent bằng chỉ số trong danh sách (`1`, `2`), tiền tố run id, session key đầy đủ, hoặc `last`.
-
-<AccordionGroup>
-  <Accordion title="Example: list and stop a sub-agent">```
-    /subagents list
-    ```
-
-    ````
-    ```
-    🧭 Subagents (current session)
-    Active: 1 · Done: 2
-    1) ✅ · research logs · 2m31s · run a1b2c3d4 · agent:main:subagent:...
-    2) ✅ · check deps · 45s · run e5f6g7h8 · agent:main:subagent:...
-    3) 🔄 · deploy staging · 1m12s · run i9j0k1l2 · agent:main:subagent:...
-    ```
-    
-    ```
-    /subagents stop 3
-    ```
-    
-    ```
-    ⚙️ Stop requested for deploy staging.
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: inspect a sub-agent">```
-    /subagents info 1
-    ```
-
-    ````
-    ```
-    ℹ️ Subagent info
-    Status: ✅
-    Label: research logs
-    Task: Research the latest server error logs and summarize findings
-    Run: a1b2c3d4-...
-    Session: agent:main:subagent:...
-    Runtime: 2m31s
-    Cleanup: keep
-    Outcome: ok
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: view sub-agent log">```
-    /subagents log 1 10
-    ```
-
-    ````
-    Hiển thị 10 tin nhắn cuối cùng từ transcript của sub-agent. Thêm `tools` để bao gồm các thông điệp gọi công cụ:
-    
-    ```
-    /subagents log 1 10 tools
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: send a follow-up message">```
-    /subagents send 3 "Also check the staging environment"
-    ```
-
-    ```
-    Gửi một tin nhắn vào phiên của sub-agent đang chạy và chờ tối đa 30 giây để nhận phản hồi.
-    ```
-
-  </Accordion>
-</AccordionGroup>
-
-## Announce (Cách Kết Quả Được Trả Về)
-
-Khi một sub-agent hoàn thành, nó sẽ trải qua một bước **announce**:
-
-1. Phản hồi cuối cùng của sub-agent được ghi nhận
-2. Một thông điệp tóm tắt được gửi tới phiên của main agent với kết quả, trạng thái và thống kê
-3. Main agent đăng một bản tóm tắt bằng ngôn ngữ tự nhiên lên cuộc trò chuyện của bạn
-
-Phản hồi announce giữ nguyên định tuyến luồng/chủ đề khi có (Slack threads, Telegram topics, Matrix threads).
-
-### Thống Kê Announce
-
-Mỗi announce bao gồm một dòng thống kê với:
-
-- Thời lượng chạy
-- Mức sử dụng token (đầu vào/đầu ra/tổng)
-- Chi phí ước tính (khi giá model được cấu hình qua `models.providers.*.models[].cost`)
-- Session key, session id và đường dẫn transcript
-
-### Trạng Thái Announce
-
-Thông điệp announce bao gồm một trạng thái được suy ra từ kết quả runtime (không phải từ đầu ra của model):
-
-- **hoàn thành thành công** (`ok`) — tác vụ hoàn tất bình thường
-- **lỗi** — tác vụ thất bại (chi tiết lỗi trong notes)
-- **hết thời gian** — tác vụ vượt quá `runTimeoutSeconds`
-- **không xác định** — không thể xác định trạng thái
-
-<Tip>
-Nếu không cần announce hướng tới người dùng, bước summarize của main agent có thể trả về `NO_REPLY` và sẽ không có gì được đăng.
-Điều này khác với `ANNOUNCE_SKIP`, được dùng trong luồng announce giữa các agent (`sessions_send`).
-</Tip>
-
-## Chính Sách Công Cụ
-
-Theo mặc định, sub-agent nhận **tất cả các công cụ ngoại trừ** một tập công cụ bị từ chối vì không an toàn hoặc không cần thiết cho các tác vụ nền:
-
-<AccordionGroup>
-  <Accordion title="Default denied tools">| Công cụ bị từ chối | Lý do |
-|-------------|--------|
-| `sessions_list` | Quản lý phiên — main agent điều phối |
-| `sessions_history` | Quản lý phiên — main agent điều phối |
-| `sessions_send` | Quản lý phiên — main agent điều phối |
-| `sessions_spawn` | Không fan-out lồng nhau (sub-agent không thể spawn sub-agent) |
-| `gateway` | Quản trị hệ thống — nguy hiểm từ sub-agent |
-| `agents_list` | Quản trị hệ thống |
-| `whatsapp_login` | Thiết lập tương tác — không phải tác vụ |
-| `session_status` | Trạng thái/lập lịch — main agent điều phối |
-| `cron` | Trạng thái/lập lịch — main agent điều phối |
-| `memory_search` | Thay vào đó hãy truyền thông tin liên quan trong prompt spawn |
-| `memory_get` | Thay vào đó hãy truyền thông tin liên quan trong prompt spawn |</Accordion>
-</AccordionGroup>
-
-### Tùy Biến Công Cụ Sub-Agent
-
-Bạn có thể hạn chế thêm các công cụ của sub-agent:
-
-```json5
-{
-  tools: {
-    subagents: {
-      tools: {
-        // deny always wins over allow
-        deny: ["browser", "firecrawl"],
-      },
-    },
-  },
-}
-```
-
-Để giới hạn sub-agent **chỉ** sử dụng các công cụ cụ thể:
-
-```json5
-{
-  tools: {
-    subagents: {
-      tools: {
-        allow: ["read", "exec", "process", "write", "edit", "apply_patch"],
-        // deny still wins if set
-      },
-    },
-  },
-}
-```
-
-<Note>
-Các mục deny tùy chỉnh được **thêm vào** danh sách deny mặc định. Nếu `allow` được thiết lập, chỉ những công cụ đó mới khả dụng (danh sách deny mặc định vẫn được áp dụng thêm).
-</Note>
-
-## Xác thực
+## Authentication
 
 Xác thực sub-agent được phân giải theo **agent id**, không theo loại phiên:
 
-- Auth store được tải từ `agentDir` của agent mục tiêu.
-- Các profile auth của main agent được gộp vào như một **fallback** (profile của agent thắng khi có xung đột).
-- The merge is additive — main profiles are always available as fallbacks
+- Session key của sub-agent là `agent:<agentId>:subagent:<uuid>`.
+- Auth store được tải từ `agentDir` của agent đó.
+- Các profile auth của main agent được gộp vào như một **fallback**; profile của agent sẽ ghi đè profile main khi có xung đột.
 
-<Note>
-Fully isolated auth per sub-agent is not currently supported.
-</Note>
+Lưu ý: việc gộp là additive, vì vậy profile của main luôn khả dụng như fallback. Cô lập xác thực hoàn toàn theo từng agent hiện chưa được hỗ trợ.
 
-## Context and System Prompt
+## Announce
 
-Sub-agents receive a reduced system prompt compared to the main agent:
+Sub-agent báo cáo lại thông qua một bước announce:
 
-- **Bao gồm:** Các phần Tooling, Workspace, Runtime, cùng với `AGENTS.md` và `TOOLS.md`
-- **Không bao gồm:** `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md`
+- Bước announce chạy bên trong phiên sub-agent (không phải phiên của bên yêu cầu).
+- Nếu sub-agent trả lời chính xác `ANNOUNCE_SKIP`, sẽ không có gì được đăng.
+- Ngược lại, phản hồi announce sẽ được đăng lên kênh chat của bên yêu cầu thông qua một lần gọi `agent` tiếp theo (`deliver=true`).
+- Phản hồi announce giữ nguyên định tuyến thread/topic khi có (Slack threads, Telegram topics, Matrix threads).
+- Thông điệp announce được chuẩn hóa theo một mẫu ổn định:
+  - `Status:` được suy ra từ kết quả lần chạy (`success`, `error`, `timeout`, hoặc `unknown`).
+  - `Result:` nội dung tóm tắt từ bước announce (hoặc `(not available)` nếu thiếu).
+  - `Notes:` chi tiết lỗi và các ngữ cảnh hữu ích khác.
+- `Status` không được suy ra từ đầu ra của model; nó đến từ tín hiệu kết quả runtime.
 
-Tác nhân phụ cũng nhận được một prompt hệ thống tập trung vào nhiệm vụ, hướng dẫn nó tập trung vào nhiệm vụ được giao, hoàn thành nhiệm vụ đó và không hoạt động như tác nhân chính.
+Payload announce bao gồm một dòng thống kê ở cuối (kể cả khi được bọc):
 
-## Stopping Sub-Agents
+- Thời lượng chạy (ví dụ: `runtime 5m12s`)
+- Mức sử dụng token (input/output/total)
+- Chi phí ước tính khi giá model được cấu hình (`models.providers.*.models[].cost`)
+- `sessionKey`, `sessionId` và đường dẫn transcript (để main agent có thể lấy lịch sử qua `sessions_history` hoặc kiểm tra file trên đĩa)
 
-| Method                        | Effect                                                                    |
-| ----------------------------- | ------------------------------------------------------------------------- |
-| `/stop` trong cuộc trò chuyện | Aborts the main session **and** all active sub-agent runs spawned from it |
-| `/subagents stop <id>`        | Stops a specific sub-agent without affecting the main session             |
-| `runTimeoutSeconds`           | Automatically aborts the sub-agent run after the specified time           |
+## Tool Policy (sub-agent tools)
 
-<Note>
-`runTimeoutSeconds` does **not** auto-archive the session. The session remains until the normal archive timer fires.
-</Note>
+Theo mặc định, sub-agent nhận **tất cả tool ngoại trừ session tools** và system tools:
 
-## Full Configuration Example
+- `sessions_list`
+- `sessions_history`
+- `sessions_send`
+- `sessions_spawn`
 
-<Accordion title="Complete sub-agent configuration">```json5
+Khi `maxSpawnDepth >= 2`, sub-agent depth-1 (orchestrator) bổ sung nhận `sessions_spawn`, `subagents`, `sessions_list`, và `sessions_history` để có thể quản lý các agent con.
+
+Ghi đè qua cấu hình:
+
+```json5
 {
   agents: {
     defaults: {
-      model: { primary: "anthropic/claude-sonnet-4" },
       subagents: {
-        model: "minimax/MiniMax-M2.1",
-        thinking: "low",
-        maxConcurrent: 4,
-        archiveAfterMinutes: 30,
+        maxConcurrent: 1,
       },
     },
-    list: [
-      {
-        id: "main",
-        default: true,
-        name: "Personal Assistant",
-      },
-      {
-        id: "ops",
-        name: "Ops Agent",
-        subagents: {
-          model: "anthropic/claude-sonnet-4",
-          allowAgents: ["main"], // ops can spawn sub-agents under "main"
-        },
-      },
-    ],
   },
   tools: {
     subagents: {
       tools: {
-        deny: ["browser"], // sub-agents can't use the browser
+        // deny wins
+        deny: ["gateway", "cron"],
+        // nếu allow được đặt, nó trở thành allow-only (deny vẫn thắng)
+        // allow: ["read", "exec", "process"]
       },
     },
   },
 }
-```</Accordion>
+```
 
-## Hạn chế
+## Concurrency
 
-<Warning>
-- **Thông báo theo nỗ lực tối đa:** Nếu gateway khởi động lại, các tác vụ thông báo đang chờ sẽ bị mất.
-- **No nested spawning:** Sub-agents cannot spawn their own sub-agents.
-- **Shared resources:** Sub-agents share the gateway process; use `maxConcurrent` as a safety valve.
-- **Tự động lưu trữ là theo nỗ lực tối đa:** Các bộ hẹn giờ lưu trữ đang chờ sẽ bị mất khi gateway khởi động lại.
-</Warning>
+Sub-agent sử dụng một lane hàng đợi chuyên dụng trong cùng tiến trình:
 
-## Xem thêm
+- Tên lane: `subagent`
+- Độ đồng thời: `agents.defaults.subagents.maxConcurrent` (mặc định `8`)
 
-- [Session Tools](/concepts/session-tool) — details on `sessions_spawn` and other session tools
-- [Multi-Agent Sandbox and Tools](/tools/multi-agent-sandbox-tools) — per-agent tool restrictions and sandboxing
-- [Configuration](/gateway/configuration) — `agents.defaults.subagents` reference
-- [Queue](/concepts/queue) — how the `subagent` lane works
+## Stopping
+
+- Gửi `/stop` trong chat của bên yêu cầu sẽ hủy phiên của bên yêu cầu và dừng mọi lần chạy sub-agent đang hoạt động được spawn từ đó, bao gồm cascade tới các con lồng nhau.
+- `/subagents kill <id>` dừng một sub-agent cụ thể và cascade tới các con của nó.
+
+## Limitations
+
+- Announce của sub-agent là **best-effort**. Nếu gateway khởi động lại, các tác vụ "announce back" đang chờ sẽ bị mất.
+- Sub-agent vẫn chia sẻ tài nguyên tiến trình gateway; hãy coi `maxConcurrent` như một van an toàn.
+- `sessions_spawn` luôn không chặn: nó trả về `{ status: "accepted", runId, childSessionKey }` ngay lập tức.
+- Ngữ cảnh sub-agent chỉ inject `AGENTS.md` + `TOOLS.md` (không có `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, hoặc `BOOTSTRAP.md`).
+- Độ sâu lồng tối đa là 5 (`maxSpawnDepth` phạm vi: 1–5). Depth 2 được khuyến nghị cho hầu hết các trường hợp sử dụng.
+- `maxChildrenPerAgent` giới hạn số agent con đang hoạt động mỗi phiên (mặc định: 5, phạm vi: 1–20).

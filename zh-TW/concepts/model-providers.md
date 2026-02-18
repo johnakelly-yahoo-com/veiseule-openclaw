@@ -240,7 +240,7 @@ Ollama 是提供 OpenAI 相容 API 的本地 LLM 執行環境：
 - 提供者：`ollama`
 - 驗證：不需要（本地伺服器）
 - 範例模型：`ollama/llama3.3`
-- 安裝：<https://ollama.ai>
+- 安裝：&lt;https://ollama.ai&gt;
 
 ```bash
 # Install Ollama, then pull a model:

@@ -614,7 +614,7 @@ komma åt dessa konton och data. Behandla webbläsarprofiler som **känsligt**:
 - Håll Gateway och nodvärdar tailnet‑endast; undvik att exponera relä/kontrollportar till LAN eller publik Internet.
 - Chrome‑tilläggets relä‑CDP‑ändpunkt är auth‑skyddad; endast OpenClaw‑klienter kan ansluta.
 - Inaktivera webbläsar‑proxy‑routing när du inte behöver den (`gateway.nodes.browser.mode="off"`).
-- Chrome förlängning relä läge är **inte** "säkrare", det kan ta över dina befintliga Chrome flikar. Anta att det kan agera som du i vad som än <unk> profil kan nå.
+- Chrome förlängning relä läge är **inte** "säkrare", det kan ta över dina befintliga Chrome flikar. Anta att det kan agera som du i vad som än &lt;unk&gt; profil kan nå.
 
 ## Per‑agent‑åtkomstprofiler (multi‑agent)
 

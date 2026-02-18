@@ -143,7 +143,7 @@ Le script se termine avec le code `2` pour une sélection de méthode invalide o
     Télécharger l'archive de Node (par défaut `22.22.0`) à `<prefix>/fr/tools/node-v<version>` et vérifie SHA-256.
   </Step>
   <Step title="Ensure Git">Si Git est manquant, tente l’installation via apt/dnf/yum sur Linux ou Homebrew sur macOS.</Step>
-  <Step title="Install OpenClaw under prefix">Pourquoi npm rencontre `EACCES` sur un Linux récent<prefix>`, puis écrit un wrapper à `<prefix>/bin/openclaw`.
+  <Step title="Install OpenClaw under prefix">Pourquoi npm rencontre `EACCES` sur un Linux récent&lt;prefix&gt;`, puis écrit un wrapper à `&lt;prefix&gt;/bin/openclaw`.
   </Step>
 </Steps>
 

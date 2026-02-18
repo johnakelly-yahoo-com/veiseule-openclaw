@@ -1,5 +1,6 @@
 ---
-title: "Node.js"---
+title: "Node.js"
+---
 
 # Node.js
 
@@ -19,50 +20,44 @@ Si esto imprime `v22.x.x` o superior, está listo. Si Node no está instalado o 
   <Tab title="macOS">
     **Homebrew** (recomendado):
 
-    ````
     ```bash
     brew install node
     ```
-    
+
     O descargue el instalador de macOS desde [nodejs.org](https://nodejs.org/).
-    ````
 
   </Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
-    ````
     ```bash
     curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ```
-    
+
     **Fedora / RHEL:**
-    
+
     ```bash
     sudo dnf install nodejs
     ```
-    
+
     O use un gestor de versiones (vea abajo).
-    ````
 
   </Tab>
   <Tab title="Windows">
     **winget** (recomendado):
 
-    ````
     ```powershell
     winget install OpenJS.NodeJS.LTS
     ```
-    
+
     **Chocolatey:**
-    
+
     ```powershell
     choco install nodejs-lts
     ```
-    
+
     O descargue el instalador de Windows desde [nodejs.org](https://nodejs.org/).
-    ````
 
   </Tab>
 </Tabs>
@@ -103,9 +98,7 @@ Esto casi siempre significa que el directorio bin global de npm no está en su P
     echo "$PATH"
     ```
 
-    ```
     Busque `<npm-prefix>/bin` (macOS/Linux) o `<npm-prefix>` (Windows) en la salida.
-    ```
 
   </Step>
   <Step title="Add it to your shell startup file">
@@ -113,18 +106,16 @@ Esto casi siempre significa que el directorio bin global de npm no está en su P
       <Tab title="macOS / Linux">
         Agregue a `~/.zshrc` o `~/.bashrc`:
 
+        ```bash
+        export PATH="$(npm prefix -g)/bin:$PATH"
         ```
-            ```bash
-            export PATH="$(npm prefix -g)/bin:$PATH"
-            ```
-        
-            Luego abra una nueva terminal (o ejecute `rehash` en zsh / `hash -r` en bash).
-          </Tab>
-          <Tab title="Windows">
-            Agregue la salida de `npm prefix -g` a su PATH del sistema mediante Configuración → Sistema → Variables de entorno.
-          </Tab>
-        </Tabs>
-        ```
+
+        Luego abra una nueva terminal (o ejecute `rehash` en zsh / `hash -r` en bash).
+      </Tab>
+      <Tab title="Windows">
+        Agregue la salida de `npm prefix -g` a su PATH del sistema mediante Configuración → Sistema → Variables de entorno.
+      </Tab>
+    </Tabs>
 
   </Step>
 </Steps>

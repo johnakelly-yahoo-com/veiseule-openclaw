@@ -26,7 +26,6 @@ Das **Installationsskript** ist der empfohlene Weg zur Installation von OpenClaw
   <Accordion title="Installer script" icon="rocket" defaultOpen>
     Lädt die CLI herunter, installiert sie global über npm und startet den Onboarding-Assistenten.
 
-    ```
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -39,11 +38,11 @@ Das **Installationsskript** ist der empfohlene Weg zur Installation von OpenClaw
         ```
       </Tab>
     </Tabs>
-    
+
     Das war’s — das Skript übernimmt Node-Erkennung, Installation und Onboarding.
-    
+
     Um das Onboarding zu überspringen und nur das Binary zu installieren:
-    
+
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -56,30 +55,28 @@ Das **Installationsskript** ist der empfohlene Weg zur Installation von OpenClaw
         ```
       </Tab>
     </Tabs>
-    
+
     Für alle Flags, Umgebungsvariablen und CI-/Automatisierungsoptionen siehe [Installer internals](/install/installer).
-    ```
 
   </Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     Wenn Sie bereits Node 22+ haben und die Installation selbst verwalten möchten:
 
-    ```
     <Tabs>
       <Tab title="npm">
         ```bash
         npm install -g openclaw@latest
         openclaw onboard --install-daemon
         ```
-    
+
         <Accordion title="sharp-Buildfehler?">
           Wenn Sie libvips global installiert haben (auf macOS häufig über Homebrew) und `sharp` fehlschlägt, erzwingen Sie vorgefertigte Binaries:
-    
+
           ```bash
           SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
           ```
-    
+
           Wenn Sie `sharp: Please add node-gyp to your dependencies` sehen, installieren Sie entweder Build-Tooling (macOS: Xcode CLT + `npm install -g node-gyp`) oder verwenden Sie die oben genannte Umgebungsvariable.
         </Accordion>
       </Tab>
@@ -89,24 +86,22 @@ Das **Installationsskript** ist der empfohlene Weg zur Installation von OpenClaw
         pnpm approve-builds -g        # approve openclaw, node-llama-cpp, sharp, etc.
         openclaw onboard --install-daemon
         ```
-    
+
         <Note>
         pnpm erfordert eine explizite Genehmigung für Pakete mit Build-Skripten. Nachdem die erste Installation die Warnung „Ignored build scripts“ anzeigt, führen Sie `pnpm approve-builds -g` aus und wählen Sie die aufgeführten Pakete aus.
         </Note>
       </Tab>
     </Tabs>
-    ```
 
   </Accordion>
 
   <Accordion title="From source" icon="github">
     Für Mitwirkende oder alle, die aus einem lokalen Checkout ausführen möchten.
 
-    ```
     <Steps>
       <Step title="Klonen und bauen">
         Klonen Sie das [OpenClaw-Repo](https://github.com/openclaw/openclaw) und bauen Sie es:
-    
+
         ```bash
         git clone https://github.com/openclaw/openclaw.git
         cd openclaw
@@ -117,11 +112,11 @@ Das **Installationsskript** ist der empfohlene Weg zur Installation von OpenClaw
       </Step>
       <Step title="CLI verlinken">
         Machen Sie den Befehl `openclaw` global verfügbar:
-    
+
         ```bash
         pnpm link --global
         ```
-    
+
         Alternativ überspringen Sie das Verlinken und führen Befehle über `pnpm openclaw ...` innerhalb des Repos aus.
       </Step>
       <Step title="Onboarding ausführen">
@@ -130,9 +125,8 @@ Das **Installationsskript** ist der empfohlene Weg zur Installation von OpenClaw
         ```
       </Step>
     </Steps>
-    
+
     Für vertiefte Entwicklungs-Workflows siehe [Setup](/start/setup).
-    ```
 
   </Accordion>
 </AccordionGroup>
@@ -142,6 +136,9 @@ Das **Installationsskript** ist der empfohlene Weg zur Installation von OpenClaw
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     Containerisierte oder headless Bereitstellungen.
+  </Card>
+  <Card title="Podman" href="/install/podman" icon="container">
+    Rootless-Container: Führen Sie `setup-podman.sh` einmal aus, dann das Startskript.
   </Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     Deklarative Installation über Nix.
@@ -194,7 +191,8 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 
 Unter Windows fügen Sie die Ausgabe von `npm prefix -g` zu Ihrem PATH hinzu.
 
-Öffnen Sie anschließend ein neues Terminal (oder `rehash` in zsh / `hash -r` in bash). </Accordion>
+Öffnen Sie anschließend ein neues Terminal (oder `rehash` in zsh / `hash -r` in bash).
+</Accordion>
 
 ## Aktualisieren / Deinstallieren
 

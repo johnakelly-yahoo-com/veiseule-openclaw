@@ -4,465 +4,207 @@ title: "50. Alt Ajanlar"
 
 # 50. Alt Ajanlar
 
-Alt ajanlar, ana sohbeti engellemeden arka plan görevleri çalıştırmanıza olanak tanır. Bir alt ajan oluşturduğunuzda, kendi yalıtılmış oturumunda çalışır, işini yapar ve tamamlandığında sonucu sohbete bildirir.
+Alt ajanlar, mevcut bir ajan çalışmasından başlatılan arka plan ajan çalıştırmalarıdır. Kendi oturumlarında (`agent:<agentId>:subagent:<uuid>`) çalışırlar ve tamamlandıklarında sonucu talepte bulunan sohbet kanalına **duyururlar**.
 
-**Kullanım senaryoları:**
+## Eğik çizgi komutu
 
-- Ana ajan soruları yanıtlamaya devam ederken bir konuyu araştırmak
-- Birden fazla uzun görevi paralel olarak çalıştırmak (web kazıma, kod analizi, dosya işleme)
-- Çoklu ajan kurulumunda görevleri uzmanlaşmış ajanlara devretmek
+**Geçerli oturum** için alt ajan çalışmalarını incelemek veya kontrol etmek üzere `/subagents` kullanın:
 
-## Hızlı Başlangıç
+- `/subagents list`
+- `/subagents kill <id|#|all>`
+- `/subagents log <id|#> [limit] [tools]`
+- `/subagents info <id|#>`
+- `/subagents send <id|#> <message>`
 
-Alt ajanları kullanmanın en basit yolu, ajanınıza doğal bir şekilde sormaktır:
+`/subagents info`, çalışma meta verilerini gösterir (durum, zaman damgaları, oturum kimliği, döküm yolu, temizleme).
 
-> "En son Node.js sürüm notlarını araştırmak için bir alt ajan oluştur"
+Temel amaçlar:
 
-Ajan, perde arkasında `sessions_spawn` aracını çağırır. Alt ajan tamamlandığında, bulgularını sohbetinize geri bildirir.
+- Ana çalışmayı engellemeden “araştırma / uzun görev / yavaş araç” işlerini paralelleştirmek.
+- Alt ajanları varsayılan olarak izole tutmak (oturum ayrımı + isteğe bağlı sandbox).
+- Araç yüzeyini kötüye kullanıma kapalı tutmak: alt ajanlar varsayılan olarak oturum araçlarını **almaz**.
+- Orkestratör desenleri için yapılandırılabilir iç içe derinlik desteği.
 
-Seçenekler konusunda açık da olabilirsiniz:
+Maliyet notu: her alt ajanın **kendi** bağlamı ve token kullanımı vardır. Ağır veya tekrarlı görevler için alt ajanlarda daha ucuz bir model kullanın, ana ajanı ise daha yüksek kaliteli bir modelde tutun. Bunu `agents.defaults.subagents.model` veya ajan başına geçersiz kılmalar ile yapılandırabilirsiniz.
 
-> "Bugüne ait sunucu günlüklerini analiz etmek için bir alt ajan oluştur.
-> gpt-5.2 kullan ve 5 dakikalık zaman aşımı ayarla." Ana ajan, bir görev açıklamasıyla `sessions_spawn` çağrısını yapar.
+## Araç
 
-## Nasıl Çalışır
+`sessions_spawn` kullanın:
 
-<Steps>
-  <Step title="Main agent spawns">
-    Çağrı **engelleyici değildir** — ana ajan hemen `{ status: "accepted", runId, childSessionKey }` yanıtını alır. 
-    Yeni bir yalıtılmış oturum oluşturulur (`agent:
-    :subagent:
-    `) ve özel `subagent` kuyruk şeridinde çalışır.
-  
-  </Step>
-  <Step title="Sub-agent runs in the background">Alt ajan tamamlandığında, bulgularını talepte bulunan sohbete geri bildirir.<agentId>Ana ajan, doğal dilde bir özet gönderir.<uuid>Alt ajan oturumu 60 dakika sonra otomatik olarak arşivlenir (yapılandırılabilir).</Step>
-  <Step title="Result is announced">
-    Dökümler korunur. Her alt ajanın **kendi** bağlamı ve token kullanımı vardır.
-  </Step>
-  <Step title="Session is archived">
-    Maliyetlerden tasarruf etmek için alt ajanlar için daha ucuz bir model ayarlayın — aşağıdaki [Varsayılan Model Ayarlama](#setting-a-default-model) bölümüne bakın. Alt ajanlar, yapılandırma gerektirmeden kutudan çıktığı gibi çalışır.
-  </Step>
-</Steps>
+- Bir alt ajan çalıştırması başlatır (`deliver: false`, global lane: `subagent`)
+- Ardından bir duyuru adımı çalıştırır ve duyuru yanıtını talepte bulunan sohbet kanalına gönderir
+- Varsayılan model: `agents.defaults.subagents.model` (veya ajan başına `agents.list[].subagents.model`) ayarlamadığınız sürece çağıranı devralır; açık bir `sessions_spawn.model` her zaman önceliklidir.
+- Varsayılan düşünme: `agents.defaults.subagents.thinking` (veya ajan başına `agents.list[].subagents.thinking`) ayarlamadığınız sürece çağıranı devralır; açık bir `sessions_spawn.thinking` her zaman önceliklidir.
 
-<Tip>
-Model: hedef ajanın normal model seçimi (`subagents.model` ayarlanmadıkça) Düşünme: alt ajan için geçersiz kılma yok (`subagents.thinking` ayarlanmadıkça)
-</Tip>
+Araç parametreleri:
 
-## Yapılandırma
+- `task` (zorunlu)
+- `label?` (isteğe bağlı)
+- `agentId?` (isteğe bağlı; izin verildiyse başka bir ajan kimliği altında başlatır)
+- `model?` (isteğe bağlı; alt ajan modelini geçersiz kılar; geçersiz değerler atlanır ve araç sonucunda bir uyarıyla birlikte varsayılan model kullanılır)
+- `thinking?` (isteğe bağlı; alt ajan çalıştırması için düşünme seviyesini geçersiz kılar)
+- `runTimeoutSeconds?` (varsayılan `0`; ayarlandığında alt ajan çalıştırması N saniye sonra iptal edilir)
+- `cleanup?` (`delete|keep`, varsayılan `keep`)
 
-Maksimum eşzamanlı: 8 Varsayılanlar:
+İzin listesi:
 
-- Otomatik arşivleme: 60 dakika sonra
-- Varsayılan Model Ayarlama
-- Token maliyetlerinden tasarruf etmek için alt ajanlar için daha ucuz bir model kullanın:
-- {
-  agents: {
-  defaults: {
-  subagents: {
-  model: "minimax/MiniMax-M2.1",
-  },
-  },
-  },
-  }
+- `agents.list[].subagents.allowAgents`: `agentId` ile hedeflenebilecek ajan kimliklerinin listesi (`["*"]` herhangi birine izin verir). Varsayılan: yalnızca talepte bulunan ajan.
 
-### Varsayılan Düşünme Seviyesini Ayarlama
+Keşif:
 
-Use a cheaper model for sub-agents to save on token costs:
+- `sessions_spawn` için şu anda hangi ajan kimliklerine izin verildiğini görmek üzere `agents_list` kullanın.
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        model: "minimax/MiniMax-M2.1",
-      },
-    },
-  },
-}
-```
+Otomatik arşivleme:
 
-### Setting a Default Thinking Level
+- Alt ajan oturumları `agents.defaults.subagents.archiveAfterMinutes` süresi sonunda otomatik olarak arşivlenir (varsayılan: 60).
+- Arşivleme `sessions.delete` kullanır ve dökümü `*.deleted.<timestamp>` olarak yeniden adlandırır (aynı klasörde).
+- `cleanup: "delete"` duyurudan hemen sonra arşivler (döküm yeniden adlandırılarak korunur).
+- Otomatik arşivleme en iyi çaba esaslıdır; gateway yeniden başlatılırsa bekleyen zamanlayıcılar kaybolur.
+- `runTimeoutSeconds` otomatik arşivleme yapmaz; yalnızca çalıştırmayı durdurur. Oturum, otomatik arşivleme gerçekleşene kadar kalır.
+- Otomatik arşivleme hem derinlik-1 hem de derinlik-2 oturumlara eşit şekilde uygulanır.
+
+## İç İçe Alt Ajanlar
+
+Varsayılan olarak alt ajanlar kendi alt ajanlarını başlatamaz (`maxSpawnDepth: 1`). `maxSpawnDepth: 2` ayarlayarak bir seviye iç içe çalışmayı etkinleştirebilirsiniz; bu da **orkestratör deseni**ni mümkün kılar: ana → orkestratör alt ajan → çalışan alt-alt ajanlar.
+
+### Nasıl etkinleştirilir
 
 ```json5
 {
   agents: {
     defaults: {
       subagents: {
-        thinking: "low",
+        maxSpawnDepth: 2, // alt ajanların çocuk başlatmasına izin ver (varsayılan: 1)
+        maxChildrenPerAgent: 5, // ajan oturumu başına maksimum aktif çocuk (varsayılan: 5)
+        maxConcurrent: 8, // global eşzamanlılık üst sınırı (varsayılan: 8)
       },
     },
   },
 }
 ```
 
-### Aracı Bazında Geçersiz Kılmalar
+### Derinlik seviyeleri
 
-Çok aracılı bir kurulumda, alt aracı varsayımlarını aracı başına ayarlayabilirsiniz:
+| Depth | Session key shape                            | Rol                                           | Başlatabilir mi?              |
+| ----- | -------------------------------------------- | --------------------------------------------- | ----------------------------- |
+| 0     | `agent:<id>:main`                            | Ana ajan                                      | Her zaman                    |
+| 1     | `agent:<id>:subagent:<uuid>`                 | Alt ajan (derinlik 2 izinliyse orkestratör)   | Yalnızca `maxSpawnDepth >= 2` |
+| 2     | `agent:<id>:subagent:<uuid>:subagent:<uuid>` | Alt-alt ajan (çalışan)                        | Asla                         |
 
-```json5
-{
-  agents: {
-    list: [
-      {
-        id: "researcher",
-        subagents: {
-          model: "anthropic/claude-sonnet-4",
-        },
-      },
-      {
-        id: "assistant",
-        subagents: {
-          model: "minimax/MiniMax-M2.1",
-        },
-      },
-    ],
-  },
-}
-```
+### Duyuru zinciri
 
-### Eşzamanlılık
+Sonuçlar zincir boyunca yukarı akar:
 
-Aynı anda kaç alt aracın çalışabileceğini kontrol edin:
+1. Derinlik-2 çalışan tamamlar → ebeveynine (derinlik-1 orkestratör) duyurur
+2. Derinlik-1 orkestratör duyuruyu alır, sonuçları sentezler, tamamlar → ana ajana duyurur
+3. Ana ajan duyuruyu alır ve kullanıcıya iletir
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        maxConcurrent: 4, // default: 8
-      },
-    },
-  },
-}
-```
+Her seviye yalnızca doğrudan çocuklarından gelen duyuruları görür.
 
-Alt aracılar, ana aracı kuyruğundan ayrı, kendilerine adanmış bir kuyruk şeridi (`subagent`) kullanır; böylece alt aracı çalışmaları gelen yanıtları engellemez.
+### Derinliğe göre araç politikası
 
-### Otomatik Arşivleme
+- **Derinlik 1 (orkestratör, `maxSpawnDepth >= 2` iken)**: Çocuklarını yönetebilmesi için `sessions_spawn`, `subagents`, `sessions_list`, `sessions_history` alır. Diğer oturum/sistem araçları yine reddedilir.
+- **Derinlik 1 (çalışan, `maxSpawnDepth == 1` iken)**: Oturum araçları yoktur (mevcut varsayılan davranış).
+- **Derinlik 2 (çalışan)**: Oturum araçları yoktur — derinlik 2’de `sessions_spawn` her zaman reddedilir. Daha fazla çocuk başlatamaz.
 
-Alt aracı oturumları, yapılandırılabilir bir süreden sonra otomatik olarak arşivlenir:
+### Ajan başına başlatma limiti
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        archiveAfterMinutes: 120, // default: 60
-      },
-    },
-  },
-}
-```
+Her ajan oturumu (herhangi bir derinlikte) aynı anda en fazla `maxChildrenPerAgent` (varsayılan: 5) aktif çocuğa sahip olabilir. Bu, tek bir orkestratörden kontrolsüz fan-out oluşmasını engeller.
 
-<Note>
-Arşivleme, dökümü `*.deleted olarak yeniden adlandırır.<timestamp>` (aynı klasör) — dökümler silinmez, korunur. Otomatik arşivleme zamanlayıcıları en iyi çaba esaslıdır; ağ geçidi yeniden başlatılırsa bekleyen zamanlayıcılar kaybolur.
-</Note>
+### Zincirleme durdurma
 
-## `sessions_spawn` Aracı
+Bir derinlik-1 orkestratörü durdurmak, tüm derinlik-2 çocuklarını otomatik olarak durdurur:
 
-Bu, aracının alt aracılar oluşturmak için çağırdığı araçtır.
+- Ana sohbette `/stop`, tüm derinlik-1 ajanları durdurur ve onların derinlik-2 çocuklarına zincirleme etki eder.
+- `/subagents kill <id>`, belirli bir alt ajanı durdurur ve çocuklarına zincirleme etki eder.
+- `/subagents kill all`, talepte bulunan için tüm alt ajanları durdurur ve zincirleme etki eder.
 
-### Parametreler
-
-| Parametre           | Ana makine hacim bağlaması | Varsayılan                             | Açıklama                                                                                                |
-| ------------------- | -------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `task`              | string                     | _(zorunlu)_         | Alt aracının ne yapması gerektiği                                                                       |
-| `etiket`            | string                     | —                                      | Tanımlama için kısa etiket                                                                              |
-| `agentId`           | string                     | _(çağıranın aracı)_ | Farklı bir aracı kimliği altında oluştur (izin verilmiş olmalıdır)                   |
-| `model`             | string                     | _(isteğe bağlı)_    | Bu alt aracı için modeli geçersiz kıl                                                                   |
-| `thinking`          | string                     | _(isteğe bağlı)_    | Düşünme seviyesini geçersiz kıl (`off`, `low`, `medium`, `high` vb.) |
-| `runTimeoutSeconds` | sayı                       | `0` (sınırsız)      | Alt aracıyı N saniye sonra durdur                                                                       |
-| `temizlik`          | "delete" \| "keep"         | "keep"                                 | "delete" duyurudan hemen sonra arşivler                                                                 |
-
-### Model Çözümleme Sırası
-
-Alt aracı modeli şu sırayla çözülür (ilk eşleşen kazanır):
-
-1. `sessions_spawn` çağrısındaki açık `model` parametresi
-2. Aracı başına yapılandırma: `agents.list[].subagents.model`
-3. Genel varsayılan: `agents.defaults.subagents.model`
-4. Hedef aracının, yeni oturum için normal model çözümlemesi
-
-Düşünme seviyesi şu sırayla çözülür:
-
-1. `sessions_spawn` çağrısındaki açık `thinking` parametresi
-2. Aracı başına yapılandırma: `agents.list[].subagents.thinking`
-3. Genel varsayılan: `agents.defaults.subagents.thinking`
-4. Aksi halde alt aracıya özgü bir düşünme geçersiz kılması uygulanmaz
-
-<Note>
-Geçersiz model değerleri sessizce atlanır — alt aracı, araç sonucunda bir uyarıyla birlikte bir sonraki geçerli varsayılanla çalışır.</Note>
-
-### Aracılar Arası Oluşturma
-
-Varsayılan olarak, alt aracılar yalnızca kendi aracı kimlikleri altında oluşturulabilir. Bir aracının diğer aracı kimlikleri altında alt aracılar oluşturmasına izin vermek için:
-
-```json5
-{
-  agents: {
-    list: [
-      {
-        id: "orchestrator",
-        subagents: {
-          allowAgents: ["researcher", "coder"], // veya herhangi birine izin vermek için ["*"]
-        },
-      },
-    ],
-  },
-}
-```
-
-<Tip>`sessions_spawn` için şu anda hangi aracı kimliklerine izin verildiğini keşfetmek için `agents_list` aracını kullanın.</Tip>
-
-## Alt Aracıları Yönetme (`/subagents`)
-
-Geçerli oturum için alt aracı çalışmalarını incelemek ve kontrol etmek üzere `/subagents` eğik çizgi komutunu kullanın:
-
-| Command                                    | Açıklama                                                                      |
-| ------------------------------------------ | ----------------------------------------------------------------------------- |
-| `/subagents list`                          | Tüm alt aracı çalışmalarını listele (aktif ve tamamlanmış) |
-| `/subagents stop <id\\|#\\|all>`         | Stop a running sub-agent                                                      |
-| `/subagents log <id\\|#> [limit] [tools]` | Alt aracı dökümünü görüntüle                                                  |
-| `/subagents info <id\\|#>`                | Ayrıntılı çalışma meta verilerini göster                                      |
-| `/subagents send <id\\|#> <message>`      | Çalışan bir alt aracıya mesaj gönder                                          |
-
-Alt aracıları liste dizini (`1`, `2`), çalışma kimliği öneki, tam oturum anahtarı veya `last` ile referans alabilirsiniz.
-
-<AccordionGroup>
-  <Accordion title="Example: list and stop a sub-agent">```
-    /subagents list
-    ```
-
-    ````
-    ```
-    🧭 Subagents (current session)
-    Active: 1 · Done: 2
-    1) ✅ · research logs · 2m31s · run a1b2c3d4 · agent:main:subagent:...
-    2) ✅ · check deps · 45s · run e5f6g7h8 · agent:main:subagent:...
-    3) 🔄 · deploy staging · 1m12s · run i9j0k1l2 · agent:main:subagent:...
-    ```
-    
-    ```
-    /subagents stop 3
-    ```
-    
-    ```
-    ⚙️ Stop requested for deploy staging.
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: inspect a sub-agent">```
-    /subagents info 1
-    ```
-
-    ````
-    ```
-    ℹ️ Subagent info
-    Status: ✅
-    Label: research logs
-    Task: Research the latest server error logs and summarize findings
-    Run: a1b2c3d4-...
-    Session: agent:main:subagent:...
-    Runtime: 2m31s
-    Cleanup: keep
-    Outcome: ok
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: view sub-agent log">```
-    /subagents log 1 10
-    ```
-
-    ````
-    Alt aracının dökümünden son 10 mesajı gösterir. Araç çağrısı mesajlarını dahil etmek için `tools` ekleyin:
-    
-    ```
-    /subagents log 1 10 tools
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: send a follow-up message">```
-    /subagents send 3 "Also check the staging environment"
-    ```
-
-    ```
-    Çalışan alt aracının oturumuna bir mesaj gönderir ve yanıt için 30 saniyeye kadar bekler.
-    ```
-
-  </Accordion>
-</AccordionGroup>
-
-## Duyuru (Sonuçlar Nasıl Geri Döner)
-
-Bir alt aracı tamamlandığında bir **duyuru** adımından geçer:
-
-1. Alt aracının nihai yanıtı yakalanır
-2. Sonuç, durum ve istatistiklerle birlikte ana aracının oturumuna bir özet mesaj gönderilir
-3. Ana aracı sohbetinize doğal dilde bir özet gönderir
-
-Duyuru yanıtları, mevcut olduğunda iş parçacığı/konu yönlendirmesini korur (Slack iş parçacıkları, Telegram konuları, Matrix iş parçacıkları).
-
-### Duyuru İstatistikleri
-
-Her duyuru, şu bilgileri içeren bir istatistik satırı içerir:
-
-- Çalışma süresi
-- Token kullanımı (girdi/çıktı/toplam)
-- Tahmini maliyet (`models.providers.*.models[].cost` üzerinden model fiyatlandırması yapılandırıldığında)
-- Oturum anahtarı, oturum kimliği ve döküm yolu
-
-### Duyuru Durumu
-
-Duyuru mesajı, çalışma zamanındaki sonuca dayalı bir durum içerir (model çıktısına değil):
-
-- **başarılı tamamlanma** (`ok`) — görev normal şekilde tamamlandı
-- **hata** — görev başarısız oldu (ayrıntılar notlarda)
-- **zaman aşımı** — görev `runTimeoutSeconds` süresini aştı
-- **bilinmiyor** — durum belirlenemedi
-
-<Tip>
-Kullanıcıya yönelik bir duyuru gerekmezse, ana aracının özetleme adımı `NO_REPLY` döndürebilir ve hiçbir şey gönderilmez.
-Bu, ajanlar arası duyuru akışında (`sessions_send`) kullanılan `ANNOUNCE_SKIP`’ten farklıdır.
-</Tip>
-
-## Araç Politikası
-
-Varsayılan olarak, alt aracılar arka plan görevleri için güvensiz veya gereksiz olan reddedilmiş araçlar kümesi **hariç** tüm araçları alır:
-
-<AccordionGroup>
-  <Accordion title="Default denied tools">| Reddedilen araç | Neden |
-|-------------|--------|
-| `sessions_list` | Oturum yönetimi — ana aracı düzenler |
-| `sessions_history` | Oturum yönetimi — ana aracı düzenler |
-| `sessions_send` | Oturum yönetimi — ana aracı düzenler |
-| `sessions_spawn` | İç içe fan-out yok (alt aracılar alt aracı oluşturamaz) |
-| `gateway` | Sistem yöneticisi — alt aracıdan tehlikeli |
-| `agents_list` | Sistem yöneticisi |
-| `whatsapp_login` | Etkileşimli kurulum — bir görev değil |
-| `session_status` | Durum/zamanlama — ana aracı koordine eder |
-| `cron` | Durum/zamanlama — ana aracı koordine eder |
-| `memory_search` | Bunun yerine ilgili bilgileri oluşturma isteminde geçin |
-| `memory_get` | Bunun yerine ilgili bilgileri oluşturma isteminde geçin |</Accordion>
-</AccordionGroup>
-
-### Alt Aracı Araçlarını Özelleştirme
-
-Alt aracı araçlarını daha da kısıtlayabilirsiniz:
-
-```json5
-{
-  tools: {
-    subagents: {
-      tools: {
-        // reddetme her zaman izin vermeye üstün gelir
-        deny: ["browser", "firecrawl"],
-      },
-    },
-  },
-}
-```
-
-Alt aracıları **yalnızca** belirli araçlarla sınırlandırmak için:
-
-```json5
-{
-  tools: {
-    subagents: {
-      tools: {
-        allow: ["read", "exec", "process", "write", "edit", "apply_patch"],
-        // ayarlanmışsa reddetme yine kazanır
-      },
-    },
-  },
-}
-```
-
-<Note>
-Özel reddetme girdileri varsayılan reddetme listesine **eklenir**. `allow` ayarlanırsa, yalnızca bu araçlar kullanılabilir (varsayılan reddetme listesi yine de üstüne uygulanır).
-</Note>
-
-## Kimlik doğrulama
+## Kimlik Doğrulama
 
 Alt ajan kimlik doğrulaması oturum türüne göre değil, **ajan kimliğine** göre çözülür:
 
-- Kimlik doğrulama deposu hedef aracının `agentDir` dizininden yüklenir
-- Ana aracının kimlik doğrulama profilleri **yedek** olarak birleştirilir (çakışmalarda aracı profilleri kazanır)
-- Birleştirme ekleyicidir — ana profiller her zaman yedek olarak kullanılabilir
+- Alt ajan oturum anahtarı `agent:<agentId>:subagent:<uuid>` şeklindedir.
+- Kimlik doğrulama deposu ilgili ajanın `agentDir` dizininden yüklenir.
+- Ana ajanın kimlik doğrulama profilleri **yedek** olarak birleştirilir; çakışmalarda ajan profilleri önceliklidir.
 
-<Note>Alt ajan başına tamamen izole edilmiş kimlik doğrulama şu anda desteklenmemektedir.</Note>
+Not: Birleştirme ekleyicidir, bu nedenle ana profiller her zaman yedek olarak kullanılabilir. Ajan başına tamamen izole kimlik doğrulama henüz desteklenmemektedir.
 
-## Bağlam ve Sistem İstemi
+## Duyuru
 
-Alt ajanlar, ana ajana kıyasla azaltılmış bir sistem istemi alır:
+Alt ajanlar bir duyuru adımı aracılığıyla geri bildirim yapar:
 
-- **Dahil edilenler:** Tooling, Workspace, Runtime bölümleri ile birlikte `AGENTS.md` ve `TOOLS.md`
-- **Not included:** `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md`
+- Duyuru adımı alt ajan oturumu içinde çalışır (talepte bulunan oturumda değil).
+- Alt ajan tam olarak `ANNOUNCE_SKIP` yanıtını verirse hiçbir şey gönderilmez.
+- Aksi takdirde duyuru yanıtı, talepte bulunan sohbet kanalına bir takip `agent` çağrısı (`deliver=true`) ile gönderilir.
+- Duyuru yanıtları, mevcut olduğunda iş parçacığı/konu yönlendirmesini korur (Slack threads, Telegram topics, Matrix threads).
+- Duyuru mesajları sabit bir şablona normalize edilir:
+  - `Status:` çalışma sonucundan türetilir (`success`, `error`, `timeout` veya `unknown`).
+  - `Result:` duyuru adımındaki özet içerik (yoksa `(not available)`).
+  - `Notes:` hata ayrıntıları ve diğer yararlı bağlam.
+- `Status`, model çıktısından çıkarılmaz; çalışma zamanı sinyallerinden gelir.
 
-Alt ajan ayrıca, kendisine atanan göreve odaklanmasını, görevi tamamlamasını ve ana ajan gibi davranmamasını söyleyen görev odaklı bir sistem istemi alır.
+Duyuru yükleri, sonda bir istatistik satırı içerir (sarmalanmış olsa bile):
 
-## Alt Ajanların Durdurulması
+- Çalışma süresi (ör. `runtime 5m12s`)
+- Token kullanımı (input/output/total)
+- Model fiyatlandırması yapılandırılmışsa tahmini maliyet (`models.providers.*.models[].cost`)
+- `sessionKey`, `sessionId` ve döküm yolu (ana ajanın `sessions_history` ile geçmişi alabilmesi veya dosyayı diskten inceleyebilmesi için)
 
-| Yöntem                 | Etkisi                                                                               |
-| ---------------------- | ------------------------------------------------------------------------------------ |
-| Sohbette `/stop`       | Ana oturumu **ve** ondan oluşturulmuş tüm aktif alt ajan çalıştırmalarını iptal eder |
-| `/subagents stop <id>` | Ana oturumu etkilemeden belirli bir alt ajanı durdurur                               |
-| `runTimeoutSeconds`    | Belirtilen süreden sonra alt ajan çalıştırmasını otomatik olarak iptal eder          |
+## Araç Politikası (alt ajan araçları)
 
-<Note>
-`runTimeoutSeconds`, oturumu otomatik olarak arşivlemez. The session remains until the normal archive timer fires.
-</Note>
+Varsayılan olarak alt ajanlar **oturum araçları** ve sistem araçları hariç tüm araçları alır:
 
-## Tam Yapılandırma Örneği
+- `sessions_list`
+- `sessions_history`
+- `sessions_send`
+- `sessions_spawn`
 
-<Accordion title="Complete sub-agent configuration">```json5
+`maxSpawnDepth >= 2` olduğunda, derinlik-1 orkestratör alt ajanlar ayrıca çocuklarını yönetebilmek için `sessions_spawn`, `subagents`, `sessions_list` ve `sessions_history` alır.
+
+Yapılandırma ile geçersiz kılma:
+
+```json5
 {
   agents: {
     defaults: {
-      model: { primary: "anthropic/claude-sonnet-4" },
       subagents: {
-        model: "minimax/MiniMax-M2.1",
-        thinking: "low",
-        maxConcurrent: 4,
-        archiveAfterMinutes: 30,
+        maxConcurrent: 1,
       },
     },
-    list: [
-      {
-        id: "main",
-        default: true,
-        name: "Personal Assistant",
-      },
-      {
-        id: "ops",
-        name: "Ops Agent",
-        subagents: {
-          model: "anthropic/claude-sonnet-4",
-          allowAgents: ["main"], // ops can spawn sub-agents under "main"
-        },
-      },
-    ],
   },
   tools: {
     subagents: {
       tools: {
-        deny: ["browser"], // sub-agents can't use the browser
+        // deny her zaman kazanır
+        deny: ["gateway", "cron"],
+        // allow ayarlanırsa yalnızca izin verilenler geçerli olur (deny yine kazanır)
+        // allow: ["read", "exec", "process"]
       },
     },
   },
 }
-```</Accordion>
+```
+
+## Eşzamanlılık
+
+Alt ajanlar ayrılmış bir süreç içi kuyruk hattı kullanır:
+
+- Hat adı: `subagent`
+- Eşzamanlılık: `agents.defaults.subagents.maxConcurrent` (varsayılan `8`)
+
+## Durdurma
+
+- Talepte bulunan sohbette `/stop` göndermek, talep eden oturumu iptal eder ve ondan başlatılmış tüm aktif alt ajan çalışmalarını durdurur; iç içe çocuklara zincirleme etki eder.
+- `/subagents kill <id>`, belirli bir alt ajanı durdurur ve çocuklarına zincirleme etki eder.
 
 ## Sınırlamalar
 
-<Warning>
-- **En iyi çaba ile duyuru:** Gateway yeniden başlarsa, bekleyen duyuru işleri kaybolur.
-- **İç içe oluşturma yok:** Alt ajanlar kendi alt ajanlarını oluşturamaz.
-- **Paylaşılan kaynaklar:** Alt ajanlar gateway sürecini paylaşır; bir güvenlik supabı olarak `maxConcurrent` kullanın.
-- **Otomatik arşivleme en iyi çaba ile yapılır:** Bekleyen arşiv zamanlayıcıları gateway yeniden başlatıldığında kaybolur.
-</Warning>
+- Alt ajan duyurusu **en iyi çaba** esaslıdır. Gateway yeniden başlatılırsa bekleyen “geri duyuru” işleri kaybolur.
+- Alt ajanlar aynı gateway süreci kaynaklarını paylaşır; `maxConcurrent` bir güvenlik supabı olarak düşünülmelidir.
+- `sessions_spawn` her zaman engelleyici değildir: hemen `{ status: "accepted", runId, childSessionKey }` döner.
+- Alt ajan bağlamı yalnızca `AGENTS.md` + `TOOLS.md` enjekte eder (`SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` veya `BOOTSTRAP.md` yoktur).
+- Maksimum iç içe derinlik 5’tir (`maxSpawnDepth` aralığı: 1–5). Çoğu kullanım durumu için derinlik 2 önerilir.
+- `maxChildrenPerAgent`, oturum başına aktif çocuk sayısını sınırlar (varsayılan: 5, aralık: 1–20).
 
 ## Ayrıca Bakın
 

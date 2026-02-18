@@ -615,7 +615,7 @@ For groups, use `channels.whatsapp.groupPolicy` + `channels.whatsapp.groupAllowF
 }
 ```
 
-`messages.groupChat.historyLimit` ตั้งค่าเริ่มต้นส่วนกลางสำหรับบริบทประวัติกลุ่ม ช่องทางสามารถแทนที่ด้วย `channels.<channel> Channels can override with `channels.<channel>.historyLimit`(หรือ`channels.<channel>.accounts.\*.historyLimit`สำหรับหลายบัญชี) ตั้ง`0`เพื่อปิดการห่อประวัติ Set`0\` to disable history wrapping.
+`messages.groupChat.historyLimit` ตั้งค่าเริ่มต้นส่วนกลางสำหรับบริบทประวัติกลุ่ม ช่องทางสามารถแทนที่ด้วย `channels.<channel> Channels can override with `channels.&lt;channel&gt;.historyLimit`(หรือ`channels.&lt;channel&gt;.accounts.\*.historyLimit`สำหรับหลายบัญชี) ตั้ง`0`เพื่อปิดการห่อประวัติ Set`0\` to disable history wrapping.
 
 #### ขีดจำกัดประวัติ DM
 
@@ -1009,8 +1009,8 @@ and uses the most recent message for reply threading/IDs.
 - `commands.native: "auto"` (ค่าเริ่มต้น) เปิดคำสั่งเนทีฟสำหรับ Discord/Telegram และปิด Slack
 - ตั้ง `commands.native: true|false` เพื่อบังคับทั้งหมด หรือแทนที่ต่อช่องทางด้วย `channels.discord.commands.native`, `channels.telegram.commands.native`, `channels.slack.commands.native` `false` ล้างคำสั่งที่ลงทะเบียนก่อนหน้าบน Discord/Telegram ตอนเริ่ม
 - `channels.telegram.customCommands` เพิ่มเมนูบอต Telegram เพิ่มเติม 2. ชื่อจะถูกทำให้เป็นมาตรฐาน; ความขัดแย้งกับคำสั่งเนทีฟจะถูกละเว้น
-- `commands.bash: true` เปิด `! 3. <cmd>` เพื่อรันคำสั่งเชลล์ของโฮสต์ (`/bash <cmd>` ใช้เป็นนามแฝงได้เช่นกัน) <cmd>`เพื่อรันคำสั่งเชลล์โฮสต์ ต้องมี`tools.elevated.enabled`และ allowlist ผู้ส่งใน`tools.elevated.allowFrom.<channel>\`
-- `commands.bashForegroundMs` ควบคุมเวลารอของ bash 4. ขณะงาน bash กำลังทำงาน คำขอ `! 5. <cmd>` ใหม่จะถูกปฏิเสธ (ครั้งละหนึ่งงาน) <cmd>\` requests are rejected (one at a time).
+- `commands.bash: true` เปิด `! 3. <cmd>` เพื่อรันคำสั่งเชลล์ของโฮสต์ (`/bash <cmd>` ใช้เป็นนามแฝงได้เช่นกัน) &lt;cmd&gt;`เพื่อรันคำสั่งเชลล์โฮสต์ ต้องมี`tools.elevated.enabled`และ allowlist ผู้ส่งใน`tools.elevated.allowFrom.&lt;channel&gt;\`
+- `commands.bashForegroundMs` ควบคุมเวลารอของ bash 4. ขณะงาน bash กำลังทำงาน คำขอ `! 5. <cmd>` ใหม่จะถูกปฏิเสธ (ครั้งละหนึ่งงาน) &lt;cmd&gt;\` requests are rejected (one at a time).
 - `commands.config: true` เปิด `/config`
 - 7. .configWrites`ใช้ควบคุมการเปลี่ยนแปลงคอนฟิกที่เริ่มจากช่องนั้น (ค่าเริ่มต้น: true)8. ใช้กับ`/config set|unset`รวมถึงการย้ายอัตโนมัติเฉพาะผู้ให้บริการ (การเปลี่ยน ID ซูเปอร์กรุ๊ปของ Telegram, การเปลี่ยน ID ช่องของ Slack) 9. การอนุญาตถูกกำหนดจาก
        allowlist/การจับคู่ของช่อง รวมถึง`commands.useAccessGroups\`

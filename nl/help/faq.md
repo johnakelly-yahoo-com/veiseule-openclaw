@@ -1136,7 +1136,7 @@ clawhub installatie <skill-slug>
 clawhub update --all
 ```
 
-ClawHub installeert in `. vaardigheden onder uw huidige map (of val terug naar uw geconfigureerde OpenJuridische Werkruimte); OpenClaw behandelt dat als `<workspace>/vaardigheden`tijdens de volgende sessie. Voor gedeelde vaardigheden tussen agents, plaats ze in`~/.openclaw/vaardigheden/<name>/SKILL.md\`. Sommige vaardigheden verwachten binaries geïnstalleerd via Homebrew; op Linux wat betekent Linuxbrew (Zie de Homebrew Linux FAQ invoer hierboven). Zie [Skills](/tools/skills) en [ClawHub](/tools/clawhub).
+ClawHub installeert in `. vaardigheden onder uw huidige map (of val terug naar uw geconfigureerde OpenJuridische Werkruimte); OpenClaw behandelt dat als `&lt;workspace&gt;/vaardigheden`tijdens de volgende sessie. Voor gedeelde vaardigheden tussen agents, plaats ze in`~/.openclaw/vaardigheden/&lt;name&gt;/SKILL.md\`. Sommige vaardigheden verwachten binaries geïnstalleerd via Homebrew; op Linux wat betekent Linuxbrew (Zie de Homebrew Linux FAQ invoer hierboven). Zie [Skills](/tools/skills) en [ClawHub](/tools/clawhub).
 
 ### Hoe installeer ik de Chrome extensie voor browser overname
 

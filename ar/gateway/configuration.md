@@ -743,9 +743,9 @@ scripts/sandbox-setup.sh
   - `هوية`: اسم كل عامل/موضوع/emoji (يستخدم لذكر الأنماط + ردود الفعل).
   - `محادثة المجموعة`: لكل عامل ذكر البوابة (`ذكر:Patterns`).
   - `sandbox`: لكل عامل sandbox config (تجاوز `agents.defaults.sandbox`).
-    - `mode`: `"off"` <unk> `"non-main"` <unk> `"all"`
-    - `مساحة العمل`: `"لا شيء"` <unk> `ro"` <unk> `"rw"`
-    - `النطاق`: `الدورة` <unk> `الوكيل"` <unk> `"المشتركة"`
+    - `mode`: `"off"` &lt;unk&gt; `"non-main"` &lt;unk&gt; `"all"`
+    - `مساحة العمل`: `"لا شيء"` &lt;unk&gt; `ro"` &lt;unk&gt; `"rw"`
+    - `النطاق`: `الدورة` &lt;unk&gt; `الوكيل"` &lt;unk&gt; `"المشتركة"`
     - `workspaceRoot`: جذر ساتل العمل المخصص
     - `docker`: تجاوزات مرفأ لكل عامل (مثل `image` و`network` و`env` و`setupcommand` والحدود؛ وتجاهلت عندما `النطاق: "المشترك"`)
     - `المتصفح`: تجاوز المتصفح الرملي لكل عامل (تم تجاهله عندما `النطاق: "مشاركة"`)
@@ -995,7 +995,7 @@ scripts/sandbox-setup.sh
 - `commands.native: "auto"` (default) يعمل على الأوامر الأصلية للديسكورد/تيليجرام ويترك Slack متوقفة ؛ القنوات غير المدعومة تبقى النص فقط.
 - تعيين `commands.native: true<unk> false` لإجبار الجميع، أو تجاوز كل قناة مع `channels.discord.commands.native`، `channels.telegram.commands.native`، `channels.slack.commands.native` (bool أو `auto"`). "false" مسح الأوامر المسجلة سابقاً على ديسكورد/تيليجرام عند بدء التشغيل؛ تتم إدارة الأوامر Slack في تطبيق Slack .
 - يضيف `channels.telegram.customcommands` إدخالات إضافية في قائمة البوت تيليجرام. يتم تطبيع الأسماء؛ يتم تجاهل التعارض مع الأوامر الأصلية.
-- `commands.bash: true' تمكين `! <cmd>` لتشغيل أوامر قذيفة المضيف (`/bash <cmd>'يعمل أيضًا كاسم مستعار). 8. يتطلب `tools.elevated.enabled` وإدراج المرسل في قائمة السماح ضمن `tools.elevated.allowFrom.<channel>`.\`.
+- `commands.bash: true' تمكين `! &lt;cmd&gt;` لتشغيل أوامر قذيفة المضيف (`/bash &lt;cmd&gt;'يعمل أيضًا كاسم مستعار). 8. يتطلب `tools.elevated.enabled` وإدراج المرسل في قائمة السماح ضمن `tools.elevated.allowFrom.<channel>`.\`.
 - `commands.bashForegroundMs` يتحكم في طول فترة الانتظار قبل الخلفية. بينما يتم تشغيل وظيفة باش ، \`! الطلبات <cmd>تم رفضها (واحدة في كل مرة).
 - `commands.config: true' تمكين `/config' (reads/writes `openclaw.json`).
 - `القنوات.<provider>تهيئة بوابات .configWrites` التي بدأتها تلك القناة (الافتراضي: صحيح). ينطبق هذا على `/config set<unk> unset` زائداً الترحيل التلقائي الخاص بالمزود (تغييرات معرف المجموعة الخارقة تيليجرام، تغييرات معرف القناة Slack Tack).
@@ -1628,8 +1628,8 @@ head/tail مقتطفة مع علامة.
 
 ملاحظات:
 
-- 'messages.tts.auto' تحكم auto<unk> TTS ('off`، 'دائما`، 'inbound`، 'tagged`).
-- '/tts off<unk> دائما <unk> inbound<unk> tagged' يقوم بتعيين الوضع التلقائي للدورة (تجاوز التكوين).
+- 'messages.tts.auto' تحكم auto&lt;unk&gt; TTS ('off`، 'دائما`، 'inbound`، 'tagged`).
+- '/tts off&lt;unk&gt; دائما &lt;unk&gt; inbound&lt;unk&gt; tagged' يقوم بتعيين الوضع التلقائي للدورة (تجاوز التكوين).
 - 'messages.tts.enabled' هو إرث؛ ينقله الطبيب إلى 'messages.tts.auto\`.
 - مخزن "PrefsPath" التجاوزات المحلية (المزود/الحد/الموجز).
 - \`maxTextLength' هو حد ثابت لمدخلات TTS؛ الملخصات مقتطعة لتلائم ذلك.
@@ -2271,7 +2271,7 @@ MiniMax wri: تعيين `MINIMAX_API_KEY` (env) أو تكوين `models.provider
 ملاحظات:
 
 - 'tools.elevated' هو خط الأساس العالمي. 'agents.list[].tools.elevated' لا يمكن إلا أن يزيد من القيود (كلاهما يجب أن يسمح بذلك).
-- حالة مخزن '/رفع على <unk> off<unk> ask<unk> full' لكل مفتاح جلسة؛ تنطبق التوجيهات المضمنة على رسالة واحدة.
+- حالة مخزن '/رفع على &lt;unk&gt; off&lt;unk&gt; ask&lt;unk&gt; full' لكل مفتاح جلسة؛ تنطبق التوجيهات المضمنة على رسالة واحدة.
 - يرفع "exec" على المضيف ويتجاوز صندوق الرمال.
 - ولا تزال سياسة الأدوات تنطبق؛ وإذا رُفض "exec"، لا يمكن استخدام الزيادة في الأداء.
 
@@ -2966,7 +2966,7 @@ OpenClaw يمكن أن يبدأ مثيل **كروم/Brave/Edge/Chromium لـ ope
     ملزم: "حلقة"،
     // controlUi: { enabled: صحيح, مسار basePath: "/openclaw" }
     // auth: mode: "token", الرمز المميز: "to-token" } // / token بوابات WS + التحكم في الوصول إلى واجهة المستخدم
-    // tailscale: modul: "off" <unk> "serve" <unk> "funnel" }
+    // tailscale: modul: "off" &lt;unk&gt; "serve" &lt;unk&gt; "funnel" }
   }،
 }
 ```
@@ -3201,7 +3201,7 @@ openclaw Porateway 19001
   hooks: {
     gmail: {
       account: "openclaw@gmail.com",
-      topic: "projects/<project-id>/topics/gog-gmail-watch",
+      topic: "projects/&lt;project-id&gt;/topics/gog-gmail-watch",
       subscription: "gog-gmail-watch-push",
       pushToken: "shared-push-token",
       hookUrl: "http://127.0.0.1:18789/hooks/gmail",

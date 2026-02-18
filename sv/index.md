@@ -21,7 +21,8 @@ title: "OpenClaw"
 
 > _"EXFOLIATE! EXFOLIATE!"_ - En rymdhummer, förmodligen
 
-<p align="center"><strong>Alla OS-gateway för AI-agenter över WhatsApp, Telegram, Discord, iMessage, och mer.</strong><br />
+<p align="center">
+  <strong>Alla OS-gateway för AI-agenter över WhatsApp, Telegram, Discord, iMessage, och mer.</strong><br />
   Skicka ett meddelande, få ett agentsvar från din ficka. Plugins lägga Mattermost och mer.
 </p>
 

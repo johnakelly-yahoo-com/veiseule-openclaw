@@ -1000,7 +1000,7 @@ Notes:
 - Установите `commands.native: true|false` чтобы заставить всех или переопределить для каждого канала `channels.discord.commands.native`, `channels.telegram.commands.native`, `channels.slack.commands.native` (bool или `auto"`). `false` очищает ранее зарегистрированные команды при запуске Discord/Telegram; Команды Slack управляются в Slack app.
 - `channels.telegram.customCommands` добавляет дополнительные записи меню Telegram. Имена нормализируются; конфликты с родными командами игнорируются.
 - `commands.bash: true` разрешает `! <cmd>` для запуска команд оболочки хоста (алиас `/bash <cmd>` также работает). Требуется `tools.elevated.enabled` и разрешает отправителя в `tools.elevated.allowFrom.<channel>`.
-- `commands.bashForegroundMs` управляет, сколько ожиданий bash перед фоном. Пока bash работает, новая `! Запросы `<cmd>\` отклоняются (по одному за раз).
+- `commands.bashForegroundMs` управляет, сколько ожиданий bash перед фоном. Пока bash работает, новая `! Запросы `&lt;cmd&gt;\` отклоняются (по одному за раз).
 - `commands.config: true` поддерживает `/config` (reads/writes `openclaw.json`).
 - `каналы.<provider>.configWrites` переключает мутации, инициированные этим каналом (по умолчанию: true). Это применимо к `/config set|unset` плюс специфические автомиграции провайдера (изменения ID супергруппы Telegram, изменения ID канала Slack ).
 - `commands.debug: true` активирует `/debug` (только для runtime-overrides).
@@ -1176,7 +1176,7 @@ OpenClaw запускает Telegram только при наличии секц
 }
 ```
 
-OpenClaw запускает Discord только при наличии секции конфигурации `channels.discord`. Токен разрешен из `channels.discord.token`, с именем `DISCORD_BOT_TOKEN` как резервный вариант для учетной записи по умолчанию (если `channels.discord.enabled` не является `false`). Используйте `user:<id>(DM) или `channel:<id>`(канал гильдии), чтобы указать цели доставки для команд cron/CLI; пустые числовые ID являются неоднозначными и отвергнуты.
+OpenClaw запускает Discord только при наличии секции конфигурации `channels.discord`. Токен разрешен из `channels.discord.token`, с именем `DISCORD_BOT_TOKEN` как резервный вариант для учетной записи по умолчанию (если `channels.discord.enabled` не является `false`). Используйте `user:<id>(DM) или `channel:&lt;id&gt;`(канал гильдии), чтобы указать цели доставки для команд cron/CLI; пустые числовые ID являются неоднозначными и отвергнуты.
 Спучки гильдии - строчные буквы, где пробелы заменены на`-`; клавиши каналов используют название слайд-канала (нет ведущего `#`). Предпочитайте идентификаторы гильдии как ключи во избежание неоднозначности переименования.
 Бот авторы сообщений игнорируются по умолчанию. Включите с `channels.discord.allowBots\` (собственные сообщения все еще фильтруются для предотвращения циклов самоответа).
 Режимы оповещения о реакции:
@@ -1225,7 +1225,7 @@ Notes:
 - Счет службы JSON может быть встроенным (`serviceAccount`) или основанным на файлах (`serviceAccountFile`).
 - Env fallbackback for the default account: `GOOGLE_CHAT_SERVICE_ACCOUNT` or `GOOGLE_CHAT_SERVICE_ACCOUNT_FILE`.
 - `audienceType` + `audience` должен соответствовать настройке аутентификации webhook в чате.
-- Используйте "spaces/<spaceId>" или "users/<userId|email>для задания целей доставки.
+- Используйте "spaces/&lt;spaceId&gt;" или "users/&lt;userId|email&gt;для задания целей доставки.
 
 ### `channels.slack` (режим сокета)
 
@@ -1288,7 +1288,7 @@ Slack запускается в режиме сокета и требует ка
 
 Поддержка нескольких аккаунтов живет в `channels.slack.accounts` (см. раздел multi-account выше). Маркеры Env применяются только к учетной записи по умолчанию.
 
-OpenClaw запускает Slack при включенном провайдере и задаются оба токена (через конфигурацию или `SLACK_BOT_TOKEN` + `SLACK_APP_TOKEN`). Используйте `user:<id>(DM) или `channel:<id>для задания целей доставки команд cron/CLI.
+OpenClaw запускает Slack при включенном провайдере и задаются оба токена (через конфигурацию или `SLACK_BOT_TOKEN` + `SLACK_APP_TOKEN`). Используйте `user:<id>(DM) или `channel:&lt;id&gt;для задания целей доставки команд cron/CLI.
 Установите `channels.slack.configWrites: false` на блокировку сценария конфигурации с Slack-запросом (включая миграцию ID канала и `/config set|unset`).
 
 Бот авторы сообщений игнорируются по умолчанию. Включить с `channels.slack.allowBots` или `channels.slack.channels.<id>.allowBots`.
@@ -1354,7 +1354,7 @@ OpenClaw запускает Mattermost когда учетная запись н
 - Группа: `channels.mattermost.groupPolicy="allowlist"` по умолчанию (mention-gated). Используйте `channels.mattermost.groupAllowFrom` для ограничения отправителей.
 
 Поддержка нескольких аккаунтов живет в `channels.mattermost.accounts` (см. раздел multi-account выше). Env vars применимы только к учетной записи по умолчанию.
-Используйте «channel:<id>» или «user:<id>» (или «@username») при указании целей доставки; пустые id канала считаются идентификаторами.
+Используйте «channel:&lt;id&gt;» или «user:&lt;id&gt;» (или «@username») при указании целей доставки; пустые id канала считаются идентификаторами.
 
 ### `channels.signal` (сигнал-cli)
 
@@ -3334,7 +3334,7 @@ TLS:
 
 Если эта опция включена, шлюз записывает в файл `_openclaw-gw._tcp` unicast DNS-SD zone для `_openclaw-gw._tcp` в папке `~/.openclaw/dns/` используя настроенный домен обнаружения (пример: `openclaw.internal.`).
 
-Чтобы сделать iOS/Android обнаружить через сети (Vienna <unk> London), свяжите это с:
+Чтобы сделать iOS/Android обнаружить через сети (Vienna &lt;unk&gt; London), свяжите это с:
 
 - DNS сервер на шлюзе хоста, обслуживающего выбранный домен (CoreDNS рекомендуется)
 - Tailscale **split DNS** для того, чтобы клиенты могли разрешить домен через шлюз DNS сервер

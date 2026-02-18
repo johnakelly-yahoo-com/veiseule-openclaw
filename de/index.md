@@ -21,7 +21,8 @@ title: "OpenClaw"
 
 > _„EXFOLIATE! EXFOLIATE!“_ — ein Weltraum-Hummer, vermutlich
 
-<p align="center"><strong>Gateway für KI-Agenten auf jedem Betriebssystem – über WhatsApp, Telegram, Discord, iMessage und mehr.</strong><br />
+<p align="center">
+  <strong>Gateway für KI-Agenten auf jedem Betriebssystem – über WhatsApp, Telegram, Discord, iMessage und mehr.</strong><br />
   Senden Sie eine Nachricht und erhalten Sie eine Agentenantwort direkt aus Ihrer Tasche. Plugins fügen Mattermost und mehr hinzu.
 </p>
 

@@ -21,7 +21,8 @@ title: "OpenClaw"
 
 > _「EXFOLIATE! EXFOLIATE!」_ — 可能是一隻太空龍蝦
 
-<p align="center"><strong>跨 WhatsApp、Telegram、Discord、iMessage 等的任何 OS AI 代理程式 Gateway 閘道器。</strong><br />
+<p align="center">
+  <strong>跨 WhatsApp、Telegram、Discord、iMessage 等的任何 OS AI 代理程式 Gateway 閘道器。</strong><br />
   傳送一則訊息，從口袋裡就能取得代理程式回應。外掛可加入 Mattermost 等更多通道。
 <br />
   Send a message, get an agent response from your pocket. Plugins add Mattermost and more.

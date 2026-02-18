@@ -2,471 +2,206 @@
 title: "Sub-agentlar"
 ---
 
-# Sub-Agents
+# Sub-agentlar
 
-Sub-agents let you run background tasks without blocking the main conversation. When you spawn a sub-agent, it runs in its own isolated session, does its work, and announces the result back to the chat when finished.
+Sub-agentlar mavjud agent ishga tushirishidan yaratiladigan fon (background) agent ishga tushirishlaridir. Ular o‘zining alohida sessiyasida (`agent:<agentId>:subagent:<uuid>`) ishlaydi va yakunlangach, natijasini so‘rovchi chat kanaliga **e’lon qiladi**.
 
-**Use cases:**
+## Slash buyruq
 
-- Research a topic while the main agent continues answering questions
-- Run multiple long tasks in parallel (web scraping, code analysis, file processing)
-- Delegate tasks to specialized agents in a multi-agent setup
+Joriy sessiya uchun sub-agent ishga tushirishlarini ko‘rish yoki boshqarish uchun `/subagents` dan foydalaning:
 
-## Quick Start
+- `/subagents list`
+- `/subagents kill <id|#|all>`
+- `/subagents log <id|#> [limit] [tools]`
+- `/subagents info <id|#>`
+- `/subagents send <id|#> <message>`
 
-The simplest way to use sub-agents is to ask your agent naturally:
+`/subagents info` ishga tushirish metama’lumotlarini ko‘rsatadi (holat, vaqt belgilar, sessiya id, transkript yo‘li, tozalash).
 
-> "Spawn a sub-agent to research the latest Node.js release notes"
+Asosiy maqsadlar:
 
-The agent will call the `sessions_spawn` tool behind the scenes. When the sub-agent finishes, it announces its findings back into your chat.
+- Asosiy ishga tushirishni bloklamasdan "research / long task / sekin asbob" ishlarini parallellashtirish.
+- Sub-agentlarni sukut bo‘yicha izolyatsiya qilish (sessiya ajratilishi + ixtiyoriy sandbox).
+- Asbob yuzasini noto‘g‘ri ishlatishni qiyinlashtirish: sub-agentlar sukut bo‘yicha session asboblarini olmaydi.
+- Orkestrator patternlari uchun sozlanadigan nesting chuqurligini qo‘llab-quvvatlash.
 
-You can also be explicit about options:
+Xarajat eslatmasi: har bir sub-agent o‘zining **konteksti** va token sarfiga ega. Og‘ir yoki takroriy vazifalar uchun sub-agentlarga arzonroq model belgilang va asosiy agentni yuqori sifatli modelda qoldiring. Buni `agents.defaults.subagents.model` yoki har bir agent uchun override orqali sozlashingiz mumkin.
 
-> "Spawn a sub-agent to analyze the server logs from today. Use gpt-5.2 and set a 5-minute timeout."
+## Asbob
 
-## How It Works
+`sessions_spawn` dan foydalaning:
 
-<Steps>
-  <Step title="Main agent spawns">
-    The main agent calls `sessions_spawn` with a task description. The call is **non-blocking** — the main agent gets back `{ status: "accepted", runId, childSessionKey }` immediately.
-  </Step>
-  <Step title="Sub-agent runs in the background">
-    A new isolated session is created (`agent:<agentId>:subagent:<uuid>`) on the dedicated `subagent` queue lane.
-  </Step>
-  <Step title="Result is announced">
-    When the sub-agent finishes, it announces its findings back to the requester chat. The main agent posts a natural-language summary.
-  </Step>
-  <Step title="Session is archived">
-    The sub-agent session is auto-archived after 60 minutes (configurable). Transcripts are preserved.
-  </Step>
-</Steps>
+- Sub-agent ishga tushirishni boshlaydi (`deliver: false`, global lane: `subagent`)
+- So‘ng announce bosqichini bajaradi va announce javobini so‘rovchi chat kanaliga joylaydi
+- Standart model: chaqiruvchidan meros bo‘lib o‘tadi, agar siz `agents.defaults.subagents.model` (yoki per-agent `agents.list[].subagents.model`) ni sozlamasangiz; aniq `sessions_spawn.model` har doim ustun turadi.
+- Standart thinking: chaqiruvchidan meros bo‘lib o‘tadi, agar siz `agents.defaults.subagents.thinking` (yoki per-agent `agents.list[].subagents.thinking`) ni sozlamasangiz; aniq `sessions_spawn.thinking` har doim ustun turadi.
 
-<Tip>
-Each sub-agent has its **own** context and token usage. Set a cheaper model for sub-agents to save costs — see [Setting a Default Model](#setting-a-default-model) below.
-</Tip>
+Asbob parametrlari:
 
-## Configuration
+- `task` (majburiy)
+- `label?` (ixtiyoriy)
+- `agentId?` (ixtiyoriy; ruxsat berilgan bo‘lsa, boshqa agent id ostida ishga tushirish)
+- `model?` (ixtiyoriy; sub-agent modeli ustidan override; noto‘g‘ri qiymatlar o‘tkazib yuboriladi va sub-agent standart modelda ishga tushadi, asbob natijasida ogohlantirish bilan)
+- `thinking?` (ixtiyoriy; sub-agent ishga tushirish uchun thinking darajasini override qiladi)
+- `runTimeoutSeconds?` (standart `0`; o‘rnatilsa, sub-agent N soniyadan keyin to‘xtatiladi)
+- `cleanup?` (`delete|keep`, standart `keep`)
 
-Sub-agents work out of the box with no configuration. Defaults:
+Allowlist:
 
-- Model: target agent’s normal model selection (unless `subagents.model` is set)
-- Thinking: no sub-agent override (unless `subagents.thinking` is set)
-- Max concurrent: 8
-- Auto-archive: after 60 minutes
+- `agents.list[].subagents.allowAgents`: `agentId` orqali nishonga olinishi mumkin bo‘lgan agent idlar ro‘yxati (`["*"]` — istalganiga ruxsat). Standart: faqat so‘rovchi agent.
 
-### Setting a Default Model
+Discovery:
 
-Use a cheaper model for sub-agents to save on token costs:
+- `sessions_spawn` uchun hozirda qaysi agent idlarga ruxsat berilganini ko‘rish uchun `agents_list` dan foydalaning.
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        model: "minimax/MiniMax-M2.1",
-      },
-    },
-  },
-}
-```
+Auto-archive:
 
-### Setting a Default Thinking Level
+- Sub-agent sessiyalari `agents.defaults.subagents.archiveAfterMinutes` dan so‘ng avtomatik arxivlanadi (standart: 60).
+- Arxiv `sessions.delete` dan foydalanadi va transkriptni `*.deleted.<timestamp>` ga qayta nomlaydi (shu papkada).
+- `cleanup: "delete"` announce’dan so‘ng darhol arxivlaydi (transkript rename orqali saqlanadi).
+- Auto-archive best-effort; agar gateway qayta ishga tushsa, kutilayotgan timerlar yo‘qoladi.
+- `runTimeoutSeconds` auto-archive qilmaydi; u faqat ishga tushirishni to‘xtatadi. Sessiya auto-archive’gacha saqlanadi.
+- Auto-archive depth-1 va depth-2 sessiyalarga bir xil qo‘llanadi.
+
+## Nested Sub-Agentlar
+
+Sukut bo‘yicha sub-agentlar o‘z sub-agentlarini ishga tushira olmaydi (`maxSpawnDepth: 1`). Siz `maxSpawnDepth: 2` qilib, bir darajali nestingni yoqishingiz mumkin — bu **orchestrator pattern** ni imkon qiladi: main → orchestrator sub-agent → worker sub-sub-agentlar.
+
+### Qanday yoqiladi
 
 ```json5
 {
   agents: {
     defaults: {
       subagents: {
-        thinking: "low",
+        maxSpawnDepth: 2, // sub-agentlarga farzand yaratishga ruxsat (standart: 1)
+        maxChildrenPerAgent: 5, // har bir agent sessiyasi uchun maksimal faol farzandlar (standart: 5)
+        maxConcurrent: 8, // global concurrency lane chegarasi (standart: 8)
       },
     },
   },
 }
 ```
 
-### Per-Agent Overrides
+### Chuqurlik darajalari
 
-In a multi-agent setup, you can set sub-agent defaults per agent:
+| Depth | Session key shakli                           | Rol                                             | Spawn qila oladimi?            |
+| ----- | -------------------------------------------- | ----------------------------------------------- | ------------------------------- |
+| 0     | `agent:<id>:main`                            | Asosiy agent                                   | Har doim                       |
+| 1     | `agent:<id>:subagent:<uuid>`                 | Sub-agent (depth 2 ruxsat etilganda orchestrator) | Faqat `maxSpawnDepth >= 2` bo‘lsa |
+| 2     | `agent:<id>:subagent:<uuid>:subagent:<uuid>` | Sub-sub-agent (leaf worker)                    | Hech qachon                    |
 
-```json5
-{
-  agents: {
-    list: [
-      {
-        id: "researcher",
-        subagents: {
-          model: "anthropic/claude-sonnet-4",
-        },
-      },
-      {
-        id: "assistant",
-        subagents: {
-          model: "minimax/MiniMax-M2.1",
-        },
-      },
-    ],
-  },
-}
-```
+### Announce zanjiri
 
-### Concurrency
+Natijalar zanjir bo‘ylab yuqoriga oqadi:
 
-Control how many sub-agents can run at the same time:
+1. Depth-2 worker tugaydi → o‘z parentiga (depth-1 orchestrator) announce qiladi
+2. Depth-1 orchestrator announce’ni oladi, natijalarni sintez qiladi, tugaydi → main’ga announce qiladi
+3. Main agent announce’ni oladi va foydalanuvchiga yetkazadi
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        maxConcurrent: 4, // default: 8
-      },
-    },
-  },
-}
-```
+Har bir daraja faqat bevosita farzandlaridan kelgan announce’larni ko‘radi.
 
-Sub-agents use a dedicated queue lane (`subagent`) separate from the main agent queue, so sub-agent runs don't block inbound replies.
+### Chuqurlik bo‘yicha asbob siyosati
 
-### Auto-Archive
+- **Depth 1 (orchestrator, `maxSpawnDepth >= 2` bo‘lsa)**: `sessions_spawn`, `subagents`, `sessions_list`, `sessions_history` oladi, shunda o‘z farzandlarini boshqara oladi. Boshqa session/system asboblar rad etiladi.
+- **Depth 1 (leaf, `maxSpawnDepth == 1` bo‘lsa)**: Session asboblari yo‘q (joriy standart xulq).
+- **Depth 2 (leaf worker)**: Session asboblari yo‘q — depth 2 da `sessions_spawn` har doim rad etiladi. Yana farzand yarata olmaydi.
 
-Sub-agent sessions are automatically archived after a configurable period:
+### Per-agent spawn limiti
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        archiveAfterMinutes: 120, // default: 60
-      },
-    },
-  },
-}
-```
+Har bir agent sessiyasi (istalgan depth’da) bir vaqtning o‘zida maksimal `maxChildrenPerAgent` (standart: 5) faol farzandga ega bo‘lishi mumkin. Bu bitta orchestrator’dan nazoratsiz fan-out’ni oldini oladi.
 
-<Note>
-Archive renames the transcript to `*.deleted.<timestamp>` (same folder) — transcripts are preserved, not deleted. Auto-archive timers are best-effort; pending timers are lost if the gateway restarts.
-</Note>
+### Cascade stop
 
-## The `sessions_spawn` Tool
+Depth-1 orchestrator’ni to‘xtatish uning barcha depth-2 farzandlarini ham avtomatik to‘xtatadi:
 
-This is the tool the agent calls to create sub-agents.
-
-### Parameters
-
-| Parameter           | Type                     | Default                               | Description                                                                                       |
-| ------------------- | ------------------------ | ------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `task`              | string                   | _(required)_       | What the sub-agent should do                                                                      |
-| `label`             | string                   | —                                     | Short label for identification                                                                    |
-| `agentId`           | string                   | _(caller's agent)_ | Spawn under a different agent id (must be allowed)                             |
-| `model`             | string                   | _(optional)_       | Override the model for this sub-agent                                                             |
-| `thinking`          | string                   | _(optional)_       | Override thinking level (`off`, `low`, `medium`, `high`, etc.) |
-| `runTimeoutSeconds` | number                   | `0` (no limit)     | Abort the sub-agent after N seconds                                                               |
-| `cleanup`           | `"delete"` \\| `"keep"` | `"keep"`                              | `"delete"` archives immediately after announce                                                    |
-
-### Model Resolution Order
-
-The sub-agent model is resolved in this order (first match wins):
-
-1. Explicit `model` parameter in the `sessions_spawn` call
-2. Per-agent config: `agents.list[].subagents.model`
-3. Global default: `agents.defaults.subagents.model`
-4. Target agent’s normal model resolution for that new session
-
-Thinking level is resolved in this order:
-
-1. Explicit `thinking` parameter in the `sessions_spawn` call
-2. Per-agent config: `agents.list[].subagents.thinking`
-3. Global default: `agents.defaults.subagents.thinking`
-4. Aks holda, sub-agentga xos fikrlashni bekor qiluvchi hech qanday sozlama qo‘llanilmaydi
-
-<Note>
-Noto‘g‘ri model qiymatlari jim tarzda o‘tkazib yuboriladi — sub-agent ogohlantirish bilan asbob natijasida keyingi yaroqli standart modelda ishga tushadi.</Note>
-
-### Agentlararo ishga tushirish
-
-Standart holatda, sub-agentlar faqat o‘z agent IDlari ostida ishga tushirilishi mumkin. Agentga boshqa agent IDlari ostida sub-agentlarni ishga tushirishga ruxsat berish uchun:
-
-```json5
-{
-  agents: {
-    list: [
-      {
-        id: "orchestrator",
-        subagents: {
-          allowAgents: ["researcher", "coder"], // yoki har qandayiga ruxsat berish uchun ["*"]
-        },
-      },
-    ],
-  },
-}
-```
-
-<Tip>
-`sessions_spawn` uchun hozirda qaysi agent IDlariga ruxsat berilganini aniqlash uchun `agents_list` asbobidan foydalaning.</Tip>
-
-## Sub-agentlarni boshqarish (`/subagents`)
-
-Joriy sessiya uchun sub-agent ishga tushirishlarini ko‘rish va boshqarish uchun `/subagents` slash-buyrug‘idan foydalaning:
-
-| Buyruq                                     | Tavsif                                                                                      |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------- |
-| `/subagents list`                          | Barcha sub-agent ishga tushirishlarini (faol va yakunlangan) ro‘yxatlash |
-| `/subagents stop <id\\|#\\|all>`         | Ishlayotgan sub-agentni to‘xtatish                                                          |
-| `/subagents log <id\\|#> [limit] [tools]` | Sub-agent transkriptini ko‘rish                                                             |
-| `/subagents info <id\\|#>`                | Ishga tushirish haqida batafsil metama’lumotlarni ko‘rsatish                                |
-| `/subagents send <id\\|#> <message>`      | Ishlayotgan sub-agentga xabar yuborish                                                      |
-
-Sub-agentlarga ro‘yxat indekslari (`1`, `2`), run id prefiksi, to‘liq sessiya kaliti yoki `last` orqali murojaat qilishingiz mumkin.
-
-<AccordionGroup>
-  <Accordion title="Example: list and stop a sub-agent">
-    ```
-    /subagents list
-    ```
-
-    ````
-    ```
-    🧭 Subagents (current session)
-    Active: 1 · Done: 2
-    1) ✅ · research logs · 2m31s · run a1b2c3d4 · agent:main:subagent:...
-    2) ✅ · check deps · 45s · run e5f6g7h8 · agent:main:subagent:...
-    3) 🔄 · deploy staging · 1m12s · run i9j0k1l2 · agent:main:subagent:...
-    ```
-    
-    ```
-    /subagents stop 3
-    ```
-    
-    ```
-    ⚙️ Stop requested for deploy staging.
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: inspect a sub-agent">
-    ```
-    /subagents info 1
-    ```
-
-    ````
-    ```
-    ℹ️ Subagent info
-    Status: ✅
-    Label: research logs
-    Task: Research the latest server error logs and summarize findings
-    Run: a1b2c3d4-...
-    Session: agent:main:subagent:...
-    Runtime: 2m31s
-    Cleanup: keep
-    Outcome: ok
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: view sub-agent log">
-    ```
-    /subagents log 1 10
-    ```
-
-    ````
-    Sub-agent transkriptidan oxirgi 10 ta xabarni ko‘rsatadi. Asbob chaqiruv xabarlarini ham kiritish uchun `tools` ni qo‘shing:
-    
-    ```
-    /subagents log 1 10 tools
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: send a follow-up message">
-    ```
-    /subagents send 3 "Also check the staging environment"
-    ```
-
-    ```
-    Ishlayotgan sub-agent sessiyasiga xabar yuboradi va javobni 30 soniyagacha kutadi.
-    ```
-
-  </Accordion>
-</AccordionGroup>
-
-## E’lon qilish (Natijalar qanday qaytadi)
-
-Sub-agent yakunlanganda, u **e’lon qilish** bosqichidan o‘tadi:
-
-1. Sub-agentning yakuniy javobi qayd etiladi
-2. Natija, holat va statistika bilan asosiy agent sessiyasiga xulosa xabari yuboriladi
-3. Asosiy agent chatga tabiiy tilidagi xulosani joylaydi
-
-E’lon qilingan javoblar mavjud bo‘lsa, thread/mavzu marshrutlashini saqlab qoladi (Slack thread’lari, Telegram topic’lari, Matrix thread’lari).
-
-### E’lon statistikasi
-
-Har bir e’lon quyidagilarni o‘z ichiga olgan statistika satrini o‘z ichiga oladi:
-
-- Ishlash davomiyligi
-- Token sarfi (kiritish/chiqarish/jami)
-- Taxminiy xarajat (model narxlari `models.providers.*.models[].cost` orqali sozlanganda)
-- Sessiya kaliti, sessiya IDsi va transkript yo‘li
-
-### E’lon holati
-
-E’lon xabari ishga tushirish natijasidan kelib chiqqan holatni o‘z ichiga oladi (model chiqishidan emas):
-
-- **muvaffaqiyatli yakun** (`ok`) — vazifa odatdagidek bajarildi
-- **xato** — vazifa bajarilmadi (tafsilotlar eslatmalarda)
-- **vaqt tugadi** — vazifa `runTimeoutSeconds` dan oshib ketdi
-- **noma’lum** — holatni aniqlab bo‘lmadi
-
-<Tip>
-Agar foydalanuvchiga ko‘rinadigan e’lon talab etilmasa, asosiy agentning xulosa bosqichi `NO_REPLY` ni qaytarishi mumkin va hech narsa joylanmaydi.
-This is different from `ANNOUNCE_SKIP`, which is used in agent-to-agent announce flow (`sessions_send`).
-</Tip>
-
-## Tool Policy
-
-By default, sub-agents get **all tools except** a set of denied tools that are unsafe or unnecessary for background tasks:
-
-<AccordionGroup>
-  <Accordion title="Default denied tools">
-    | Denied tool | Reason |
-    |-------------|--------|
-    | `sessions_list` | Session management — main agent orchestrates |
-    | `sessions_history` | Session management — main agent orchestrates |
-    | `sessions_send` | Session management — main agent orchestrates |
-    | `sessions_spawn` | No nested fan-out (sub-agents cannot spawn sub-agents) |
-    | `gateway` | System admin — dangerous from sub-agent |
-    | `agents_list` | System admin |
-    | `whatsapp_login` | Interactive setup — not a task |
-    | `session_status` | Status/scheduling — main agent coordinates |
-    | `cron` | Status/scheduling — main agent coordinates |
-    | `memory_search` | Pass relevant info in spawn prompt instead |
-    | `memory_get` | Pass relevant info in spawn prompt instead |
-  </Accordion>
-</AccordionGroup>
-
-### Customizing Sub-Agent Tools
-
-You can further restrict sub-agent tools:
-
-```json5
-{
-  tools: {
-    subagents: {
-      tools: {
-        // deny always wins over allow
-        deny: ["browser", "firecrawl"],
-      },
-    },
-  },
-}
-```
-
-To restrict sub-agents to **only** specific tools:
-
-```json5
-{
-  tools: {
-    subagents: {
-      tools: {
-        allow: ["read", "exec", "process", "write", "edit", "apply_patch"],
-        // deny still wins if set
-      },
-    },
-  },
-}
-```
-
-<Note>
-Custom deny entries are **added to** the default deny list. If `allow` is set, only those tools are available (the default deny list still applies on top).
-</Note>
+- Main chat’da `/stop` barcha depth-1 agentlarni to‘xtatadi va ularning depth-2 farzandlariga kaskad qiladi.
+- `/subagents kill <id>` aniq sub-agentni to‘xtatadi va uning farzandlariga kaskad qiladi.
+- `/subagents kill all` so‘rovchi uchun barcha sub-agentlarni to‘xtatadi va kaskad qiladi.
 
 ## Autentifikatsiya
 
 Sub-agent auth **sessiya turi** bo‘yicha emas, balki **agent id** bo‘yicha hal qilinadi:
 
-- The auth store is loaded from the target agent's `agentDir`
-- The main agent's auth profiles are merged in as a **fallback** (agent profiles win on conflicts)
-- The merge is additive — main profiles are always available as fallbacks
+- Sub-agent sessiya kaliti `agent:<agentId>:subagent:<uuid>`.
+- Auth store shu agentning `agentDir` dan yuklanadi.
+- Asosiy agentning auth profillari **fallback** sifatida qo‘shiladi; ziddiyatlarda agent profillari ustun turadi.
 
-<Note>
-Fully isolated auth per sub-agent is not currently supported.
-</Note>
+Eslatma: merge additive, shuning uchun asosiy profil har doim fallback sifatida mavjud. Har bir agent uchun to‘liq izolyatsiyalangan auth hozircha qo‘llab-quvvatlanmaydi.
 
-## Context and System Prompt
+## Announce
 
-Sub-agents receive a reduced system prompt compared to the main agent:
+Sub-agentlar natijani announce bosqichi orqali qaytaradi:
 
-- **Included:** Tooling, Workspace, Runtime sections, plus `AGENTS.md` and `TOOLS.md`
-- **Not included:** `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md`
+- Announce bosqichi sub-agent sessiyasida ishlaydi (so‘rovchi sessiyasida emas).
+- Agar sub-agent aniq `ANNOUNCE_SKIP` deb javob bersa, hech narsa joylanmaydi.
+- Aks holda announce javobi so‘rovchi chat kanaliga follow-up `agent` chaqiruvi orqali (`deliver=true`) joylanadi.
+- Announce javoblari mavjud bo‘lsa, thread/topic marshrutlashini saqlaydi (Slack threads, Telegram topics, Matrix threads).
+- Announce xabarlari barqaror shablonga normallashtiriladi:
+  - `Status:` ishga tushirish natijasidan olinadi (`success`, `error`, `timeout`, yoki `unknown`).
+  - `Result:` announce bosqichidagi xulosa mazmuni (yoki mavjud bo‘lmasa `(not available)`).
+  - `Notes:` xato tafsilotlari va boshqa foydali kontekst.
+- `Status` model chiqishidan emas, runtime signal’laridan olinadi.
 
-The sub-agent also receives a task-focused system prompt that instructs it to stay focused on the assigned task, complete it, and not act as the main agent.
+Announce payload’lari oxirida statistika qatorini o‘z ichiga oladi (hatto wrap qilinganda ham):
 
-## Stopping Sub-Agents
+- Runtime (masalan, `runtime 5m12s`)
+- Token sarfi (input/output/total)
+- Model narxlari sozlangan bo‘lsa, taxminiy xarajat (`models.providers.*.models[].cost`)
+- `sessionKey`, `sessionId` va transkript yo‘li (shunda main agent `sessions_history` orqali tarixni olishi yoki diskdagi faylni ko‘rishi mumkin)
 
-| Method                 | Effect                                                                    |
-| ---------------------- | ------------------------------------------------------------------------- |
-| `/stop` in the chat    | Aborts the main session **and** all active sub-agent runs spawned from it |
-| `/subagents stop <id>` | Stops a specific sub-agent without affecting the main session             |
-| `runTimeoutSeconds`    | Automatically aborts the sub-agent run after the specified time           |
+## Tool Policy (sub-agent asboblari)
 
-<Note>
-`runTimeoutSeconds` does **not** auto-archive the session. The session remains until the normal archive timer fires.
-</Note>
+Sukut bo‘yicha sub-agentlar **barcha asboblarni oladi, session asboblari** va system asboblaridan tashqari:
 
-## Full Configuration Example
+- `sessions_list`
+- `sessions_history`
+- `sessions_send`
+- `sessions_spawn`
 
-<Accordion title="Complete sub-agent configuration">
+Agar `maxSpawnDepth >= 2` bo‘lsa, depth-1 orchestrator sub-agentlar qo‘shimcha ravishda `sessions_spawn`, `subagents`, `sessions_list`, va `sessions_history` oladi, shunda ular o‘z farzandlarini boshqara oladi.
+
+Config orqali override:
+
 ```json5
 {
   agents: {
     defaults: {
-      model: { primary: "anthropic/claude-sonnet-4" },
       subagents: {
-        model: "minimax/MiniMax-M2.1",
-        thinking: "low",
-        maxConcurrent: 4,
-        archiveAfterMinutes: 30,
+        maxConcurrent: 1,
       },
     },
-    list: [
-      {
-        id: "main",
-        default: true,
-        name: "Personal Assistant",
-      },
-      {
-        id: "ops",
-        name: "Ops Agent",
-        subagents: {
-          model: "anthropic/claude-sonnet-4",
-          allowAgents: ["main"], // ops can spawn sub-agents under "main"
-        },
-      },
-    ],
   },
   tools: {
     subagents: {
       tools: {
-        deny: ["browser"], // sub-agents can't use the browser
+        // deny wins
+        deny: ["gateway", "cron"],
+        // agar allow o‘rnatilsa, faqat allow-only bo‘ladi (deny baribir ustun)
+        // allow: ["read", "exec", "process"]
       },
     },
   },
 }
 ```
-</Accordion>
+
+## Concurrency
+
+Sub-agentlar alohida in-process queue lane’dan foydalanadi:
+
+- Lane nomi: `subagent`
+- Concurrency: `agents.defaults.subagents.maxConcurrent` (standart `8`)
+
+## To‘xtatish
+
+- So‘rovchi chat’da `/stop` yuborish so‘rovchi sessiyasini bekor qiladi va undan yaratilgan barcha faol sub-agent ishga tushirishlarini, nested farzandlargacha, to‘xtatadi.
+- `/subagents kill <id>` aniq sub-agentni to‘xtatadi va uning farzandlariga kaskad qiladi.
 
 ## Cheklovlar
 
-<Warning>
-- **Best-effort announce:** If the gateway restarts, pending announce work is lost.
-- **No nested spawning:** Sub-agents cannot spawn their own sub-agents.
-- **Shared resources:** Sub-agents share the gateway process; use `maxConcurrent` as a safety valve.
-- **Auto-archive is best-effort:** Pending archive timers are lost on gateway restart.
-</Warning>
-
-## See Also
-
-- [Session Tools](/concepts/session-tool) — details on `sessions_spawn` and other session tools
-- [Multi-Agent Sandbox and Tools](/tools/multi-agent-sandbox-tools) — per-agent tool restrictions and sandboxing
-- [Configuration](/gateway/configuration) — `agents.defaults.subagents` reference
-- [Queue](/concepts/queue) — how the `subagent` lane works
+- Sub-agent announce **best-effort**. Agar gateway qayta ishga tushsa, kutilayotgan "announce back" ishlari yo‘qoladi.
+- Sub-agentlar bir xil gateway jarayon resurslarini bo‘lishadi; `maxConcurrent` ni xavfsizlik klapani sifatida ko‘ring.
+- `sessions_spawn` har doim non-blocking: u darhol `{ status: "accepted", runId, childSessionKey }` qaytaradi.
+- Sub-agent konteksti faqat `AGENTS.md` + `TOOLS.md` ni inject qiladi (`SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, yoki `BOOTSTRAP.md` yo‘q).
+- Maksimal nesting chuqurligi 5 (`maxSpawnDepth` oralig‘i: 1–5). Ko‘pchilik holatlar uchun depth 2 tavsiya etiladi.
+- `maxChildrenPerAgent` har bir sessiya uchun faol farzandlar sonini cheklaydi (standart: 5, oralig‘i: 1–20).

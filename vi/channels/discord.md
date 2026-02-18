@@ -331,7 +331,7 @@ ack reaction after the bot replies.
 - `guilds.<id>.channels.<channel>.tools`: ghi đè chính sách công cụ theo kênh (tùy chọn) (`allow`/`deny`/`alsoAllow`).
 - `guilds.<id>.channels.<channel>.toolsBySender`: optional per-sender tool policy overrides within the channel (`"*"` wildcard supported).
 - `guilds.<id>.channels.<channel>.users`: optional per-channel user allowlist.
-- `guilds.<id>`.channels.<channel>.skills\`: bộ lọc skill (bỏ qua = tất cả skills, rỗng = không skill nào).
+- `guilds.<id>`.channels.&lt;channel&gt;.skills\`: bộ lọc skill (bỏ qua = tất cả skills, rỗng = không skill nào).
 - `guilds.<id>.channels.<channel>.systemPrompt`: extra system prompt for the channel. Discord channel topics are injected as **untrusted** context (not system prompt).
 - `guilds.<id>.channels.<channel>.enabled`: đặt `false` để tắt kênh.
 - `guilds.<id>`.channels\`: channel rules (keys are channel slugs or ids).

@@ -606,7 +606,7 @@ Grupper beskeder som standard **kræver navn** (enten metadata omtale eller rege
 }
 ```
 
-`messages.groupChat.historyLimit` sætter den globale standard for gruppe-historik-kontekst. Kanaler kan tilsidesætte med `kanaler.<channel>.historyLimit` (eller 'kanaler).<channel>.accounts.\*.historyLimit`for multi-konto). Sæt`0\` for at deaktivere historik wrapping.
+`messages.groupChat.historyLimit` sætter den globale standard for gruppe-historik-kontekst. Kanaler kan tilsidesætte med `kanaler.<channel>.historyLimit` (eller 'kanaler).&lt;channel&gt;.accounts.\*.historyLimit`for multi-konto). Sæt`0\` for at deaktivere historik wrapping.
 
 #### DM-historikgrænser
 
@@ -2491,7 +2491,7 @@ den indbyggede `opencode` udbyder fra pi-ai; sæt `OPENCODE_API_KEY` (eller
 
 Noter:
 
-- Model nægter at anvende 'opencode/<modelId>(eksempel: 'opencode/claude-opus-4-6').
+- Model nægter at anvende 'opencode/&lt;modelId&gt;(eksempel: 'opencode/claude-opus-4-6').
 - Hvis du aktiverer en tilladt via `agents.defaults.models`, tilføj hver model, du planlægger at bruge.
 - Genvej: `openclaw onboard --auth-choice opencode-zen`.
 

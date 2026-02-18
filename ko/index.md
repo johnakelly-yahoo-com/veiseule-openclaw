@@ -21,7 +21,8 @@ title: "OpenClaw"
 
 > _"EXFOLIATE! EXFOLIATE!"_ — 아마도 우주 랍스터의 외침
 
-<p align="center"><strong>WhatsApp, Telegram, Discord, iMessage 등에서 AI 에이전트를 연결하는 모든 OS 용 Gateway(게이트웨이).</strong><br />
+<p align="center">
+  <strong>WhatsApp, Telegram, Discord, iMessage 등에서 AI 에이전트를 연결하는 모든 OS 용 Gateway(게이트웨이).</strong><br />
   메시지를 보내면, 주머니 속에서 바로 에이전트의 응답을 받습니다. 플러그인을 통해 Mattermost 등도 추가할 수 있습니다.
 </p>
 

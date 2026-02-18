@@ -27,9 +27,9 @@ sidebarTitle: "CLI 参考"
 
 <Steps>
   <Step title="现有配置检测">
-    - 如果存在 `~/.openclaw/openclaw.json`，可选择 Keep、Modify 或 Reset。
+    - 如果 `~/.openclaw/openclaw.json` 存在，可选择 Keep、Modify 或 Reset。
     - 重新运行向导不会清除任何内容，除非你明确选择 Reset（或传入 `--reset`）。
-    - 如果配置无效或包含旧版键，向导会停止并要求你先运行 `openclaw doctor`。
+    - 如果配置无效或包含旧版键，向导会停止并要求你在继续前运行 `openclaw doctor`。
     - Reset 使用 `trash`，并提供以下范围选项：
       - 仅配置
       - 配置 + 凭证 + 会话
@@ -40,8 +40,8 @@ sidebarTitle: "CLI 参考"
   </Step>
   <Step title="工作区">
     - 默认 `~/.openclaw/workspace`（可配置）。
-    - 初始化首运行所需的工作区文件。
-    - 工作区结构： [Agent workspace](/concepts/agent-workspace)。
+    - 初始化首次运行所需的工作区文件。
+    - 工作区结构：[Agent workspace](/concepts/agent-workspace)。
   </Step>
   <Step title="Gateway">
     - 提示输入端口、绑定地址、认证模式和 tailscale 暴露方式。
@@ -56,16 +56,16 @@ sidebarTitle: "CLI 参考"
     - [Google Chat](/channels/googlechat)：service account JSON + webhook audience
     - [Mattermost](/channels/mattermost) 插件：bot token + base URL
     - [Signal](/channels/signal)：可选安装 `signal-cli` + 账户配置
-    - [BlueBubbles](/channels/bluebubbles)：推荐用于 iMessage；需要 server URL + password + webhook
-    - [iMessage](/channels/imessage)：传统 `imsg` CLI 路径 + 数据库访问
-    - DM 安全：默认启用配对。首次 DM 会发送验证码；通过  
-      `openclaw pairing approve <channel> <code>` 批准，或使用 allowlist。
+    - [BlueBubbles](/channels/bluebubbles)：推荐用于 iMessage；server URL + password + webhook
+    - [iMessage](/channels/imessage)：传统 `imsg` CLI 路径 + DB 访问
+    - DM 安全：默认启用配对。首次 DM 会发送验证码；通过
+      `openclaw pairing approve <channel> <code>` 批准，或使用 allowlists。
   </Step>
   <Step title="守护进程安装">
-    - macOS：LaunchAgent  
-      - 需要用户已登录会话；如需无头模式，请使用自定义 LaunchDaemon（未随软件提供）。
-    - Linux 和 Windows（通过 WSL2）：systemd 用户单元  
-      - 向导会尝试执行 `loginctl enable-linger <user>`，以便在注销后 gateway 仍保持运行。  
+    - macOS：LaunchAgent
+      - 需要已登录的用户会话；如需无头模式，请使用自定义 LaunchDaemon（未随软件提供）。
+    - Linux 和 Windows（通过 WSL2）：systemd 用户单元
+      - 向导会尝试执行 `loginctl enable-linger <user>`，以便在注销后 gateway 仍保持运行。
       - 可能会提示 sudo（写入 `/var/lib/systemd/linger`）；会先尝试无 sudo 执行。
     - 运行时选择：Node（推荐；WhatsApp 和 Telegram 必需）。不推荐使用 Bun。
   </Step>
@@ -84,7 +84,7 @@ sidebarTitle: "CLI 参考"
 </Steps>
 
 <Note>
-如果未检测到 GUI，向导会打印 Control UI 的 SSH 端口转发说明，而不是打开浏览器。  
+如果未检测到 GUI，向导会打印 Control UI 的 SSH 端口转发说明，而不是打开浏览器。
 如果缺少 Control UI 资源，向导会尝试构建；备用方式为 `pnpm ui:build`（会自动安装 UI 依赖）。
 </Note>
 
@@ -122,7 +122,7 @@ sidebarTitle: "CLI 参考"
 
   </Accordion>
   <Accordion title="Anthropic token（setup-token 粘贴）">
-    在任意机器上运行 `claude setup-token`，然后粘贴 token。  
+    在任意机器上运行 `claude setup-token`，然后粘贴 token。
     你可以为其命名；留空则使用默认名称。
   </Accordion>
   <Accordion title="OpenAI Code subscription（复用 Codex CLI）">
@@ -135,7 +135,7 @@ sidebarTitle: "CLI 参考"
 
   </Accordion>
   <Accordion title="OpenAI API key">
-    如果存在 `OPENAI_API_KEY` 则使用，否则提示输入 key，然后保存到  
+    如果存在 `OPENAI_API_KEY` 则使用，否则提示输入 key，然后保存到
     `~/.openclaw/.env` 以便 launchd 读取。
 
     当模型未设置、为 `openai/*` 或 `openai-codex/*` 时，将 `agents.defaults.model` 设置为 `openai/gpt-5.1-codex`。
@@ -145,30 +145,30 @@ sidebarTitle: "CLI 参考"
     提示输入 `XAI_API_KEY` 并将 xAI 配置为模型提供商。
   </Accordion>
   <Accordion title="OpenCode Zen">
-    提示输入 `OPENCODE_API_KEY`（或 `OPENCODE_ZEN_API_KEY`）。  
+    提示输入 `OPENCODE_API_KEY`（或 `OPENCODE_ZEN_API_KEY`）。
     设置地址：[opencode.ai/auth](https://opencode.ai/auth)。
   </Accordion>
   <Accordion title="API key（通用）">
     为你保存该 key。
   </Accordion>
   <Accordion title="Vercel AI Gateway">
-    提示输入 `AI_GATEWAY_API_KEY`。  
+    提示输入 `AI_GATEWAY_API_KEY`。
     更多信息：[Vercel AI Gateway](/providers/vercel-ai-gateway)。
   </Accordion>
   <Accordion title="Cloudflare AI Gateway">
-    提示输入 account ID、gateway ID 和 `CLOUDFLARE_AI_GATEWAY_API_KEY`。  
+    提示输入 account ID、gateway ID 和 `CLOUDFLARE_AI_GATEWAY_API_KEY`。
     更多信息：[Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)。
   </Accordion>
   <Accordion title="MiniMax M2.1">
-    自动写入配置。  
+    自动写入配置。
     更多信息：[MiniMax](/providers/minimax)。
   </Accordion>
   <Accordion title="Synthetic（Anthropic 兼容）">
-    提示输入 `SYNTHETIC_API_KEY`。  
+    提示输入 `SYNTHETIC_API_KEY`。
     更多信息：[Synthetic](/providers/synthetic)。
   </Accordion>
   <Accordion title="Moonshot 和 Kimi Coding">
-    自动写入 Moonshot（Kimi K2）和 Kimi Coding 配置。  
+    自动写入 Moonshot（Kimi K2）和 Kimi Coding 配置。
     更多信息：[Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)。
   </Accordion>
   <Accordion title="自定义提供商">
@@ -199,8 +199,8 @@ sidebarTitle: "CLI 参考"
 - 认证配置（API key + OAuth）：`~/.openclaw/agents/<agentId>/agent/auth-profiles.json`
 
 <Note>
-无头或服务器提示：在有浏览器的机器上完成 OAuth，然后将  
-`~/.openclaw/credentials/oauth.json`（或 `$OPENCLAW_STATE_DIR/credentials/oauth.json`）  
+无头或服务器提示：在有浏览器的机器上完成 OAuth，然后将
+`~/.openclaw/credentials/oauth.json`（或 `$OPENCLAW_STATE_DIR/credentials/oauth.json`）
 复制到 gateway 主机。
 </Note>
 
@@ -211,8 +211,8 @@ sidebarTitle: "CLI 参考"
 - `agents.defaults.workspace`
 - `agents.defaults.model` / `models.providers`（如果选择 Minimax）
 - `gateway.*`（mode、bind、auth、tailscale）
-- `channels.telegram.botToken`、`channels.discord.token`、`channels.signal.*`、`channels.imessage.*`
-- 当在提示中选择启用时的渠道 allowlist（Slack、Discord、Matrix、Microsoft Teams）（名称会尽可能解析为 ID）
+- `channels.telegram.botToken`, `channels.discord.token`, `channels.signal.*`, `channels.imessage.*`
+- 当在提示中选择启用时的渠道 allowlists（Slack、Discord、Matrix、Microsoft Teams）（名称会尽可能解析为 ID）
 - `skills.install.nodeManager`
 - `wizard.lastRunAt`
 - `wizard.lastRunVersion`
@@ -220,9 +220,9 @@ sidebarTitle: "CLI 参考"
 - `wizard.lastRunCommand`
 - `wizard.lastRunMode`
 
-`openclaw agents add` 会写入 `agents.list[]` 以及可选的 `bindings`。
+`openclaw agents add` 会写入 `agents.list[]` 和可选的 `bindings`。
 
-WhatsApp 凭证存储在 `~/.openclaw/credentials/whatsapp/<accountId>/`。  
+WhatsApp 凭证存储在 `~/.openclaw/credentials/whatsapp/<accountId>/`。
 会话存储在 `~/.openclaw/agents/<agentId>/sessions/`。
 
 <Note>

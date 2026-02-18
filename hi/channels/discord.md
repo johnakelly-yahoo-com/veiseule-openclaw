@@ -196,7 +196,7 @@ env var के माध्यम से बॉट टोकन सेट कर
 - Owner संकेत: जब प्रति‑गिल्ड या प्रति‑चैनल `users` allowlist प्रेषक से मेल खाती है, तो OpenClaw सिस्टम प्रॉम्प्ट में उस प्रेषक को owner मानता है। चैनलों के पार एक ग्लोबल owner के लिए, `commands.ownerAllowFrom` सेट करें।
 - बॉट-लेखित संदेश डिफ़ॉल्ट रूप से अनदेखे किए जाते हैं; उन्हें अनुमति देने के लिए `channels.discord.allowBots=true` सेट करें (अपने स्वयं के संदेश फ़िल्टर रहते हैं)।
 - चेतावनी: यदि आप अन्य बॉट्स को उत्तर देने की अनुमति देते हैं (`channels.discord.allowBots=true`), तो `requireMention`, `channels.discord.guilds.*.channels.<id>
-  .users` allowlists, और/या `AGENTS.md` और `SOUL.md` में guardrails को साफ़ करके बॉट‑टू‑बॉट उत्तर लूप्स को रोकें।`channels.discord.groupPolicy` का डिफ़ॉल्ट **allowlist** है; इसे `"open"` पर सेट करें या `channels.discord.guilds` के अंतर्गत एक गिल्ड एंट्री जोड़ें (वैकल्पिक रूप से `channels.discord.guilds.<id>
+  .users` allowlists, और/या `AGENTS.md` और `SOUL.md` में guardrails को साफ़ करके बॉट‑टू‑बॉट उत्तर लूप्स को रोकें।`channels.discord.groupPolicy` का डिफ़ॉल्ट **allowlist** है; इसे `"open"` पर सेट करें या `channels.discord.guilds` के अंतर्गत एक गिल्ड एंट्री जोड़ें (वैकल्पिक रूप से `channels.discord.guilds.&lt;id&gt;
   .channels` के अंतर्गत चैनल सूचीबद्ध करके प्रतिबंधित करें)।
 
 ### 6. सत्यापित करें कि यह काम करता है
@@ -324,31 +324,31 @@ env var के माध्यम से बॉट टोकन सेट कर
 - `guilds`: प्रति-guild नियम, guild id (पसंदीदा) या slug द्वारा कुंजीबद्ध।
 - `guilds."*"`: डिफ़ॉल्ट प्रति-guild सेटिंग्स, जब कोई स्पष्ट एंट्री मौजूद न हो।
 - 16. \`guilds.<id>
-  17. .slug`: display names के लिए वैकल्पिक friendly slug।18. `guilds.<id>
+  17. .slug`: display names के लिए वैकल्पिक friendly slug।18. `guilds.&lt;id&gt;
   18. .users\`: वैकल्पिक per-guild user allowlist (ids या names)।
 - 20. \`guilds.<id>
-  21. .tools`: वैकल्पिक per-guild tool policy overrides (`allow`/`deny`/`alsoAllow`), जब channel override गायब हो तब उपयोग किया जाता है।22. `guilds.<id>
+  21. .tools`: वैकल्पिक per-guild tool policy overrides (`allow`/`deny`/`alsoAllow`), जब channel override गायब हो तब उपयोग किया जाता है।22. `guilds.&lt;id&gt;
   22. .toolsBySender`: guild स्तर पर वैकल्पिक per-sender tool policy overrides (जब channel override गायब हो; `"\*"\` wildcard समर्थित)।
 - 24. \`guilds.<id>
-  25. .channels.<channel>
-  26. .allow`: जब `groupPolicy="allowlist"`हो तब चैनल को allow/deny करें।27.`guilds.<id>
-  27. .channels.<channel>
+  25. .channels.&lt;channel&gt;
+  26. .allow`: जब `groupPolicy="allowlist"`हो तब चैनल को allow/deny करें।27.`guilds.&lt;id&gt;
+  27. .channels.&lt;channel&gt;
   28. .requireMention\`: चैनल के लिए mention gating।
 - 30. \`guilds.<id>
-  31. .channels.<channel>
-  32. .tools`: वैकल्पिक per-channel tool policy overrides (`allow`/`deny`/`alsoAllow`)।33. `guilds.<id>
-  33. .channels.<channel>
+  31. .channels.&lt;channel&gt;
+  32. .tools`: वैकल्पिक per-channel tool policy overrides (`allow`/`deny`/`alsoAllow`)।33. `guilds.&lt;id&gt;
+  33. .channels.&lt;channel&gt;
   34. .toolsBySender`: चैनल के भीतर वैकल्पिक per-sender tool policy overrides (`"\*"\` wildcard समर्थित)।
 - 36. \`guilds.<id>
-  37. .channels.<channel>
-  38. .users`: वैकल्पिक per-channel user allowlist।39. `guilds.<id>
-  39. .channels.<channel>
-  40. .skills`: skill filter (omit = सभी skills, empty = कोई नहीं)।40. `guilds.<id>
-  41. .channels.<channel>
+  37. .channels.&lt;channel&gt;
+  38. .users`: वैकल्पिक per-channel user allowlist।39. `guilds.&lt;id&gt;
+  39. .channels.&lt;channel&gt;
+  40. .skills`: skill filter (omit = सभी skills, empty = कोई नहीं)।40. `guilds.&lt;id&gt;
+  41. .channels.&lt;channel&gt;
   42. .systemPrompt\`: चैनल के लिए अतिरिक्त system prompt।
 - 41. Discord channel topics को **untrusted** context के रूप में inject किया जाता है (system prompt नहीं)।42. \`guilds.<id>
-  42. .channels.<channel>
-  43. .enabled`: चैनल को disable करने के लिए `false`सेट करें।43.`guilds.<id>
+  42. .channels.&lt;channel&gt;
+  43. .enabled`: चैनल को disable करने के लिए `false`सेट करें।43.`guilds.&lt;id&gt;
   44. .channels\`: चैनल नियम (keys चैनल slugs या ids होते हैं)।
 - `guilds.<id>.channels.<channel>.tools`: optional per-channel tool policy overrides (`allow`/`deny`/`alsoAllow`).
 - `guilds.<id>.channels.<channel>.toolsBySender`: optional per-sender tool policy overrides within the channel (`"*"` wildcard supported).
@@ -377,7 +377,7 @@ env var के माध्यम से बॉट टोकन सेट कर
   - `presence` (बॉट स्थिति/गतिविधि, डिफ़ॉल्ट `false`)
 - 11. `execApprovals`: केवल Discord के लिए exec अनुमोदन DMs (बटन UI)। 12. `enabled`, `approvers`, `agentFilter`, `sessionFilter` समर्थित हैं।
 
-Reaction notifications use `guilds.<id>15. `allowlist`: `guilds.<id>`16.`.users\` से सभी संदेशों पर रिएक्शन (खाली सूची अक्षम करती है)।
+Reaction notifications use `guilds.<id>15. `allowlist`: `guilds.&lt;id&gt;`16.`.users\` से सभी संदेशों पर रिएक्शन (खाली सूची अक्षम करती है)।
 
 - `off`: कोई reaction events नहीं।
 - `own`: बॉट के अपने संदेशों पर reactions (डिफ़ॉल्ट)।

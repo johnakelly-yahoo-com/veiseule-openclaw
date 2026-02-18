@@ -320,34 +320,34 @@ Ack reaction များကို `messages.ackReaction` နှင့်
 - `guilds`: guild id (ဦးစားပေး) သို့မဟုတ် slug ဖြင့် key ပြုလုပ်ထားသော per-guild စည်းမျဉ်းများ။
 - `guilds."*"`: သီးခြား entry မရှိပါက အသုံးပြုမည့် default per-guild settings။
 - `guilds.<id>
-  .slug`: ပြသရန်အတွက် အသုံးပြုသော optional friendly slug။`guilds.<id>
+  .slug`: ပြသရန်အတွက် အသုံးပြုသော optional friendly slug။`guilds.&lt;id&gt;
   .users`: optional per-guild user allowlist (id များ သို့မဟုတ် name များ)။
 - `guilds.<id>
-  .tools`: channel override မရှိသည့်အခါ အသုံးပြုသော optional per-guild tool policy override များ (`allow`/`deny`/`alsoAllow`)။`guilds.<id>
+  .tools`: channel override မရှိသည့်အခါ အသုံးပြုသော optional per-guild tool policy override များ (`allow`/`deny`/`alsoAllow`)။`guilds.&lt;id&gt;
   .toolsBySender`: guild အဆင့်တွင် per-sender tool policy override များ (channel override မရှိသည့်အခါ အသုံးပြုသည်; `"*"` wildcard ကို ထောက်ပံ့သည်)။
 - `guilds.<id>
-  .channels.<channel>
-  .allow`: `groupPolicy="allowlist"` ဖြစ်သည့်အခါ channel ကို allow/deny လုပ်ရန်။`guilds.<id>
-  .channels.<channel>
+  .channels.&lt;channel&gt;
+  .allow`: `groupPolicy="allowlist"` ဖြစ်သည့်အခါ channel ကို allow/deny လုပ်ရန်။`guilds.&lt;id&gt;
+  .channels.&lt;channel&gt;
   .requireMention`: channel အတွက် mention gating။
 - `guilds.<id>
-  .channels.<channel>
-  .tools`: optional per-channel tool policy override များ (`allow`/`deny`/`alsoAllow`)။`guilds.<id>
-  .channels.<channel>
+  .channels.&lt;channel&gt;
+  .tools`: optional per-channel tool policy override များ (`allow`/`deny`/`alsoAllow`)။`guilds.&lt;id&gt;
+  .channels.&lt;channel&gt;
   .toolsBySender`: channel အတွင်း per-sender tool policy override များ (`"*"` wildcard ကို ထောက်ပံ့သည်)။
 - `guilds.<id>
-  .channels.<channel>
-  .users`: optional per-channel user allowlist။`guilds.<id>
-  .channels.<channel>
-  .skills`: skill filter (မထည့်လျှင် = skill အားလုံး၊ အလွတ်ထားလျှင် = မရှိ)။`guilds.<id>
-  .channels.<channel>
+  .channels.&lt;channel&gt;
+  .users`: optional per-channel user allowlist။`guilds.&lt;id&gt;
+  .channels.&lt;channel&gt;
+  .skills`: skill filter (မထည့်လျှင် = skill အားလုံး၊ အလွတ်ထားလျှင် = မရှိ)။`guilds.&lt;id&gt;
+  .channels.&lt;channel&gt;
   .systemPrompt`: channel အတွက် extra system prompt။
 - Discord channel topic များကို **untrusted** context အဖြစ် inject လုပ်ပါသည် (system prompt မဟုတ်ပါ)။`guilds.<id>
-  .channels.<channel>
-  .enabled`: channel ကို ပိတ်ရန် `false` သတ်မှတ်ပါ။`guilds.<id>
+  .channels.&lt;channel&gt;
+  .enabled`: channel ကို ပိတ်ရန် `false` သတ်မှတ်ပါ။`guilds.&lt;id&gt;
   .channels`: channel rule များ (key များမှာ channel slug များ သို့မဟုတ် id များ ဖြစ်သည်)။
 - `guilds.<id>
-  .requireMention`: per-guild mention လိုအပ်ချက် (channel အလိုက် override လုပ်နိုင်သည်)။`guilds.<id>`.tools`: optional per-channel tool policy overrides (`allow`/`deny`/`alsoAllow\`).
+  .requireMention`: per-guild mention လိုအပ်ချက် (channel အလိုက် override လုပ်နိုင်သည်)။`guilds.&lt;id&gt;`.tools`: optional per-channel tool policy overrides (`allow`/`deny`/`alsoAllow\`).
 - `guilds.<id>.channels.<channel>.toolsBySender`: optional per-sender tool policy overrides within the channel (`"*"` wildcard supported).
 - `guilds.<id>.channels.<channel>.users`: optional per-channel user allowlist.
 - `guilds.<id>.channels.<channel>.skills`: skill filter (omit = all skills, empty = none).

@@ -1,5 +1,6 @@
 ---
-title: "Node.js"---
+title: "Node.js"
+---
 
 # Node.js
 
@@ -19,51 +20,42 @@ node -v
   <Tab title="macOS">
     **Homebrew** (अनुशंसित):
 
-    ````
     ```bash
     brew install node
     ```
-    
-    या [nodejs.org](https://nodejs.org/) से macOS इंस्टॉलर डाउनलोड करें।
-    ````
 
+    या [nodejs.org](https://nodejs.org/) से macOS इंस्टॉलर डाउनलोड करें।
   </Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
-    ````
     ```bash
     curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ```
-    
+
     **Fedora / RHEL:**
-    
+
     ```bash
     sudo dnf install nodejs
     ```
-    
-    या किसी संस्करण प्रबंधक का उपयोग करें (नीचे देखें)।
-    ````
 
+    या किसी संस्करण प्रबंधक का उपयोग करें (नीचे देखें)।
   </Tab>
   <Tab title="Windows">
     **winget** (अनुशंसित):
 
-    ````
     ```powershell
     winget install OpenJS.NodeJS.LTS
     ```
-    
+
     **Chocolatey:**
-    
+
     ```powershell
     choco install nodejs-lts
     ```
-    
-    या [nodejs.org](https://nodejs.org/) से Windows इंस्टॉलर डाउनलोड करें।
-    ````
 
+    या [nodejs.org](https://nodejs.org/) से Windows इंस्टॉलर डाउनलोड करें।
   </Tab>
 </Tabs>
 
@@ -103,29 +95,23 @@ fnm use 22
     echo "$PATH"
     ```
 
-    ```
     आउटपुट में `<npm-prefix>/bin` (macOS/Linux) या `<npm-prefix>` (Windows) खोजें।
-    ```
-
   </Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
       <Tab title="macOS / Linux">
         `~/.zshrc` या `~/.bashrc` में जोड़ें:
 
-        ```
-            ```bash
-            export PATH="$(npm prefix -g)/bin:$PATH"
-            ```
-        
-            फिर नया टर्मिनल खोलें (या zsh में `rehash` / bash में `hash -r` चलाएँ)।
-          </Tab>
-          <Tab title="Windows">
-            Settings → System → Environment Variables के माध्यम से `npm prefix -g` के आउटपुट को अपने सिस्टम PATH में जोड़ें।
-          </Tab>
-        </Tabs>
+        ```bash
+        export PATH="$(npm prefix -g)/bin:$PATH"
         ```
 
+        फिर नया टर्मिनल खोलें (या zsh में `rehash` / bash में `hash -r` चलाएँ)।
+      </Tab>
+      <Tab title="Windows">
+        Settings → System → Environment Variables के माध्यम से `npm prefix -g` के आउटपुट को अपने सिस्टम PATH में जोड़ें।
+      </Tab>
+    </Tabs>
   </Step>
 </Steps>
 

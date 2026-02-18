@@ -1134,7 +1134,7 @@ clawhubのインストール <skill-slug>
 clawhubの更新 --all
 ```
 
-ClawHub は ` にインストールされます。 現在のディレクトリの下にある「スキル」（または設定済みのOpenClawワークスペースに戻る）。OpenClawは次のセッションで「<workspace>/skills」として扱います。 エージェント間でスキルを共有するには、`~/.openclaw/skills/<name>/SKILL.md\` に配置します。 いくつかのスキルはHomebrewを介してバイナリをインストールすることを期待しています。LinuxではLinuxbrewを意味します(上記のHomebrew Linux FAQエントリを参照してください)。 [Skills](/tools/skills) と [ClawHub](/tools/clawhub) を参照してください。
+ClawHub は ` にインストールされます。 現在のディレクトリの下にある「スキル」（または設定済みのOpenClawワークスペースに戻る）。OpenClawは次のセッションで「<workspace>/skills」として扱います。 エージェント間でスキルを共有するには、`~/.openclaw/skills/&lt;name&gt;/SKILL.md\` に配置します。 いくつかのスキルはHomebrewを介してバイナリをインストールすることを期待しています。LinuxではLinuxbrewを意味します(上記のHomebrew Linux FAQエントリを参照してください)。 [Skills](/tools/skills) と [ClawHub](/tools/clawhub) を参照してください。
 
 ### ブラウザの乗っ取りにChrome拡張機能をインストールする方法
 

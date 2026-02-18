@@ -183,7 +183,7 @@ TTY が利用できず、かつインストール メソッドが設定されて
   <Step title="Ensure Git">
     Git が未インストールの場合、Linux では apt/dnf/yum、macOS では Homebrew によるインストールを試みます。
   </Step>
-  <Step title="Install OpenClaw under prefix">` を使用して npm でインストールし、その後 `<prefix>`、次にラッパーを`に書き込みます。<prefix>/bin/openclaw` にラッパーを書き込みます。
+  <Step title="Install OpenClaw under prefix">` を使用して npm でインストールし、その後 `&lt;prefix&gt;`、次にラッパーを`に書き込みます。&lt;prefix&gt;/bin/openclaw` にラッパーを書き込みます。
   </Step>
 </Steps>
 

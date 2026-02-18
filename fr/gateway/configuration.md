@@ -3287,7 +3287,7 @@ Paramètres :
 Bind modes:
 
 - `lan`: `0.0.0.0` (accessible sur n'importe quelle interface, incluant LAN/Wi‐Fi et Tailscale)
-- `tailnet`: se lier uniquement à l'IP Tailscale de la machine (recommandé pour Vienne <unk> Londres)
+- `tailnet`: se lier uniquement à l'IP Tailscale de la machine (recommandé pour Vienne &lt;unk&gt; Londres)
 - `loopback`: `127.0.0.1` (local seulement)
 - `auto`: préfère tailnet IP si présent, sinon `lan`
 
@@ -3338,7 +3338,7 @@ Contrôle les diffusions de découverte de LAN mDNS (`_openclaw-gw._tcp`).
 
 Lorsqu'elle est activée, la passerelle écrit une zone DNS-SD unicast pour `_openclaw-gw._tcp` dans `~/.openclaw/dns/` en utilisant le domaine de découverte configuré (exemple: `openclaw.internal.`).
 
-Pour faire découvrir iOS/Android à travers les réseaux (Vienne <unk> Londres), associez ceci avec :
+Pour faire découvrir iOS/Android à travers les réseaux (Vienne &lt;unk&gt; Londres), associez ceci avec :
 
 - un serveur DNS sur l'hôte passerelle servant le domaine choisi (CoreDNS est recommandé)
 - Facile à **diviser les DNS** pour que les clients résolvent ce domaine via le serveur DNS de passerelle

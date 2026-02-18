@@ -243,7 +243,7 @@ Mga tala:
 - Per-agent override: `agents.list[].groupChat.mentionPatterns` (kapaki-pakinabang kapag maraming agent ang nagbabahagi ng isang grupo).
 - Ipinapatupad lang ang mention gating kapag posible ang mention detection (native mentions o naka-configure ang `mentionPatterns`).
 - Ang mga default ng Discord ay nasa `channels.discord.guilds."*"` (maaaring i-override kada guild/channel).
-- Ang group history context ay binabalot nang pare-pareho sa lahat ng channel at **pending-only** (mga mensaheng nilaktawan dahil sa mention gating); gamitin ang `messages.groupChat.historyLimit` para sa global default at `channels.<channel>34. `.historyLimit`(o`channels.<channel>`35. `.accounts.\*.historyLimit`) para sa mga override. 36. Itakda sa `0\` para i-disable.
+- Ang group history context ay binabalot nang pare-pareho sa lahat ng channel at **pending-only** (mga mensaheng nilaktawan dahil sa mention gating); gamitin ang `messages.groupChat.historyLimit` para sa global default at `channels.<channel>34. `.historyLimit`(o`channels.&lt;channel&gt;`35. `.accounts.\*.historyLimit`) para sa mga override. 36. Itakda sa `0\` para i-disable.
 
 ## Mga restriksiyon sa tool ng grupo/channel (opsyonal)
 

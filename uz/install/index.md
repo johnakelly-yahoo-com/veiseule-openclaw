@@ -12,7 +12,9 @@ Allaqachon [Getting Started](/start/getting-started) qo‘llanmasiga amal qildin
 - macOS, Linux yoki Windows
 - `pnpm` faqat manba kodidan yig‘ilganda kerak
 
-<Note>Windows’da OpenClaw’ni [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install) ostida ishga tushirishni qat’iy tavsiya qilamiz.</Note>
+<Note>
+Windows’da OpenClaw’ni [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install) ostida ishga tushirishni qat’iy tavsiya qilamiz.
+</Note>
 
 ## O‘rnatish usullari
 
@@ -21,9 +23,9 @@ Allaqachon [Getting Started](/start/getting-started) qo‘llanmasiga amal qildin
 </Tip>
 
 <AccordionGroup>
-  <Accordion title="Installer script" icon="rocket" defaultOpen>CLI’ni yuklab oladi, uni npm orqali global o‘rnatadi va boshlang‘ich sozlash ustasini ishga tushiradi.
+  <Accordion title="Installer script" icon="rocket" defaultOpen>
+    CLI’ni yuklab oladi, uni npm orqali global o‘rnatadi va boshlang‘ich sozlash ustasini ishga tushiradi.
 
-    ```
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -36,11 +38,11 @@ Allaqachon [Getting Started](/start/getting-started) qo‘llanmasiga amal qildin
         ```
       </Tab>
     </Tabs>
-    
+
     Shu bilan tamom — skript Node’ni aniqlash, o‘rnatish va boshlang‘ich sozlashni o‘zi bajaradi.
-    
+
     Boshlang‘ich sozlashni o‘tkazib yuborib, faqat binarni o‘rnatish uchun:
-    
+
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -53,29 +55,28 @@ Allaqachon [Getting Started](/start/getting-started) qo‘llanmasiga amal qildin
         ```
       </Tab>
     </Tabs>
-    
+
     Barcha flaglar, muhit o‘zgaruvchilari va CI/avtomatlashtirish variantlari uchun [Installer internals](/install/installer) sahifasiga qarang.
-    ```
 
   </Accordion>
 
-  <Accordion title="npm / pnpm" icon="package">Agar sizda allaqachon Node 22+ mavjud bo‘lsa va o‘rnatishni o‘zingiz boshqarishni xohlasangiz:
+  <Accordion title="npm / pnpm" icon="package">
+    Agar sizda allaqachon Node 22+ mavjud bo‘lsa va o‘rnatishni o‘zingiz boshqarishni xohlasangiz:
 
-    ```
     <Tabs>
       <Tab title="npm">
         ```bash
         npm install -g openclaw@latest
         openclaw onboard --install-daemon
         ```
-    
+
         <Accordion title="sharp build errors?">
           Agar sizda libvips global o‘rnatilgan bo‘lsa (macOS’da Homebrew orqali tez-tez uchraydi) va `sharp` xato bersa, tayyor binarlarni majburan ishlating:
-    
+
           ```bash
           SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
           ```
-    
+
           Agar `sharp: Please add node-gyp to your dependencies` xabarini ko‘rsangiz, yoki qurilish vositalarini o‘rnating (macOS: Xcode CLT + `npm install -g node-gyp`), yoki yuqoridagi muhit o‘zgaruvchisidan foydalaning.
         </Accordion>
       </Tab>
@@ -85,23 +86,22 @@ Allaqachon [Getting Started](/start/getting-started) qo‘llanmasiga amal qildin
         pnpm approve-builds -g        # openclaw, node-llama-cpp, sharp va boshqalarni tasdiqlang
         openclaw onboard --install-daemon
         ```
-    
+
         <Note>
         pnpm qurilish skriptlariga ega paketlar uchun aniq tasdiqlashni talab qiladi. Birinchi o‘rnatishda "Ignored build scripts" ogohlantirishi chiqqach, `pnpm approve-builds -g` buyrug‘ini ishga tushiring va ro‘yxatdagi paketlarni tanlang.
         </Note>
       </Tab>
     </Tabs>
-    ```
 
   </Accordion>
 
-  <Accordion title="From source" icon="github">Hissa qo‘shuvchilar yoki lokal checkout’dan ishga tushirmoqchi bo‘lganlar uchun.
+  <Accordion title="From source" icon="github">
+    Hissa qo‘shuvchilar yoki lokal checkout’dan ishga tushirmoqchi bo‘lganlar uchun.
 
-    ```
     <Steps>
       <Step title="Clone and build">
         [OpenClaw repo](https://github.com/openclaw/openclaw) ni klonlab, yig‘ing:
-    
+
         ```bash
         git clone https://github.com/openclaw/openclaw.git
         cd openclaw
@@ -112,11 +112,11 @@ Allaqachon [Getting Started](/start/getting-started) qo‘llanmasiga amal qildin
       </Step>
       <Step title="Link the CLI">
         `openclaw` buyrug‘ini global mavjud qiling:
-    
+
         ```bash
         pnpm link --global
         ```
-    
+
         Yoki link qilmasdan, repozitoriya ichidan `pnpm openclaw ...` orqali buyruqlarni ishga tushiring.
       </Step>
       <Step title="Run onboarding">
@@ -125,9 +125,8 @@ Allaqachon [Getting Started](/start/getting-started) qo‘llanmasiga amal qildin
         ```
       </Step>
     </Steps>
-    
+
     Chuqurroq ishlab chiqish jarayonlari uchun [Setup](/start/setup) sahifasiga qarang.
-    ```
 
   </Accordion>
 </AccordionGroup>
@@ -135,10 +134,21 @@ Allaqachon [Getting Started](/start/getting-started) qo‘llanmasiga amal qildin
 ## Boshqa o‘rnatish usullari
 
 <CardGroup cols={2}>
-  <Card title="Docker" href="/install/docker" icon="container">Konteynerlangan yoki headless joylashtirishlar.</Card>
-  <Card title="Nix" href="/install/nix" icon="snowflake">Nix orqali deklarativ o‘rnatish.</Card>
-  <Card title="Ansible" href="/install/ansible" icon="server">Avtomatlashtirilgan park (fleet) tayyorlash.</Card>
-  <Card title="Bun" href="/install/bun" icon="zap">Bun runtime orqali faqat CLI’dan foydalanish.</Card>
+  <Card title="Docker" href="/install/docker" icon="container">
+    Konteynerlangan yoki headless joylashtirishlar.
+  </Card>
+  <Card title="Podman" href="/install/podman" icon="container">
+    Rootless konteyner: `setup-podman.sh` ni bir marta ishga tushiring, so‘ng launch skriptini.
+  </Card>
+  <Card title="Nix" href="/install/nix" icon="snowflake">
+    Nix orqali deklarativ o‘rnatish.
+  </Card>
+  <Card title="Ansible" href="/install/ansible" icon="server">
+    Avtomatlashtirilgan park (fleet) tayyorlash.
+  </Card>
+  <Card title="Bun" href="/install/bun" icon="zap">
+    Bun runtime orqali faqat CLI’dan foydalanish.
+  </Card>
 </CardGroup>
 
 ## O‘rnatilgandan so‘ng
@@ -161,7 +171,8 @@ Ustuvorlik va to‘liq tafsilotlar uchun [Environment vars](/help/environment) g
 
 ## Nosozliklarni bartaraf etish: `openclaw` topilmadi
 
-<Accordion title="PATH diagnosis and fix">Tezkor tashxis:
+<Accordion title="PATH diagnosis and fix">
+  Tezkor tashxis:
 
 ```bash
 node -v
@@ -180,12 +191,19 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 
 Windows’da `npm prefix -g` chiqishini PATH’ga qo‘shing.
 
-So‘ng yangi terminal oching (yoki zsh’da `rehash` / bash’da `hash -r`). </Accordion>
+So‘ng yangi terminal oching (yoki zsh’da `rehash` / bash’da `hash -r`).
+</Accordion>
 
 ## Yangilash / o‘chirish
 
 <CardGroup cols={3}>
-  <Card title="Updating" href="/install/updating" icon="refresh-cw">OpenClaw’ni yangilab turing.</Card>
-  <Card title="Migrating" href="/install/migrating" icon="arrow-right">Yangi kompyuterga ko‘chirish.</Card>
-  <Card title="Uninstall" href="/install/uninstall" icon="trash-2">OpenClaw’ni to‘liq olib tashlash.</Card>
+  <Card title="Updating" href="/install/updating" icon="refresh-cw">
+    OpenClaw’ni yangilab turing.
+  </Card>
+  <Card title="Migrating" href="/install/migrating" icon="arrow-right">
+    Yangi kompyuterga ko‘chirish.
+  </Card>
+  <Card title="Uninstall" href="/install/uninstall" icon="trash-2">
+    OpenClaw’ni to‘liq olib tashlash.
+  </Card>
 </CardGroup>

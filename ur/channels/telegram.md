@@ -268,7 +268,7 @@ Forum topics inherit their parent group config (allowFrom, requireMention, skill
 - ٹائپنگ اشارے اور جوابات `message_thread_id` کے ساتھ بھیجتا ہے تاکہ جوابات اسی ٹاپک میں رہیں۔
 - جنرل ٹاپک (تھریڈ ID `1`) خاص ہے: پیغام بھیجتے وقت `message_thread_id` شامل نہیں کیا جاتا (Telegram اسے مسترد کرتا ہے)، مگر ٹائپنگ اشارے میں شامل رہتا ہے۔
 - ٹیمپلیٹ سیاق میں روٹنگ/ٹیمپلیٹنگ کے لیے `MessageThreadId` + `IsForum` ظاہر کرتا ہے۔
-- ٹاپک کے مطابق کنفیگریشن `channels.telegram.groups.<chatId>` کے تحت دستیاب ہے.topics.<threadId>\` (skills, allowlists, auto-reply, system prompts, disable).
+- ٹاپک کے مطابق کنفیگریشن `channels.telegram.groups.<chatId>` کے تحت دستیاب ہے.topics.&lt;threadId&gt;\` (skills, allowlists, auto-reply, system prompts, disable).
 - ٹاپک کنفیگز گروپ سیٹنگز کو وراثت میں لیتے ہیں (requireMention, allowlists, skills, prompts, enabled) جب تک فی ٹاپک اووررائیڈ نہ ہو۔
 
 نجی چیٹس میں کچھ خاص صورتوں میں `message_thread_id` شامل ہو سکتا ہے۔ OpenClaw ڈی ایم سیشن کی کو بغیر تبدیل کیے رکھتا ہے، لیکن جب موجود ہو تو جوابات/ڈرافٹ اسٹریمنگ کے لیے تھریڈ آئی ڈی استعمال کرتا ہے۔
@@ -757,19 +757,19 @@ Telegram ری ایکشنز **الگ `message_reaction` ایونٹس کے طور 
 - `channels.telegram.groupPolicy`: `open | allowlist | disabled` (ڈیفالٹ: allowlist)۔
 - `channels.telegram.groupAllowFrom`: گروپ سینڈر اجازت فہرست (IDs/یوزرنیمز)۔
 - `channels.telegram.groups`: فی گروپ ڈیفالٹس + اجازت فہرست (عالمی ڈیفالٹس کے لیے `"*"` استعمال کریں)۔
-  - `channels.telegram.groups.<id>`channels.telegram.groups.<id>
+  - `channels.telegram.groups.<id>`channels.telegram.groups.&lt;id&gt;
     .requireMention\`: مینشن گیٹنگ کی ڈیفالٹ۔
   - `channels.telegram.groups.<id>
-    .groupPolicy`: گروپ کے لیے groupPolicy اووررائیڈ (`open | allowlist | disabled`)۔`channels.telegram.groups.<id>
+    .groupPolicy`: گروپ کے لیے groupPolicy اووررائیڈ (`open | allowlist | disabled`)۔`channels.telegram.groups.&lt;id&gt;
     .allowFrom`: فی گروپ بھیجنے والے کی اجازت فہرست کا اووررائیڈ۔
-  - `channels.telegram.groups.<id>`channels.telegram.groups.<id>
+  - `channels.telegram.groups.<id>`channels.telegram.groups.&lt;id&gt;
     .enabled`: جب `false\` ہو تو گروپ کو غیر فعال کریں۔
-  - `channels.telegram.groups.<id>`channels.telegram.groups.<id>
-    .topics.<threadId>
+  - `channels.telegram.groups.<id>`channels.telegram.groups.&lt;id&gt;
+    .topics.&lt;threadId&gt;
     .groupPolicy`: groupPolicy کے لیے فی موضوع اووررائیڈ (`open | allowlist | disabled\`)۔
   - `channels.telegram.groups.<id>.systemPrompt`: گروپ کے لیے اضافی سسٹم پرامپٹ۔
   - `channels.telegram.groups.<id>
-    .topics.<threadId>
+    .topics.&lt;threadId&gt;
     .requireMention`: فی موضوع مینشن گیٹنگ اووررائیڈ۔Happy Eyeballs ٹائم آؤٹس سے بچنے کے لیے Node 22 پر ڈیفالٹ طور پر غیر فعال ہے۔
   - `channels.telegram.network.autoSelectFamily`: Node کے autoSelectFamily کو اووررائیڈ کریں (true=فعال، false=غیر فعال)۔`channels.telegram.commands.native` کے ساتھ اووررائیڈ کریں۔Tlon ایک غیر مرکزی میسنجر ہے جو Urbit پر بنایا گیا ہے۔
   - `commands.native` (ڈیفالٹ `"auto"` → Telegram/Discord کے لیے آن، Slack کے لیے آف)، `commands.text`, `commands.useAccessGroups` (کمانڈ رویّہ)۔گروپ جوابات کے لیے ڈیفالٹ طور پر @ مینشن درکار ہوتا ہے اور انہیں اجازت فہرستوں کے ذریعے مزید محدود کیا جا سکتا ہے۔اسٹیٹس: پلگ اِن کے ذریعے سپورٹڈ۔

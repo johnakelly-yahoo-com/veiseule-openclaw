@@ -198,7 +198,7 @@ export FEISHU_APP_SECRET="xxx"
 
 ### Lark（全球）網域
 
-如果你的租戶位於 Lark（國際版），請將網域設定為 `lark`（或完整的網域字串）。你可以在 `channels.feishu.domain` 或每個帳號（`channels.feishu.accounts.<id> 1. 你可以在 `channels.feishu.domain` 設定，或針對每個帳戶（`channels.feishu.accounts.<id>`.domain`）中設定。
+如果你的租戶位於 Lark（國際版），請將網域設定為 `lark`（或完整的網域字串）。你可以在 `channels.feishu.domain` 或每個帳號（`channels.feishu.accounts.<id> 1. 你可以在 `channels.feishu.domain` 設定，或針對每個帳戶（`channels.feishu.accounts.&lt;id&gt;`.domain`）中設定。
 
 ```json5
 {

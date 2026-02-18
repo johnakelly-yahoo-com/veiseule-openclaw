@@ -106,7 +106,7 @@ Elevated अतिरिक्त टूल्स प्रदान **नही
 गेट्स:
 
 - Enablement: `tools.elevated.enabled` (और वैकल्पिक रूप से `agents.list[].tools.elevated.enabled`)
-- Sender allowlists: `tools.elevated.allowFrom.<provider>`` (और वैकल्पिक रूप से `agents.list[].tools.elevated.allowFrom.<provider>\`\`)\`
+- Sender allowlists: `tools.elevated.allowFrom.<provider>`` (और वैकल्पिक रूप से `agents.list[].tools.elevated.allowFrom.&lt;provider&gt;\`\`)\`
 
 देखें [Elevated Mode](/tools/elevated)।
 

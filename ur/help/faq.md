@@ -2408,7 +2408,7 @@ Fix:
 - 24. ہر پروفائل کنفگ میں منفرد `gateway.port` سیٹ کریں (یا دستی رنز کے لیے `--port` پاس کریں)۔
 - 25. ہر پروفائل کے لیے سروس انسٹال کریں: `openclaw --profile <name> gateway install`۔
 
-26. پروفائلز سروس ناموں کے ساتھ لاحقہ بھی لگاتے ہیں (`bot.molt.<profile>`27. `; legacy `com.openclaw.\*`, `openclaw-gateway-<profile>.service`, `OpenClaw Gateway (<profile>)\`)۔
+26. پروفائلز سروس ناموں کے ساتھ لاحقہ بھی لگاتے ہیں (`bot.molt.<profile>`27. `; legacy `com.openclaw.\*`, `openclaw-gateway-&lt;profile&gt;.service`, `OpenClaw Gateway (&lt;profile&gt;)\`)۔
 27. مکمل گائیڈ: [Multiple gateways](/gateway/multiple-gateways)۔
 
 ### 29. invalid handshake code 1008 کا کیا مطلب ہے؟

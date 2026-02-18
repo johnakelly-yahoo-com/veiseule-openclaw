@@ -80,30 +80,7 @@ openclaw agents list --bindings
 
 ## رقم WhatsApp واحد، عدة أشخاص (تقسيم الرسائل الخاصة)
 
-يمكنك توجيه **رسائل WhatsApp الخاصة المختلفة** إلى وكلاء مختلفين مع البقاء على **حساب WhatsApp واحد**. {
-agents: {
-list: [
-{ id: "alex", workspace: "~/.openclaw/workspace-alex" },
-{ id: "mia", workspace: "~/.openclaw/workspace-mia" },
-],
-},
-bindings: [
-{
-agentId: "alex",
-match: { channel: "whatsapp", peer: { kind: "direct", id: "+15551230001" } },
-},
-{
-agentId: "mia",
-match: { channel: "whatsapp", peer: { kind: "direct", id: "+15551230002" } },
-},
-],
-channels: {
-whatsapp: {
-dmPolicy: "allowlist",
-allowFrom: ["+15551230001", "+15551230002"],
-},
-},
-} تظل الردود صادرة من نفس رقم WhatsApp (لا هوية مُرسل لكل وكيل).
+يمكنك توجيه **رسائل WhatsApp الخاصة المختلفة** إلى وكلاء مختلفين مع البقاء على **حساب WhatsApp واحد**. طابِق على مُرسل E.164 (مثل `+15551234567`) باستخدام `peer.kind: "direct"`. تظل الردود صادرة من نفس رقم WhatsApp (لا توجد هوية مُرسل منفصلة لكل وكيل).
 
 تفصيل مهم: المحادثات المباشرة تُطوى إلى **مفتاح الجلسة الرئيسي** للوكيل، لذا يتطلب العزل الحقيقي **وكيلًا واحدًا لكل شخص**.
 
@@ -113,27 +90,26 @@ allowFrom: ["+15551230001", "+15551230002"],
 {
   agents: {
     list: [
-      {
-        id: "chat",
-        name: "Everyday",
-        workspace: "~/.openclaw/workspace-chat",
-        model: "anthropic/claude-sonnet-4-5",
-      },
-      {
-        id: "opus",
-        name: "Deep Work",
-        workspace: "~/.openclaw/workspace-opus",
-        model: "anthropic/claude-opus-4-6",
-      },
+      { id: "alex", workspace: "~/.openclaw/workspace-alex" },
+      { id: "mia", workspace: "~/.openclaw/workspace-mia" },
     ],
   },
   bindings: [
     {
-      agentId: "opus",
-      match: { channel: "whatsapp", peer: { kind: "direct", id: "+15551234567" } },
+      agentId: "alex",
+      match: { channel: "whatsapp", peer: { kind: "direct", id: "+15551230001" } },
     },
-    { agentId: "chat", match: { channel: "whatsapp" } },
+    {
+      agentId: "mia",
+      match: { channel: "whatsapp", peer: { kind: "direct", id: "+15551230002" } },
+    },
   ],
+  channels: {
+    whatsapp: {
+      dmPolicy: "allowlist",
+      allowFrom: ["+15551230001", "+15551230002"],
+    },
+  },
 }
 ```
 
@@ -147,11 +123,15 @@ allowFrom: ["+15551230001", "+15551230002"],
 الارتباطات **حتمية** و**الأكثر تحديدًا يفوز**:
 
 1. مطابقة `peer` (رسالة خاصة/مجموعة/معرّف قناة دقيق)
-2. `guildId` (Discord)
-3. `teamId` (Slack)
-4. مطابقة `accountId` لقناة
-5. مطابقة على مستوى القناة (`accountId: "*"`)
-6. الرجوع إلى الوكيل الافتراضي (`agents.list[].default`، وإلا فأول إدخال في القائمة، الافتراضي: `main`)
+2. مطابقة `parentPeer` (وراثة السلسلة)
+3. `guildId + roles` (توجيه حسب أدوار Discord)
+4. `guildId` (Discord)
+5. `teamId` (Slack)
+6. مطابقة `accountId` لقناة
+7. مطابقة على مستوى القناة (`accountId: "*"`)
+8. الرجوع إلى الوكيل الافتراضي (`agents.list[].default`، وإلا فأول إدخال في القائمة، الافتراضي: `main`)
+
+إذا عيّن الارتباط عدة حقول مطابقة (مثل `peer` + `guildId`)، فيجب تحقق جميع الحقول المحددة (دلالات `AND`).
 
 ## عدة حسابات / أرقام هواتف
 
@@ -263,14 +243,38 @@ allowFrom: ["+15551230001", "+15551230002"],
 ملاحظات:
 
 - إذا كان لديك عدة حسابات لقناة ما، أضف `accountId` إلى الارتباط (على سبيل المثال `{ channel: "whatsapp", accountId: "personal" }`).
-- لتوجيه رسالة خاصة/مجموعة واحدة إلى Opus مع إبقاء الباقي على الدردشة، أضف ارتباط `match.peer` لذلك النظير؛ تطابقات النظير تفوز دائمًا على قواعد القناة العامة.
+- لتوجيه رسالة خاصة/مجموعة واحدة إلى Opus مع إبقاء الباقي على chat، أضف ارتباط `match.peer` لذلك النظير؛ تطابقات النظير تفوز دائمًا على قواعد القناة العامة.
 
 ## مثال: القناة نفسها، نظير واحد إلى Opus
 
 أبقِ WhatsApp على الوكيل السريع، لكن وجّه رسالة خاصة واحدة إلى Opus:
 
 ```json5
-تجاوزات حسب النوع (اختياري): يتيح `resetByType` تجاوز السياسة لجلسات `direct` و`group` و`thread` (حيث يشير thread إلى سلاسل Slack/Discord، ومواضيع Telegram، وسلاسل Matrix عند توفيرها من الموصل).
+{
+  agents: {
+    list: [
+      {
+        id: "chat",
+        name: "Everyday",
+        workspace: "~/.openclaw/workspace-chat",
+        model: "anthropic/claude-sonnet-4-5",
+      },
+      {
+        id: "opus",
+        name: "Deep Work",
+        workspace: "~/.openclaw/workspace-opus",
+        model: "anthropic/claude-opus-4-6",
+      },
+    ],
+  },
+  bindings: [
+    {
+      agentId: "opus",
+      match: { channel: "whatsapp", peer: { kind: "direct", id: "+15551234567" } },
+    },
+    { agentId: "chat", match: { channel: "whatsapp" } },
+  ],
+}
 ```
 
 تطابقات النظير تفوز دائمًا، لذا اجعلها فوق قاعدة القناة العامة.
@@ -380,4 +384,4 @@ allowFrom: ["+15551230001", "+15551230002"],
 إذا احتجت حدودًا لكل وكيل، استخدم `agents.list[].tools` لمنع `exec`.
 ولاستهداف المجموعات، استخدم `agents.list[].groupChat.mentionPatterns` بحيث تُطابِق @mentions الوكيل المقصود بدقة.
 
-راجع [Sandbox & Tools متعدد الوكلاء](/tools/multi-agent-sandbox-tools) لأمثلة تفصيلية.
+راجع [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) لأمثلة تفصيلية.

@@ -21,7 +21,8 @@ title: "OpenClaw"
 
 > _"ایکسفولی ایٹ! ایکسفولی ایٹ!"_ — شاید کوئی خلائی لابسٹر
 
-<p align="center"><strong>Any OS gateway for AI agents across WhatsApp, Telegram, Discord, iMessage, and more.</strong><br />
+<p align="center">
+  <strong>Any OS gateway for AI agents across WhatsApp, Telegram, Discord, iMessage, and more.</strong><br />
   Send a message, get an agent response from your pocket. 35. پلگ اِنز Mattermost اور مزید شامل کرتے ہیں۔
 </p>
 

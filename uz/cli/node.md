@@ -34,7 +34,7 @@ enabled: false,
 Ishga tushirish (oldingi rejim)
 ```
 
-## openclaw node run --host <gateway-host> --port 18789
+## openclaw node run --host &lt;gateway-host&gt; --port 18789
 
 ```bash
 Variantlar:
@@ -51,7 +51,7 @@ Variantlar:
 
 ## Foydalanuvchi xizmati sifatida headless tugun xostini o‘rnating.
 
-openclaw node install --host <gateway-host> --port 18789
+openclaw node install --host &lt;gateway-host&gt; --port 18789
 
 ```bash
 Variantlar:
@@ -85,7 +85,7 @@ Juftlash
 
 Uni quyidagilar orqali tasdiqlang:
 openclaw nodes pending
-openclaw nodes approve <requestId>
+openclaw nodes approve &lt;requestId&gt;
 
 ```bash
 Tugun xosti o‘zining tugun identifikatori, tokeni, ko‘rinadigan nomi va gateway ulanish ma’lumotlarini `~/.openclaw/node.json` da saqlaydi.

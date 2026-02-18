@@ -998,7 +998,7 @@ Hinweise:
 - `commands.native: "auto"` (default) schaltet native Befehle für Discord/Telegram ein und lässt Slack ausschalten; nicht unterstützte Kanäle bleiben text-only.
 - Setze `commands.native: true|false` um alle zu erzwingen, oder überschreiben pro Kanal mit `channels.discord.commands.native`, `channels.telegram.commands.native`, `channels.slack.commands.native` (bool oder `"auto"`). `false` löscht beim Start zuvor registrierte Befehle auf Discord/Telegram; Slack Befehle werden in der Slack App verwaltet.
 - `channels.telegram.customCommands` fügt zusätzliche Telegram Bot-Menüeinträge hinzu. Namen werden normalisiert, Konflikte mit nativen Befehlen werden ignoriert.
-- `commands.bash: true` aktiviert `! <cmd>` um Host-Shell-Befehle auszuführen (`/bash <cmd>funktioniert auch als Alias). Benötigt `tools.elevated.enabled`und erlaubt die Auflistung des Absenders in`tools.elevated.allowFrom.<channel>\`.
+- `commands.bash: true` aktiviert `! <cmd>` um Host-Shell-Befehle auszuführen (`/bash <cmd>funktioniert auch als Alias). Benötigt `tools.elevated.enabled`und erlaubt die Auflistung des Absenders in`tools.elevated.allowFrom.&lt;channel&gt;\`.
 - `commands.bashForegroundMs` legt fest, wie lange bash vor dem Hintergrund wartet. Während ein Bash-Job läuft, neu `! <cmd>` Anfragen werden abgelehnt (jeweils ein).
 - `commands.config: true` aktiviert `/config` (reads/writes `openclaw.json`).
 - `Kanäle.<provider>.configWrites` gates config mutations initiiert durch diesen Kanal (Standard: true). Dies gilt für `/config set|unset` plus provider-spezifische Auto-Migrationen (Änderungen der Telegram-Supergruppen-ID-Änderungen, Änderungen der Slack Channel ID).
@@ -3299,7 +3299,7 @@ Standardwerte:
 Bind modes:
 
 - `lan`: `0.0.0.0` (erreichbar auf jeder Schnittstelle, inklusive LAN/Wi-Fi und Maßskala)
-- `tailnet`: nur an die Tailscale IP der Maschine binden (empfohlen für Wien <unk> London)
+- `tailnet`: nur an die Tailscale IP der Maschine binden (empfohlen für Wien &lt;unk&gt; London)
 - `loopback`: `127.0.0.1` (nur lokal)
 - `auto`: bevorzuge tailnet IP wenn vorhanden, sonst `lan`
 
@@ -3346,11 +3346,11 @@ Controls LAN mDNS discovery broadcasts (`_openclaw-gw._tcp`).
 }
 ```
 
-### "discovery.wideArea" (ide-Area Bonjour / unicast DNS<unk> SD)
+### "discovery.wideArea" (ide-Area Bonjour / unicast DNS&lt;unk&gt; SD)
 
 Wenn aktiviert, schreibt das Gateway unter `~/.openclaw/dns/` eine unicast DNS-SD-Zone für `_openclaw-gw._tcp` unter `~/.openclaw/dns/` unter Verwendung der konfigurierten Discovery Domain (Beispiel: `openclaw.internal.`).
 
-Um iOS/Android in allen Netzwerken (Wien <unk> London) entdecken zu lassen, paaren Sie folgendes mit:
+Um iOS/Android in allen Netzwerken (Wien &lt;unk&gt; London) entdecken zu lassen, paaren Sie folgendes mit:
 
 - ein DNS-Server auf dem Gateway-Host, der Ihre gewählte Domain bedient (CoreDNS wird empfohlen)
 - Anpassungsmaßstab **teilt DNS** so dass Clients diese Domain über den Gateway-DNS-Server auflösen

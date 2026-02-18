@@ -19,50 +19,44 @@ node -v
   <Tab title="macOS">
     **Homebrew** (рекомендуется):
 
-    ````
     ```bash
     brew install node
     ```
-    
+
     Либо загрузите установщик для macOS с [nodejs.org](https://nodejs.org/).
-    ````
 
   </Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
-    ````
     ```bash
     curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ```
-    
+
     **Fedora / RHEL:**
-    
+
     ```bash
     sudo dnf install nodejs
     ```
-    
+
     Либо используйте менеджер версий (см. ниже).
-    ````
 
   </Tab>
   <Tab title="Windows">
     **winget** (рекомендуется):
 
-    ````
     ```powershell
     winget install OpenJS.NodeJS.LTS
     ```
-    
+
     **Chocolatey:**
-    
+
     ```powershell
     choco install nodejs-lts
     ```
-    
+
     Либо загрузите установщик для Windows с [nodejs.org](https://nodejs.org/).
-    ````
 
   </Tab>
 </Tabs>
@@ -103,9 +97,7 @@ fnm use 22
     echo "$PATH"
     ```
 
-    ```
     Ищите `<npm-prefix>/bin` (macOS/Linux) или `<npm-prefix>` (Windows) в выводе.
-    ```
 
   </Step>
   <Step title="Add it to your shell startup file">
@@ -113,18 +105,16 @@ fnm use 22
       <Tab title="macOS / Linux">
         Добавьте в `~/.zshrc` или `~/.bashrc`:
 
+        ```bash
+        export PATH="$(npm prefix -g)/bin:$PATH"
         ```
-            ```bash
-            export PATH="$(npm prefix -g)/bin:$PATH"
-            ```
-        
-            Затем откройте новый терминал (или выполните `rehash` в zsh / `hash -r` в bash).
-          </Tab>
-          <Tab title="Windows">
-            Добавьте вывод `npm prefix -g` в системный PATH через «Параметры → Система → Переменные среды».
-          </Tab>
-        </Tabs>
-        ```
+
+        Затем откройте новый терминал (или выполните `rehash` в zsh / `hash -r` в bash).
+      </Tab>
+      <Tab title="Windows">
+        Добавьте вывод `npm prefix -g` в системный PATH через «Параметры → Система → Переменные среды».
+      </Tab>
+    </Tabs>
 
   </Step>
 </Steps>

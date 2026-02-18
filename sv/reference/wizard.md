@@ -13,101 +13,100 @@ För en överblick på hög nivå, se [Onboarding Wizard](/start/wizard).
 <Steps>
   <Step title="Existing config detection">
     - Om `~/.openclaw/openclaw.json` finns, välj **Behåll / Ändra / Återställ**.
-    - Att köra om guiden torkar **inte** om du inte uttryckligen väljer **Återställ**
-      (eller passerar `--reset`).
+    - Att köra om guiden raderar **inte** något om du inte uttryckligen väljer **Återställ**
+      (eller skickar `--reset`).
     - Om konfigurationen är ogiltig eller innehåller äldre nycklar, stannar guiden och ber
-      dig att köra `openclaw doctor` innan du fortsätter.
-    - Återställ använder `trash` (aldrig `rm`) och erbjuder omfattning:
+      dig köra `openclaw doctor` innan du fortsätter.
+    - Återställ använder `trash` (aldrig `rm`) och erbjuder följande omfattning:
       - Endast konfiguration
-      - Config + autentiseringsuppgifter + sessioner
-      - Fullständig återställning (tar också bort arbetsytan)  
-</Step>
+      - Konfiguration + autentiseringsuppgifter + sessioner
+      - Fullständig återställning (tar även bort arbetsytan)
+  </Step>
   <Step title="Model/Auth">
-    - **Antropisk API-nyckel (rekommenderas)**: använder `ANTHROPIC_API_KEY` om den finns eller ber om en nyckel, sparar den sedan för serveranvändning.
-    - **Anthropic OAuth (Claude Code CLI)**: på macOS trollkarlen kontrollerar Nyckelringsetiketten "Claude Code-autentiseringar" (välj "Alltid tillåt" så att launchd startar blockeras inte); på Linux/Windows det återanvänder `~/. laude/.credentials.json` om närvarande.
-    - **Antropisk token (klistra in setup-token)**: kör `claude setup-token` på någon maskin, klistra sedan in token (du kan namnge det; tomt = standard).
-    - **OpenAI-kod (Codex) prenumeration (Codex CLI)**: om `~/.codex/auth.json` finns kan guiden återanvända den.
-    - **OpenAI-kod (Codex) prenumeration (OAuth)**: webbläsarflöde; klistra in `code#state`.
-      - Ställer in `agents.defaults.model` till `openai-codex/gpt-5.2` när modellen är unset eller `openai/*`.
-    - **OpenAI API-nyckel**: använder `OPENAI_API_KEY` om det finns eller ber om en nyckel, sparar det sedan till `~/.openclaw/.env` så launchd kan läsa den.
-    - **xAI (Grok) API-nyckel**: uppmaningar för `XAI_API_KEY` och konfigurerar xAI som modellleverantör.
-    - **OpenCode Zen (multi-model proxy)**: uppmaningar till `OPENCODE_API_KEY` (eller `OPENCODE_ZEN_API_KEY`, hämta det på https://opencode.ai/auth).
-    - **API-nyckel**: lagrar nyckeln för dig.
-    - **Vercel AI Gateway (multi-model proxy)**: uppmaningar till `AI_GATEWAY_API_KEY`.
-    - Mer detalj: [Vercel AI Gateway](/providers/vercel-ai-gateway)
-    - **Cloudflare AI Gateway**: uppmaningar om konto-ID, Gateway ID och `CLOUDFLARE_AI_GATEWAY_API_KEY`.
-    - Mer detalj: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
-    - **MiniMax M2.1**: konfiguration är automatiskt skriven.
-    - Mer detalj: [MiniMax](/providers/minimax)
-    - **Syntetisk (Anthropic-kompatibel)**: uppmaningar till `SYNTHETIC_API_KEY`.
-    - Mer detalj: [Synthetic](/providers/synthetic)
-    - **Moonshot (Kimi K2)**: config är automatiskt skriven.
-    - **Kimi Coding**: config är automatiskt skriven.
-    - Mer detalj: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)
-    - **Skip**: ingen auth konfigurerad ännu.
+    - **Anthropic API-nyckel (rekommenderas)**: använder `ANTHROPIC_API_KEY` om den finns eller ber om en nyckel och sparar den för daemon-användning.
+    - **Anthropic OAuth (Claude Code CLI)**: på macOS kontrollerar guiden nyckelringselementet "Claude Code-credentials" (välj "Always Allow" så att launchd-starter inte blockeras); på Linux/Windows återanvänds `~/.claude/.credentials.json` om den finns.
+    - **Anthropic token (klistra in setup-token)**: kör `claude setup-token` på valfri maskin och klistra sedan in token (du kan namnge den; tomt = standard).
+    - **OpenAI Code (Codex) subscription (Codex CLI)**: om `~/.codex/auth.json` finns kan guiden återanvända den.
+    - **OpenAI Code (Codex) subscription (OAuth)**: webbläsarflöde; klistra in `code#state`.
+      - Sätter `agents.defaults.model` till `openai-codex/gpt-5.2` när modellen är unset eller `openai/*`.
+    - **OpenAI API-nyckel**: använder `OPENAI_API_KEY` om den finns eller ber om en nyckel och sparar den i `~/.openclaw/.env` så att launchd kan läsa den.
+    - **xAI (Grok) API-nyckel**: ber om `XAI_API_KEY` och konfigurerar xAI som modellleverantör.
+    - **OpenCode Zen (multi-model proxy)**: ber om `OPENCODE_API_KEY` (eller `OPENCODE_ZEN_API_KEY`, hämta den på https://opencode.ai/auth).
+    - **API-nyckel**: lagrar nyckeln åt dig.
+    - **Vercel AI Gateway (multi-model proxy)**: ber om `AI_GATEWAY_API_KEY`.
+    - Mer information: [Vercel AI Gateway](/providers/vercel-ai-gateway)
+    - **Cloudflare AI Gateway**: ber om Account ID, Gateway ID och `CLOUDFLARE_AI_GATEWAY_API_KEY`.
+    - Mer information: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
+    - **MiniMax M2.1**: konfiguration skrivs automatiskt.
+    - Mer information: [MiniMax](/providers/minimax)
+    - **Synthetic (Anthropic-kompatibel)**: ber om `SYNTHETIC_API_KEY`.
+    - Mer information: [Synthetic](/providers/synthetic)
+    - **Moonshot (Kimi K2)**: konfiguration skrivs automatiskt.
+    - **Kimi Coding**: konfiguration skrivs automatiskt.
+    - Mer information: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)
+    - **Skip**: ingen autentisering konfigurerad ännu.
     - Välj en standardmodell från upptäckta alternativ (eller ange leverantör/modell manuellt).
     - Guiden kör en modellkontroll och varnar om den konfigurerade modellen är okänd eller saknar autentisering.
-    - OAuth autentiseringsuppgifter lever i `~/.openclaw/credentials/oauth.json`; auth profiler lever i `~/.openclaw/agents/<agentId>/agent/auth-profiles.json` (API-nycklar + OAuth).
-    - Mer information: [/concepts/oauth](/concepts/oauth)    
-<Note>
-    Tips för headless/server: slutför OAuth på en maskin med webbläsare och kopiera sedan
+    - OAuth-autentiseringsuppgifter finns i `~/.openclaw/credentials/oauth.json`; auth-profiler finns i `~/.openclaw/agents/<agentId>/agent/auth-profiles.json` (API-nycklar + OAuth).
+    - Mer information: [/concepts/oauth](/concepts/oauth)
+    <Note>
+    Tips för headless/server: slutför OAuth på en maskin med webbläsare och kopiera
     `~/.openclaw/credentials/oauth.json` (eller `$OPENCLAW_STATE_DIR/credentials/oauth.json`) till
     gateway-värden.
     </Note>
   </Step>
   <Step title="Workspace">
-    - Standard `~/.openclaw/workspace` (konfigurerbar).
-    - Frön de arbetsytefakter som behövs för agenten bootstrap ritual.
-    - Fullständig arbetsytelayout + guide för säkerhetskopiering: [Agentarbetsyta](/concepts/agent-workspace)  
-</Step>
+    - Standard är `~/.openclaw/workspace` (kan konfigureras).
+    - Skapar de arbetsytefiler som behövs för agentens bootstrap-ritual.
+    - Fullständig arbetsytelayout + guide för säkerhetskopiering: [Agent workspace](/concepts/agent-workspace)
+  </Step>
   <Step title="Gateway">
-    - Port, bind, auth-läge, skräddarsydd exponering.
-    - Auth rekommendation: behåll **Token** även för loopback så att lokala WS-klienter måste autentisera.
-    - Inaktivera auth endast om du helt litar på varje lokal process.
-    - Icke-loopback binder fortfarande kräver auth.
+    - Port, bindning, autentiseringsläge, Tailscale-exponering.
+    - Rekommendation: behåll **Token** även för loopback så att lokala WS-klienter måste autentisera.
+    - Inaktivera autentisering endast om du helt litar på alla lokala processer.
+    - Icke‑loopback-bindningar kräver fortfarande autentisering.
   </Step>
   <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): valfri QR-inloggning.
     - [Telegram](/channels/telegram): bot-token.
     - [Discord](/channels/discord): bot-token.
-    - [Google Chat](/channels/googlechat): servicekonto JSON + webhook-publik.
-    - [Mattermost](/channels/mattermost) (plugin): bot token + bas-URL.
-    - [Signal](/channels/signal): valfri `signal-cli` install + account config.
-    - [BlueBubbles](/channels/bluebubbles): **rekommenderas för iMessage**; server URL + lösenord + webhook.
+    - [Google Chat](/channels/googlechat): servicekonto-JSON + webhook audience.
+    - [Mattermost](/channels/mattermost) (plugin): bot-token + bas-URL.
+    - [Signal](/channels/signal): valfri installation av `signal-cli` + kontokonfiguration.
+    - [BlueBubbles](/channels/bluebubbles): **rekommenderas för iMessage**; server-URL + lösenord + webhook.
     - [iMessage](/channels/imessage): äldre `imsg` CLI-sökväg + DB-åtkomst.
-    - DM säkerhet: standard är parning. Första DM skickar en kod; godkänna via `openclaw parkoppling godkänna <channel><code>` eller använd tillåtelselistor.
-  </Step><code>` eller använd tillåtelselistor.
+    - DM-säkerhet: standard är parkoppling. Första DM skickar en kod; godkänn via `openclaw pairing approve <channel> <code>` eller använd allowlists.
   </Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
-      - Kräver en inloggad användarsession; för huvudlös, använd en anpassad LaunchDaemon (inte levererad).
-    - Linux (och Windows via WSL2): systemdanvändarenhet
-      - Wizard försöker aktivera kvardröjande via `loginctl enable-linger <user>` så Gateway stannar kvar efter utloggning.
-      - Kan fråga om sudo (skriver `/var/lib/systemd/linger`); den försöker utan sudo först.
-    - **Körtidsval:** Node (rekommenderas; krävs för WhatsApp/Telegram). Bun är **inte rekommenderas**.
+      - Kräver en inloggad användarsession; för headless, använd en anpassad LaunchDaemon (medföljer inte).
+    - Linux (och Windows via WSL2): systemd user unit
+      - Guiden försöker aktivera lingering via `loginctl enable-linger <user>` så att Gateway fortsätter köra efter utloggning.
+      - Kan be om sudo (skriver `/var/lib/systemd/linger`); den försöker utan sudo först.
+    - **Val av runtime:** Node (rekommenderas; krävs för WhatsApp/Telegram). Bun är **inte rekommenderat**.
   </Step>
   <Step title="Health check">
-    - Startar Gateway (om det behövs) och kör `openclaw health`.
-    - Tips: `openclaw status --deep` lägger till gateway hälso-sonder till statusutdata (kräver en nåbar gateway).
+    - Startar Gateway (vid behov) och kör `openclaw health`.
+    - Tips: `openclaw status --deep` lägger till gateway-hälsokontroller i statusutdata (kräver en nåbar gateway).
   </Step>
   <Step title="Skills (recommended)">
-    - Läser de tillgängliga färdigheterna och kontrollkraven.
-    - Kan du välja en nodhanterare: **npm / pnpm** (bun rekommenderas inte).
+    - Läser tillgängliga skills och kontrollerar krav.
+    - Låter dig välja en node manager: **npm / pnpm** (bun rekommenderas inte).
     - Installerar valfria beroenden (vissa använder Homebrew på macOS).
   </Step>
   <Step title="Finish">
-    - Sammanfattning + nästa steg, inklusive iOS/Android/macOS appar för extra funktioner.
+    - Sammanfattning + nästa steg, inklusive iOS/Android/macOS-appar för extra funktioner.
   </Step>
 </Steps>
 
 <Note>
-Om ingen GUI upptäcks, guiden skriver ut SSH port-forward instruktioner för Control UI istället för att öppna en webbläsare.
-Om kontrollgränssnittets tillgångar saknas, försöker guiden bygga dem; fallback är `pnpm ui:build` (auto-installs UI deps).
+Om inget GUI upptäcks skriver guiden ut SSH port-forward-instruktioner för Control UI istället för att öppna en webbläsare.
+Om Control UI-resurser saknas försöker guiden bygga dem; fallback är `pnpm ui:build` (installerar UI-beroenden automatiskt).
 </Note>
 
 ## Icke-interaktivt läge
 
-Använd `--non-interactive` för att automatisera eller skripta introduktion:
+Använd `--non-interactive` för att automatisera eller skripta introduktionen:
 
 ```bash
 openclaw onboard --non-interactive \
@@ -124,7 +123,7 @@ openclaw onboard --non-interactive \
 Lägg till `--json` för en maskinläsbar sammanfattning.
 
 <Note>
-`--json` betyder **inte** icke-interaktivt läge. Använd `--non-interactive` (och `--workspace`) för skript.
+`--json` innebär **inte** icke-interaktivt läge. Använd `--non-interactive` (och `--workspace`) för skript.
 </Note>
 
 <AccordionGroup>
@@ -213,23 +212,23 @@ openclaw agents add work \
   --json
 ```
 
-## Gateway-guide RPC
+## Gateway wizard RPC
 
-Gateway exponerar trollkarlsflödet över RPC (`wizard.start`, `wizard.next`, `wizard.cancel`, `wizard.status`).
-Klienter (macOS app, Control UI) kan rendera steg utan att implementera ombordstigningslogik.
+Gateway exponerar wizard-flödet över RPC (`wizard.start`, `wizard.next`, `wizard.cancel`, `wizard.status`).
+Klienter (macOS-app, Control UI) kan rendera steg utan att återimplementera onboarding-logiken.
 
-## Signal-konfigurering (signal-cli)
+## Signal setup (signal-cli)
 
 Guiden kan installera `signal-cli` från GitHub-releaser:
 
-- Hämtar lämplig release-tillgång.
+- Laddar ner lämplig release‑asset.
 - Lagrar den under `~/.openclaw/tools/signal-cli/<version>/`.
-- Skriver `channels.signal.cliPath` till din konfig.
+- Skriver `channels.signal.cliPath` till din konfiguration.
 
-Noteringar:
+Observera:
 
-- JVM-byggen kräver **Java 21**.
-- Native-byggen används när de finns tillgängliga.
+- JVM‑byggen kräver **Java 21**.
+- Native‑byggen används när de finns tillgängliga.
 - Windows använder WSL2; installation av signal-cli följer Linux-flödet inuti WSL.
 
 ## Vad guiden skriver
@@ -238,9 +237,9 @@ Typiska fält i `~/.openclaw/openclaw.json`:
 
 - `agents.defaults.workspace`
 - `agents.defaults.model` / `models.providers` (om Minimax valts)
-- `gateway.*` (läge, bindning, autentisering, Tailscale)
+- `gateway.*` (läge, bindning, autentisering, tailscale)
 - `channels.telegram.botToken`, `channels.discord.token`, `channels.signal.*`, `channels.imessage.*`
-- Kanal-tillåtelselistor (Slack/Discord/Matrix/Microsoft Teams) när du väljer det under frågorna (namn löses till ID:n när möjligt).
+- Kanal‑allowlists (Slack/Discord/Matrix/Microsoft Teams) när du väljer det under stegen (namn löses till ID:n när möjligt).
 - `skills.install.nodeManager`
 - `wizard.lastRunAt`
 - `wizard.lastRunVersion`
@@ -248,18 +247,18 @@ Typiska fält i `~/.openclaw/openclaw.json`:
 - `wizard.lastRunCommand`
 - `wizard.lastRunMode`
 
-`openclaw agents add` skriver `agents.list[]` och valfri `bindings`.
+`openclaw agents add` skriver `agents.list[]` och valfria `bindings`.
 
-WhatsApp-uppgifter går under `~/.openclaw/credentials/whatsapp/<accountId>/`.
+WhatsApp‑uppgifter lagras under `~/.openclaw/credentials/whatsapp/<accountId>/`.
 Sessioner lagras under `~/.openclaw/agents/<agentId>/sessions/`.
 
-Vissa kanaler levereras som plugins. När du väljer en under registrering, kommer guiden
-uppmanas att installera den (npm eller en lokal sökväg) innan den kan konfigureras.
+Vissa kanaler levereras som plugins. När du väljer en under onboarding kommer guiden
+att be dig installera den (npm eller en lokal sökväg) innan den kan konfigureras.
 
 ## Relaterad dokumentation
 
 - Guideöversikt: [Introduktionsguide](/start/wizard)
-- Introduktion i macOS-appen: [Introduktion](/start/onboarding)
-- Konfigreferens: [Gateway-konfiguration](/gateway/configuration)
+- Onboarding i macOS-appen: [Onboarding](/start/onboarding)
+- Konfigurationsreferens: [Gateway configuration](/gateway/configuration)
 - Leverantörer: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (legacy)
-- Skills: [Skills](/tools/skills), [Skills-konfig](/tools/skills-config)
+- Skills: [Skills](/tools/skills), [Skills config](/tools/skills-config)

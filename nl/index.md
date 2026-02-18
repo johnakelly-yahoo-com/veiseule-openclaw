@@ -21,7 +21,8 @@ title: "OpenClaw"
 
 > _"EXFOLIATE! EXFOLIATE!"_ — Een ruimtekreeft, waarschijnlijk
 
-<p align="center"><strong>Gateway voor AI‑agents op elk besturingssysteem, voor WhatsApp, Telegram, Discord, iMessage en meer.</strong><br />
+<p align="center">
+  <strong>Gateway voor AI‑agents op elk besturingssysteem, voor WhatsApp, Telegram, Discord, iMessage en meer.</strong><br />
   Stuur een bericht en ontvang een agent‑antwoord vanuit je broekzak. Plugins voegen Mattermost en meer toe.
 </p>
 

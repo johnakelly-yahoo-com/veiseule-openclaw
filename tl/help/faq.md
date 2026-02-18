@@ -2411,7 +2411,7 @@ Yes, but you must isolate:
 - 50. Mag-install ng per-profile service: `openclaw --profile <name> gateway install`.
 
 1. Nagdadagdag din ng suffix ang mga profile sa mga pangalan ng serbisyo (\`bot.molt.<profile>
-2. `; legacy `com.openclaw.\*`, `openclaw-gateway-<profile>.service`, `OpenClaw Gateway (<profile>)`).`; legacy `com.openclaw.*`, `openclaw-gateway-<profile>.service`, `OpenClaw Gateway (<profile>)`).
+2. `; legacy `com.openclaw.\*`, `openclaw-gateway-&lt;profile&gt;.service`, `OpenClaw Gateway (&lt;profile&gt;)`).`; legacy `com.openclaw.*`, `openclaw-gateway-<profile>.service`, `OpenClaw Gateway (<profile>)`).
 3. Buong gabay: [Multiple gateways](/gateway/multiple-gateways).
 
 ### 4. Ano ang ibig sabihin ng invalid handshake code 1008

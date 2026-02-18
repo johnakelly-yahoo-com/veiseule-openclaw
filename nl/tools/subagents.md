@@ -4,460 +4,204 @@ title: "Sub-agenten"
 
 # Sub-agenten
 
-Sub-agents let you run background tasks without blocking the main conversation. When you spawn a sub-agent, it runs in its own isolated session, does its work, and announces the result back to the chat when finished.
+Sub-agents zijn achtergrond-agentruns die worden gestart vanuit een bestaande agentrun. Ze draaien in hun eigen sessie (`agent:<agentId>:subagent:<uuid>`) en **kondigen** hun resultaat na voltooiing aan terug in het chatkanaal van de aanvrager.
 
-**Use cases:**
+## Slash-opdracht
 
-- Research a topic while the main agent continues answering questions
-- Run multiple long tasks in parallel (web scraping, code analysis, file processing)
-- Delegate tasks to specialized agents in a multi-agent setup
+Gebruik `/subagents` om sub-agentruns voor de **huidige sessie** te inspecteren of te beheren:
 
-## Snelle start
+- `/subagents list`
+- `/subagents kill <id|#|all>`
+- `/subagents log <id|#> [limit] [tools]`
+- `/subagents info <id|#>`
+- `/subagents send <id|#> <message>`
 
-The simplest way to use sub-agents is to ask your agent naturally:
+`/subagents info` toont run-metadata (status, tijdstempels, sessie-id, transcriptpad, opschoning).
 
-> "Spawn a sub-agent to research the latest Node.js release notes"
+Primaire doelen:
 
-The agent will call the `sessions_spawn` tool behind the scenes. When the sub-agent finishes, it announces its findings back into your chat.
+- Paralleliseer "research / lange taak / trage tool"-werk zonder de hoofdrun te blokkeren.
+- Houd sub-agents standaard geïsoleerd (sessiescheiding + optionele sandboxing).
+- Houd het tooloppervlak moeilijk te misbruiken: sub-agents krijgen **geen** sessietools standaard.
+- Ondersteun configureerbare nestingdiepte voor orchestrator-patronen.
 
-You can also be explicit about options:
+Kostenopmerking: elke sub-agent heeft zijn **eigen** context en tokenverbruik. Voor zware of repetitieve taken stel je een goedkoper model in voor sub-agents en houd je je hoofdagent op een model van hogere kwaliteit. Je kunt dit configureren via `agents.defaults.subagents.model` of per-agent-overschrijvingen.
 
-> "Spawn a sub-agent to analyze the server logs from today. Use gpt-5.2 and set a 5-minute timeout."
+## Tool
 
-## Hoe het werkt
+Gebruik `sessions_spawn`:
 
-<Steps>
-  <Step title="Main agent spawns">
-    The main agent calls `sessions_spawn` with a task description. The call is **non-blocking** — the main agent gets back `{ status: "accepted", runId, childSessionKey }` immediately.
-  </Step>
-  <Step title="Sub-agent runs in the background">
-    A new isolated session is created (`agent:<agentId>:subagent:<uuid>`) on the dedicated `subagent` queue lane.
-  </Step>
-  <Step title="Result is announced">
-    When the sub-agent finishes, it announces its findings back to the requester chat. The main agent posts a natural-language summary.
-  </Step>
-  <Step title="Session is archived">
-    The sub-agent session is auto-archived after 60 minutes (configurable). Transcripts are preserved.
-  </Step>
-</Steps>
+- Start een sub-agentrun (`deliver: false`, globale lane: `subagent`)
+- Voert daarna een announce-stap uit en plaatst het announce-antwoord in het chatkanaal van de aanvrager
+- Standaardmodel: erft van de aanroeper tenzij je `agents.defaults.subagents.model` instelt (of per-agent `agents.list[].subagents.model`); een expliciete `sessions_spawn.model` heeft nog steeds voorrang.
+- Standaard thinking: erft van de aanroeper tenzij je `agents.defaults.subagents.thinking` instelt (of per-agent `agents.list[].subagents.thinking`); een expliciete `sessions_spawn.thinking` heeft nog steeds voorrang.
 
-<Tip>
-Each sub-agent has its **own** context and token usage. Set a cheaper model for sub-agents to save costs — see [Setting a Default Model](#setting-a-default-model) below.
-</Tip>
+Toolparameters:
 
-## Configuratie
+- `task` (verplicht)
+- `label?` (optioneel)
+- `agentId?` (optioneel; start onder een andere agent-id indien toegestaan)
+- `model?` (optioneel; overschrijft het sub-agentmodel; ongeldige waarden worden overgeslagen en de sub-agent draait op het standaardmodel met een waarschuwing in het toolresultaat)
+- `thinking?` (optioneel; overschrijft het denkniveau voor de sub-agentrun)
+- `runTimeoutSeconds?` (standaard `0`; indien ingesteld wordt de sub-agentrun na N seconden afgebroken)
+- `cleanup?` (`delete|keep`, standaard `keep`)
 
-Sub-agents work out of the box with no configuration. Standaardwaarden:
+Allowlist:
 
-- Model: target agent’s normal model selection (unless `subagents.model` is set)
-- Thinking: no sub-agent override (unless `subagents.thinking` is set)
-- Max concurrent: 8
-- Auto-archive: after 60 minutes
+- `agents.list[].subagents.allowAgents`: lijst met agent-id’s die via `agentId` mogen worden getarget (`["*"]` om alles toe te staan). Standaard: alleen de aanvragende agent.
 
-### Setting a Default Model
+Discovery:
 
-Use a cheaper model for sub-agents to save on token costs:
+- Gebruik `agents_list` om te zien welke agent-id’s momenteel zijn toegestaan voor `sessions_spawn`.
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        model: "minimax/MiniMax-M2.1",
-      },
-    },
-  },
-}
-```
+Auto-archive:
 
-### Setting a Default Thinking Level
+- Sub-agentsessies worden automatisch gearchiveerd na `agents.defaults.subagents.archiveAfterMinutes` (standaard: 60).
+- Archiveren gebruikt `sessions.delete` en hernoemt het transcript naar `*.deleted.<timestamp>` (dezelfde map).
+- `cleanup: "delete"` archiveert onmiddellijk na announce (het transcript blijft behouden via hernoemen).
+- Auto-archive is best-effort; wachtende timers gaan verloren als de gateway opnieuw wordt gestart.
+- `runTimeoutSeconds` archiveert **niet** automatisch; het stopt alleen de run. De sessie blijft bestaan tot auto-archive.
+- Auto-archive geldt zowel voor depth-1- als depth-2-sessies.
+
+## Geneste sub-agents
+
+Standaard kunnen sub-agents geen eigen sub-agents starten (`maxSpawnDepth: 1`). Je kunt één niveau nesting inschakelen door `maxSpawnDepth: 2` in te stellen, wat het **orchestrator-patroon** mogelijk maakt: main → orchestrator-sub-agent → worker-sub-sub-agents.
+
+### Hoe inschakelen
 
 ```json5
 {
   agents: {
     defaults: {
       subagents: {
-        thinking: "low",
+        maxSpawnDepth: 2, // sta sub-agents toe kinderen te starten (standaard: 1)
+        maxChildrenPerAgent: 5, // max actieve kinderen per agentsessie (standaard: 5)
+        maxConcurrent: 8, // globale concurrency-limiet voor de lane (standaard: 8)
       },
     },
   },
 }
 ```
 
-### Per-agent-overschrijvingen
+### Diepteniveaus
 
-In een multi-agent-opstelling kun je standaardwaarden voor sub-agents per agent instellen:
+| Depth | Session key shape                            | Rol                                           | Kan starten?                 |
+| ----- | -------------------------------------------- | --------------------------------------------- | ---------------------------- |
+| 0     | `agent:<id>:main`                            | Hoofdagent                                   | Altijd                      |
+| 1     | `agent:<id>:subagent:<uuid>`                 | Sub-agent (orchestrator wanneer depth 2 is toegestaan) | Alleen als `maxSpawnDepth >= 2` |
+| 2     | `agent:<id>:subagent:<uuid>:subagent:<uuid>` | Sub-sub-agent (leaf worker)                  | Nooit                       |
 
-```json5
-{
-  agents: {
-    list: [
-      {
-        id: "researcher",
-        subagents: {
-          model: "anthropic/claude-sonnet-4",
-        },
-      },
-      {
-        id: "assistant",
-        subagents: {
-          model: "minimax/MiniMax-M2.1",
-        },
-      },
-    ],
-  },
-}
-```
+### Announce-keten
 
-### Concurrency
+Resultaten stromen terug omhoog in de keten:
 
-Bepaal hoeveel sub-agents tegelijk kunnen draaien:
+1. Depth-2 worker voltooit → kondigt aan bij zijn ouder (depth-1 orchestrator)
+2. Depth-1 orchestrator ontvangt de announce, synthetiseert resultaten, voltooit → kondigt aan bij main
+3. De hoofdagent ontvangt de announce en levert deze aan de gebruiker
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        maxConcurrent: 4, // default: 8
-      },
-    },
-  },
-}
-```
+Elk niveau ziet alleen announces van zijn directe kinderen.
 
-Sub-agents gebruiken een speciale wachtrijlijn (`subagent`) die gescheiden is van de hoofd-agentwachtrij, zodat runs van sub-agents binnenkomende antwoorden niet blokkeren.
+### Toolbeleid per diepte
 
-### Auto-Archive
+- **Depth 1 (orchestrator, wanneer `maxSpawnDepth >= 2`)**: Krijgt `sessions_spawn`, `subagents`, `sessions_list`, `sessions_history` zodat hij zijn kinderen kan beheren. Andere sessie-/systeemtools blijven geweigerd.
+- **Depth 1 (leaf, wanneer `maxSpawnDepth == 1`)**: Geen sessietools (huidig standaardgedrag).
+- **Depth 2 (leaf worker)**: Geen sessietools — `sessions_spawn` is altijd geweigerd op depth 2. Kan geen verdere kinderen starten.
 
-Sub-agent sessions are automatically archived after a configurable period:
+### Per-agent spawn-limiet
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        archiveAfterMinutes: 120, // default: 60
-      },
-    },
-  },
-}
-```
+Elke agentsessie (op elk niveau) kan maximaal `maxChildrenPerAgent` (standaard: 5) actieve kinderen tegelijk hebben. Dit voorkomt runaway fan-out vanuit één orchestrator.
 
-<Note>Archiveren hernoemt het transcript naar `*.deleted.<timestamp>` (dezelfde map) — transcripties blijven bewaard en worden niet verwijderd. Timers voor automatisch archiveren zijn best-effort; wachtende timers gaan verloren als de gateway opnieuw wordt gestart.
-</Note>
+### Cascade stop
 
-## De tool `sessions_spawn`
+Het stoppen van een depth-1-orchestrator stopt automatisch al zijn depth-2-kinderen:
 
-This is the tool the agent calls to create sub-agents.
-
-### Parameters
-
-| Parameter           | Type                 | Standaard                                     | Beschrijving                                                                                       |
-| ------------------- | -------------------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `task`              | string               | _(required)_               | Wat de sub-agent moet doen                                                                         |
-| `label`             | string               | —                                             | Korte label voor identificatie                                                                     |
-| `agentId`           | string               | _(agent van de aanroeper)_ | Starten onder een andere agent-id (moet zijn toegestaan)                        |
-| `model`             | string               | _(optioneel)_              | Het model voor deze sub-agent overschrijven                                                        |
-| `thinking`          | string               | _(optioneel)_              | Denkniveau overschrijven (`off`, `low`, `medium`, `high`, enz.) |
-| `runTimeoutSeconds` | getal                | `0` (geen limiet)          | De sub-agent afbreken na N seconden                                                                |
-| `opschonen`         | "delete" \\| "keep" | "keep"                                        | "delete" archiveert onmiddellijk na aankondiging                                                   |
-
-### Volgorde voor modelresolutie
-
-Het sub-agentmodel wordt in deze volgorde bepaald (eerste overeenkomst wint):
-
-1. Expliciete `model`-parameter in de `sessions_spawn`-aanroep
-2. Per-agentconfiguratie: `agents.list[].subagents.model`
-3. Globale standaard: `agents.defaults.subagents.model`
-4. Normale modelresolutie van de doelagent voor die nieuwe sessie
-
-Het denkniveau wordt in deze volgorde bepaald:
-
-1. Expliciete `thinking`-parameter in de `sessions_spawn`-aanroep
-2. Per-agentconfiguratie: `agents.list[].subagents.thinking`
-3. Globale standaard: `agents.defaults.subagents.thinking`
-4. Anders wordt er geen sub-agent-specifieke denkniveau-overschrijving toegepast
-
-<Note>
-Ongeldige modelwaarden worden stilzwijgend overgeslagen — de sub-agent draait op de eerstvolgende geldige standaard met een waarschuwing in het toolresultaat.</Note>
-
-### Cross-agent spawning
-
-Standaard kunnen sub-agents alleen worden gestart onder hun eigen agent-id. Om een agent toe te staan subagents te starten onder andere agent-id's:
-
-```json5
-{
-  agents: {
-    list: [
-      {
-        id: "orchestrator",
-        subagents: {
-          allowAgents: ["researcher", "coder"], // of ["*"] om alles toe te staan
-        },
-      },
-    ],
-  },
-}
-```
-
-<Tip>
-Gebruik de `agents_list`-tool om te ontdekken welke agent-id's momenteel zijn toegestaan voor `sessions_spawn`.</Tip>
-
-## Subagents beheren (`/subagents`)
-
-Gebruik de slash-opdracht `/subagents` om subagent-runs voor de huidige sessie te inspecteren en te beheren:
-
-| Opdracht                                   | Beschrijving                                                         |
-| ------------------------------------------ | -------------------------------------------------------------------- |
-| `/subagents list`                          | Alle subagent-runs weergeven (actief en voltooid) |
-| `/subagents stop <id\\|#\\|all>`         | Een draaiende subagent stoppen                                       |
-| `/subagents log <id\\|#> [limit] [tools]` | View sub-agent transcript                                            |
-| `/subagents info <id\\|#>`                | Gedetailleerde run-metadata tonen                                    |
-| `/subagents send <id\\|#> <message>`      | Een bericht naar een draaiende subagent sturen                       |
-
-Je kunt subagents refereren via lijstindex (`1`, `2`), run-id-prefix, volledige sessiesleutel of `last`.
-
-<AccordionGroup>
-  <Accordion title="Example: list and stop a sub-agent">```
-    /subagents list
-    ```
-
-    ````
-    ```
-    🧭 Subagents (current session)
-    Active: 1 · Done: 2
-    1) ✅ · research logs · 2m31s · run a1b2c3d4 · agent:main:subagent:...
-    2) ✅ · check deps · 45s · run e5f6g7h8 · agent:main:subagent:...
-    3) 🔄 · deploy staging · 1m12s · run i9j0k1l2 · agent:main:subagent:...
-    ```
-    
-    ```
-    /subagents stop 3
-    ```
-    
-    ```
-    ⚙️ Stop requested for deploy staging.
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: inspect a sub-agent">```
-    /subagents info 1
-    ```
-
-    ````
-    ```
-    ℹ️ Subagent info
-    Status: ✅
-    Label: research logs
-    Task: Research the latest server error logs and summarize findings
-    Run: a1b2c3d4-...
-    Session: agent:main:subagent:...
-    Runtime: 2m31s
-    Cleanup: keep
-    Outcome: ok
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: view sub-agent log">```
-    /subagents log 1 10
-    ```
-
-    ````
-    Toont de laatste 10 berichten uit het transcript van de subagent. Voeg `tools` toe om tool-aanroepberichten op te nemen:
-    
-    ```
-    /subagents log 1 10 tools
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: send a follow-up message">```
-    /subagents send 3 "Also check the staging environment"
-    ```
-
-    ```
-    Stuurt een bericht naar de sessie van de draaiende subagent en wacht tot maximaal 30 seconden op een antwoord.
-    ```
-
-  </Accordion>
-</AccordionGroup>
-
-## Aankondigen (Hoe resultaten terugkomen)
-
-Wanneer een subagent klaar is, doorloopt deze een **announce**-stap:
-
-1. Het definitieve antwoord van de subagent wordt vastgelegd
-2. Er wordt een samenvattend bericht naar de sessie van de hoofdagent gestuurd met het resultaat, de status en statistieken
-3. De hoofdagent plaatst een samenvatting in natuurlijke taal in je chat
-
-Announce-antwoorden behouden thread-/topicroutering wanneer beschikbaar (Slack-threads, Telegram-topics, Matrix-threads).
-
-### Aankondigingsstatistieken
-
-Elke aankondiging bevat een statregel met:
-
-- Duur van de runtime
-- Tokengebruik (invoer/uitvoer/totaal)
-- Geschatte kosten (wanneer modelprijzen zijn geconfigureerd via `models.providers.*.models[].cost`)
-- Sessiesleutel, sessie-id en transcriptpad
-
-### Aankondigingsstatus
-
-Het aankondigingsbericht bevat een status die is afgeleid van de runtime-uitkomst (niet van de modeloutput):
-
-- **succesvolle voltooiing** (`ok`) — taak normaal voltooid
-- **fout** — taak mislukt (foutdetails in notities)
-- **timeout** — taak overschreed `runTimeoutSeconds`
-- **onbekend** — status kon niet worden bepaald
-
-<Tip>
-Als er geen gebruikersgerichte aankondiging nodig is, kan de samenvattingsstap van de hoofdagent `NO_REPLY` retourneren en wordt er niets geplaatst.
-Dit is anders dan `ANNOUNCE_SKIP`, dat wordt gebruikt in de announce-flow tussen agents (`sessions_send`).
-</Tip>
-
-## Toolbeleid
-
-Standaard krijgen subagents **alle tools behalve** een set geweigerde tools die onveilig of onnodig zijn voor achtergrondtaken:
-
-<AccordionGroup>
-  <Accordion title="Default denied tools">
-    | Geweigerde tool | Reden |
-    |-------------|--------|
-    | `sessions_list` | Sessiebeheer — hoofdagent orkestreert |
-    | `sessions_history` | Sessiebeheer — hoofdagent orkestreert |
-    | `sessions_send` | Sessiebeheer — hoofdagent orkestreert |
-    | `sessions_spawn` | Geen geneste fan-out (subagents kunnen geen subagents starten) |
-    | `gateway` | Systeembeheer — gevaarlijk vanuit subagent |
-    | `agents_list` | Systeembeheer |
-    | `whatsapp_login` | Interactieve setup — geen taak |
-    | `session_status` | Status/planning — hoofdagent coördineert |
-    | `cron` | Status/planning — hoofdagent coördineert |
-    | `memory_search` | Geef relevante info liever door in de spawn-prompt |
-    | `memory_get` | Geef relevante info liever door in de spawn-prompt |
-  </Accordion>
-</AccordionGroup>
-
-### Subagent-tools aanpassen
-
-Je kunt subagent-tools verder beperken:
-
-```json5
-{
-  tools: {
-    subagents: {
-      tools: {
-        // deny wint altijd van allow
-        deny: ["browser", "firecrawl"],
-      },
-    },
-  },
-}
-```
-
-Om subagents te beperken tot **alleen** specifieke tools:
-
-```json5
-{
-  tools: {
-    subagents: {
-      tools: {
-        allow: ["read", "exec", "process", "write", "edit", "apply_patch"],
-        // deny wint nog steeds als ingesteld
-      },
-    },
-  },
-}
-```
-
-<Note>
-Aangepaste deny-vermeldingen worden **toegevoegd aan** de standaard deny-lijst. Als `allow` is ingesteld, zijn alleen die tools beschikbaar (de standaard deny-lijst is hierop nog steeds van toepassing).
-</Note>
+- `/stop` in de hoofdchat stopt alle depth-1-agents en cascadeert naar hun depth-2-kinderen.
+- `/subagents kill <id>` stopt een specifieke sub-agent en cascadeert naar zijn kinderen.
+- `/subagents kill all` stopt alle sub-agents voor de aanvrager en cascadeert.
 
 ## Authenticatie
 
 Sub-agentauthenticatie wordt bepaald op **agent-id**, niet op sessietype:
 
-- De auth-store wordt geladen vanuit de `agentDir` van de doelagent
-- De auth-profielen van de hoofdagent worden samengevoegd als **fallback** (agentprofielen winnen bij conflicten)
-- De samenvoeging is additief — hoofdprofielen zijn altijd beschikbaar als fallbacks
+- De sub-agentsessiesleutel is `agent:<agentId>:subagent:<uuid>`.
+- De auth-store wordt geladen vanuit de `agentDir` van die agent.
+- De auth-profielen van de hoofdagent worden samengevoegd als **fallback**; agentprofielen overschrijven hoofdprofielen bij conflicten.
 
-<Note>Volledig geïsoleerde authenticatie per sub-agent wordt momenteel niet ondersteund.</Note>
+Opmerking: de samenvoeging is additief, dus hoofdprofielen zijn altijd beschikbaar als fallbacks. Volledig geïsoleerde authenticatie per agent wordt nog niet ondersteund.
 
-## Context en systeemprompt
+## Announce
 
-Sub-agents ontvangen een verkorte systeemprompt in vergelijking met de hoofdagent:
+Sub-agents rapporteren terug via een announce-stap:
 
-- **Inbegrepen:** Tooling-, Workspace- en Runtime-secties, plus `AGENTS.md` en `TOOLS.md`
-- **Niet inbegrepen:** `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md`
+- De announce-stap draait binnen de sub-agentsessie (niet de sessie van de aanvrager).
+- Als de sub-agent exact `ANNOUNCE_SKIP` antwoordt, wordt er niets geplaatst.
+- Anders wordt het announce-antwoord geplaatst in het chatkanaal van de aanvrager via een follow-up `agent`-aanroep (`deliver=true`).
+- Announce-antwoorden behouden thread-/topicroutering wanneer beschikbaar (Slack-threads, Telegram-topics, Matrix-threads).
+- Announce-berichten worden genormaliseerd naar een stabiel sjabloon:
+  - `Status:` afgeleid van de run-uitkomst (`success`, `error`, `timeout`, of `unknown`).
+  - `Result:` de samenvattingsinhoud van de announce-stap (of `(not available)` indien ontbrekend).
+  - `Notes:` foutdetails en andere nuttige context.
+- `Status` wordt niet afgeleid van modeloutput; het komt van runtime-uitkomstsignalen.
 
-De sub-agent ontvangt ook een taakgerichte systeemprompt die hem instrueert zich te focussen op de toegewezen taak, deze te voltooien en niet als hoofdagent te handelen.
+Announce-payloads bevatten aan het einde een statistiekregel (ook wanneer ingepakt):
 
-## Sub-agents stoppen
+- Runtime (bijv. `runtime 5m12s`)
+- Tokengebruik (input/output/totaal)
+- Geschatte kosten wanneer modelprijzen zijn geconfigureerd (`models.providers.*.models[].cost`)
+- `sessionKey`, `sessionId` en transcriptpad (zodat de hoofdagent geschiedenis kan ophalen via `sessions_history` of het bestand op schijf kan inspecteren)
 
-| Methode                | Effect                                                                               |
-| ---------------------- | ------------------------------------------------------------------------------------ |
-| `/stop` in de chat     | Breekt de hoofdsessie **en** alle actieve sub-agent-runs die daaruit zijn gestart af |
-| `/subagents stop <id>` | Stopt een specifieke sub-agent zonder de hoofdsessie te beïnvloeden                  |
-| `runTimeoutSeconds`    | Breekt de sub-agent-run automatisch af na de opgegeven tijd                          |
+## Toolbeleid (sub-agenttools)
 
-<Note>
-`runTimeoutSeconds` archiveert de sessie **niet** automatisch. De sessie blijft bestaan totdat de normale archieftimer afgaat.
-</Note>
+Standaard krijgen sub-agents **alle tools behalve sessietools** en systeemtools:
 
-## Volledig configuratievoorbeeld
+- `sessions_list`
+- `sessions_history`
+- `sessions_send`
+- `sessions_spawn`
 
-<Accordion title="Complete sub-agent configuration">```json5
+Wanneer `maxSpawnDepth >= 2`, krijgen depth-1-orchestrator-sub-agents aanvullend `sessions_spawn`, `subagents`, `sessions_list` en `sessions_history` zodat zij hun kinderen kunnen beheren.
+
+Overschrijven via configuratie:
+
+```json5
 {
   agents: {
     defaults: {
-      model: { primary: "anthropic/claude-sonnet-4" },
       subagents: {
-        model: "minimax/MiniMax-M2.1",
-        thinking: "low",
-        maxConcurrent: 4,
-        archiveAfterMinutes: 30,
+        maxConcurrent: 1,
       },
     },
-    list: [
-      {
-        id: "main",
-        default: true,
-        name: "Personal Assistant",
-      },
-      {
-        id: "ops",
-        name: "Ops Agent",
-        subagents: {
-          model: "anthropic/claude-sonnet-4",
-          allowAgents: ["main"], // ops can spawn sub-agents under "main"
-        },
-      },
-    ],
   },
   tools: {
     subagents: {
       tools: {
-        deny: ["browser"], // sub-agents can't use the browser
+        // deny wint
+        deny: ["gateway", "cron"],
+        // als allow is ingesteld, wordt het allow-only (deny wint nog steeds)
+        // allow: ["read", "exec", "process"]
       },
     },
   },
 }
-```</Accordion>
+```
+
+## Concurrency
+
+Sub-agents gebruiken een aparte in-process queue-lane:
+
+- Lane-naam: `subagent`
+- Concurrency: `agents.defaults.subagents.maxConcurrent` (standaard `8`)
+
+## Stoppen
+
+- Het versturen van `/stop` in de chat van de aanvrager breekt de aanvragersessie af en stopt alle actieve sub-agentruns die daaruit zijn gestart, inclusief geneste kinderen.
+- `/subagents kill <id>` stopt een specifieke sub-agent en cascadeert naar zijn kinderen.
 
 ## Beperkingen
 
-<Warning>
-- **Best-effort aankondiging:** Als de gateway opnieuw start, gaat lopend aankondigingswerk verloren.
-- **Geen geneste spawning:** Sub-agents kunnen geen eigen sub-agents starten.
-- **Gedeelde resources:** Sub-agents delen het gatewayproces; gebruik `maxConcurrent` als veiligheidsventiel.
-- **Auto-archiveren is best-effort:** Lopende archieftimers gaan verloren bij een herstart van de gateway.
-</Warning>
-
-## Zie ook
-
-- [Sessietools](/concepts/session-tool) — details over `sessions_spawn` en andere sessietools
-- [Multi-agent-sandbox en tools](/tools/multi-agent-sandbox-tools) — per-agent toolbeperkingen en sandboxing
-- [Configuratie](/gateway/configuration) — referentie voor `agents.defaults.subagents`
-- [Wachtrij](/concepts/queue) — hoe de `subagent`-lane werkt
+- Sub-agent announce is **best-effort**. Als de gateway opnieuw wordt gestart, gaat wachtend "announce back"-werk verloren.
+- Sub-agents delen nog steeds dezelfde gatewayprocesresources; behandel `maxConcurrent` als veiligheidsventiel.
+- `sessions_spawn` is altijd non-blocking: het retourneert onmiddellijk `{ status: "accepted", runId, childSessionKey }`.
+- Sub-agentcontext injecteert alleen `AGENTS.md` + `TOOLS.md` (geen `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` of `BOOTSTRAP.md`).
+- Maximale nestingdiepte is 5 (`maxSpawnDepth` bereik: 1–5). Depth 2 wordt aanbevolen voor de meeste use cases.
+- `maxChildrenPerAgent` begrenst actieve kinderen per sessie (standaard: 5, bereik: 1–20).

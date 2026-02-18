@@ -4,7 +4,7 @@ title: "Lokala modeller"
 
 # Lokala modeller
 
-Lokal är genomförbar, men OpenClaw förväntar sig stort sammanhang + starka försvar mot snabb injektion. Små kort trunkerar sammanhang och läcker säkerhet. Sikta hög: **<unk> 2 maxed-out Mac Studios eller motsvarande GPU rigg (~$30k+)**. En enda **24 GB** GPU fungerar endast för lättare uppmaningar med högre latens. Använd **den största / fullstora modellvarianten du kan köra**; aggressivt kvantifierade eller "små" kontrollpunkter öka risken för snabb injektion (se [Security](/gateway/security)).
+Lokal är genomförbar, men OpenClaw förväntar sig stort sammanhang + starka försvar mot snabb injektion. Små kort trunkerar sammanhang och läcker säkerhet. Sikta hög: **&lt;unk&gt; 2 maxed-out Mac Studios eller motsvarande GPU rigg (~$30k+)**. En enda **24 GB** GPU fungerar endast för lättare uppmaningar med högre latens. Använd **den största / fullstora modellvarianten du kan köra**; aggressivt kvantifierade eller "små" kontrollpunkter öka risken för snabb injektion (se [Security](/gateway/security)).
 
 ## Rekommenderat: LM Studio + MiniMax M2.1 (Responses API, fullstor)
 

@@ -200,7 +200,7 @@ OpenClaw ลงทะเบียนคำสั่งเนทีฟ (เช่
 ```
 
 **สำคัญ:** การตั้งค่า `channels.telegram.groups` จะสร้าง **allowlist** — จะยอมรับเฉพาะกลุ่มที่ระบุ (หรือ `"*"`)
-Forum topics จะสืบทอดคอนฟิกของกลุ่มแม่ (allowFrom, requireMention, skills, prompts) เว้นแต่คุณเพิ่มการ override ต่อหัวข้อภายใต้ `channels.telegram.groups.<groupId> 38. หัวข้อฟอรัมจะสืบทอดคอนฟิกของกลุ่มแม่ (allowFrom, requireMention, skills, prompts) เว้นแต่คุณจะเพิ่มการเขียนทับรายหัวข้อภายใต้ `channels.telegram.groups.<groupId>`.topics.<topicId>`
+Forum topics จะสืบทอดคอนฟิกของกลุ่มแม่ (allowFrom, requireMention, skills, prompts) เว้นแต่คุณเพิ่มการ override ต่อหัวข้อภายใต้ `channels.telegram.groups.<groupId> 38. หัวข้อฟอรัมจะสืบทอดคอนฟิกของกลุ่มแม่ (allowFrom, requireMention, skills, prompts) เว้นแต่คุณจะเพิ่มการเขียนทับรายหัวข้อภายใต้ `channels.telegram.groups.&lt;groupId&gt;`.topics.<topicId>`
 
 เพื่ออนุญาตทุกกลุ่มและตอบเสมอ:
 

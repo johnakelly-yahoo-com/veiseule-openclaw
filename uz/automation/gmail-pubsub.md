@@ -183,7 +183,7 @@ Chiqarishdagi `history_id` ni saqlab qo‘ying (debug uchun).
 - \--port 8788 \
 - \--path /gmail-pubsub \
 
-\--token <shared> \
+\--token &lt;shared&gt; \
 
 ## --hook-url http://127.0.0.1:18789/hooks/gmail \
 
@@ -223,7 +223,7 @@ Chiqarishdagi `history_id` ni saqlab qo‘ying (debug uchun).
 
 - 12. gcloud pubsub subscriptions create gog-gmail-watch-push \
 - \--topic gog-gmail-watch \
-- \--push-endpoint "https://<public-url>/gmail-pubsub?token=<shared>"
+- \--push-endpoint "https://&lt;public-url&gt;/gmail-pubsub?token=&lt;shared&gt;"
 
 ## 13. Prodakshen: barqaror HTTPS endpointdan foydalaning va Pub/Sub OIDC JWT’ni sozlang, so‘ng ishga tushiring:
 

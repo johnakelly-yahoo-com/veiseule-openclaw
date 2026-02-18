@@ -33,8 +33,8 @@ Uzak ana makinede hiçbir şey kurmaz veya değiştirmez.
     - Sıfırlama `trash` kullanır ve kapsamlar sunar:
       - Yalnızca yapılandırma
       - Yapılandırma + kimlik bilgileri + oturumlar
-      - Tam sıfırlama (çalışma alanını da kaldırır)  
-</Step>
+      - Tam sıfırlama (çalışma alanını da kaldırır)
+  </Step>
   <Step title="Model and auth">
     - Tüm seçenek matrisi [Kimlik doğrulama ve model seçenekleri](#auth-and-model-options) bölümündedir.
   </Step>
@@ -58,19 +58,18 @@ Uzak ana makinede hiçbir şey kurmaz veya değiştirmez.
     - [Signal](/channels/signal): isteğe bağlı `signal-cli` kurulumu + hesap yapılandırması
     - [BlueBubbles](/channels/bluebubbles): iMessage için önerilir; sunucu URL’si + parola + webhook
     - [iMessage](/channels/imessage): eski `imsg` CLI yolu + DB erişimi
-    - DM güvenliği: varsayılan eşleştirmedir. İlk DM bir kod gönderir; şu yollarla onaylayın:
-      `openclaw pairing approve <channel><code>` veya izin listelerini kullanın.
-  </Step><code>` veya izin listelerini kullanın.
+    - DM güvenliği: varsayılan eşleştirmedir. İlk DM bir kod gönderir; şu şekilde onaylayın:
+      `openclaw pairing approve <channel> <code>` veya izin listelerini kullanın.
   </Step>
-  <Step title="Daemon kurulumu">
+  <Step title="Daemon install">
     - macOS: LaunchAgent
       - Oturum açmış kullanıcı oturumu gerektirir; headless için özel bir LaunchDaemon kullanın (paketle gelmez).
-    - Linux ve Windows (WSL2 üzerinden): systemd kullanıcı birimi
+    - Linux ve Windows via WSL2: systemd kullanıcı birimi
       - Wizard, çıkıştan sonra gateway’in çalışmaya devam etmesi için `loginctl enable-linger <user>` denemesi yapar.
       - Sudo isteyebilir (`/var/lib/systemd/linger` yazar); önce sudo olmadan dener.
-    - Çalışma zamanı seçimi: Node (önerilir; WhatsApp ve Telegram için gereklidir). Bun önerilmez.
+    - Runtime selection: Node (önerilir; WhatsApp ve Telegram için gereklidir). Bun önerilmez.
   </Step>
-  <Step title="Sağlık kontrolü">
+  <Step title="Health check">
     - Gerekirse gateway’i başlatır ve `openclaw health` çalıştırır.
     - `openclaw status --deep`, durum çıktısına gateway sağlık problarını ekler.
   </Step>
@@ -79,7 +78,7 @@ Uzak ana makinede hiçbir şey kurmaz veya değiştirmez.
     - Node yöneticisini seçmenizi sağlar: npm veya pnpm (bun önerilmez).
     - İsteğe bağlı bağımlılıkları kurar (bazıları macOS’ta Homebrew kullanır).
   </Step>
-  <Step title="Bitiş">
+  <Step title="Finish">
     - iOS, Android ve macOS uygulama seçenekleri dahil olmak üzere özet ve sonraki adımlar.
   </Step>
 </Steps>
@@ -97,7 +96,7 @@ Uzak mod, bu makineyi başka bir yerdeki bir gateway’e bağlanacak şekilde ya
 Uzak mod, uzak ana makinede hiçbir şey kurmaz veya değiştirmez.
 </Info>
 
-7. Ayarladıklarınız:
+Ayarladıklarınız:
 
 - Uzak gateway URL’si (`ws://...`)
 - Uzak gateway kimlik doğrulaması gerekiyorsa belirteç (önerilir)
@@ -119,9 +118,7 @@ Uzak mod, uzak ana makinede hiçbir şey kurmaz veya değiştirmez.
     - macOS: Keychain öğesi "Claude Code-credentials" kontrol edilir
     - Linux ve Windows: mevcutsa `~/.claude/.credentials.json` yeniden kullanılır
 
-    ```
     macOS’ta, launchd başlatmalarının engellenmemesi için "Always Allow" seçin.
-    ```
 
   </Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
@@ -134,18 +131,14 @@ Uzak mod, uzak ana makinede hiçbir şey kurmaz veya değiştirmez.
   <Accordion title="OpenAI Code subscription (OAuth)">
     Tarayıcı akışı; `code#state` yapıştırın.
 
-    ```
-    Model ayarlanmamışsa veya `openai/*` ise `agents.defaults.model`’yi `openai-codex/gpt-5.3-codex` olarak ayarlar.
-    ```
+    Sets `agents.defaults.model` to `openai-codex/gpt-5.3-codex` when model is unset or `openai/*`.
 
   </Accordion>
   <Accordion title="OpenAI API key">
     Mevcutsa `OPENAI_API_KEY` kullanır veya bir anahtar ister; ardından launchd’ın okuyabilmesi için
     `~/.openclaw/.env` içine kaydeder.
 
-    ```
-    Model ayarlanmamışsa, `openai/*` veya `openai-codex/*` ise `agents.defaults.model`’yi `openai/gpt-5.1-codex` olarak ayarlar.
-    ```
+    Sets `agents.defaults.model` to `openai/gpt-5.1-codex` when model is unset, `openai/*`, or `openai-codex/*`.
 
   </Accordion>
   <Accordion title="xAI (Grok) API key">
@@ -178,6 +171,18 @@ Uzak mod, uzak ana makinede hiçbir şey kurmaz veya değiştirmez.
     Moonshot (Kimi K2) ve Kimi Coding yapılandırmaları otomatik yazılır.
     Daha fazla ayrıntı: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
   </Accordion>
+  <Accordion title="Custom provider">
+    OpenAI-compatible ve Anthropic-compatible endpoint’lerle çalışır.
+
+    Non-interactive flags:
+    - `--auth-choice custom-api-key`
+    - `--custom-base-url`
+    - `--custom-model-id`
+    - `--custom-api-key` (isteğe bağlı; `CUSTOM_API_KEY`’e geri düşer)
+    - `--custom-provider-id` (isteğe bağlı)
+    - `--custom-compatibility <openai|anthropic>` (isteğe bağlı; varsayılan `openai`)
+
+  </Accordion>
   <Accordion title="Skip">
     Kimlik doğrulamayı yapılandırmadan bırakır.
   </Accordion>
@@ -205,9 +210,9 @@ dosyasını gateway ana makinesine kopyalayın.
 
 - `agents.defaults.workspace`
 - `agents.defaults.model` / `models.providers` (MiniMax seçildiyse)
-- `gateway.*` (mod, bind, auth, tailscale)
+- `gateway.*` (mode, bind, auth, tailscale)
 - `channels.telegram.botToken`, `channels.discord.token`, `channels.signal.*`, `channels.imessage.*`
-- İstemde seçtiğinizde kanal izin listeleri (Slack, Discord, Matrix, Microsoft Teams) (mümkün olduğunda adlar kimliklere çözülür)
+- Kanal izin listeleri (Slack, Discord, Matrix, Microsoft Teams) (istemlerde katıldığınızda; mümkün olduğunda adlar kimliklere çözülür)
 - `skills.install.nodeManager`
 - `wizard.lastRunAt`
 - `wizard.lastRunVersion`
@@ -215,7 +220,7 @@ dosyasını gateway ana makinesine kopyalayın.
 - `wizard.lastRunCommand`
 - `wizard.lastRunMode`
 
-`openclaw agents add`, `agents.list[]` ve isteğe bağlı `bindings` yazar.
+`openclaw agents add` `agents.list[]` ve isteğe bağlı `bindings` yazar.
 
 WhatsApp kimlik bilgileri `~/.openclaw/credentials/whatsapp/<accountId>/` altında tutulur.
 Oturumlar `~/.openclaw/agents/<agentId>/sessions/` altında saklanır.
@@ -240,7 +245,7 @@ Signal kurulum davranışı:
 - `~/.openclaw/tools/signal-cli/<version>/` altına kaydeder
 - Yapılandırmaya `channels.signal.cliPath` yazar
 - JVM derlemeleri Java 21 gerektirir
-- 8. Mevcut olduğunda yerel derlemeler kullanılır
+- Native derlemeler mevcut olduğunda kullanılır
 - Windows, WSL2 kullanır ve WSL içinde Linux signal-cli akışını izler
 
 ## İlgili belgeler

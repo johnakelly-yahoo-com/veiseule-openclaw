@@ -2653,7 +2653,7 @@ Start Gateway med `--verbose` for at få flere konsoldetaljer. Derefter inspicer
 
 ### Min dygtighed genererede en billedePDF, men intet blev sendt
 
-Udgående vedhæftede filer fra agenten skal indeholde en linje »MEDIA:<path-or-url>(på sin egen linje). Se [OpenClaw assistent opsætning](/start/openclaw) og [Agent send](/tools/agent-send).
+Udgående vedhæftede filer fra agenten skal indeholde en linje »MEDIA:&lt;path-or-url&gt;(på sin egen linje). Se [OpenClaw assistent opsætning](/start/openclaw) og [Agent send](/tools/agent-send).
 
 CLI sender:
 

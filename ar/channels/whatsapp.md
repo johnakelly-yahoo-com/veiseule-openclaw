@@ -236,7 +236,7 @@ Gateway-->>Client: res:agent<br>final {runId, status, summary} التحكم في
 
   ```
   [Replying to +1555 id:ABC123]
-  <quoted text or <media:...>>
+  &lt;quoted text or &lt;media:...&gt;>
   [/Replying]
   ```
 

@@ -21,7 +21,8 @@ title: "OpenClaw"
 
 > _"EXFOLIATE! EXFOLIATE!"_ — အာကာသ လော့ဘ်စတာ တစ်ကောင် ဖြစ်နိုင်ပါတယ်
 
-<p align="center"><strong>WhatsApp, Telegram, Discord, iMessage နှင့် အခြားများအတွက် AI agents များကို ချိတ်ဆက်ပေးသော Any OS gateway.</strong><br />
+<p align="center">
+  <strong>WhatsApp, Telegram, Discord, iMessage နှင့် အခြားများအတွက် AI agents များကို ချိတ်ဆက်ပေးသော Any OS gateway.</strong><br />
   စာတိုတစ်စောင် ပို့လိုက်ပါ၊ သင့်အိတ်ထဲမှ agent တုံ့ပြန်ချက်ကို ရယူပါ။ Plugins များသည် Mattermost နှင့် အခြားများကို ထပ်မံထည့်သွင်းပေးပါသည်။
 </p>
 

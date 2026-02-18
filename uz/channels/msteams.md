@@ -455,7 +455,7 @@ Asosiy sozlamalar (umumiy kanal andozalari uchun `/gateway/configuration` ga qar
 - `channels.msteams.requireMention`: kanallar/guruhlarda @mentionni talab qilish (standart bo‘yicha true).
 - `channels.msteams.replyStyle`: `thread | top-level` (qarang [Reply Style](#reply-style-threads-vs-posts)).
 - `channels.msteams.teams.<teamId>
-  .replyStyle`: har bir jamoa uchun alohida sozlama.`channels.msteams.teams.<teamId>
+  .replyStyle`: har bir jamoa uchun alohida sozlama.`channels.msteams.teams.&lt;teamId&gt;
   .requireMention`: har bir jamoa uchun alohida sozlama.
 - `channels.msteams.teams.<teamId>.requireMention`: per-team override.
 - `channels.msteams.teams.<teamId>.tools`: default per-team tool policy overrides (`allow`/`deny`/`alsoAllow`) used when a channel override is missing.

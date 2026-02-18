@@ -19,62 +19,56 @@ node -v
   <Tab title="macOS">
     **Homebrew** (အကြံပြု):
 
-    ````
     ```bash
     brew install node
     ```
-    
+
     သို့မဟုတ် [nodejs.org](https://nodejs.org/) မှ macOS installer ကို ဒေါင်းလုဒ်လုပ်နိုင်ပါသည်။
-    ````
 
   </Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
-    ````
     ```bash
     curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ```
-    
+
     **Fedora / RHEL:**
-    
+
     ```bash
     sudo dnf install nodejs
     ```
-    
+
     သို့မဟုတ် version manager ကို အသုံးပြုနိုင်ပါသည် (အောက်တွင် ကြည့်ပါ)။
-    ````
 
   </Tab>
   <Tab title="Windows">
     **winget** (အကြံပြု):
 
-    ````
     ```powershell
     winget install OpenJS.NodeJS.LTS
     ```
-    
+
     **Chocolatey:**
-    
+
     ```powershell
     choco install nodejs-lts
     ```
-    
+
     သို့မဟုတ် [nodejs.org](https://nodejs.org/) မှ Windows installer ကို ဒေါင်းလုဒ်လုပ်နိုင်ပါသည်။
-    ````
 
   </Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
-Version manager များသည် Node ဗားရှင်းများအကြားကို လွယ်ကူစွာ ပြောင်းလဲအသုံးပြုနိုင်ရန် ကူညီပေးပါသည်။ လူသုံးများသော ရွေးချယ်စရာများမှာ —
+  Version manager များသည် Node ဗားရှင်းများအကြားကို လွယ်ကူစွာ ပြောင်းလဲအသုံးပြုနိုင်ရန် ကူညီပေးပါသည်။ လူသုံးများသော ရွေးချယ်စရာများမှာ —
 
 - [**fnm**](https://github.com/Schniz/fnm) — မြန်ဆန်ပြီး cross-platform
 - [**nvm**](https://github.com/nvm-sh/nvm) — macOS/Linux တွင် အကျယ်ပြန့် အသုံးပြုကြသည်
 - [**mise**](https://mise.jdx.dev/) — polyglot (Node, Python, Ruby စသည်)
 
-fnm ဖြင့် အသုံးပြုသည့် ဥပမာ —
+Example with fnm:
 
 ```bash
 fnm install 22
@@ -82,7 +76,7 @@ fnm use 22
 ```
 
   <Warning>
-သင့် shell startup ဖိုင် (`~/.zshrc` သို့မဟုတ် `~/.bashrc`) ထဲတွင် version manager ကို initialize လုပ်ထားကြောင်း သေချာပါစေ။ မလုပ်ထားပါက terminal session အသစ်များတွင် PATH ထဲ၌ Node ၏ bin directory မပါဝင်နိုင်သဖြင့် `openclaw` ကို မတွေ့နိုင်ပါ။
+  သင့် shell startup ဖိုင် (`~/.zshrc` သို့မဟုတ် `~/.bashrc`) ထဲတွင် version manager ကို initialize လုပ်ထားကြောင်း သေချာပါစေ။ မလုပ်ထားပါက terminal session အသစ်များတွင် PATH ထဲ၌ Node ၏ bin directory မပါဝင်နိုင်သဖြင့် `openclaw` ကို မတွေ့နိုင်ပါ။
   </Warning>
 </Accordion>
 
@@ -103,9 +97,7 @@ fnm use 22
     echo "$PATH"
     ```
 
-    ```
     ရလဒ်ထဲတွင် `<npm-prefix>/bin` (macOS/Linux) သို့မဟုတ် `<npm-prefix>` (Windows) ကို ရှာပါ။
-    ```
 
   </Step>
   <Step title="Add it to your shell startup file">
@@ -113,18 +105,16 @@ fnm use 22
       <Tab title="macOS / Linux">
         `~/.zshrc` သို့မဟုတ် `~/.bashrc` ထဲသို့ ထည့်ပါ —
 
+        ```bash
+        export PATH="$(npm prefix -g)/bin:$PATH"
         ```
-            ```bash
-            export PATH="$(npm prefix -g)/bin:$PATH"
-            ```
-        
-            ထို့နောက် terminal အသစ်တစ်ခုကို ဖွင့်ပါ (သို့မဟုတ် zsh တွင် `rehash` / bash တွင် `hash -r` ကို လည်ပတ်ပါ)။
-          </Tab>
-          <Tab title="Windows">
-            `npm prefix -g` ၏ ရလဒ်ကို Settings → System → Environment Variables မှတဆင့် system PATH ထဲသို့ ထည့်ပါ။
-          </Tab>
-        </Tabs>
-        ```
+
+        ထို့နောက် terminal အသစ်တစ်ခုကို ဖွင့်ပါ (သို့မဟုတ် zsh တွင် `rehash` / bash တွင် `hash -r` ကို လည်ပတ်ပါ)။
+      </Tab>
+      <Tab title="Windows">
+        `npm prefix -g` ၏ ရလဒ်ကို Settings → System → Environment Variables မှတဆင့် system PATH ထဲသို့ ထည့်ပါ။
+      </Tab>
+    </Tabs>
 
   </Step>
 </Steps>

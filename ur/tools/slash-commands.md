@@ -5,7 +5,7 @@ title: "سلैش کمانڈز"
 # سلैش کمانڈز
 
 کمانڈز کو Gateway کے ذریعے ہینڈل کیا جاتا ہے۔ زیادہ تر کمانڈز کو **standalone** پیغام کے طور پر بھیجنا ضروری ہے جو `/` سے شروع ہو۔
-صرف ہوسٹ کے لیے bash چیٹ کمانڈ `!` استعمال کرتی ہے۔ <cmd>`(`/bash <cmd>\` بطور عرف)۔
+صرف ہوسٹ کے لیے bash چیٹ کمانڈ `!` استعمال کرتی ہے۔ &lt;cmd&gt;`(`/bash &lt;cmd&gt;\` بطور عرف)۔
 
 دو باہم متعلقہ نظام ہیں:
 
@@ -47,7 +47,7 @@ title: "سلैش کمانڈز"
 - `commands.nativeSkills` (بطورِ طے شدہ `"auto"`) جہاں معاونت ہو وہاں **Skill** کمانڈز کو نیٹو طور پر رجسٹر کرتا ہے۔
   - Auto: Discord/Telegram کے لیے آن؛ Slack کے لیے آف (Slack میں ہر Skill کے لیے علیحدہ سلैش کمانڈ بنانا لازم ہے)۔
   - ہر فراہم کنندہ کے لیے اووررائیڈ کرنے کو `channels.discord.commands.nativeSkills`, `channels.telegram.commands.nativeSkills`, یا `channels.slack.commands.nativeSkills` سیٹ کریں (bool یا `"auto"`)۔
-- `commands.bash` (ڈیفالٹ `false`) `!` کو فعال کرتا ہے۔ <cmd>` کے ذریعے ہوسٹ شیل کمانڈز چلانے کے لیے (`/bash <cmd>`بطور عرف؛`tools.elevated\` allowlists درکار ہیں)۔
+- `commands.bash` (ڈیفالٹ `false`) `!` کو فعال کرتا ہے۔ &lt;cmd&gt;` کے ذریعے ہوسٹ شیل کمانڈز چلانے کے لیے (`/bash &lt;cmd&gt;`بطور عرف؛`tools.elevated\` allowlists درکار ہیں)۔
 - `commands.bashForegroundMs` (بطورِ طے شدہ `2000`) یہ کنٹرول کرتا ہے کہ bash پس منظر موڈ میں کب سوئچ کرے (`0` فوراً پس منظر میں بھیج دیتا ہے)۔
 - `commands.config` (بطورِ طے شدہ `false`) `/config` کو فعال کرتا ہے (`openclaw.json` پڑھتا/لکھتا ہے)۔
 - `commands.debug` (بطورِ طے شدہ `false`) `/debug` کو فعال کرتا ہے (صرف رن ٹائم اووررائیڈز)۔
@@ -86,12 +86,12 @@ title: "سلैش کمانڈز"
 - `/exec host=<sandbox|gateway|node> security=<deny|allowlist|full> ask=<off|on-miss|always> node=<id>` (موجودہ دکھانے کے لیے `/exec` بھیجیں)
 - `/model <name>` (عرف: `/models`; یا `/<alias>` بذریعہ `agents.defaults.models.*.alias`)
 - `/queue <mode>` (مزید اختیارات جیسے `debounce:2s cap:25 drop:summarize`; موجودہ ترتیبات دیکھنے کے لیے `/queue` بھیجیں)
-- `/bash <command>` (صرف ہوسٹ؛ `!` کا عرف)۔ <command>`؛ `commands.bash: true`+`tools.elevated\` allowlists درکار ہیں)
+- `/bash <command>` (صرف ہوسٹ؛ `!` کا عرف)۔ &lt;command&gt;`؛ `commands.bash: true`+`tools.elevated\` allowlists درکار ہیں)
 
 صرف متن:
 
 - `/compact [instructions]` (دیکھیں [/concepts/compaction](/concepts/compaction))
-- `!` <command>`(صرف ہوسٹ؛ ایک وقت میں ایک؛ طویل چلنے والے کاموں کے لیے`!poll`+`!stop\` استعمال کریں)
+- `!` &lt;command&gt;`(صرف ہوسٹ؛ ایک وقت میں ایک؛ طویل چلنے والے کاموں کے لیے`!poll`+`!stop\` استعمال کریں)
 - `!poll` (آؤٹ پٹ/اسٹیٹس چیک کریں؛ اختیاری `sessionId` قبول کرتا ہے؛ `/bash poll` بھی کام کرتا ہے)
 - `!stop` (چلتی ہوئی bash جاب روکیں؛ اختیاری `sessionId` قبول کرتا ہے؛ `/bash stop` بھی کام کرتا ہے)
 

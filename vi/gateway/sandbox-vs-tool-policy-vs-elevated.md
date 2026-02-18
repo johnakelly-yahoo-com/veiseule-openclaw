@@ -106,7 +106,7 @@ Elevated **không** cấp thêm tool; nó chỉ ảnh hưởng đến `exec`.
 Các cổng:
 
 - Bật/tắt: `tools.elevated.enabled` (và tùy chọn `agents.list[].tools.elevated.enabled`)
-- Danh sách cho phép người gửi: `tools.elevated.allowFrom.<provider>`` (và tùy chọn `agents.list[].tools.elevated.allowFrom.<provider>\`\`)
+- Danh sách cho phép người gửi: `tools.elevated.allowFrom.<provider>`` (và tùy chọn `agents.list[].tools.elevated.allowFrom.&lt;provider&gt;\`\`)
 
 Xem [Elevated Mode](/tools/elevated).
 

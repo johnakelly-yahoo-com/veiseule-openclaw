@@ -1113,7 +1113,7 @@ metadata: { "openclaw": { "os": ["darwin", "linux"], "requires": { "bins": ["mem
 세션 시작 시 해당 페이지를 가져오도록 에이전트에 요청합니다.
 ```
 
-네이티브 연동을 원한다면 기능 요청을 열거나 해당 API를 대상으로 스킬을 빌드하세요. 스킬 설치: clawhub install <skill-slug>
+네이티브 연동을 원한다면 기능 요청을 열거나 해당 API를 대상으로 스킬을 빌드하세요. 스킬 설치: clawhub install &lt;skill-slug&gt;
 clawhub update --all ClawHub는 현재 디렉터리 아래의 `./skills`에 설치합니다(또는 구성된 OpenClaw 워크스페이스로 폴백). OpenClaw는 다음 세션에서 이를 `<workspace>/skills`로 처리합니다.
 
 ### 에이전트 간에 스킬을 공유하려면 `~/.openclaw/skills/<name>/SKILL.md`에 배치하세요.

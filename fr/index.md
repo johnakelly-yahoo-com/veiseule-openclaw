@@ -21,7 +21,8 @@ title: "OpenClaw"
 
 > _« EXFOLIATE ! EXFOLIATE ! »_ — Un homard de l’espace, probablement
 
-<p align="center"><strong>Passerelle pour agents IA sur n’importe quel OS, à travers WhatsApp, Telegram, Discord, iMessage, et plus encore.</strong><br />
+<p align="center">
+  <strong>Passerelle pour agents IA sur n’importe quel OS, à travers WhatsApp, Telegram, Discord, iMessage, et plus encore.</strong><br />
   Envoyez un message, obtenez une réponse d’agent depuis votre poche. Des plugins ajoutent Mattermost et plus encore.
 </p>
 

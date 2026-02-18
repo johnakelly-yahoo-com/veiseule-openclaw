@@ -355,7 +355,7 @@ ack reaktion efter bot svar.
   - `presence` (bot-status/aktivitet, standard `false`)
 - `execApprovals`: Discord-only exec approval DMs (knap UI). Understøtter `aktiveret`, `approvers`, `agentFilter`, `sessionFilter`.
 
-Reaktionsnotifikationer bruger 'guilds.<id>.reaktionMeddelelser«:
+Reaktionsnotifikationer bruger 'guilds.&lt;id&gt;.reaktionMeddelelser«:
 
 - `off`: ingen reaktions-events.
 - `own`: reaktioner på bottens egne beskeder (standard).

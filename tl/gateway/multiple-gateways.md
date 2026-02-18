@@ -85,7 +85,7 @@ Kung io-override mo ang alinman sa mga ito sa config o env, kailangan mong panat
 - **Huwag** i-pin ang `browser.cdpUrl` sa parehong mga value sa maraming instance.
 - Kailangan ng bawat instance ang sarili nitong browser control port at CDP range (na hinango mula sa gateway port nito).
 - 48. Ang mga Browser profile CDP port ay awtomatikong ina-allocate mula sa `browser.controlPort + 9 ...cdpPort` per instance.
-- 49. Kung kailangan mo ng tahasang CDP ports, itakda ang `browser.profiles.<name>50. Remote Chrome: gamitin ang `browser.profiles.<name>
+- 49. Kung kailangan mo ng tahasang CDP ports, itakda ang `browser.profiles.<name>50. Remote Chrome: gamitin ang `browser.profiles.&lt;name&gt;
 
 ## Halimbawa ng manual env
 

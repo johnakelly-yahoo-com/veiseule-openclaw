@@ -198,7 +198,7 @@ export FEISHU_APP_SECRET="xxx"
 
 ### โดเมนLark(ทั่วโลก)
 
-หากผู้เช่าของคุณอยู่บนLark(นานาชาติ)ให้ตั้งค่าโดเมนเป็น`lark`(หรือสตริงโดเมนแบบเต็ม)คุณสามารถตั้งค่าได้ที่`channels.feishu.domain`หรือรายบัญชี(`channels.feishu.accounts.<id> 22. คุณสามารถตั้งค่าได้ที่ `channels.feishu.domain` หรือรายบัญชี (`channels.feishu.accounts.<id>`.domain`)
+หากผู้เช่าของคุณอยู่บนLark(นานาชาติ)ให้ตั้งค่าโดเมนเป็น`lark`(หรือสตริงโดเมนแบบเต็ม)คุณสามารถตั้งค่าได้ที่`channels.feishu.domain`หรือรายบัญชี(`channels.feishu.accounts.<id> 22. คุณสามารถตั้งค่าได้ที่ `channels.feishu.domain` หรือรายบัญชี (`channels.feishu.accounts.&lt;id&gt;`.domain`)
 
 ```json5
 {

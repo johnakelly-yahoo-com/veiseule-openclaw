@@ -198,7 +198,7 @@ Mô hình tư duy nhanh (thứ tự đánh giá cho tin nhắn nhóm):
 
 Group messages require a mention unless overridden per group. Điều này áp dụng cho Telegram, WhatsApp, Slack, Discord và Microsoft Teams.
 
-Trả lời một tin nhắn của bot được tính là một lần nhắc ngầm (khi kênh hỗ trợ metadata trả lời). .historyLimit`(hoặc`channels.<channel>\`
+Trả lời một tin nhắn của bot được tính là một lần nhắc ngầm (khi kênh hỗ trợ metadata trả lời). .historyLimit`(hoặc`channels.&lt;channel&gt;\`
 
 ```json5
 {

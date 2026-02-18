@@ -20,8 +20,8 @@ Voor een overzicht op hoog niveau, zie [Onboarding Wizard](/start/wizard).
     - Resetten gebruikt `trash` (nooit `rm`) en biedt scopes:
       - Alleen config
       - Config + inloggegevens + sessies
-      - Volledige reset (verwijdert ook de werkruimte)  
-</Step>
+      - Volledige reset (verwijdert ook de werkruimte)
+  </Step>
   <Step title="Model/Auth">
     - **Anthropic API-sleutel (aanbevolen)**: gebruikt `ANTHROPIC_API_KEY` indien aanwezig of vraagt om een sleutel en slaat deze vervolgens op voor daemon-gebruik.
     - **Anthropic OAuth (Claude Code CLI)**: op macOS controleert de wizard het Sleutelhangerelement "Claude Code-credentials" (kies "Altijd toestaan" zodat launchd-starts niet blokkeren); op Linux/Windows hergebruikt hij `~/.claude/.credentials.json` indien aanwezig.
@@ -48,9 +48,9 @@ Voor een overzicht op hoog niveau, zie [Onboarding Wizard](/start/wizard).
     - Kies een standaardmodel uit de gedetecteerde opties (of voer provider/model handmatig in).
     - De wizard voert een modelcheck uit en waarschuwt als het geconfigureerde model onbekend is of auth ontbreekt.
     - OAuth-inloggegevens staan in `~/.openclaw/credentials/oauth.json`; auth-profielen staan in `~/.openclaw/agents/<agentId>/agent/auth-profiles.json` (API-sleutels + OAuth).
-    - Meer details: [/concepts/oauth](/concepts/oauth)    
-<Note>
-    Tip voor headless/server: voltooi OAuth op een machine met een browser en kopieer vervolgens
+    - Meer details: [/concepts/oauth](/concepts/oauth)
+    <Note>
+    Tip voor headless/server: voltooi OAuth op een machine met een browser en kopieer
     `~/.openclaw/credentials/oauth.json` (of `$OPENCLAW_STATE_DIR/credentials/oauth.json`) naar de
     Gateway-host.
     </Note>
@@ -58,12 +58,12 @@ Voor een overzicht op hoog niveau, zie [Onboarding Wizard](/start/wizard).
   <Step title="Workspace">
     - Standaard `~/.openclaw/workspace` (configureerbaar).
     - Initialiseert de werkruimtebestanden die nodig zijn voor het bootstrap-ritueel van de agent.
-    - Volledige werkruimte-indeling + back-upgids: [Agent workspace](/concepts/agent-workspace)  
-</Step>
+    - Volledige werkruimte-indeling + back-upgids: [Agent workspace](/concepts/agent-workspace)
+  </Step>
   <Step title="Gateway">
     - Poort, bind, auth-modus, Tailscale-blootstelling.
     - Auth-aanbeveling: houd **Token** aan, zelfs voor loopback, zodat lokale WS-clients zich moeten authenticeren.
-    - Schakel auth alleen uit als je elke lokale proces volledig vertrouwt.
+    - Schakel auth alleen uit als je elk lokaal proces volledig vertrouwt.
     - Niet-loopback binds vereisen nog steeds auth.
   </Step>
   <Step title="Channels">
@@ -75,8 +75,7 @@ Voor een overzicht op hoog niveau, zie [Onboarding Wizard](/start/wizard).
     - [Signal](/channels/signal): optionele `signal-cli`-installatie + accountconfiguratie.
     - [BlueBubbles](/channels/bluebubbles): **aanbevolen voor iMessage**; server-URL + wachtwoord + webhook.
     - [iMessage](/channels/imessage): legacy `imsg` CLI-pad + DB-toegang.
-    - DM-beveiliging: standaard is koppelen. De eerste DM stuurt een code; keur goed via `openclaw pairing approve <channel><code>` of gebruik toegestane lijsten.
-  </Step><code>` of gebruik toegestane lijsten.
+    - DM-beveiliging: standaard is koppelen. De eerste DM stuurt een code; keur goed via `openclaw pairing approve <channel> <code>` of gebruik toegestane lijsten.
   </Step>
   <Step title="Daemon-installatie">
     - macOS: LaunchAgent

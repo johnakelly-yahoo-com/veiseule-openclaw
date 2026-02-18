@@ -551,9 +551,9 @@ Triage jarayoni uchun: [/channels/troubleshooting](/channels/troubleshooting).
 - Mention gate’lash `channels.slack.channels` orqali boshqariladi (`requireMention` ni `true` qilib qo‘ying); `agents.list[].groupChat.mentionPatterns` (yoki `messages.groupChat.mentionPatterns`) ham mention sifatida hisoblanadi.
 - Multi-agent override: set per-agent patterns on `agents.list[].groupChat.mentionPatterns`.
 - Reaksiya bildirishnomalari `channels.slack.reactionNotifications` ga amal qiladi (`reactionAllowlist` ni `allowlist` rejimi bilan ishlating).
-- Bot-authored messages are ignored by default; enable via `channels.slack.allowBots` or `channels.slack.channels.<id>3. Ogohlantirish: Agar boshqa botlarga javob berishga ruxsat bersangiz (`channels.slack.allowBots=true`yoki`channels.slack.channels.<id>
-  4. .allowBots=true`), `requireMention`, `channels.slack.channels.<id>
+- Bot-authored messages are ignored by default; enable via `channels.slack.allowBots` or `channels.slack.channels.<id>3. Ogohlantirish: Agar boshqa botlarga javob berishga ruxsat bersangiz (`channels.slack.allowBots=true`yoki`channels.slack.channels.&lt;id&gt;
+  4. .allowBots=true`), `requireMention`, `channels.slack.channels.&lt;id&gt;
   5. .users`ruxsat ro‘yxatlari va/yoki`AGENTS.md`hamda`SOUL.md\` dagi aniq himoya qoidalari bilan botdan-botga javob aylanishlarining oldini oling.
-- 6. Slack vositasi uchun reaksiya olib tashlash semantikasi [/tools/reactions](/tools/reactions) da keltirilgan..allowBots=true`), prevent bot-to-bot reply loops with `requireMention`, `channels.slack.channels.<id>8. Telegram bot qo‘llab-quvvatlash holati, imkoniyatlari va sozlamalari
+- 6. Slack vositasi uchun reaksiya olib tashlash semantikasi [/tools/reactions](/tools/reactions) da keltirilgan..allowBots=true`), prevent bot-to-bot reply loops with `requireMention`, `channels.slack.channels.&lt;id&gt;8. Telegram bot qo‘llab-quvvatlash holati, imkoniyatlari va sozlamalari
 - 9. Telegram funksiyalari yoki webhooklar ustida ishlash
 - 10. Telegram

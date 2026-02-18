@@ -35,7 +35,7 @@ Sessionsbeskärning trims **gamla verktygsresultat** från minneskontexten preci
 
 ## Uppskattning av kontextfönster
 
-Beskärning använder ett uppskattat sammanhangsfönster (tecken <unk> tokens × 4). Basfönstret är löst i denna ordning:
+Beskärning använder ett uppskattat sammanhangsfönster (tecken &lt;unk&gt; tokens × 4). Basfönstret är löst i denna ordning:
 
 1. `models.providers.*.models[].contextWindow`-åsidosättning.
 2. Modelldefinitionens `contextWindow` (från modellregistret).

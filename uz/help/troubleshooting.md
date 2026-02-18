@@ -31,7 +31,7 @@ openclaw status --all
 ```
 
 <AccordionGroup>
-  <Accordion title="No replies">7. `openclaw gateway status` → `Runtime: running` va `RPC probe: ok`.<channel>8. `openclaw doctor` → bloklovchi konfiguratsiya/xizmat xatolari yo‘q.
+  <Accordion title="No replies">7. `openclaw gateway status` → `Runtime: running` va `RPC probe: ok`.&lt;channel&gt;8. `openclaw doctor` → bloklovchi konfiguratsiya/xizmat xatolari yo‘q.
 
     ```
     9. `openclaw channels status --probe` → kanallar `connected` yoki `ready` deb hisobot beradi.
@@ -157,7 +157,7 @@ Chuqur sahifalar:
 
 - [/gateway/troubleshooting#gateway-service-not-running](/gateway/troubleshooting#gateway-service-not-running)
 - [/gateway/background-process](/gateway/background-process)
-- [/gateway/configuration](/gateway/configuration)<idOrNameOrIp>20. 
+- [/gateway/configuration](/gateway/configuration)&lt;idOrNameOrIp&gt;20. 
     ```bash
     openclaw status
     openclaw gateway status

@@ -38,7 +38,7 @@ launchctl kickstart -k gui/$UID/bot.molt.gateway
 launchctl bootout gui/$UID/bot.molt.gateway
 ```
 
-Erstat etiketten med bot.molt.<profile>\` når du kører en navngiven profil.
+Erstat etiketten med bot.molt.&lt;profile&gt;\` når du kører en navngiven profil.
 
 Hvis LaunchAgent ikke er installeret, kan du aktivere den fra appen eller køre
 `openclaw gateway install`.

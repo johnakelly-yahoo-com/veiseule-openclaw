@@ -8,57 +8,55 @@ La base d’exécution d’OpenClaw est **Node 22+**. Le [script d'installation]
 ## Vérifiez votre version
 
 ```bash
-Nœud -v
+node -v
 ```
 
-Si cela affiche `v22.x.x` ou supérieur, vous êtes bien. Si Node n'est pas installé ou que la version est trop ancienne, choisissez une méthode d'installation ci-dessous.
+Si cela affiche `v22.x.x` ou supérieur, vous êtes bon. Si Node n'est pas installé ou que la version est trop ancienne, choisissez une méthode d'installation ci-dessous.
 
-## install/node.md
+## Install Node
 
 <Tabs>
   <Tab title="macOS">
     **Homebrew** (recommandé) :
 
+    ```bash
+    brew install node
     ```
-    macOS : Homebrew (`brew install node`) ou un gestionnaire de versions
-    ```
+
+    Ou téléchargez l’installateur macOS depuis [nodejs.org](https://nodejs.org/).
 
   </Tab>
   <Tab title="Linux">
     **Ubuntu / Debian :**
 
-    ````
     ```bash
-    curl -fsSL https://deb.nodesource.com/setup_22. | sudo -E bash -
+    curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ```
-    
-    **Fedora / RHEL:**
-    
+
+    **Fedora / RHEL :**
+
     ```bash
     sudo dnf install nodejs
     ```
-    
+
     Ou utilisez un gestionnaire de versions (voir ci-dessous).
-    ````
 
   </Tab>
   <Tab title="Windows">
     **winget** (recommandé) :
 
-    ````
     ```powershell
-    winget install OpenJS.NodeJS. TS
+    winget install OpenJS.NodeJS.LTS
     ```
-    
+
     **Chocolatey:**
-    
+
     ```powershell
     choco install nodejs-lts
     ```
-    
-    Ou téléchargez l'installateur Windows depuis [nodejs.org](https://nodejs.org/).
-    ````
+
+    Ou téléchargez l’installateur Windows depuis [nodejs.org](https://nodejs.org/).
 
   </Tab>
 </Tabs>
@@ -68,7 +66,7 @@ Si cela affiche `v22.x.x` ou supérieur, vous êtes bien. Si Node n'est pas inst
 
 - [**fnm**](https://github.com/Schniz/fnm) — fast, cross-platform
 - [**nvm**](https://github.com/nvm-sh/nvm) — largement utilisé sur macOS/Linux
-- [**mise**](https://mise.jdx.dev/) — polygone (Node, Python, Ruby, etc.)
+- [**mise**](https://mise.jdx.dev/) — polygotte (Node, Python, Ruby, etc.)
 
 Exemple avec fnm :
 
@@ -78,40 +76,52 @@ fnm use 22
 ```
 
   <Warning>
-  Si vous utilisez un gestionnaire de versions (nvm/fnm/asdf/etc), assurez‑vous qu’il est initialisé dans le shell que vous utilisez au quotidien (zsh vs bash) afin que le PATH qu’il définit soit présent lorsque vous lancez des installateurs. Si ce n'est pas le cas, `openclaw` peut ne pas être trouvé dans les nouvelles sessions de terminaux, car le PATH n'inclut pas le répertoire de corbeille de Node.
+  Assurez-vous que votre gestionnaire de versions est initialisé dans le fichier de démarrage de votre shell (`~/.zshrc` ou `~/.bashrc`). Sinon, `openclaw` peut ne pas être trouvé dans les nouvelles sessions de terminal, car le PATH n’inclura pas le répertoire bin de Node.
   </Warning>
 </Accordion>
 
 ## Problemes courants
 
-### Si vous pouvez exécuter `npm install -g openclaw@latest` mais voyez ensuite `openclaw: command not found`, c’est presque toujours un problème de **PATH** : le répertoire où npm place les binaires globaux n’est pas dans le PATH de votre shell.
+### `openclaw: command not found`
 
-Correctif : ajouter le répertoire global npm au PATH
+Cela signifie presque toujours que le répertoire global npm n’est pas présent dans votre PATH.
 
 <Steps>
-  <Step title="Find your global npm prefix">npm prefix -g</Step>
-  <Step title="Check if it's on your PATH">bash : `~/.bashrc`
+  <Step title="Find your global npm prefix">
+    ```bash
+    npm prefix -g
+    ```
+  </Step>
+  <Step title="Check if it's on your PATH">
+    ```bash
+    echo "$PATH"
+    ```
 
-    ```
-    Sous Windows, ajoutez la sortie de `npm prefix -g` à votre PATH.
-    ```
+    Recherchez `<npm-prefix>/bin` (macOS/Linux) ou `<npm-prefix>` (Windows) dans la sortie.
 
   </Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
-      <Tab title="macOS / Linux">zsh : `~/.zshrc`
+      <Tab title="macOS / Linux">
+        Ajoutez ceci à `~/.zshrc` ou `~/.bashrc` :
 
+        ```bash
+        export PATH="$(npm prefix -g)/bin:$PATH"
         ```
-        # macOS / Linux
-        export PATH="/path/from/npm/prefix/bin:$PATH"
-        ```
+
+        Ouvrez ensuite un nouveau terminal (ou exécutez `rehash` dans zsh / `hash -r` dans bash).
+      </Tab>
+      <Tab title="Windows">
+        Ajoutez la sortie de `npm prefix -g` à votre PATH système via Paramètres → Système → Variables d’environnement.
+      </Tab>
+    </Tabs>
 
   </Step>
 </Steps>
 
-### Correctif : éviter `sudo npm install -g` / erreurs de permissions (Linux)
+### Permission errors on `npm install -g` (Linux)
 
-Si `npm install -g ...` échoue avec `EACCES`, basculez le préfixe global npm vers un répertoire accessible en écriture par l’utilisateur :
+Si vous voyez des erreurs `EACCES`, changez le préfixe global npm vers un répertoire accessible en écriture par l’utilisateur :
 
 ```bash
 mkdir -p "$HOME/.npm-global"
@@ -119,4 +129,4 @@ npm config set prefix "$HOME/.npm-global"
 export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
-Rendez persistante la ligne `export PATH=...` dans le fichier de démarrage de votre shell.
+Ajoutez la ligne `export PATH=...` à votre `~/.bashrc` ou `~/.zshrc` pour la rendre permanente.

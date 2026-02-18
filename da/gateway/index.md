@@ -242,7 +242,7 @@ Bundlet mac-app:
 - For at stoppe den rent, brug `openclaw gateway stop` (eller `launchctl bootout gui/$UID/bot.molt.gateway`).
 - For at genstarte, brug `openclaw gateway restart` (eller `launchctl kickstart -k gui/$UID/bot.molt.gateway`).
   - `launchctl` virker kun, hvis LaunchAgent er installeret; ellers brug `openclaw gateway install` først.
-  - Erstat etiketten med bot.molt.<profile>\` når du kører en navngiven profil.
+  - Erstat etiketten med bot.molt.&lt;profile&gt;\` når du kører en navngiven profil.
 
 ## Supervision (systemd bruger-enhed)
 

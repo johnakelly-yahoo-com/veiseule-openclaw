@@ -1414,7 +1414,7 @@ Uwagi:
 
 - Wymaga pełnego dostępu na dysku do DB.
 - Pierwsza wysyłka poprosi o pozwolenie na automatyzację wiadomości.
-- Preferuj 'chat_id:<id>' celu. Użyj `czatów imsg --limit 20` aby wyświetlić listę czatów.
+- Preferuj 'chat_id:&lt;id&gt;' celu. Użyj `czatów imsg --limit 20` aby wyświetlić listę czatów.
 - `channels.imessage.cliPath` może wskazywać skrypt wrapper (np. `ssh` do innego Maca, który uruchamia `imsg rpc`); użyj kluczy SSH, aby uniknąć zapytań o hasło.
 - Dla zdalnych zawijaczy SSH ustaw `channels.imessage.remoteHost` aby pobrać załączniki za pośrednictwem SCP gdy `includeAttachments` jest włączone.
 
@@ -3308,7 +3308,7 @@ Domyślne:
 Bind modes:
 
 - `lan`: `0.0.0` (osiągalne na dowolnym interfejsie, w tym LAN/Wi‑Fi i Tailscale)
-- `tailnet`: zwiąż tylko z adresem IP w skali progowej (zalecane dla Wiednia <unk> Londyn)
+- `tailnet`: zwiąż tylko z adresem IP w skali progowej (zalecane dla Wiednia &lt;unk&gt; Londyn)
 - `loopback`: `127.0.0.1` (tylko lokalnie)
 - `auto`: preferuj IP tailnet, jeśli jest obecny, w przeciwnym razie `lan`
 
@@ -3359,7 +3359,7 @@ Kontroluje transmisje wyszukiwania LAN mDNS (`_openclaw-gw._tcp`).
 
 Po włączeniu brama zapisuje unicast strefę DNS-SD dla `_openclaw-gw._tcp` w `~/.openclaw/dns/` przy użyciu skonfigurowanej domeny odkrycia (przykład: `openclaw.internal.`).
 
-Aby odkryć iOS/Android w sieciach (Wiedeń <unk> Londyn), połącz to z:
+Aby odkryć iOS/Android w sieciach (Wiedeń &lt;unk&gt; Londyn), połącz to z:
 
 - serwer DNS na serwerze bramy obsługującym wybraną domenę (CoreDNS jest zalecany)
 - Skala przerw **rozdziel DNS**, aby klienci rozwiązali tę domenę za pośrednictwem serwera DNS bramy.

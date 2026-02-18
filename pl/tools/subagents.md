@@ -4,460 +4,204 @@ title: "Podagenci"
 
 # Podagenci
 
-Sub-agents let you run background tasks without blocking the main conversation. When you spawn a sub-agent, it runs in its own isolated session, does its work, and announces the result back to the chat when finished.
+Podagenci to uruchomienia agenta w tle, wywoływane z istniejącej sesji agenta. Działają we własnej sesji (`agent:<agentId>:subagent:<uuid>`) i po zakończeniu **ogłaszają** swój wynik z powrotem do kanału czatu żądającego.
 
-**Use cases:**
+## Komenda ukośnika
 
-- Research a topic while the main agent continues answering questions
-- Run multiple long tasks in parallel (web scraping, code analysis, file processing)
-- Delegate tasks to specialized agents in a multi-agent setup
+Użyj `/subagents`, aby sprawdzić lub kontrolować uruchomienia podagentów w **bieżącej sesji**:
 
-## Szybki start
+- `/subagents list`
+- `/subagents kill <id|#|all>`
+- `/subagents log <id|#> [limit] [tools]`
+- `/subagents info <id|#>`
+- `/subagents send <id|#> <message>`
 
-The simplest way to use sub-agents is to ask your agent naturally:
+`/subagents info` pokazuje metadane uruchomienia (status, znaczniki czasu, identyfikator sesji, ścieżkę transkryptu, cleanup).
 
-> "Spawn a sub-agent to research the latest Node.js release notes"
+Główne cele:
 
-The agent will call the `sessions_spawn` tool behind the scenes. When the sub-agent finishes, it announces its findings back into your chat.
+- Równoległe wykonywanie zadań typu „research / długie zadanie / wolne narzędzie” bez blokowania głównej sesji.
+- Izolacja podagentów domyślnie (separacja sesji + opcjonalny sandbox).
+- Ograniczenie powierzchni narzędzi trudnych do nadużycia: podagenci **nie** otrzymują narzędzi sesyjnych domyślnie.
+- Wsparcie konfigurowalnej głębokości zagnieżdżenia dla wzorca orkiestratora.
 
-You can also be explicit about options:
+Uwaga dotycząca kosztów: każdy podagent ma **własny** kontekst i zużycie tokenów. W przypadku ciężkich lub powtarzalnych zadań ustaw tańszy model dla podagentów, a głównego agenta pozostaw na modelu wyższej jakości. Możesz to skonfigurować przez `agents.defaults.subagents.model` lub nadpisania per-agent.
 
-> "Spawn a sub-agent to analyze the server logs from today. Use gpt-5.2 and set a 5-minute timeout."
+## Narzędzie
 
-## Jak to działa
+Użyj `sessions_spawn`:
 
-<Steps>
-  <Step title="Main agent spawns">
-    The main agent calls `sessions_spawn` with a task description. The call is **non-blocking** — the main agent gets back `{ status: "accepted", runId, childSessionKey }` immediately.
-  </Step>
-  <Step title="Sub-agent runs in the background">
-    A new isolated session is created (`agent:<agentId>:subagent:<uuid>`) on the dedicated `subagent` queue lane.
-  </Step>
-  <Step title="Result is announced">
-    When the sub-agent finishes, it announces its findings back to the requester chat. The main agent posts a natural-language summary.
-  </Step>
-  <Step title="Session is archived">
-    The sub-agent session is auto-archived after 60 minutes (configurable). Transcripts are preserved.
-  </Step>
-</Steps>
+- Uruchamia podagenta (`deliver: false`, globalna kolejka: `subagent`)
+- Następnie wykonuje krok announce i publikuje odpowiedź ogłoszenia do kanału czatu żądającego
+- Domyślny model: dziedziczy po wywołującym, chyba że ustawisz `agents.defaults.subagents.model` (lub `agents.list[].subagents.model`); jawne `sessions_spawn.model` ma pierwszeństwo.
+- Domyślne thinking: dziedziczy po wywołującym, chyba że ustawisz `agents.defaults.subagents.thinking` (lub `agents.list[].subagents.thinking`); jawne `sessions_spawn.thinking` ma pierwszeństwo.
 
-<Tip>
-Each sub-agent has its **own** context and token usage. Set a cheaper model for sub-agents to save costs — see [Setting a Default Model](#setting-a-default-model) below.
-</Tip>
+Parametry narzędzia:
 
-## Konfiguracja
+- `task` (wymagane)
+- `label?` (opcjonalne)
+- `agentId?` (opcjonalne; uruchom pod innym identyfikatorem agenta, jeśli dozwolone)
+- `model?` (opcjonalne; nadpisuje model podagenta; nieprawidłowe wartości są pomijane, a podagent uruchamia się na domyślnym modelu z ostrzeżeniem w wyniku narzędzia)
+- `thinking?` (opcjonalne; nadpisuje poziom thinking dla uruchomienia podagenta)
+- `runTimeoutSeconds?` (domyślnie `0`; gdy ustawione, uruchomienie podagenta jest przerywane po N sekundach)
+- `cleanup?` (`delete|keep`, domyślnie `keep`)
 
-Sub-agents work out of the box with no configuration. Ustawienia domyślne:
+Allowlist:
 
-- Model: target agent’s normal model selection (unless `subagents.model` is set)
-- Thinking: no sub-agent override (unless `subagents.thinking` is set)
-- Max concurrent: 8
-- Auto-archive: after 60 minutes
+- `agents.list[].subagents.allowAgents`: lista identyfikatorów agentów, które można wskazać przez `agentId` (`["*"]`, aby zezwolić na dowolny). Domyślnie: tylko agent żądający.
 
-### Setting a Default Model
+Discovery:
 
-Use a cheaper model for sub-agents to save on token costs:
+- Użyj `agents_list`, aby zobaczyć, które identyfikatory agentów są obecnie dozwolone dla `sessions_spawn`.
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        model: "minimax/MiniMax-M2.1",
-      },
-    },
-  },
-}
-```
+Auto-archive:
 
-### Setting a Default Thinking Level
+- Sesje podagentów są automatycznie archiwizowane po `agents.defaults.subagents.archiveAfterMinutes` (domyślnie: 60).
+- Archiwizacja używa `sessions.delete` i zmienia nazwę transkryptu na `*.deleted.<timestamp>` (ten sam folder).
+- `cleanup: "delete"` archiwizuje natychmiast po announce (transkrypt nadal jest zachowany przez zmianę nazwy).
+- Auto-archive działa w trybie best-effort; oczekujące timery są tracone, jeśli gateway zostanie zrestartowany.
+- `runTimeoutSeconds` **nie** powoduje auto-archiwizacji; jedynie zatrzymuje uruchomienie. Sesja pozostaje do momentu auto-archiwizacji.
+- Auto-archive dotyczy zarówno sesji głębokości 1, jak i 2.
+
+## Zagnieżdżeni podagenci
+
+Domyślnie podagenci nie mogą uruchamiać własnych podagentów (`maxSpawnDepth: 1`). Możesz włączyć jeden poziom zagnieżdżenia, ustawiając `maxSpawnDepth: 2`, co umożliwia **wzorzec orkiestratora**: main → orchestrator sub-agent → worker sub-sub-agents.
+
+### Jak włączyć
 
 ```json5
 {
   agents: {
     defaults: {
       subagents: {
-        thinking: "low",
+        maxSpawnDepth: 2, // allow sub-agents to spawn children (default: 1)
+        maxChildrenPerAgent: 5, // max active children per agent session (default: 5)
+        maxConcurrent: 8, // global concurrency lane cap (default: 8)
       },
     },
   },
 }
 ```
 
-### Nadpisania per agent
+### Poziomy głębokości
 
-W konfiguracji wieloagentowej możesz ustawić domyślne wartości sub-agentów dla każdego agenta:
+| Depth | Session key shape                            | Role                                          | Can spawn?                   |
+| ----- | -------------------------------------------- | --------------------------------------------- | ---------------------------- |
+| 0     | `agent:<id>:main`                            | Główny agent                                 | Zawsze                      |
+| 1     | `agent:<id>:subagent:<uuid>`                 | Podagent (orkiestrator, gdy dozwolona głębokość 2) | Tylko jeśli `maxSpawnDepth >= 2` |
+| 2     | `agent:<id>:subagent:<uuid>:subagent:<uuid>` | Pod-podagent (worker)                        | Nigdy                        |
 
-```json5
-{
-  agents: {
-    list: [
-      {
-        id: "researcher",
-        subagents: {
-          model: "anthropic/claude-sonnet-4",
-        },
-      },
-      {
-        id: "assistant",
-        subagents: {
-          model: "minimax/MiniMax-M2.1",
-        },
-      },
-    ],
-  },
-}
-```
+### Łańcuch announce
 
-### Współbieżność
+Wyniki wracają w górę łańcucha:
 
-Kontroluj, ile sub-agentów może działać jednocześnie:
+1. Worker głębokości 2 kończy → ogłasza do swojego rodzica (orkiestratora głębokości 1)
+2. Orkiestrator głębokości 1 otrzymuje announce, syntetyzuje wyniki, kończy → ogłasza do main
+3. Główny agent otrzymuje announce i dostarcza wynik użytkownikowi
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        maxConcurrent: 4, // default: 8
-      },
-    },
-  },
-}
-```
+Każdy poziom widzi tylko announce od swoich bezpośrednich dzieci.
 
-Sub-agenci używają dedykowanej kolejki (`subagent`) oddzielonej od głównej kolejki agenta, dzięki czemu uruchomienia sub-agentów nie blokują odpowiedzi przychodzących.
+### Polityka narzędzi według głębokości
 
-### Automatyczna archiwizacja
+- **Głębokość 1 (orkiestrator, gdy `maxSpawnDepth >= 2`)**: Otrzymuje `sessions_spawn`, `subagents`, `sessions_list`, `sessions_history`, aby zarządzać swoimi dziećmi. Inne narzędzia sesyjne/systemowe pozostają zabronione.
+- **Głębokość 1 (worker, gdy `maxSpawnDepth == 1`)**: Brak narzędzi sesyjnych (domyślne zachowanie).
+- **Głębokość 2 (worker)**: Brak narzędzi sesyjnych — `sessions_spawn` jest zawsze zabronione na głębokości 2. Nie może uruchamiać dalszych dzieci.
 
-Sesje sub-agentów są automatycznie archiwizowane po konfigurowalnym czasie:
+### Limit uruchomień per agent
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        archiveAfterMinutes: 120, // default: 60
-      },
-    },
-  },
-}
-```
+Każda sesja agenta (na dowolnej głębokości) może mieć maksymalnie `maxChildrenPerAgent` (domyślnie: 5) aktywnych dzieci jednocześnie. Zapobiega to niekontrolowanemu rozrostowi z jednego orkiestratora.
 
-<Note>Archiwizacja zmienia nazwę transkryptu na `*.deleted.<timestamp>` (ten sam folder) — transkrypty są zachowywane, a nie usuwane. Liczniki automatycznej archiwizacji działają w trybie best-effort; oczekujące timery są tracone, jeśli brama zostanie zrestartowana.
-</Note>
+### Cascade stop
 
-## Narzędzie `sessions_spawn`
+Zatrzymanie orkiestratora głębokości 1 automatycznie zatrzymuje wszystkie jego dzieci głębokości 2:
 
-To jest narzędzie, które agent wywołuje, aby tworzyć sub-agentów.
-
-### Parametry
-
-| Parametr            | Typ                      | Domyślna                                | Opis                                                                                             |
-| ------------------- | ------------------------ | --------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| `task`              | string                   | _(wymagane)_         | Co powinien zrobić sub-agent                                                                     |
-| `etykieta`          | string                   | —                                       | Krótka etykieta identyfikacyjna                                                                  |
-| `agentId`           | string                   | _(agent wywołujący)_ | Utwórz pod innym identyfikatorem agenta (musi być dozwolone)                  |
-| `wzór`              | string                   | _(opcjonalne)_       | Nadpisz model dla tego sub-agenta                                                                |
-| `thinking`          | string                   | _(opcjonalne)_       | Nadpisz poziom myślenia (`off`, `low`, `medium`, `high` itd.) |
-| `runTimeoutSeconds` | liczba                   | `0` (brak limitu)    | Przerwij działanie sub-agenta po N sekundach                                                     |
-| `czyszczenie`       | `"delete"` \\| `"keep"` | `"keep"`                                | `"delete"` archiwizuje natychmiast po ogłoszeniu                                                 |
-
-### Kolejność rozstrzygania modelu
-
-Model sub-agenta jest wybierany w następującej kolejności (pierwsze dopasowanie wygrywa):
-
-1. Jawny parametr `model` w wywołaniu `sessions_spawn`
-2. Konfiguracja per agent: `agents.list[].subagents.model`
-3. Globalna wartość domyślna: `agents.defaults.subagents.model`
-4. Zwykła kolejność rozstrzygania modelu docelowego agenta dla tej nowej sesji
-
-Poziom myślenia jest rozstrzygany w tej kolejności:
-
-1. Jawny parametr `thinking` w wywołaniu `sessions_spawn`
-2. Konfiguracja per agent: `agents.list[].subagents.thinking`
-3. Globalna wartość domyślna: `agents.defaults.subagents.thinking`
-4. W przeciwnym razie nie jest stosowane żadne specyficzne dla sub-agenta nadpisanie poziomu myślenia
-
-<Note>Nieprawidłowe wartości modelu są po cichu pomijane — sub-agent uruchamia się na następnym prawidłowym domyślnym modelu z ostrzeżeniem w wyniku narzędzia.</Note>
-
-### Tworzenie sub-agentów między agentami
-
-Domyślnie sub-agenci mogą być tworzeni tylko pod własnym identyfikatorem agenta. Aby umożliwić agentowi uruchamianie subagentów pod innymi identyfikatorami agentów:
-
-```json5
-{
-  agents: {
-    list: [
-      {
-        id: "orchestrator",
-        subagents: {
-          allowAgents: ["researcher", "coder"], // or ["*"] to allow any
-        },
-      },
-    ],
-  },
-}
-```
-
-<Tip>Użyj narzędzia `agents_list`, aby sprawdzić, które identyfikatory agentów są obecnie dozwolone dla `sessions_spawn`.</Tip>
-
-## Zarządzanie subagentami (`/subagents`)
-
-Użyj komendy ukośnika `/subagents`, aby sprawdzić i kontrolować uruchomienia subagentów w bieżącej sesji:
-
-| Polecenie                                  | Opis                                                                                          |
-| ------------------------------------------ | --------------------------------------------------------------------------------------------- |
-| `/subagents list`                          | Wyświetl listę wszystkich uruchomień subagentów (aktywnych i zakończonych) |
-| `/subagents stop <id\\|#\\|all>`         | Zatrzymaj działającego subagenta                                                              |
-| `/subagents log <id\\|#> [limit] [tools]` | Wyświetl transkrypcję subagenta                                                               |
-| `/subagents info <id\\|#>`                | Pokaż szczegółowe metadane uruchomienia                                                       |
-| `/subagents send <id\\|#> <message>`      | Wyślij wiadomość do działającego subagenta                                                    |
-
-Możesz odwoływać się do podagentów według indeksu listy (`1`, `2`), prefiksu identyfikatora uruchomienia, pełnego klucza sesji lub `last`.
-
-<AccordionGroup>
-  <Accordion title="Example: list and stop a sub-agent">```
-/subagents list
-```
-
-    ````
-    ```
-    🧭 Subagents (current session)
-    Active: 1 · Done: 2
-    1) ✅ · research logs · 2m31s · run a1b2c3d4 · agent:main:subagent:...
-    2) ✅ · check deps · 45s · run e5f6g7h8 · agent:main:subagent:...
-    3) 🔄 · deploy staging · 1m12s · run i9j0k1l2 · agent:main:subagent:...
-    ```
-    
-    ```
-    /subagents stop 3
-    ```
-    
-    ```
-    ⚙️ Stop requested for deploy staging.
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: inspect a sub-agent">```
-/subagents info 1
-```
-
-    ````
-    ```
-    ℹ️ Subagent info
-    Status: ✅
-    Label: research logs
-    Task: Research the latest server error logs and summarize findings
-    Run: a1b2c3d4-...
-    Session: agent:main:subagent:...
-    Runtime: 2m31s
-    Cleanup: keep
-    Outcome: ok
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: view sub-agent log">```
-/subagents log 1 10
-```
-
-    ````
-    Pokazuje ostatnie 10 wiadomości z transkrypcji subagenta. Dodaj `tools`, aby uwzględnić wiadomości wywołań narzędzi:
-    
-    ```
-    /subagents log 1 10 tools
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: send a follow-up message">```
-/subagents send 3 "Also check the staging environment"
-```
-
-    ```
-    Wysyła wiadomość do sesji działającego subagenta i czeka do 30 sekund na odpowiedź.
-    ```
-
-  </Accordion>
-</AccordionGroup>
-
-## Ogłaszanie (Jak wracają wyniki)
-
-Gdy subagent zakończy pracę, przechodzi przez krok **announce**:
-
-1. Końcowa odpowiedź subagenta jest przechwytywana
-2. Wiadomość podsumowująca jest wysyłana do sesji głównego agenta wraz z wynikiem, statusem i statystykami
-3. Główny agent publikuje w czacie podsumowanie w języku naturalnym
-
-Odpowiedzi ogłoszeń zachowują trasowanie wątków/tematów, gdy jest dostępne (wątki Slack, tematy Telegram, wątki Matrix).
-
-### Statystyki ogłoszenia
-
-Każde ogłoszenie zawiera wiersz statystyk z:
-
-- Czasem trwania wykonania
-- Zużycie tokenów (wejście/wyjście/razem)
-- Szacowanym kosztem (gdy ceny modeli są skonfigurowane przez `models.providers.*.models[].cost`)
-- Kluczem sesji, identyfikatorem sesji oraz ścieżką do transkrypcji
-
-### Status ogłoszenia
-
-Wiadomość ogłoszenia zawiera status wyprowadzony z wyniku wykonania (nie z wyjścia modelu):
-
-- **pomyślne zakończenie** (`ok`) — zadanie ukończone normalnie
-- **błąd** — zadanie nie powiodło się (szczegóły błędu w notatkach)
-- **przekroczenie czasu** — zadanie przekroczyło `runTimeoutSeconds`
-- **nieznany** — nie można było określić statusu
-
-<Tip>
-Jeśli nie jest potrzebne ogłoszenie widoczne dla użytkownika, krok podsumowania głównego agenta może zwrócić `NO_REPLY` i nic nie zostanie opublikowane.
-Różni się to od `ANNOUNCE_SKIP`, który jest używany w przepływie ogłaszania agent–agent (`sessions_send`).
-</Tip>
-
-## Polityka narzędzi
-
-Domyślnie subagenci otrzymują **wszystkie narzędzia z wyjątkiem** zestawu narzędzi zabronionych, które są niebezpieczne lub niepotrzebne dla zadań w tle:
-
-<AccordionGroup>
-  <Accordion title="Default denied tools">| Denied tool | Reason |
-|-------------|--------|
-| `sessions_list` | Session management — main agent orchestrates |
-| `sessions_history` | Session management — main agent orchestrates |
-| `sessions_send` | Session management — main agent orchestrates |
-| `sessions_spawn` | No nested fan-out (sub-agents cannot spawn sub-agents) |
-| `gateway` | System admin — dangerous from sub-agent |
-| `agents_list` | System admin |
-| `whatsapp_login` | Interactive setup — not a task |
-| `session_status` | Status/scheduling — main agent coordinates |
-| `cron` | Status/scheduling — main agent coordinates |
-| `memory_search` | Pass relevant info in spawn prompt instead |
-| `memory_get` | Pass relevant info in spawn prompt instead |</Accordion>
-</AccordionGroup>
-
-### Dostosowywanie narzędzi subagentów
-
-Możesz dodatkowo ograniczyć narzędzia subagentów:
-
-```json5
-{
-  tools: {
-    subagents: {
-      tools: {
-        // deny always wins over allow
-        deny: ["browser", "firecrawl"],
-      },
-    },
-  },
-}
-```
-
-Aby ograniczyć subagentów **wyłącznie** do określonych narzędzi:
-
-```json5
-{
-  tools: {
-    subagents: {
-      tools: {
-        allow: ["read", "exec", "process", "write", "edit", "apply_patch"],
-        // deny still wins if set
-      },
-    },
-  },
-}
-```
-
-<Note>
-Niestandardowe wpisy deny są **dodawane do** domyślnej listy deny. Jeśli ustawiono `allow`, dostępne są tylko te narzędzia (domyślna lista deny nadal obowiązuje dodatkowo).
-</Note>
+- `/stop` w głównym czacie zatrzymuje wszystkich agentów głębokości 1 i kaskadowo ich dzieci głębokości 2.
+- `/subagents kill <id>` zatrzymuje konkretnego podagenta i kaskadowo jego dzieci.
+- `/subagents kill all` zatrzymuje wszystkich podagentów dla żądającego i wykonuje kaskadę.
 
 ## Uwierzytelnianie
 
-Uwierzytelnianie subagenta jest rozstrzygane według **identyfikatora agenta**, a nie typu sesji:
+Uwierzytelnianie podagenta jest rozstrzygane według **identyfikatora agenta**, a nie typu sesji:
 
-- Magazyn uwierzytelniania jest ładowany z `agentDir` docelowego agenta
-- Profile uwierzytelniania głównego agenta są scalane jako **zapasowe** (profile agenta mają pierwszeństwo w przypadku konfliktów)
-- Scalanie jest addytywne — profile głównego agenta są zawsze dostępne jako zapasowe
+- Klucz sesji podagenta to `agent:<agentId>:subagent:<uuid>`.
+- Magazyn uwierzytelniania jest ładowany z `agentDir` tego agenta.
+- Profile uwierzytelniania głównego agenta są scalane jako **zapasowe**; profile agenta mają pierwszeństwo w przypadku konfliktów.
 
-<Note>
-Fully isolated auth per sub-agent is not currently supported.
-</Note>
+Uwaga: scalanie jest addytywne, więc profile głównego agenta są zawsze dostępne jako zapasowe. W pełni izolowane uwierzytelnianie per agent nie jest jeszcze wspierane.
 
-## Context and System Prompt
+## Announce
 
-Sub-agents receive a reduced system prompt compared to the main agent:
+Podagenci raportują wyniki przez krok announce:
 
-- **Included:** Tooling, Workspace, Runtime sections, plus `AGENTS.md` and `TOOLS.md`
-- **Not included:** `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md`
+- Krok announce działa wewnątrz sesji podagenta (nie w sesji żądającej).
+- Jeśli podagent odpowie dokładnie `ANNOUNCE_SKIP`, nic nie zostanie opublikowane.
+- W przeciwnym razie odpowiedź announce jest publikowana do kanału czatu żądającego przez kolejne wywołanie `agent` (`deliver=true`).
+- Odpowiedzi announce zachowują trasowanie wątków/tematów, gdy jest dostępne (wątki Slack, tematy Telegram, wątki Matrix).
+- Wiadomości announce są normalizowane do stabilnego szablonu:
+  - `Status:` wyprowadzony z wyniku wykonania (`success`, `error`, `timeout` lub `unknown`).
+  - `Result:` treść podsumowania z kroku announce (lub `(not available)` jeśli brak).
+  - `Notes:` szczegóły błędu i inne przydatne informacje.
+- `Status` nie jest wnioskowany z wyjścia modelu; pochodzi z sygnałów runtime.
 
-The sub-agent also receives a task-focused system prompt that instructs it to stay focused on the assigned task, complete it, and not act as the main agent.
+Payload announce zawiera linię statystyk na końcu (nawet gdy jest opakowany):
 
-## Stopping Sub-Agents
+- Czas wykonania (np. `runtime 5m12s`)
+- Zużycie tokenów (input/output/total)
+- Szacowany koszt, gdy ceny modeli są skonfigurowane (`models.providers.*.models[].cost`)
+- `sessionKey`, `sessionId` oraz ścieżkę do transkryptu (aby główny agent mógł pobrać historię przez `sessions_history` lub sprawdzić plik na dysku)
 
-| Method                 | Effect                                                                    |
-| ---------------------- | ------------------------------------------------------------------------- |
-| `/stop` in the chat    | Aborts the main session **and** all active sub-agent runs spawned from it |
-| `/subagents stop <id>` | Stops a specific sub-agent without affecting the main session             |
-| `runTimeoutSeconds`    | Automatically aborts the sub-agent run after the specified time           |
+## Tool Policy (narzędzia podagenta)
 
-<Note>
-`runTimeoutSeconds` does **not** auto-archive the session. The session remains until the normal archive timer fires.
-</Note>
+Domyślnie podagenci otrzymują **wszystkie narzędzia z wyjątkiem narzędzi sesyjnych** i narzędzi systemowych:
 
-## Full Configuration Example
+- `sessions_list`
+- `sessions_history`
+- `sessions_send`
+- `sessions_spawn`
 
-<Accordion title="Complete sub-agent configuration">
+Gdy `maxSpawnDepth >= 2`, podagenci głębokości 1 (orkiestratorzy) dodatkowo otrzymują `sessions_spawn`, `subagents`, `sessions_list` i `sessions_history`, aby mogli zarządzać swoimi dziećmi.
+
+Nadpisanie przez konfigurację:
+
 ```json5
 {
   agents: {
     defaults: {
-      model: { primary: "anthropic/claude-sonnet-4" },
       subagents: {
-        model: "minimax/MiniMax-M2.1",
-        thinking: "low",
-        maxConcurrent: 4,
-        archiveAfterMinutes: 30,
+        maxConcurrent: 1,
       },
     },
-    list: [
-      {
-        id: "main",
-        default: true,
-        name: "Personal Assistant",
-      },
-      {
-        id: "ops",
-        name: "Ops Agent",
-        subagents: {
-          model: "anthropic/claude-sonnet-4",
-          allowAgents: ["main"], // ops can spawn sub-agents under "main"
-        },
-      },
-    ],
   },
   tools: {
     subagents: {
       tools: {
-        deny: ["browser"], // sub-agents can't use the browser
+        // deny wins
+        deny: ["gateway", "cron"],
+        // if allow is set, it becomes allow-only (deny still wins)
+        // allow: ["read", "exec", "process"]
       },
     },
   },
 }
 ```
-</Accordion>
+
+## Współbieżność
+
+Podagenci używają dedykowanej kolejki w tym samym procesie:
+
+- Nazwa kolejki: `subagent`
+- Współbieżność: `agents.defaults.subagents.maxConcurrent` (domyślnie `8`)
+
+## Zatrzymywanie
+
+- Wysłanie `/stop` w czacie żądającym przerywa sesję żądającą i zatrzymuje wszystkie aktywne uruchomienia podagentów z niej wywołane, kaskadowo do zagnieżdżonych dzieci.
+- `/subagents kill <id>` zatrzymuje konkretnego podagenta i kaskadowo jego dzieci.
 
 ## Ograniczenia
 
-<Warning>
-- **Best-effort announce:** If the gateway restarts, pending announce work is lost.
-- **No nested spawning:** Sub-agents cannot spawn their own sub-agents.
-- **Shared resources:** Sub-agents share the gateway process; use `maxConcurrent` as a safety valve.
-- **Auto-archive is best-effort:** Pending archive timers are lost on gateway restart.
-</Warning>
-
-## Zobacz także
-
-- [Session Tools](/concepts/session-tool) — details on `sessions_spawn` and other session tools
-- [Multi-Agent Sandbox and Tools](/tools/multi-agent-sandbox-tools) — per-agent tool restrictions and sandboxing
-- [Configuration](/gateway/configuration) — `agents.defaults.subagents` reference
-- [Queue](/concepts/queue) — how the `subagent` lane works
+- Announce podagenta działa w trybie **best-effort**. Jeśli gateway zostanie zrestartowany, oczekujące „announce back” zostaną utracone.
+- Podagenci współdzielą zasoby procesu gateway; traktuj `maxConcurrent` jako zawór bezpieczeństwa.
+- `sessions_spawn` jest zawsze nieblokujące: zwraca `{ status: "accepted", runId, childSessionKey }` natychmiast.
+- Kontekst podagenta wstrzykuje tylko `AGENTS.md` + `TOOLS.md` (bez `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` ani `BOOTSTRAP.md`).
+- Maksymalna głębokość zagnieżdżenia to 5 (`maxSpawnDepth` zakres: 1–5). Głębokość 2 jest rekomendowana w większości przypadków.
+- `maxChildrenPerAgent` ogranicza liczbę aktywnych dzieci na sesję (domyślnie: 5, zakres: 1–20).

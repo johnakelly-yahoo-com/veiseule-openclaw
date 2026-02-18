@@ -777,10 +777,10 @@ Kiruvchi xabarlar binding’lar orqali agentga yo‘naltiriladi.
         group: { mode: "idle", idleMinutes: 120 },
         },
         resetTriggers: ["/new", "/reset"],
-        // Sukut bo‘yicha allaqachon ~/.openclaw/agents/<agentId>/sessions/sessions.json ostida per-agent
+        // Sukut bo‘yicha allaqachon ~/.openclaw/agents/&lt;agentId&gt;/sessions/sessions.json ostida per-agent
         // {agentId} shablonlash bilan almashtirishingiz mumkin:
         store: "~/.openclaw/agents/{agentId}/sessions/sessions.json",
-        // To‘g‘ridan-to‘g‘ri chatlar agent:<agentId>:<mainKey> ga birlashadi (sukut bo‘yicha: "main").
+        // To‘g‘ridan-to‘g‘ri chatlar agent:&lt;agentId&gt;:&lt;mainKey&gt; ga birlashadi (sukut bo‘yicha: "main").
         mainKey: "main",
         agentToAgent: {
         // So‘rovchi/maqsad o‘rtasidagi ping-pong javob aylanishlarining maksimal soni (0–5).
@@ -1539,11 +1539,11 @@ Navbatlash, sessiyalar va oqimli kontekst haqida [Messages](/concepts/messages) 
 Overrides can be configured per channel and per account:
 
 - `channels.<channel>`.responsePrefix
-- `channels.<channel>`.accounts.<id>.responsePrefix
+- `channels.<channel>`.accounts.&lt;id&gt;.responsePrefix
 
 Aniqlash tartibi (eng aniq ustun):
 
-1. `channels.<channel>`.accounts.<id>.responsePrefix
+1. `channels.<channel>`.accounts.&lt;id&gt;.responsePrefix
 2. `channels.<channel>`.responsePrefix\`
 3. `messages.responsePrefix`
 

@@ -1458,7 +1458,7 @@ Short answer: **pair your computer as a node**. 7. Gateway başka bir yerde çal
 
    ```bash
    openclaw nodes pending
-   openclaw nodes approve <requestId>
+   openclaw nodes approve &lt;requestId&gt;
    ```
 
 14) Ayrı bir TCP köprüsü gerekmez; nodelar Gateway WebSocket üzerinden bağlanır.
@@ -1500,7 +1500,7 @@ güvenilir şekilde bunu bağlayabilirsiniz:
 35. Örnek desen (hedef Gateway’e erişebilen bir makineden çalıştırın):
 
 ```bash
-36. openclaw agent --message "Hello from local bot" --deliver --channel telegram --reply-to <chat-id>
+36. openclaw agent --message "Hello from local bot" --deliver --channel telegram --reply-to &lt;chat-id&gt;
 ```
 
 37. İpucu: iki botun sonsuz döngüye girmemesi için bir koruma ekleyin (yalnızca-mention, kanal
@@ -1630,7 +1630,7 @@ Recommended setup:
 
    ```bash
    openclaw nodes pending
-   openclaw nodes approve <requestId>
+   openclaw nodes approve &lt;requestId&gt;
    ```
 
 Docs: [Gateway protocol](/gateway/protocol), [Discovery](/gateway/discovery), [macOS remote mode](/platforms/mac/remote).
@@ -2167,7 +2167,7 @@ Evet. 11. OpenClaw birkaç varsayılan kısaltma ile gelir (yalnızca model `age
     şurada saklanır:
 
 ```
-~/.openclaw/agents/<agentId>/agent/auth-profiles.json
+~/.openclaw/agents/&lt;agentId&gt;/agent/auth-profiles.json
 ```
 
 Düzeltme seçenekleri:
@@ -2250,7 +2250,7 @@ Related: [/concepts/oauth](/concepts/oauth) (OAuth flows, token storage, multi-a
 An auth profile is a named credential record (OAuth or API key) tied to a provider. Profiles live in:
 
 ```
-~/.openclaw/agents/<agentId>/agent/auth-profiles.json
+~/.openclaw/agents/&lt;agentId&gt;/agent/auth-profiles.json
 ```
 
 ### What are typical profile IDs

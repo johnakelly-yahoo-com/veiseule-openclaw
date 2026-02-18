@@ -26,7 +26,6 @@ Trên Windows, chúng tôi đặc biệt khuyến nghị chạy OpenClaw dưới
   <Accordion title="Installer script" icon="rocket" defaultOpen>
     Tải CLI, cài đặt toàn cục qua npm và khởi chạy trình hướng dẫn onboarding.
 
-    ```
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -39,11 +38,11 @@ Trên Windows, chúng tôi đặc biệt khuyến nghị chạy OpenClaw dưới
         ```
       </Tab>
     </Tabs>
-    
+
     Vậy là xong — script sẽ xử lý việc phát hiện Node, cài đặt và onboarding.
-    
+
     Để bỏ qua onboarding và chỉ cài binary:
-    
+
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -56,30 +55,28 @@ Trên Windows, chúng tôi đặc biệt khuyến nghị chạy OpenClaw dưới
         ```
       </Tab>
     </Tabs>
-    
+
     Để xem tất cả cờ, biến môi trường và tùy chọn CI/tự động hóa, xem [Installer internals](/install/installer).
-    ```
 
   </Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     Nếu bạn đã có Node 22+ và muốn tự quản lý việc cài đặt:
 
-    ```
     <Tabs>
       <Tab title="npm">
         ```bash
         npm install -g openclaw@latest
         openclaw onboard --install-daemon
         ```
-    
+
         <Accordion title="lỗi build sharp?">
           Nếu bạn đã cài libvips toàn cục (thường gặp trên macOS qua Homebrew) và `sharp` thất bại, hãy buộc dùng binary dựng sẵn:
-    
+
           ```bash
           SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
           ```
-    
+
           Nếu bạn thấy `sharp: Please add node-gyp to your dependencies`, hãy cài công cụ build (macOS: Xcode CLT + `npm install -g node-gyp`) hoặc dùng biến môi trường ở trên.
         </Accordion>
       </Tab>
@@ -89,24 +86,22 @@ Trên Windows, chúng tôi đặc biệt khuyến nghị chạy OpenClaw dưới
         pnpm approve-builds -g        # approve openclaw, node-llama-cpp, sharp, etc.
         openclaw onboard --install-daemon
         ```
-    
+
         <Note>
         pnpm yêu cầu phê duyệt rõ ràng cho các gói có script build. Sau khi lần cài đầu tiên hiển thị cảnh báo "Ignored build scripts", hãy chạy `pnpm approve-builds -g` và chọn các gói được liệt kê.
         </Note>
       </Tab>
     </Tabs>
-    ```
 
   </Accordion>
 
   <Accordion title="From source" icon="github">
     Dành cho người đóng góp hoặc bất kỳ ai muốn chạy từ bản checkout cục bộ.
 
-    ```
     <Steps>
       <Step title="Clone và build">
         Clone [repo OpenClaw](https://github.com/openclaw/openclaw) và build:
-    
+
         ```bash
         git clone https://github.com/openclaw/openclaw.git
         cd openclaw
@@ -117,11 +112,11 @@ Trên Windows, chúng tôi đặc biệt khuyến nghị chạy OpenClaw dưới
       </Step>
       <Step title="Liên kết CLI">
         Làm cho lệnh `openclaw` khả dụng toàn cục:
-    
+
         ```bash
         pnpm link --global
         ```
-    
+
         Hoặc bỏ qua bước liên kết và chạy lệnh qua `pnpm openclaw ...` từ bên trong repo.
       </Step>
       <Step title="Chạy onboarding">
@@ -130,9 +125,8 @@ Trên Windows, chúng tôi đặc biệt khuyến nghị chạy OpenClaw dưới
         ```
       </Step>
     </Steps>
-    
+
     Để xem các quy trình phát triển chuyên sâu hơn, xem [Thiết lập](/start/setup).
-    ```
 
   </Accordion>
 </AccordionGroup>
@@ -142,6 +136,9 @@ Trên Windows, chúng tôi đặc biệt khuyến nghị chạy OpenClaw dưới
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     Triển khai dạng container hoặc headless.
+  </Card>
+  <Card title="Podman" href="/install/podman" icon="container">
+    Rootless container: run `setup-podman.sh` once, then the launch script.
   </Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     Cài đặt khai báo qua Nix.
@@ -194,7 +191,8 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 
 Trên Windows, thêm đầu ra của `npm prefix -g` vào PATH của bạn.
 
-Then open a new terminal (or `rehash` in zsh / `hash -r` in bash). </Accordion>
+Then open a new terminal (or `rehash` in zsh / `hash -r` in bash).
+</Accordion>
 
 ## Cập nhật / gỡ cài đặt
 

@@ -195,7 +195,7 @@ More details: [Pairing](/channels/pairing#pair-via-telegram-recommended-for-ios)
 ```
 
 **महत्वपूर्ण:** `channels.telegram.groups` सेट करने से एक **allowlist** बनती है — केवल सूचीबद्ध ग्रुप्स (या `"*"`) ही स्वीकार किए जाएंगे।
-फ़ोरम टॉपिक्स अपने पैरेंट ग्रुप कॉन्फ़िग (allowFrom, requireMention, skills, prompts) को इनहेरिट करते हैं, जब तक कि आप `channels.telegram.groups.<groupId>` के तहत प्रति-टॉपिक ओवरराइड्स न जोड़ें।1. .topics.<topicId>\`.
+फ़ोरम टॉपिक्स अपने पैरेंट ग्रुप कॉन्फ़िग (allowFrom, requireMention, skills, prompts) को इनहेरिट करते हैं, जब तक कि आप `channels.telegram.groups.<groupId>` के तहत प्रति-टॉपिक ओवरराइड्स न जोड़ें।1. .topics.&lt;topicId&gt;\`.
 
 सभी समूहों को always-respond के साथ अनुमति देने के लिए:
 

@@ -21,7 +21,8 @@ title: "OpenClaw"
 
 > _"EXFOLIATE! EXFOLIATE!"_ — Uma lagosta espacial, provavelmente
 
-<p align="center"><strong>Gateway para agentes de IA em qualquer sistema operacional no WhatsApp, Telegram, Discord, iMessage e mais.</strong><br />
+<p align="center">
+  <strong>Gateway para agentes de IA em qualquer sistema operacional no WhatsApp, Telegram, Discord, iMessage e mais.</strong><br />
   Envie uma mensagem e receba a resposta de um agente no seu bolso. Plugins adicionam Mattermost e mais.
 </p>
 

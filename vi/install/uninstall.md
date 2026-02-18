@@ -77,7 +77,7 @@ Dùng cách này nếu dịch vụ Gateway vẫn chạy nhưng `openclaw` không
 
 ### macOS (launchd)
 
-Default label is `bot.molt.gateway` (or `bot.molt.<profile>Nếu bạn đã dùng profile, hãy thay thế nhãn và tên plist bằng `bot.molt.<profile>
+Default label is `bot.molt.gateway` (or `bot.molt.<profile>Nếu bạn đã dùng profile, hãy thay thế nhãn và tên plist bằng `bot.molt.&lt;profile&gt;
 \`.
 
 ```bash

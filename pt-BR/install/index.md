@@ -26,7 +26,6 @@ O **script de instalação** é a forma recomendada de instalar o OpenClaw. Ele 
   <Accordion title="Installer script" icon="rocket" defaultOpen>
     Baixa a CLI, instala globalmente via npm e inicia o assistente de integração inicial.
 
-    ```
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -39,11 +38,11 @@ O **script de instalação** é a forma recomendada de instalar o OpenClaw. Ele 
         ```
       </Tab>
     </Tabs>
-    
+
     É isso — o script cuida da detecção do Node, da instalação e da integração inicial.
-    
+
     Para pular a integração inicial e apenas instalar o binário:
-    
+
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -56,30 +55,28 @@ O **script de instalação** é a forma recomendada de instalar o OpenClaw. Ele 
         ```
       </Tab>
     </Tabs>
-    
+
     Para todas as flags, variáveis de ambiente e opções de CI/automação, consulte [Detalhes internos do instalador](/install/installer).
-    ```
 
   </Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     Se você já tem o Node 22+ e prefere gerenciar a instalação por conta própria:
 
-    ```
     <Tabs>
       <Tab title="npm">
         ```bash
         npm install -g openclaw@latest
         openclaw onboard --install-daemon
         ```
-    
+
         <Accordion title="erros de build do sharp?">
           Se você tiver o libvips instalado globalmente (comum no macOS via Homebrew) e `sharp` falhar, force binários pré-compilados:
-    
+
           ```bash
           SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
           ```
-    
+
           Se você vir `sharp: Please add node-gyp to your dependencies`, instale as ferramentas de build (macOS: Xcode CLT + `npm install -g node-gyp`) ou use a variável de ambiente acima.
         </Accordion>
       </Tab>
@@ -89,24 +86,22 @@ O **script de instalação** é a forma recomendada de instalar o OpenClaw. Ele 
         pnpm approve-builds -g        # approve openclaw, node-llama-cpp, sharp, etc.
         openclaw onboard --install-daemon
         ```
-    
+
         <Note>
         O pnpm exige aprovação explícita para pacotes com scripts de build. Depois que a primeira instalação mostrar o aviso "Ignored build scripts", execute `pnpm approve-builds -g` e selecione os pacotes listados.
         </Note>
       </Tab>
     </Tabs>
-    ```
 
   </Accordion>
 
   <Accordion title="From source" icon="github">
     Para colaboradores ou qualquer pessoa que queira executar a partir de um checkout local.
 
-    ```
     <Steps>
       <Step title="Clonar e compilar">
         Clone o [repositório do OpenClaw](https://github.com/openclaw/openclaw) e compile:
-    
+
         ```bash
         git clone https://github.com/openclaw/openclaw.git
         cd openclaw
@@ -117,11 +112,11 @@ O **script de instalação** é a forma recomendada de instalar o OpenClaw. Ele 
       </Step>
       <Step title="Vincular a CLI">
         Torne o comando `openclaw` disponível globalmente:
-    
+
         ```bash
         pnpm link --global
         ```
-    
+
         Como alternativa, pule o vínculo e execute os comandos via `pnpm openclaw ...` de dentro do repositório.
       </Step>
       <Step title="Executar a integração inicial">
@@ -130,9 +125,8 @@ O **script de instalação** é a forma recomendada de instalar o OpenClaw. Ele 
         ```
       </Step>
     </Steps>
-    
+
     Para fluxos de desenvolvimento mais avançados, consulte [Configuração](/start/setup).
-    ```
 
   </Accordion>
 </AccordionGroup>
@@ -142,6 +136,9 @@ O **script de instalação** é a forma recomendada de instalar o OpenClaw. Ele 
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     Implantações conteinerizadas ou headless.
+  </Card>
+  <Card title="Podman" href="/install/podman" icon="container">
+    Container rootless: execute `setup-podman.sh` uma vez, depois o script de inicialização.
   </Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     Instalação declarativa via Nix.
@@ -194,7 +191,8 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 
 No Windows, adicione a saída de `npm prefix -g` ao seu PATH.
 
-Em seguida, abra um novo terminal (ou `rehash` no zsh / `hash -r` no bash). </Accordion>
+Em seguida, abra um novo terminal (ou `rehash` no zsh / `hash -r` no bash).
+</Accordion>
 
 ## Atualizar / desinstalar
 

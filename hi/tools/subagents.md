@@ -4,479 +4,204 @@ title: "उप-एजेंट"
 
 # उप-एजेंट
 
-Sub-agents let you run background tasks without blocking the main conversation. When you spawn a sub-agent, it runs in its own isolated session, does its work, and announces the result back to the chat when finished.
+उप-एजेंट एक मौजूदा एजेंट रन से शुरू किए गए बैकग्राउंड एजेंट रन होते हैं। वे अपनी अलग सेशन (`agent:<agentId>:subagent:<uuid>`) में चलते हैं और पूरा होने पर अपना परिणाम अनुरोधकर्ता चैट चैनल में **घोषित** करते हैं।
 
-**Use cases:**
+## स्लैश कमांड
 
-- Research a topic while the main agent continues answering questions
-- Run multiple long tasks in parallel (web scraping, code analysis, file processing)
-- Delegate tasks to specialized agents in a multi-agent setup
+वर्तमान सेशन के लिए उप-एजेंट रन को निरीक्षण या नियंत्रित करने हेतु `/subagents` का उपयोग करें:
 
-## त्वरित प्रारंभ
+- `/subagents list`
+- `/subagents kill <id|#|all>`
+- `/subagents log <id|#> [limit] [tools]`
+- `/subagents info <id|#>`
+- `/subagents send <id|#> <message>`
 
-The simplest way to use sub-agents is to ask your agent naturally:
+`/subagents info` रन मेटाडेटा दिखाता है (स्थिति, टाइमस्टैम्प, सेशन आईडी, ट्रांसक्रिप्ट पथ, क्लीनअप)।
 
-> "Spawn a sub-agent to research the latest Node.js release notes"
+मुख्य उद्देश्य:
 
-The agent will call the `sessions_spawn` tool behind the scenes. जब उप-एजेंट समाप्त होता है, तो वह अपने निष्कर्ष आपके चैट में वापस घोषित करता है।
+- मुख्य रन को ब्लॉक किए बिना "रिसर्च / लंबा कार्य / धीमा टूल" कार्यों को समानांतर करना।
+- डिफ़ॉल्ट रूप से उप-एजेंट्स को अलग-थलग रखना (सेशन पृथक्करण + वैकल्पिक सैंडबॉक्सिंग)।
+- टूल सतह को दुरुपयोग से सुरक्षित रखना: उप-एजेंट्स को डिफ़ॉल्ट रूप से सेशन टूल्स नहीं मिलते।
+- ऑर्केस्ट्रेटर पैटर्न के लिए कॉन्फ़िगर करने योग्य नेस्टिंग गहराई का समर्थन।
 
-You can also be explicit about options:
+लागत नोट: प्रत्येक उप-एजेंट का अपना **अलग** कॉन्टेक्स्ट और टोकन उपयोग होता है। भारी या दोहराव वाले कार्यों के लिए, उप-एजेंट्स हेतु सस्ता मॉडल सेट करें और मुख्य एजेंट को उच्च-गुणवत्ता मॉडल पर रखें। आप इसे `agents.defaults.subagents.model` या प्रति-एजेंट ओवरराइड्स के माध्यम से कॉन्फ़िगर कर सकते हैं।
 
-> "Spawn a sub-agent to analyze the server logs from today. Use gpt-5.2 and set a 5-minute timeout."
+## टूल
 
-## यह कैसे काम करता है
+`sessions_spawn` का उपयोग करें:
 
-<Steps>
-  <Step title="Main agent spawns">
-    The main agent calls `sessions_spawn` with a task description. The call is **non-blocking** — the main agent gets back `{ status: "accepted", runId, childSessionKey }` immediately.
-  </Step>
-  <Step title="Sub-agent runs in the background">
-    A new isolated session is created (`agent:<agentId>:subagent:<uuid>`) on the dedicated `subagent` queue lane.
-  </Step>
-  <Step title="Result is announced">
-    When the sub-agent finishes, it announces its findings back to the requester chat. The main agent posts a natural-language summary.
-  </Step>
-  <Step title="Session is archived">
-    The sub-agent session is auto-archived after 60 minutes (configurable). प्रतिलेख संरक्षित किए जाते हैं।
-  </Step>
-</Steps>
+- एक उप-एजेंट रन शुरू करता है (`deliver: false`, ग्लोबल लेन: `subagent`)
+- फिर एक announce स्टेप चलाता है और announce उत्तर को अनुरोधकर्ता चैट चैनल में पोस्ट करता है
+- डिफ़ॉल्ट मॉडल: कॉलर से विरासत में लेता है जब तक आप `agents.defaults.subagents.model` (या प्रति-एजेंट `agents.list[].subagents.model`) सेट न करें; स्पष्ट `sessions_spawn.model` सर्वोच्च प्राथमिकता रखता है।
+- डिफ़ॉल्ट thinking: कॉलर से विरासत में लेता है जब तक आप `agents.defaults.subagents.thinking` (या प्रति-एजेंट `agents.list[].subagents.thinking`) सेट न करें; स्पष्ट `sessions_spawn.thinking` सर्वोच्च प्राथमिकता रखता है।
 
-<Tip>
-Each sub-agent has its **own** context and token usage. Set a cheaper model for sub-agents to save costs — see [Setting a Default Model](#setting-a-default-model) below.
-</Tip>
+टूल पैरामीटर:
 
-## विन्यास
+- `task` (आवश्यक)
+- `label?` (वैकल्पिक)
+- `agentId?` (वैकल्पिक; यदि अनुमति हो तो किसी अन्य एजेंट आईडी के अंतर्गत स्पॉन करें)
+- `model?` (वैकल्पिक; उप-एजेंट मॉडल को ओवरराइड करता है; अमान्य मानों को छोड़ दिया जाता है और उप-एजेंट डिफ़ॉल्ट मॉडल पर चेतावनी के साथ चलता है)
+- `thinking?` (वैकल्पिक; उप-एजेंट रन के लिए thinking स्तर ओवरराइड)
+- `runTimeoutSeconds?` (डिफ़ॉल्ट `0`; सेट होने पर N सेकंड बाद उप-एजेंट रन निरस्त कर दिया जाता है)
+- `cleanup?` (`delete|keep`, डिफ़ॉल्ट `keep`)
 
-उप-एजेंट बिना किसी कॉन्फ़िगरेशन के तुरंत काम करते हैं। डिफ़ॉल्ट्स:
+अनुमत सूची:
 
-- Model: target agent’s normal model selection (unless `subagents.model` is set)
-- Thinking: no sub-agent override (unless `subagents.thinking` is set)
-- Max concurrent: 8
-- स्वतः-आर्काइव: 60 मिनट बाद
+- `agents.list[].subagents.allowAgents`: एजेंट आईडी की सूची जिन्हें `agentId` के माध्यम से लक्षित किया जा सकता है (`["*"]` किसी भी को अनुमति देने हेतु)। डिफ़ॉल्ट: केवल अनुरोधकर्ता एजेंट।
 
-### Setting a Default Model
+खोज:
 
-Use a cheaper model for sub-agents to save on token costs:
+- `sessions_spawn` के लिए वर्तमान में कौन-सी एजेंट आईडी अनुमत हैं यह देखने हेतु `agents_list` का उपयोग करें।
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        model: "minimax/MiniMax-M2.1",
-      },
-    },
-  },
-}
-```
+स्वतः-आर्काइव:
 
-### Setting a Default Thinking Level
+- उप-एजेंट सेशन `agents.defaults.subagents.archiveAfterMinutes` (डिफ़ॉल्ट: 60) के बाद स्वतः आर्काइव हो जाते हैं।
+- आर्काइव `sessions.delete` का उपयोग करता है और ट्रांसक्रिप्ट को `*.deleted.<timestamp>` (उसी फ़ोल्डर में) नाम बदल देता है।
+- `cleanup: "delete"` announce के तुरंत बाद आर्काइव करता है (ट्रांसक्रिप्ट नाम बदलकर सुरक्षित रहती है)।
+- स्वतः-आर्काइव सर्वोत्तम-प्रयास है; यदि गेटवे रीस्टार्ट होता है तो लंबित टाइमर खो जाते हैं।
+- `runTimeoutSeconds` स्वतः-आर्काइव नहीं करता; यह केवल रन रोकता है। सेशन स्वतः-आर्काइव तक बना रहता है।
+- स्वतः-आर्काइव गहराई-1 और गहराई-2 दोनों सेशनों पर समान रूप से लागू होता है।
+
+## नेस्टेड उप-एजेंट्स
+
+डिफ़ॉल्ट रूप से, उप-एजेंट अपने स्वयं के उप-एजेंट स्पॉन नहीं कर सकते (`maxSpawnDepth: 1`)। आप `maxSpawnDepth: 2` सेट करके एक स्तर की नेस्टिंग सक्षम कर सकते हैं, जो **orchestrator pattern** की अनुमति देता है: main → orchestrator उप-एजेंट → worker उप-उप-एजेंट्स।
+
+### सक्षम कैसे करें
 
 ```json5
 {
   agents: {
     defaults: {
       subagents: {
-        thinking: "low",
+        maxSpawnDepth: 2, // उप-एजेंट्स को बच्चे स्पॉन करने की अनुमति (डिफ़ॉल्ट: 1)
+        maxChildrenPerAgent: 5, // प्रति एजेंट सेशन अधिकतम सक्रिय बच्चे (डिफ़ॉल्ट: 5)
+        maxConcurrent: 8, // ग्लोबल समवर्तीता लेन सीमा (डिफ़ॉल्ट: 8)
       },
     },
   },
 }
 ```
 
-### Per-Agent Overrides
+### गहराई स्तर
 
-In a multi-agent setup, you can set sub-agent defaults per agent:
+| Depth | Session key shape                            | Role                                          | Can spawn?                   |
+| ----- | -------------------------------------------- | --------------------------------------------- | ---------------------------- |
+| 0     | `agent:<id>:main`                            | मुख्य एजेंट                                   | हमेशा                        |
+| 1     | `agent:<id>:subagent:<uuid>`                 | उप-एजेंट (गहराई 2 अनुमति होने पर orchestrator) | केवल यदि `maxSpawnDepth >= 2` |
+| 2     | `agent:<id>:subagent:<uuid>:subagent:<uuid>` | उप-उप-एजेंट (लीफ वर्कर)                      | कभी नहीं                     |
 
-```json5
-{
-  agents: {
-    list: [
-      {
-        id: "researcher",
-        subagents: {
-          model: "anthropic/claude-sonnet-4",
-        },
-      },
-      {
-        id: "assistant",
-        subagents: {
-          model: "minimax/MiniMax-M2.1",
-        },
-      },
-    ],
-  },
-}
-```
+### घोषणा श्रृंखला
 
-### समवर्तीता
+परिणाम श्रृंखला में ऊपर की ओर प्रवाहित होते हैं:
 
-Control how many sub-agents can run at the same time:
+1. गहराई-2 वर्कर समाप्त होता है → अपने पैरेंट (गहराई-1 orchestrator) को घोषणा करता है  
+2. गहराई-1 orchestrator घोषणा प्राप्त करता है, परिणाम संयोजित करता है, समाप्त होता है → main को घोषणा करता है  
+3. मुख्य एजेंट घोषणा प्राप्त करता है और उपयोगकर्ता को प्रदान करता है  
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        maxConcurrent: 4, // default: 8
-      },
-    },
-  },
-}
-```
+प्रत्येक स्तर केवल अपने सीधे बच्चों की घोषणाएँ देखता है।
 
-Sub-agents use a dedicated queue lane (`subagent`) separate from the main agent queue, so sub-agent runs don't block inbound replies.
+### गहराई के अनुसार टूल नीति
 
-### Auto-Archive
+- **गहराई 1 (orchestrator, जब `maxSpawnDepth >= 2`)**: `sessions_spawn`, `subagents`, `sessions_list`, `sessions_history` प्राप्त करता है ताकि अपने बच्चों को प्रबंधित कर सके। अन्य सेशन/सिस्टम टूल्स निषिद्ध रहते हैं।
+- **गहराई 1 (leaf, जब `maxSpawnDepth == 1`)**: कोई सेशन टूल नहीं (वर्तमान डिफ़ॉल्ट व्यवहार)।
+- **गहराई 2 (leaf worker)**: कोई सेशन टूल नहीं — गहराई 2 पर `sessions_spawn` हमेशा निषिद्ध है। आगे बच्चे स्पॉन नहीं कर सकता।
 
-Sub-agent sessions are automatically archived after a configurable period:
+### प्रति-एजेंट स्पॉन सीमा
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        archiveAfterMinutes: 120, // default: 60
-      },
-    },
-  },
-}
-```
+प्रत्येक एजेंट सेशन (किसी भी गहराई पर) एक समय में अधिकतम `maxChildrenPerAgent` (डिफ़ॉल्ट: 5) सक्रिय बच्चों तक सीमित है। यह एकल orchestrator से अनियंत्रित fan-out को रोकता है।
 
-<Note>
-Archive renames the transcript to `*.deleted.<timestamp>` (same folder) — transcripts are preserved, not deleted. Auto-archive timers are best-effort; pending timers are lost if the gateway restarts.
-</Note>
+### कैस्केड स्टॉप
 
-## The `sessions_spawn` Tool
+गहराई-1 orchestrator को रोकने से उसके सभी गहराई-2 बच्चे स्वतः रुक जाते हैं:
 
-This is the tool the agent calls to create sub-agents.
-
-### पैरामीटर
-
-| Parameter           | Type                     | Default                               | विवरण                                                                                             |
-| ------------------- | ------------------------ | ------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `task`              | string                   | _(required)_       | What the sub-agent should do                                                                      |
-| `लेबल`              | string                   | —                                     | Short label for identification                                                                    |
-| `agentId`           | string                   | _(caller's agent)_ | Spawn under a different agent id (must be allowed)                             |
-| `मॉडल`              | string                   | _(optional)_       | Override the model for this sub-agent                                                             |
-| `thinking`          | string                   | _(optional)_       | Override thinking level (`off`, `low`, `medium`, `high`, etc.) |
-| `runTimeoutSeconds` | number                   | `0` (no limit)     | Abort the sub-agent after N seconds                                                               |
-| `सफ़ाई`             | `"delete"` \\| `"keep"` | `"keep"`                              | `"delete"` archives immediately after announce                                                    |
-
-### Model Resolution Order
-
-उप-एजेंट मॉडल इस क्रम में निर्धारित किया जाता है (पहला मिलान जीतता है):
-
-1. Explicit `model` parameter in the `sessions_spawn` call
-2. Per-agent config: `agents.list[].subagents.model`
-3. Global default: `agents.defaults.subagents.model`
-4. Target agent’s normal model resolution for that new session
-
-Thinking level is resolved in this order:
-
-1. Explicit `thinking` parameter in the `sessions_spawn` call
-2. Per-agent config: `agents.list[].subagents.thinking`
-3. Global default: `agents.defaults.subagents.thinking`
-4. Otherwise no sub-agent-specific thinking override is applied
-
-<Note>
-Invalid model values are silently skipped — the sub-agent runs on the next valid default with a warning in the tool result.
-</Note>
-
-### Cross-Agent Spawning
-
-By default, sub-agents can only spawn under their own agent id. To allow an agent to spawn sub-agents under other agent ids:
-
-```json5
-{
-  agents: {
-    list: [
-      {
-        id: "orchestrator",
-        subagents: {
-          allowAgents: ["researcher", "coder"], // or ["*"] to allow any
-        },
-      },
-    ],
-  },
-}
-```
-
-<Tip>
-Use the `agents_list` tool to discover which agent ids are currently allowed for `sessions_spawn`.
-</Tip>
-
-## Managing Sub-Agents (`/subagents`)
-
-Use the `/subagents` slash command to inspect and control sub-agent runs for the current session:
-
-| Command                                    | Description                                                       |
-| ------------------------------------------ | ----------------------------------------------------------------- |
-| `/subagents list`                          | List all sub-agent runs (active and completed) |
-| `/subagents stop <id\\|#\\|all>`         | Stop a running sub-agent                                          |
-| `/subagents log <id\\|#> [limit] [tools]` | View sub-agent transcript                                         |
-| `/subagents info <id\\|#>`                | Show detailed run metadata                                        |
-| `/subagents send <id\\|#> <message>`      | Send a message to a running sub-agent                             |
-
-You can reference sub-agents by list index (`1`, `2`), run id prefix, full session key, or `last`.
-
-<AccordionGroup>
-  <Accordion title="Example: list and stop a sub-agent">
-    ```
-    /subagents list
-    ```
-
-    ````
-    ```
-    🧭 Subagents (current session)
-    Active: 1 · Done: 2
-    1) ✅ · research logs · 2m31s · run a1b2c3d4 · agent:main:subagent:...
-    2) ✅ · check deps · 45s · run e5f6g7h8 · agent:main:subagent:...
-    3) 🔄 · deploy staging · 1m12s · run i9j0k1l2 · agent:main:subagent:...
-    ```
-    
-    ```
-    /subagents stop 3
-    ```
-    
-    ```
-    ⚙️ Stop requested for deploy staging.
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: inspect a sub-agent">
-    ```
-    /subagents info 1
-    ```
-
-    ````
-    ```
-    ℹ️ Subagent info
-    Status: ✅
-    Label: research logs
-    Task: Research the latest server error logs and summarize findings
-    Run: a1b2c3d4-...
-    Session: agent:main:subagent:...
-    Runtime: 2m31s
-    Cleanup: keep
-    Outcome: ok
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: view sub-agent log">
-    ```
-    /subagents log 1 10
-    ```
-
-    ````
-    Shows the last 10 messages from the sub-agent's transcript. Add `tools` to include tool call messages:
-    
-    ```
-    /subagents log 1 10 tools
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: send a follow-up message">
-    ```
-    /subagents send 3 "Also check the staging environment"
-    ```
-
-    ```
-    Sends a message into the running sub-agent's session and waits up to 30 seconds for a reply.
-    ```
-
-  </Accordion>
-</AccordionGroup>
-
-## Announce (How Results Come Back)
-
-When a sub-agent finishes, it goes through an **announce** step:
-
-1. The sub-agent's final reply is captured
-2. A summary message is sent to the main agent's session with the result, status, and stats
-3. The main agent posts a natural-language summary to your chat
-
-उपलब्ध होने पर घोषणा उत्तर थ्रेड/टॉपिक रूटिंग को संरक्षित रखते हैं (Slack थ्रेड्स, Telegram टॉपिक्स, Matrix थ्रेड्स)।
-
-### Announce Stats
-
-Each announce includes a stats line with:
-
-- रनटाइम अवधि
-- टोकन उपयोग (इनपुट/आउटपुट/कुल)
-- अनुमानित लागत (जब मॉडल मूल्य निर्धारण `models.providers.*.models[].cost` के माध्यम से कॉन्फ़िगर किया गया हो)
-- सेशन कुंजी, सेशन आईडी, और ट्रांसक्रिप्ट पथ
-
-### घोषणा स्थिति
-
-घोषणा संदेश में रनटाइम परिणाम से निकली स्थिति शामिल होती है (मॉडल आउटपुट से नहीं):
-
-- **सफल पूर्णता** (`ok`) — कार्य सामान्य रूप से पूरा हुआ
-- **त्रुटि** — कार्य विफल हुआ (विवरण नोट्स में)
-- **टाइमआउट** — कार्य ने `runTimeoutSeconds` पार कर लिया
-- **अज्ञात** — स्थिति निर्धारित नहीं की जा सकी
-
-<Tip>
-यदि उपयोगकर्ता-समक्ष किसी घोषणा की आवश्यकता नहीं है, तो मुख्य-एजेंट का summarize चरण `NO_REPLY` लौटा सकता है और कुछ भी पोस्ट नहीं किया जाता।
-यह `ANNOUNCE_SKIP` से अलग है, जिसका उपयोग एजेंट-से-एजेंट घोषणा प्रवाह (`sessions_send`) में किया जाता है।
-</Tip>
-
-## टूल नीति
-
-डिफ़ॉल्ट रूप से, सब-एजेंट्स को **सभी टूल मिलते हैं सिवाय** उन टूल्स के जो असुरक्षित या बैकग्राउंड कार्यों के लिए अनावश्यक हैं:
-
-<AccordionGroup>
-  <Accordion title="Default denied tools">
-    | Denied tool | Reason |
-    |-------------|--------|
-    | `sessions_list` | Session management — main agent orchestrates |
-    | `sessions_history` | Session management — main agent orchestrates |
-    | `sessions_send` | Session management — main agent orchestrates |
-    | `sessions_spawn` | No nested fan-out (sub-agents cannot spawn sub-agents) |
-    | `gateway` | System admin — dangerous from sub-agent |
-    | `agents_list` | System admin |
-    | `whatsapp_login` | Interactive setup — not a task |
-    | `session_status` | Status/scheduling — main agent coordinates |
-    | `cron` | Status/scheduling — main agent coordinates |
-    | `memory_search` | Pass relevant info in spawn prompt instead |
-    | `memory_get` | Pass relevant info in spawn prompt instead |
-  </Accordion>
-</AccordionGroup>
-
-### | निषिद्ध टूल        | कारण                                                                           |
-| ------------------ | ------------------------------------------------------------------------------ |
-| `sessions_list`    | सेशन प्रबंधन — मुख्य एजेंट समन्वय करता है                                      |
-| `sessions_history` | सेशन प्रबंधन — मुख्य एजेंट समन्वय करता है                                      |
-| `sessions_send`    | सेशन प्रबंधन — मुख्य एजेंट समन्वय करता है                                      |
-| `sessions_spawn`   | नेस्टेड फैन-आउट नहीं (सब-एजेंट सब-एजेंट स्पॉन नहीं कर सकते) |
-| `gateway`          | सिस्टम एडमिन — सब-एजेंट से खतरनाक                                              |
-| `agents_list`      | सिस्टम एडमिन                                                                   |
-| `whatsapp_login`   | इंटरैक्टिव सेटअप — कोई कार्य नहीं                                              |
-| `session_status`   | स्थिति/शेड्यूलिंग — मुख्य एजेंट समन्वय करता है                                 |
-| `cron`             | स्थिति/शेड्यूलिंग — मुख्य एजेंट समन्वय करता है                                 |
-| `memory_search`    | इसके बजाय प्रासंगिक जानकारी स्पॉन प्रॉम्प्ट में दें                            |
-| `memory_get`       | इसके बजाय प्रासंगिक जानकारी स्पॉन प्रॉम्प्ट में दें                            |
-
-सब-एजेंट टूल्स को अनुकूलित करना
-
-```json5
-आप सब-एजेंट टूल्स को और प्रतिबंधित कर सकते हैं:
-```
-
-{
-tools: {
-subagents: {
-tools: {
-// deny हमेशा allow पर जीतता है
-deny: ["browser", "firecrawl"],
-},
-},
-},
-}
-
-```json5
-सब-एजेंट्स को **केवल** विशिष्ट टूल्स तक सीमित करने के लिए:
-```
-
-<Note>
-{
-  tools: {
-    subagents: {
-      tools: {
-        allow: ["read", "exec", "process", "write", "edit", "apply_patch"],
-        // यदि सेट हो तो deny फिर भी जीतता है
-      },
-    },
-  },
-} कस्टम deny प्रविष्टियाँ डिफ़ॉल्ट deny सूची में **जोड़ी जाती हैं**।
-</Note>
+- मुख्य चैट में `/stop` सभी गहराई-1 एजेंट्स को रोकता है और उनके गहराई-2 बच्चों तक कैस्केड करता है।
+- `/subagents kill <id>` एक विशिष्ट उप-एजेंट को रोकता है और उसके बच्चों तक कैस्केड करता है।
+- `/subagents kill all` अनुरोधकर्ता के सभी उप-एजेंट्स को रोकता है और कैस्केड करता है।
 
 ## प्रमाणीकरण
 
-उप-एजेंट प्रमाणीकरण **एजेंट आईडी** द्वारा हल किया जाता है, सत्र प्रकार द्वारा नहीं:
+उप-एजेंट प्रमाणीकरण **एजेंट आईडी** द्वारा निर्धारित होता है, सेशन प्रकार द्वारा नहीं:
 
-- यदि `allow` सेट है, तो केवल वही टूल उपलब्ध होंगे (डिफ़ॉल्ट deny सूची फिर भी लागू रहती है)।
-- ऑथ स्टोर लक्ष्य एजेंट के `agentDir` से लोड किया जाता है
-- मुख्य एजेंट की ऑथ प्रोफ़ाइल्स को **फ़ॉलबैक** के रूप में मर्ज किया जाता है (टकराव होने पर एजेंट प्रोफ़ाइल्स जीतती हैं)
+- उप-एजेंट सेशन कुंजी `agent:<agentId>:subagent:<uuid>` होती है।
+- ऑथ स्टोर उस एजेंट के `agentDir` से लोड किया जाता है।
+- मुख्य एजेंट की ऑथ प्रोफाइल्स को **फ़ॉलबैक** के रूप में मर्ज किया जाता है; टकराव की स्थिति में एजेंट प्रोफाइल्स प्राथमिकता लेती हैं।
 
-<Note>मर्ज जोड़ात्मक है — मुख्य प्रोफ़ाइल्स हमेशा फ़ॉलबैक के रूप में उपलब्ध रहती हैं</Note>
+नोट: मर्ज जोड़ात्मक है, इसलिए मुख्य प्रोफाइल्स हमेशा फ़ॉलबैक के रूप में उपलब्ध रहती हैं। प्रति-एजेंट पूर्णतः पृथक ऑथ अभी समर्थित नहीं है।
 
-## Context and System Prompt
+## घोषणा
 
-प्रत्येक सब-एजेंट के लिए पूर्णतः अलग-थलग ऑथ वर्तमान में समर्थित नहीं है।
+उप-एजेंट announce स्टेप के माध्यम से रिपोर्ट करते हैं:
 
-- कॉन्टेक्स्ट और सिस्टम प्रॉम्प्ट
-- सब-एजेंट्स को मुख्य एजेंट की तुलना में एक कम किया हुआ सिस्टम प्रॉम्प्ट मिलता है:
+- announce स्टेप उप-एजेंट सेशन के अंदर चलता है (अनुरोधकर्ता सेशन में नहीं)।
+- यदि उप-एजेंट ठीक-ठीक `ANNOUNCE_SKIP` उत्तर देता है, तो कुछ भी पोस्ट नहीं किया जाता।
+- अन्यथा announce उत्तर को फॉलो-अप `agent` कॉल (`deliver=true`) के माध्यम से अनुरोधकर्ता चैट चैनल में पोस्ट किया जाता है।
+- उपलब्ध होने पर announce उत्तर थ्रेड/टॉपिक रूटिंग संरक्षित रखते हैं (Slack threads, Telegram topics, Matrix threads)।
+- announce संदेशों को एक स्थिर टेम्पलेट में सामान्यीकृत किया जाता है:
+  - `Status:` रन परिणाम से व्युत्पन्न (`success`, `error`, `timeout`, या `unknown`)।
+  - `Result:` announce स्टेप की सारांश सामग्री (या अनुपलब्ध होने पर `(not available)`)।
+  - `Notes:` त्रुटि विवरण और अन्य उपयोगी संदर्भ।
+- `Status` मॉडल आउटपुट से नहीं, बल्कि रनटाइम परिणाम संकेतों से आता है।
 
-**शामिल:** Tooling, Workspace, Runtime सेक्शन, साथ ही `AGENTS.md` और `TOOLS.md`
+announce payloads में अंत में एक stats पंक्ति शामिल होती है (भले ही रैप किया गया हो):
 
-## **शामिल नहीं:** `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md`
+- Runtime (उदा., `runtime 5m12s`)
+- Token usage (input/output/total)
+- अनुमानित लागत जब मॉडल प्राइसिंग कॉन्फ़िगर हो (`models.providers.*.models[].cost`)
+- `sessionKey`, `sessionId`, और ट्रांसक्रिप्ट पथ (ताकि मुख्य एजेंट `sessions_history` के माध्यम से इतिहास प्राप्त कर सके या डिस्क पर फ़ाइल देख सके)
 
-| सब-एजेंट को एक कार्य-केंद्रित सिस्टम प्रॉम्प्ट भी मिलता है जो उसे सौंपे गए कार्य पर केंद्रित रहने, उसे पूरा करने, और मुख्य एजेंट की तरह कार्य न करने का निर्देश देता है। | सब-एजेंट्स को रोकना                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------- |
-| विधि                                                                                                                                                                     | प्रभाव                                                                  |
-| `/stop` चैट में                                                                                                                                                          | मुख्य सेशन **और** उससे स्पॉन हुए सभी सक्रिय सब-एजेंट रन को रद्द करता है |
-| `/subagents stop <id>`                                                                                                                                                   | मुख्य सेशन को प्रभावित किए बिना किसी विशिष्ट सब-एजेंट को रोकता है       |
+## टूल नीति (उप-एजेंट टूल्स)
 
-<Note>
-`runTimeoutSeconds` निर्दिष्ट समय के बाद सब-एजेंट रन को स्वतः रद्द करता है
-</Note>
+डिफ़ॉल्ट रूप से, उप-एजेंट्स को **सभी टूल्स मिलते हैं सिवाय सेशन टूल्स और सिस्टम टूल्स के**:
 
-## `runTimeoutSeconds` सेशन को स्वतः आर्काइव नहीं करता।
+- `sessions_list`
+- `sessions_history`
+- `sessions_send`
+- `sessions_spawn`
 
-<Accordion title="Complete sub-agent configuration">सेशन तब तक रहता है जब तक सामान्य आर्काइव टाइमर ट्रिगर नहीं होता।</Accordion>
+जब `maxSpawnDepth >= 2` होता है, तो गहराई-1 orchestrator उप-एजेंट्स को अतिरिक्त रूप से `sessions_spawn`, `subagents`, `sessions_list`, और `sessions_history` मिलते हैं ताकि वे अपने बच्चों को प्रबंधित कर सकें।
 
-## सीमाएँ
+कॉन्फ़िगरेशन द्वारा ओवरराइड करें:
 
-<Warning>
-पूर्ण कॉन्फ़िगरेशन उदाहरण
-- **No nested spawning:** Sub-agents cannot spawn their own sub-agents.
 ```json5
 {
   agents: {
     defaults: {
-      model: { primary: "anthropic/claude-sonnet-4" },
       subagents: {
-        model: "minimax/MiniMax-M2.1",
-        thinking: "low",
-        maxConcurrent: 4,
-        archiveAfterMinutes: 30,
+        maxConcurrent: 1,
       },
     },
-    list: [
-      {
-        id: "main",
-        default: true,
-        name: "Personal Assistant",
-      },
-      {
-        id: "ops",
-        name: "Ops Agent",
-        subagents: {
-          model: "anthropic/claude-sonnet-4",
-          allowAgents: ["main"], // ops "main" के अंतर्गत सब-एजेंट स्पॉन कर सकता है
-        },
-      },
-    ],
   },
   tools: {
     subagents: {
       tools: {
-        deny: ["browser"], // सब-एजेंट ब्राउज़र का उपयोग नहीं कर सकते
+        // deny wins
+        deny: ["gateway", "cron"],
+        // यदि allow सेट है, तो यह allow-only बन जाता है (deny फिर भी जीतता है)
+        // allow: ["read", "exec", "process"]
       },
     },
   },
 }
 ```
-- **सर्वोत्तम-प्रयास घोषणा:** यदि गेटवे रीस्टार्ट होता है, तो लंबित घोषणा कार्य खो जाता है।
-</Warning>
 
-## See Also
+## समवर्तीता
 
-- - **कोई नेस्टेड स्पॉनिंग नहीं:** सब-एजेंट अपने स्वयं के सब-एजेंट स्पॉन नहीं कर सकते।
-- - **साझा संसाधन:** सब-एजेंट गेटवे प्रक्रिया साझा करते हैं; सुरक्षा वाल्व के रूप में `maxConcurrent` का उपयोग करें।
-- - **ऑटो-आर्काइव सर्वश्रेष्ठ-प्रयास है:** गेटवे रीस्टार्ट पर लंबित आर्काइव टाइमर खो जाते हैं।
-- [Queue](/concepts/queue) — how the `subagent` lane works
+उप-एजेंट्स एक समर्पित इन-प्रोसेस queue लेन का उपयोग करते हैं:
+
+- लेन नाम: `subagent`
+- समवर्तीता: `agents.defaults.subagents.maxConcurrent` (डिफ़ॉल्ट `8`)
+
+## रोकना
+
+- अनुरोधकर्ता चैट में `/stop` भेजने से अनुरोधकर्ता सेशन निरस्त हो जाता है और उससे स्पॉन हुए सभी सक्रिय उप-एजेंट रन रुक जाते हैं, नेस्टेड बच्चों तक कैस्केड करते हुए।
+- `/subagents kill <id>` एक विशिष्ट उप-एजेंट को रोकता है और उसके बच्चों तक कैस्केड करता है।
+
+## सीमाएँ
+
+- उप-एजेंट announce **सर्वोत्तम-प्रयास** है। यदि गेटवे रीस्टार्ट होता है, तो लंबित "announce back" कार्य खो जाता है।
+- उप-एजेंट्स वही गेटवे प्रोसेस संसाधन साझा करते हैं; `maxConcurrent` को एक सुरक्षा वाल्व की तरह उपयोग करें।
+- `sessions_spawn` हमेशा non-blocking है: यह तुरंत `{ status: "accepted", runId, childSessionKey }` लौटाता है।
+- उप-एजेंट कॉन्टेक्स्ट केवल `AGENTS.md` + `TOOLS.md` इंजेक्ट करता है (`SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, या `BOOTSTRAP.md` नहीं)।
+- अधिकतम नेस्टिंग गहराई 5 है (`maxSpawnDepth` सीमा: 1–5)। अधिकांश उपयोग मामलों के लिए गहराई 2 अनुशंसित है।
+- `maxChildrenPerAgent` प्रति सेशन सक्रिय बच्चों को सीमित करता है (डिफ़ॉल्ट: 5, सीमा: 1–20)।

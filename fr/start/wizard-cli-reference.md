@@ -17,28 +17,28 @@ Le mode local (par defaut) vous guide a travers :
 - Les parametres de la Gateway (passerelle) (port, bind, auth, Tailscale)
 - Les canaux et fournisseurs (Telegram, WhatsApp, Discord, Google Chat, plugin Mattermost, Signal)
 - L’installation du daemon (LaunchAgent ou unite utilisateur systemd)
-- Bilan de santé
+- Bilan de sante
 - La configuration des Skills
 
-Le mode distant configure cette machine pour se connecter a une Gateway (passerelle) situee ailleurs.
+Le mode distant configure cette machine pour se connecter a une Gateway situee ailleurs.
 Il n’installe ni ne modifie quoi que ce soit sur l’hote distant.
 
 ## Details du flux local
 
 <Steps>
-  <Step title="Existing config detection">
+  <Step title="Detection de configuration existante">
     - Si `~/.openclaw/openclaw.json` existe, choisissez Conserver, Modifier ou Reinitialiser.
     - Relancer l’assistant n’efface rien sauf si vous choisissez explicitement Reinitialiser (ou passez `--reset`).
     - Si la configuration est invalide ou contient des cles heritees, l’assistant s’arrete et vous demande d’executer `openclaw doctor` avant de continuer.
     - La reinitialisation utilise `trash` et propose des portees :
       - Configuration uniquement
       - Configuration + informations d’identification + sessions
-      - Reinitialisation complete (supprime aussi l’espace de travail)  
-</Step>
-  <Step title="Model and auth">
+      - Reinitialisation complete (supprime aussi l’espace de travail)
+  </Step>
+  <Step title="Modele et authentification">
     - La matrice complete des options est disponible dans [Options d’authentification et de modele](#auth-and-model-options).
   </Step>
-  <Step title="Workspace">
+  <Step title="Espace de travail">
     - Par defaut `~/.openclaw/workspace` (configurable).
     - Initialise les fichiers d’espace de travail necessaires au rituel de bootstrap du premier lancement.
     - Structure de l’espace de travail : [Espace de travail de l’agent](/concepts/agent-workspace).
@@ -49,7 +49,7 @@ Il n’installe ni ne modifie quoi que ce soit sur l’hote distant.
     - Desactivez l’authentification uniquement si vous faites pleinement confiance a chaque processus local.
     - Les binds non loopback exigent toujours l’authentification.
   </Step>
-  <Step title="Channels">
+  <Step title="Canaux">
     - [WhatsApp](/channels/whatsapp) : connexion QR optionnelle
     - [Telegram](/channels/telegram) : jeton de bot
     - [Discord](/channels/discord) : jeton de bot
@@ -58,9 +58,8 @@ Il n’installe ni ne modifie quoi que ce soit sur l’hote distant.
     - [Signal](/channels/signal) : installation optionnelle de `signal-cli` + configuration du compte
     - [BlueBubbles](/channels/bluebubbles) : recommande pour iMessage ; URL du serveur + mot de passe + webhook
     - [iMessage](/channels/imessage) : chemin CLI herite `imsg` + acces a la base de donnees
-    - Securite des Messages prives : par defaut, appairage. Le premier Message prive envoie un code ; approuvez via
-      `openclaw pairing approve <channel><code>` ou utilisez des listes d’autorisation.
-  </Step><code>` ou utilisez des listes d’autorisation.
+    - Securite des messages prives : par defaut, appairage. Le premier message prive envoie un code ; approuvez via
+      `openclaw pairing approve <channel> <code>` ou utilisez des listes d’autorisation.
   </Step>
   <Step title="Installation du daemon">
     - macOS : LaunchAgent
@@ -119,9 +118,7 @@ Ce que vous configurez :
     - macOS : verifie l’element du Trousseau « Claude Code-credentials »
     - Linux et Windows : reutilise `~/.claude/.credentials.json` si present
 
-    ```
     Sur macOS, choisissez « Toujours autoriser » afin que les demarrages via launchd ne soient pas bloques.
-    ```
 
   </Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
@@ -134,28 +131,26 @@ Ce que vous configurez :
   <Accordion title="OpenAI Code subscription (OAuth)">
     Flux via navigateur ; collez `code#state`.
 
-    ```
     Definit `agents.defaults.model` sur `openai-codex/gpt-5.3-codex` lorsque le modele n’est pas defini ou vaut `openai/*`.
-    ```
 
   </Accordion>
   <Accordion title="OpenAI API key">
     Utilise `OPENAI_API_KEY` si present ou demande une cle, puis l’enregistre dans
     `~/.openclaw/.env` afin que launchd puisse la lire.
 
-    ```
     Definit `agents.defaults.model` sur `openai/gpt-5.1-codex` lorsque le modele n’est pas defini, vaut `openai/*` ou `openai-codex/*`.
-    ```
 
   </Accordion>
   <Accordion title="xAI (Grok) API key">
-    Invite pour `XAI_API_KEY` et configure xAI en tant que fournisseur de modèles.
+    Invite pour `XAI_API_KEY` et configure xAI en tant que fournisseur de modeles.
   </Accordion>
   <Accordion title="OpenCode Zen">
     Invite a fournir `OPENCODE_API_KEY` (ou `OPENCODE_ZEN_API_KEY`).
     URL de configuration : [opencode.ai/auth](https://opencode.ai/auth).
   </Accordion>
-  <Accordion title="API key (generic)">Stocke la clé pour vous.</Accordion>
+  <Accordion title="API key (generic)">
+    Stocke la cle pour vous.
+  </Accordion>
   <Accordion title="Vercel AI Gateway">
     Invite a fournir `AI_GATEWAY_API_KEY`.
     Plus de details : [Vercel AI Gateway](/providers/vercel-ai-gateway).
@@ -175,6 +170,18 @@ Ce que vous configurez :
   <Accordion title="Moonshot and Kimi Coding">
     Les configurations Moonshot (Kimi K2) et Kimi Coding sont ecrites automatiquement.
     Plus de details : [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
+  </Accordion>
+  <Accordion title="Custom provider">
+    Fonctionne avec des endpoints compatibles OpenAI et Anthropic.
+
+    Flags non interactifs :
+    - `--auth-choice custom-api-key`
+    - `--custom-base-url`
+    - `--custom-model-id`
+    - `--custom-api-key` (optionnel ; utilise `CUSTOM_API_KEY` par defaut)
+    - `--custom-provider-id` (optionnel)
+    - `--custom-compatibility <openai|anthropic>` (optionnel ; `openai` par defaut)
+
   </Accordion>
   <Accordion title="Skip">
     Laisse l’authentification non configuree.
@@ -223,7 +230,7 @@ Certains canaux sont fournis sous forme de plugins. Lorsqu’ils sont selectionn
 demande d’installer le plugin (npm ou chemin local) avant la configuration du canal.
 </Note>
 
-RPC de l’assistant Gateway :
+Gateway wizard RPC :
 
 - `wizard.start`
 - `wizard.next`

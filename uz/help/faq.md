@@ -2392,7 +2392,7 @@ Fix:
 - 23. Har bir profil konfiguratsiyasida noyob `gateway.port` ni belgilang (yoki qo‘lda ishga tushirish uchun `--port` ni bering).
 - 24. Har bir profil uchun servis o‘rnating: `openclaw --profile <name> gateway install`.
 
-25. Profil nomlari servis nomlariga ham qo‘shimcha sifatida qo‘shiladi (`bot.molt.<profile>`26. `; legacy `com.openclaw.\*`, `openclaw-gateway-<profile>.service`, `OpenClaw Gateway (<profile>)\`).
+25. Profil nomlari servis nomlariga ham qo‘shimcha sifatida qo‘shiladi (`bot.molt.<profile>`26. `; legacy `com.openclaw.\*`, `openclaw-gateway-&lt;profile&gt;.service`, `OpenClaw Gateway (&lt;profile&gt;)\`).
 26. To‘liq qo‘llanma: [Multiple gateways](/gateway/multiple-gateways).
 
 ### 28. invalid handshake code 1008 nimani anglatadi
@@ -2419,7 +2419,7 @@ Fix:
 
 41. Agar CLI yoki TUI’dan foydalansangiz, URL quyidagicha bo‘lishi kerak:
 
-## 42. openclaw tui --url ws://<host>:18789 --token <token>
+## 42. openclaw tui --url ws://&lt;host&gt;:18789 --token &lt;token&gt;
 
 ### 43. Protokol tafsilotlari: [Gateway protocol](/gateway/protocol).
 

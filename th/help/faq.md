@@ -2384,7 +2384,7 @@ Notes:
 - 32. ตั้งค่า `gateway.port` ที่ไม่ซ้ำกันในคอนฟิกของแต่ละโปรไฟล์ (หรือส่ง `--port` สำหรับการรันแบบแมนนวล)
 - 33. ติดตั้งบริการต่อโปรไฟล์: `openclaw --profile <name> gateway install`
 
-34. โปรไฟล์ยังจะเติม suffix ให้ชื่อบริการด้วย (`bot.molt.<profile>`35. `; legacy `com.openclaw.\*`, `openclaw-gateway-<profile>.service`, `OpenClaw Gateway (<profile>)\`)
+34. โปรไฟล์ยังจะเติม suffix ให้ชื่อบริการด้วย (`bot.molt.<profile>`35. `; legacy `com.openclaw.\*`, `openclaw-gateway-&lt;profile&gt;.service`, `OpenClaw Gateway (&lt;profile&gt;)\`)
 35. คู่มือฉบับเต็ม: [Multiple gateways](/gateway/multiple-gateways)
 
 ### 37. รหัส invalid handshake 1008 หมายความว่าอะไร

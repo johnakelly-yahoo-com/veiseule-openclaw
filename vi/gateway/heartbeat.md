@@ -98,7 +98,7 @@ và ghi log; một thông điệp chỉ gồm `HEARTBEAT_OK` sẽ bị loại.
 - `agents.list[].heartbeat` được gộp chồng lên; nếu bất kỳ tác tử nào có khối `heartbeat`, **chỉ những tác tử đó** chạy heartbeat.
 - `channels.defaults.heartbeat` đặt mặc định hiển thị cho tất cả các kênh.
 - Khối theo agent sẽ được gộp chồng lên `agents.defaults.heartbeat` (vì vậy bạn có thể đặt mặc định dùng chung một lần và ghi đè theo agent).Ngoài khung giờ này (trước 9h sáng hoặc sau 10h tối theo Eastern), heartbeat sẽ bị bỏ qua.
-- Điều này có thể hữu ích khi agent đang quản lý nhiều phiên/codex và bạn muốn biết vì sao nó quyết định ping bạn — nhưng cũng có thể làm lộ nhiều chi tiết nội bộ hơn mức bạn muốn..accounts.<id>.heartbeat\` (multi-account channels) overrides per-channel settings.
+- Điều này có thể hữu ích khi agent đang quản lý nhiều phiên/codex và bạn muốn biết vì sao nó quyết định ping bạn — nhưng cũng có thể làm lộ nhiều chi tiết nội bộ hơn mức bạn muốn..accounts.&lt;id&gt;.heartbeat\` (multi-account channels) overrides per-channel settings.
 
 ### Heartbeat theo từng tác tử
 

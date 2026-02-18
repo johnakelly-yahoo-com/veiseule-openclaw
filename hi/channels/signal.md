@@ -155,7 +155,7 @@ message action=react channel=signal target=signal:group:<groupId> targetAuthor=u
 - `channels.signal.reactionLevel`: `off | ack | minimal | extensive`।
   - `off`/`ack` एजेंट रिएक्शन्स को अक्षम करता है (message tool `react` त्रुटि देगा)।
   - `minimal`/`extensive` एजेंट रिएक्शन्स सक्षम करता है और मार्गदर्शन स्तर सेट करता है।
-- प्रति-अकाउंट ओवरराइड्स: `channels.signal.accounts.<id>`1. .actions.reactions`, `channels.signal.accounts.<id>2. .reactionLevel\`.
+- प्रति-अकाउंट ओवरराइड्स: `channels.signal.accounts.<id>`1. .actions.reactions`, `channels.signal.accounts.&lt;id&gt;2. .reactionLevel\`.
 
 ## डिलीवरी लक्ष्य (CLI/cron)
 

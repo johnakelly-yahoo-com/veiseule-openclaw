@@ -330,8 +330,8 @@ ack reaction after the bot replies.
 - `guilds.<id>.channels.<channel>.toolsBySender`: optional per-sender tool policy overrides within the channel (`"*"` wildcard supported).
 - `guilds.<id>.channels.<channel>.users`: optional per-channel user allowlist.
 - `guilds.<id>.channels.<channel>39. `.skills\`: ko‘nikmalar filtri (qoldirilsa = barcha ko‘nikmalar, bo‘sh = hech biri).
-- `guilds.<id>40. `.channels.<channel>`.systemPrompt`: extra system prompt for the channel. Discord channel topics are injected as **untrusted** context (not system prompt).
-- 41. `guilds.<id>`.channels.<channel>.enabled`: set `false\` to disable the channel.
+- `guilds.<id>40. `.channels.&lt;channel&gt;`.systemPrompt`: extra system prompt for the channel. Discord channel topics are injected as **untrusted** context (not system prompt).
+- 41. `guilds.<id>`.channels.&lt;channel&gt;.enabled`: set `false\` to disable the channel.
 - `guilds.<id>.channels`: channel rules (keys are channel slugs or ids).
 - `guilds.<id>.requireMention`: per-guild mention requirement (overridable per channel).
 - `guilds.<id>42. `.reactionNotifications`: reaksiya tizimi hodisa rejimi (`off`, `own`, `all`, `allowlist\`).
@@ -380,7 +380,7 @@ Yoqilganda, OpenClaw ruxsat roʻyxatlari uchun aʼzo identifikatoridan foydalana
 
 Ruxsat roʻyxati izohlari (PK yoqilgan):
 
-- `dm.allowFrom`, `guilds.<id>`.users`yoki kanal bo‘yicha`users`ichida`pk:<memberId>\` dan foydalaning.
+- `dm.allowFrom`, `guilds.<id>`.users`yoki kanal bo‘yicha`users`ichida`pk:&lt;memberId&gt;\` dan foydalaning.
 - Aʼzo ko‘rsatish nomlari ham nom/slug bo‘yicha moslashtiriladi.
 - Qidiruvlar **asl** Discord xabar ID’sidan (proksi oldidagi xabar) foydalanadi, shuning uchun PK API uni faqat 30 daqiqalik oynasi ichida aniqlay oladi.
 - Agar PK qidiruvlari muvaffaqiyatsiz bo‘lsa (masalan, tokenisiz maxfiy tizim), proksi qilingan xabarlar bot xabarlari sifatida ko‘riladi va `channels.discord.allowBots=true` bo‘lmasa, bekor qilinadi.

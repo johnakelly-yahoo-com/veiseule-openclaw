@@ -4,462 +4,206 @@ title: "Sub-agenter"
 
 # Sub-agenter
 
-Sub-agents let you run background tasks without blocking the main conversation. When you spawn a sub-agent, it runs in its own isolated session, does its work, and announces the result back to the chat when finished.
+Sub-agenter är bakgrundskörningar som startas från en befintlig agentkörning. De kör i sin egen session (`agent:<agentId>:subagent:<uuid>`) och, när de är klara, **annonserar** sitt resultat tillbaka till den begärande chattkanalen.
 
-**Use cases:**
+## Snedstreckskommando
 
-- Research a topic while the main agent continues answering questions
-- Run multiple long tasks in parallel (web scraping, code analysis, file processing)
-- Delegate tasks to specialized agents in a multi-agent setup
+Använd `/subagents` för att inspektera eller styra underagentkörningar för den **aktuella sessionen**:
 
-## Snabbstart
+- `/subagents list`
+- `/subagents kill <id|#|all>`
+- `/subagents log <id|#> [limit] [tools]`
+- `/subagents info <id|#>`
+- `/subagents send <id|#> <message>`
 
-The simplest way to use sub-agents is to ask your agent naturally:
+`/subagents info` visar körningsmetadata (status, tidsstämplar, sessions-id, transkriptsökväg, rensning).
 
-> "Spawn a sub-agent to research the latest Node.js release notes"
+Primära mål:
 
-The agent will call the `sessions_spawn` tool behind the scenes. When the sub-agent finishes, it announces its findings back into your chat.
+- Parallellisera "research / lång uppgift / långsamt verktyg"-arbete utan att blockera huvudkörningen.
+- Hålla underagenter isolerade som standard (sessionsseparation + valfri sandboxning).
+- Göra verktygsytan svår att missbruka: underagenter får **inte** session-verktyg som standard.
+- Stödja konfigurerbart nästlingsdjup för orkestreringsmönster.
 
-You can also be explicit about options:
+Kostnadsnotering: varje underagent har sin **egen** kontext och tokenanvändning. För tunga eller repetitiva
+uppgifter, sätt en billigare modell för underagenter och behåll din huvudagent på en modell med högre kvalitet.
+Du kan konfigurera detta via `agents.defaults.subagents.model` eller per-agent-åsidosättningar.
 
-> "Spawn a sub-agent to analyze the server logs from today. Use gpt-5.2 and set a 5-minute timeout."
+## Verktyg
 
-## Hur det fungerar
+Använd `sessions_spawn`:
 
-<Steps>
-  <Step title="Main agent spawns">
-    The main agent calls `sessions_spawn` with a task description. The call is **non-blocking** — the main agent gets back `{ status: "accepted", runId, childSessionKey }` immediately.
-  </Step>
-  <Step title="Sub-agent runs in the background">
-    A new isolated session is created (`agent:<agentId>:subagent:<uuid>`) on the dedicated `subagent` queue lane.
-  </Step>
-  <Step title="Result is announced">
-    When the sub-agent finishes, it announces its findings back to the requester chat. The main agent posts a natural-language summary.
-  </Step>
-  <Step title="Session is archived">
-    The sub-agent session is auto-archived after 60 minutes (configurable). Transcripts are preserved.
-  </Step>
-</Steps>
+- Startar en underagentkörning (`deliver: false`, global lane: `subagent`)
+- Kör sedan ett announce-steg och postar announce-svaret till den begärande chattkanalen
+- Standardmodell: ärver anroparen om du inte sätter `agents.defaults.subagents.model` (eller per-agent `agents.list[].subagents.model`); en explicit `sessions_spawn.model` vinner fortfarande.
+- Standard thinking: ärver anroparen om du inte sätter `agents.defaults.subagents.thinking` (eller per-agent `agents.list[].subagents.thinking`); en explicit `sessions_spawn.thinking` vinner fortfarande.
 
-<Tip>
-Each sub-agent has its **own** context and token usage. Set a cheaper model for sub-agents to save costs — see [Setting a Default Model](#setting-a-default-model) below.
-</Tip>
+Verktygsparametrar:
 
-## Konfiguration
+- `task` (obligatorisk)
+- `label?` (valfri)
+- `agentId?` (valfri; starta under ett annat agent-id om tillåtet)
+- `model?` (valfri; åsidosätter underagentens modell; ogiltiga värden hoppas över och underagenten körs på standardmodellen med en varning i verktygsresultatet)
+- `thinking?` (valfri; åsidosätter thinking-nivå för underagentkörningen)
+- `runTimeoutSeconds?` (standard `0`; när satt avbryts underagentkörningen efter N sekunder)
+- `cleanup?` (`delete|keep`, standard `keep`)
 
-Sub-agents work out of the box with no configuration. Standardvärden:
+Tillåtelselista:
 
-- Model: target agent’s normal model selection (unless `subagents.model` is set)
-- Thinking: no sub-agent override (unless `subagents.thinking` is set)
-- Max concurrent: 8
-- Auto-archive: after 60 minutes
+- `agents.list[].subagents.allowAgents`: lista över agent-id:n som kan målas via `agentId` (`["*"]` för att tillåta alla). Standard: endast den begärande agenten.
 
-### Setting a Default Model
+Upptäckt:
 
-Use a cheaper model for sub-agents to save on token costs:
+- Använd `agents_list` för att se vilka agent-id:n som för närvarande är tillåtna för `sessions_spawn`.
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        model: "minimax/MiniMax-M2.1",
-      },
-    },
-  },
-}
-```
+Automatisk arkivering:
 
-### Setting a Default Thinking Level
+- Underagentsessioner arkiveras automatiskt efter `agents.defaults.subagents.archiveAfterMinutes` (standard: 60).
+- Arkivering använder `sessions.delete` och byter namn på transkriptet till `*.deleted.<timestamp>` (samma mapp).
+- `cleanup: "delete"` arkiverar omedelbart efter announce (behåller fortfarande transkriptet via namnbyte).
+- Automatisk arkivering är best-effort; väntande timers går förlorade om gatewayen startas om.
+- `runTimeoutSeconds` autoarkiverar **inte**; det stoppar endast körningen. Sessionen kvarstår tills autoarkivering.
+- Automatisk arkivering gäller lika för djup-1 och djup-2-sessioner.
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        thinking: "low",
-      },
-    },
-  },
-}
-```
+## Nästlade underagenter
 
-### Åsidosättningar per agent
+Som standard kan underagenter inte skapa egna underagenter (`maxSpawnDepth: 1`). Du kan aktivera en nivå av nästling genom att sätta `maxSpawnDepth: 2`, vilket tillåter **orkestreringsmönstret**: main → orkestrator-underagent → worker-under-underagenter.
 
-I en multiagentkonfiguration kan du ange standardvärden för underagenter per agent:
-
-```json5
-{
-  agents: {
-    list: [
-      {
-        id: "researcher",
-        subagents: {
-          model: "anthropic/claude-sonnet-4",
-        },
-      },
-      {
-        id: "assistant",
-        subagents: {
-          model: "minimax/MiniMax-M2.1",
-        },
-      },
-    ],
-  },
-}
-```
-
-### Samtidighet
-
-Styr hur många underagenter som kan köras samtidigt:
+### Så aktiverar du
 
 ```json5
 {
   agents: {
     defaults: {
       subagents: {
-        maxConcurrent: 4, // default: 8
+        maxSpawnDepth: 2, // tillåt underagenter att skapa barn (standard: 1)
+        maxChildrenPerAgent: 5, // max aktiva barn per agentsession (standard: 5)
+        maxConcurrent: 8, // global samtidighetsgräns för lane (standard: 8)
       },
     },
   },
 }
 ```
 
-Underagenter använder en dedikerad köfil (lane) (`subagent`) som är separerad från huvudagentens kö, så att körningar av underagenter inte blockerar inkommande svar.
+### Djupnivåer
 
-### Automatisk arkivering
+| Depth | Session key shape                            | Roll                                          | Kan skapa?                   |
+| ----- | -------------------------------------------- | --------------------------------------------- | ---------------------------- |
+| 0     | `agent:<id>:main`                            | Huvudagent                                    | Alltid                       |
+| 1     | `agent:<id>:subagent:<uuid>`                 | Underagent (orkestrator när djup 2 är tillåtet) | Endast om `maxSpawnDepth >= 2` |
+| 2     | `agent:<id>:subagent:<uuid>:subagent:<uuid>` | Under-underagent (lövarbetare)                   | Aldrig                        |
 
-Underagentsessioner arkiveras automatiskt efter en konfigurerbar tidsperiod:
+### Announce-kedja
 
-```json5
-{
-  agents: {
-    defaults: {
-      subagents: {
-        archiveAfterMinutes: 120, // default: 60
-      },
-    },
-  },
-}
-```
+Resultat flödar tillbaka upp i kedjan:
 
-<Note>Arkivering byter namn på transkriptet till `*.deleted.<timestamp>` (samma mapp) — transkript bevaras, raderas inte. Timers för automatisk arkivering är best-effort; väntande timers går förlorade om gatewayen startas om.
-</Note>
+1. Djup-2 worker avslutas → annonserar till sin förälder (djup-1 orkestrator)
+2. Djup-1 orkestrator tar emot announce, syntetiserar resultat, avslutas → annonserar till main
+3. Huvudagenten tar emot announce och levererar till användaren
 
-## Verktyget `sessions_spawn`
+Varje nivå ser endast annonser från sina direkta barn.
 
-Detta är verktyget som agenten anropar för att skapa underagenter.
+### Verktygspolicy per djup
 
-### Parametrar
+- **Djup 1 (orkestrator, när `maxSpawnDepth >= 2`)**: Får `sessions_spawn`, `subagents`, `sessions_list`, `sessions_history` så att den kan hantera sina barn. Övriga session-/systemverktyg förblir nekade.
+- **Djup 1 (lövnivå, när `maxSpawnDepth == 1`)**: Inga sessionsverktyg (nuvarande standardbeteende).
+- **Djup 2 (lövarbetare)**: Inga sessionsverktyg — `sessions_spawn` nekas alltid på djup 2. Kan inte skapa fler barn.
 
-| Parameter           | Typ                  | Default                                 | Description                                                                                   |
-| ------------------- | -------------------- | --------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `task`              | string               | _(obligatorisk)_     | Vad underagenten ska göra                                                                     |
-| `etikett`           | string               | —                                       | Kort etikett för identifiering                                                                |
-| `agentId`           | string               | _(anroparens agent)_ | Skapa under en annan agent-id (måste vara tillåtet)                        |
-| `Modell`            | string               | _(valfri)_           | Åsidosätt modellen för denna underagent                                                       |
-| `thinking`          | string               | _(valfri)_           | Åsidosätt tänkenivå (`off`, `low`, `medium`, `high`, etc.) |
-| `runTimeoutSeconds` | nummer               | `0` (ingen gräns)    | Avbryt underagenten efter N sekunder                                                          |
-| `rensa upp`         | "delete" \\| "keep" | "keep"                                  | "delete" arkiverar omedelbart efter annonsering                                               |
+### Spawn-gräns per agent
 
-### Ordning för modellupplösning
+Varje agentsession (på vilken nivå som helst) kan ha högst `maxChildrenPerAgent` (standard: 5) aktiva barn samtidigt. Detta förhindrar okontrollerad fan-out från en enskild orkestrator.
 
-Underagentens modell löses upp i denna ordning (första träffen vinner):
+### Kaskadstopp
 
-1. Explicit `model`-parameter i `sessions_spawn`-anropet
-2. Per-agent-konfiguration: `agents.list[].subagents.model`
-3. Global standard: `agents.defaults.subagents.model`
-4. Målagentens normala modellupplösning för den nya sessionen
+Att stoppa en djup-1-orkestrator stoppar automatiskt alla dess djup-2-barn:
 
-Tänkenivån löses upp i denna ordning:
-
-1. Explicit `thinking`-parameter i `sessions_spawn`-anropet
-2. Per-agent-konfiguration: `agents.list[].subagents.thinking`
-3. Global standard: `agents.defaults.subagents.thinking`
-4. Annars tillämpas ingen underagent-specifik åsidosättning av tänkenivå
-
-<Note>Ogiltiga modellvärden hoppas över tyst — underagenten körs på nästa giltiga standard med en varning i verktygsresultatet.</Note>
-
-### Spawning över agenter
-
-Som standard kan underagenter endast skapas under sin egen agent-id. 1. För att tillåta en agent att skapa underagenter under andra agent-id:n:
-
-```json5
-2. {
-  agents: {
-    list: [
-      {
-        id: "orchestrator",
-        subagents: {
-          allowAgents: ["researcher", "coder"], // or ["*"] to allow any
-        },
-      },
-    ],
-  },
-}
-```
-
-<Tip>3. 
-Använd verktyget `agents_list` för att ta reda på vilka agent-id:n som för närvarande är tillåtna för `sessions_spawn`.</Tip>
-
-## 4. Hantering av underagenter (`/subagents`)
-
-5. Använd snedstreckskommandot `/subagents` för att granska och styra körningar av underagenter för den aktuella sessionen:
-
-| Kommando                                   | Beskrivning                                                                                              |
-| ------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| `/subagents list`                          | 6. Lista alla körningar av underagenter (aktiva och slutförda) |
-| `/subagents stop <id\\|#\\|all>`         | 7. Stoppa en körande underagent                                                   |
-| `/subagents log <id\\|#> [limit] [tools]` | 8. Visa underagentens transkript                                                  |
-| `/subagents info <id\\|#>`                | 9. Visa detaljerad körningsmetadata                                               |
-| `/subagents send <id\\|#> <message>`      | 10. Skicka ett meddelande till en körande underagent                              |
-
-11. Du kan referera till underagenter via listindex (`1`, `2`), kör-id-prefix, fullständig sessionsnyckel eller `last`.
-
-<AccordionGroup>
-  <Accordion title="Example: list and stop a sub-agent">12. 
-    ```
-    /subagents list
-    ```
-
-    ````
-    13. ```
-    🧭 Subagents (current session)
-    Active: 1 · Done: 2
-    1) ✅ · research logs · 2m31s · run a1b2c3d4 · agent:main:subagent:...
-    2) ✅ · check deps · 45s · run e5f6g7h8 · agent:main:subagent:...
-    3) 🔄 · deploy staging · 1m12s · run i9j0k1l2 · agent:main:subagent:...
-    ```
-    
-    ```
-    /subagents stop 3
-    ```
-    
-    ```
-    ⚙️ Stop requested for deploy staging.
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: inspect a sub-agent">14. 
-    ```
-    /subagents info 1
-    ```
-
-    ````
-    15. ```
-    ℹ️ Subagent info
-    Status: ✅
-    Label: research logs
-    Task: Research the latest server error logs and summarize findings
-    Run: a1b2c3d4-...
-    Session: agent:main:subagent:...
-    Runtime: 2m31s
-    Cleanup: keep
-    Outcome: ok
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: view sub-agent log">16. 
-    ```
-    /subagents log 1 10
-    ```
-
-    ````
-    17. Visar de senaste 10 meddelandena från underagentens transkript. Lägg till `tools` för att inkludera meddelanden om verktygsanrop:
-    
-    ```
-    /subagents log 1 10 tools
-    ```
-    ````
-
-  </Accordion>
-  <Accordion title="Example: send a follow-up message">18. 
-    ```
-    /subagents send 3 "Also check the staging environment"
-    ```
-
-    ```
-    19. Skickar ett meddelande till den körande underagentens session och väntar upp till 30 sekunder på ett svar.
-    ```
-
-  </Accordion>
-</AccordionGroup>
-
-## 20. Annonsera (hur resultaten kommer tillbaka)
-
-21. När en underagent avslutas går den igenom ett **announce**-steg:
-
-1. 22. Underagentens slutliga svar fångas
-2. 23. Ett sammanfattningsmeddelande skickas till huvudagentens session med resultat, status och statistik
-3. 24. Huvudagenten publicerar en sammanfattning i naturligt språk i din chatt
-
-Announce-svar bevarar tråd-/ämnesroutning när det finns (Slack-trådar, Telegram-ämnen, Matrix-trådar).
-
-### 25. Announce-statistik
-
-26. Varje announce innehåller en statistikrad med:
-
-- 27. Körtidens längd
-- Tokenförbrukning (in/ut/totalt)
-- 28. Uppskattad kostnad (när modellprissättning är konfigurerad via `models.providers.*.models[].cost`)
-- 29. Sessionsnyckel, sessions-id och transkriptsökväg
-
-### 30. Announce-status
-
-31. Announce-meddelandet innehåller en status som härleds från körningens utfall (inte från modellens utdata):
-
-- 32. **lyckat slutförande** (`ok`) — uppgiften slutfördes normalt
-- 33. **fel** — uppgiften misslyckades (feldetaljer i anteckningar)
-- 34. **timeout** — uppgiften överskred `runTimeoutSeconds`
-- 35. **okänd** — status kunde inte fastställas
-
-<Tip>
-36. Om ingen användarvänd annonsering behövs kan huvudagentens sammanfattningssteg returnera `NO_REPLY` och ingenting publiceras.
-37. Detta skiljer sig från `ANNOUNCE_SKIP`, som används i agent‑till‑agent‑annonseringsflödet (`sessions_send`).
-</Tip>
-
-## 38. Verktygspolicy
-
-39. Som standard får underagenter **alla verktyg utom** en uppsättning nekade verktyg som är osäkra eller onödiga för bakgrundsuppgifter:
-
-<AccordionGroup>
-  <Accordion title="Default denied tools">40. 
-    | Denied tool | Reason |
-    |-------------|--------|
-    | `sessions_list` | Session management — main agent orchestrates |
-    | `sessions_history` | Session management — main agent orchestrates |
-    | `sessions_send` | Session management — main agent orchestrates |
-    | `sessions_spawn` | No nested fan-out (sub-agents cannot spawn sub-agents) |
-    | `gateway` | System admin — dangerous from sub-agent |
-    | `agents_list` | System admin |
-    | `whatsapp_login` | Interactive setup — not a task |
-    | `session_status` | Status/scheduling — main agent coordinates |
-    | `cron` | Status/scheduling — main agent coordinates |
-    | `memory_search` | Pass relevant info in spawn prompt instead |
-    | `memory_get` | Pass relevant info in spawn prompt instead |</Accordion>
-</AccordionGroup>
-
-### 41. Anpassa verktyg för underagenter
-
-42. Du kan ytterligare begränsa underagenters verktyg:
-
-```json5
-43. {
-  tools: {
-    subagents: {
-      tools: {
-        // deny always wins over allow
-        deny: ["browser", "firecrawl"],
-      },
-    },
-  },
-}
-```
-
-44. För att begränsa underagenter till **endast** specifika verktyg:
-
-```json5
-45. {
-  tools: {
-    subagents: {
-      tools: {
-        allow: ["read", "exec", "process", "write", "edit", "apply_patch"],
-        // deny still wins if set
-      },
-    },
-  },
-}
-```
-
-<Note>
-46. Anpassade deny-poster **läggs till** i standardlistan för deny. 47. Om `allow` är inställt är endast dessa verktyg tillgängliga (standardlistan för deny gäller fortfarande ovanpå).
-</Note>
+- `/stop` i huvudchatten stoppar alla djup-1-agenter och kaskaderar till deras djup-2-barn.
+- `/subagents kill <id>` stoppar en specifik underagent och kaskaderar till dess barn.
+- `/subagents kill all` stoppar alla underagenter för den begärande och kaskaderar.
 
 ## Autentisering
 
-Sub-agentautentisering löses via **agent-id**, inte via sessionstyp:
+Underagentautentisering löses via **agent-id**, inte via sessionstyp:
 
-- 48. Autentiseringslagret laddas från målagentens `agentDir`
-- 49. Huvudagentens autentiseringsprofiler slås samman som en **fallback** (agentprofiler vinner vid konflikter)
-- 50. Sammanfogningen är additiv — huvudprofiler är alltid tillgängliga som fallbacks
+- Underagentens sessionsnyckel är `agent:<agentId>:subagent:<uuid>`.
+- Autentiseringslagret laddas från den agentens `agentDir`.
+- Huvudagentens autentiseringsprofiler slås samman som en **fallback**; agentprofiler åsidosätter huvudprofiler vid konflikter.
 
-<Note>Fullständigt isolerad autentisering per underagent stöds för närvarande inte.</Note>
+Obs: sammanslagningen är additiv, så huvudprofiler är alltid tillgängliga som fallbacks. Fullständigt isolerad autentisering per agent stöds ännu inte.
 
-## Context and System Prompt
+## Announce
 
-Underagenter får en reducerad systemprompt jämfört med huvudagenten:
+Underagenter rapporterar tillbaka via ett announce-steg:
 
-- **Inkluderat:** Verktyg, Arbetsyta, Runtime-avsnitt, samt `AGENTS.md` och `TOOLS.md`
-- **Inte inkluderat:** `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md`
+- Announce-steget körs inuti underagentsessionen (inte den begärande sessionen).
+- Om underagenten svarar exakt `ANNOUNCE_SKIP` publiceras ingenting.
+- Annars publiceras announce-svaret till den begärande chattkanalen via ett uppföljande `agent`-anrop (`deliver=true`).
+- Announce-svar bevarar tråd-/ämnesroutning när det finns (Slack-trådar, Telegram-ämnen, Matrix-trådar).
+- Announce-meddelanden normaliseras till en stabil mall:
+  - `Status:` härleds från körningens utfall (`success`, `error`, `timeout` eller `unknown`).
+  - `Result:` sammanfattningsinnehållet från announce-steget (eller `(not available)` om det saknas).
+  - `Notes:` feldetaljer och annan användbar kontext.
+- `Status` härleds inte från modellens utdata; den kommer från körningens utfallssignaler.
 
-Underagenten får också en uppgiftsfokuserad systemprompt som instruerar den att hålla fokus på den tilldelade uppgiften, slutföra den och inte agera som huvudagent.
+Announce-payloads inkluderar en statistikrad i slutet (även när de är wrapperade):
 
-## Stoppa underagenter
+- Körtid (t.ex. `runtime 5m12s`)
+- Tokenanvändning (input/output/total)
+- Uppskattad kostnad när modellprissättning är konfigurerad (`models.providers.*.models[].cost`)
+- `sessionKey`, `sessionId` och transkriptsökväg (så att huvudagenten kan hämta historik via `sessions_history` eller inspektera filen på disk)
 
-| Metod                  | Effekt                                                                               |
-| ---------------------- | ------------------------------------------------------------------------------------ |
-| `/stop` i chatten      | Avbryter huvudsessionen **och** alla aktiva underagentkörningar som skapats från den |
-| `/subagents stop <id>` | Stoppar en specifik underagent utan att påverka huvudsessionen                       |
-| `runTimeoutSeconds`    | Avbryter automatiskt underagentkörningen efter den angivna tiden                     |
+## Verktygspolicy (underagentverktyg)
 
-<Note>
-`runTimeoutSeconds` autoarkiverar **inte** sessionen. Sessionen kvarstår tills den normala arkiveringstimern utlöses.
-</Note>
+Som standard får underagenter **alla verktyg utom sessionverktyg** och systemverktyg:
 
-## Fullständigt konfigurationsexempel
+- `sessions_list`
+- `sessions_history`
+- `sessions_send`
+- `sessions_spawn`
 
-<Accordion title="Complete sub-agent configuration">```json5
+När `maxSpawnDepth >= 2` får djup-1-orkestrator-underagenter dessutom `sessions_spawn`, `subagents`, `sessions_list` och `sessions_history` så att de kan hantera sina barn.
+
+Åsidosätt via konfiguration:
+
+```json5
 {
   agents: {
     defaults: {
-      model: { primary: "anthropic/claude-sonnet-4" },
       subagents: {
-        model: "minimax/MiniMax-M2.1",
-        thinking: "low",
-        maxConcurrent: 4,
-        archiveAfterMinutes: 30,
+        maxConcurrent: 1,
       },
     },
-    list: [
-      {
-        id: "main",
-        default: true,
-        name: "Personal Assistant",
-      },
-      {
-        id: "ops",
-        name: "Ops Agent",
-        subagents: {
-          model: "anthropic/claude-sonnet-4",
-          allowAgents: ["main"], // ops can spawn sub-agents under "main"
-        },
-      },
-    ],
   },
   tools: {
     subagents: {
       tools: {
-        deny: ["browser"], // sub-agents can't use the browser
+        // deny wins
+        deny: ["gateway", "cron"],
+        // if allow is set, it becomes allow-only (deny still wins)
+        // allow: ["read", "exec", "process"]
       },
     },
   },
 }
-```</Accordion>
+```
+
+## Samtidighet
+
+Underagenter använder en dedikerad in-process queue lane:
+
+- Lane-namn: `subagent`
+- Samtidighet: `agents.defaults.subagents.maxConcurrent` (standard `8`)
+
+## Stoppa
+
+- Att skicka `/stop` i den begärande chatten avbryter den begärande sessionen och stoppar alla aktiva underagentkörningar som startats från den, med kaskad till nästlade barn.
+- `/subagents kill <id>` stoppar en specifik underagent och kaskaderar till dess barn.
 
 ## Begränsningar
 
-<Warning>
-- **Bästa möjliga tillkännagivande:** Om gatewayen startar om går väntande tillkännagivandearbete förlorat.
-- **Ingen nästlad skapande:** Underagenter kan inte skapa egna underagenter.
-- **Delade resurser:** Underagenter delar gateway-processen; använd `maxConcurrent` som en säkerhetsventil.
-- **Autoarkivering sker enligt bästa förmåga:** Väntande arkiveringstimers går förlorade vid omstart av gatewayen.
-</Warning>
-
-## Se även
-
-- [Session Tools](/concepts/session-tool) — details on `sessions_spawn` and other session tools
-- [Multi-Agent Sandbox and Tools](/tools/multi-agent-sandbox-tools) — per-agent tool restrictions and sandboxing
-- [Configuration](/gateway/configuration) — `agents.defaults.subagents` reference
-- [Queue](/concepts/queue) — how the `subagent` lane works
+- Underagent-announce är **best-effort**. Om gatewayen startas om går väntande "announce back"-arbete förlorat.
+- Underagenter delar fortfarande samma gateway-processresurser; behandla `maxConcurrent` som en säkerhetsventil.
+- `sessions_spawn` är alltid icke-blockerande: det returnerar `{ status: "accepted", runId, childSessionKey }` omedelbart.
+- Underagentens kontext injicerar endast `AGENTS.md` + `TOOLS.md` (inga `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` eller `BOOTSTRAP.md`).
+- Maximalt nästlingsdjup är 5 (`maxSpawnDepth` intervall: 1–5). Djup 2 rekommenderas för de flesta användningsfall.
+- `maxChildrenPerAgent` begränsar aktiva barn per session (standard: 5, intervall: 1–20).

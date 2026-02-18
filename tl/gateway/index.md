@@ -193,7 +193,7 @@ Tingnan din: [Presence](/concepts/presence) para sa kung paano ginagawa/dinededu
 
 ## Replay / gaps
 
-- 25. }`. 26. Ang mga event ay hindi nire-replay. `openclaw gateway install`ay nagsusulat ng`~/Library/LaunchAgents/bot.molt.gateway.plist`(o`bot.molt.<profile>
+- 25. }`. 26. Ang mga event ay hindi nire-replay. `openclaw gateway install`ay nagsusulat ng`~/Library/LaunchAgents/bot.molt.gateway.plist`(o`bot.molt.&lt;profile&gt;
 
 ## Supervision (halimbawa sa macOS)
 

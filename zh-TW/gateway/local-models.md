@@ -47,7 +47,7 @@ Best current local stack. 目前最佳的本機組合。在 LM Studio 中載入 
 
 **設定檢查清單**
 
-- 安裝 LM Studio：<https://lmstudio.ai>
+- 安裝 LM Studio：&lt;https://lmstudio.ai&gt;
 - 在 LM Studio 中下載**可取得的最大 MiniMax M2.1 版本**（避免「small」／高度量化變體），啟動伺服器，並確認 `http://127.0.0.1:1234/v1/models` 有列出該模型。
 - 保持模型常駐載入；冷啟動會增加啟動延遲。
 - 若你的 LM Studio 版本不同，請調整 `contextWindow`/`maxTokens`。

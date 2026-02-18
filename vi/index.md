@@ -21,7 +21,8 @@ title: "OpenClaw"
 
 > _"TẨY TẾ BÀO CHẾT! TẨY TẾ BÀO CHẾT!"_ — Có lẽ là một con tôm hùm ngoài không gian
 
-<p align="center"><strong>Any OS gateway for AI agents across WhatsApp, Telegram, Discord, iMessage, and more.</strong><br />
+<p align="center">
+  <strong>Any OS gateway for AI agents across WhatsApp, Telegram, Discord, iMessage, and more.</strong><br />
   Send a message, get an agent response from your pocket. EXFOLIATE!"_ — Có lẽ là một con tôm hùm ngoài không gian
 </p>
 

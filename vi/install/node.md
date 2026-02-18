@@ -1,5 +1,6 @@
 ---
-title: "Node.js"---
+title: "Node.js"
+---
 
 # Node.js
 
@@ -19,56 +20,50 @@ Nếu lệnh này in ra `v22.x.x` hoặc cao hơn, bạn đã sẵn sàng. Nếu
   <Tab title="macOS">
     **Homebrew** (khuyến nghị):
 
-    ````
     ```bash
     brew install node
     ```
-    
+
     Hoặc tải trình cài đặt macOS từ [nodejs.org](https://nodejs.org/).
-    ````
 
   </Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
-    ````
     ```bash
     curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ```
-    
+
     **Fedora / RHEL:**
-    
+
     ```bash
     sudo dnf install nodejs
     ```
-    
+
     Hoặc dùng trình quản lý phiên bản (xem bên dưới).
-    ````
 
   </Tab>
   <Tab title="Windows">
     **winget** (khuyến nghị):
 
-    ````
     ```powershell
     winget install OpenJS.NodeJS.LTS
     ```
-    
+
     **Chocolatey:**
-    
+
     ```powershell
     choco install nodejs-lts
     ```
-    
+
     Hoặc tải trình cài đặt Windows từ [nodejs.org](https://nodejs.org/).
-    ````
 
   </Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
-  Version managers let you switch between Node versions easily. Các lựa chọn phổ biến:
+  Trình quản lý phiên bản cho phép bạn chuyển đổi giữa các phiên bản Node một cách dễ dàng. Các lựa chọn phổ biến:
 
 - [**fnm**](https://github.com/Schniz/fnm) — nhanh, đa nền tảng
 - [**nvm**](https://github.com/nvm-sh/nvm) — được dùng rộng rãi trên macOS/Linux
@@ -82,7 +77,7 @@ fnm use 22
 ```
 
   <Warning>
-  Hãy đảm bảo trình quản lý phiên bản của bạn được khởi tạo trong file khởi động shell (`~/.zshrc` hoặc `~/.bashrc`). If it isn't, `openclaw` may not be found in new terminal sessions because the PATH won't include Node's bin directory.
+  Hãy đảm bảo trình quản lý phiên bản của bạn được khởi tạo trong file khởi động shell (`~/.zshrc` hoặc `~/.bashrc`). Nếu không, `openclaw` có thể không được tìm thấy trong các phiên terminal mới vì PATH sẽ không bao gồm thư mục bin của Node.
   </Warning>
 </Accordion>
 
@@ -103,9 +98,7 @@ fnm use 22
     echo "$PATH"
     ```
 
-    ```
     Tìm `<npm-prefix>/bin` (macOS/Linux) hoặc `<npm-prefix>` (Windows) trong đầu ra.
-    ```
 
   </Step>
   <Step title="Add it to your shell startup file">
@@ -113,18 +106,16 @@ fnm use 22
       <Tab title="macOS / Linux">
         Thêm vào `~/.zshrc` hoặc `~/.bashrc`:
 
+        ```bash
+        export PATH="$(npm prefix -g)/bin:$PATH"
         ```
-            ```bash
-            export PATH="$(npm prefix -g)/bin:$PATH"
-            ```
-        
-            Sau đó mở một terminal mới (hoặc chạy `rehash` trong zsh / `hash -r` trong bash).
-          </Tab>
-          <Tab title="Windows">
-            Thêm đầu ra của `npm prefix -g` vào PATH hệ thống qua Settings → System → Environment Variables.
-          </Tab>
-        </Tabs>
-        ```
+
+        Sau đó mở một terminal mới (hoặc chạy `rehash` trong zsh / `hash -r` trong bash).
+      </Tab>
+      <Tab title="Windows">
+        Thêm đầu ra của `npm prefix -g` vào PATH hệ thống qua Settings → System → Environment Variables.
+      </Tab>
+    </Tabs>
 
   </Step>
 </Steps>

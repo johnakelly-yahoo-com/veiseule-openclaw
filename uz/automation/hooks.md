@@ -9,7 +9,7 @@ title: "  --account openclaw@gmail.com \\"
 ## 18. Watch holati va tarixini tekshiring:
 
 19. gog gmail watch status --account openclaw@gmail.com
-    gog gmail history --account openclaw@gmail.com --since <historyId> 20. Nosozliklarni bartaraf etish
+    gog gmail history --account openclaw@gmail.com --since &lt;historyId&gt; 20. Nosozliklarni bartaraf etish
 
 - 21. `Invalid topicName`: loyiha nomuvofiqligi (topic OAuth client loyihasida emas).
 - 22. `User not authorized`: topic’da `roles/pubsub.publisher` yetishmaydi. 23. Bo‘sh xabarlar: Gmail push faqat `historyId` beradi; `gog gmail history` orqali olib keling.

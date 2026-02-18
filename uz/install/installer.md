@@ -175,7 +175,7 @@ The script exits with code `2` for invalid method selection or invalid `--instal
 <Steps>
   <Step title="Install local Node runtime">Node tarball’ni (standart `22.22.0`) ` ga yuklab oladi<prefix>/tools/node-v<version>` va SHA-256 ni tekshiradi.</Step>
   <Step title="Ensure Git">Agar Git mavjud bo‘lmasa, Linux’da apt/dnf/yum yoki macOS’da Homebrew orqali o‘rnatishga urinadi.</Step>
-  <Step title="Install OpenClaw under prefix">npm orqali `--prefix` yordamida o‘rnatadi<prefix>`, so‘ng wrapper’ni ` ga yozadi<prefix>/bin/openclaw` ga yozadi.</Step>
+  <Step title="Install OpenClaw under prefix">npm orqali `--prefix` yordamida o‘rnatadi&lt;prefix&gt;`, so‘ng wrapper’ni ` ga yozadi&lt;prefix&gt;/bin/openclaw` ga yozadi.</Step>
 </Steps>
 
 ### Misollar (install-cli.sh)

@@ -50,7 +50,7 @@ IDE (yoki boshqa mijoz) Agent Client Protocol’da gaplashganda va u OpenClaw Ga
 3. IDE’ngizni stdio orqali `openclaw acp` ni ishga tushirishga yo‘naltiring.
 
 Misol konfiguratsiya (saqlanadi):openclaw config set gateway.remote.url wss://gateway-host:18789
-openclaw config set gateway.remote.token <token>
+openclaw config set gateway.remote.token &lt;token&gt;
 
 ```bash
 To‘g‘ridan-to‘g‘ri ishga tushirish misoli (konfiguratsiya yozilmaydi):
@@ -95,7 +95,7 @@ Zed muharriri sozlamalari
 "--url",
 "wss://gateway-host:18789",
 "--token",
-"<token>",
+"&lt;token&gt;",
 "--session",
 "agent:design:main"
 ],

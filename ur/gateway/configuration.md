@@ -1494,7 +1494,7 @@ Overrides can be configured per channel and per account:
 
 حل کی ترتیب (سب سے مخصوص کو ترجیح):
 
-1. `channels.<channel>`.accounts.<id>.responsePrefix\`
+1. `channels.<channel>`.accounts.&lt;id&gt;.responsePrefix\`
 2. `channels.<channel>`.responsePrefix\`
 3. `messages.responsePrefix`
 

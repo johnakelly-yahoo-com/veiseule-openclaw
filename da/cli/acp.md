@@ -77,7 +77,7 @@ openclaw acp --session agent:qa:bug-123
 ```
 
 Hver AVS-session kort til en enkelt Gateway session nøgle. Én agent kan have mange
--sessioner; AVS er standard til en isoleret 'acp:<uuid>-session, medmindre du tilsidesætter
+-sessioner; AVS er standard til en isoleret 'acp:&lt;uuid&gt;-session, medmindre du tilsidesætter
 nøglen eller etiketten.
 
 ## Zed-editoropsætning

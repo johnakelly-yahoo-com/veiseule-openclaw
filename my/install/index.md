@@ -26,7 +26,6 @@ Windows တွင် OpenClaw ကို [WSL2](https://learn.microsoft.com/en-us
   <Accordion title="Installer script" icon="rocket" defaultOpen>
     CLI ကို ဒေါင်းလုဒ်လုပ်ပြီး npm ဖြင့် global အဖြစ် ထည့်သွင်းကာ onboarding wizard ကို စတင်ပါသည်။
 
-    ```
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -39,11 +38,11 @@ Windows တွင် OpenClaw ကို [WSL2](https://learn.microsoft.com/en-us
         ```
       </Tab>
     </Tabs>
-    
+
     ဒါပါပဲ — script က Node ကို ရှာဖွေခြင်း၊ ထည့်သွင်းခြင်းနှင့် onboarding ကို ကိုင်တွယ်ပေးပါသည်။
-    
+
     onboarding ကို ကျော်ပြီး binary ကိုသာ ထည့်သွင်းလိုပါက —
-    
+
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -56,30 +55,28 @@ Windows တွင် OpenClaw ကို [WSL2](https://learn.microsoft.com/en-us
         ```
       </Tab>
     </Tabs>
-    
+
     flag များ၊ env vars များနှင့် CI/automation ရွေးချယ်စရာများအားလုံးအတွက် [Installer internals](/install/installer) ကို ကြည့်ပါ။
-    ```
 
   </Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     Node 22+ ရှိပြီးသားဖြစ်ကာ ထည့်သွင်းခြင်းကို ကိုယ်တိုင် စီမံချင်ပါက —
 
-    ```
     <Tabs>
       <Tab title="npm">
         ```bash
         npm install -g openclaw@latest
         openclaw onboard --install-daemon
         ```
-    
+
         <Accordion title="sharp build errors?">
           libvips ကို global အဖြစ် ထည့်သွင်းထားပါက (macOS တွင် Homebrew မှတစ်ဆင့် သာမန်အားဖြင့် ဖြစ်တတ်သည်) နှင့် `sharp` မအောင်မြင်ပါက prebuilt binaries ကို အတင်းအသုံးပြုပါ —
-    
+
           ```bash
           SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
           ```
-    
+
           `sharp: Please add node-gyp to your dependencies` ကို တွေ့ရပါက build tooling ကို ထည့်သွင်းပါ (macOS: Xcode CLT + `npm install -g node-gyp`) သို့မဟုတ် အထက်ပါ env var ကို အသုံးပြုပါ။
         </Accordion>
       </Tab>
@@ -89,24 +86,22 @@ Windows တွင် OpenClaw ကို [WSL2](https://learn.microsoft.com/en-us
         pnpm approve-builds -g        # approve openclaw, node-llama-cpp, sharp, etc.
         openclaw onboard --install-daemon
         ```
-    
+
         <Note>
         pnpm သည် build scripts ပါသော packages များအတွက် အတည်ပြုချက်ကို ထင်ရှားစွာ လိုအပ်ပါသည်။ ပထမဆုံး install အပြီး “Ignored build scripts” သတိပေးချက် ပြပါက `pnpm approve-builds -g` ကို လည်ပတ်ပြီး ဖော်ပြထားသော packages များကို ရွေးချယ်ပါ။
         </Note>
       </Tab>
     </Tabs>
-    ```
 
   </Accordion>
 
   <Accordion title="From source" icon="github">
     ပါဝင်ကူညီသူများ သို့မဟုတ် local checkout မှ လည်ပတ်လိုသူများအတွက် ဖြစ်ပါသည်။
 
-    ```
     <Steps>
       <Step title="Clone and build">
         [OpenClaw repo](https://github.com/openclaw/openclaw) ကို clone လုပ်ပြီး build လုပ်ပါ —
-    
+
         ```bash
         git clone https://github.com/openclaw/openclaw.git
         cd openclaw
@@ -117,11 +112,11 @@ Windows တွင် OpenClaw ကို [WSL2](https://learn.microsoft.com/en-us
       </Step>
       <Step title="Link the CLI">
         `openclaw` အမိန့်ကို global အဖြစ် အသုံးပြုနိုင်စေရန် —
-    
+
         ```bash
         pnpm link --global
         ```
-    
+
         သို့မဟုတ် link မလုပ်ဘဲ repo အတွင်းမှ `pnpm openclaw ...` ဖြင့် အမိန့်များကို လည်ပတ်နိုင်ပါသည်။
       </Step>
       <Step title="Run onboarding">
@@ -130,9 +125,8 @@ Windows တွင် OpenClaw ကို [WSL2](https://learn.microsoft.com/en-us
         ```
       </Step>
     </Steps>
-    
+
     ပိုမိုနက်ရှိုင်းသော development workflow များအတွက် [Setup](/start/setup) ကို ကြည့်ပါ။
-    ```
 
   </Accordion>
 </AccordionGroup>
@@ -142,6 +136,9 @@ Windows တွင် OpenClaw ကို [WSL2](https://learn.microsoft.com/en-us
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     Containerized သို့မဟုတ် headless deployments များ။
+  </Card>
+  <Card title="Podman" href="/install/podman" icon="container">
+    Rootless container: run `setup-podman.sh` once, then the launch script.
   </Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     Nix ဖြင့် declarative ထည့်သွင်းခြင်း။
@@ -164,13 +161,13 @@ openclaw status         # gateway status
 openclaw dashboard      # open the browser UI
 ```
 
-14. custom runtime path များ လိုအပ်ပါက အောက်ပါအတိုင်း အသုံးပြုပါ:
+custom runtime path များ လိုအပ်ပါက အောက်ပါအတိုင်း အသုံးပြုပါ:
 
-- 15. home-directory အခြေပြု အတွင်းပိုင်း path များအတွက် `OPENCLAW_HOME`
-- 16. mutable state တည်နေရာအတွက် `OPENCLAW_STATE_DIR`
-- 17. config ဖိုင်တည်နေရာအတွက် `OPENCLAW_CONFIG_PATH`
+- home-directory အခြေပြု အတွင်းပိုင်း path များအတွက် `OPENCLAW_HOME`
+- mutable state တည်နေရာအတွက် `OPENCLAW_STATE_DIR`
+- config ဖိုင်တည်နေရာအတွက် `OPENCLAW_CONFIG_PATH`
 
-18. precedence နှင့် အသေးစိတ် အချက်အလက်များအတွက် [Environment vars](/help/environment) ကို ကြည့်ပါ။
+precedence နှင့် အသေးစိတ် အချက်အလက်များအတွက် [Environment vars](/help/environment) ကို ကြည့်ပါ။
 
 ## ပြဿနာဖြေရှင်းခြင်း: `openclaw` မတွေ့ပါ
 
@@ -184,7 +181,7 @@ npm prefix -g
 echo "$PATH"
 ```
 
-`$(npm prefix -g)/bin` (macOS/Linux) သို့မဟုတ် `$(npm prefix -g)` (Windows) သည် သင့် `$PATH` ထဲတွင် **မရှိပါက** သင့် shell က global npm binaries ( `openclaw` အပါအဝင်) ကို မရှာတွေ့နိုင်ပါ။
+`$(npm prefix -g)/bin` (macOS/Linux) သို့မဟုတ် `$(npm prefix -g)` (Windows) သည် သင့် `$PATH` ထဲတွင် **မရှိပါက** သင့် shell က global npm binaries (`openclaw` အပါအဝင်) ကို မရှာတွေ့နိုင်ပါ။
 
 ဖြေရှင်းရန် — သင့် shell startup file (`~/.zshrc` သို့မဟုတ် `~/.bashrc`) ထဲသို့ ထည့်ပါ —
 
@@ -194,7 +191,8 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 
 Windows တွင် `npm prefix -g` ၏ output ကို PATH ထဲသို့ ထည့်ပါ။
 
-ထို့နောက် terminal အသစ်တစ်ခုကို ဖွင့်ပါ (သို့မဟုတ် zsh တွင် `rehash` / bash တွင် `hash -r`)။ </Accordion>
+ထို့နောက် terminal အသစ်တစ်ခုကို ဖွင့်ပါ (သို့မဟုတ် zsh တွင် `rehash` / bash တွင် `hash -r`)။
+</Accordion>
 
 ## အပ်ဒိတ် / ဖယ်ရှားခြင်း
 

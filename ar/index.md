@@ -21,7 +21,8 @@ title: "OpenClaw"
 
 > _«قَشِّر! قَشِّر!»_ — جراد بحر فضائي، على الأرجح
 
-<p align="center"><strong>بوابة تعمل على أي نظام تشغيل لوكلاء الذكاء الاصطناعي عبر WhatsApp وTelegram وDiscord وiMessage وغيرها.</strong><br />
+<p align="center">
+  <strong>بوابة تعمل على أي نظام تشغيل لوكلاء الذكاء الاصطناعي عبر WhatsApp وTelegram وDiscord وiMessage وغيرها.</strong><br />
   أرسل رسالة، واحصل على رد من وكيل مباشرة من جيبك. تضيف الإضافات دعم Mattermost وغيرها.
 </p>
 

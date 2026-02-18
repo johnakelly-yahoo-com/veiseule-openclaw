@@ -21,7 +21,8 @@ title: "OpenClaw"
 
 > _「EXFOLIATE! EXFOLIATE!」_ — たぶん宇宙ロブスター
 
-<p align="center"><strong>WhatsApp、Telegram、Discord、iMessage などに対応した、AI エージェント向けの Any OS ゲートウェイ。</strong><br />
+<p align="center">
+  <strong>WhatsApp、Telegram、Discord、iMessage などに対応した、AI エージェント向けの Any OS ゲートウェイ。</strong><br />
   メッセージを送信すると、ポケットからエージェントの応答が返ってきます。プラグインで Mattermost なども追加できます。
 <br />
   メッセージを送信し、あなたのポケットからエージェントの応答を取得します。 プラグインはMattermostなどを追加します。

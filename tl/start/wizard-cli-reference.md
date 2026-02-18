@@ -14,7 +14,7 @@ Ang local mode (default) ay gagabayan ka sa:
 
 - Setup ng model at auth (OpenAI Code subscription OAuth, Anthropic API key o setup token, pati MiniMax, GLM, Moonshot, at mga opsyon sa AI Gateway)
 - Lokasyon ng workspace at mga bootstrap file
-- Mga setting ng Gateway (port, bind, auth, Tailscale)
+- Mga setting ng Gateway (port, bind, auth, tailscale)
 - Mga channel at provider (Telegram, WhatsApp, Discord, Google Chat, Mattermost plugin, Signal)
 - Pag-install ng daemon (LaunchAgent o systemd user unit)
 - Pagsusuri ng kalusugan
@@ -33,14 +33,14 @@ Hindi ito nag-i-install o nagbabago ng anuman sa remote host.
     - Gumagamit ang Reset ng `trash` at nag-aalok ng mga saklaw:
       - Config lang
       - Config + credentials + mga session
-      - Full reset (inaalis din ang workspace)  
-</Step>
+      - Full reset (inaalis din ang workspace)
+  </Step>
   <Step title="Model and auth">
     - Ang buong option matrix ay nasa [Auth and model options](#auth-and-model-options).
   </Step>
   <Step title="Workspace">
     - Default na `~/.openclaw/workspace` (maaaring i-configure).
-    - Ihanda ang mga workspace file na kailangan para sa unang pagtakbong bootstrap ritual.
+    - Ihinahasik ang mga workspace file na kailangan para sa unang pagtakbong bootstrap ritual.
     - Layout ng workspace: [Agent workspace](/concepts/agent-workspace).
   </Step>
   <Step title="Gateway">
@@ -58,35 +58,34 @@ Hindi ito nag-i-install o nagbabago ng anuman sa remote host.
     - [Signal](/channels/signal): optional `signal-cli` install + account config
     - [BlueBubbles](/channels/bluebubbles): recommended for iMessage; server URL + password + webhook
     - [iMessage](/channels/imessage): legacy `imsg` CLI path + DB access
-    - DM security: default is pairing. First DM sends a code; approve via
-      `openclaw pairing approve <channel><code>` o gumamit ng mga allowlist.
-  </Step><code>` or use allowlists.
+    - DM security: default ay pairing. Ang unang DM ay nagpapadala ng code; i-approve sa pamamagitan ng
+      `openclaw pairing approve <channel> <code>` o gumamit ng mga allowlist.
   </Step>
   <Step title="Daemon install">
     - macOS: LaunchAgent
-      - Requires logged-in user session; for headless, use a custom LaunchDaemon (not shipped).
-    - Linux and Windows via WSL2: systemd user unit
-      - Wizard attempts `loginctl enable-linger <user>` so gateway stays up after logout.
-      - May prompt for sudo (writes `/var/lib/systemd/linger`); it tries without sudo first.
-    - Runtime selection: Node (recommended; required for WhatsApp and Telegram). 1. Hindi inirerekomenda ang Bun.
-  2. </Step>
+      - Nangangailangan ng naka-login na user session; para sa headless, gumamit ng custom LaunchDaemon (hindi kasama).
+    - Linux at Windows sa pamamagitan ng WSL2: systemd user unit
+      - Sinusubukan ng wizard ang `loginctl enable-linger <user>` upang manatiling tumatakbo ang gateway pagkatapos mag-logout.
+      - Maaaring humingi ng sudo (nagsusulat sa `/var/lib/systemd/linger`); susubukan muna nito nang walang sudo.
+    - Runtime selection: Node (inirerekomenda; kailangan para sa WhatsApp at Telegram). Hindi inirerekomenda ang Bun.
+  </Step>
   <Step title="Health check">
     - Sinisimulan ang gateway (kung kailangan) at pinapatakbo ang `openclaw health`.
-    - `openclaw status --deep` adds gateway health probes to status output.
-  3. </Step>
+    - Ang `openclaw status --deep` ay nagdaragdag ng gateway health probes sa status output.
+  </Step>
   <Step title="Skills">
     - Binabasa ang mga available na skill at sinusuri ang mga kinakailangan.
-    4. - Pinapapili ka ng node manager: npm o pnpm (hindi inirerekomenda ang bun).
-    5. - Nag-i-install ng mga opsyonal na dependency (ang ilan ay gumagamit ng Homebrew sa macOS).
-  6. </Step>
+    - Pinapapili ka ng node manager: npm o pnpm (hindi inirerekomenda ang bun).
+    - Nag-i-install ng mga opsyonal na dependency (ang ilan ay gumagamit ng Homebrew sa macOS).
+  </Step>
   <Step title="Finish">
     - Buod at mga susunod na hakbang, kabilang ang mga opsyon para sa iOS, Android, at macOS app.
   </Step>
 </Steps>
 
 <Note>
-7. Kung walang nakitang GUI, ipiniprint ng wizard ang mga tagubilin sa SSH port-forward para sa Control UI sa halip na magbukas ng browser.
-If Control UI assets are missing, the wizard attempts to build them; fallback is `pnpm ui:build` (auto-installs UI deps).
+Kung walang nakitang GUI, ipiniprint ng wizard ang mga tagubilin sa SSH port-forward para sa Control UI sa halip na magbukas ng browser.
+Kung nawawala ang Control UI assets, susubukan ng wizard na i-build ang mga ito; fallback ang `pnpm ui:build` (awtomatikong ini-install ang UI deps).
 </Note>
 
 ## Mga detalye ng remote mode
@@ -103,8 +102,8 @@ Mga ise-set mo:
 - Token kung kailangan ang auth ng remote gateway (inirerekomenda)
 
 <Note>
-8. - Kung loopback-only ang gateway, gumamit ng SSH tunneling o isang tailnet.
-- Discovery hints:
+- Kung loopback-only ang gateway, gumamit ng SSH tunneling o isang tailnet.
+- Mga discovery hint:
   - macOS: Bonjour (`dns-sd`)
   - Linux: Avahi (`avahi-browse`)
 </Note>
@@ -119,14 +118,11 @@ Mga ise-set mo:
     - macOS: tinitingnan ang Keychain item na "Claude Code-credentials"
     - Linux at Windows: nire-reuse ang `~/.claude/.credentials.json` kung naroroon
 
-    ```
     Sa macOS, piliin ang "Always Allow" para hindi ma-block ang mga launchd start.
-    ```
-
   </Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
-    Run `claude setup-token` on any machine, then paste the token.
-    9. Maaari mo itong pangalanan; kapag blangko, gagamit ng default.
+    Patakbuhin ang `claude setup-token` sa anumang makina, pagkatapos ay i-paste ang token.
+    Maaari mo itong pangalanan; kapag blangko, gagamit ng default.
   </Accordion>
   <Accordion title="OpenAI Code subscription (Codex CLI reuse)">
     Kung umiiral ang `~/.codex/auth.json`, maaaring i-reuse ito ng wizard.
@@ -134,49 +130,54 @@ Mga ise-set mo:
   <Accordion title="OpenAI Code subscription (OAuth)">
     Browser flow; i-paste ang `code#state`.
 
-    ```
     Itinatakda ang `agents.defaults.model` sa `openai-codex/gpt-5.3-codex` kapag hindi naka-set ang model o `openai/*`.
-    ```
-
   </Accordion>
   <Accordion title="OpenAI API key">
     Gumagamit ng `OPENAI_API_KEY` kung naroroon o hihingi ng key, pagkatapos ay ise-save ito sa
     `~/.openclaw/.env` para mabasa ng launchd.
 
-    ```
     Itinatakda ang `agents.defaults.model` sa `openai/gpt-5.1-codex` kapag hindi naka-set ang model, `openai/*`, o `openai-codex/*`.
-    ```
-
   </Accordion>
   <Accordion title="xAI (Grok) API key">
     Hihingi ng `XAI_API_KEY` at iko-configure ang xAI bilang model provider.
   </Accordion>
   <Accordion title="OpenCode Zen">
-    Prompts for `OPENCODE_API_KEY` (or `OPENCODE_ZEN_API_KEY`).
+    Hihingi ng `OPENCODE_API_KEY` (o `OPENCODE_ZEN_API_KEY`).
     Setup URL: [opencode.ai/auth](https://opencode.ai/auth).
   </Accordion>
   <Accordion title="API key (generic)">
     Ise-store ang key para sa iyo.
   </Accordion>
   <Accordion title="Vercel AI Gateway">
-    10. Hihingi ng `AI_GATEWAY_API_KEY`.
+    Hihingi ng `AI_GATEWAY_API_KEY`.
     More detail: [Vercel AI Gateway](/providers/vercel-ai-gateway).
   </Accordion>
   <Accordion title="Cloudflare AI Gateway">
-    Prompts for account ID, gateway ID, and `CLOUDFLARE_AI_GATEWAY_API_KEY`.
+    Hihingi ng account ID, gateway ID, at `CLOUDFLARE_AI_GATEWAY_API_KEY`.
     More detail: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway).
   </Accordion>
   <Accordion title="MiniMax M2.1">
-    Config is auto-written.
-    11. Mas detalyado: [MiniMax](/providers/minimax).
+    Awtomatikong isinusulat ang config.
+    Mas detalyado: [MiniMax](/providers/minimax).
   </Accordion>
   <Accordion title="Synthetic (Anthropic-compatible)">
-    12. Hihingi ng `SYNTHETIC_API_KEY`.
+    Hihingi ng `SYNTHETIC_API_KEY`.
     More detail: [Synthetic](/providers/synthetic).
   </Accordion>
   <Accordion title="Moonshot and Kimi Coding">
-    Moonshot (Kimi K2) and Kimi Coding configs are auto-written.
+    Awtomatikong isinusulat ang mga config ng Moonshot (Kimi K2) at Kimi Coding.
     More detail: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
+  </Accordion>
+  <Accordion title="Custom provider">
+    Gumagana sa OpenAI-compatible at Anthropic-compatible na mga endpoint.
+
+    Mga non-interactive flag:
+    - `--auth-choice custom-api-key`
+    - `--custom-base-url`
+    - `--custom-model-id`
+    - `--custom-api-key` (opsyonal; babalik sa `CUSTOM_API_KEY`)
+    - `--custom-provider-id` (opsyonal)
+    - `--custom-compatibility <openai|anthropic>` (opsyonal; default ay `openai`)
   </Accordion>
   <Accordion title="Skip">
     Iniiwan ang auth na hindi naka-configure.
@@ -196,7 +197,7 @@ Mga path ng credential at profile:
 <Note>
 Tip para sa headless at server: tapusin ang OAuth sa isang makinang may browser, pagkatapos ay kopyahin ang
 `~/.openclaw/credentials/oauth.json` (o `$OPENCLAW_STATE_DIR/credentials/oauth.json`)
-papunta sa host ng Gateway.
+papunta sa gateway host.
 </Note>
 
 ## Mga output at internals
@@ -205,7 +206,7 @@ Mga karaniwang field sa `~/.openclaw/openclaw.json`:
 
 - `agents.defaults.workspace`
 - `agents.defaults.model` / `models.providers` (kung Minimax ang pinili)
-- `gateway.*` (mode, bind, auth, Tailscale)
+- `gateway.*` (mode, bind, auth, tailscale)
 - `channels.telegram.botToken`, `channels.discord.token`, `channels.signal.*`, `channels.imessage.*`
 - Mga channel allowlist (Slack, Discord, Matrix, Microsoft Teams) kapag nag-opt in ka sa mga prompt (ang mga pangalan ay nireresolba sa mga ID kung posible)
 - `skills.install.nodeManager`
@@ -217,12 +218,12 @@ Mga karaniwang field sa `~/.openclaw/openclaw.json`:
 
 Isinusulat ng `openclaw agents add` ang `agents.list[]` at opsyonal na `bindings`.
 
-WhatsApp credentials go under `~/.openclaw/credentials/whatsapp/<accountId>/`.
-Sessions are stored under `~/.openclaw/agents/<agentId>/sessions/`.
+Ang WhatsApp credentials ay napupunta sa `~/.openclaw/credentials/whatsapp/<accountId>/`.
+Ang mga session ay naka-store sa `~/.openclaw/agents/<agentId>/sessions/`.
 
 <Note>
-Some channels are delivered as plugins. When selected during onboarding, the wizard
-prompts to install the plugin (npm or local path) before channel configuration.
+Ang ilang channel ay inihahatid bilang mga plugin. Kapag pinili sa onboarding, hihilingin ng wizard
+na i-install ang plugin (npm o local path) bago ang configuration ng channel.
 </Note>
 
 Gateway wizard RPC:

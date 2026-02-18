@@ -181,7 +181,7 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
   <Step title="Ensure Git">
     Git 이 없으면 Linux 에서는 apt/dnf/yum, macOS 에서는 Homebrew 로 설치를 시도합니다.
   </Step>
-  <Step title="Install OpenClaw under prefix">` 를 사용하여 npm 으로 설치한 뒤, `<prefix>`, then writes wrapper to `<prefix>/bin/openclaw` 에 래퍼를 작성합니다.
+  <Step title="Install OpenClaw under prefix">` 를 사용하여 npm 으로 설치한 뒤, `&lt;prefix&gt;`, then writes wrapper to `&lt;prefix&gt;/bin/openclaw` 에 래퍼를 작성합니다.
   </Step>
 </Steps>
 

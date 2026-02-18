@@ -176,7 +176,7 @@ More details: [Pairing](/channels/pairing#pair-via-telegram-recommended-for-ios)
 - Tải xuống/tải lên media bị giới hạn bởi `channels.telegram.mediaMaxMb` (mặc định 5).
 - Các yêu cầu Telegram Bot API hết thời gian sau `channels.telegram.timeoutSeconds` (mặc định 500 qua grammY). Set lower to avoid long hangs.
 - Group history context uses `channels.telegram.historyLimit` (or `channels.telegram.accounts.*.historyLimit`), falling back to `messages.groupChat.historyLimit`. Set `0` to disable (default 50).
-- `(skills, allowlists, auto-reply, system prompts, disable). Ghi đè theo người dùng:`channels.telegram.dms["<user_id>"].historyLimit\`.
+- `(skills, allowlists, auto-reply, system prompts, disable). Ghi đè theo người dùng:`channels.telegram.dms["&lt;user_id&gt;"].historyLimit\`.
 
 ## Chế độ kích hoạt nhóm
 
@@ -197,7 +197,7 @@ Theo mặc định, bot chỉ phản hồi các lần nhắc trong nhóm (`@botn
 ```
 
 **Important:** Setting `channels.telegram.groups` creates an **allowlist** - only listed groups (or `"*"`) will be accepted.
-Các chủ đề forum kế thừa cấu hình nhóm cha của chúng (allowFrom, requireMention, skills, prompts) trừ khi bạn thêm ghi đè theo từng chủ đề dưới \`channels.telegram.groups.<groupId>`.topics.<topicId>`.
+Các chủ đề forum kế thừa cấu hình nhóm cha của chúng (allowFrom, requireMention, skills, prompts) trừ khi bạn thêm ghi đè theo từng chủ đề dưới \`channels.telegram.groups.<groupId>`.topics.&lt;topicId&gt;`.
 
 Cho phép tất cả nhóm và luôn phản hồi:
 

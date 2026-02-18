@@ -30,7 +30,7 @@ openclaw nodes status --last-connected 24h
 ```
 
 `nodes list` は保留/ペアテーブルを表示します。 ペアリングされた行には、最新の接続年齢 (Last Connect) が含まれます。
-現在接続されているノードのみを表示するには、 `--connected` を使用します。 <duration>には、 `--last-connected
+現在接続されているノードのみを表示するには、 `--connected` を使用します。 &lt;duration&gt;には、 `--last-connected
 `を使用して、持続時間内に接続されたノード(例えば `24h`, `7d`)にフィルターをかけます。
 
 ## Invoke / 実行

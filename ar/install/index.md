@@ -4,7 +4,7 @@ title: "التثبيت"
 
 # التثبيت
 
-هل تابعت بالفعل [بدء](/start/getting-started)؟ هل اتبعت بالفعل [بدء الاستخدام](/start/getting-started)؟ أنت جاهز — هذه الصفحة مخصّصة لطرق التثبيت البديلة، والتعليمات الخاصة بالمنصّات، وأعمال الصيانة.
+هل تابعت بالفعل [بدء الاستخدام](/start/getting-started)؟ أنت جاهز — هذه الصفحة مخصّصة لطرق التثبيت البديلة، والتعليمات الخاصة بالمنصّات، وأعمال الصيانة.
 
 ## متطلبات النظام
 
@@ -26,7 +26,6 @@ title: "التثبيت"
   <Accordion title="Installer script" icon="rocket" defaultOpen>
     يقوم بتنزيل CLI وتثبيته بشكل عام عبر npm، ثم تشغيل معالج التهيئة الأولية.
 
-    ```
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -39,11 +38,11 @@ title: "التثبيت"
         ```
       </Tab>
     </Tabs>
-    
+
     هذا كل شيء — يتكفّل البرنامج باكتشاف Node وتثبيته والتهيئة الأولية.
-    
+
     لتجاوز التهيئة الأولية والاكتفاء بتثبيت الملف التنفيذي:
-    
+
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -56,30 +55,28 @@ title: "التثبيت"
         ```
       </Tab>
     </Tabs>
-    
+
     للاطلاع على جميع الأعلام ومتغيرات البيئة وخيارات CI/الأتمتة، راجع [Installer internals](/install/installer).
-    ```
 
   </Accordion>
 
   <Accordion title="npm / pnpm" icon="package">
     إذا كان لديك بالفعل Node 22+ وتفضّل إدارة التثبيت بنفسك:
 
-    ```
     <Tabs>
       <Tab title="npm">
         ```bash
         npm install -g openclaw@latest
         openclaw onboard --install-daemon
         ```
-    
+
         <Accordion title="أخطاء بناء sharp؟">
-          إذا كان لديك libvips مثبتًا بشكل عام (شائع على macOS عبر Homebrew) وفشل `sharp`، فقم بفرض استخدام الثنائيات المُسبقة البناء:
-    
+          إذا كان لديك libvips مثبتًا بشكل عام (شائع على macOS عبر Homebrew) وفشل `sharp`، فقم بفرض استخدام الثنائيات مُسبقة البناء:
+
           ```bash
           SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
           ```
-    
+
           إذا رأيت `sharp: Please add node-gyp to your dependencies`، فإمّا أن تثبّت أدوات البناء (macOS: Xcode CLT + `npm install -g node-gyp`) أو استخدم متغير البيئة أعلاه.
         </Accordion>
       </Tab>
@@ -89,24 +86,22 @@ title: "التثبيت"
         pnpm approve-builds -g        # approve openclaw, node-llama-cpp, sharp, etc.
         openclaw onboard --install-daemon
         ```
-    
+
         <Note>
-        يتطلّب pnpm موافقة صريحة للحِزم التي تحتوي على نصوص بناء. بعد أن يُظهر التثبيت الأول تحذير «Ignored build scripts»، شغّل `pnpm approve-builds -g` واختر الحِزم المدرجة.
+        يتطلّب pnpm موافقة صريحة للحِزم التي تحتوي على نصوص بناء. بعد أن يُظهر التثبيت الأول تحذير "Ignored build scripts"، شغّل `pnpm approve-builds -g` واختر الحِزم المدرجة.
         </Note>
       </Tab>
     </Tabs>
-    ```
 
   </Accordion>
 
   <Accordion title="From source" icon="github">
     للمساهمين أو لأي شخص يرغب في التشغيل من نسخة محلية.
 
-    ```
     <Steps>
       <Step title="الاستنساخ والبناء">
         استنسخ [مستودع OpenClaw](https://github.com/openclaw/openclaw) ثم ابنِ المشروع:
-    
+
         ```bash
         git clone https://github.com/openclaw/openclaw.git
         cd openclaw
@@ -117,11 +112,11 @@ title: "التثبيت"
       </Step>
       <Step title="ربط CLI">
         اجعل الأمر `openclaw` متاحًا بشكل عام:
-    
+
         ```bash
         pnpm link --global
         ```
-    
+
         بديلًا عن ذلك، يمكنك تجاوز الربط وتشغيل الأوامر عبر `pnpm openclaw ...` من داخل المستودع.
       </Step>
       <Step title="تشغيل التهيئة الأولية">
@@ -130,9 +125,8 @@ title: "التثبيت"
         ```
       </Step>
     </Steps>
-    
+
     لمزيد من مسارات العمل التطويرية المتقدمة، راجع [الإعداد](/start/setup).
-    ```
 
   </Accordion>
 </AccordionGroup>
@@ -142,6 +136,9 @@ title: "التثبيت"
 <CardGroup cols={2}>
   <Card title="Docker" href="/install/docker" icon="container">
     عمليات نشر مُحاوَاة بالحاويات أو دون واجهة.
+  </Card>
+  <Card title="Podman" href="/install/podman" icon="container">
+    حاوية بدون صلاحيات root: شغّل `setup-podman.sh` مرة واحدة، ثم شغّل سكربت الإطلاق.
   </Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
     تثبيت تصريحي عبر Nix.
@@ -164,13 +161,13 @@ openclaw status         # gateway status
 openclaw dashboard      # open the browser UI
 ```
 
-14. إذا كنت بحاجة إلى مسارات تشغيل مخصّصة، استخدم:
+إذا كنت بحاجة إلى مسارات تشغيل مخصّصة، استخدم:
 
-- 15. `OPENCLAW_HOME` لمسارات داخلية معتمدة على دليل المنزل
-- 16. `OPENCLAW_STATE_DIR` لموقع الحالة القابلة للتغيير
-- 17. `OPENCLAW_CONFIG_PATH` لموقع ملف الإعدادات
+- `OPENCLAW_HOME` لمسارات داخلية معتمدة على دليل المنزل
+- `OPENCLAW_STATE_DIR` لموقع الحالة القابلة للتغيير
+- `OPENCLAW_CONFIG_PATH` لموقع ملف الإعدادات
 
-18. راجع [Environment vars](/help/environment) لمعرفة الأولوية وكامل التفاصيل.
+راجع [Environment vars](/help/environment) لمعرفة الأولوية وكامل التفاصيل.
 
 ## استكشاف الأخطاء وإصلاحها: `openclaw` غير موجود
 
@@ -194,7 +191,8 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 
 على Windows، أضِف ناتج `npm prefix -g` إلى PATH.
 
-ثم افتح طرفية جديدة (أو `rehash` في zsh / `hash -r` في bash). </Accordion>
+ثم افتح طرفية جديدة (أو `rehash` في zsh / `hash -r` في bash).
+</Accordion>
 
 ## التحديث / إلغاء التثبيت
 

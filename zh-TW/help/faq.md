@@ -1122,7 +1122,7 @@ clawhub install <skill-slug>
 clawhub update --all
 ```
 
-如果你想要原生整合，請提出功能需求或建立一個針對這些 API 的技能。 安裝技能： clawhub install <skill-slug>
+如果你想要原生整合，請提出功能需求或建立一個針對這些 API 的技能。 安裝技能： clawhub install &lt;skill-slug&gt;
 clawhub update --all See [Skills](/tools/skills) and [ClawHub](/tools/clawhub).
 
 ### How do I install the Chrome extension for browser takeover

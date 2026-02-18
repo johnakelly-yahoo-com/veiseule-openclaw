@@ -245,7 +245,7 @@ The wizard uses it to set your **allowlist/owner** so your own DMs are permitted
   - `ReplyToSender` = E.164 when known
 
 - Faqat media bo‘lgan kiruvchi xabarlar plaseholderlardan foydalanadi:
-  - <media:image|video|audio|document|sticker>
+  - &lt;media:image|video|audio|document|sticker&gt;
 
 ## Guruhlar
 

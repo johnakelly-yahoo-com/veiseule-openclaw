@@ -21,7 +21,8 @@ title: "OpenClaw"
 
 > _"EXFOLIATE! EKFOLIATE!"_ — En rumhummer, sandsynligvis
 
-<p align="center"><strong>Enhver OS gateway for AI agenter på tværs WhatsApp, Telegram, Discord, iMessage og meget mere.</strong><br />
+<p align="center">
+  <strong>Enhver OS gateway for AI agenter på tværs WhatsApp, Telegram, Discord, iMessage og meget mere.</strong><br />
   Send en besked, få et agent svar fra din lomme. Plugins tilføjer mest og meget mere.
 </p>
 
