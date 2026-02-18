@@ -1,49 +1,59 @@
 ---
-title: "28. Onboarding (macOS ilovasi)"
-sidebarTitle: "29. Onboarding: macOS ilovasi"
+title: "Onboarding (macOS App)"
+sidebarTitle: "Onboarding: macOS App"
 ---
 
-# 30. Onboarding (macOS ilovasi)
+# Onboarding (macOS App)
 
-31. Ushbu hujjat **joriy** birinchi ishga tushirishdagi onboarding oqimini tasvirlaydi. 32. Maqsad — silliq “day 0” tajribasi: Gateway qayerda ishlashini tanlash, auth ulash, ustani ishga tushirish va agentning o‘zini o‘zi boshlashiga imkon berish.
+This doc describes the **current** first‑run onboarding flow. The goal is a
+smooth “day 0” experience: pick where the Gateway runs, connect auth, run the
+wizard, and let the agent bootstrap itself.
+For a general overview of onboarding paths, see [Onboarding Overview](/start/onboarding-overview).
 
 <Steps>
-<Step title="Approve macOS warning">33. 
-<Frame><img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>34. 
+<Step title="Approve macOS warning">
+<Frame>
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
 </Frame>
 </Step>
-<Step title="Approve find local networks">35. 
-<Frame><img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>36. 
+<Step title="Approve find local networks">
+<Frame>
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
 </Frame>
 </Step>
-<Step title="Welcome and security notice">37. 
-<Frame caption="Ko‘rsatilgan xavfsizlik ogohlantirishini o‘qing va shunga muvofiq qaror qabul qiling"><img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>38. 
+<Step title="Welcome and security notice">
+<Frame caption="Read the security notice displayed and decide accordingly">
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
 </Frame>
 </Step>
-<Step title="Local vs Remote">39. 
-<Frame><img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
+<Step title="Local vs Remote">
+<Frame>
+<img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
-40. **Gateway** qayerda ishlaydi?
+Where does the **Gateway** run?
 
-- 41. **Ushbu Mac (faqat lokal):** onboarding OAuth oqimlarini ishga tushirishi va hisob maʼlumotlarini lokal ravishda yozishi mumkin.
-- 42. **Masofaviy (SSH/Tailnet orqali):** onboarding OAuthʼni lokal ravishda ishga tushirmaydi; hisob maʼlumotlari gateway xostida mavjud bo‘lishi kerak.
-- 43. **Keyinroq sozlash:** sozlashni o‘tkazib yuborish va ilovani sozlanmagan holda qoldirish.
+- **This Mac (Local only):** onboarding can run OAuth flows and write credentials
+  locally.
+- **Remote (over SSH/Tailnet):** onboarding does **not** run OAuth locally;
+  credentials must exist on the gateway host.
+- **Configure later:** skip setup and leave the app unconfigured.
 
 <Tip>
-44. **Gateway auth bo‘yicha maslahat:**
-- Endi usta loopback uchun ham **token** yaratadi, shuning uchun lokal WS mijozlari autentifikatsiyadan o‘tishi kerak.
-45. - Agar auth’ni o‘chirsangiz, istalgan lokal jarayon ulanadi; buni faqat to‘liq ishonchli mashinalarda ishlating.
-46. - Ko‘p mashinali kirish yoki loopback bo‘lmagan bog‘lanishlar uchun **token**dan foydalaning.
+**Gateway auth tip:**
+- The wizard now generates a **token** even for loopback, so local WS clients must authenticate.
+- If you disable auth, any local process can connect; use that only on fully trusted machines.
+- Use a **token** for multi‑machine access or non‑loopback binds.
 </Tip>
 </Step>
-<Step title="Permissions">48. 
-<Frame caption="OpenClawʼga qaysi ruxsatlarni berishni xohlayotganingizni tanlang"><img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
+<Step title="Permissions">
+<Frame caption="Choose what permissions do you want to give OpenClaw">
+<img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
-49. Onboarding quyidagilar uchun zarur bo‘lgan TCC ruxsatlarini so‘raydi:
+Onboarding requests TCC permissions needed for:
 
-- 50. Avtomatlashtirish (AppleScript)
+- Automation (AppleScript)
 - Notifications
 - Accessibility
 - Screen Recording

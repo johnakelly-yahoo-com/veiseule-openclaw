@@ -1,107 +1,116 @@
 ---
-title: "Boshlash"
+title: "Getting Started"
 ---
 
-# Boshlash
+# Getting Started
 
-Maqsad: minimal sozlash bilan noldan birinchi ishlaydigan chatga yetib borish.
+Goal: go from zero to a first working chat with minimal setup.
 
 <Info>
-Eng tezkor chat: Control UI’ni oching (kanal sozlamasi talab qilinmaydi). Run `openclaw dashboard`
-and brauzerda chat qiling, yoki `http://127.0.0.1:18789/` ni oching
-<Tooltip headline="Gateway host" tip="The machine running the OpenClaw gateway service.">gateway xosti</Tooltip>.
-Hujjatlar: [Dashboard](/web/dashboard) va [Control UI](/web/control-ui).
+Fastest chat: open the Control UI (no channel setup needed). Run `openclaw dashboard`
+and chat in the browser, or open `http://127.0.0.1:18789/` on the
+<Tooltip headline="Gateway host" tip="The machine running the OpenClaw gateway service.">gateway host</Tooltip>.
+Docs: [Dashboard](/web/dashboard) and [Control UI](/web/control-ui).
 </Info>
 
-## Talablar
+## Prereqs
 
-- Node 22 yoki undan yangisi
+- Node 22 or newer
 
 <Tip>
-Agar ishonchingiz komil bo‘lmasa, `node --version` buyrug‘i yordamida Node versiyangizni tekshiring.
+Check your Node version with `node --version` if you are unsure.
 </Tip>
 
-## Agar ishonchingiz komil bo‘lmasa, `node --version` bilan Node versiyangizni tekshiring.
+## Quick setup (CLI)
 
 <Steps>
   <Step title="Install OpenClaw (recommended)">
     <Tabs>
-      <Tab title="macOS/Linux">Tezkor sozlash (CLI)
+      <Tab title="macOS/Linux">
+        ```bash
+        curl -fsSL https://openclaw.ai/install.sh | bash
+        ```
+        <img
+  src="/assets/install-script.svg"
+  alt="Install Script Process"
+  className="rounded-lg"></img>
+      
 </Tab>
-      <Tab title="Windows (PowerShell)">```bash
-curl -fsSL https://openclaw.ai/install.sh | bash
-```
+      <Tab title="Windows (PowerShell)">
+        ```powershell
+        iwr -useb https://openclaw.ai/install.ps1 | iex
+        ```
+      
 </Tab>
     
 </Tabs>
 
-    ````
-    ```powershell
-    iwr -useb https://openclaw.ai/install.ps1 | iex
-    ```
-    ````
+    <Note>
+    Other install methods and requirements: [Install](/install).
+    
+</Note>
 
   
 </Step>
   <Step title="Run the onboarding wizard">
-</Step>
-
-    ````
     ```bash
     openclaw onboard --install-daemon
     ```
-    ````
+
+    The wizard configures auth, gateway settings, and optional channels.
+    See [Onboarding Wizard](/start/wizard) for details.
 
   
 </Step>
   <Step title="Check the Gateway">
-</Step>
+    If you installed the service, it should already be running:
 
-    ```
-    Agar siz xizmatni o‘rnatgan bo‘lsangiz, u allaqachon ishlayotgan bo‘lishi kerak:
+    ```bash
+    openclaw gateway status
     ```
 
   
 </Step>
   <Step title="Open the Control UI">
-</Step></Step>
+    ```bash
+    openclaw dashboard
+    ```
+  
+</Step>
 </Steps>
 
 <Check>
-```bash
-openclaw dashboard
-```
+If the Control UI loads, your Gateway is ready for use.
 </Check>
 
-## Agar Control UI yuklansa, Gateway foydalanishga tayyor.
+## Optional checks and extras
 
 <AccordionGroup>
-  <Accordion title="Run the Gateway in the foreground">Ixtiyoriy tekshiruvlar va qo‘shimchalar
+  <Accordion title="Run the Gateway in the foreground">
+    Useful for quick tests or troubleshooting.
 
-    ```
-    Tezkor sinovlar yoki nosozliklarni aniqlash uchun foydali.
+    ```bash
+    openclaw gateway --port 18789
     ```
 
   
 </Accordion>
   <Accordion title="Send a test message">
-</Accordion>
+    Requires a configured channel.
 
-    ````
     ```bash
     openclaw message send --target +15555550123 --message "Hello from OpenClaw"
     ```
-    ````
 
   
 </Accordion>
 </AccordionGroup>
 
-## Foydali muhit o‘zgaruvchilari
+## Useful environment variables
 
-Agar OpenClaw’ni xizmat hisobi sifatida ishga tushirsangiz yoki maxsus konfiguratsiya/holat joylashuvlarini xohlasangiz:
+If you run OpenClaw as a service account or want custom config/state locations:
 
-- `OPENCLAW_HOME` ichki yo‘l aniqlash uchun ishlatiladigan uy katalogini belgilaydi.
+- `OPENCLAW_HOME` sets the home directory used for internal path resolution.
 - `OPENCLAW_STATE_DIR` overrides the state directory.
 - `OPENCLAW_CONFIG_PATH` overrides the config file path.
 
