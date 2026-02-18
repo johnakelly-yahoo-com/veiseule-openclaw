@@ -1,8 +1,6 @@
 ---
-summary: "OpenClaw is a multi-channel gateway for AI agents that runs on any OS."
-read_when:
-  - Introducing OpenClaw to newcomers
 title: "OpenClaw"
+description: "OpenClaw is a multi-channel gateway for AI agents that runs on any OS."
 ---
 
 # OpenClaw 🦞
