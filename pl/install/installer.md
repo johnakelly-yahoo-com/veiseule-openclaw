@@ -135,12 +135,12 @@ The script exits with code `2` for invalid method selection or invalid `--instal
 
 | Flag                            | Description                                                |
 | ------------------------------- | ---------------------------------------------------------- |
-| `--install-method npm\|git`     | Choose install method (default: `npm`). Alias: `--method`  |
+| `--install-method npm|git`     | Choose install method (default: `npm`). Alias: `--method`  |
 | `--npm`                         | Shortcut for npm method                                    |
 | `--git`                         | Shortcut for git method. Alias: `--github`                 |
-| `--version <version\|dist-tag>` | npm version or dist-tag (default: `latest`)                |
+| `--version &lt;version|dist-tag&gt;` | npm version or dist-tag (default: `latest`)                |
 | `--beta`                        | Use beta dist-tag if available, else fallback to `latest`  |
-| `--git-dir <path>`              | Checkout directory (default: `~/openclaw`). Alias: `--dir` |
+| `--git-dir &lt;path&gt;`              | Checkout directory (default: `~/openclaw`). Alias: `--dir` |
 | `--no-git-update`               | Skip `git pull` for existing checkout                      |
 | `--no-prompt`                   | Disable prompts                                            |
 | `--no-onboard`                  | Skip onboarding                                            |
@@ -156,17 +156,17 @@ The script exits with code `2` for invalid method selection or invalid `--instal
 
 | Variable                                    | Description                                   |
 | ------------------------------------------- | --------------------------------------------- |
-| `OPENCLAW_INSTALL_METHOD=git\|npm`          | Install method                                |
-| `OPENCLAW_VERSION=latest\|next\|<semver>`   | npm version or dist-tag                       |
-| `OPENCLAW_BETA=0\|1`                        | Use beta if available                         |
-| `OPENCLAW_GIT_DIR=<path>`                   | Checkout directory                            |
-| `OPENCLAW_GIT_UPDATE=0\|1`                  | Toggle git updates                            |
+| `OPENCLAW_INSTALL_METHOD=git|npm`          | Install method                                |
+| `OPENCLAW_VERSION=latest|next|&lt;semver&gt;`   | npm version or dist-tag                       |
+| `OPENCLAW_BETA=0|1`                        | Use beta if available                         |
+| `OPENCLAW_GIT_DIR=&lt;path&gt;`                   | Checkout directory                            |
+| `OPENCLAW_GIT_UPDATE=0|1`                  | Toggle git updates                            |
 | `OPENCLAW_NO_PROMPT=1`                      | Disable prompts                               |
 | `OPENCLAW_NO_ONBOARD=1`                     | Skip onboarding                               |
 | `OPENCLAW_DRY_RUN=1`                        | Dry run mode                                  |
 | `OPENCLAW_VERBOSE=1`                        | Debug mode                                    |
-| `OPENCLAW_NPM_LOGLEVEL=error\|warn\|notice` | npm log level                                 |
-| `SHARP_IGNORE_GLOBAL_LIBVIPS=0\|1`          | Control sharp/libvips behavior (default: `1`) |
+| `OPENCLAW_NPM_LOGLEVEL=error|warn|notice` | npm log level                                 |
+| `SHARP_IGNORE_GLOBAL_LIBVIPS=0|1`          | Control sharp/libvips behavior (default: `1`) |
 
   
 </Accordion>
@@ -184,7 +184,7 @@ Designed for environments where you want everything under a local prefix (defaul
 
 <Steps>
   <Step title="Install local Node runtime">
-    Downloads Node tarball (default `22.22.0`) to `<prefix>/tools/node-v<version>` and verifies SHA-256.
+    Downloads Node tarball (default `22.22.0`) to `&lt;prefix&gt;/tools/node-v&lt;version&gt;` and verifies SHA-256.
   
 </Step>
   <Step title="Ensure Git">
@@ -192,7 +192,7 @@ Designed for environments where you want everything under a local prefix (defaul
   
 </Step>
   <Step title="Install OpenClaw under prefix">
-    Installs with npm using `--prefix <prefix>`, then writes wrapper to `<prefix>/bin/openclaw`.
+    Installs with npm using `--prefix &lt;prefix&gt;`, then writes wrapper to `&lt;prefix&gt;/bin/openclaw`.
   
 </Step>
 </Steps>
@@ -231,9 +231,9 @@ Designed for environments where you want everything under a local prefix (defaul
 
 | Flag                   | Description                                                                     |
 | ---------------------- | ------------------------------------------------------------------------------- |
-| `--prefix <path>`      | Install prefix (default: `~/.openclaw`)                                         |
-| `--version <ver>`      | OpenClaw version or dist-tag (default: `latest`)                                |
-| `--node-version <ver>` | Node version (default: `22.22.0`)                                               |
+| `--prefix &lt;path&gt;`      | Install prefix (default: `~/.openclaw`)                                         |
+| `--version &lt;ver&gt;`      | OpenClaw version or dist-tag (default: `latest`)                                |
+| `--node-version &lt;ver&gt;` | Node version (default: `22.22.0`)                                               |
 | `--json`               | Emit NDJSON events                                                              |
 | `--onboard`            | Run `openclaw onboard` after install                                            |
 | `--no-onboard`         | Skip onboarding (default)                                                       |
@@ -247,13 +247,13 @@ Designed for environments where you want everything under a local prefix (defaul
 
 | Variable                                    | Description                                                                       |
 | ------------------------------------------- | --------------------------------------------------------------------------------- |
-| `OPENCLAW_PREFIX=<path>`                    | Install prefix                                                                    |
-| `OPENCLAW_VERSION=<ver>`                    | OpenClaw version or dist-tag                                                      |
-| `OPENCLAW_NODE_VERSION=<ver>`               | Node version                                                                      |
+| `OPENCLAW_PREFIX=&lt;path&gt;`                    | Install prefix                                                                    |
+| `OPENCLAW_VERSION=&lt;ver&gt;`                    | OpenClaw version or dist-tag                                                      |
+| `OPENCLAW_NODE_VERSION=&lt;ver&gt;`               | Node version                                                                      |
 | `OPENCLAW_NO_ONBOARD=1`                     | Skip onboarding                                                                   |
-| `OPENCLAW_NPM_LOGLEVEL=error\|warn\|notice` | npm log level                                                                     |
-| `OPENCLAW_GIT_DIR=<path>`                   | Legacy cleanup lookup path (used when removing old `Peekaboo` submodule checkout) |
-| `SHARP_IGNORE_GLOBAL_LIBVIPS=0\|1`          | Control sharp/libvips behavior (default: `1`)                                     |
+| `OPENCLAW_NPM_LOGLEVEL=error|warn|notice` | npm log level                                                                     |
+| `OPENCLAW_GIT_DIR=&lt;path&gt;`                   | Legacy cleanup lookup path (used when removing old `Peekaboo` submodule checkout) |
+| `SHARP_IGNORE_GLOBAL_LIBVIPS=0|1`          | Control sharp/libvips behavior (default: `1`)                                     |
 
   
 </Accordion>
@@ -328,9 +328,9 @@ Designed for environments where you want everything under a local prefix (defaul
 
 | Flag                      | Description                                            |
 | ------------------------- | ------------------------------------------------------ |
-| `-InstallMethod npm\|git` | Install method (default: `npm`)                        |
-| `-Tag <tag>`              | npm dist-tag (default: `latest`)                       |
-| `-GitDir <path>`          | Checkout directory (default: `%USERPROFILE%\openclaw`) |
+| `-InstallMethod npm|git` | Install method (default: `npm`)                        |
+| `-Tag &lt;tag&gt;`              | npm dist-tag (default: `latest`)                       |
+| `-GitDir &lt;path&gt;`          | Checkout directory (default: `%USERPROFILE%\openclaw`) |
 | `-NoOnboard`              | Skip onboarding                                        |
 | `-NoGitUpdate`            | Skip `git pull`                                        |
 | `-DryRun`                 | Print actions only                                     |
@@ -342,8 +342,8 @@ Designed for environments where you want everything under a local prefix (defaul
 
 | Variable                           | Description        |
 | ---------------------------------- | ------------------ |
-| `OPENCLAW_INSTALL_METHOD=git\|npm` | Install method     |
-| `OPENCLAW_GIT_DIR=<path>`          | Checkout directory |
+| `OPENCLAW_INSTALL_METHOD=git|npm` | Install method     |
+| `OPENCLAW_GIT_DIR=&lt;path&gt;`          | Checkout directory |
 | `OPENCLAW_NO_ONBOARD=1`            | Skip onboarding    |
 | `OPENCLAW_GIT_UPDATE=0`            | Disable git pull   |
 | `OPENCLAW_DRY_RUN=1`               | Dry run mode       |
