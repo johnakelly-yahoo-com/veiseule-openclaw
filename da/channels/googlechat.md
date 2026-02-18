@@ -4,7 +4,7 @@ title: "Google Chat"
 
 # Google Chat (Chat API)
 
-Status: klar til DM’er + spaces via Google Chat API-webhooks (kun HTTP).
+Status: klar til DM’er + spaces via Google Chat API webhooks (kun HTTP).
 
 ## Hurtig opsætning (begynder)
 
@@ -44,7 +44,7 @@ Status: klar til DM’er + spaces via Google Chat API-webhooks (kun HTTP).
    - Miljø: `GOOGLE_CHAT_SERVICE_ACCOUNT_FILE=/path/to/service-account.json`
    - Eller konfiguration: `channels.googlechat.serviceAccountFile: "/path/to/service-account.json"`.
 8. Angiv webhook-audience-type + værdi (matcher din Chat-app-konfiguration).
-9. Start gatewayen. Google Chat vil POST til din webhook sti.
+9. Start gatewayen. Google Chat vil POST til din webhook-sti.
 
 ## Tilføj til Google Chat
 
@@ -53,18 +53,18 @@ Når gatewayen kører, og din e-mail er tilføjet til synlighedslisten:
 1. Gå til [Google Chat](https://chat.google.com/).
 2. Klik på **+** (plus)-ikonet ved siden af **Direct Messages**.
 3. I søgefeltet (hvor du normalt tilføjer personer) skal du skrive det **App name**, du konfigurerede i Google Cloud Console.
-   - **Bemærk**: Botten vil _not_ vises i "Marketplace" browse-listen, fordi det er en privat app. Du skal søge efter det ved navn.
+   - **Bemærk**: Botten vil _not_ vises i "Marketplace" browse-listen, fordi det er en privat app. Du skal søge efter den ved navn.
 4. Vælg din bot fra resultaterne.
 5. Klik **Add** eller **Chat** for at starte en 1:1-samtale.
-6. Send “Hello” for at udløse assistenten!
+6. Send "Hello" for at udløse assistenten!
 
-## Offentlig URL (kun webhook)
+## Offentlig URL (Webhook-only)
 
-Google Chat webhooks kræver et offentligt HTTPS-endepunkt. For sikkerhed, \*\*udsæt kun stien `/googlechat` til internettet. Hold OpenClaw dashboard og andre følsomme endpoints på dit private netværk.
+Google Chat webhooks kræver et offentligt HTTPS-endepunkt. Af hensyn til sikkerheden skal du **kun eksponere stien `/googlechat`** til internettet. Hold OpenClaw-dashboardet og andre følsomme endpoints på dit private netværk.
 
-### Mulighed A: Tailscale Funnel (anbefalet)
+### Mulighed A: Tailscale Funnel (Anbefalet)
 
-Brug Tailscale Serve til det private dashboard og Tragt til den offentlige webhook sti. Dette holder `/` privat, mens kun udsætter `/googlechat`.
+Brug Tailscale Serve til det private dashboard og Funnel til den offentlige webhook-sti. Dette holder `/` privat, mens kun `/googlechat` eksponeres.
 
 1. **Tjek hvilken adresse din gateway er bundet til:**
 
@@ -104,17 +104,17 @@ Brug Tailscale Serve til det private dashboard og Tragt til den offentlige webho
    tailscale funnel status
    ```
 
-Din offentlige webhook URL vil være:
-\`https://<node-name>.<tailnet>.ts.net/googlechat«
+Din offentlige webhook-URL vil være:  
+`https://<node-name>.<tailnet>.ts.net/googlechat`
 
-Dit private betjeningspanel forbliver kun skræddernet:
+Dit private dashboard forbliver kun tilgængeligt på tailnettet:  
 `https://<node-name>.<tailnet>.ts.net:8443/`
 
 Brug den offentlige URL (uden `:8443`) i Google Chat-app-konfigurationen.
 
-> Bemærk: Denne konfiguration fortsætter på tværs af genstarter. For at fjerne det senere, køre `skræddersy tragt nulstilling` og `skræddersy tjene nulstilling`.
+> Bemærk: Denne konfiguration bevares på tværs af genstarter. For at fjerne den senere skal du køre `tailscale funnel reset` og `tailscale serve reset`.
 
-### Mulighed B: Reverse proxy (Caddy)
+### Mulighed B: Reverse Proxy (Caddy)
 
 Hvis du bruger en reverse proxy som Caddy, skal du kun proxy den specifikke sti:
 
@@ -130,27 +130,28 @@ Med denne konfiguration vil enhver anmodning til `your-domain.com/` blive ignore
 
 Konfigurér din tunnels ingress-regler til kun at route webhook-stien:
 
-- **Sti**: `/googlechat` -> `http://localhost:18789/googlechat`
-- **Standardregel**: HTTP 404 (Not Found)
+- **Path**: `/googlechat` -> `http://localhost:18789/googlechat`
+- **Default Rule**: HTTP 404 (Not Found)
 
-## Sådan virker det
+## Sådan fungerer det
 
-1. Google Chat sender webhook POST'er til gatewayen. Hver anmodning omfatter en `Authorization: Bearer <token>` header.
+1. Google Chat sender webhook POST’er til gatewayen. Hver anmodning indeholder en `Authorization: Bearer <token>` header.
 2. OpenClaw verificerer tokenet mod den konfigurerede `audienceType` + `audience`:
    - `audienceType: "app-url"` → audience er din HTTPS-webhook-URL.
    - `audienceType: "project-number"` → audience er Cloud-projektnummeret.
 3. Beskeder routes efter space:
    - DM’er bruger sessionsnøglen `agent:<agentId>:googlechat:dm:<spaceId>`.
    - Spaces bruger sessionsnøglen `agent:<agentId>:googlechat:group:<spaceId>`.
-4. DM adgang er parring som standard. Ukendt afsendere modtager en parringskode; godkender med:
+4. DM-adgang bruger parring som standard. Ukendte afsendere modtager en parringskode; godkend med:
    - `openclaw pairing approve googlechat <code>`
-5. Gruppemellemrum kræver som standard @-omtale. Brug `botUser` hvis detektering af oplysninger skal bruges i appens brugernavn.
+5. Gruppespaces kræver som standard @-omtale. Brug `botUser`, hvis mention-detektion kræver appens brugernavn.
 
 ## Mål
 
-Brug disse identifikatorer til levering og tilladelseslister:
+Brug disse identifikatorer til levering og allowlists:
 
-- Direkte beskeder: `users/<userId>` eller `users/<email>` (e-mailadresser accepteres).
+- Direkte beskeder: `users/<userId>` (anbefalet) eller rå e-mail `name@example.com` (foranderlig principal).
+- Forældet: `users/<email>` behandles som et user id, ikke en e-mail-allowlist.
 - Spaces: `spaces/<spaceId>`.
 
 ## Konfigurationshøjdepunkter
@@ -191,7 +192,7 @@ Noter:
 - Service account-legitimationsoplysninger kan også angives inline med `serviceAccount` (JSON-streng).
 - Standard webhook-sti er `/googlechat`, hvis `webhookPath` ikke er angivet.
 - Reaktioner er tilgængelige via værktøjet `reactions` og `channels action`, når `actions.reactions` er aktiveret.
-- `typingIndicator` understøtter `none`, `message` (standard) og `reaction` (reaktion kræver bruger-OAuth).
+- `typingIndicator` understøtter `none`, `message` (standard) og `reaction` (reaction kræver bruger-OAuth).
 - Vedhæftninger downloades via Chat API’et og gemmes i medie-pipelinen (størrelse begrænset af `mediaMaxMb`).
 
 ## Fejlfinding
@@ -204,7 +205,7 @@ Hvis Google Cloud Logs Explorer viser fejl som:
 status code: 405, reason phrase: HTTP error response: HTTP/1.1 405 Method Not Allowed
 ```
 
-Det betyder, at webhook handleren ikke er registreret. Almindelige årsager:
+Det betyder, at webhook-handleren ikke er registreret. Almindelige årsager:
 
 1. **Kanal ikke konfigureret**: Afsnittet `channels.googlechat` mangler i din konfiguration. Verificér med:
 
@@ -212,7 +213,7 @@ Det betyder, at webhook handleren ikke er registreret. Almindelige årsager:
    openclaw config get channels.googlechat
    ```
 
-   Hvis den returnerer “Config path not found”, skal du tilføje konfigurationen (se [Konfigurationshøjdepunkter](#konfigurationshøjdepunkter)).
+   Hvis den returnerer "Config path not found", skal du tilføje konfigurationen (se [Konfigurationshøjdepunkter](#konfigurationshøjdepunkter)).
 
 2. **Plugin ikke aktiveret**: Tjek plugin-status:
 
@@ -220,7 +221,7 @@ Det betyder, at webhook handleren ikke er registreret. Almindelige årsager:
    openclaw plugins list | grep googlechat
    ```
 
-   Hvis den viser “disabled”, skal du tilføje `plugins.entries.googlechat.enabled: true` til din konfiguration.
+   Hvis den viser "disabled", skal du tilføje `plugins.entries.googlechat.enabled: true` til din konfiguration.
 
 3. **Gateway ikke genstartet**: Efter tilføjelse af konfiguration skal du genstarte gatewayen:
 
@@ -247,4 +248,3 @@ Relaterede dokumenter:
 - [Gateway-konfiguration](/gateway/configuration)
 - [Sikkerhed](/gateway/security)
 - [Reaktioner](/tools/reactions)
-

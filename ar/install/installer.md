@@ -6,10 +6,10 @@ title: "متدرب المثبت"
 
 توفّر OpenClaw ثلاثة سكربتات تثبيت، تُقدَّم من `openclaw.ai`.
 
-| النص                               | المنصة                                  | ما الذي يفعله                                                                                                                       |
-| ---------------------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| [`install.sh`](#installsh)         | macOS / Linux / WSL                     | يثبّت Node عند الحاجة، ويثبّت OpenClaw عبر npm (افتراضيًا) أو git، ويمكنه تشغيل التهيئة الأولية. |
-| [`install-cli.sh`](#install-clish) | macOS / Linux / WSL                     | يثبّت Node وOpenClaw ضمن بادئة محلية (`~/.openclaw`). لا يتطلّب صلاحيات root.    |
+| Script                             | Platform             | What it does                                                                                 |
+| ---------------------------------- | -------------------- | -------------------------------------------------------------------------------------------- |
+| [`install.sh`](#installsh)         | macOS / Linux / WSL  | يثبّت Node عند الحاجة، ويثبّت OpenClaw عبر npm (افتراضيًا) أو git، ويمكنه تشغيل التهيئة الأولية. |
+| [`install-cli.sh`](#install-clish) | macOS / Linux / WSL  | يثبّت Node وOpenClaw ضمن بادئة محلية (`~/.openclaw`). لا يتطلّب صلاحيات root.              |
 | [`install.ps1`](#installps1)       | Windows (PowerShell) | يثبّت Node عند الحاجة، ويثبّت OpenClaw عبر npm (افتراضيًا) أو git، ويمكنه تشغيل التهيئة الأولية. |
 
 ## أوامر سريعة
@@ -20,11 +20,9 @@ title: "متدرب المثبت"
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
 
-    ````
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --help
     ```
-    ````
 
   </Tab>
   <Tab title="install-cli.sh">
@@ -32,11 +30,9 @@ title: "متدرب المثبت"
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash
     ```
 
-    ````
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --help
     ```
-    ````
 
   </Tab>
   <Tab title="install.ps1">
@@ -44,11 +40,9 @@ title: "متدرب المثبت"
     iwr -useb https://openclaw.ai/install.ps1 | iex
     ```
 
-    ````
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -Tag beta -NoOnboard -DryRun
     ```
-    ````
 
   </Tab>
 </Tabs>
@@ -127,39 +121,39 @@ title: "متدرب المثبت"
 <AccordionGroup>
   <Accordion title="Flags reference">
 
-| العلم                             | الوصف                                                                                                                                     |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `--install-method npm\\|git`     | اختيار طريقة التثبيت (الافتراضي: `npm`). الاسم البديل: `--method`      |
-| `--npm`                           | اختصار لطريقة npm                                                                                                                         |
-| `--git`                           | اختصار لطريقة git. الاسم البديل: `--github`                                                               |
-| `--version <version\\|dist-tag>` | إصدار npm أو dist-tag (الافتراضي: `latest`)                                                            |
-| `--beta`                          | استخدام dist-tag التجريبي إذا كان متاحًا، وإلا فالرجوع إلى `latest`                                                                       |
-| `--git-dir <path>`                | دليل النسخة المستنسخة (الافتراضي: `~/openclaw`). الاسم البديل: `--dir` |
-| `--no-git-update`                 | تخطي `git pull` لنسخة موجودة                                                                                                              |
-| `--no-prompt`                     | تعطيل المطالبات                                                                                                                           |
-| `--no-onboard`                    | تخطي أونبواردينج                                                                                                                          |
-| `--onboard`                       | تمكين أونبواردينج                                                                                                                         |
-| `--dry-run`                       | طباعة الإجراءات دون تطبيق التغييرات                                                                                                       |
-| `--verbose`                       | تمكين مخرجات التصحيح (`set -x`، سجلات npm بمستوى الإشعار)                                                              |
-| `--help`                          | عرض الاستخدام (`-h`)                                                                                                   |
+| Flag                            | Description                                                |
+| ------------------------------- | ---------------------------------------------------------- |
+| `--install-method npm\|git`     | اختيار طريقة التثبيت (الافتراضي: `npm`). الاسم البديل: `--method` |
+| `--npm`                         | اختصار لطريقة npm                                          |
+| `--git`                         | اختصار لطريقة git. الاسم البديل: `--github`               |
+| `--version <version\|dist-tag>` | إصدار npm أو dist-tag (الافتراضي: `latest`)               |
+| `--beta`                        | استخدام dist-tag التجريبي إذا كان متاحًا، وإلا فالرجوع إلى `latest` |
+| `--git-dir <path>`              | دليل النسخة المستنسخة (الافتراضي: `~/openclaw`). الاسم البديل: `--dir` |
+| `--no-git-update`               | تخطي `git pull` لنسخة موجودة                              |
+| `--no-prompt`                   | تعطيل المطالبات                                            |
+| `--no-onboard`                  | تخطي أونبواردينج                                           |
+| `--onboard`                     | تمكين أونبواردينج                                          |
+| `--dry-run`                     | طباعة الإجراءات دون تطبيق التغييرات                       |
+| `--verbose`                     | تمكين مخرجات التصحيح (`set -x`, سجلات npm بمستوى الإشعار) |
+| `--help`                        | عرض الاستخدام (`-h`)                                       |
 
   </Accordion>
 
   <Accordion title="Environment variables reference">
 
-| المتغير                                         | الوصف                                                                            |
-| ----------------------------------------------- | -------------------------------------------------------------------------------- |
-| `OPENCLAW_INSTALL_METHOD=git\\|npm`            | طريقة التثبيت                                                                    |
-| `OPENCLAW_VERSION=latest\\|next\\|<semver>`   | إصدار npm أو dist-tag                                                            |
-| `OPENCLAW_BETA=0\\|1`                          | استخدام النسخة التجريبية إذا كانت متاحة                                          |
-| `OPENCLAW_GIT_DIR=<path>`                       | دليل الدفع                                                                       |
-| `OPENCLAW_GIT_UPDATE=0\\|1`                    | تبديل تحديثات git                                                                |
-| `OPENCLAW_NO_PROMPT=1`                          | تعطيل المطالبات                                                                  |
-| `OPENCLAW_NO_ONBOARD=1`                         | تخطي أونبواردينج                                                                 |
-| `OPENCLAW_DRY_RUN=1`                            | وضع التشغيل الجاف                                                                |
-| `OPENCLAW_VERBOSE=1`                            | وضع التصحيح                                                                      |
-| `OPENCLAW_NPM_LOGLEVEL=error\\|warn\\|notice` | مستوى سجلات npm                                                                  |
-| `SHARP_IGNORE_GLOBAL_LIBVIPS=0\\|1`            | التحكم في سلوك sharp/libvips (الافتراضي: `1`) |
+| Variable                                    | Description                                   |
+| ------------------------------------------- | --------------------------------------------- |
+| `OPENCLAW_INSTALL_METHOD=git\|npm`          | طريقة التثبيت                                |
+| `OPENCLAW_VERSION=latest\|next\|<semver>`   | إصدار npm أو dist-tag                        |
+| `OPENCLAW_BETA=0\|1`                        | استخدام النسخة التجريبية إذا كانت متاحة     |
+| `OPENCLAW_GIT_DIR=<path>`                   | دليل النسخة المستنسخة                        |
+| `OPENCLAW_GIT_UPDATE=0\|1`                  | تبديل تحديثات git                            |
+| `OPENCLAW_NO_PROMPT=1`                      | تعطيل المطالبات                               |
+| `OPENCLAW_NO_ONBOARD=1`                     | تخطي أونبواردينج                              |
+| `OPENCLAW_DRY_RUN=1`                        | وضع التشغيل الجاف                            |
+| `OPENCLAW_VERBOSE=1`                        | وضع التصحيح                                  |
+| `OPENCLAW_NPM_LOGLEVEL=error\|warn\|notice` | مستوى سجلات npm                              |
+| `SHARP_IGNORE_GLOBAL_LIBVIPS=0\|1`          | التحكم في سلوك sharp/libvips (الافتراضي: `1`) |
 
   </Accordion>
 </AccordionGroup>
@@ -214,30 +208,30 @@ title: "متدرب المثبت"
 <AccordionGroup>
   <Accordion title="Flags reference">
 
-| العلم                  | الوصف                                                                                   |
-| ---------------------- | --------------------------------------------------------------------------------------- |
-| `--prefix <path>`      | بادئة التثبيت (الافتراضي: `~/.openclaw`)             |
-| `--version <ver>`      | إصدار OpenClaw أو dist-tag (الافتراضي: `latest`)     |
-| `--node-version <ver>` | إصدار Node (الافتراضي: `22.22.0`)                    |
-| `--json`               | إخراج أحداث NDJSON                                                                      |
-| `--onboard`            | تشغيل `openclaw onboard` بعد التثبيت                                                    |
-| `--no-onboard`         | تخطي التهيئة الأولية (افتراضي)                                       |
+| Flag                   | Description                                                                     |
+| ---------------------- | ------------------------------------------------------------------------------- |
+| `--prefix <path>`      | بادئة التثبيت (الافتراضي: `~/.openclaw`)                                       |
+| `--version <ver>`      | إصدار OpenClaw أو dist-tag (الافتراضي: `latest`)                              |
+| `--node-version <ver>` | إصدار Node (الافتراضي: `22.22.0`)                                              |
+| `--json`               | إخراج أحداث NDJSON                                                              |
+| `--onboard`            | تشغيل `openclaw onboard` بعد التثبيت                                            |
+| `--no-onboard`         | تخطي التهيئة الأولية (افتراضي)                                                  |
 | `--set-npm-prefix`     | على Linux، فرض بادئة npm إلى `~/.npm-global` إذا كانت البادئة الحالية غير قابلة للكتابة |
-| `--help`               | عرض الاستخدام (`-h`)                                                 |
+| `--help`               | عرض الاستخدام (`-h`)                                                            |
 
   </Accordion>
 
   <Accordion title="Environment variables reference">
 
-| المتغير                                         | الوصف                                                                                           |
-| ----------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `OPENCLAW_PREFIX=<path>`                        | بادئة التثبيت                                                                                   |
-| `OPENCLAW_VERSION=<ver>`                        | إصدار OpenClaw أو dist-tag                                                                      |
-| `OPENCLAW_NODE_VERSION=<ver>`                   | إصدار Node                                                                                      |
-| `OPENCLAW_NO_ONBOARD=1`                         | تخطي أونبواردينج                                                                                |
-| `OPENCLAW_NPM_LOGLEVEL=error\\|warn\\|notice` | مستوى سجلات npm                                                                                 |
-| `OPENCLAW_GIT_DIR=<path>`                       | مسار بحث تنظيف قديم (يُستخدم عند إزالة نسخة قديمة من `Peekaboo` كنسخة فرعية) |
-| `SHARP_IGNORE_GLOBAL_LIBVIPS=0\\|1`            | التحكم في سلوك sharp/libvips (الافتراضي: `1`)                |
+| Variable                                    | Description                                                                       |
+| ------------------------------------------- | --------------------------------------------------------------------------------- |
+| `OPENCLAW_PREFIX=<path>`                    | بادئة التثبيت                                                                    |
+| `OPENCLAW_VERSION=<ver>`                    | إصدار OpenClaw أو dist-tag                                                      |
+| `OPENCLAW_NODE_VERSION=<ver>`               | إصدار Node                                                                      |
+| `OPENCLAW_NO_ONBOARD=1`                     | تخطي أونبواردينج                                                                 |
+| `OPENCLAW_NPM_LOGLEVEL=error\|warn\|notice` | مستوى سجلات npm                                                                 |
+| `OPENCLAW_GIT_DIR=<path>`                   | مسار بحث تنظيف قديم (يُستخدم عند إزالة نسخة قديمة من `Peekaboo` كنسخة فرعية) |
+| `SHARP_IGNORE_GLOBAL_LIBVIPS=0\|1`          | التحكم في سلوك sharp/libvips (الافتراضي: `1`)                                   |
 
   </Accordion>
 </AccordionGroup>
@@ -287,31 +281,39 @@ title: "متدرب المثبت"
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -DryRun
     ```
   </Tab>
+  <Tab title="Debug trace">
+    ```powershell
+    # install.ps1 has no dedicated -Verbose flag yet.
+    Set-PSDebug -Trace 1
+    & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
+    Set-PSDebug -Trace 0
+    ```
+  </Tab>
 </Tabs>
 
 <AccordionGroup>
   <Accordion title="Flags reference">
 
-| العلم                       | الوصف                                                                                           |
-| --------------------------- | ----------------------------------------------------------------------------------------------- |
-| `-InstallMethod npm\\|git` | طريقة التثبيت (الافتراضي: `npm`)                             |
-| `-Tag <tag>`                | dist-tag لـ npm (الافتراضي: `latest`)                        |
-| `-GitDir <path>`            | دليل النسخة المستنسخة (الافتراضي: `%USERPROFILE%\openclaw`) |
-| `-NoOnboard`                | تخطي أونبواردينج                                                                                |
-| `-NoGitUpdate`              | تخطي `git pull`                                                                                 |
-| `-DryRun`                   | طباعة الإجراءات فقط                                                                             |
+| Flag                      | Description                                            |
+| ------------------------- | ------------------------------------------------------ |
+| `-InstallMethod npm\|git` | طريقة التثبيت (الافتراضي: `npm`)                      |
+| `-Tag <tag>`              | dist-tag لـ npm (الافتراضي: `latest`)                 |
+| `-GitDir <path>`          | دليل النسخة المستنسخة (الافتراضي: `%USERPROFILE%\openclaw`) |
+| `-NoOnboard`              | تخطي أونبواردينج                                       |
+| `-NoGitUpdate`            | تخطي `git pull`                                        |
+| `-DryRun`                 | طباعة الإجراءات فقط                                   |
 
   </Accordion>
 
   <Accordion title="Environment variables reference">
 
-| المتغير                              | الوصف             |
-| ------------------------------------ | ----------------- |
-| `OPENCLAW_INSTALL_METHOD=git\\|npm` | طريقة التثبيت     |
-| `OPENCLAW_GIT_DIR=<path>`            | دليل الدفع        |
-| `OPENCLAW_NO_ONBOARD=1`              | تخطي أونبواردينج  |
-| `OPENCLAW_GIT_UPDATE=0`              | تعطيل git pull    |
-| `OPENCLAW_DRY_RUN=1`                 | وضع التشغيل الجاف |
+| Variable                           | Description        |
+| ---------------------------------- | ------------------ |
+| `OPENCLAW_INSTALL_METHOD=git\|npm` | طريقة التثبيت     |
+| `OPENCLAW_GIT_DIR=<path>`          | دليل النسخة المستنسخة |
+| `OPENCLAW_NO_ONBOARD=1`            | تخطي أونبواردينج  |
+| `OPENCLAW_GIT_UPDATE=0`            | تعطيل git pull    |
+| `OPENCLAW_DRY_RUN=1`               | وضع التشغيل الجاف |
 
   </Accordion>
 </AccordionGroup>
@@ -366,11 +368,9 @@ title: "متدرب المثبت"
   <Accordion title="sharp/libvips issues">
     تضبط السكربتات افتراضيًا `SHARP_IGNORE_GLOBAL_LIBVIPS=1` لتجنّب قيام sharp بالبناء مقابل libvips النظام. للتجاوز:
 
-    ````
     ```bash
     SHARP_IGNORE_GLOBAL_LIBVIPS=0 curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
-    ````
 
   </Accordion>
 
@@ -382,8 +382,19 @@ title: "متدرب المثبت"
     شغّل `npm config get prefix`، وألحق `\bin`، وأضِف ذلك الدليل إلى PATH للمستخدم، ثم أعد فتح PowerShell.
   </Accordion>
 
+  <Accordion title="Windows: how to get verbose installer output">
+    لا يوفّر `install.ps1` حاليًا خيار `-Verbose`.
+    استخدم تتبّع PowerShell لتشخيصات على مستوى السكربت:
+
+    ```powershell
+    Set-PSDebug -Trace 1
+    & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
+    Set-PSDebug -Trace 0
+    ```
+
+  </Accordion>
+
   <Accordion title="openclaw not found after install">
     غالبًا ما تكون مشكلة PATH. راجع [استكشاف أخطاء Node.js وإصلاحها](/install/node#troubleshooting).
   </Accordion>
 </AccordionGroup>
-
