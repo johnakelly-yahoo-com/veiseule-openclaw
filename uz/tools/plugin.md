@@ -667,3 +667,5 @@ Plugins can (and should) ship tests:
 - Separately published plugins should run their own CI (lint/build/test) and validate `openclaw.extensions` points at the built entrypoint (`dist/index.js`).
 
 
+
+{/* v2 */}

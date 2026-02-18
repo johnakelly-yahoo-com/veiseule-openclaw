@@ -1,45 +1,40 @@
 ---
-title: "OpenClaw Gateway dashboard’i va WebSocket porti uchun Tailscale **Serve** (tailnet) yoki **Funnel** (ommaviy) ni avtomatik sozlashi mumkin."
+title: "Tailscale"
 ---
 
-Bu Gateway’ni loopback’ga bog‘langan holda saqlaydi,
-Tailscale esa HTTPS, marshrutlash va (Serve uchun) identifikatsiya header’larini ta’minlaydi.
-================================================================================================================================
+# Tailscale (Gateway dashboard)
 
-Rejimlar `serve`: `tailscale serve` orqali faqat tailnet uchun Serve.
+OpenClaw can auto-configure Tailscale **Serve** (tailnet) or **Funnel** (public) for the
+Gateway dashboard and WebSocket port. This keeps the Gateway bound to loopback while
+Tailscale provides HTTPS, routing, and (for Serve) identity headers.
 
-## Gateway `127.0.0.1` da qoladi.
+## Modes
 
-- `funnel`: `tailscale funnel` orqali ommaviy HTTPS. OpenClaw umumiy parolni talab qiladi.
-- `off`: Sukut bo‘yicha (Tailscale avtomatlashtirilmagan). Autentifikatsiya
-- Handshake’ni boshqarish uchun `gateway.auth.mode` ni sozlang:
+- `serve`: Tailnet-only Serve via `tailscale serve`. The gateway stays on `127.0.0.1`.
+- `funnel`: Public HTTPS via `tailscale funnel`. OpenClaw requires a shared password.
+- `off`: Default (no Tailscale automation).
 
-## `token` (`OPENCLAW_GATEWAY_TOKEN` o‘rnatilgan bo‘lsa, sukut bo‘yicha)
+## Auth
 
-`password` (`OPENCLAW_GATEWAY_PASSWORD` yoki konfiguratsiya orqali umumiy sir)
+Set `gateway.auth.mode` to control the handshake:
 
-- `tailscale.mode = "serve"` va `gateway.auth.allowTailscale` `true` bo‘lganda,
-  yaroqli Serve proxy so‘rovlari token/parol taqdim etmasdan
-  Tailscale identifikatsiya header’lari (`tailscale-user-login`) orqali autentifikatsiya qilinishi mumkin.
-- OpenClaw identifikatsiyani `x-forwarded-for` manzilini lokal Tailscale daemon’i
-  (`tailscale whois`) orqali aniqlab va uni header bilan moslashtirib, qabul qilishdan oldin tekshiradi.
+- `token` (default when `OPENCLAW_GATEWAY_TOKEN` is set)
+- `password` (shared secret via `OPENCLAW_GATEWAY_PASSWORD` or config)
 
-OpenClaw so‘rovni faqat loopback’dan kelib,
-Tailscale’ning `x-forwarded-for`, `x-forwarded-proto` va `x-forwarded-host`
-header’lari mavjud bo‘lsa Serve deb hisoblaydi. Aniq credential’larni talab qilish uchun `gateway.auth.allowTailscale: false` ni o‘rnating yoki
-`gateway.auth.mode: "password"` ni majburiy qiling.
-Konfiguratsiya misollari
-Faqat tailnet (Serve)
+When `tailscale.mode = "serve"` and `gateway.auth.allowTailscale` is `true`,
+valid Serve proxy requests can authenticate via Tailscale identity headers
+(`tailscale-user-login`) without supplying a token/password. OpenClaw verifies
+the identity by resolving the `x-forwarded-for` address via the local Tailscale
+daemon (`tailscale whois`) and matching it to the header before accepting it.
+OpenClaw only treats a request as Serve when it arrives from loopback with
+Tailscale’s `x-forwarded-for`, `x-forwarded-proto`, and `x-forwarded-host`
+headers.
+To require explicit credentials, set `gateway.auth.allowTailscale: false` or
+force `gateway.auth.mode: "password"`.
 
-{
-gateway: {
-bind: "loopback",
-tailscale: { mode: "serve" },
-},
-}
--
+## Config examples
 
-### Ochish: `https://<magicdns>/` (yoki sozlangan `gateway.controlUi.basePath`)
+### Tailnet-only (Serve)
 
 ```json5
 {
@@ -52,9 +47,9 @@ tailscale: { mode: "serve" },
 
 Open: `https://<magicdns>/` (or your configured `gateway.controlUi.basePath`)
 
-### Faqat Tailnet (Tailnet IP’ga bog‘lash)
+### Tailnet-only (bind to Tailnet IP)
 
-Gateway’ni to‘g‘ridan-to‘g‘ri Tailnet IP’da tinglashi uchun ishlating (Serve/Funnel yo‘q).
+Use this when you want the Gateway to listen directly on the Tailnet IP (no Serve/Funnel).
 
 ```json5
 {
@@ -65,14 +60,14 @@ Gateway’ni to‘g‘ridan-to‘g‘ri Tailnet IP’da tinglashi uchun ishlatin
 }
 ```
 
-Boshqa Tailnet qurilmasidan ulaning:
+Connect from another Tailnet device:
 
-- Boshqaruv UI: `http://<tailscale-ip>:18789/`
+- Control UI: `http://<tailscale-ip>:18789/`
 - WebSocket: `ws://<tailscale-ip>:18789`
 
-Eslatma: loopback (`http://127.0.0.1:18789`) bu rejimda **ishlamaydi**.
+Note: loopback (`http://127.0.0.1:18789`) will **not** work in this mode.
 
-### Ochiq internet (Funnel + umumiy parol)
+### Public internet (Funnel + shared password)
 
 ```json5
 {
@@ -84,46 +79,49 @@ Eslatma: loopback (`http://127.0.0.1:18789`) bu rejimda **ishlamaydi**.
 }
 ```
 
-Parolni diskka yozib qo‘yishdan ko‘ra `OPENCLAW_GATEWAY_PASSWORD` dan foydalanishni afzal ko‘ring.
+Prefer `OPENCLAW_GATEWAY_PASSWORD` over committing a password to disk.
 
-## CLI misollar
+## CLI examples
 
 ```bash
 openclaw gateway --tailscale serve
 openclaw gateway --tailscale funnel --auth password
 ```
 
-## Eslatmalar
+## Notes
 
-- Tailscale Serve/Funnel ishlashi uchun `tailscale` CLI o‘rnatilgan va tizimga kirilgan bo‘lishi kerak.
-- `tailscale.mode: "funnel"` auth rejimi `password` bo‘lmasa, ochiq ekspozitsiyani oldini olish uchun ishga tushmaydi.
-- Agar OpenClaw yopilishda `tailscale serve`
-  yoki `tailscale funnel` sozlamalarini bekor qilishi kerak bo‘lsa, `gateway.tailscale.resetOnExit` ni sozlang.
-- `gateway.bind: "tailnet"` — to‘g‘ridan-to‘g‘ri Tailnet’ga bog‘lash (HTTPS yo‘q, Serve/Funnel yo‘q).
-- `gateway.bind: "auto"` loopback’ni afzal ko‘radi; faqat Tailnet bo‘lsin desangiz `tailnet` dan foydalaning.
-- Serve/Funnel faqat **Gateway boshqaruv UI + WS** ni ochib beradi. Tugunlar (nodes) bir xil Gateway WS endpoint orqali ulanadi, shuning uchun Serve tugunlarga kirish uchun ham ishlashi mumkin.
+- Tailscale Serve/Funnel requires the `tailscale` CLI to be installed and logged in.
+- `tailscale.mode: "funnel"` refuses to start unless auth mode is `password` to avoid public exposure.
+- Set `gateway.tailscale.resetOnExit` if you want OpenClaw to undo `tailscale serve`
+  or `tailscale funnel` configuration on shutdown.
+- `gateway.bind: "tailnet"` is a direct Tailnet bind (no HTTPS, no Serve/Funnel).
+- `gateway.bind: "auto"` prefers loopback; use `tailnet` if you want Tailnet-only.
+- Serve/Funnel only expose the **Gateway control UI + WS**. Nodes connect over
+  the same Gateway WS endpoint, so Serve can work for node access.
 
-## Brauzer boshqaruvi (masofaviy Gateway + lokal brauzer)
+## Browser control (remote Gateway + local browser)
 
-Agar Gateway’ni bitta mashinada ishga tushirib, brauzerni boshqa mashinada boshqarmoqchi bo‘lsangiz,
-brauzer joylashgan mashinada **node host** ni ishga tushiring va ikkisini ham bir xil tailnet’da saqlang.
-Gateway brauzer harakatlarini tugunga proksi qiladi; alohida boshqaruv serveri yoki Serve URL kerak emas.
+If you run the Gateway on one machine but want to drive a browser on another machine,
+run a **node host** on the browser machine and keep both on the same tailnet.
+The Gateway will proxy browser actions to the node; no separate control server or Serve URL needed.
 
-Brauzer boshqaruvi uchun Funnel’dan qoching; tugun juftlashuvini operator kirishi kabi ko‘ring.
+Avoid Funnel for browser control; treat node pairing like operator access.
 
-## Tailscale talablar + cheklovlar
+## Tailscale prerequisites + limits
 
-- Serve tailnet’ingizda HTTPS yoqilgan bo‘lishini talab qiladi; agar yo‘q bo‘lsa, CLI ogohlantiradi.
-- Serve Tailscale identifikatsiya sarlavhalarini qo‘shadi; Funnel esa qo‘shmaydi.
-- Funnel uchun Tailscale v1.38.3+, MagicDNS, HTTPS yoqilgan bo‘lishi va funnel node atributi talab qilinadi.
-- Funnel TLS orqali faqat `443`, `8443` va `10000` portlarini qo‘llab-quvvatlaydi.
-- macOS’da Funnel ishlashi uchun ochiq manbali Tailscale ilovasi varianti talab qilinadi.
+- Serve requires HTTPS enabled for your tailnet; the CLI prompts if it is missing.
+- Serve injects Tailscale identity headers; Funnel does not.
+- Funnel requires Tailscale v1.38.3+, MagicDNS, HTTPS enabled, and a funnel node attribute.
+- Funnel only supports ports `443`, `8443`, and `10000` over TLS.
+- Funnel on macOS requires the open-source Tailscale app variant.
 
-## Batafsil ma’lumot
+## Learn more
 
-- Tailscale Serve sharhi: [https://tailscale.com/kb/1312/serve](https://tailscale.com/kb/1312/serve)
-- `tailscale serve` buyrug‘i: [https://tailscale.com/kb/1242/tailscale-serve](https://tailscale.com/kb/1242/tailscale-serve)
-- Tailscale Funnel sharhi: [https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
-- `tailscale funnel` buyrug‘i: [https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
+- Tailscale Serve overview: [https://tailscale.com/kb/1312/serve](https://tailscale.com/kb/1312/serve)
+- `tailscale serve` command: [https://tailscale.com/kb/1242/tailscale-serve](https://tailscale.com/kb/1242/tailscale-serve)
+- Tailscale Funnel overview: [https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
+- `tailscale funnel` command: [https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
 
 
+
+{/* v2 */}

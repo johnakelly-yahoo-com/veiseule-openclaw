@@ -69,3 +69,5 @@ The WhatsApp channel runs via **Baileys Web**. This document captures the curren
 - Ensure multi-media replies fan out as sequential sends.
 
 
+
+{/* v2 */}
