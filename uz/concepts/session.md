@@ -1,24 +1,24 @@
 ---
-title: "Sessiyani boshqarish"
+title: "Session Management"
 ---
 
-# Sessiyani boshqarish
+# Session Management
 
-OpenClaw treats **one direct-chat session per agent** as primary. Direct chats collapse to `agent:<agentId>:<mainKey>` (default `main`), while group/channel chats get their own keys. `activeMinutes?: number` — faqat N daqiqa ichida yangilangan sessiyalar
+OpenClaw treats **one direct-chat session per agent** as primary. Direct chats collapse to `agent:<agentId>:<mainKey>` (default `main`), while group/channel chats get their own keys. `session.mainKey` is honored.
 
-`session.mainKey` hisobga olinadi.
+Use `session.dmScope` to control how **direct messages** are grouped:
 
-- `main` (standart): barcha DMlar uzluksizlikni ta’minlash uchun asosiy sessiyadan foydalanadi.
-- `per-peer`: kanallar bo‘yicha jo‘natuvchi identifikatori asosida ajratadi.
-- `per-channel-peer`: kanal + jo‘natuvchi bo‘yicha ajratadi (ko‘p foydalanuvchili kirish qutilari uchun tavsiya etiladi).
-- `per-account-channel-peer`: hisob + kanal + jo‘natuvchi bo‘yicha ajratadi (ko‘p hisobli kirish qutilari uchun tavsiya etiladi).
-`per-peer`, `per-channel-peer` yoki `per-account-channel-peer` ishlatilganda bir xil shaxs turli kanallarda bitta DM sessiyasidan foydalanishi uchun provayder prefiksli peer identifikatorlarini kanonik identifikatsiyaga moslashtirish maqsadida `session.identityLinks` dan foydalaning.
+- `main` (default): all DMs share the main session for continuity.
+- `per-peer`: isolate by sender id across channels.
+- `per-channel-peer`: isolate by channel + sender (recommended for multi-user inboxes).
+- `per-account-channel-peer`: isolate by account + channel + sender (recommended for multi-account inboxes).
+  Use `session.identityLinks` to map provider-prefixed peer ids to a canonical identity so the same person shares a DM session across channels when using `per-peer`, `per-channel-peer`, or `per-account-channel-peer`.
 
-## Xavfsiz DM rejimi (ko‘p foydalanuvchili sozlamalar uchun tavsiya etiladi)
+## Secure DM mode (recommended for multi-user setups)
 
-> > **Xavfsizlik ogohlantirishi:** Agar agentingiz **bir nechta odamdan** DM qabul qila olsa, xavfsiz DM rejimini yoqishni qat’iy tavsiya qilamiz. Aks holda, barcha foydalanuvchilar bir xil suhbat kontekstidan foydalanadi, bu esa foydalanuvchilar o‘rtasida shaxsiy ma’lumotlarning oshkor bo‘lishiga olib kelishi mumkin.
+> **Security Warning:** If your agent can receive DMs from **multiple people**, you should strongly consider enabling secure DM mode. Without it, all users share the same conversation context, which can leak private information between users.
 
-**Standart sozlamalardagi muammo misoli:**
+**Example of the problem with default settings:**
 
 - Alice (`<SENDER_A>`) messages your agent about a private topic (for example, a medical appointment)
 - Bob (`<SENDER_B>`) messages your agent asking "What were we talking about?"
@@ -69,83 +69,59 @@ All session state is **owned by the gateway** (the “master” OpenClaw). UI cl
 
 ## Session pruning
 
-1. OpenClaw sukut bo‘yicha LLM chaqiruvlaridan oldin xotira kontekstidan **eski asbob natijalarini** qisqartiradi.
-2. Bu **JSONL tarixini** qayta yozmaydi. 3. Qarang: [/concepts/session-pruning](/concepts/session-pruning).
+OpenClaw trims **old tool results** from the in-memory context right before LLM calls by default.
+This does **not** rewrite JSONL history. See [/concepts/session-pruning](/concepts/session-pruning).
 
-## 4. Oldindan kompaktlash xotira tozalashi
+## Pre-compaction memory flush
 
-5. Sessiya avtomatik kompaktlashga yaqinlashganda, OpenClaw **jim xotira tozalash** bosqichini ishga tushirishi mumkin,
-   modelga barqaror eslatmalarni diskka yozishni eslatadi. 6. Bu faqat ish maydoni yozish uchun ruxsat etilganida ishlaydi. **To‘g‘ridan-to‘g‘ri xabarlar** qanday guruhlanishini boshqarish uchun `session.dmScope` dan foydalaning:
+When a session nears auto-compaction, OpenClaw can run a **silent memory flush**
+turn that reminds the model to write durable notes to disk. This only runs when
+the workspace is writable. See [Memory](/concepts/memory) and
+[Compaction](/concepts/compaction).
 
-## 8. Transportlarni → sessiya kalitlariga moslash
+## Mapping transports → session keys
 
-- 9. To‘g‘ridan-to‘g‘ri chatlar `session.dmScope` ga amal qiladi (sukut bo‘yicha `main`).
-  - 10. `main`: `agent:<agentId>:<mainKey>` (qurilmalar/kanallar bo‘ylab uzluksizlik).
-    - 11. Bir nechta telefon raqamlari va kanallar bir xil agentning asosiy kalitiga mos kelishi mumkin; ular bitta suhbatga kirish transportlari sifatida ishlaydi.
-  - 12. `per-peer`: `agent:<agentId>:dm:<peerId>`.
-  - 13. `per-channel-peer`: `agent:<agentId>:<channel>:dm:<peerId>`.
-  - 14. `per-account-channel-peer`: `agent:<agentId>:<channel>:<accountId>:dm:<peerId>` (`accountId` sukut bo‘yicha `default`).
-  - 15. Agar `session.identityLinks` provayder prefiksi bilan berilgan peer id ga mos kelsa (masalan `telegram:123`), kanonik kalit `<peerId>` ni almashtiradi, shunda bir xil odam kanallar bo‘ylab bitta sessiyani ulashadi.
-- 16. Guruh chatlari holatni izolyatsiya qiladi: `agent:<agentId>:<channel>:group:<id>` (xona/kanallar `agent:<agentId>:<channel>:channel:<id>` dan foydalanadi).
-  - Qarang: [Memory](/concepts/memory) va
-    [Compaction](/concepts/compaction).
-  - 18. Meros `group:<id>` kalitlari migratsiya uchun hanuz tan olinadi.
-- 19. Kiruvchi kontekstlar hanuz `group:<id>` dan foydalanishi mumkin; kanal `Provider` dan aniqlanadi va kanonik `agent:<agentId>:<channel>:group:<id>` shakliga normallashtiriladi.
-- 20. Boshqa manbalar:
-  - 21. Cron vazifalari: `cron:<job.id>`
-  - 22. Webhooklar: `hook:<uuid>` (agar hook tomonidan aniq belgilab qo‘yilmagan bo‘lsa)
-  - 23. Node ishga tushirishlari: `node-<nodeId>`
+- Direct chats follow `session.dmScope` (default `main`).
+  - `main`: `agent:<agentId>:<mainKey>` (continuity across devices/channels).
+    - Multiple phone numbers and channels can map to the same agent main key; they act as transports into one conversation.
+  - `per-peer`: `agent:<agentId>:dm:<peerId>`.
+  - `per-channel-peer`: `agent:<agentId>:<channel>:dm:<peerId>`.
+  - `per-account-channel-peer`: `agent:<agentId>:<channel>:<accountId>:dm:<peerId>` (accountId defaults to `default`).
+  - If `session.identityLinks` matches a provider-prefixed peer id (for example `telegram:123`), the canonical key replaces `<peerId>` so the same person shares a session across channels.
+- Group chats isolate state: `agent:<agentId>:<channel>:group:<id>` (rooms/channels use `agent:<agentId>:<channel>:channel:<id>`).
+  - Telegram forum topics append `:topic:<threadId>` to the group id for isolation.
+  - Legacy `group:<id>` keys are still recognized for migration.
+- Inbound contexts may still use `group:<id>`; the channel is inferred from `Provider` and normalized to the canonical `agent:<agentId>:<channel>:group:<id>` form.
+- Other sources:
+  - Cron jobs: `cron:<job.id>`
+  - Webhooks: `hook:<uuid>` (unless explicitly set by the hook)
+  - Node runs: `node-<nodeId>`
 
-## 24. Hayotiy sikl
+## Lifecycle
 
-- 25. Qayta o‘rnatish siyosati: sessiyalar muddati tugaguncha qayta ishlatiladi va muddati keyingi kiruvchi xabarda baholanadi.
-- 26. Kunlik qayta o‘rnatish: sukut bo‘yicha **gateway xostidagi mahalliy vaqt bilan 4:00 AM**. 27. Sessiya oxirgi yangilanishi eng so‘nggi kunlik qayta o‘rnatish vaqtidan oldin bo‘lsa, u eskirgan hisoblanadi.
-- 28. Bo‘sh turish bo‘yicha qayta o‘rnatish (ixtiyoriy): `idleMinutes` sirpanma bo‘sh turish oynasini qo‘shadi. 29. Kunlik va bo‘sh turish bo‘yicha qayta o‘rnatishlar birgalikda sozlanganida, **qaysi biri avval tugasa**, yangi sessiyani majbur qiladi.
-- 30. Meros faqat bo‘sh turish rejimi: agar `session.idleMinutes` ni hech qanday `session.reset`/`resetByType` konfiguratsiyasisiz o‘rnatsangiz, OpenClaw orqaga moslik uchun faqat bo‘sh turish rejimida qoladi.
-- 47. // ~/.openclaw/openclaw.json
-      {
-      session: {
-      scope: "per-sender", // guruh kalitlarini alohida saqlash
-      dmScope: "main", // DM uzluksizligi (umumiy inboxlar uchun per-channel-peer/per-account-channel-peer qilib o‘rnating)
-      identityLinks: {
-      alice: ["telegram:123456789", "discord:987654321012345678"],
-      },
-      reset: {
-      // Sukut bo‘yicha: mode=daily, atHour=4 (gateway xosti mahalliy vaqti).
-      // Agar idleMinutes ham o‘rnatilsa, qaysi biri tezroq tugasa, o‘sha yutadi.
-      mode: "daily",
-      atHour: 4,
-      idleMinutes: 120,
-      },
-      resetByType: {
-      thread: { mode: "daily", atHour: 4 },
-      direct: { mode: "idle", idleMinutes: 240 },
-      group: { mode: "idle", idleMinutes: 120 },
-      },
-      resetByChannel: {
-      discord: { mode: "idle", idleMinutes: 10080 },
-      },
-      resetTriggers: ["/new", "/reset"],
-      store: "~/.openclaw/agents/{agentId}/sessions/sessions.json",
-      mainKey: "main",
-      },
-      }
-- 31. Kanal bo‘yicha istisnolar (ixtiyoriy): `resetByChannel` kanal uchun qayta o‘rnatish siyosatini bekor qiladi (shu kanal uchun barcha sessiya turlariga qo‘llanadi va `reset`/`resetByType` dan ustun turadi).
-- 32. Qayta o‘rnatish triggerlari: aniq `/new` yoki `/reset` (va `resetTriggers` dagi qo‘shimchalar) yangi sessiya id ni boshlaydi va xabarning qolgan qismini o‘tkazadi. 33. `/new <model>` yangi sessiya modelini o‘rnatish uchun model aliasini, `provider/model` ni yoki provayder nomini (noaniq moslash) qabul qiladi. 34. Agar `/new` yoki `/reset` yolg‘iz yuborilsa, OpenClaw qayta o‘rnatishni tasdiqlash uchun qisqa “salom” tabrigini bajaradi.
-- 35. Qo‘lda qayta o‘rnatish: do‘kondan aniq kalitlarni o‘chiring yoki JSONL transkriptini olib tashlang; keyingi xabar ularni qayta yaratadi.
-- 36. Izolyatsiyalangan cron vazifalari har bir ishga tushishda doimo yangi `sessionId` yaratadi (bo‘sh turish bo‘yicha qayta foydalanish yo‘q).
+- Reset policy: sessions are reused until they expire, and expiry is evaluated on the next inbound message.
+- Daily reset: defaults to **4:00 AM local time on the gateway host**. A session is stale once its last update is earlier than the most recent daily reset time.
+- Idle reset (optional): `idleMinutes` adds a sliding idle window. When both daily and idle resets are configured, **whichever expires first** forces a new session.
+- Legacy idle-only: if you set `session.idleMinutes` without any `session.reset`/`resetByType` config, OpenClaw stays in idle-only mode for backward compatibility.
+- Per-type overrides (optional): `resetByType` lets you override the policy for `direct`, `group`, and `thread` sessions (thread = Slack/Discord threads, Telegram topics, Matrix threads when provided by the connector).
+- Per-channel overrides (optional): `resetByChannel` overrides the reset policy for a channel (applies to all session types for that channel and takes precedence over `reset`/`resetByType`).
+- Reset triggers: exact `/new` or `/reset` (plus any extras in `resetTriggers`) start a fresh session id and pass the remainder of the message through. `/new <model>` accepts a model alias, `provider/model`, or provider name (fuzzy match) to set the new session model. If `/new` or `/reset` is sent alone, OpenClaw runs a short “hello” greeting turn to confirm the reset.
+- Manual reset: delete specific keys from the store or remove the JSONL transcript; the next message recreates them.
+- Isolated cron jobs always mint a fresh `sessionId` per run (no idle reuse).
 
-## 37. Yuborish siyosati (ixtiyoriy)
+## Send policy (optional)
 
-38. Muayyan sessiya turlari uchun yetkazib berishni alohida id larni sanamasdan bloklash.
+Block delivery for specific session types without listing individual ids.
 
 ```json5
-39. {
+{
   session: {
     sendPolicy: {
       rules: [
         { action: "deny", match: { channel: "discord", chatType: "group" } },
         { action: "deny", match: { keyPrefix: "cron:" } },
+        // Match the raw session key (including the `agent:<id>:` prefix).
+        { action: "deny", match: { rawKeyPrefix: "agent:main:discord:" } },
       ],
       default: "allow",
     },
@@ -153,44 +129,77 @@ All session state is **owned by the gateway** (the “master” OpenClaw). UI cl
 }
 ```
 
-40. Ish vaqtidagi bekor qilish (faqat egasi):
+Runtime override (owner only):
 
-- 41. `/send on` → ushbu sessiya uchun ruxsat berish
-- 42. `/send off` → ushbu sessiya uchun rad etish
-- 43. `/send inherit` → bekor qilishni tozalash va konfiguratsiya qoidalaridan foydalanish
-      Bular ro‘yxatdan o‘tishi uchun alohida xabarlar sifatida yuboring.
+- `/send on` → allow for this session
+- `/send off` → deny for this session
+- `/send inherit` → clear override and use config rules
+  Send these as standalone messages so they register.
 
-## 44. Konfiguratsiya (ixtiyoriy nomni o‘zgartirish misoli)
+## Configuration (optional rename example)
 
 ```json5
-48. `match.peer` (ixtiyoriy; `{ kind: direct|group|channel, id }`)
+// ~/.openclaw/openclaw.json
+{
+  session: {
+    scope: "per-sender", // keep group keys separate
+    dmScope: "main", // DM continuity (set per-channel-peer/per-account-channel-peer for shared inboxes)
+    identityLinks: {
+      alice: ["telegram:123456789", "discord:987654321012345678"],
+    },
+    reset: {
+      // Defaults: mode=daily, atHour=4 (gateway host local time).
+      // If you also set idleMinutes, whichever expires first wins.
+      mode: "daily",
+      atHour: 4,
+      idleMinutes: 120,
+    },
+    resetByType: {
+      thread: { mode: "daily", atHour: 4 },
+      direct: { mode: "idle", idleMinutes: 240 },
+      group: { mode: "idle", idleMinutes: 120 },
+    },
+    resetByChannel: {
+      discord: { mode: "idle", idleMinutes: 10080 },
+    },
+    resetTriggers: ["/new", "/reset"],
+    store: "~/.openclaw/agents/{agentId}/sessions/sessions.json",
+    mainKey: "main",
+  },
+}
 ```
 
-## 45. Tekshirish
+## Inspecting
 
-- 46. `openclaw status` — do‘kon yo‘lini va so‘nggi sessiyalarni ko‘rsatadi.
-- 47. `openclaw sessions --json` — barcha yozuvlarni chiqaradi (`--active <minutes>` bilan filtrlash).
-- 48. `openclaw gateway call sessions.list --params '{}'` — ishlayotgan gateway dan sessiyalarni oladi (masofaviy gateway ga kirish uchun `--url`/`--token` dan foydalaning).
-- 49. Agentga ulanilgan-ulanmaganini, sessiya kontekstidan qanchasi ishlatilayotganini, joriy fikrlash/verbose sozlamalarini va WhatsApp web hisob ma’lumotlaringiz oxirgi marta qachon yangilangani (qayta ulash ehtiyojini aniqlashga yordam beradi) ko‘rish uchun chatda `/status` ni alohida xabar sifatida yuboring.
-- 50. Tizim promptida va kiritilgan ish maydoni fayllarida nimalar borligini (va eng katta kontekst hissachilarini) ko‘rish uchun `/context list` yoki `/context detail` ni yuboring.
-- 1. Joriy ishni bekor qilish, ushbu sessiya uchun navbatdagi kuzatuvlarni tozalash va undan ishga tushirilgan barcha sub-agent ishlarini to‘xtatish uchun `/stop` ni alohida xabar sifatida yuboring (javobda to‘xtatilganlar soni ko‘rsatiladi).
-- 2. Eski kontekstni qisqartirib xulosa qilish va oynada joy bo‘shatish uchun `/compact` (ixtiyoriy ko‘rsatmalar bilan) ni alohida xabar sifatida yuboring. 3. [/concepts/compaction](/concepts/compaction) ni ko‘ring.
-- 4. To‘liq navbatlarni ko‘rib chiqish uchun JSONL transkriptlarini bevosita ochish mumkin.
+- `openclaw status` — shows store path and recent sessions.
+- `openclaw sessions --json` — dumps every entry (filter with `--active <minutes>`).
+- `openclaw gateway call sessions.list --params '{}'` — fetch sessions from the running gateway (use `--url`/`--token` for remote gateway access).
+- Send `/status` as a standalone message in chat to see whether the agent is reachable, how much of the session context is used, current thinking/verbose toggles, and when your WhatsApp web creds were last refreshed (helps spot relink needs).
+- Send `/context list` or `/context detail` to see what’s in the system prompt and injected workspace files (and the biggest context contributors).
+- Send `/stop` as a standalone message to abort the current run, clear queued followups for that session, and stop any sub-agent runs spawned from it (the reply includes the stopped count).
+- Send `/compact` (optional instructions) as a standalone message to summarize older context and free up window space. See [/concepts/compaction](/concepts/compaction).
+- JSONL transcripts can be opened directly to review full turns.
 
-## 5. Maslahatlar
+## Tips
 
-- 6. Asosiy kalitni 1:1 trafik uchun ajratib qo‘ying; guruhlar o‘z kalitlariga ega bo‘lsin.
-- 7. Tozalashni avtomatlashtirganda, boshqa joylardagi kontekstni saqlab qolish uchun butun omborni emas, balki alohida kalitlarni o‘chiring.
+- Keep the primary key dedicated to 1:1 traffic; let groups keep their own keys.
+- When automating cleanup, delete individual keys instead of the whole store to preserve context elsewhere.
 
-## 8. Sessiya kelib chiqishi metama’lumotlari
+## Session origin metadata
 
-9. Har bir sessiya yozuvi qayerdan kelganini (imkon qadar) `origin` da qayd etadi:
+Each session entry records where it came from (best-effort) in `origin`:
 
-- 10. `label`: inson uchun tushunarli yorliq (suhbat yorlig‘i + guruh mavzusi/kanalidan aniqlanadi)
-- 11. `provider`: normallashtirilgan kanal identifikatori (kengaytmalarni ham o‘z ichiga oladi)
-- 12. `from`/`to`: kiruvchi konvertdagi xom marshrutlash identifikatorlari
-- 13. `accountId`: provayder hisob identifikatori (ko‘p hisobli bo‘lsa)
-- 14. `threadId`: kanal qo‘llab-quvvatlaganda mavzu/ip identifikatori
-      Kelib chiqish maydonlari to‘g‘ridan-to‘g‘ri xabarlar, kanallar va guruhlar uchun to‘ldiriladi. 15. Agar ulagich faqat yetkazib berish marshrutlashini yangilasa (masalan, DM asosiy sessiyasini yangilab turish uchun), sessiya o‘zining tushuntiruvchi metama’lumotlarini saqlab qolishi uchun baribir kiruvchi kontekstni taqdim etishi kerak. 16. Kengaytmalar buni kiruvchi kontekstda `ConversationLabel`, `GroupSubject`, `GroupChannel`, `GroupSpace` va `SenderName` yuborish hamda `recordSessionMetaFromInbound` ni chaqirish (yoki xuddi shu kontekstni `updateLastRoute` ga uzatish) orqali bajarishi mumkin.
+- `label`: human label (resolved from conversation label + group subject/channel)
+- `provider`: normalized channel id (including extensions)
+- `from`/`to`: raw routing ids from the inbound envelope
+- `accountId`: provider account id (when multi-account)
+- `threadId`: thread/topic id when the channel supports it
+  The origin fields are populated for direct messages, channels, and groups. If a
+  connector only updates delivery routing (for example, to keep a DM main session
+  fresh), it should still provide inbound context so the session keeps its
+  explainer metadata. Extensions can do this by sending `ConversationLabel`,
+  `GroupSubject`, `GroupChannel`, `GroupSpace`, and `SenderName` in the inbound
+  context and calling `recordSessionMetaFromInbound` (or passing the same context
+  to `updateLastRoute`).
 
 

@@ -1,105 +1,106 @@
 ---
-title: "macOS Ilovasi"
+title: "macOS App"
 ---
 
-# OpenClaw macOS Yordamchisi (menyu paneli + gateway broker)
+# OpenClaw macOS Companion (menu bar + gateway broker)
 
-macOS ilovasi OpenClaw uchun **menyu‑panel yordamchisi** hisoblanadi. U ruxsatlarga egalik qiladi,
-Gateway’ni lokal boshqaradi/unga ulanadi (launchd yoki qo‘lda) va macOS imkoniyatlarini agentga node sifatida taqdim etadi.
+The macOS app is the **menu‑bar companion** for OpenClaw. It owns permissions,
+manages/attaches to the Gateway locally (launchd or manual), and exposes macOS
+capabilities to the agent as a node.
 
-## U nima qiladi
+## What it does
 
-- Menyu panelida mahalliy bildirishnomalar va holatni ko‘rsatadi.
-- TCC so‘rovlariga egalik qiladi (Bildirishnomalar, Accessibility, Screen Recording, Microphone,
-Nutqni aniqlash, Avtomatlashtirish/AppleScript).
-- Gateway’ni ishga tushiradi yoki unga ulanadi (lokal yoki masofaviy).
-- Faqat macOS’ga xos vositalarni taqdim etadi (Canvas, Camera, Screen Recording, `system.run`).
-- Mahalliy node host xizmatini **masofaviy** rejimda (launchd) ishga tushiradi va **lokal** rejimda to‘xtatadi.
-- Ixtiyoriy ravishda UI avtomatlashtirish uchun **PeekabooBridge**’ni joylashtiradi.
-- So‘rovga binoan global CLI (`openclaw`) ni npm/pnpm orqali o‘rnatadi (Gateway runtime uchun bun tavsiya etilmaydi).
+- Shows native notifications and status in the menu bar.
+- Owns TCC prompts (Notifications, Accessibility, Screen Recording, Microphone,
+  Speech Recognition, Automation/AppleScript).
+- Runs or connects to the Gateway (local or remote).
+- Exposes macOS‑only tools (Canvas, Camera, Screen Recording, `system.run`).
+- Starts the local node host service in **remote** mode (launchd), and stops it in **local** mode.
+- Optionally hosts **PeekabooBridge** for UI automation.
+- Installs the global CLI (`openclaw`) via npm/pnpm on request (bun not recommended for the Gateway runtime).
 
-## Lokal va masofaviy rejim
+## Local vs remote mode
 
-- **Local** (standart): ilova mavjud bo‘lsa, ishlayotgan mahalliy Gateway’ga ulanadi;
-aks holda `openclaw gateway install` orqali launchd xizmatini yoqadi.
-- **Remote**: ilova SSH/Tailscale orqali Gateway’ga ulanadi va hech qachon ishga tushirmaydi
+- **Local** (default): the app attaches to a running local Gateway if present;
+  otherwise it enables the launchd service via `openclaw gateway install`.
+- **Remote**: the app connects to a Gateway over SSH/Tailscale and never starts
   a local process.
-  Ilova masofaviy Gateway ushbu Mac’ga yetib borishi uchun lokal **node host xizmati**ni ishga tushiradi.
-  Ilova Gateway’ni child process sifatida ishga tushirmaydi.
+  The app starts the local **node host service** so the remote Gateway can reach this Mac.
+  The app does not spawn the Gateway as a child process.
 
-## Launchd boshqaruvi
+## Launchd control
 
-Ilova har bir foydalanuvchi uchun `bot.molt.gateway` yorlig‘iga ega LaunchAgent’ni boshqaradi
-(yoki `bot.molt.<profile>`` ` `--profile`/`OPENCLAW_PROFILE` ishlatilganda; eski `com.openclaw.*` hali ham unload qilinadi).
+The app manages a per‑user LaunchAgent labeled `bot.molt.gateway`
+(or `bot.molt.<profile>` when using `--profile`/`OPENCLAW_PROFILE`; legacy `com.openclaw.*` still unloads).
 
 ```bash
 launchctl kickstart -k gui/$UID/bot.molt.gateway
 launchctl bootout gui/$UID/bot.molt.gateway
 ```
 
-Nomlangan profil ishga tushirilganda yorliqni `bot.molt.<profile>` bilan almashtiring.Agar LaunchAgent o‘rnatilmagan bo‘lsa, uni ilovadan yoqing yoki
-`openclaw gateway install` ni ishga tushiring.
+Replace the label with `bot.molt.<profile>` when running a named profile.
 
-Node imkoniyatlari (mac)
+If the LaunchAgent isn’t installed, enable it from the app or run
+`openclaw gateway install`.
 
-## macOS ilovasi o‘zini node sifatida taqdim etadi.
+## Node capabilities (mac)
 
-Umumiy buyruqlar: Canvas: `canvas.present`, `canvas.navigate`, `canvas.eval`, `canvas.snapshot`, `canvas.a2ui.*`
+The macOS app presents itself as a node. Common commands:
 
+- Canvas: `canvas.present`, `canvas.navigate`, `canvas.eval`, `canvas.snapshot`, `canvas.a2ui.*`
 - Camera: `camera.snap`, `camera.clip`
 - Screen: `screen.record`
 - System: `system.run`, `system.notify`
-- Node agentlarga nimaga ruxsat berilganini aniqlashi uchun `permissions` xaritasini hisobot qiladi.
 
-Node xizmati + ilova IPC:
+The node reports a `permissions` map so agents can decide what’s allowed.
 
-Headless node host xizmati ishlayotganda (masofaviy rejim), u Gateway WS’iga node sifatida ulanadi.
+Node service + app IPC:
 
-- `system.run` macOS ilovasida (UI/TCC konteksti) lokal Unix soketi orqali bajariladi; so‘rovlar va chiqish ilova ichida qoladi.
-- Diagramma (SCI):
+- When the headless node host service is running (remote mode), it connects to the Gateway WS as a node.
+- `system.run` executes in the macOS app (UI/TCC context) over a local Unix socket; prompts + output stay in-app.
 
+Diagram (SCI):
+
+```
 Gateway -> Node Service (WS)
-\|  IPC (UDS + token + HMAC + TTL)
-v
-Mac App (UI + TCC + system.run)
-
-```
-Exec tasdiqlashlari (system.run)
+                 |  IPC (UDS + token + HMAC + TTL)
+                 v
+             Mac App (UI + TCC + system.run)
 ```
 
-## `system.run` macOS ilovasida **Exec tasdiqlashlari** orqali boshqariladi (Sozlamalar → Exec tasdiqlashlari).
+## Exec approvals (system.run)
 
-Xavfsizlik + so‘rash + allowlist lokal ravishda Mac’da quyidagi joyda saqlanadi:
+`system.run` is controlled by **Exec approvals** in the macOS app (Settings → Exec approvals).
+Security + ask + allowlist are stored locally on the Mac in:
+
+```
 ~/.openclaw/exec-approvals.json
-
-```
-Misol:
 ```
 
-{
-"version": 1,
-"defaults": {
-"security": "deny",
-"ask": "on-miss"
-},
-"agents": {
-"main": {
-"security": "allowlist",
-"ask": "on-miss",
-"allowlist": [{ "pattern": "/opt/homebrew/bin/rg" }]
-}
-}
-}
+Example:
 
 ```json
-Eslatmalar:
+{
+  "version": 1,
+  "defaults": {
+    "security": "deny",
+    "ask": "on-miss"
+  },
+  "agents": {
+    "main": {
+      "security": "allowlist",
+      "ask": "on-miss",
+      "allowlist": [{ "pattern": "/opt/homebrew/bin/rg" }]
+    }
+  }
+}
 ```
 
-`allowlist` yozuvlari yechilgan binary yo‘llari uchun glob andozalaridir.
+Notes:
 
-- `allowlist` yozuvlari aniqlangan binary yo‘llari uchun glob andozalaridir.
-- So‘rov oynasida “Always Allow” tanlansa, o‘sha buyruq allowlist’ga qo‘shiladi.
-- `system.run` muhit o‘zgaruvchilari ustidan yozishlar filtrlab olinadi (`PATH`, `DYLD_*`, `LD_*`, `NODE_OPTIONS`, `PYTHON*`, `PERL*`, `RUBYOPT` olib tashlanadi) va so‘ng ilovaning muhiti bilan birlashtiriladi.
+- `allowlist` entries are glob patterns for resolved binary paths.
+- Choosing “Always Allow” in the prompt adds that command to the allowlist.
+- `system.run` environment overrides are filtered (drops `PATH`, `DYLD_*`, `LD_*`, `NODE_OPTIONS`, `PYTHON*`, `PERL*`, `RUBYOPT`) and then merged with the app’s environment.
 
 ## Deep links
 
@@ -125,6 +126,7 @@ Query parameters:
 Safety:
 
 - Without `key`, the app prompts for confirmation.
+- Without `key`, the app enforces a short message limit for the confirmation prompt and ignores `deliver` / `to` / `channel`.
 - With a valid `key`, the run is unattended (intended for personal automations).
 
 ## Onboarding flow (typical)
@@ -187,13 +189,14 @@ components can talk to a remote Gateway as if it were on localhost.
   IP as `127.0.0.1`. Use **Direct (ws/wss)** transport if you want the real client
   IP to appear (see [macOS remote access](/platforms/mac/remote)).
 
-1. O‘rnatish bosqichlari uchun [macOS remote access](/platforms/mac/remote) ga qarang. 2. Protokol tafsilotlari uchun [Gateway protocol](/gateway/protocol) ga qarang.
+For setup steps, see [macOS remote access](/platforms/mac/remote). For protocol
+details, see [Gateway protocol](/gateway/protocol).
 
-## 3. Tegishli hujjatlar
+## Related docs
 
-- 4. [Gateway runbook](/gateway)
-- 5. [Gateway (macOS)](/platforms/mac/bundled-gateway)
-- 6. [macOS permissions](/platforms/mac/permissions)
-- 7. [Canvas](/platforms/mac/canvas)
+- [Gateway runbook](/gateway)
+- [Gateway (macOS)](/platforms/mac/bundled-gateway)
+- [macOS permissions](/platforms/mac/permissions)
+- [Canvas](/platforms/mac/canvas)
 
 

@@ -135,10 +135,10 @@ The script exits with code `2` for invalid method selection or invalid `--instal
 
 | Flag                            | Description                                                |
 | ------------------------------- | ---------------------------------------------------------- |
-| `--install-method npm\|git`     | Choose install method (default: `npm`). Alias: `--method`  |
+| `--install-method npm|git`     | Choose install method (default: `npm`). Alias: `--method`  |
 | `--npm`                         | Shortcut for npm method                                    |
 | `--git`                         | Shortcut for git method. Alias: `--github`                 |
-| `--version <version\|dist-tag>` | npm version or dist-tag (default: `latest`)                |
+| `--version <version|dist-tag>` | npm version or dist-tag (default: `latest`)                |
 | `--beta`                        | Use beta dist-tag if available, else fallback to `latest`  |
 | `--git-dir <path>`              | Checkout directory (default: `~/openclaw`). Alias: `--dir` |
 | `--no-git-update`               | Skip `git pull` for existing checkout                      |
@@ -156,17 +156,17 @@ The script exits with code `2` for invalid method selection or invalid `--instal
 
 | Variable                                    | Description                                   |
 | ------------------------------------------- | --------------------------------------------- |
-| `OPENCLAW_INSTALL_METHOD=git\|npm`          | Install method                                |
-| `OPENCLAW_VERSION=latest\|next\|<semver>`   | npm version or dist-tag                       |
-| `OPENCLAW_BETA=0\|1`                        | Use beta if available                         |
+| `OPENCLAW_INSTALL_METHOD=git|npm`          | Install method                                |
+| `OPENCLAW_VERSION=latest|next|<semver>`   | npm version or dist-tag                       |
+| `OPENCLAW_BETA=0|1`                        | Use beta if available                         |
 | `OPENCLAW_GIT_DIR=<path>`                   | Checkout directory                            |
-| `OPENCLAW_GIT_UPDATE=0\|1`                  | Toggle git updates                            |
+| `OPENCLAW_GIT_UPDATE=0|1`                  | Toggle git updates                            |
 | `OPENCLAW_NO_PROMPT=1`                      | Disable prompts                               |
 | `OPENCLAW_NO_ONBOARD=1`                     | Skip onboarding                               |
 | `OPENCLAW_DRY_RUN=1`                        | Dry run mode                                  |
 | `OPENCLAW_VERBOSE=1`                        | Debug mode                                    |
-| `OPENCLAW_NPM_LOGLEVEL=error\|warn\|notice` | npm log level                                 |
-| `SHARP_IGNORE_GLOBAL_LIBVIPS=0\|1`          | Control sharp/libvips behavior (default: `1`) |
+| `OPENCLAW_NPM_LOGLEVEL=error|warn|notice` | npm log level                                 |
+| `SHARP_IGNORE_GLOBAL_LIBVIPS=0|1`          | Control sharp/libvips behavior (default: `1`) |
 
   
 </Accordion>
@@ -251,9 +251,9 @@ Designed for environments where you want everything under a local prefix (defaul
 | `OPENCLAW_VERSION=<ver>`                    | OpenClaw version or dist-tag                                                      |
 | `OPENCLAW_NODE_VERSION=<ver>`               | Node version                                                                      |
 | `OPENCLAW_NO_ONBOARD=1`                     | Skip onboarding                                                                   |
-| `OPENCLAW_NPM_LOGLEVEL=error\|warn\|notice` | npm log level                                                                     |
+| `OPENCLAW_NPM_LOGLEVEL=error|warn|notice` | npm log level                                                                     |
 | `OPENCLAW_GIT_DIR=<path>`                   | Legacy cleanup lookup path (used when removing old `Peekaboo` submodule checkout) |
-| `SHARP_IGNORE_GLOBAL_LIBVIPS=0\|1`          | Control sharp/libvips behavior (default: `1`)                                     |
+| `SHARP_IGNORE_GLOBAL_LIBVIPS=0|1`          | Control sharp/libvips behavior (default: `1`)                                     |
 
   
 </Accordion>
@@ -328,7 +328,7 @@ Designed for environments where you want everything under a local prefix (defaul
 
 | Flag                      | Description                                            |
 | ------------------------- | ------------------------------------------------------ |
-| `-InstallMethod npm\|git` | Install method (default: `npm`)                        |
+| `-InstallMethod npm|git` | Install method (default: `npm`)                        |
 | `-Tag <tag>`              | npm dist-tag (default: `latest`)                       |
 | `-GitDir <path>`          | Checkout directory (default: `%USERPROFILE%\openclaw`) |
 | `-NoOnboard`              | Skip onboarding                                        |
@@ -342,7 +342,7 @@ Designed for environments where you want everything under a local prefix (defaul
 
 | Variable                           | Description        |
 | ---------------------------------- | ------------------ |
-| `OPENCLAW_INSTALL_METHOD=git\|npm` | Install method     |
+| `OPENCLAW_INSTALL_METHOD=git|npm` | Install method     |
 | `OPENCLAW_GIT_DIR=<path>`          | Checkout directory |
 | `OPENCLAW_NO_ONBOARD=1`            | Skip onboarding    |
 | `OPENCLAW_GIT_UPDATE=0`            | Disable git pull   |

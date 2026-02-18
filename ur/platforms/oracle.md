@@ -2,53 +2,53 @@
 title: "Oracle Cloud"
 ---
 
-# Oracle Cloud (OCI) پر OpenClaw
+# OpenClaw on Oracle Cloud (OCI)
 
-## مقصد
+## Goal
 
-Oracle Cloud کے **Always Free** ARM ٹیر پر ایک مستقل OpenClaw Gateway چلانا۔
+Run a persistent OpenClaw Gateway on Oracle Cloud's **Always Free** ARM tier.
 
-Oracle کا فری ٹیر OpenClaw کے لیے ایک اچھا انتخاب ہو سکتا ہے (خاص طور پر اگر آپ کے پاس پہلے سے OCI اکاؤنٹ ہو)، لیکن اس کے ساتھ کچھ سمجھوتے بھی ہیں:
+Oracle’s free tier can be a great fit for OpenClaw (especially if you already have an OCI account), but it comes with tradeoffs:
 
-- ARM آرکیٹیکچر (زیادہ تر چیزیں کام کرتی ہیں، لیکن کچھ بائنریز صرف x86 کے لیے ہو سکتی ہیں)
-- صلاحیت اور سائن اپ بعض اوقات مشکل ہو سکتے ہیں
+- ARM architecture (most things work, but some binaries may be x86-only)
+- Capacity and signup can be finicky
 
-## لاگت کا موازنہ (2026)
+## Cost Comparison (2026)
 
-| فراہم کنندہ  | پلان            | خصوصیات                         | ماہانہ قیمت          | نوٹس                     |
-| ------------ | --------------- | ------------------------------- | -------------------- | ------------------------ |
-| Oracle Cloud | Always Free ARM | زیادہ سے زیادہ 4 OCPU، 24GB RAM | $0                   | ARM، محدود صلاحیت        |
-| Hetzner      | CX22            | 2 vCPU، 4GB RAM                 | ~ $4 | سب سے سستا بامعاوضہ آپشن |
-| DigitalOcean | بنیادی           | 1 vCPU، 1GB RAM                 | $6                   | آسان UI، اچھی دستاویزات  |
-| Vultr        | Cloud Compute   | 1 vCPU، 1GB RAM                 | $6                   | کئی مقامات               |
-| Linode       | Nanode          | 1 vCPU، 1GB RAM                 | $5                   | اب Akamai کا حصہ         |
+| Provider     | Plan            | Specs                  | Price/mo | Notes                 |
+| ------------ | --------------- | ---------------------- | -------- | --------------------- |
+| Oracle Cloud | Always Free ARM | up to 4 OCPU, 24GB RAM | $0       | ARM, limited capacity |
+| Hetzner      | CX22            | 2 vCPU, 4GB RAM        | ~ $4     | Cheapest paid option  |
+| DigitalOcean | Basic           | 1 vCPU, 1GB RAM        | $6       | Easy UI, good docs    |
+| Vultr        | Cloud Compute   | 1 vCPU, 1GB RAM        | $6       | Many locations        |
+| Linode       | Nanode          | 1 vCPU, 1GB RAM        | $5       | Now part of Akamai    |
 
 ---
 
-## پیشگی تقاضے
+## Prerequisites
 
-- Oracle Cloud اکاؤنٹ ([signup](https://www.oracle.com/cloud/free/)) — اگر مسائل آئیں تو [کمیونٹی سائن اپ گائیڈ](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd) دیکھیں
-- Tailscale اکاؤنٹ (مفت: [tailscale.com](https://tailscale.com))
-- تقریباً 30 منٹ
+- Oracle Cloud account ([signup](https://www.oracle.com/cloud/free/)) — see [community signup guide](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd) if you hit issues
+- Tailscale account (free at [tailscale.com](https://tailscale.com))
+- ~30 minutes
 
-## 1. OCI انسٹینس بنائیں
+## 1) Create an OCI Instance
 
-1. [Oracle Cloud Console](https://cloud.oracle.com/) میں لاگ اِن کریں
-2. **Compute → Instances → Create Instance** پر جائیں
-3. کنفیگر کریں:
+1. Log into [Oracle Cloud Console](https://cloud.oracle.com/)
+2. Navigate to **Compute → Instances → Create Instance**
+3. Configure:
    - **Name:** `openclaw`
    - **Image:** Ubuntu 24.04 (aarch64)
    - **Shape:** `VM.Standard.A1.Flex` (Ampere ARM)
-   - **OCPUs:** 2 (یا زیادہ سے زیادہ 4)
-   - **Memory:** 12 GB (یا زیادہ سے زیادہ 24 GB)
-   - **Boot volume:** 50 GB (200 GB تک مفت)
-   - **SSH key:** اپنی پبلک کی شامل کریں
-4. **Create** پر کلک کریں
-5. پبلک IP ایڈریس نوٹ کریں
+   - **OCPUs:** 2 (or up to 4)
+   - **Memory:** 12 GB (or up to 24 GB)
+   - **Boot volume:** 50 GB (up to 200 GB free)
+   - **SSH key:** Add your public key
+4. Click **Create**
+5. Note the public IP address
 
-39) فری ٹئیر کی گنجائش محدود ہے۔ 40. جب پوچھا جائے "How do you want to hatch your bot?" تو **"Do this later"** منتخب کریں۔
+**Tip:** If instance creation fails with "Out of capacity", try a different availability domain or retry later. Free tier capacity is limited.
 
-## 2. کنیکٹ کریں اور اپ ڈیٹ کریں
+## 2) Connect and Update
 
 ```bash
 # Connect via public IP
@@ -59,9 +59,9 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y build-essential
 ```
 
-**نوٹ:** `build-essential` بعض dependencies کی ARM کمپائلیشن کے لیے ضروری ہے۔
+**Note:** `build-essential` is required for ARM compilation of some dependencies.
 
-## 3. یوزر اور ہوسٹ نیم کنفیگر کریں
+## 3) Configure User and Hostname
 
 ```bash
 # Set hostname
@@ -74,37 +74,37 @@ sudo passwd ubuntu
 sudo loginctl enable-linger ubuntu
 ```
 
-## 4. Tailscale انسٹال کریں
+## 4) Install Tailscale
 
 ```bash
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up --ssh --hostname=openclaw
 ```
 
-اس سے Tailscale SSH فعال ہو جاتا ہے، تاکہ آپ اپنے tailnet کے کسی بھی ڈیوائس سے `ssh openclaw` کے ذریعے کنیکٹ کر سکیں — پبلک IP کی ضرورت نہیں۔
+This enables Tailscale SSH, so you can connect via `ssh openclaw` from any device on your tailnet — no public IP needed.
 
-تصدیق کریں:
+Verify:
 
 ```bash
 tailscale status
 ```
 
-**اب سے، Tailscale کے ذریعے کنیکٹ کریں:** `ssh ubuntu@openclaw` (یا Tailscale IP استعمال کریں)۔
+**From now on, connect via Tailscale:** `ssh ubuntu@openclaw` (or use the Tailscale IP).
 
-## 5. OpenClaw انسٹال کریں
+## 5) Install OpenClaw
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
 source ~/.bashrc
 ```
 
-41. ڈیفالٹ کے طور پر ٹوکن آتھنٹیکیشن استعمال کریں۔
+When prompted "How do you want to hatch your bot?", select **"Do this later"**.
 
-> نوٹ: اگر ARM-native build کے مسائل آئیں تو Homebrew کی طرف جانے سے پہلے سسٹم پیکیجز سے آغاز کریں (مثلاً `sudo apt install -y build-essential`)۔
+> Note: If you hit ARM-native build issues, start with system packages (e.g. `sudo apt install -y build-essential`) before reaching for Homebrew.
 
-## 6. Gateway کنفیگر کریں (loopback + token auth) اور Tailscale Serve فعال کریں
+## 6) Configure Gateway (loopback + token auth) and enable Tailscale Serve
 
-42. یہ پیش گوئی کے قابل ہے اور کسی بھی “insecure auth” کنٹرول UI فلیگز کی ضرورت سے بچاتا ہے۔ 43. اب جب سب کچھ کام کر رہا ہے، VCN کو لاک ڈاؤن کریں تاکہ Tailscale کے علاوہ تمام ٹریفک بلاک ہو جائے۔
+Use token auth as the default. It’s predictable and avoids needing any “insecure auth” Control UI flags.
 
 ```bash
 # Keep the Gateway private on the VM
@@ -121,7 +121,7 @@ openclaw config set gateway.trustedProxies '["127.0.0.1"]'
 systemctl --user restart openclaw-gateway
 ```
 
-## 7. تصدیق
+## 7) Verify
 
 ```bash
 # Check version
@@ -137,63 +137,63 @@ tailscale serve status
 curl http://localhost:18789
 ```
 
-## 8. VCN سکیورٹی لاک ڈاؤن کریں
+## 8) Lock Down VCN Security
 
-44. OCI کی Virtual Cloud Network نیٹ ورک ایج پر فائر وال کے طور پر کام کرتی ہے — ٹریفک انسٹینس تک پہنچنے سے پہلے ہی بلاک ہو جاتی ہے۔ 45. یہ نیٹ ورک ایج پر پورٹ 22 پر SSH، HTTP، HTTPS، اور باقی سب کچھ بلاک کر دیتا ہے۔
+Now that everything is working, lock down the VCN to block all traffic except Tailscale. OCI's Virtual Cloud Network acts as a firewall at the network edge — traffic is blocked before it reaches your instance.
 
-1. OCI Console میں **Networking → Virtual Cloud Networks** پر جائیں
-2. اپنا VCN منتخب کریں → **Security Lists** → Default Security List
-3. تمام ingress قواعد **ہٹا دیں** سوائے:
+1. Go to **Networking → Virtual Cloud Networks** in the OCI Console
+2. Click your VCN → **Security Lists** → Default Security List
+3. **Remove** all ingress rules except:
    - `0.0.0.0/0 UDP 41641` (Tailscale)
-4. ڈیفالٹ egress قواعد برقرار رکھیں (تمام آؤٹ باؤنڈ کی اجازت)
+4. Keep default egress rules (allow all outbound)
 
-46) اب سے، آپ صرف Tailscale کے ذریعے کنیکٹ کر سکتے ہیں۔ 47. کسی SSH ٹنل کی ضرورت نہیں۔
+This blocks SSH on port 22, HTTP, HTTPS, and everything else at the network edge. From now on, you can only connect via Tailscale.
 
 ---
 
-## Control UI تک رسائی
+## Access the Control UI
 
-اپنے Tailscale نیٹ ورک کے کسی بھی ڈیوائس سے:
+From any device on your Tailscale network:
 
 ```
 https://openclaw.<tailnet-name>.ts.net/
 ```
 
-`<tailnet-name>` کو اپنے tailnet کے نام سے بدلیں (جو `tailscale status` میں نظر آتا ہے)۔
+Replace `<tailnet-name>` with your tailnet name (visible in `tailscale status`).
 
-48. Tailscale فراہم کرتا ہے: 49. فری ٹئیر ARM انسٹینسز مقبول ہیں۔
+No SSH tunnel needed. Tailscale provides:
 
-- HTTPS انکرپشن (خودکار سرٹیفکیٹس)
-- Tailscale شناخت کے ذریعے تصدیق
-- اپنے tailnet کے کسی بھی ڈیوائس سے رسائی (لیپ ٹاپ، فون وغیرہ)
+- HTTPS encryption (automatic certs)
+- Authentication via Tailscale identity
+- Access from any device on your tailnet (laptop, phone, etc.)
 
 ---
 
-## سکیورٹی: VCN + Tailscale (سفارش کردہ بنیاد)
+## Security: VCN + Tailscale (recommended baseline)
 
-VCN کے لاک ڈاؤن (صرف UDP 41641 کھلا) اور Gateway کے loopback سے بائنڈ ہونے کے ساتھ، آپ کو مضبوط defense-in-depth ملتا ہے: عوامی ٹریفک نیٹ ورک ایج پر بلاک ہو جاتی ہے، اور ایڈمن رسائی آپ کے tailnet کے ذریعے ہوتی ہے۔
+With the VCN locked down (only UDP 41641 open) and the Gateway bound to loopback, you get strong defense-in-depth: public traffic is blocked at the network edge, and admin access happens over your tailnet.
 
-یہ سیٹ اپ اکثر انٹرنیٹ بھر میں SSH brute force روکنے کے لیے اضافی ہوسٹ بیسڈ فائر وال قواعد کی _ضرورت_ ختم کر دیتا ہے — لیکن پھر بھی آپ کو OS اپ ڈیٹ رکھنا چاہیے، `openclaw security audit` چلانا چاہیے، اور تصدیق کرنی چاہیے کہ آپ غلطی سے پبلک انٹرفیسز پر سن نہیں رہے۔
+This setup often removes the _need_ for extra host-based firewall rules purely to stop Internet-wide SSH brute force — but you should still keep the OS updated, run `openclaw security audit`, and verify you aren’t accidentally listening on public interfaces.
 
-### پہلے سے محفوظ چیزیں
+### What's Already Protected
 
-| روایتی قدم            | ضروری؟      | وجہ                                                                     |
-| --------------------- | ----------- | ----------------------------------------------------------------------- |
-| UFW فائر وال          | نہیں        | VCN ٹریفک انسٹینس تک پہنچنے سے پہلے بلاک کر دیتا ہے                     |
-| fail2ban              | نہیں        | اگر پورٹ 22 VCN پر بلاک ہو تو brute force نہیں ہوتا                     |
-| sshd سختی             | نہیں        | Tailscale SSH، sshd استعمال نہیں کرتا                                   |
-| روٹ لاگ اِن غیر فعال  | نہیں        | Tailscale سسٹم یوزرز نہیں بلکہ Tailscale شناخت استعمال کرتا ہے          |
-| صرف SSH کی آتھنٹیکیشن | نہیں        | Tailscale آپ کے tailnet کے ذریعے تصدیق کرتا ہے                          |
-| IPv6 سختی             | عموماً نہیں | آپ کے VCN/subnet سیٹنگز پر منحصر؛ تصدیق کریں کیا واقعی اسائن/ایکسپوز ہے |
+| Traditional Step   | Needed?     | Why                                                                          |
+| ------------------ | ----------- | ---------------------------------------------------------------------------- |
+| UFW firewall       | No          | VCN blocks before traffic reaches instance                                   |
+| fail2ban           | No          | No brute force if port 22 blocked at VCN                                     |
+| sshd hardening     | No          | Tailscale SSH doesn't use sshd                                               |
+| Disable root login | No          | Tailscale uses Tailscale identity, not system users                          |
+| SSH key-only auth  | No          | Tailscale authenticates via your tailnet                                     |
+| IPv6 hardening     | Usually not | Depends on your VCN/subnet settings; verify what’s actually assigned/exposed |
 
-### پھر بھی سفارش کردہ
+### Still Recommended
 
-- **Credential اجازتیں:** `chmod 700 ~/.openclaw`
-- **سکیورٹی آڈٹ:** `openclaw security audit`
-- **سسٹم اپ ڈیٹس:** باقاعدگی سے `sudo apt update && sudo apt upgrade`
-- **Tailscale مانیٹر کریں:** [Tailscale admin console](https://login.tailscale.com/admin) میں ڈیوائسز کا جائزہ لیں
+- **Credential permissions:** `chmod 700 ~/.openclaw`
+- **Security audit:** `openclaw security audit`
+- **System updates:** `sudo apt update && sudo apt upgrade` regularly
+- **Monitor Tailscale:** Review devices in [Tailscale admin console](https://login.tailscale.com/admin)
 
-### سکیورٹی اسٹیٹس کی تصدیق
+### Verify Security Posture
 
 ```bash
 # Confirm no public ports listening
@@ -208,30 +208,30 @@ sudo systemctl disable --now ssh
 
 ---
 
-## متبادل: SSH سرنگ
+## Fallback: SSH Tunnel
 
-اگر Tailscale Serve کام نہیں کر رہا، تو SSH سرنگ استعمال کریں:
+If Tailscale Serve isn't working, use an SSH tunnel:
 
 ```bash
 # From your local machine (via Tailscale)
 ssh -L 18789:127.0.0.1:18789 ubuntu@openclaw
 ```
 
-پھر `http://localhost:18789` کھولیں۔
+Then open `http://localhost:18789`.
 
 ---
 
-## خرابیوں کا ازالہ
+## Troubleshooting
 
-### انسٹینس بنانا ناکام ("Out of capacity")
+### Instance creation fails ("Out of capacity")
 
 Free tier ARM instances are popular. Try:
 
-- مختلف availability domain
-- آف پیک اوقات میں دوبارہ کوشش (صبح سویرے)
-- shape منتخب کرتے وقت "Always Free" فلٹر استعمال کریں
+- Different availability domain
+- Retry during off-peak hours (early morning)
+- Use the "Always Free" filter when selecting shape
 
-### Tailscale کنیکٹ نہیں ہو رہا
+### Tailscale won't connect
 
 ```bash
 # Check status
@@ -241,7 +241,7 @@ sudo tailscale status
 sudo tailscale up --ssh --hostname=openclaw --reset
 ```
 
-### Gateway شروع نہیں ہو رہا
+### Gateway won't start
 
 ```bash
 openclaw gateway status
@@ -249,7 +249,7 @@ openclaw doctor --non-interactive
 journalctl --user -u openclaw-gateway -n 50
 ```
 
-### Control UI تک رسائی نہیں ہو رہی
+### Can't reach Control UI
 
 ```bash
 # Verify Tailscale Serve is running
@@ -262,7 +262,7 @@ curl http://localhost:18789
 systemctl --user restart openclaw-gateway
 ```
 
-### ARM بائنری مسائل
+### ARM binary issues
 
 Some tools may not have ARM builds. Check:
 
@@ -274,14 +274,14 @@ Most npm packages work fine. For binaries, look for `linux-arm64` or `aarch64` r
 
 ---
 
-## استحکام (Persistence)
+## Persistence
 
-تمام اسٹیٹ یہاں محفوظ ہوتی ہے:
+All state lives in:
 
-- `~/.openclaw/` — کنفیگ، اسناد، سیشن ڈیٹا
-- `~/.openclaw/workspace/` — ورک اسپیس (SOUL.md، میموری، آرٹی فیکٹس)
+- `~/.openclaw/` — config, credentials, session data
+- `~/.openclaw/workspace/` — workspace (SOUL.md, memory, artifacts)
 
-باقاعدگی سے بیک اپ لیں:
+Back up periodically:
 
 ```bash
 tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
@@ -289,12 +289,12 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 
 ---
 
-## یہ بھی دیکھیں
+## See Also
 
-- [Gateway remote access](/gateway/remote) — دیگر ریموٹ رسائی پیٹرنز
-- [Tailscale integration](/gateway/tailscale) — مکمل Tailscale دستاویزات
-- [Gateway configuration](/gateway/configuration) — تمام کنفیگ اختیارات
-- [DigitalOcean guide](/platforms/digitalocean) — اگر بامعاوضہ + آسان سائن اپ چاہتے ہوں
-- [Hetzner guide](/install/hetzner) — Docker پر مبنی متبادل
+- [Gateway remote access](/gateway/remote) — other remote access patterns
+- [Tailscale integration](/gateway/tailscale) — full Tailscale docs
+- [Gateway configuration](/gateway/configuration) — all config options
+- [DigitalOcean guide](/platforms/digitalocean) — if you want paid + easier signup
+- [Hetzner guide](/install/hetzner) — Docker-based alternative
 
 

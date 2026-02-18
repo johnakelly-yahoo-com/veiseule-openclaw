@@ -1,195 +1,211 @@
 ---
-status: eksperimental
-title: "Translyatsiya guruhlari"
+status: experimental
+title: "Broadcast Groups"
 ---
 
-# Translyatsiya guruhlari
+# Broadcast Groups
 
-**Holat:** Eksperimental  
-**Versiya:** 2026.1.9 da qo‘shilgan
+**Status:** Experimental  
+**Version:** Added in 2026.1.9
 
-## Umumiy ko‘rinish
+## Overview
 
-Translyatsiya guruhlari bir nechta agentlarga bir xil xabarni bir vaqtning o‘zida qayta ishlash va javob berish imkonini beradi. Bu bitta WhatsApp guruhi yoki DM ichida bir telefon raqamidan foydalangan holda birgalikda ishlaydigan ixtisoslashgan agent jamoalarini yaratish imkonini beradi.
+Broadcast Groups enable multiple agents to process and respond to the same message simultaneously. This allows you to create specialized agent teams that work together in a single WhatsApp group or DM — all using one phone number.
 
-Joriy qamrov: **faqat WhatsApp** (veb kanal).
+Current scope: **WhatsApp only** (web channel).
 
-Translyatsiya guruhlari kanal ruxsat ro‘yxatlari va guruh faollashtirish qoidalaridan keyin baholanadi. WhatsApp guruhlarida bu shuni anglatadiki, OpenClaw odatda qachon javob bersa (masalan, guruh sozlamalaringizga qarab eslatilganda), o‘sha paytda translyatsiyalar amalga oshadi.
+Broadcast groups are evaluated after channel allowlists and group activation rules. In WhatsApp groups, this means broadcasts happen when OpenClaw would normally reply (for example: on mention, depending on your group settings).
 
-## 1. Foydalanish holatlari
+## Use Cases
 
-### 2. 1. 3. Ixtisoslashgan agent jamoalari
+### 1. Specialized Agent Teams
 
-4. Aniq va yo‘naltirilgan vazifalarga ega bir nechta agentlarni ishga tushiring:
-
-```
-5. Guruh: "Dasturlash jamoasi"
-```
-
-Agentlar:
-
-### - CodeReviewer (kod parchalarini ko‘rib chiqadi)   - DocumentationBot (hujjatlarni yaratadi)
+Deploy multiple agents with atomic, focused responsibilities:
 
 ```
-  - SecurityAuditor (zaifliklarni tekshiradi)
+Group: "Development Team"
+Agents:
+  - CodeReviewer (reviews code snippets)
+  - DocumentationBot (generates docs)
+  - SecurityAuditor (checks for vulnerabilities)
+  - TestGenerator (suggests test cases)
 ```
 
-### - TestGenerator (test holatlarini taklif qiladi) 6. Har bir agent bir xil xabarni qayta ishlaydi va o‘zining ixtisoslashgan nuqtai nazarini taqdim etadi.
+Each agent processes the same message and provides its specialized perspective.
+
+### 2. Multi-Language Support
 
 ```
-7. 2.
+Group: "International Support"
+Agents:
+  - Agent_EN (responds in English)
+  - Agent_DE (responds in German)
+  - Agent_ES (responds in Spanish)
 ```
 
-### 8. Ko‘p tilli qo‘llab-quvvatlash 9. Guruh: "Xalqaro qo‘llab-quvvatlash"
+### 3. Quality Assurance Workflows
 
 ```
-Agentlar:
+Group: "Customer Support"
+Agents:
+  - SupportAgent (provides answer)
+  - QAAgent (reviews quality, only responds if issues found)
 ```
 
-## - Agent_EN (ingliz tilida javob beradi)
+### 4. Task Automation
 
-### - Agent_DE (nemis tilida javob beradi)
+```
+Group: "Project Management"
+Agents:
+  - TaskTracker (updates task database)
+  - TimeLogger (logs time spent)
+  - ReportGenerator (creates summaries)
+```
 
-- Agent_ES (ispan tilida javob beradi) 10. 3.
+## Configuration
 
-- 11. Sifatni ta’minlash jarayonlari
-- 12. Guruh: "Mijozlarni qo‘llab-quvvatlash"
+### Basic Setup
+
+Add a top-level `broadcast` section (next to `bindings`). Keys are WhatsApp peer ids:
+
+- group chats: group JID (e.g. `120363403215116621@g.us`)
+- DMs: E.164 phone number (e.g. `+15551234567`)
 
 ```json
-Agentlar:
+{
+  "broadcast": {
+    "120363403215116621@g.us": ["alfred", "baerbel", "assistant3"]
+  }
+}
 ```
 
-- SupportAgent (javob beradi)
+**Result:** When OpenClaw would reply in this chat, it will run all three agents.
 
-### - QAAgent (sifatni tekshiradi, faqat muammo topilsa javob beradi)
+### Processing Strategy
 
-13. 4.
+Control how agents process messages:
 
-#### 14. Vazifalarni avtomatlashtirish
+#### Parallel (Default)
 
-15. Guruh: "Loyihani boshqarish"
+All agents process simultaneously:
 
 ```json
-Agentlar:
-```
-
-#### - TaskTracker (vazifalar bazasini yangilaydi)
-
-- TimeLogger (sarflangan vaqtni qayd etadi)
-
-```json
-  - ReportGenerator (hisobotlar yaratadi)
-```
-
-### 16. Konfiguratsiya
-
-```json
-17. Asosiy sozlash
-```
-
-## 18. Yuqori darajadagi `broadcast` bo‘limini (`bindings` yoniga) qo‘shing.
-
-### 19. Kalitlar — WhatsApp peer ID’lari:
-
-1. 20. guruh chatlari: guruh JID (masalan, `120363403215116621@g.us`)
-2. 21. Shaxsiy xabarlar: E.164 telefon raqami (masalan, `+15551234567`)
-3. 22. {
-       "broadcast": {
-       "120363403215116621@g.us": ["alfred", "baerbel", "assistant3"]
-       }
-       }
-   - 23. **Natija:** OpenClaw ushbu chatda javob berganda, u uchala agentni ishga tushiradi.
-   - 24. Qayta ishlash strategiyasi
-   - 25. Agentlar xabarlarni qanday qayta ishlashini boshqaring:
-4. 26. Parallel (standart)
-   - 27. Barcha agentlar bir vaqtning o‘zida qayta ishlaydi:
-
-28) {
-    "broadcast": {
+{
+  "broadcast": {
     "strategy": "parallel",
     "120363403215116621@g.us": ["alfred", "baerbel"]
-    }
-    } 29. Ketma-ket
+  }
+}
+```
 
-### 30. Agentlar navbat bilan qayta ishlaydi (bittasi tugamaguncha keyingisi kutadi):
+#### Sequential
 
-31. {
-    "broadcast": {
+Agents process in order (one waits for previous to finish):
+
+```json
+{
+  "broadcast": {
     "strategy": "sequential",
     "120363403215116621@g.us": ["alfred", "baerbel"]
-    }
-    }
+  }
+}
+```
 
-- 32. To‘liq misol
-- 33. {
-      "agents": {
-      "list": [
+### Complete Example
+
+```json
+{
+  "agents": {
+    "list": [
       {
-      "id": "code-reviewer",
-      "name": "Code Reviewer",
-      "workspace": "/path/to/code-reviewer",
-      "sandbox": { "mode": "all" }
+        "id": "code-reviewer",
+        "name": "Code Reviewer",
+        "workspace": "/path/to/code-reviewer",
+        "sandbox": { "mode": "all" }
       },
       {
-      "id": "security-auditor",
-      "name": "Security Auditor",
-      "workspace": "/path/to/security-auditor",
-      "sandbox": { "mode": "all" }
+        "id": "security-auditor",
+        "name": "Security Auditor",
+        "workspace": "/path/to/security-auditor",
+        "sandbox": { "mode": "all" }
       },
       {
-      "id": "docs-generator",
-      "name": "Documentation Generator",
-      "workspace": "/path/to/docs-generator",
-      "sandbox": { "mode": "all" }
+        "id": "docs-generator",
+        "name": "Documentation Generator",
+        "workspace": "/path/to/docs-generator",
+        "sandbox": { "mode": "all" }
       }
-      ]
-      },
-      "broadcast": {
-      "strategy": "parallel",
-      "120363403215116621@g.us": ["code-reviewer", "security-auditor", "docs-generator"],
-      "120363424282127706@g.us": ["support-en", "support-de"],
-      "+15555550123": ["assistant", "logger"]
-      }
-      }
-- 34. Qanday ishlaydi
-- **Asboblar ruxsati** (turli allow/deny roʻyxatlari)
-- **Xotira/kontekst** (alohida IDENTITY.md, SOUL.md va boshqalar)
-- **Guruh kontekst buferi** (kontekst uchun ishlatiladigan soʻnggi guruh xabarlari) har bir peer uchun umumiy, shuning uchun ishga tushirilganda barcha broadcast agentlar bir xil kontekstni koʻradi
-
-Bu har bir agentga quyidagilarga ega boʻlish imkonini beradi:
-
-- Turli shaxsiyatlar
-- Turli asboblar ruxsati (masalan, faqat oʻqish vs. oʻqish-yozish)
-- Turli modellar (masalan, opus vs. sonnet)
-- Turli oʻrnatilgan koʻnikmalar
-
-### Misol: Izolyatsiyalangan sessiyalar
-
-`120363403215116621@g.us` guruhida `"alfred", "baerbel"` agentlari bilan:
-
-**Alfred konteksti:**
-
-```
-Sessiya: agent:alfred:whatsapp:group:120363403215116621@g.us
-Tarix: [foydalanuvchi xabari, alfredning oldingi javoblari]
-Ish maydoni: /Users/pascal/openclaw-alfred/
-Asboblar: read, write, exec
+    ]
+  },
+  "broadcast": {
+    "strategy": "parallel",
+    "120363403215116621@g.us": ["code-reviewer", "security-auditor", "docs-generator"],
+    "120363424282127706@g.us": ["support-en", "support-de"],
+    "+15555550123": ["assistant", "logger"]
+  }
+}
 ```
 
-**Bärbel konteksti:**
+## How It Works
+
+### Message Flow
+
+1. **Incoming message** arrives in a WhatsApp group
+2. **Broadcast check**: System checks if peer ID is in `broadcast`
+3. **If in broadcast list**:
+   - All listed agents process the message
+   - Each agent has its own session key and isolated context
+   - Agents process in parallel (default) or sequentially
+4. **If not in broadcast list**:
+   - Normal routing applies (first matching binding)
+
+Note: broadcast groups do not bypass channel allowlists or group activation rules (mentions/commands/etc). They only change _which agents run_ when a message is eligible for processing.
+
+### Session Isolation
+
+Each agent in a broadcast group maintains completely separate:
+
+- **Session keys** (`agent:alfred:whatsapp:group:120363...` vs `agent:baerbel:whatsapp:group:120363...`)
+- **Conversation history** (agent doesn't see other agents' messages)
+- **Workspace** (separate sandboxes if configured)
+- **Tool access** (different allow/deny lists)
+- **Memory/context** (separate IDENTITY.md, SOUL.md, etc.)
+- **Group context buffer** (recent group messages used for context) is shared per peer, so all broadcast agents see the same context when triggered
+
+This allows each agent to have:
+
+- Different personalities
+- Different tool access (e.g., read-only vs. read-write)
+- Different models (e.g., opus vs. sonnet)
+- Different skills installed
+
+### Example: Isolated Sessions
+
+In group `120363403215116621@g.us` with agents `["alfred", "baerbel"]`:
+
+**Alfred's context:**
 
 ```
-Sessiya: agent:baerbel:whatsapp:group:120363403215116621@g.us
-Tarix: [foydalanuvchi xabari, baerbelning oldingi javoblari]
-Ish maydoni: /Users/pascal/openclaw-baerbel/
-Asboblar: faqat read
+Session: agent:alfred:whatsapp:group:120363403215116621@g.us
+History: [user message, alfred's previous responses]
+Workspace: /Users/pascal/openclaw-alfred/
+Tools: read, write, exec
 ```
 
-## Eng yaxshi amaliyotlar
+**Bärbel's context:**
 
-### 1. Agentlarni fokusda saqlang
+```
+Session: agent:baerbel:whatsapp:group:120363403215116621@g.us
+History: [user message, baerbel's previous responses]
+Workspace: /Users/pascal/openclaw-baerbel/
+Tools: read only
+```
 
-Har bir agentni bitta aniq masʼuliyat bilan loyihalang:
+## Best Practices
+
+### 1. Keep Agents Focused
+
+Design each agent with a single, clear responsibility:
 
 ```json
 {
@@ -199,12 +215,12 @@ Har bir agentni bitta aniq masʼuliyat bilan loyihalang:
 }
 ```
 
-✅ **Yaxshi:** Har bir agentning bitta vazifasi bor  
-❌ **Yomon:** Bitta umumiy "dev-helper" agent
+✅ **Good:** Each agent has one job  
+❌ **Bad:** One generic "dev-helper" agent
 
-### 2. Tavsiflovchi nomlardan foydalaning
+### 2. Use Descriptive Names
 
-Har bir agent nima qilishini aniq koʻrsating:
+Make it clear what each agent does:
 
 ```json
 {
@@ -216,54 +232,54 @@ Har bir agent nima qilishini aniq koʻrsating:
 }
 ```
 
-### 3. Turli asboblar ruxsatini sozlang
+### 3. Configure Different Tool Access
 
-Agentlarga faqat kerakli asboblarni bering:
+Give agents only the tools they need:
 
 ```json
 {
   "agents": {
     "reviewer": {
-      "tools": { "allow": ["read", "exec"] } // Faqat oʻqish
+      "tools": { "allow": ["read", "exec"] } // Read-only
     },
     "fixer": {
-      "tools": { "allow": ["read", "write", "edit", "exec"] } // Oʻqish-yozish
+      "tools": { "allow": ["read", "write", "edit", "exec"] } // Read-write
     }
   }
 }
 ```
 
-### 4. Ishlashni kuzatib boring
+### 4. Monitor Performance
 
-Koʻp agentlar bilan quyidagilarni koʻrib chiqing:
+With many agents, consider:
 
-- Tezlik uchun `"strategy": "parallel"` (standart) dan foydalanish
-- Broadcast guruhlarini 5–10 agent bilan cheklash
-- Oddiy agentlar uchun tezroq modellarni ishlatish
+- Using `"strategy": "parallel"` (default) for speed
+- Limiting broadcast groups to 5-10 agents
+- Using faster models for simpler agents
 
-### 5. Nosozliklarni muloyimlik bilan boshqaring
+### 5. Handle Failures Gracefully
 
-Agentlar mustaqil ravishda xatoga uchraydi. Bitta agentning xatosi boshqalarni bloklamaydi:
+Agents fail independently. One agent's error doesn't block others:
 
 ```
-Xabar → [Agent A ✓, Agent B ✗ xato, Agent C ✓]
-Natija: Agent A va C javob beradi, Agent B xatoni log qiladi
+Message → [Agent A ✓, Agent B ✗ error, Agent C ✓]
+Result: Agent A and C respond, Agent B logs error
 ```
 
-## Moslik
+## Compatibility
 
-### Provayderlar
+### Providers
 
-26. Hozirda broadcast guruhlari quyidagilar bilan ishlaydi:
+Broadcast groups currently work with:
 
-- 27. ✅ WhatsApp (joriy etilgan)
-- 🚧 Telegram (rejalashtirilgan)
-- 🚧 Discord (rejalashtirilgan)
-- 🚧 Slack (rejalashtirilgan)
+- ✅ WhatsApp (implemented)
+- 🚧 Telegram (planned)
+- 🚧 Discord (planned)
+- 🚧 Slack (planned)
 
-### Yoʻnaltirish
+### Routing
 
-Broadcast guruhlari mavjud routing bilan birga ishlaydi:
+Broadcast groups work alongside existing routing:
 
 ```json
 {
@@ -279,20 +295,20 @@ Broadcast guruhlari mavjud routing bilan birga ishlaydi:
 }
 ```
 
-- `GROUP_A`: Faqat alfred javob beradi (oddiy routing)
-- `GROUP_B`: agent1 VA agent2 javob beradi (broadcast)
+- `GROUP_A`: Only alfred responds (normal routing)
+- `GROUP_B`: agent1 AND agent2 respond (broadcast)
 
-**Ustuvorlik:** `broadcast` `bindings` ustidan ustun turadi.
+**Precedence:** `broadcast` takes priority over `bindings`.
 
-## Muammolarni bartaraf etish
+## Troubleshooting
 
-### Agentlar javob bermayapti
+### Agents Not Responding
 
-**Tekshiring:**
+**Check:**
 
-1. 28. Agent IDlari `agents.list` da mavjud
-2. Peer ID formati to‘g‘ri (masalan, `120363403215116621@g.us`)
-3. Agentlar deny ro‘yxatlarida emas
+1. Agent IDs exist in `agents.list`
+2. Peer ID format is correct (e.g., `120363403215116621@g.us`)
+3. Agents are not in deny lists
 
 **Debug:**
 
@@ -300,23 +316,23 @@ Broadcast guruhlari mavjud routing bilan birga ishlaydi:
 tail -f ~/.openclaw/logs/gateway.log | grep broadcast
 ```
 
-### Faqat bitta agent javob bermoqda
+### Only One Agent Responding
 
-**Sabab:** Peer ID `bindings` ichida bo‘lishi mumkin, lekin `broadcast` da emas.
+**Cause:** Peer ID might be in `bindings` but not `broadcast`.
 
-**Yechim:** Broadcast konfiguratsiyasiga qo‘shing yoki bindings’dan olib tashlang.
+**Fix:** Add to broadcast config or remove from bindings.
 
-### Unumdorlik muammolari
+### Performance Issues
 
-**Agar ko‘p agentlar bilan sekin bo‘lsa:**
+**If slow with many agents:**
 
-- Guruhdagi agentlar sonini kamaytiring
-- Yengilroq modellardan foydalaning (opus o‘rniga sonnet)
-- Sandbox ishga tushish vaqtini tekshiring
+- Reduce number of agents per group
+- Use lighter models (sonnet instead of opus)
+- Check sandbox startup time
 
-## Misollar
+## Examples
 
-### 29. Misol 1: Kodni ko‘rib chiqish jamoasi
+### Example 1: Code Review Team
 
 ```json
 {
@@ -352,15 +368,15 @@ tail -f ~/.openclaw/logs/gateway.log | grep broadcast
 }
 ```
 
-**Foydalanuvchi yuboradi:** Kod parchasi  
-**Javoblar:**
+**User sends:** Code snippet  
+**Responses:**
 
-- code-formatter: "Chekinishlar tuzatildi va tur ko‘rsatkichlari qo‘shildi"
-- security-scanner: "⚠️ 12-qatorida SQL injection zaifligi"
-- test-coverage: "Qamrov 45%, xato holatlar uchun testlar yetishmaydi"
-- docs-checker: "`process_data` funksiyasi uchun docstring yetishmaydi"
+- code-formatter: "Fixed indentation and added type hints"
+- security-scanner: "⚠️ SQL injection vulnerability in line 12"
+- test-coverage: "Coverage is 45%, missing tests for error cases"
+- docs-checker: "Missing docstring for function `process_data`"
 
-### Misol 2: Ko‘p tilli qo‘llab-quvvatlash
+### Example 2: Multi-Language Support
 
 ```json
 {
@@ -378,9 +394,9 @@ tail -f ~/.openclaw/logs/gateway.log | grep broadcast
 }
 ```
 
-## API ma’lumotnomasi
+## API Reference
 
-### Konfiguratsiya sxemasi
+### Config Schema
 
 ```typescript
 interface OpenClawConfig {
@@ -391,34 +407,34 @@ interface OpenClawConfig {
 }
 ```
 
-### Maydonlar
+### Fields
 
-- `strategy` (ixtiyoriy): Agentlarni qanday qayta ishlash
-  - "parallel" (standart): Barcha agentlar bir vaqtda ishlaydi
-  - "sequential": Agentlar massiv tartibida ishlaydi
-- [peerId]: WhatsApp guruh JID’i, E.164 raqami yoki boshqa peer ID
-  - Qiymat: Xabarlarni qayta ishlashi kerak bo‘lgan agent ID’lari massivi
+- `strategy` (optional): How to process agents
+  - `"parallel"` (default): All agents process simultaneously
+  - `"sequential"`: Agents process in array order
+- `[peerId]`: WhatsApp group JID, E.164 number, or other peer ID
+  - Value: Array of agent IDs that should process messages
 
-## Cheklovlar
+## Limitations
 
-1. **Maksimal agentlar:** Qattiq limit yo‘q, lekin 10+ agent sekin bo‘lishi mumkin
-2. **Umumiy kontekst:** Agentlar bir-birining javoblarini ko‘rmaydi (dizayn bo‘yicha)
-3. **Xabarlar tartibi:** Parallel javoblar istalgan tartibda kelishi mumkin
-4. **Rate limitlar:** Barcha agentlar WhatsApp rate limitlariga kiradi
+1. **Max agents:** No hard limit, but 10+ agents may be slow
+2. **Shared context:** Agents don't see each other's responses (by design)
+3. **Message ordering:** Parallel responses may arrive in any order
+4. **Rate limits:** All agents count toward WhatsApp rate limits
 
-## Kelajakdagi yaxshilanishlar
+## Future Enhancements
 
-Rejalashtirilgan funksiyalar:
+Planned features:
 
-- [ ] Umumiy kontekst rejimi (agentlar bir-birining javoblarini ko‘radi)
-- [ ] Agentlarni muvofiqlashtirish (agentlar bir-biriga signal bera oladi)
-- [ ] Dinamik agent tanlash (xabar mazmuniga qarab agentlarni tanlash)
-- [ ] Agent ustuvorliklari (ba’zi agentlar boshqalardan oldin javob beradi)
+- [ ] Shared context mode (agents see each other's responses)
+- [ ] Agent coordination (agents can signal each other)
+- [ ] Dynamic agent selection (choose agents based on message content)
+- [ ] Agent priorities (some agents respond before others)
 
-## Shuningdek qarang
+## See Also
 
-- [Ko‘p-agentli konfiguratsiya](/tools/multi-agent-sandbox-tools)
-- [Yo‘naltirish konfiguratsiyasi](/channels/channel-routing)
-- [Sessiyalarni boshqarish](/concepts/sessions)
+- [Multi-Agent Configuration](/tools/multi-agent-sandbox-tools)
+- [Routing Configuration](/channels/channel-routing)
+- [Session Management](/concepts/sessions)
 
 

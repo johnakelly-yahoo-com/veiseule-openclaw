@@ -2,53 +2,53 @@
 title: "Oracle Cloud"
 ---
 
-# OpenClaw sa Oracle Cloud (OCI)
+# OpenClaw on Oracle Cloud (OCI)
 
-## Layunin
+## Goal
 
-Magpatakbo ng persistent na OpenClaw Gateway sa **Always Free** ARM tier ng Oracle Cloud.
+Run a persistent OpenClaw Gateway on Oracle Cloud's **Always Free** ARM tier.
 
-Maaaring maging magandang opsyon ang free tier ng Oracle para sa OpenClaw (lalo na kung may OCI account ka na), pero may kaakibat itong mga kompromiso:
+Oracle’s free tier can be a great fit for OpenClaw (especially if you already have an OCI account), but it comes with tradeoffs:
 
-- ARM architecture (karamihan ay gumagana, pero may ilang binary na x86-only)
-- Maaaring maselan ang capacity at signup
+- ARM architecture (most things work, but some binaries may be x86-only)
+- Capacity and signup can be finicky
 
-## Paghahambing ng Gastos (2026)
+## Cost Comparison (2026)
 
-| Tagapagbigay     | Plano            | Mga Espesipikasyon                     | Presyo/buwan         | Mga tala                      |
-| ------------ | --------------- | ------------------------- | -------------------- | ----------------------------- |
-| Oracle Cloud | Always Free ARM | hanggang 4 OCPU, 24GB RAM | $0                   | ARM, limitadong capacity      |
-| Hetzner      | CX22            | 2 vCPU, 4GB RAM           | ~ $4 | Pinakamurang paid option      |
-| DigitalOcean | Basic           | 1 vCPU, 1GB RAM           | $6                   | Madaling UI, magagandang docs |
-| Vultr        | Cloud Compute   | 1 vCPU, 1GB RAM           | $6                   | Maraming lokasyon             |
-| Linode       | Nanode          | 1 vCPU, 1GB RAM           | $5                   | Bahagi na ng Akamai           |
+| Provider     | Plan            | Specs                  | Price/mo | Notes                 |
+| ------------ | --------------- | ---------------------- | -------- | --------------------- |
+| Oracle Cloud | Always Free ARM | up to 4 OCPU, 24GB RAM | $0       | ARM, limited capacity |
+| Hetzner      | CX22            | 2 vCPU, 4GB RAM        | ~ $4     | Cheapest paid option  |
+| DigitalOcean | Basic           | 1 vCPU, 1GB RAM        | $6       | Easy UI, good docs    |
+| Vultr        | Cloud Compute   | 1 vCPU, 1GB RAM        | $6       | Many locations        |
+| Linode       | Nanode          | 1 vCPU, 1GB RAM        | $5       | Now part of Akamai    |
 
 ---
 
-## Mga paunang kinakailangan
+## Prerequisites
 
-- Oracle Cloud account ([signup](https://www.oracle.com/cloud/free/)) — tingnan ang [community signup guide](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd) kung may ma-encounter na isyu
-- Tailscale account (libre sa [tailscale.com](https://tailscale.com))
-- ~30 minuto
+- Oracle Cloud account ([signup](https://www.oracle.com/cloud/free/)) — see [community signup guide](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd) if you hit issues
+- Tailscale account (free at [tailscale.com](https://tailscale.com))
+- ~30 minutes
 
-## 1. Gumawa ng OCI Instance
+## 1) Create an OCI Instance
 
-1. Mag-log in sa [Oracle Cloud Console](https://cloud.oracle.com/)
-2. Pumunta sa **Compute → Instances → Create Instance**
-3. I-configure:
+1. Log into [Oracle Cloud Console](https://cloud.oracle.com/)
+2. Navigate to **Compute → Instances → Create Instance**
+3. Configure:
    - **Name:** `openclaw`
    - **Image:** Ubuntu 24.04 (aarch64)
    - **Shape:** `VM.Standard.A1.Flex` (Ampere ARM)
-   - **OCPUs:** 2 (o hanggang 4)
-   - **Memory:** 12 GB (o hanggang 24 GB)
-   - **Boot volume:** 50 GB (hanggang 200 GB libre)
-   - **SSH key:** Idagdag ang iyong public key
-4. I-click ang **Create**
-5. Tandaan ang public IP address
+   - **OCPUs:** 2 (or up to 4)
+   - **Memory:** 12 GB (or up to 24 GB)
+   - **Boot volume:** 50 GB (up to 200 GB free)
+   - **SSH key:** Add your public key
+4. Click **Create**
+5. Note the public IP address
 
-**Tip:** Kung pumalya ang paggawa ng instance na may "Out of capacity", subukan ang ibang availability domain o mag-retry sa ibang oras. Limitado ang kapasidad ng free tier.
+**Tip:** If instance creation fails with "Out of capacity", try a different availability domain or retry later. Free tier capacity is limited.
 
-## 2. Kumonekta at Mag-update
+## 2) Connect and Update
 
 ```bash
 # Connect via public IP
@@ -59,9 +59,9 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y build-essential
 ```
 
-**Tala:** Kailangan ang `build-essential` para sa ARM compilation ng ilang dependency.
+**Note:** `build-essential` is required for ARM compilation of some dependencies.
 
-## 3. I-configure ang User at Hostname
+## 3) Configure User and Hostname
 
 ```bash
 # Set hostname
@@ -74,37 +74,37 @@ sudo passwd ubuntu
 sudo loginctl enable-linger ubuntu
 ```
 
-## 4. I-install ang Tailscale
+## 4) Install Tailscale
 
 ```bash
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up --ssh --hostname=openclaw
 ```
 
-Ina-enable nito ang Tailscale SSH, kaya maaari kang kumonekta gamit ang `ssh openclaw` mula sa anumang device sa iyong tailnet — hindi na kailangan ng public IP.
+This enables Tailscale SSH, so you can connect via `ssh openclaw` from any device on your tailnet — no public IP needed.
 
-I-verify:
+Verify:
 
 ```bash
 tailscale status
 ```
 
-**Mula ngayon, kumonekta sa pamamagitan ng Tailscale:** `ssh ubuntu@openclaw` (o gamitin ang Tailscale IP).
+**From now on, connect via Tailscale:** `ssh ubuntu@openclaw` (or use the Tailscale IP).
 
-## 5. I-install ang OpenClaw
+## 5) Install OpenClaw
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
 source ~/.bashrc
 ```
 
-Kapag tinanong na "How do you want to hatch your bot?", piliin ang **"Do this later"**.
+When prompted "How do you want to hatch your bot?", select **"Do this later"**.
 
-> Tala: Kung makaranas ka ng ARM-native build issues, magsimula muna sa system packages (hal. `sudo apt install -y build-essential`) bago gumamit ng Homebrew.
+> Note: If you hit ARM-native build issues, start with system packages (e.g. `sudo apt install -y build-essential`) before reaching for Homebrew.
 
-## 6. I-configure ang Gateway (loopback + token auth) at i-enable ang Tailscale Serve
+## 6) Configure Gateway (loopback + token auth) and enable Tailscale Serve
 
-Gamitin ang token auth bilang default. Ito ay predictable at iniiwasan ang pangangailangan ng anumang “insecure auth” Control UI flags.
+Use token auth as the default. It’s predictable and avoids needing any “insecure auth” Control UI flags.
 
 ```bash
 # Keep the Gateway private on the VM
@@ -121,7 +121,7 @@ openclaw config set gateway.trustedProxies '["127.0.0.1"]'
 systemctl --user restart openclaw-gateway
 ```
 
-## 7. I-verify
+## 7) Verify
 
 ```bash
 # Check version
@@ -137,67 +137,67 @@ tailscale serve status
 curl http://localhost:18789
 ```
 
-## 8. Higpitan ang VCN Security
+## 8) Lock Down VCN Security
 
-Ngayong gumagana na ang lahat, i-lock down ang VCN upang harangan ang lahat ng trapiko maliban sa Tailscale. Ang Virtual Cloud Network ng OCI ay kumikilos bilang firewall sa gilid ng network — nahaharangan ang trapiko bago pa ito makarating sa iyong instance.
+Now that everything is working, lock down the VCN to block all traffic except Tailscale. OCI's Virtual Cloud Network acts as a firewall at the network edge — traffic is blocked before it reaches your instance.
 
-1. Pumunta sa **Networking → Virtual Cloud Networks** sa OCI Console
-2. I-click ang iyong VCN → **Security Lists** → Default Security List
-3. **Alisin** ang lahat ng ingress rules maliban sa:
+1. Go to **Networking → Virtual Cloud Networks** in the OCI Console
+2. Click your VCN → **Security Lists** → Default Security List
+3. **Remove** all ingress rules except:
    - `0.0.0.0/0 UDP 41641` (Tailscale)
-4. Panatilihin ang default egress rules (payagan ang lahat ng outbound)
+4. Keep default egress rules (allow all outbound)
 
-Hinaharangan nito ang SSH sa port 22, HTTP, HTTPS, at lahat ng iba pa sa gilid ng network. Mula ngayon, maaari ka na lamang kumonekta sa pamamagitan ng Tailscale.
+This blocks SSH on port 22, HTTP, HTTPS, and everything else at the network edge. From now on, you can only connect via Tailscale.
 
 ---
 
-## I-access ang Control UI
+## Access the Control UI
 
-Mula sa anumang device sa iyong Tailscale network:
+From any device on your Tailscale network:
 
 ```
 https://openclaw.<tailnet-name>.ts.net/
 ```
 
-Palitan ang `<tailnet-name>` ng pangalan ng iyong tailnet (makikita sa `tailscale status`).
+Replace `<tailnet-name>` with your tailnet name (visible in `tailscale status`).
 
-Hindi na kailangan ng SSH tunnel. Nagbibigay ang Tailscale ng:
+No SSH tunnel needed. Tailscale provides:
 
 - HTTPS encryption (automatic certs)
-- Authentication gamit ang Tailscale identity
-- Access mula sa anumang device sa iyong tailnet (laptop, phone, atbp.)
+- Authentication via Tailscale identity
+- Access from any device on your tailnet (laptop, phone, etc.)
 
 ---
 
-## Security: VCN + Tailscale (inirerekomendang baseline)
+## Security: VCN + Tailscale (recommended baseline)
 
-Kapag naka-lock down ang VCN (tanging UDP 41641 lang ang bukas) at ang Gateway ay naka-bind sa loopback, nakakakuha ka ng matibay na defense-in-depth: bina-block ang public traffic sa network edge, at ang admin access ay dumadaan sa iyong tailnet.
+With the VCN locked down (only UDP 41641 open) and the Gateway bound to loopback, you get strong defense-in-depth: public traffic is blocked at the network edge, and admin access happens over your tailnet.
 
-Madalas nitong inaalis ang _pangailangan_ para sa dagdag na host-based firewall rules para lang pigilan ang Internet-wide SSH brute force — pero dapat mo pa ring panatilihing updated ang OS, patakbuhin ang `openclaw security audit`, at i-verify na hindi ka aksidenteng nakikinig sa mga public interface.
+This setup often removes the _need_ for extra host-based firewall rules purely to stop Internet-wide SSH brute force — but you should still keep the OS updated, run `openclaw security audit`, and verify you aren’t accidentally listening on public interfaces.
 
-### Ano ang Protektado na
+### What's Already Protected
 
-| Tradisyunal na Hakbang   | Kailangan?      | Bakit                                                                                |
-| ------------------------ | --------------- | ------------------------------------------------------------------------------------ |
-| UFW firewall             | Hindi           | Hinaharang ng VCN bago pa makarating ang traffic sa instance                         |
-| fail2ban                 | Hindi           | Walang brute force kung naka-block ang port 22 sa VCN                                |
-| sshd hardening           | Hindi           | Hindi gumagamit ng sshd ang Tailscale SSH                                            |
-| I-disable ang root login | Hindi           | Tailscale identity ang gamit, hindi system users                                     |
-| SSH key-only auth        | Hindi           | Tailscale ang nag-a-authenticate sa pamamagitan ng iyong tailnet                     |
-| IPv6 hardening           | Karaniwan hindi | Depende sa VCN/subnet settings; i-verify kung ano talaga ang naka-assign/naka-expose |
+| Traditional Step   | Needed?     | Why                                                                          |
+| ------------------ | ----------- | ---------------------------------------------------------------------------- |
+| UFW firewall       | No          | VCN blocks before traffic reaches instance                                   |
+| fail2ban           | No          | No brute force if port 22 blocked at VCN                                     |
+| sshd hardening     | No          | Tailscale SSH doesn't use sshd                                               |
+| Disable root login | No          | Tailscale uses Tailscale identity, not system users                          |
+| SSH key-only auth  | No          | Tailscale authenticates via your tailnet                                     |
+| IPv6 hardening     | Usually not | Depends on your VCN/subnet settings; verify what’s actually assigned/exposed |
 
-### Inirerekomenda Pa Rin
+### Still Recommended
 
-- **Mga pahintulot ng credential:** `chmod 700 ~/.openclaw`
+- **Credential permissions:** `chmod 700 ~/.openclaw`
 - **Security audit:** `openclaw security audit`
-- **System updates:** patakbuhin ang `sudo apt update && sudo apt upgrade` nang regular
-- **I-monitor ang Tailscale:** Suriin ang mga device sa [Tailscale admin console](https://login.tailscale.com/admin)
+- **System updates:** `sudo apt update && sudo apt upgrade` regularly
+- **Monitor Tailscale:** Review devices in [Tailscale admin console](https://login.tailscale.com/admin)
 
-### I-verify ang Security Posture
+### Verify Security Posture
 
 ```bash
 # Confirm no public ports listening
-sudo ss -tlnp | grep -v '127.0.0.1\|::1'
+sudo ss -tlnp | grep -v '127.0.0.1|::1'
 
 # Verify Tailscale SSH is active
 tailscale status | grep -q 'offers: ssh' && echo "Tailscale SSH active"
@@ -210,28 +210,28 @@ sudo systemctl disable --now ssh
 
 ## Fallback: SSH Tunnel
 
-Kung hindi gumagana ang Tailscale Serve, gumamit ng SSH tunnel:
+If Tailscale Serve isn't working, use an SSH tunnel:
 
 ```bash
 # From your local machine (via Tailscale)
 ssh -L 18789:127.0.0.1:18789 ubuntu@openclaw
 ```
 
-Pagkatapos ay buksan ang `http://localhost:18789`.
+Then open `http://localhost:18789`.
 
 ---
 
-## Pag-troubleshoot
+## Troubleshooting
 
-### Pumapalya ang paggawa ng instance ("Out of capacity")
+### Instance creation fails ("Out of capacity")
 
-Sikat ang free tier ARM instances. Subukan:
+Free tier ARM instances are popular. Try:
 
-- Ibang availability domain
-- Mag-retry sa off-peak hours (maagang umaga)
-- Gamitin ang "Always Free" filter kapag pumipili ng shape
+- Different availability domain
+- Retry during off-peak hours (early morning)
+- Use the "Always Free" filter when selecting shape
 
-### Ayaw kumonekta ng Tailscale
+### Tailscale won't connect
 
 ```bash
 # Check status
@@ -241,7 +241,7 @@ sudo tailscale status
 sudo tailscale up --ssh --hostname=openclaw --reset
 ```
 
-### Ayaw mag-start ng Gateway
+### Gateway won't start
 
 ```bash
 openclaw gateway status
@@ -249,7 +249,7 @@ openclaw doctor --non-interactive
 journalctl --user -u openclaw-gateway -n 50
 ```
 
-### Hindi maabot ang Control UI
+### Can't reach Control UI
 
 ```bash
 # Verify Tailscale Serve is running
@@ -262,26 +262,26 @@ curl http://localhost:18789
 systemctl --user restart openclaw-gateway
 ```
 
-### Mga isyu sa ARM binary
+### ARM binary issues
 
-Maaaring walang ARM builds ang ilang tool. Suriin:
+Some tools may not have ARM builds. Check:
 
 ```bash
 uname -m  # Should show aarch64
 ```
 
-Karamihan sa mga npm package ay gumagana nang maayos. Para sa mga binary, hanapin ang `linux-arm64` o `aarch64` na mga release.
+Most npm packages work fine. For binaries, look for `linux-arm64` or `aarch64` releases.
 
 ---
 
 ## Persistence
 
-Nasa mga sumusunod ang lahat ng state:
+All state lives in:
 
 - `~/.openclaw/` — config, credentials, session data
 - `~/.openclaw/workspace/` — workspace (SOUL.md, memory, artifacts)
 
-Mag-back up nang pana-panahon:
+Back up periodically:
 
 ```bash
 tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
@@ -289,12 +289,12 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 
 ---
 
-## Tingnan Din
+## See Also
 
-- [Gateway remote access](/gateway/remote) — iba pang pattern ng remote access
-- [Tailscale integration](/gateway/tailscale) — kumpletong Tailscale docs
-- [Gateway configuration](/gateway/configuration) — lahat ng opsyon sa config
-- [DigitalOcean guide](/platforms/digitalocean) — kung gusto mo ng paid + mas madaling signup
-- [Hetzner guide](/install/hetzner) — Docker-based na alternatibo
+- [Gateway remote access](/gateway/remote) — other remote access patterns
+- [Tailscale integration](/gateway/tailscale) — full Tailscale docs
+- [Gateway configuration](/gateway/configuration) — all config options
+- [DigitalOcean guide](/platforms/digitalocean) — if you want paid + easier signup
+- [Hetzner guide](/install/hetzner) — Docker-based alternative
 
 

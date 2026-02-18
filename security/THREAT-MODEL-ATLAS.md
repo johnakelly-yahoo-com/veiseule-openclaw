@@ -460,7 +460,7 @@ Current patterns in `moderation.ts`:
 /(api[-_ ]?key|token|password|private key|secret)/i
 /(wallet|seed phrase|mnemonic|crypto)/i
 /(discord\.gg|webhook|hooks\.slack)/i
-/(curl[^\n]+\|\s*(sh|bash))/i
+/(curl[^\n]+|\s*(sh|bash))/i
 /(bit\.ly|tinyurl\.com|t\.co|goo\.gl|is\.gd)/i
 ```
 

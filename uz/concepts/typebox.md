@@ -1,80 +1,88 @@
 ---
-title: "11. TypeBox"
+title: "TypeBox"
 ---
 
-# 12. Protokol uchun haqiqatning yagona manbai sifatida TypeBox
+# TypeBox as protocol source of truth
 
-13. Oxirgi yangilanish: 2026-01-10
+Last updated: 2026-01-10
 
-14. TypeBox — TypeScript-ga yo‘naltirilgan sxema kutubxonasi. 15. Biz undan **Gateway WebSocket protokoli**ni (handshake, so‘rov/javob, server hodisalari) aniqlash uchun foydalanamiz. 16. Ushbu sxemalar **ishga tushirish vaqtidagi tekshiruv**, **JSON Schema eksporti** va macOS ilovasi uchun **Swift codegen**ni ta’minlaydi. 17. Yagona haqiqat manbai; qolgan hammasi generatsiya qilinadi.
+TypeBox is a TypeScript-first schema library. We use it to define the **Gateway
+WebSocket protocol** (handshake, request/response, server events). Those schemas
+drive **runtime validation**, **JSON Schema export**, and **Swift codegen** for
+the macOS app. One source of truth; everything else is generated.
 
-18. Yuqori darajadagi protokol konteksti uchun [Gateway architecture](/concepts/architecture) dan boshlang.
+If you want the higher-level protocol context, start with
+[Gateway architecture](/concepts/architecture).
 
-## 19. Aqliy model (30 soniya)
+## Mental model (30 seconds)
 
-20. Har bir Gateway WS xabari uchta freymdan biriga tegishli:
+Every Gateway WS message is one of three frames:
 
-- 21. **So‘rov (Request)**: `{ type: "req", id, method, params }`
-- 22. **Javob (Response)**: `{ type: "res", id, ok, payload | error }`
-- 23. **Hodisa (Event)**: \`{ type: "event", event, payload, seq?, stateVersion?
-  24. }`25. Birinchi freym **majburiy ravishda**`connect\` so‘rovi bo‘lishi kerak.
+- **Request**: `{ type: "req", id, method, params }`
+- **Response**: `{ type: "res", id, ok, payload | error }`
+- **Event**: `{ type: "event", event, payload, seq?, stateVersion? }`
 
-26. Shundan so‘ng mijozlar metodlarni (masalan, `health`, `send`, `chat.send`) chaqirishi va hodisalarga (masalan, `presence`, `tick`, `agent`) obuna bo‘lishi mumkin. 27. Ulanish oqimi (minimal):
+The first frame **must** be a `connect` request. After that, clients can call
+methods (e.g. `health`, `send`, `chat.send`) and subscribe to events (e.g.
+`presence`, `tick`, `agent`).
 
-28. Client                    Gateway
-    \|---- req:connect -------->|
-    |<---- res:hello-ok --------|
-    |<---- event:tick ----------|
-    \|---- req:health ---------->|
-    |<---- res:health ----------|
+Connection flow (minimal):
 
 ```
-29. Umumiy metodlar + hodisalar:
+Client                    Gateway
+  |---- req:connect -------->|
+  |<---- res:hello-ok --------|
+  |<---- event:tick ----------|
+  |---- req:health ---------->|
+  |<---- res:health ----------|
 ```
 
-30. Kategoriya
+Common methods + events:
 
-| Doimiy ofset uchun aniq IANA vaqt zonasidan foydalaning (masalan, `"Europe/Vienna"`). | 32. Eslatmalar                                                 | 33. Yadro (Core)                |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| 34. `connect`, `health`, `status`                                                                 | 35. `connect` birinchi bo‘lishi shart                          | 36. Xabar almashish (Messaging) |
-| Kategoriya                                                                                                               | 38. yon ta’sirlar uchun `idempotencyKey` kerak                 | 39. Chat                                           |
-| 40. `chat.history`, `chat.send`, `chat.abort`, `chat.inject`                                      | 41. WebChat bularni ishlatadi                                  | 42. Sessiyalar                                     |
-| 43. `sessions.list`, `sessions.patch`, `sessions.delete`                                          | 44. sessiya administratsiyasi                                  | 45. Tugunlar (Nodes)            |
-| 46. `node.list`, `node.invoke`, `node.pair.*`                                                     | 47. Gateway WS + tugun amallari                                | 48. Hodisalar                                      |
-| 49. `tick`, `presence`, `agent`, `chat`, `health`, `shutdown`                                     | 50. server tomonidan yuborish (server push) | server push                                                               |
+| Category  | Examples                                                  | Notes                              |
+| --------- | --------------------------------------------------------- | ---------------------------------- |
+| Core      | `connect`, `health`, `status`                             | `connect` must be first            |
+| Messaging | `send`, `poll`, `agent`, `agent.wait`                     | side-effects need `idempotencyKey` |
+| Chat      | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat uses these                 |
+| Sessions  | `sessions.list`, `sessions.patch`, `sessions.delete`      | session admin                      |
+| Nodes     | `node.list`, `node.invoke`, `node.pair.*`                 | Gateway WS + node actions          |
+| Events    | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | server push                        |
 
-1. Avtoritativ roʻyxat `src/gateway/server.ts` (`METHODS`, `EVENTS`) faylida joylashgan.
+Authoritative list lives in `src/gateway/server.ts` (`METHODS`, `EVENTS`).
 
-## 2. Sxemalar qayerda joylashgan
+## Where the schemas live
 
-- Xabar almashish
-- 4. Ish vaqtidagi validatorlar (AJV): `src/gateway/protocol/index.ts`
-- 5. Server qoʻl siqish (handshake) va metodlarni yoʻnaltirish: `src/gateway/server.ts`
-- 6. Node mijozi: `src/gateway/client.ts`
-- 7. Generatsiya qilingan JSON Schema: `dist/protocol.schema.json`
-- 8. Generatsiya qilingan Swift modellari: `apps/macos/Sources/OpenClawProtocol/GatewayModels.swift`
+- Source: `src/gateway/protocol/schema.ts`
+- Runtime validators (AJV): `src/gateway/protocol/index.ts`
+- Server handshake + method dispatch: `src/gateway/server.ts`
+- Node client: `src/gateway/client.ts`
+- Generated JSON Schema: `dist/protocol.schema.json`
+- Generated Swift models: `apps/macos/Sources/OpenClawProtocol/GatewayModels.swift`
 
-## 9. Joriy pipeline
+## Current pipeline
 
-- 10. `pnpm protocol:gen`
-  - 11. JSON Schema (draft‑07) ni `dist/protocol.schema.json` fayliga yozadi
-- 12. `pnpm protocol:gen:swift`
-  - 13. Swift gateway modellari generatsiya qilinadi
-- Manba: `src/gateway/protocol/schema.ts`
-  - 15. Ikkala generatorni ham ishga tushiradi va chiqish commit qilinganini tekshiradi
+- `pnpm protocol:gen`
+  - writes JSON Schema (draft‑07) to `dist/protocol.schema.json`
+- `pnpm protocol:gen:swift`
+  - generates Swift gateway models
+- `pnpm protocol:check`
+  - runs both generators and verifies the output is committed
 
-## 16. Sxemalar ish vaqtida qanday ishlatiladi
+## How the schemas are used at runtime
 
-- 17. **Server tomoni**: har bir kiruvchi frame AJV yordamida tekshiriladi. 18. Qoʻl siqish faqat parametrlari `ConnectParams` ga mos keladigan `connect` soʻrovini qabul qiladi.
-- 19. **Mijoz tomoni**: JS mijozi event va javob freymlarini ishlatishdan oldin tekshiradi.
-- 20. **Metodlar yuzasi**: Gateway `hello-ok` ichida qoʻllab-quvvatlanadigan `methods` va `events` ni eʼlon qiladi.
+- **Server side**: every inbound frame is validated with AJV. The handshake only
+  accepts a `connect` request whose params match `ConnectParams`.
+- **Client side**: the JS client validates event and response frames before
+  using them.
+- **Method surface**: the Gateway advertises the supported `methods` and
+  `events` in `hello-ok`.
 
-## 21. Frame misollari
+## Example frames
 
-22. Connect (birinchi xabar):
+Connect (first message):
 
 ```json
-23. {
+{
   "type": "req",
   "id": "c1",
   "method": "connect",
@@ -93,10 +101,10 @@ title: "11. TypeBox"
 }
 ```
 
-24. Hello-ok javobi:
+Hello-ok response:
 
 ```json
-25. {
+{
   "type": "res",
   "id": "c1",
   "ok": true,
@@ -116,28 +124,28 @@ title: "11. TypeBox"
 }
 ```
 
-26. Soʻrov + javob:
+Request + response:
 
 ```json
-27. { "type": "req", "id": "r1", "method": "health" }
+{ "type": "req", "id": "r1", "method": "health" }
 ```
 
 ```json
-28. { "type": "res", "id": "r1", "ok": true, "payload": { "ok": true } }
+{ "type": "res", "id": "r1", "ok": true, "payload": { "ok": true } }
 ```
 
-29. Hodisa (event):
+Event:
 
 ```json
-30. { "type": "event", "event": "tick", "payload": { "ts": 1730000000 }, "seq": 12 }
+{ "type": "event", "event": "tick", "payload": { "ts": 1730000000 }, "seq": 12 }
 ```
 
-## 31. Minimal mijoz (Node.js)
+## Minimal client (Node.js)
 
-32. Eng kichik foydali oqim: connect + health.
+Smallest useful flow: connect + health.
 
 ```ts
-33. import { WebSocket } from "ws";
+import { WebSocket } from "ws";
 
 const ws = new WebSocket("ws://127.0.0.1:18789");
 
@@ -174,16 +182,16 @@ ws.on("message", (data) => {
 });
 ```
 
-## 34. Ishlagan misol: metodni boshidan oxirigacha qoʻshish
+## Worked example: add a method end‑to‑end
 
-35. Misol: `{ ok: true, text }` qaytaradigan yangi `system.echo` soʻrovini qoʻshish.
+Example: add a new `system.echo` request that returns `{ ok: true, text }`.
 
-1. 36. **Sxema (haqiqatning yagona manbai)**
+1. **Schema (source of truth)**
 
-37) `src/gateway/protocol/schema.ts` ga qoʻshing:
+Add to `src/gateway/protocol/schema.ts`:
 
 ```ts
-38. export const SystemEchoParamsSchema = Type.Object(
+export const SystemEchoParamsSchema = Type.Object(
   { text: NonEmptyString },
   { additionalProperties: false },
 );
@@ -194,32 +202,32 @@ export const SystemEchoResultSchema = Type.Object(
 );
 ```
 
-39. Ikkalasini ham `ProtocolSchemas` ga qoʻshing va turlarni eksport qiling:
+Add both to `ProtocolSchemas` and export types:
 
 ```ts
-40.   SystemEchoParams: SystemEchoParamsSchema,
+  SystemEchoParams: SystemEchoParamsSchema,
   SystemEchoResult: SystemEchoResultSchema,
 ```
 
 ```ts
-41. export type SystemEchoParams = Static<typeof SystemEchoParamsSchema>;
+export type SystemEchoParams = Static<typeof SystemEchoParamsSchema>;
 export type SystemEchoResult = Static<typeof SystemEchoResultSchema>;
 ```
 
-2. 42. **Validatsiya**
+2. **Validation**
 
-43) `src/gateway/protocol/index.ts` da AJV validatorini eksport qiling:
+In `src/gateway/protocol/index.ts`, export an AJV validator:
 
 ```ts
-44. export const validateSystemEchoParams = ajv.compile<SystemEchoParams>(SystemEchoParamsSchema);
+export const validateSystemEchoParams = ajv.compile<SystemEchoParams>(SystemEchoParamsSchema);
 ```
 
-3. 45. **Server xatti-harakati**
+3. **Server behavior**
 
-46) `src/gateway/server-methods/system.ts` ga handler qoʻshing:
+Add a handler in `src/gateway/server-methods/system.ts`:
 
 ```ts
-47. export const systemHandlers: GatewayRequestHandlers = {
+export const systemHandlers: GatewayRequestHandlers = {
   "system.echo": ({ params, respond }) => {
     const text = String(params.text ?? "");
     respond(true, { ok: true, text });
@@ -227,52 +235,54 @@ export type SystemEchoResult = Static<typeof SystemEchoResultSchema>;
 };
 ```
 
-48. Uni `src/gateway/server-methods.ts` da roʻyxatdan oʻtkazing (u allaqachon `systemHandlers` ni birlashtiradi), soʻng `src/gateway/server.ts` dagi `METHODS` ga `"system.echo"` ni qoʻshing.
+Register it in `src/gateway/server-methods.ts` (already merges `systemHandlers`),
+then add `"system.echo"` to `METHODS` in `src/gateway/server.ts`.
 
-4. 49. **Qayta generatsiya qilish**
+4. **Regenerate**
 
 ```bash
-50. pnpm protocol:check
+pnpm protocol:check
 ```
 
-5. **Testlar + hujjatlar**
+5. **Tests + docs**
 
-`src/gateway/server.*.test.ts` ichida server testi qo‘shing va usulni hujjatlarda qayd eting.
+Add a server test in `src/gateway/server.*.test.ts` and note the method in docs.
 
-## Swift codegen xatti-harakati
+## Swift codegen behavior
 
-`pnpm protocol:check`
+The Swift generator emits:
 
-- `req`, `res`, `event` va `unknown` holatlariga ega `GatewayFrame` enum
-- Kuchli tiplashtirilgan payload struct/enumlar
-- `ErrorCode` qiymatlari va `GATEWAY_PROTOCOL_VERSION`
+- `GatewayFrame` enum with `req`, `res`, `event`, and `unknown` cases
+- Strongly typed payload structs/enums
+- `ErrorCode` values and `GATEWAY_PROTOCOL_VERSION`
 
-Oldinga moslik uchun noma’lum frame turlari xom payload sifatida saqlanadi.
+Unknown frame types are preserved as raw payloads for forward compatibility.
 
-## Versiyalash + moslik
+## Versioning + compatibility
 
-- `PROTOCOL_VERSION` `src/gateway/protocol/schema.ts` da joylashgan.
-- Mijozlar `minProtocol` + `maxProtocol` yuboradi; server nomosliklarni rad etadi.
-- Swift modellari eski mijozlarni buzmaslik uchun noma’lum frame turlarini saqlab qoladi.
+- `PROTOCOL_VERSION` lives in `src/gateway/protocol/schema.ts`.
+- Clients send `minProtocol` + `maxProtocol`; the server rejects mismatches.
+- The Swift models keep unknown frame types to avoid breaking older clients.
 
-## Schema naqshlari va konvensiyalari
+## Schema patterns and conventions
 
-- Aksariyat obyektlar qat’iy payloadlar uchun `additionalProperties: false` dan foydalanadi.
-- `NonEmptyString` IDlar va metod/event nomlari uchun sukut bo‘yicha ishlatiladi.
-- Yuqori darajadagi `GatewayFrame` `type` bo‘yicha **discriminator** dan foydalanadi.
-- Yon ta’sirli metodlar odatda parametrlarda `idempotencyKey` talab qiladi
-  (misol: `send`, `poll`, `agent`, `chat.send`).
+- Most objects use `additionalProperties: false` for strict payloads.
+- `NonEmptyString` is the default for IDs and method/event names.
+- The top-level `GatewayFrame` uses a **discriminator** on `type`.
+- Methods with side effects usually require an `idempotencyKey` in params
+  (example: `send`, `poll`, `agent`, `chat.send`).
 
-## Jonli schema JSON
+## Live schema JSON
 
-Yaratilgan JSON Schema repoda `dist/protocol.schema.json` da joylashgan. E’lon qilingan xom fayl odatda bu manzilda mavjud:
+Generated JSON Schema is in the repo at `dist/protocol.schema.json`. The
+published raw file is typically available at:
 
-- https://raw.githubusercontent.com/openclaw/openclaw/main/dist/protocol.schema.json
+- [https://raw.githubusercontent.com/openclaw/openclaw/main/dist/protocol.schema.json](https://raw.githubusercontent.com/openclaw/openclaw/main/dist/protocol.schema.json)
 
-## Schema’larni o‘zgartirganda
+## When you change schemas
 
-1. TypeBox schema’larini yangilang.
-2. `pnpm protocol:check` ni ishga tushiring.
-3. Qayta yaratilgan schema va Swift modellari bilan commit qiling.
+1. Update the TypeBox schemas.
+2. Run `pnpm protocol:check`.
+3. Commit the regenerated schema + Swift models.
 
 

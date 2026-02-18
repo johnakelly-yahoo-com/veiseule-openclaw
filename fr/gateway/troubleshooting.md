@@ -1,292 +1,313 @@
 ---
-title: "Problemes courants"
+title: "Troubleshooting"
 ---
 
-# gateway/troubleshooting.md
+# Gateway troubleshooting
 
-Cette page est le runbook profond.
-Commencez à [/help/troubleshooting](/help/troubleshooting) si vous voulez d'abord le flux de triage rapide.
+This page is the deep runbook.
+Start at [/help/troubleshooting](/help/troubleshooting) if you want the fast triage flow first.
 
-## Échelle de commandes
+## Command ladder
 
-Exécutez en premier, dans cet ordre:
-
-```bash
-openclaw models auth paste-token --provider anthropic
-openclaw models status
-```
-
-Signaux sains attendus :
-
-- `openclaw gateway status` montre `Runtime: running` et `RPC probe: ok`.
-- `openclaw doctor` ne signale aucun problème de config/service bloquant.
-- `openclaw channels status --probe`
-
-## Aucune réponse
-
-Si les canaux ne sont pas à la hauteur, vérifiez le routage et la politique avant de reconnecter quoi que ce soit.
+Run these first, in this order:
 
 ```bash
-# Check local status (creds, sessions, queued events)
 openclaw status
-# Probe the running gateway + channels (WA connect + Telegram + Discord APIs)
-openclaw status --deep
-
-# View recent connection events
-openclaw logs --limit 200 | grep "connection\\|disconnect\\|logout"
+openclaw gateway status
+openclaw logs --follow
+openclaw doctor
+openclaw channels status --probe
 ```
 
-Recherche:
+Expected healthy signals:
 
-- Association en attente pour les expéditeurs de DM.
-- Gating de mention de groupe (`requireMention`, `mentionPatterns`).
-- Discordance entre les salons/groupes autorisés.
+- `openclaw gateway status` shows `Runtime: running` and `RPC probe: ok`.
+- `openclaw doctor` reports no blocking config/service issues.
+- `openclaw channels status --probe` shows connected/ready channels.
 
-Signatures courantes :
+## No replies
 
-- `drop guild message (mention requise` → groupe message ignoré jusqu'à mention.
-- `demande d'appairage` → l'expéditeur a besoin d'approbation.
-- `blocked` / `allowlist` → l'expéditeur/canal a été filtré par la politique.
+If channels are up but nothing answers, check routing and policy before reconnecting anything.
 
-Liens associés :
+```bash
+openclaw status
+openclaw channels status --probe
+openclaw pairing list <channel>
+openclaw config get channels
+openclaw logs --follow
+```
 
-- Raccourcis specifiques aux fournisseurs : [/channels/troubleshooting](/channels/troubleshooting)
-- Voir [Streaming](/concepts/streaming).
+Look for:
+
+- Pairing pending for DM senders.
+- Group mention gating (`requireMention`, `mentionPatterns`).
+- Channel/group allowlist mismatches.
+
+Common signatures:
+
+- `drop guild message (mention required` → group message ignored until mention.
+- `pairing request` → sender needs approval.
+- `blocked` / `allowlist` → sender/channel was filtered by policy.
+
+Related:
+
+- [/channels/troubleshooting](/channels/troubleshooting)
+- [/channels/pairing](/channels/pairing)
 - [/channels/groups](/channels/groups)
 
-## Contrôle de la connectivité du tableau de bord
+## Dashboard control ui connectivity
 
-Lorsque l'interface utilisateur du tableau de bord/contrôle ne se connecte pas, ne valide pas les URL, le mode d'authentification et les hypothèses de contexte sécurisées.
+When dashboard/control UI will not connect, validate URL, auth mode, and secure context assumptions.
 
 ```bash
 openclaw gateway status
+openclaw status
+openclaw logs --follow
+openclaw doctor
+openclaw gateway status --json
 ```
 
-Recherche:
+Look for:
 
-- Corriger l'URL de la sonde et l'URL du tableau de bord.
-- Le mode d'authentification et le jeton ne correspondent pas entre le client et la passerelle.
-- Utilisation HTTP lorsque l'identité du périphérique est requise.
+- Correct probe URL and dashboard URL.
+- Auth mode/token mismatch between client and gateway.
+- HTTP usage where device identity is required.
 
-Signatures courantes :
+Common signatures:
 
-- `identité de périphérique requis` → contexte non sécurisé ou authentification de périphérique manquante.
-- `unauthorized` / reconnect loop → jeton/mot de passe incompatible.
-- `gateway connection failed :` → wrong host/port/url target.
+- `device identity required` → non-secure context or missing device auth.
+- `unauthorized` / reconnect loop → token/password mismatch.
+- `gateway connect failed:` → wrong host/port/url target.
 
-Liens associés :
+Related:
 
-- Voir
-  [Control UI](/web/control-ui#insecure-http).
+- [/web/control-ui](/web/control-ui)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/remote](/gateway/remote)
 
-## « Gateway ne demarre pas — configuration invalide »
+## Gateway service not running
 
-Utilisez ceci lorsque le service est installé mais le processus ne reste pas actif.
+Use this when service is installed but process does not stay up.
 
 ```bash
 openclaw gateway status
+openclaw status
+openclaw logs --follow
 openclaw doctor
+openclaw gateway status --deep
 ```
 
-Recherche:
+Look for:
 
-- `Runtime: stopped` avec des astuces de sortie.
-- `Config (cli): ...` et `Config (service): ...` devraient normalement correspondre.
-- Conflit de port/écouteur.
+- `Runtime: stopped` with exit hints.
+- Service config mismatch (`Config (cli)` vs `Config (service)`).
+- Port/listener conflicts.
 
-Signatures courantes :
+Common signatures:
 
-- « Gateway start blocked: set gateway.mode=local »
-- **Si `Last gateway error:` mentionne « refusing to bind … without auth »**
-- `une autre instance de passerelle est déjà en train d'écouter` / `EADDRINUSE` → conflit de port.
+- `Gateway start blocked: set gateway.mode=local` → local gateway mode is not enabled. Fix: set `gateway.mode="local"` in your config (or run `openclaw configure`). If you are running OpenClaw via Podman using the dedicated `openclaw` user, the config lives at `~openclaw/.openclaw/openclaw.json`.
+- `refusing to bind gateway ... without auth` → non-loopback bind without token/password.
+- `another gateway instance is already listening` / `EADDRINUSE` → port conflict.
 
-Liens associés :
+Related:
 
 - [/gateway/background-process](/gateway/background-process)
 - [/gateway/configuration](/gateway/configuration)
 - [/gateway/doctor](/gateway/doctor)
 
-## Les messages ne declenchent pas
+## Channel connected messages not flowing
 
-Si l'état du canal est connecté mais que le flux de message est mort, concentrez-vous sur la politique, les autorisations et les règles de distribution spécifiques au canal.
+If channel state is connected but message flow is dead, focus on policy, permissions, and channel specific delivery rules.
 
 ```bash
-Executez `openclaw channels status --probe` pour des indices d’audit.
+openclaw channels status --probe
+openclaw pairing list <channel>
+openclaw status --deep
+openclaw logs --follow
+openclaw config get channels
 ```
 
-Recherche:
+Look for:
 
-- Politique DM (`appairage`, `allowlist`, `open`, `disabled`).
-- Grouper les exigences de la liste d'autorisations et de la mention
-- Autorisations/portées de l'API de canal manquantes.
+- DM policy (`pairing`, `allowlist`, `open`, `disabled`).
+- Group allowlist and mention requirements.
+- Missing channel API permissions/scopes.
 
-Signatures courantes :
+Common signatures:
 
-- `mention required` → message ignoré par la politique de mention de groupe.
-- `appairage` / traces d'approbation en attente → expéditeur n'est pas approuvé.
-- `missing_scope`, `not_in_channel`, `Forbidden`, `401/403` → problème d'auth/permissions du canal.
+- `mention required` → message ignored by group mention policy.
+- `pairing` / pending approval traces → sender is not approved.
+- `missing_scope`, `not_in_channel`, `Forbidden`, `401/403` → channel auth/permissions issue.
 
-Liens associés :
+Related:
 
-- Docs : [Discord](/channels/discord), [Channels troubleshooting](/channels/troubleshooting).
-- Voir [WhatsApp setup](/channels/whatsapp).
+- [/channels/troubleshooting](/channels/troubleshooting)
+- [/channels/whatsapp](/channels/whatsapp)
 - [/channels/telegram](/channels/telegram)
 - [/channels/discord](/channels/discord)
 
-## Livraison cron et pulsations cardiaques
+## Cron and heartbeat delivery
 
-Si cron ou battements de coeur ne fonctionnaient pas ou ne livraient pas, vérifiez l'état du planificateur d'abord, puis la cible de livraison.
+If cron or heartbeat did not run or did not deliver, verify scheduler state first, then delivery target.
 
 ```bash
 openclaw cron status
 openclaw cron list
-openclaw cron tourne --id <jobId> --limit 20
-système openclaw last
+openclaw cron runs --id <jobId> --limit 20
+openclaw system heartbeat last
 openclaw logs --follow
 ```
 
-Recherche:
+Look for:
 
-- Cron activé et le prochain réveil présent.
-- Statut de l'historique de l'exécution de la tâche (`ok`, `skipped`, `error`).
-- Les raisons du saut du cœur (`quiet-hours`, `requests-in-flight`, `alerts-disabled`).
+- Cron enabled and next wake present.
+- Job run history status (`ok`, `skipped`, `error`).
+- Heartbeat skip reasons (`quiet-hours`, `requests-in-flight`, `alerts-disabled`).
 
-Signatures courantes :
+Common signatures:
 
-- `cron: planificateur désactivé; les tâches ne s'exécuteront pas automatiquement` → cron désactivé.
-- `cron: tick du chronomètre échoué` → tick du planificateur a échoué; vérifiez les erreurs de fichier/log/runtime.
-- `Heartbeat sauté` avec `reason=quiet-hours` → en dehors de la fenêtre des heures actives.
-- `heartbeat: unknown accounId` → invalid account id for heartbeat delivery target.
+- `cron: scheduler disabled; jobs will not run automatically` → cron disabled.
+- `cron: timer tick failed` → scheduler tick failed; check file/log/runtime errors.
+- `heartbeat skipped` with `reason=quiet-hours` → outside active hours window.
+- `heartbeat: unknown accountId` → invalid account id for heartbeat delivery target.
 
-Liens associés :
+Related:
 
 - [/automation/troubleshooting](/automation/troubleshooting)
 - [/automation/cron-jobs](/automation/cron-jobs)
 - [/gateway/heartbeat](/gateway/heartbeat)
 
-## L'outil du noeud appairé échoue
+## Node paired tool fails
 
-Si un noeud est jumelé mais que les outils échouent, isoler l'état de premier plan, de permission et d'approbation.
+If a node is paired but tools fail, isolate foreground, permission, and approval state.
 
 ```bash
-Les nœuds openclaw statut
-openclaw décrivent les approbations de --node <idOrNameOrIp>
-openclaw get --node <idOrNameOrIp>
+openclaw nodes status
+openclaw nodes describe --node <idOrNameOrIp>
+openclaw approvals get --node <idOrNameOrIp>
 openclaw logs --follow
 openclaw status
 ```
 
-Recherche:
+Look for:
 
-- Noeud en ligne avec les capacités attendues.
-- La permission du système d'exploitation autorise la caméra/mic/location/screen.
-- Exec approbations et état de la liste d'autorisations.
+- Node online with expected capabilities.
+- OS permission grants for camera/mic/location/screen.
+- Exec approvals and allowlist state.
 
-Signatures courantes :
+Common signatures:
 
-- `NODE_BACKGROUND_UNAVAILABLE` → L'application de node doit être au premier plan.
-- `*_PERMISSION_REQUIRED` / `LOCATION_PERMISSION_REQUIRED` → permission d'OS manquante.
-- `SYSTEM_RUN_DENIED: approbation requise` → approbation exec en attente.
-- `SYSTEM_RUN_DENIED: allowlist miss` → commande bloquée par allowlist.
+- `NODE_BACKGROUND_UNAVAILABLE` → node app must be in foreground.
+- `*_PERMISSION_REQUIRED` / `LOCATION_PERMISSION_REQUIRED` → missing OS permission.
+- `SYSTEM_RUN_DENIED: approval required` → exec approval pending.
+- `SYSTEM_RUN_DENIED: allowlist miss` → command blocked by allowlist.
 
-Liens associés :
+Related:
 
 - [/nodes/troubleshooting](/nodes/troubleshooting)
 - [/nodes/index](/nodes/index)
 - [/tools/exec-approvals](/tools/exec-approvals)
 
-## Le navigateur ne demarre pas (Linux)
+## Browser tool fails
 
-Utilisez ceci lorsque les actions de l'outil de navigateur échouent même si la passerelle elle-même est saine.
+Use this when browser tool actions fail even though the gateway itself is healthy.
 
 ```bash
+openclaw browser status
+openclaw browser start --browser-profile openclaw
+openclaw browser profiles
+openclaw logs --follow
 openclaw doctor
-openclaw doctor --fix
 ```
 
-Recherche:
+Look for:
 
-- Chemin de l'exécutable valide du navigateur.
-- Accessibilité au profil CDP.
-- Onglet de relais d'extension attaché pour `profile="chrome"`.
+- Valid browser executable path.
+- CDP profile reachability.
+- Extension relay tab attachment for `profile="chrome"`.
 
-Signatures courantes :
+Common signatures:
 
-- Si vous voyez `"Failed to start Chrome CDP on port 18800"` :
-- `browser.executablePath not found` → chemin configuré est invalide.
-- `Le relais de l'extension Chrome est en cours d'exécution, mais aucun onglet n'est connecté` → relais d'extension non attaché.
-- `Les pièces jointes du navigateur sont activées... non joignable` → le profil attach-only n'a pas de cible accessible.
+- `Failed to start Chrome CDP on port` → browser process failed to launch.
+- `browser.executablePath not found` → configured path is invalid.
+- `Chrome extension relay is running, but no tab is connected` → extension relay not attached.
+- `Browser attachOnly is enabled ... not reachable` → attach-only profile has no reachable target.
 
-Liens associés :
+Related:
 
-- **Guide complet :** voir [browser-linux-troubleshooting](/tools/browser-linux-troubleshooting)
+- [/tools/browser-linux-troubleshooting](/tools/browser-linux-troubleshooting)
 - [/tools/chrome-extension](/tools/chrome-extension)
 - [/tools/browser](/tools/browser)
 
-## Si vous avez mis à niveau et quelque chose a soudainement cassé
+## If you upgraded and something suddenly broke
 
-La plupart des ruptures après la mise à jour sont la dérive de configuration ou des valeurs par défaut plus strictes sont maintenant appliquées.
+Most post-upgrade breakage is config drift or stricter defaults now being enforced.
 
-### 1. Le comportement d'authentification et d'URL a été modifié
+### 1) Auth and URL override behavior changed
 
 ```bash
-openclaw config set gateway.mode remote
-openclaw config set gateway.remote.url "wss://gateway.example.com"
+openclaw gateway status
+openclaw config get gateway.mode
+openclaw config get gateway.remote.url
+openclaw config get gateway.auth.mode
 ```
 
-Notes :
+What to check:
 
-- Si vous avez defini `gateway.mode=remote`, la **CLI par defaut** pointe vers une URL distante. Le service peut toujours tourner localement, mais votre CLI peut sonder le mauvais endroit.
-- Les appels explicites `--url` ne se réfèrent pas aux identifiants stockés.
+- If `gateway.mode=remote`, CLI calls may be targeting remote while your local service is fine.
+- Explicit `--url` calls do not fall back to stored credentials.
 
-Signatures courantes :
+Common signatures:
 
-- `gateway connection failed :` → mauvaise URL cible.
-- `unauthorized` → endpoint joignable mais mauvais auth.
+- `gateway connect failed:` → wrong URL target.
+- `unauthorized` → endpoint reachable but wrong auth.
 
-### 2. Rails de garde de liaison et d'authentification sont plus stricts
+### 2) Bind and auth guardrails are stricter
 
 ```bash
-openclaw config set gateway.mode local
+openclaw config get gateway.bind
+openclaw config get gateway.auth.token
+openclaw gateway status
+openclaw logs --follow
 ```
 
-Notes :
+What to check:
 
-- Les liaisons non loopback (`lan`/`tailnet`/`custom`, ou `auto` lorsque loopback est indisponible) necessitent une authentification :
-  `gateway.auth.token` (ou `OPENCLAW_GATEWAY_TOKEN`).
-- `gateway.token` est ignore ; utilisez `gateway.auth.token`.
+- Non-loopback binds (`lan`, `tailnet`, `custom`) need auth configured.
+- Old keys like `gateway.token` do not replace `gateway.auth.token`.
 
-Signatures courantes :
+Common signatures:
 
-- Gateway bloquee sur « Starting… sans auth\` → bind+auth ne correspond pas.
-- La sonde `RPC : a échoué` pendant l'exécution est en cours → passerelle vivante mais inaccessible avec l'authentification courante/url.
+- `refusing to bind gateway ... without auth` → bind+auth mismatch.
+- `RPC probe: failed` while runtime is running → gateway alive but inaccessible with current auth/url.
 
-### 3. L'appariement et le statut de l'appareil ont changé
+### 3) Pairing and device identity state changed
 
 ```bash
+openclaw devices list
 openclaw pairing list <channel>
+openclaw logs --follow
+openclaw doctor
 ```
 
-Verifier :
+What to check:
 
-- Approbation de l'appareil en attente pour le tableau de bord/nœuds.
-- En attente de jumelage des approbations après changement de politique ou d'identité.
+- Pending device approvals for dashboard/nodes.
+- Pending DM pairing approvals after policy or identity changes.
 
-Signatures courantes :
+Common signatures:
 
-- `identité de périphérique requis` → authentification de l'appareil non satisfaite.
-- `appairage requis` → l'expéditeur/périphérique doit être approuvé.
+- `device identity required` → device auth not satisfied.
+- `pairing required` → sender/device must be approved.
 
-Si la configuration du service et le temps d'exécution ne sont toujours pas en désaccord après vérification, réinstallez les métadonnées du service à partir du même répertoire de profil/état:
+If the service config and runtime still disagree after checks, reinstall service metadata from the same profile/state directory:
 
 ```bash
-openclaw doctor
+openclaw gateway install --force
 openclaw gateway restart
 ```
 
-Liens associés :
+Related:
 
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)

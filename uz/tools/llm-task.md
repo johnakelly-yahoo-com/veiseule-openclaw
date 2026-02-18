@@ -1,85 +1,87 @@
 ---
-title: "Avtomatlashtirish uchun sxema bilan tekshiriladigan LLM chiqishi kerak"
+title: "LLM Task"
 ---
 
-# LLM Vazifa
+# LLM Task
 
-LLM Vazifa
+`llm-task` is an **optional plugin tool** that runs a JSON-only LLM task and
+returns structured output (optionally validated against JSON Schema).
 
-`llm-task` — bu **ixtiyoriy plagin vositasi** bo‘lib, faqat JSON’dan iborat LLM vazifasini ishga tushiradi va tuzilgan chiqishni qaytaradi (ixtiyoriy ravishda JSON Schema bo‘yicha tekshiriladi).
+This is ideal for workflow engines like Lobster: you can add a single LLM step
+without writing custom OpenClaw code for each workflow.
 
-## Bu Lobster kabi ish oqimi dvijoklari uchun juda qulay: har bir ish oqimi uchun maxsus OpenClaw kodi yozmasdan bitta LLM bosqichini qo‘shishingiz mumkin.
+## Enable the plugin
 
-1. Plaginni yoqing
-
-```json
-Plaginni yoqing:
-```
-
-2. {
-   "plugins": {
-   "entries": {
-   "llm-task": { "enabled": true }
-   }
-   }
-   }
+1. Enable the plugin:
 
 ```json
-Vosita uchun allowlist qo‘shing (u `optional: true` bilan ro‘yxatdan o‘tgan):
+{
+  "plugins": {
+    "entries": {
+      "llm-task": { "enabled": true }
+    }
+  }
+}
 ```
 
-{
-"agents": {
-"list": [
-{
-"id": "main",
-"tools": { "allow": ["llm-task"] }
-}
-]
-}
-}
--
+2. Allowlist the tool (it is registered with `optional: true`):
 
 ```json
-Sozlama (ixtiyoriy)
+{
+  "agents": {
+    "list": [
+      {
+        "id": "main",
+        "tools": { "allow": ["llm-task"] }
+      }
+    ]
+  }
+}
 ```
 
+## Config (optional)
+
+```json
 {
-"plugins": {
-"entries": {
-"llm-task": {
-"enabled": true,
-"config": {
-"defaultProvider": "openai-codex",
-"defaultModel": "gpt-5.2",
-"defaultAuthProfileId": "main",
-"allowedModels": ["openai-codex/gpt-5.3-codex"],
-"maxTokens": 800,
-"timeoutMs": 30000
+  "plugins": {
+    "entries": {
+      "llm-task": {
+        "enabled": true,
+        "config": {
+          "defaultProvider": "openai-codex",
+          "defaultModel": "gpt-5.2",
+          "defaultAuthProfileId": "main",
+          "allowedModels": ["openai-codex/gpt-5.3-codex"],
+          "maxTokens": 800,
+          "timeoutMs": 30000
+        }
+      }
+    }
+  }
 }
-}
-}
-}
-} Agar sozlangan bo‘lsa, ro‘yxatdan tashqaridagi har qanday so‘rov rad etiladi.
+```
 
-## Asbob parametrlari
+`allowedModels` is an allowlist of `provider/model` strings. If set, any request
+outside the list is rejected.
 
-- `prompt` (string, majburiy)
-- `input` (any, ixtiyoriy)
-- `schema` (object, ixtiyoriy JSON Schema)
-- `provider` (string, ixtiyoriy)
-- `model` (string, ixtiyoriy)
-- `authProfileId` (string, ixtiyoriy)
-- `temperature` (number, ixtiyoriy)
-- `maxTokens` (number, ixtiyoriy)
-- `timeoutMs` (number, ixtiyoriy)
+## Tool parameters
 
-## Chiqish
+- `prompt` (string, required)
+- `input` (any, optional)
+- `schema` (object, optional JSON Schema)
+- `provider` (string, optional)
+- `model` (string, optional)
+- `authProfileId` (string, optional)
+- `temperature` (number, optional)
+- `maxTokens` (number, optional)
+- `timeoutMs` (number, optional)
 
-`details.json` qaytaradi, unda tahlil qilingan JSON mavjud (va agar berilgan bo‘lsa,
-`schema` ga nisbatan tekshiradi).
+## Output
 
-## Misol: Lobster ish jarayoni qadami
+Returns `details.json` containing the parsed JSON (and validates against
+`schema` when provided).
+
+## Example: Lobster workflow step
 
 ```lobster
 openclaw.invoke --tool llm-task --action json --args-json '{
@@ -100,11 +102,12 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 }'
 ```
 
-## Xavfsizlik eslatmalari
+## Safety notes
 
-- Asbob **faqat JSON** uchun mo‘ljallangan va modelga faqat JSON chiqarishni buyuradi (kod bloklari yo‘q, izohlar yo‘q).
-- Ushbu ishga tushirishda modelga hech qanday asboblar ochilmaydi.
-- `schema` bilan tekshirmaguningizcha chiqishni ishonchsiz deb hisoblang.
-- Har qanday yon ta’sirli qadamdan (yuborish, joylash, bajarish) oldin tasdiqlarni qo‘ying.
+- The tool is **JSON-only** and instructs the model to output only JSON (no
+  code fences, no commentary).
+- No tools are exposed to the model for this run.
+- Treat output as untrusted unless you validate with `schema`.
+- Put approvals before any side-effecting step (send, post, exec).
 
 

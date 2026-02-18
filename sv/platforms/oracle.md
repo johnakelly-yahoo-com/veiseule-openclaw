@@ -2,53 +2,53 @@
 title: "Oracle Cloud"
 ---
 
-# OpenClaw på Oracle Cloud (OCI)
+# OpenClaw on Oracle Cloud (OCI)
 
-## Mål
+## Goal
 
-Kör en persistent OpenClaw Gateway på Oracle Clouds **Always Free** ARM-nivå.
+Run a persistent OpenClaw Gateway on Oracle Cloud's **Always Free** ARM tier.
 
-Oracles gratisnivå kan vara ett bra val för OpenClaw (särskilt om du redan har ett OCI-konto), men den kommer med vissa kompromisser:
+Oracle’s free tier can be a great fit for OpenClaw (especially if you already have an OCI account), but it comes with tradeoffs:
 
-- ARM-arkitektur (det mesta fungerar, men vissa binärer kan vara x86‑endast)
-- Kapacitet och registrering kan vara opålitliga
+- ARM architecture (most things work, but some binaries may be x86-only)
+- Capacity and signup can be finicky
 
-## Kostnadsjämförelse (2026)
+## Cost Comparison (2026)
 
-| Leverantör   | Plan            | Specifikationer            | Pris/mån             | Noteringar                      |
-| ------------ | --------------- | -------------------------- | -------------------- | ------------------------------- |
-| Oracle Cloud | Always Free ARM | upp till 4 OCPU, 24 GB RAM | $0                   | ARM, begränsad kapacitet        |
-| Hetzner      | CX22            | 2 vCPU, 4 GB RAM           | ~ $4 | Billigaste betalda alternativet |
-| DigitalOcean | Basic           | 1 vCPU, 1 GB RAM           | $6                   | Enkelt UI, bra dokumentation    |
-| Vultr        | Cloud Compute   | 1 vCPU, 1 GB RAM           | $6                   | Många platser                   |
-| Linode       | Nanode          | 1 vCPU, 1 GB RAM           | $5                   | Numera del av Akamai            |
+| Provider     | Plan            | Specs                  | Price/mo | Notes                 |
+| ------------ | --------------- | ---------------------- | -------- | --------------------- |
+| Oracle Cloud | Always Free ARM | up to 4 OCPU, 24GB RAM | $0       | ARM, limited capacity |
+| Hetzner      | CX22            | 2 vCPU, 4GB RAM        | ~ $4     | Cheapest paid option  |
+| DigitalOcean | Basic           | 1 vCPU, 1GB RAM        | $6       | Easy UI, good docs    |
+| Vultr        | Cloud Compute   | 1 vCPU, 1GB RAM        | $6       | Many locations        |
+| Linode       | Nanode          | 1 vCPU, 1GB RAM        | $5       | Now part of Akamai    |
 
 ---
 
-## Förutsättningar
+## Prerequisites
 
-- Oracle Cloud-konto ([registrering](https://www.oracle.com/cloud/free/)) — se [community-guide för registrering](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd) om du stöter på problem
-- Tailscale-konto (gratis på [tailscale.com](https://tailscale.com))
-- ~30 minuter
+- Oracle Cloud account ([signup](https://www.oracle.com/cloud/free/)) — see [community signup guide](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd) if you hit issues
+- Tailscale account (free at [tailscale.com](https://tailscale.com))
+- ~30 minutes
 
-## 1. Skapa en OCI-instans
+## 1) Create an OCI Instance
 
-1. Logga in på [Oracle Cloud Console](https://cloud.oracle.com/)
-2. Navigera till **Compute → Instances → Create Instance**
-3. Konfigurera:
+1. Log into [Oracle Cloud Console](https://cloud.oracle.com/)
+2. Navigate to **Compute → Instances → Create Instance**
+3. Configure:
    - **Name:** `openclaw`
    - **Image:** Ubuntu 24.04 (aarch64)
    - **Shape:** `VM.Standard.A1.Flex` (Ampere ARM)
-   - **OCPUs:** 2 (eller upp till 4)
-   - **Memory:** 12 GB (eller upp till 24 GB)
-   - **Boot volume:** 50 GB (upp till 200 GB gratis)
-   - **SSH key:** Lägg till din publika nyckel
-4. Klicka på **Create**
-5. Notera den publika IP-adressen
+   - **OCPUs:** 2 (or up to 4)
+   - **Memory:** 12 GB (or up to 24 GB)
+   - **Boot volume:** 50 GB (up to 200 GB free)
+   - **SSH key:** Add your public key
+4. Click **Create**
+5. Note the public IP address
 
-**Tips:** Om instansskapande misslyckas med "Utanför kapacitet", prova en annan tillgänglighetsdomän eller försök igen senare. Den fria kapaciteten är begränsad.
+**Tip:** If instance creation fails with "Out of capacity", try a different availability domain or retry later. Free tier capacity is limited.
 
-## 2. Anslut och uppdatera
+## 2) Connect and Update
 
 ```bash
 # Connect via public IP
@@ -59,9 +59,9 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y build-essential
 ```
 
-**Obs:** `build-essential` krävs för ARM-kompilering av vissa beroenden.
+**Note:** `build-essential` is required for ARM compilation of some dependencies.
 
-## 3. Konfigurera användare och värdnamn
+## 3) Configure User and Hostname
 
 ```bash
 # Set hostname
@@ -74,37 +74,37 @@ sudo passwd ubuntu
 sudo loginctl enable-linger ubuntu
 ```
 
-## 4. Installera Tailscale
+## 4) Install Tailscale
 
 ```bash
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up --ssh --hostname=openclaw
 ```
 
-Detta aktiverar Tailscale SSH, så att du kan ansluta via `ssh openclaw` från vilken enhet som helst i ditt tailnet — ingen publik IP behövs.
+This enables Tailscale SSH, so you can connect via `ssh openclaw` from any device on your tailnet — no public IP needed.
 
-Verifiera:
+Verify:
 
 ```bash
 tailscale status
 ```
 
-**Från och med nu, anslut via Tailscale:** `ssh ubuntu@openclaw` (eller använd Tailscale-IP:n).
+**From now on, connect via Tailscale:** `ssh ubuntu@openclaw` (or use the Tailscale IP).
 
-## 5. Installera OpenClaw
+## 5) Install OpenClaw
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
 source ~/.bashrc
 ```
 
-När du får frågan ”How do you want to hatch your bot?”, välj **”Do this later”**.
+When prompted "How do you want to hatch your bot?", select **"Do this later"**.
 
-> Obs: Om du träffar på ARM-native kompileringsproblem, börja med systempaket (t.ex. `sudo apt install -y build-essential`) innan du når Homebrew.
+> Note: If you hit ARM-native build issues, start with system packages (e.g. `sudo apt install -y build-essential`) before reaching for Homebrew.
 
-## 6. Konfigurera Gateway (loopback + tokenautentisering) och aktivera Tailscale Serve
+## 6) Configure Gateway (loopback + token auth) and enable Tailscale Serve
 
-Använd token auth som standard. Det är förutsägbart och undviker att behöva någon "osäker författa" Control UI flaggor.
+Use token auth as the default. It’s predictable and avoids needing any “insecure auth” Control UI flags.
 
 ```bash
 # Keep the Gateway private on the VM
@@ -121,7 +121,7 @@ openclaw config set gateway.trustedProxies '["127.0.0.1"]'
 systemctl --user restart openclaw-gateway
 ```
 
-## 7. Verifiera
+## 7) Verify
 
 ```bash
 # Check version
@@ -137,67 +137,67 @@ tailscale serve status
 curl http://localhost:18789
 ```
 
-## 8. Lås ner VCN-säkerheten
+## 8) Lock Down VCN Security
 
-Nu när allt fungerar, lås VCN för att blockera all trafik utom Tailscale. OCI:s virtuella molnnätverk fungerar som en brandvägg vid nätverkskanten – trafiken blockeras innan den når din instans.
+Now that everything is working, lock down the VCN to block all traffic except Tailscale. OCI's Virtual Cloud Network acts as a firewall at the network edge — traffic is blocked before it reaches your instance.
 
-1. Gå till **Networking → Virtual Cloud Networks** i OCI Console
-2. Klicka på ditt VCN → **Security Lists** → Default Security List
-3. **Ta bort** alla ingressregler utom:
+1. Go to **Networking → Virtual Cloud Networks** in the OCI Console
+2. Click your VCN → **Security Lists** → Default Security List
+3. **Remove** all ingress rules except:
    - `0.0.0.0/0 UDP 41641` (Tailscale)
-4. Behåll standardreglerna för egress (tillåt all utgående trafik)
+4. Keep default egress rules (allow all outbound)
 
-Detta blockerar SSH på port 22, HTTP, HTTPS, och allt annat på nätverkskanten. Från och med nu kan du bara ansluta via Tailscale.
+This blocks SSH on port 22, HTTP, HTTPS, and everything else at the network edge. From now on, you can only connect via Tailscale.
 
 ---
 
-## Åtkomst till Control UI
+## Access the Control UI
 
-Från valfri enhet i ditt Tailscale-nätverk:
+From any device on your Tailscale network:
 
 ```
 https://openclaw.<tailnet-name>.ts.net/
 ```
 
-Ersätt `<tailnet-name>` med namnet på ditt tailnet (synligt i `tailscale status`).
+Replace `<tailnet-name>` with your tailnet name (visible in `tailscale status`).
 
-Ingen SSH-tunnel behövs. Skräddarskala erbjuder:
+No SSH tunnel needed. Tailscale provides:
 
-- HTTPS-kryptering (automatiska certifikat)
-- Autentisering via Tailscale-identitet
-- Åtkomst från valfri enhet i ditt tailnet (laptop, telefon, etc.)
+- HTTPS encryption (automatic certs)
+- Authentication via Tailscale identity
+- Access from any device on your tailnet (laptop, phone, etc.)
 
 ---
 
-## Säkerhet: VCN + Tailscale (rekommenderad baslinje)
+## Security: VCN + Tailscale (recommended baseline)
 
-Med VCN låst (endast UDP 41641 öppet) och Gateway bunden till loopback får du ett starkt försvar i flera lager: publik trafik blockeras vid nätverkskanten, och administrativ åtkomst sker via ditt tailnet.
+With the VCN locked down (only UDP 41641 open) and the Gateway bound to loopback, you get strong defense-in-depth: public traffic is blocked at the network edge, and admin access happens over your tailnet.
 
-Den här konfigurationen eliminerar ofta _behovet_ av extra värdbaserade brandväggsregler enbart för att stoppa SSH-bruteforce från Internet — men du bör fortfarande hålla operativsystemet uppdaterat, köra `openclaw security audit`, och verifiera att du inte av misstag lyssnar på publika gränssnitt.
+This setup often removes the _need_ for extra host-based firewall rules purely to stop Internet-wide SSH brute force — but you should still keep the OS updated, run `openclaw security audit`, and verify you aren’t accidentally listening on public interfaces.
 
-### Vad som redan är skyddat
+### What's Already Protected
 
-| Traditionellt steg         | Behövs?     | Varför                                                                                    |
-| -------------------------- | ----------- | ----------------------------------------------------------------------------------------- |
-| UFW-brandvägg              | Nej         | VCN blockerar innan trafiken når instansen                                                |
-| fail2ban                   | Nej         | Ingen bruteforce om port 22 blockeras i VCN                                               |
-| sshd-härdning              | Nej         | Tailscale SSH använder inte sshd                                                          |
-| Inaktivera root-inloggning | Nej         | Tailscale använder Tailscale-identitet, inte systemanvändare                              |
-| Endast SSH-nycklar         | Nej         | Tailscale autentiserar via ditt tailnet                                                   |
-| IPv6-härdning              | Oftast inte | Beror på dina VCN-/subnetinställningar; verifiera vad som faktiskt är tilldelat/exponerat |
+| Traditional Step   | Needed?     | Why                                                                          |
+| ------------------ | ----------- | ---------------------------------------------------------------------------- |
+| UFW firewall       | No          | VCN blocks before traffic reaches instance                                   |
+| fail2ban           | No          | No brute force if port 22 blocked at VCN                                     |
+| sshd hardening     | No          | Tailscale SSH doesn't use sshd                                               |
+| Disable root login | No          | Tailscale uses Tailscale identity, not system users                          |
+| SSH key-only auth  | No          | Tailscale authenticates via your tailnet                                     |
+| IPv6 hardening     | Usually not | Depends on your VCN/subnet settings; verify what’s actually assigned/exposed |
 
-### Fortfarande rekommenderat
+### Still Recommended
 
-- **Behörigheter för inloggningsuppgifter:** `chmod 700 ~/.openclaw`
-- **Säkerhetsgranskning:** `openclaw security audit`
-- **Systemuppdateringar:** kör `sudo apt update && sudo apt upgrade` regelbundet
-- **Övervaka Tailscale:** granska enheter i [Tailscale admin console](https://login.tailscale.com/admin)
+- **Credential permissions:** `chmod 700 ~/.openclaw`
+- **Security audit:** `openclaw security audit`
+- **System updates:** `sudo apt update && sudo apt upgrade` regularly
+- **Monitor Tailscale:** Review devices in [Tailscale admin console](https://login.tailscale.com/admin)
 
-### Verifiera säkerhetsläget
+### Verify Security Posture
 
 ```bash
 # Confirm no public ports listening
-sudo ss -tlnp | grep -v '127.0.0.1\|::1'
+sudo ss -tlnp | grep -v '127.0.0.1|::1'
 
 # Verify Tailscale SSH is active
 tailscale status | grep -q 'offers: ssh' && echo "Tailscale SSH active"
@@ -208,30 +208,30 @@ sudo systemctl disable --now ssh
 
 ---
 
-## Reservlösning: SSH-tunnel
+## Fallback: SSH Tunnel
 
-Om Tailscale Serve inte fungerar, använd en SSH-tunnel:
+If Tailscale Serve isn't working, use an SSH tunnel:
 
 ```bash
 # From your local machine (via Tailscale)
 ssh -L 18789:127.0.0.1:18789 ubuntu@openclaw
 ```
 
-Öppna sedan `http://localhost:18789`.
+Then open `http://localhost:18789`.
 
 ---
 
-## Felsökning
+## Troubleshooting
 
-### Skapande av instans misslyckas (”Out of capacity”)
+### Instance creation fails ("Out of capacity")
 
-Free tier ARM instanser är populära. Prova:
+Free tier ARM instances are popular. Try:
 
-- En annan availability domain
-- Försök igen under lågtrafik (tidig morgon)
-- Använd filtret ”Always Free” när du väljer shape
+- Different availability domain
+- Retry during off-peak hours (early morning)
+- Use the "Always Free" filter when selecting shape
 
-### Tailscale ansluter inte
+### Tailscale won't connect
 
 ```bash
 # Check status
@@ -241,7 +241,7 @@ sudo tailscale status
 sudo tailscale up --ssh --hostname=openclaw --reset
 ```
 
-### Gateway startar inte
+### Gateway won't start
 
 ```bash
 openclaw gateway status
@@ -249,7 +249,7 @@ openclaw doctor --non-interactive
 journalctl --user -u openclaw-gateway -n 50
 ```
 
-### Kan inte nå Control UI
+### Can't reach Control UI
 
 ```bash
 # Verify Tailscale Serve is running
@@ -262,26 +262,26 @@ curl http://localhost:18789
 systemctl --user restart openclaw-gateway
 ```
 
-### ARM-binärproblem
+### ARM binary issues
 
-Vissa verktyg kanske inte har ARM-byggen. Kontroll:
+Some tools may not have ARM builds. Check:
 
 ```bash
 uname -m  # Should show aarch64
 ```
 
-De flesta npm paket fungerar bra. För binärer, sök efter `linux-arm64` eller `aarch64` utgåvor.
+Most npm packages work fine. For binaries, look for `linux-arm64` or `aarch64` releases.
 
 ---
 
-## Persistens
+## Persistence
 
-Allt tillstånd lagras i:
+All state lives in:
 
-- `~/.openclaw/` — konfig, inloggningsuppgifter, sessionsdata
-- `~/.openclaw/workspace/` — arbetsyta (SOUL.md, minne, artefakter)
+- `~/.openclaw/` — config, credentials, session data
+- `~/.openclaw/workspace/` — workspace (SOUL.md, memory, artifacts)
 
-Säkerhetskopiera regelbundet:
+Back up periodically:
 
 ```bash
 tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
@@ -289,12 +289,12 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 
 ---
 
-## Se även
+## See Also
 
-- [Gateway fjärråtkomst](/gateway/remote) — andra mönster för fjärråtkomst
-- [Tailscale-integration](/gateway/tailscale) — fullständig Tailscale-dokumentation
-- [Gateway-konfiguration](/gateway/configuration) — alla konfigurationsalternativ
-- [DigitalOcean-guide](/platforms/digitalocean) — om du vill ha betalt + enklare registrering
-- [Hetzner-guide](/install/hetzner) — Docker-baserat alternativ
+- [Gateway remote access](/gateway/remote) — other remote access patterns
+- [Tailscale integration](/gateway/tailscale) — full Tailscale docs
+- [Gateway configuration](/gateway/configuration) — all config options
+- [DigitalOcean guide](/platforms/digitalocean) — if you want paid + easier signup
+- [Hetzner guide](/install/hetzner) — Docker-based alternative
 
 

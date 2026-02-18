@@ -1,41 +1,41 @@
 ---
-title: "12. Oracle Cloud"
+title: "Oracle Cloud"
 ---
 
-# 13. Oracle Cloud’da OpenClaw (OCI)
+# OpenClaw on Oracle Cloud (OCI)
 
-## 14. Maqsad
+## Goal
 
-15. Oracle Cloud’ning **Always Free** ARM qatlamida doimiy OpenClaw Gateway’ni ishga tushirish.
+Run a persistent OpenClaw Gateway on Oracle Cloud's **Always Free** ARM tier.
 
-16. Oracle’ning bepul qatlamı OpenClaw uchun juda mos bo‘lishi mumkin (ayniqsa sizda allaqachon OCI hisobi bo‘lsa), ammo u ayrim murosalar bilan keladi:
+Oracle’s free tier can be a great fit for OpenClaw (especially if you already have an OCI account), but it comes with tradeoffs:
 
-- 17. ARM arxitekturasi (ko‘p narsa ishlaydi, ammo ayrim binarlar faqat x86 bo‘lishi mumkin)
-- 18. Sig‘im va ro‘yxatdan o‘tish ba’zan muammoli bo‘lishi mumkin
+- ARM architecture (most things work, but some binaries may be x86-only)
+- Capacity and signup can be finicky
 
-## 19. Xarajatlar taqqoslanishi (2026)
+## Cost Comparison (2026)
 
-| 20. Provayder    | 21. Reja            | 22. Xususiyatlar           | 23. Narx/oy              | 24. Izohlar                           |
-| --------------------------------------- | ------------------------------------------ | ------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------ |
-| 25. Oracle Cloud | 26. Always Free ARM | 27. 4 OCPU gacha, 24GB RAM | 28. $0                   | 29. ARM, cheklangan sig‘im            |
-| 30. Hetzner      | 31. CX22            | 32. 2 vCPU, 4GB RAM        | 33. ~ $4 | 34. Eng arzon pullik variant          |
-| 35. DigitalOcean | 36. Basic           | 37. 1 vCPU, 1GB RAM        | 38. $6                   | 39. Qulay interfeys, yaxshi hujjatlar |
-| 40. Vultr        | 41. Cloud Compute   | 42. 1 vCPU, 1GB RAM        | 43. $6                   | 44. Ko‘plab joylashuvlar              |
-| 45. Linode       | 46. Nanode          | 47. 1 vCPU, 1GB RAM        | 48. $5                   | 49. Endi Akamai tarkibida             |
+| Provider     | Plan            | Specs                  | Price/mo | Notes                 |
+| ------------ | --------------- | ---------------------- | -------- | --------------------- |
+| Oracle Cloud | Always Free ARM | up to 4 OCPU, 24GB RAM | $0       | ARM, limited capacity |
+| Hetzner      | CX22            | 2 vCPU, 4GB RAM        | ~ $4     | Cheapest paid option  |
+| DigitalOcean | Basic           | 1 vCPU, 1GB RAM        | $6       | Easy UI, good docs    |
+| Vultr        | Cloud Compute   | 1 vCPU, 1GB RAM        | $6       | Many locations        |
+| Linode       | Nanode          | 1 vCPU, 1GB RAM        | $5       | Now part of Akamai    |
 
 ---
 
-## 50. Talablar
+## Prerequisites
 
-- Oracle Cloud akkaunti ([signup](https://www.oracle.com/cloud/free/)) — muammolarga duch kelsangiz, [community signup guide](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd)ni ko‘ring
-- Tailscale akkaunti ([tailscale.com](https://tailscale.com) saytida bepul)
-- ~30 daqiqa
+- Oracle Cloud account ([signup](https://www.oracle.com/cloud/free/)) — see [community signup guide](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd) if you hit issues
+- Tailscale account (free at [tailscale.com](https://tailscale.com))
+- ~30 minutes
 
-## 1. Create an OCI Instance
+## 1) Create an OCI Instance
 
-1. [Oracle Cloud Console](https://cloud.oracle.com/)ga kiring
-2. **Compute → Instances → Create Instance** bo‘limiga o‘ting
-3. Quyidagicha sozlang:
+1. Log into [Oracle Cloud Console](https://cloud.oracle.com/)
+2. Navigate to **Compute → Instances → Create Instance**
+3. Configure:
    - **Name:** `openclaw`
    - **Image:** Ubuntu 24.04 (aarch64)
    - **Shape:** `VM.Standard.A1.Flex` (Ampere ARM)
@@ -48,7 +48,7 @@ title: "12. Oracle Cloud"
 
 **Tip:** If instance creation fails with "Out of capacity", try a different availability domain or retry later. Free tier capacity is limited.
 
-## 2. Connect and Update
+## 2) Connect and Update
 
 ```bash
 # Connect via public IP
@@ -61,7 +61,7 @@ sudo apt install -y build-essential
 
 **Note:** `build-essential` is required for ARM compilation of some dependencies.
 
-## 3. Configure User and Hostname
+## 3) Configure User and Hostname
 
 ```bash
 # Set hostname
@@ -74,7 +74,7 @@ sudo passwd ubuntu
 sudo loginctl enable-linger ubuntu
 ```
 
-## 4. Install Tailscale
+## 4) Install Tailscale
 
 ```bash
 curl -fsSL https://tailscale.com/install.sh | sh
@@ -91,7 +91,7 @@ tailscale status
 
 **From now on, connect via Tailscale:** `ssh ubuntu@openclaw` (or use the Tailscale IP).
 
-## 5. Install OpenClaw
+## 5) Install OpenClaw
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
@@ -102,7 +102,7 @@ When prompted "How do you want to hatch your bot?", select **"Do this later"**.
 
 > Note: If you hit ARM-native build issues, start with system packages (e.g. `sudo apt install -y build-essential`) before reaching for Homebrew.
 
-## 6. Configure Gateway (loopback + token auth) and enable Tailscale Serve
+## 6) Configure Gateway (loopback + token auth) and enable Tailscale Serve
 
 Use token auth as the default. It’s predictable and avoids needing any “insecure auth” Control UI flags.
 
@@ -121,7 +121,7 @@ openclaw config set gateway.trustedProxies '["127.0.0.1"]'
 systemctl --user restart openclaw-gateway
 ```
 
-## 7. Verify
+## 7) Verify
 
 ```bash
 # Check version
@@ -137,7 +137,7 @@ tailscale serve status
 curl http://localhost:18789
 ```
 
-## 8. Lock Down VCN Security
+## 8) Lock Down VCN Security
 
 Now that everything is working, lock down the VCN to block all traffic except Tailscale. OCI's Virtual Cloud Network acts as a firewall at the network edge — traffic is blocked before it reaches your instance.
 
@@ -241,7 +241,7 @@ sudo tailscale status
 sudo tailscale up --ssh --hostname=openclaw --reset
 ```
 
-### Gateway ishga tushmayapti
+### Gateway won't start
 
 ```bash
 openclaw gateway status
@@ -249,39 +249,39 @@ openclaw doctor --non-interactive
 journalctl --user -u openclaw-gateway -n 50
 ```
 
-### Control UI ga kira olmayapman
+### Can't reach Control UI
 
 ```bash
-# Tailscale Serve ishlayotganini tekshiring
+# Verify Tailscale Serve is running
 tailscale serve status
 
-# Gateway tinglayotganini tekshiring
+# Check gateway is listening
 curl http://localhost:18789
 
-# Kerak bo‘lsa qayta ishga tushiring
+# Restart if needed
 systemctl --user restart openclaw-gateway
 ```
 
-### ARM binar muammolari
+### ARM binary issues
 
-Ba’zi vositalarda ARM buildlari bo‘lmasligi mumkin. Tekshiring:
+Some tools may not have ARM builds. Check:
 
 ```bash
 uname -m  # Should show aarch64
 ```
 
-Ko‘pchilik npm paketlari muammosiz ishlaydi. Binarlar uchun `linux-arm64` yoki `aarch64` relizlarini qidiring.
+Most npm packages work fine. For binaries, look for `linux-arm64` or `aarch64` releases.
 
 ---
 
-## Saqlanish (Persistence)
+## Persistence
 
-Barcha holat ma’lumotlari shu yerda saqlanadi:
+All state lives in:
 
 - `~/.openclaw/` — config, credentials, session data
-- `~/.openclaw/workspace/` — ish maydoni (SOUL.md, xotira, artefaktlar)
+- `~/.openclaw/workspace/` — workspace (SOUL.md, memory, artifacts)
 
-Vaqti-vaqti bilan zaxira nusxa oling:
+Back up periodically:
 
 ```bash
 tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
@@ -289,12 +289,12 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 
 ---
 
-## Shuningdek qarang
+## See Also
 
-- [Gateway remote access](/gateway/remote) — masofaviy kirishning boshqa usullari
-- [Tailscale integration](/gateway/tailscale) — Tailscale bo‘yicha to‘liq hujjatlar
-- [Gateway configuration](/gateway/configuration) — barcha konfiguratsiya variantlari
-- [DigitalOcean guide](/platforms/digitalocean) — pullik + osonroq ro‘yxatdan o‘tish istasangiz
-- [Hetzner guide](/install/hetzner) — Docker asosidagi muqobil yechim
+- [Gateway remote access](/gateway/remote) — other remote access patterns
+- [Tailscale integration](/gateway/tailscale) — full Tailscale docs
+- [Gateway configuration](/gateway/configuration) — all config options
+- [DigitalOcean guide](/platforms/digitalocean) — if you want paid + easier signup
+- [Hetzner guide](/install/hetzner) — Docker-based alternative
 
 
