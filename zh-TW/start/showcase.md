@@ -31,8 +31,7 @@ description: "來自社群的真實世界 OpenClaw 專案"
     frameBorder="0"
     loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowFullScreen
-  />
+    allowFullScreen></iframe>
 </div></div>
 
 [在 YouTube 觀看](https://www.youtube.com/watch?v=SaWSPZoPX34)
@@ -53,8 +52,7 @@ description: "來自社群的真實世界 OpenClaw 專案"
     frameBorder="0"
     loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowFullScreen
-  />
+    allowFullScreen></iframe>
 </div></div>
 
 [在 YouTube 觀看](https://www.youtube.com/watch?v=mMSKQvlmFuQ)
@@ -75,8 +73,7 @@ description: "來自社群的真實世界 OpenClaw 專案"
     frameBorder="0"
     loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowFullScreen
-  />
+    allowFullScreen></iframe>
 </div></div>
 
 [在 YouTube 觀看](https://www.youtube.com/watch?v=5kkIJNUGFho)

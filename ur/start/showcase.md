@@ -31,8 +31,7 @@ VelvetShark کی جانب سے مکمل سیٹ اپ کی رہنمائی (28 من
     frameBorder="0"
     loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowFullScreen
-  />
+    allowFullScreen></iframe>
 </div></div>
 
 [YouTube پر دیکھیں](https://www.youtube.com/watch?v=SaWSPZoPX34)
@@ -53,8 +52,7 @@ VelvetShark کی جانب سے مکمل سیٹ اپ کی رہنمائی (28 من
     frameBorder="0"
     loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowFullScreen
-  />
+    allowFullScreen></iframe>
 </div></div>
 
 [YouTube پر دیکھیں](https://www.youtube.com/watch?v=mMSKQvlmFuQ)
@@ -75,8 +73,7 @@ VelvetShark کی جانب سے مکمل سیٹ اپ کی رہنمائی (28 من
     frameBorder="0"
     loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowFullScreen
-  />
+    allowFullScreen></iframe>
 </div></div>
 
 [YouTube پر دیکھیں](https://www.youtube.com/watch?v=5kkIJNUGFho)

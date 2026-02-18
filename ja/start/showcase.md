@@ -31,8 +31,7 @@ VelvetShark によるフルセットアップ解説（28 分）。
     frameBorder="0"
     loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowFullScreen
-  />
+    allowFullScreen></iframe>
 </div></div>
 
 [YouTube で視聴](https://www.youtube.com/watch?v=SaWSPZoPX34)
@@ -53,8 +52,7 @@ VelvetShark によるフルセットアップ解説（28 分）。
     frameBorder="0"
     loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowFullScreen
-  />
+    allowFullScreen></iframe>
 </div></div>
 
 [YouTube で視聴](https://www.youtube.com/watch?v=mMSKQvlmFuQ)
@@ -75,8 +73,7 @@ VelvetShark によるフルセットアップ解説（28 分）。
     frameBorder="0"
     loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowFullScreen
-  />
+    allowFullScreen></iframe>
 </div></div>
 
 [YouTube で視聴](https://www.youtube.com/watch?v=5kkIJNUGFho)

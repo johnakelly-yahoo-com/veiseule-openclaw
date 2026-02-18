@@ -1,60 +1,69 @@
 ---
-title: "Cloudflare AI Gateway sozlamalari (auth + model tanlash)"
+title: "Cloudflare AI Gateway"
 ---
 
-# Cloudflare AI Gateway provider API’lari oldida joylashadi va analytics, caching hamda nazoratlarni qo‘shish imkonini beradi.
+# Cloudflare AI Gateway
 
-Anthropic uchun OpenClaw Gateway endpoint’ingiz orqali Anthropic Messages API’dan foydalanadi. Provider: `cloudflare-ai-gateway`
+Cloudflare AI Gateway sits in front of provider APIs and lets you add analytics, caching, and controls. For Anthropic, OpenClaw uses the Anthropic Messages API through your Gateway endpoint.
 
+- Provider: `cloudflare-ai-gateway`
 - Base URL: `https://gateway.ai.cloudflare.com/v1/<account_id>/<gateway_id>/anthropic`
-- Standart model: `cloudflare-ai-gateway/claude-sonnet-4-5`
-- API kalit: `CLOUDFLARE_AI_GATEWAY_API_KEY` (Gateway orqali yuboriladigan so‘rovlar uchun provider API kalitingiz)
-- Anthropic modellari uchun Anthropic API kalitingizdan foydalaning.
+- Default model: `cloudflare-ai-gateway/claude-sonnet-4-5`
+- API key: `CLOUDFLARE_AI_GATEWAY_API_KEY` (your provider API key for requests through the Gateway)
 
-Tezkor boshlash
+For Anthropic models, use your Anthropic API key.
 
-## Provider API kaliti va Gateway tafsilotlarini sozlang:
+## Quick start
 
-1. openclaw onboard --auth-choice cloudflare-ai-gateway-api-key
+1. Set the provider API key and Gateway details:
 
 ```bash
-Standart modelni sozlang:
+openclaw onboard --auth-choice cloudflare-ai-gateway-api-key
 ```
 
-2. {
-   agents: {
-   defaults: {
-   model: { primary: "cloudflare-ai-gateway/claude-sonnet-4-5" },
-   },
-   },
-   }
+2. Set a default model:
 
 ```json5
-Interaktiv bo‘lmagan misol
+{
+  agents: {
+    defaults: {
+      model: { primary: "cloudflare-ai-gateway/claude-sonnet-4-5" },
+    },
+  },
+}
 ```
 
+## Non-interactive example
+
+```bash
 openclaw onboard --non-interactive \
-\--mode local \
-\--auth-choice cloudflare-ai-gateway-api-key \
-\--cloudflare-ai-gateway-account-id "your-account-id" \
-\--cloudflare-ai-gateway-gateway-id "your-gateway-id" \
-\--cloudflare-ai-gateway-api-key "$CLOUDFLARE_AI_GATEWAY_API_KEY"
------------------------------------------------------------------------------------------------------------------------------------------------------
-
-```bash
-Autentifikatsiyalangan gateway’lar
+  --mode local \
+  --auth-choice cloudflare-ai-gateway-api-key \
+  --cloudflare-ai-gateway-account-id "your-account-id" \
+  --cloudflare-ai-gateway-gateway-id "your-gateway-id" \
+  --cloudflare-ai-gateway-api-key "$CLOUDFLARE_AI_GATEWAY_API_KEY"
 ```
 
-## Agar Cloudflare’da Gateway autentifikatsiyasini yoqqan bo‘lsangiz, `cf-aig-authorization` header’ini qo‘shing (bu provider API kalitingizdan tashqari).
+## Authenticated gateways
 
-Agar Cloudflare’da Gateway autentifikatsiyasini yoqqan bo‘lsangiz, `cf-aig-authorization` sarlavhasini qo‘shing (bu provayder API kalitingizga qo‘shimcha ravishda kerak).
+If you enabled Gateway authentication in Cloudflare, add the `cf-aig-authorization` header (this is in addition to your provider API key).
 
 ```json5
-Muhit bo‘yicha eslatma
+{
+  models: {
+    providers: {
+      "cloudflare-ai-gateway": {
+        headers: {
+          "cf-aig-authorization": "Bearer <cloudflare-ai-gateway-token>",
+        },
+      },
+    },
+  },
+}
 ```
 
-## Agar Gateway daemon sifatida (launchd/systemd) ishlayotgan bo‘lsa, `CLOUDFLARE_AI_GATEWAY_API_KEY` ushbu jarayon uchun mavjud ekanligiga ishonch hosil qiling (masalan, `~/.openclaw/.env` da yoki `env.shellEnv` orqali).
+## Environment note
 
-Kiruvchi ovozli eslatmalar uchun Deepgram transkripsiyasi
+If the Gateway runs as a daemon (launchd/systemd), make sure `CLOUDFLARE_AI_GATEWAY_API_KEY` is available to that process (for example, in `~/.openclaw/.env` or via `env.shellEnv`).
 
 

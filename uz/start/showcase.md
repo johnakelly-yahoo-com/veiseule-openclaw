@@ -30,8 +30,7 @@ VelvetShark tomonidan to‘liq sozlash bo‘yicha qo‘llanma (28 daqiqa).
     frameBorder="0"
     loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowFullScreen
-  />
+    allowFullScreen></iframe>
 </div></div>
 
 [YouTube’da tomosha qiling](https://www.youtube.com/watch?v=SaWSPZoPX34)
@@ -52,8 +51,7 @@ VelvetShark tomonidan to‘liq sozlash bo‘yicha qo‘llanma (28 daqiqa).
     frameBorder="0"
     loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowFullScreen
-  />
+    allowFullScreen></iframe>
 </div></div>
 
 [YouTube’da tomosha qiling](https://www.youtube.com/watch?v=mMSKQvlmFuQ)
@@ -74,8 +72,7 @@ VelvetShark tomonidan to‘liq sozlash bo‘yicha qo‘llanma (28 daqiqa).
     frameBorder="0"
     loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowFullScreen
-  />
+    allowFullScreen></iframe>
 </div></div>
 
 [YouTube’da tomosha qiling](https://www.youtube.com/watch?v=5kkIJNUGFho)
