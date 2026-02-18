@@ -59,7 +59,8 @@ sidebarTitle: "온보딩: macOS 앱"
 
 </Step>
 <Step title="CLI">
-  <Info>이 단계는 선택 사항입니다
+  <Info>
+이 단계는 선택 사항입니다
 </Info>
   앱은 npm/pnpm 을 통해 전역 `openclaw` CLI 를 설치할 수 있으므로, 터미널 워크플로와 launchd 작업이 즉시 동작합니다.
 </Step>

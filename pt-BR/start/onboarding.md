@@ -59,7 +59,8 @@ A integração inicial solicita permissões TCC necessárias para:
 
 </Step>
 <Step title="CLI">
-  <Info>Esta etapa é opcional
+  <Info>
+Esta etapa é opcional
 </Info>
   O app pode instalar a CLI global `openclaw` via npm/pnpm para que fluxos de trabalho no terminal e tarefas do launchd funcionem imediatamente.
 </Step>

@@ -67,7 +67,8 @@ curl -fsSL https://openclaw.ai/install.sh | bash
 </Step></Step>
 </Steps>
 
-<Check>```bash
+<Check>
+```bash
 openclaw dashboard
 ```
 </Check>

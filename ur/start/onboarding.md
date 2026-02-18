@@ -61,7 +61,8 @@ sidebarTitle: "آن بورڈنگ: macOS ایپ"
 
 </Step>
 <Step title="CLI">
-  <Info>یہ مرحلہ اختیاری ہے
+  <Info>
+یہ مرحلہ اختیاری ہے
 </Info>
   ایپ npm/pnpm کے ذریعے عالمی `openclaw` CLI انسٹال کر سکتی ہے تاکہ ٹرمینل
   ورک فلو اور launchd ٹاسکس بطورِ طے شدہ درست طور پر کام کریں۔

@@ -63,7 +63,8 @@ Humihingi ang onboarding ng mga TCC permission na kailangan para sa:
 
 </Step>
 <Step title="CLI">
-  <Info>Opsyonal ang hakbang na ito
+  <Info>
+Opsyonal ang hakbang na ito
 </Info>
   Maaaring i-install ng app ang global `openclaw` CLI sa pamamagitan ng npm/pnpm upang gumana agad ang mga terminal
   workflow at mga launchd task.

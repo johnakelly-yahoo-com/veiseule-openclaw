@@ -59,7 +59,8 @@ La incorporación solicita permisos TCC necesarios para:
 
 </Step>
 <Step title="CLI">
-  <Info>Este paso es opcional
+  <Info>
+Este paso es opcional
 </Info>
   La app puede instalar la CLI global `openclaw` mediante npm/pnpm para que
   los flujos de trabajo en terminal y las tareas de launchd funcionen de inmediato.

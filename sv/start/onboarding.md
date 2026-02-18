@@ -61,7 +61,8 @@ Introduktionen begär TCC-behörigheter som behövs för:
 
 </Step>
 <Step title="CLI">
-  <Info>Detta steg är valfritt
+  <Info>
+Detta steg är valfritt
 </Info>
   Appen kan installera den globala `openclaw` CLI via npm/pnpm så att
   terminalarbetsflöden och launchd-uppgifter fungerar direkt.

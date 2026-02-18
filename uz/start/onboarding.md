@@ -54,7 +54,8 @@ sidebarTitle: "29. Onboarding: macOS ilovasi"
 
 </Step>
 <Step title="CLI">
-  <Info>This step is optional
+  <Info>
+This step is optional
 </Info>
   The app can install the global `openclaw` CLI via npm/pnpm so terminal
   workflows and launchd tasks work out of the box.

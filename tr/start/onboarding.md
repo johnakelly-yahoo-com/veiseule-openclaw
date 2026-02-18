@@ -68,7 +68,8 @@ Onboarding, aşağıdakiler için gerekli TCC izinlerini ister:
 
 </Step>
 <Step title="CLI">
-  <Info>Bu adım isteğe bağlıdır
+  <Info>
+Bu adım isteğe bağlıdır
 </Info>
   Uygulama, terminal iş akışlarının ve launchd görevlerinin kutudan çıktığı gibi
   çalışması için npm/pnpm üzerinden global `openclaw` CLI’yı kurabilir.

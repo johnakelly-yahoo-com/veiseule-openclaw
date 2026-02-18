@@ -63,7 +63,8 @@ Onboarding anmoder om TCC-tilladelser, der er nødvendige for:
 
 </Step>
 <Step title="CLI">
-  <Info>Dette trin er valgfrit
+  <Info>
+Dette trin er valgfrit
 </Info>
   Appen kan installere den globale `openclaw` CLI via npm/pnpm, så terminal‑
   workflows og launchd-opgaver virker ud af boksen.

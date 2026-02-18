@@ -20,7 +20,8 @@ sidebarTitle: "1. Bootstraplash"
 
 12. Bootstraplash har doim **gateway xosti**da ishlaydi. 13. Agar macOS ilovasi masofaviy Gatewayʼga ulangan boʻlsa, ish maydoni va bootstraplash fayllari o‘sha masofaviy mashinada joylashadi.
 
-<Note>14.
+<Note>
+14.
 Gateway boshqa mashinada ishlayotgan bo‘lsa, ish maydoni fayllarini gateway xostida tahrirlang (masalan, `user@gateway-host:~/.openclaw/workspace`).
 </Note>
 

@@ -59,7 +59,8 @@ La prise en main demande les autorisations TCC nécessaires pour :
 
 </Step>
 <Step title="CLI">
-  <Info>Cette étape est facultative
+  <Info>
+Cette étape est facultative
 </Info>
   L’application peut installer la CLI globale `openclaw` via npm/pnpm afin que les
   flux de travail du terminal et les tâches launchd fonctionnent immédiatement.

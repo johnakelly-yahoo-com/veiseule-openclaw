@@ -63,7 +63,8 @@ sidebarTitle: "オンボーディング：macOSアプリ"
 
 </Step>
 <Step title="CLI">
-  <Info>このステップは任意です
+  <Info>
+このステップは任意です
 </Info>
   アプリは、npm/pnpm を通じてグローバルな `openclaw` CLI をインストールできます。これにより、ターミナルのワークフローや launchd タスクがすぐに利用可能になります。
 </Step>

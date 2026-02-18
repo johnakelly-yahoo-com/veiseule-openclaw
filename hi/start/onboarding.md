@@ -62,7 +62,8 @@ sidebarTitle: "ऑनबोर्डिंग: macOS ऐप"
 
 </Step>
 <Step title="CLI">
-  <Info>यह चरण वैकल्पिक है
+  <Info>
+यह चरण वैकल्पिक है
 </Info>
   ऐप npm/pnpm के माध्यम से वैश्विक `openclaw` CLI स्थापित कर सकता है ताकि टर्मिनल
   वर्कफ़्लो और launchd कार्य तुरंत काम करें।

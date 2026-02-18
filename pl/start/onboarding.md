@@ -59,7 +59,8 @@ Wdrożenie prosi o uprawnienia TCC potrzebne do:
 
 </Step>
 <Step title="CLI">
-  <Info>Ten krok jest opcjonalny
+  <Info>
+Ten krok jest opcjonalny
 </Info>
   Aplikacja może zainstalować globalne CLI `openclaw` przez npm/pnpm, aby
   przepływy pracy w terminalu oraz zadania launchd działały od razu.

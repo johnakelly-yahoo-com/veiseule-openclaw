@@ -61,7 +61,8 @@ Hướng dẫn ban đầu yêu cầu các quyền TCC cần thiết cho:
 
 </Step>
 <Step title="CLI">
-  <Info>Bước này là tùy chọn
+  <Info>
+Bước này là tùy chọn
 </Info>
   Ứng dụng có thể cài đặt CLI `openclaw` toàn cục qua npm/pnpm để các
   quy trình làm việc trên terminal và các tác vụ launchd hoạt động ngay.
