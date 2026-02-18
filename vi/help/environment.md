@@ -1,0 +1,107 @@
+---
+summary: "Nơi OpenClaw tải các biến môi trường và thứ tự ưu tiên"
+read_when:
+  - Bạn cần biết những biến môi trường nào được tải và theo thứ tự nào
+  - Bạn đang gỡ lỗi các khóa API bị thiếu trong Gateway
+  - Bạn đang lập tài liệu xác thực nhà cung cấp hoặc môi trường triển khai
+title: "Biến môi trường"
+---
+
+# Biến môi trường
+
+43. OpenClaw lấy các biến môi trường từ nhiều nguồn. 44. Quy tắc là **không bao giờ ghi đè các giá trị hiện có**.
+
+## Thứ tự ưu tiên (cao nhất → thấp nhất)
+
+1. **Môi trường của tiến trình** (những gì tiến trình Gateway đã có từ shell/daemon cha).
+2. **`.env` trong thư mục làm việc hiện tại** (mặc định của dotenv; không ghi đè).
+3. **`.env` toàn cục** tại `~/.openclaw/.env` (còn gọi là `$OPENCLAW_STATE_DIR/.env`; không ghi đè).
+4. **Khối cấu hình `env`** trong `~/.openclaw/openclaw.json` (chỉ áp dụng nếu còn thiếu).
+5. **Nhập từ login-shell tùy chọn** (`env.shellEnv.enabled` hoặc `OPENCLAW_LOAD_SHELL_ENV=1`), chỉ áp dụng cho các khóa mong đợi còn thiếu.
+
+Nếu tệp cấu hình bị thiếu hoàn toàn, bước 4 sẽ bị bỏ qua; việc nhập từ shell vẫn chạy nếu được bật.
+
+## Khối cấu hình `env`
+
+Hai cách tương đương để đặt biến môi trường nội tuyến (cả hai đều không ghi đè):
+
+```json5
+{
+  env: {
+    OPENROUTER_API_KEY: "sk-or-...",
+    vars: {
+      GROQ_API_KEY: "gsk-...",
+    },
+  },
+}
+```
+
+## Nhập biến môi trường từ shell
+
+`env.shellEnv` chạy login shell của bạn và chỉ nhập các khóa mong đợi **còn thiếu**:
+
+```json5
+{
+  env: {
+    shellEnv: {
+      enabled: true,
+      timeoutMs: 15000,
+    },
+  },
+}
+```
+
+Các biến môi trường tương đương:
+
+- `OPENCLAW_LOAD_SHELL_ENV=1`
+- `OPENCLAW_SHELL_ENV_TIMEOUT_MS=15000`
+
+## Thay thế biến môi trường trong cấu hình
+
+Bạn có thể tham chiếu trực tiếp các biến môi trường trong giá trị chuỗi của cấu hình bằng cú pháp `${VAR_NAME}`:
+
+```json5
+{
+  models: {
+    providers: {
+      "vercel-gateway": {
+        apiKey: "${VERCEL_GATEWAY_API_KEY}",
+      },
+    },
+  },
+}
+```
+
+Xem [Cấu hình: Thay thế biến môi trường](/gateway/configuration#env-var-substitution-in-config) để biết đầy đủ chi tiết.
+
+## Các biến môi trường liên quan đến đường dẫn
+
+| Biến               | Mục đích                                                                                                                                                                                                                            |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `OPENCLAW_HOME`        | Ghi đè thư mục home được sử dụng cho mọi quá trình phân giải đường dẫn nội bộ (`~/.openclaw/`, thư mục agent, phiên làm việc, thông tin xác thực). Useful when running OpenClaw as a dedicated service user. |
+| `OPENCLAW_STATE_DIR`   | Ghi đè thư mục trạng thái (mặc định `~/.openclaw`).                                                                                                                                            |
+| `OPENCLAW_CONFIG_PATH` | Ghi đè đường dẫn tệp cấu hình (mặc định `~/.openclaw/openclaw.json`).                                                                                                                             |
+
+### `OPENCLAW_HOME`
+
+Khi được thiết lập, `OPENCLAW_HOME` sẽ thay thế thư mục home của hệ thống (`$HOME` / `os.homedir()`) cho mọi quá trình phân giải đường dẫn nội bộ. Điều này cho phép cô lập hoàn toàn hệ thống tệp cho các tài khoản dịch vụ chạy nền (headless).
+
+**Thứ tự ưu tiên:** `OPENCLAW_HOME` > `$HOME` > `USERPROFILE` > `os.homedir()`
+
+**Ví dụ** (macOS LaunchDaemon):
+
+```xml
+<key>EnvironmentVariables</key>
+<dict>
+  <key>OPENCLAW_HOME</key>
+  <string>/Users/kira</string>
+</dict>
+```
+
+`OPENCLAW_HOME` cũng có thể được đặt thành một đường dẫn bắt đầu bằng dấu ngã (ví dụ: `~/svc`), và sẽ được mở rộng bằng `$HOME` trước khi sử dụng.
+
+## Liên quan
+
+- [Cấu hình Gateway](/gateway/configuration)
+- [FAQ: biến môi trường và tải .env](/help/faq#env-vars-and-env-loading)
+- [Tổng quan mô hình](/concepts/models)

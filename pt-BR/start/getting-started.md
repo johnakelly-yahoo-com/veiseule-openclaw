@@ -1,0 +1,140 @@
+---
+summary: "Instale o OpenClaw e execute seu primeiro chat em minutos."
+read_when:
+  - Primeira configuração do zero
+  - Voce quer o caminho mais rápido para um chat funcional
+title: "Primeiros passos"
+---
+
+# Primeiros passos
+
+Objetivo: ir do zero até o primeiro chat funcional com configuração mínima.
+
+<Info>
+Chat mais rápido: abra a Control UI (nenhuma configuração de canal necessária). Execute `openclaw dashboard`
+e converse no navegador, ou abra `http://127.0.0.1:18789/` no
+<Tooltip headline="Gateway host" tip="The machine running the OpenClaw gateway service.">host do Gateway</Tooltip>.
+Docs: [Dashboard](/web/dashboard) e [Control UI](/web/control-ui).
+</Info>
+
+## Pré-requisitos
+
+- Node 22 ou mais recente
+
+<Tip>
+Verifique sua versão do Node com `node --version` se tiver dúvidas.
+</Tip>
+
+## Início rápido (CLI)
+
+<Steps>
+  <Step title="Install OpenClaw (recommended)">
+    <Tabs>
+      <Tab title="macOS/Linux">
+        ```bash
+        curl -fsSL https://openclaw.ai/install.sh | bash
+        ```
+      </Tab>
+      <Tab title="Windows (PowerShell)">
+        ```powershell
+        iwr -useb https://openclaw.ai/install.ps1 | iex
+        ```
+      </Tab>
+    </Tabs>
+
+    ```
+    <Note>
+    Outros métodos de instalação e requisitos: [Instalar](/install).
+    </Note>
+    ```
+
+  </Step>
+  <Step title="Run the onboarding wizard">
+    ```bash
+    openclaw onboard --install-daemon
+    ```
+
+    ```
+    O assistente configura autenticação, configurações do gateway e canais opcionais.
+    Veja [Onboarding Wizard](/start/wizard) para detalhes.
+    ```
+
+  </Step>
+  <Step title="Check the Gateway">
+    Se voce instalou o serviço, ele já deve estar em execução:
+
+    ````
+    ```bash
+    openclaw gateway status
+    ```
+    ````
+
+  </Step>
+  <Step title="Open the Control UI">
+    ```bash
+    openclaw dashboard
+    ```
+  </Step>
+</Steps>
+
+<Check>
+Se a Control UI carregar, seu Gateway está pronto para uso.
+</Check>
+
+## Verificações opcionais e extras
+
+<AccordionGroup>
+  <Accordion title="Run the Gateway in the foreground">
+    Útil para testes rápidos ou solução de problemas.
+
+    ````
+    ```bash
+    openclaw gateway --port 18789
+    ```
+    ````
+
+  </Accordion>
+  <Accordion title="Send a test message">
+    Requer um canal configurado.
+
+    ````
+    ```bash
+    openclaw message send --target +15555550123 --message "Hello from OpenClaw"
+    ```
+    ````
+
+  </Accordion>
+</AccordionGroup>
+
+## Variáveis de ambiente úteis
+
+Se você executa o OpenClaw como uma conta de serviço ou deseja locais personalizados para config/estado:
+
+- `OPENCLAW_HOME` define o diretório inicial usado para a resolução interna de caminhos.
+- `OPENCLAW_STATE_DIR` substitui o diretório de estado.
+- `OPENCLAW_CONFIG_PATH` substitui o caminho do arquivo de configuração.
+
+Referência completa das variáveis de ambiente: [Variáveis de ambiente](/help/environment).
+
+## Aprofundar
+
+<Columns>
+  <Card title="Onboarding Wizard (details)" href="/start/wizard">
+    Referência completa do assistente de CLI e opções avançadas.
+  </Card>
+  <Card title="macOS app onboarding" href="/start/onboarding">
+    Fluxo da primeira execução para o app macOS.
+  </Card>
+</Columns>
+
+## O que voce terá
+
+- Um Gateway em execução
+- Autenticação configurada
+- Acesso à Control UI ou um canal conectado
+
+## Próximos passos
+
+- Segurança e aprovações de DM: [Pairing](/channels/pairing)
+- Conectar mais canais: [Channels](/channels)
+- Fluxos avançados e a partir do código-fonte: [Configuração](/start/setup)

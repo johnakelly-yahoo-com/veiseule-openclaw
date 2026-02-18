@@ -1,29 +1,21 @@
-# veiseule-openclaw
+# OpenClaw Docs — Veiseule Translations
 
-Community translations of [OpenClaw documentation](https://docs.openclaw.ai) maintained by [veiseule.ai](https://openclaw.veiseule.ai).
+Community translations of the [OpenClaw documentation](https://docs.openclaw.ai), powered by [veiseule.ai](https://veiseule.ai).
 
 ## Languages
 
-Arabic, Burmese, Chinese (Simplified & Traditional), Danish, Dutch, Filipino, French, German, Hindi, Japanese, Korean, Polish, Portuguese (Brazilian), Russian, Spanish, Swedish, Thai, Turkish, Urdu, Uzbek, Vietnamese.
+22 languages translated via [Crowdin](https://crowdin.com/project/openclaw):
 
-## Structure
+Arabic · Danish · Dutch · Filipino · French · German · Hindi · Japanese · Korean ·
+Burmese · Polish · Portuguese (BR) · Russian · Spanish · Swedish · Thai · Turkish ·
+Urdu · Uzbek · Vietnamese · Chinese (Simplified) · Chinese (Traditional)
 
-```
-/en         English (source mirror)
-/de         German
-/fr         French
-/ja         Japanese
-...         (22 language directories)
-/assets     Shared static assets
-index.html  Landing page
-```
+## Powered by
 
-## Live Site
+- **[Mintlify](https://mintlify.com)** — Documentation platform
+- **[Crowdin](https://crowdin.com)** — Translation management
+- **[veiseule.ai](https://veiseule.ai)** — Translation pipeline
 
-**[openclaw.veiseule.ai](https://openclaw.veiseule.ai)**
+## Contributing
 
-Translations are managed on [Crowdin](https://crowdin.com/project/66aa453b091ff31e16a4cecfeef31b17). Contributions welcome.
-
-## License
-
-Translation content is community-contributed. Original documentation copyright belongs to [OpenClaw](https://docs.openclaw.ai).
+Translations are managed on [Crowdin](https://crowdin.com/project/openclaw).

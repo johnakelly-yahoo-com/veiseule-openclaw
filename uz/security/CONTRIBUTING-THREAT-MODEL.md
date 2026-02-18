@@ -1,0 +1,90 @@
+# OpenClaw Tahdidlar Modeliga hissa qo‘shish
+
+OpenClaw’ni yanada xavfsiz qilishga yordam berganingiz uchun rahmat. Ushbu tahdidlar modeli doimiy ravishda yangilanib boriladigan hujjat bo‘lib, biz hammaning hissasini mamnuniyat bilan qabul qilamiz — xavfsizlik bo‘yicha mutaxassis bo‘lish shart emas.
+
+## Hissa qo‘shish usullari
+
+### Tahdid qo‘shing
+
+Biz qamrab olmagan hujum vektori yoki xavfni payqadingizmi? [openclaw/trust](https://github.com/openclaw/trust/issues) da issue oching va uni o‘z so‘zlaringiz bilan tasvirlab bering. Hech qanday freymvorklarni bilishingiz yoki har bir maydonni to‘ldirishingiz shart emas — faqat ssenariyni tasvirlab bering.
+
+**Qo‘shish foydali (lekin majburiy emas):**
+
+- Hujum ssenariysi va undan qanday foydalanish mumkinligi
+- OpenClaw’ning qaysi qismlari ta’sirlangan (CLI, gateway, kanallar, ClawHub, MCP serverlari va hokazo)
+- Qanchalik jiddiy deb o‘ylaysiz (past / o‘rta / yuqori / kritik)
+- Tegishli tadqiqotlar, CVElar yoki real hayotdagi misollarga havolalar
+
+ATLAS xaritalash, tahdid identifikatorlari va xavf baholashni ko‘rib chiqish jarayonida biz hal qilamiz. Agar ushbu tafsilotlarni kiritmoqchi bo‘lsangiz, juda yaxshi — ammo bu majburiy emas.
+
+> **Bu jonli zaifliklar haqida xabar berish uchun emas, balki tahdid modeliga qo‘shish uchun mo‘ljallangan.** Agar siz ekspluatatsiya qilinishi mumkin bo‘lgan zaiflikni aniqlagan bo‘lsangiz, mas’uliyatli oshkor qilish bo‘yicha ko‘rsatmalar uchun [Trust page](https://trust.openclaw.ai) sahifamizga qarang.
+
+### Kamaytirish Chorasi Taklif Qiling
+
+Mavjud tahdidni bartaraf etish bo‘yicha g‘oyangiz bormi? Tahdidga havola qilgan holda issue yoki PR oching. Foydali kamaytirish choralari aniq va amalga oshiriladigan bo‘ladi — masalan, "gateway’da har bir jo‘natuvchi uchun daqiqasiga 10 ta xabar bilan cheklash" "rate limiting’ni joriy etish" degandan ko‘ra yaxshiroq.
+
+### Hujum Zanjirini Taklif Qiling
+
+Hujum zanjirlari bir nechta tahdidlar qanday qilib real hujum ssenariysiga birlashishini ko‘rsatadi. Agar xavfli kombinatsiyani ko‘rsangiz, bosqichlarini va hujumchi ularni qanday zanjir qilib bog‘lashini tasvirlab bering. Hujum amalda qanday rivojlanishini qisqa hikoya tarzida bayon qilish rasmiy shablondan ko‘ra qimmatroqdir.
+
+### Mavjud Kontentni Tuzatish yoki Yaxshilash
+
+Imlo xatolari, aniqlashtirishlar, eskirgan ma’lumotlar, yaxshiroq misollar — PR’lar mamnuniyat bilan qabul qilinadi, issue ochish shart emas.
+
+## Biz Foydalanadigan Vositalar
+
+### MITRE ATLAS
+
+This threat model is built on [MITRE ATLAS](https://atlas.mitre.org/) (Adversarial Threat Landscape for AI Systems), a framework designed specifically for AI/ML threats like prompt injection, tool misuse, and agent exploitation. You don't need to know ATLAS to contribute - we map submissions to the framework during review.
+
+### Threat IDs
+
+Each threat gets an ID like `T-EXEC-003`. The categories are:
+
+| Code    | Category                                   |
+| ------- | ------------------------------------------ |
+| RECON   | Reconnaissance - information gathering     |
+| ACCESS  | Initial access - gaining entry             |
+| EXEC    | Execution - running malicious actions      |
+| PERSIST | Persistence - maintaining access           |
+| EVADE   | Defense evasion - avoiding detection       |
+| DISC    | Discovery - learning about the environment |
+| EXFIL   | Exfiltration - stealing data               |
+| IMPACT  | Impact - damage or disruption              |
+
+IDs are assigned by maintainers during review. You don't need to pick one.
+
+### Risk Levels
+
+| Level        | Meaning                                                           |
+| ------------ | ----------------------------------------------------------------- |
+| **Critical** | Full system compromise, or high likelihood + critical impact      |
+| **High**     | Significant damage likely, or medium likelihood + critical impact |
+| **Medium**   | Moderate risk, or low likelihood + high impact                    |
+| **Low**      | Unlikely and limited impact                                       |
+
+If you're unsure about the risk level, just describe the impact and we'll assess it.
+
+## Review Process
+
+1. **Triage** - We review new submissions within 48 hours
+2. **Assessment** - We verify feasibility, assign ATLAS mapping and threat ID, validate risk level
+3. **Documentation** - We ensure everything is formatted and complete
+4. **Merge** - Added to the threat model and visualization
+
+## Resources
+
+- [ATLAS Website](https://atlas.mitre.org/)
+- [ATLAS Techniques](https://atlas.mitre.org/techniques/)
+- [ATLAS Case Studies](https://atlas.mitre.org/studies/)
+- [OpenClaw Threat Model](./THREAT-MODEL-ATLAS.md)
+
+## Contact
+
+- **Security vulnerabilities:** See our [Trust page](https://trust.openclaw.ai) for reporting instructions
+- **Threat model questions:** Open an issue on [openclaw/trust](https://github.com/openclaw/trust/issues)
+- **General chat:** Discord #security channel
+
+## Recognition
+
+Contributors to the threat model are recognized in the threat model acknowledgments, release notes, and the OpenClaw security hall of fame for significant contributions.
