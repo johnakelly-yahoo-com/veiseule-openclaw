@@ -41,7 +41,7 @@
               {
                 "group": "Home",
                 "pages": [
-                  "index"
+                  "home"
                 ]
               },
               {
@@ -10475,6 +10475,10 @@
     "url": "https://www.veiseule.ai"
   },
   "redirects": [
+    {
+      "source": "/",
+      "destination": "/home"
+    },
     {
       "source": "/messages",
       "destination": "/concepts/messages"
