@@ -11217,5 +11217,6 @@
       "source": "/gateway/trusted-proxy",
       "destination": "/gateway/trusted-proxy-auth"
     }
-  ]
+  ],
+  "css": "/style.css"
 }
