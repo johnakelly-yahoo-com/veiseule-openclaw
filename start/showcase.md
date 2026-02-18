@@ -3,6 +3,7 @@ title: "Showcase"
 description: "Real-world OpenClaw projects from the community"
 ---
 
+<!-- v2 -->
 # Showcase
 
 Real projects from the community. See what people are building with OpenClaw.
