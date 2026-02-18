@@ -40,8 +40,9 @@
             "groups": [
               {
                 "group": "Home",
-                "pages": [],
-                "root": "introduction"
+                "pages": [
+                  "index"
+                ]
               },
               {
                 "group": "Overview",
@@ -638,8 +639,9 @@
             "groups": [
               {
                 "group": "الرئيسية",
-                "pages": [],
-                "root": "ar/index"
+                "pages": [
+                  "ar/index"
+                ]
               },
               {
                 "group": "نظرة عامة",
@@ -1214,8 +1216,9 @@
             "groups": [
               {
                 "group": "Home",
-                "pages": [],
-                "root": "de/index"
+                "pages": [
+                  "de/index"
+                ]
               },
               {
                 "group": "Überblick",
@@ -1790,8 +1793,9 @@
             "groups": [
               {
                 "group": "Inicio",
-                "pages": [],
-                "root": "es/index"
+                "pages": [
+                  "es/index"
+                ]
               },
               {
                 "group": "Resumen",
@@ -2366,8 +2370,9 @@
             "groups": [
               {
                 "group": "Home",
-                "pages": [],
-                "root": "fr/index"
+                "pages": [
+                  "fr/index"
+                ]
               },
               {
                 "group": "Aperçu",
@@ -2942,8 +2947,9 @@
             "groups": [
               {
                 "group": "होम",
-                "pages": [],
-                "root": "hi/index"
+                "pages": [
+                  "hi/index"
+                ]
               },
               {
                 "group": "अवलोकन",
@@ -3518,8 +3524,9 @@
             "groups": [
               {
                 "group": "ホーム",
-                "pages": [],
-                "root": "ja/index"
+                "pages": [
+                  "ja/index"
+                ]
               },
               {
                 "group": "概要",
@@ -4094,8 +4101,9 @@
             "groups": [
               {
                 "group": "홈",
-                "pages": [],
-                "root": "ko/index"
+                "pages": [
+                  "ko/index"
+                ]
               },
               {
                 "group": "개요",
@@ -4670,8 +4678,9 @@
             "groups": [
               {
                 "group": "Home",
-                "pages": [],
-                "root": "nl/index"
+                "pages": [
+                  "nl/index"
+                ]
               },
               {
                 "group": "Overzicht",
@@ -5246,8 +5255,9 @@
             "groups": [
               {
                 "group": "Strona główna",
-                "pages": [],
-                "root": "pl/index"
+                "pages": [
+                  "pl/index"
+                ]
               },
               {
                 "group": "Przegląd",
@@ -5822,8 +5832,9 @@
             "groups": [
               {
                 "group": "Início",
-                "pages": [],
-                "root": "pt-BR/index"
+                "pages": [
+                  "pt-BR/index"
+                ]
               },
               {
                 "group": "Visão geral",
@@ -6398,8 +6409,9 @@
             "groups": [
               {
                 "group": "Главная",
-                "pages": [],
-                "root": "ru/index"
+                "pages": [
+                  "ru/index"
+                ]
               },
               {
                 "group": "Обзор",
@@ -6974,8 +6986,9 @@
             "groups": [
               {
                 "group": "Hem",
-                "pages": [],
-                "root": "sv/index"
+                "pages": [
+                  "sv/index"
+                ]
               },
               {
                 "group": "Översikt",
@@ -7550,8 +7563,9 @@
             "groups": [
               {
                 "group": "Ana sayfa",
-                "pages": [],
-                "root": "tr/index"
+                "pages": [
+                  "tr/index"
+                ]
               },
               {
                 "group": "Genel bakış",
@@ -8126,8 +8140,9 @@
             "groups": [
               {
                 "group": "Bosh sahifa",
-                "pages": [],
-                "root": "uz/index"
+                "pages": [
+                  "uz/index"
+                ]
               },
               {
                 "group": "Umumiy ko‘rinish",
@@ -8702,8 +8717,9 @@
             "groups": [
               {
                 "group": "Trang chủ",
-                "pages": [],
-                "root": "vi/index"
+                "pages": [
+                  "vi/index"
+                ]
               },
               {
                 "group": "Tổng quan",
@@ -9278,8 +9294,9 @@
             "groups": [
               {
                 "group": "首页",
-                "pages": [],
-                "root": "zh-CN/index"
+                "pages": [
+                  "zh-CN/index"
+                ]
               },
               {
                 "group": "概览",
@@ -9863,8 +9880,9 @@
             "groups": [
               {
                 "group": "首頁",
-                "pages": [],
-                "root": "zh-TW/index"
+                "pages": [
+                  "zh-TW/index"
+                ]
               },
               {
                 "group": "概覽",
