@@ -552,3 +552,4 @@ Hinweise:
 - `remote.*` hat Vorrang vor `models.providers.openai.*`.
 - `remote.headers` werden mit OpenAI-Headern zusammengeführt; bei Schlüsselkonflikten gewinnt Remote. Lassen Sie `remote.headers` weg, um die OpenAI-Standardwerte zu verwenden.
 
+

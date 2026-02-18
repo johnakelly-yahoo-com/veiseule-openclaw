@@ -79,3 +79,4 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 
 Ya no existe un interruptor global de “sonido predeterminado” en la app; quienes llaman eligen un sonido (o ninguno) por solicitud.
 
+

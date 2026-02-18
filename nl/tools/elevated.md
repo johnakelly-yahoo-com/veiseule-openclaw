@@ -53,3 +53,4 @@ title: "Verhoogde modus"
 - Verhoogde exec-aanroepen worden gelogd op info-niveau.
 - Sessiestatus bevat de verhoogde modus (bijv. `elevated=ask`, `elevated=full`).
 
+

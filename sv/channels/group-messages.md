@@ -80,3 +80,4 @@ Endast ägarnumret (från `channels.whatsapp.allowFrom`, eller botens egna E.164
 - Poster i sessionslagret kommer att visas som `agent:<agentId>:whatsapp:group:<jid>` i sessionslagret (`~/.openclaw/agents/<agentId>/sessions/sessions.json` som standard); en saknad post betyder bara att gruppen inte har triggat en körning ännu.
 - Skrivindikatorer i grupper följer `agents.defaults.typingMode` (standard: `message` när den inte är omnämnd).
 
+

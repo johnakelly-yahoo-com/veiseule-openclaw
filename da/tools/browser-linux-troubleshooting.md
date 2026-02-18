@@ -136,3 +136,4 @@ Noter:
 - Profilen `chrome` bruger din **systemets standard Chromium-browser**, når det er muligt.
 - Lokale `openclaw`-profiler tildeler automatisk `cdpPort`/`cdpUrl`; sæt kun disse for fjern-CDP.
 
+

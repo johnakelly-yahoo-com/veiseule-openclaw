@@ -110,3 +110,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Behandeln Sie die Ausgabe als nicht vertrauenswürdig, sofern Sie nicht mit `schema` validieren.
 - Platzieren Sie Genehmigungen vor jedem Schritt mit Seiteneffekten (senden, posten, ausführen).
 
+

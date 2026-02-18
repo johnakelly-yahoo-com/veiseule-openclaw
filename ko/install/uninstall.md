@@ -123,3 +123,4 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 2. 리포지토리 디렉토리를 삭제하십시오.
 3. 위에 설명된 대로 상태 + 워크스페이스를 제거하십시오.
 
+

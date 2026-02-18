@@ -156,3 +156,4 @@ Plik domyślny:
 - Przechowuj logi lokalnie i usuwaj je po zakończeniu debugowania.
 - Jeśli udostępniasz logi, najpierw usuń sekrety i dane osobowe (PII).
 
+

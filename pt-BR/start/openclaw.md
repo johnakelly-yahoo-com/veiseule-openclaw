@@ -226,3 +226,4 @@ Os logs ficam em `/tmp/openclaw/` (padrão: `openclaw-YYYY-MM-DD.log`).
 - Status do Linux: [Linux app](/platforms/linux)
 - Segurança: [Security](/gateway/security)
 
+

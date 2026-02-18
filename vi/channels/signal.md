@@ -223,3 +223,4 @@ Tùy chọn toàn cục liên quan:
 - `messages.groupChat.mentionPatterns` (dự phòng toàn cục).
 - `messages.responsePrefix`.
 
+

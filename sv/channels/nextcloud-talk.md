@@ -137,3 +137,4 @@ Leverantörsalternativ:
 - `channels.nextcloud-talk.blockStreamingCoalesce`: sammanslagningsjustering för blockstreaming.
 - `channels.nextcloud-talk.mediaMaxMb`: inkommande medietak (MB).
 
+

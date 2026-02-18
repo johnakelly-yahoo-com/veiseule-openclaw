@@ -337,3 +337,4 @@ Föredra `chat_guid` för stabil routning:
 
 För allmän referens om kanalflöden, se [Kanaler](/channels) och guiden [Plugins](/tools/plugin).
 
+

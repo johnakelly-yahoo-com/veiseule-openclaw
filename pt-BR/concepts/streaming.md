@@ -129,3 +129,4 @@ Legenda:
 - `sendMessageDraft`: bolha de rascunho do Telegram (não é uma mensagem real).
 - `final reply`: envio normal de mensagem do Telegram.
 
+

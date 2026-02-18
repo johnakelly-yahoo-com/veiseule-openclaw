@@ -151,3 +151,4 @@ Notas:
 
 - Requiere el permiso de macOS **Grabación de pantalla** (TCC).
 
+

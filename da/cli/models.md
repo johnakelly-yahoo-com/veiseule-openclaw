@@ -74,3 +74,4 @@ Noter:
 - `setup-token` beder om en setup-token-værdi (generér den med `claude setup-token` på en hvilken som helst maskine).
 - `paste-token` accepterer en token-streng genereret andetsteds eller fra automatisering.
 
+

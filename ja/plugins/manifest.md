@@ -62,3 +62,4 @@ OpenClawはこのマニフェストを使用して**プラグイン
 - プラグインがネイティブモジュールに依存する場合は、ビルド手順および必要なパッケージマネージャーの許可リスト要件（例: pnpm `allow-build-scripts` - `pnpm rebuild <package>`）を文書化してください。
   - `pnpm rebuild <package>`).
 
+

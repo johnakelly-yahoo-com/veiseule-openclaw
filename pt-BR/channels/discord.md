@@ -472,3 +472,4 @@ Emojis podem ser unicode (ex.: `✅`) ou sintaxe de emoji personalizada como `<:
 - Conceda ao bot apenas as permissões necessárias (normalmente Ler/Enviar mensagens).
 - Se o bot travar ou estiver limitado por taxa, reinicie o gateway (`openclaw gateway --force`) após confirmar que nenhum outro processo possui a sessão do Discord.
 
+

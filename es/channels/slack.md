@@ -571,3 +571,4 @@ Para el flujo de triaje: [/channels/troubleshooting](/channels/troubleshooting).
 - Para la herramienta de Slack, la semántica de eliminación de reacciones está en [/tools/reactions](/tools/reactions).
 - Los adjuntos se descargan al almacén de medios cuando está permitido y por debajo del límite de tamaño.
 
+

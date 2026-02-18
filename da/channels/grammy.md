@@ -27,3 +27,4 @@ title: grammY
 - Tilføj flere strukturerede medietests (stickers, stemmenoter).
 - Gør webhook-lytteporten konfigurerbar (pt. fast til 8787, medmindre den kobles via gatewayen).
 
+

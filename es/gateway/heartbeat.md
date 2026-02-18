@@ -358,3 +358,4 @@ Los heartbeats ejecutan turnos completos del agente. Intervalos más cortos cons
 `HEARTBEAT.md` pequeño y considere un `model` o `target: "none"` más económico si
 solo quiere actualizaciones de estado internas.
 
+

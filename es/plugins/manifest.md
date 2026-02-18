@@ -65,3 +65,4 @@ Claves opcionales:
 - Si su plugin depende de módulos nativos, documente los pasos de compilación y cualquier requisito de lista de permitidos del gestor de paquetes (por ejemplo, pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
 
+

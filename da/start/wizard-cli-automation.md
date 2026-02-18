@@ -136,3 +136,4 @@ Noter:
 - Fuld reference: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - Kommandoreference: [`openclaw onboard`](/cli/onboard)
 
+

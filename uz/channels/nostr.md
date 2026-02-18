@@ -228,3 +228,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - 28. Media biriktirmalari yo‘q.
 - 29. Faqat NIP-04 (NIP-17 gift-wrap rejalashtirilgan).
 
+

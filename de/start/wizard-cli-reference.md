@@ -248,3 +248,4 @@ Signal-Setup-Verhalten:
 - Onboarding-Hub: [Onboarding Wizard (CLI)](/start/wizard)
 - Automatisierung und Skripte: [CLI Automation](/start/wizard-cli-automation)
 - Befehlsreferenz: [`openclaw onboard`](/cli/onboard)
+

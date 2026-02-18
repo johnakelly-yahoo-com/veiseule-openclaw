@@ -68,3 +68,4 @@ Kanał WhatsApp działa przez **Baileys Web**. Ten dokument opisuje aktualne zas
 - Zweryfikować ponowną kompresję obrazów (limit rozmiaru) oraz flagę notatki głosowej dla audio.
 - Upewnić się, że odpowiedzi z wieloma multimediami są rozbijane na sekwencyjne wysyłki.
 
+

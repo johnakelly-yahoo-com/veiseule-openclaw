@@ -48,3 +48,4 @@ Windows 용 네이티브 컴패니언 앱도 계획 중이며, Gateway(게이트
 - macOS: LaunchAgent (`bot.molt.gateway` 또는 `bot.molt.<profile>`; 레거시 `com.openclaw.*`)
 - Linux/WSL2: systemd 사용자 서비스 (`openclaw-gateway[-<profile>].service`)
 
+

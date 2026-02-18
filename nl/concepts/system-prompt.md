@@ -110,3 +110,4 @@ ClawHub ([https://clawhub.com](https://clawhub.com)) voor Skill-discovery. De pr
 voor OpenClaw-gedrag, opdrachten, configuratie of architectuur, en om indien mogelijk zelf
 `openclaw status` uit te voeren (alleen de gebruiker te vragen wanneer het geen toegang heeft).
 
+

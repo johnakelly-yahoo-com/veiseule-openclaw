@@ -285,3 +285,4 @@ offentliggjorte råfil er typisk tilgængelig på:
 2. Kør `pnpm protocol:check`.
 3. Commit det regenererede skema + Swift-modeller.
 
+

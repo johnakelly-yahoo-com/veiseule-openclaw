@@ -53,3 +53,4 @@ title: "Pinataas na Mode"
 - Ang mga elevated exec call ay nilolog sa antas na info.
 - Kasama sa session status ang elevated mode (hal. `elevated=ask`, `elevated=full`).
 
+

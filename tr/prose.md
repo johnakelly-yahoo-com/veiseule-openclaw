@@ -128,3 +128,4 @@ Araç izin listeniz bu araçları engelliyorsa, OpenProse programları başarıs
 
 Deterministik, onay kapılı iş akışları için [Lobster](/tools/lobster) ile karşılaştırın.
 
+

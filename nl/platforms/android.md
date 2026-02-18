@@ -145,3 +145,4 @@ Camera-opdrachten (alleen foreground; permissie-afhankelijk):
 
 Zie [Camera-node](/nodes/camera) voor parameters en CLI-hulpmiddelen.
 
+

@@ -251,3 +251,4 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_WORKDIR`: De standaard werkmap overschrijven.
 - `CLAWHUB_DISABLE_TELEMETRY=1`: Telemetrie uitschakelen bij `sync`.
 
+

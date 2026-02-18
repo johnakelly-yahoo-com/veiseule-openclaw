@@ -203,3 +203,4 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_WORKDIR`：覆盖默认工作目录。
 - `CLAWHUB_DISABLE_TELEMETRY=1`：禁用 `sync` 的遥测功能。
 
+

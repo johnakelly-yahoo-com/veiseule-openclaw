@@ -36,3 +36,4 @@ OpenClaw, `web_search` için varsayılan sağlayıcı olarak Brave Search kullan
 
 web_search yapılandırmasının tamamı için [Web tools](/tools/web) sayfasına bakın.
 
+

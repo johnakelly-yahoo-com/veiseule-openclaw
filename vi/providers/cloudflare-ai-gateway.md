@@ -65,3 +65,4 @@ Nếu bạn đã bật xác thực Gateway trong Cloudflare, hãy thêm header `
 
 Nếu Gateway chạy như một daemon (launchd/systemd), hãy đảm bảo `CLOUDFLARE_AI_GATEWAY_API_KEY` khả dụng cho tiến trình đó (ví dụ, trong `~/.openclaw/.env` hoặc qua `env.shellEnv`).
 
+

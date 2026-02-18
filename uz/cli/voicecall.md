@@ -29,3 +29,4 @@ openclaw voicecall unexpose
 
 Xavfsizlik eslatmasi: webhook endpointini faqat ishonchli tarmoqlarga oching. Imkon bo‘lsa Funnel o‘rniga Tailscale Serve’dan foydalaning.
 
+

@@ -145,3 +145,4 @@ Kamerakommandon (endast foreground; behörighetsstyrda):
 
 Se [Camera node](/nodes/camera) för parametrar och CLI-hjälpmedel.
 
+

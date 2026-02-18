@@ -200,3 +200,4 @@ Cada entrada de sesión registra de dónde provino (mejor esfuerzo) en `origin`:
   entrante y llamando a `recordSessionMetaFromInbound` (o pasando el mismo contexto
   a `updateLastRoute`).
 
+

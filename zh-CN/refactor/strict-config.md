@@ -94,3 +94,4 @@ x-i18n:
 - 无效配置 → Gateway 网关启动被阻止，诊断命令除外。
 - Doctor dry-run 自动运行；`doctor --fix` 写入修正后的配置。
 
+

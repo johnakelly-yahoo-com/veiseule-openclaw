@@ -54,3 +54,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 
 - Niektóre skrypty nadal mają na stałe wpisane pnpm (np. `docs:build`, `ui:*`, `protocol:check`). Na razie uruchamiaj je przez pnpm.
 
+

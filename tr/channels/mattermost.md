@@ -134,3 +134,4 @@ Mattermost, `channels.mattermost.accounts` altında birden fazla hesabı destekl
 - Kimlik doğrulama hataları: bot belirtecini, temel URL'yi ve hesabın etkin olup olmadığını kontrol edin.
 - Çoklu hesap sorunları: ortam değişkenleri yalnızca `default` hesabına uygulanır.
 
+

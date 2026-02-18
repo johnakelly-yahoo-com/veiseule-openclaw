@@ -262,3 +262,4 @@ poprosi o jej instalację (npm lub ścieżka lokalna), zanim będzie można ją 
 - Referencja konfiguracji: [Gateway configuration](/gateway/configuration)
 - Dostawcy: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (legacy)
 - Skills: [Skills](/tools/skills), [Skills config](/tools/skills-config)
+

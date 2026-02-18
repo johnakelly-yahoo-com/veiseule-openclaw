@@ -187,3 +187,4 @@ På den nya maskinen, bekräfta:
 - [Gateway felsökning](/gateway/troubleshooting)
 - [Var lagrar OpenClaw sina data?](/help/faq#where-does-openclaw-store-its-data)
 
+

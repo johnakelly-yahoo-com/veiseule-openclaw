@@ -77,3 +77,4 @@ title: "Barra de menús"
 - Ráfagas rápidas de herramientas: asegúrese de que la insignia no parpadee (gracia de TTL en resultados de herramientas).
 - La fila de salud reaparece cuando todas las sesiones están inactivas.
 
+

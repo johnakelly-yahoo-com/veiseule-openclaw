@@ -74,3 +74,4 @@ openclaw channels resolve --channel matrix "Project Room"
 - 使用 `--kind user|group|auto` 強制指定目標類型。
 - 當多個項目具有相同名稱時，解析會優先選擇處於啟用狀態的項目。
 
+

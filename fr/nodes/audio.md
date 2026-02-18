@@ -110,3 +110,4 @@ Remarque : La detection des binaires est au mieux de ses capacites sur macOS/Lin
 - Assurez‑vous que votre CLI se termine avec le code 0 et affiche du texte brut ; le JSON doit etre adapte via `jq -r .text`.
 - Gardez des delais d’attente raisonnables (`timeoutSeconds`, par defaut 60 s) afin d’eviter de bloquer la file de reponses.
 
+

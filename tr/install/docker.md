@@ -573,3 +573,4 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
   (örn., `/custom/bin:/usr/local/share/npm-global/bin`), ya da Dockerfile’ınızda `/etc/profile.d/` altında
   bir betik ekleyin.
 
+

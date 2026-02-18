@@ -234,3 +234,4 @@ Modele de demarrage `.gitignore` suggere :
 - Si `agents.defaults.sandbox` est active, les sessions non principales peuvent utiliser des espaces de
   travail en sandbox par session sous `agents.defaults.sandbox.workspaceRoot`.
 
+

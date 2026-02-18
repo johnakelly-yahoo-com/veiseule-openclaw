@@ -80,3 +80,4 @@ Apenas o número do proprietário (de `channels.whatsapp.allowFrom`, ou o própr
 - Entradas no armazenamento de sessões aparecerão como `agent:<agentId>:whatsapp:group:<jid>` no armazenamento de sessões (`~/.openclaw/agents/<agentId>/sessions/sessions.json` por padrão); uma entrada ausente apenas significa que o grupo ainda não disparou uma execução.
 - Indicadores de digitação em grupos seguem `agents.defaults.typingMode` (padrão: `message` quando não mencionado).
 
+

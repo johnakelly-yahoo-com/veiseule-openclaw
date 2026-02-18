@@ -565,3 +565,4 @@ openclaw pairing list slack
 - لأداة Slack، دلالات إزالة التفاعلات موجودة في [/tools/reactions](/tools/reactions).
 - تُنزَّل المرفقات إلى مخزن الوسائط عند السماح وتحت حد الحجم.
 
+

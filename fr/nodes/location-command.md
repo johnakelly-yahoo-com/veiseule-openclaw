@@ -108,3 +108,4 @@ Notes :
 - Toujours : « Autoriser la localisation en arrière-plan. Nécessite une autorisation système.
 - Précise : « Utiliser la localisation GPS précise. Désactivez pour partager une localisation approximative.
 
+

@@ -288,3 +288,4 @@ Siehe [/concepts/agent-workspace](/concepts/agent-workspace) für eine vollstän
 Anleitung zur Workspace-Struktur und zum Git-Backup (empfohlen: privates GitHub
 oder GitLab).
 
+

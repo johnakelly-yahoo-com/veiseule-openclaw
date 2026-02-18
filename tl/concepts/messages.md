@@ -147,3 +147,4 @@ Ang pag-format ng outbound na mensahe ay sentralisado sa `messages`:
 
 Mga detalye: [Configuration](/gateway/configuration#messages) at mga docs ng channel.
 
+

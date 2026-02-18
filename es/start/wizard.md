@@ -103,3 +103,4 @@ API RPC y una lista completa de campos de configuración que escribe el asistent
 - Incorporación de la app de macOS: [Onboarding](/start/onboarding)
 - Ritual de primera ejecución del agente: [Inicialización del agente](/start/bootstrapping)
 
+

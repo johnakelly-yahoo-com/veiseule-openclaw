@@ -370,3 +370,4 @@ Agent system prompt omfatter en gruppe intro på den første tur af en ny gruppe
 
 Se [Group messages](/channels/group-messages) for WhatsApp-specifik adfærd (historik-injektion, detaljer om mention-håndtering).
 
+

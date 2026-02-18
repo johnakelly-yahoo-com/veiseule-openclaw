@@ -92,3 +92,4 @@ DEEPGRAM_API_KEY=dg_...
 - 使用代理时，可通过 `tools.media.audio.baseUrl` 和 `tools.media.audio.headers` 覆盖端点或请求头。
 - 输出遵循与其他提供商相同的音频规则（大小限制、超时、转录文本注入）。
 
+

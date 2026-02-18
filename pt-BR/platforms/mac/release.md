@@ -80,3 +80,4 @@ Faça commit do `appcast.xml` atualizado junto com os ativos de lançamento (zip
 
 Definição de pronto: app assinado + appcast publicados, fluxo de atualização funciona a partir de uma versão instalada mais antiga, e os ativos de lançamento estão anexados ao release do GitHub.
 
+

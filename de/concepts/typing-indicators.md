@@ -64,3 +64,4 @@ Sie können Modus oder Taktung pro Sitzung überschreiben:
 - `typingIntervalSeconds` steuert die **Aktualisierungstaktung**, nicht den Startzeitpunkt.
   Der Standardwert beträgt 6 Sekunden.
 
+

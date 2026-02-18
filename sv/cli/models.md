@@ -74,3 +74,4 @@ Noteringar:
 - `setup-token` frågar efter ett setup‑token‑värde (generera det med `claude setup-token` på valfri maskin).
 - `paste-token` accepterar en tokensträng som genererats någon annanstans eller via automation.
 
+

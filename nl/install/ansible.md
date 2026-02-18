@@ -202,3 +202,4 @@ Voor gedetailleerde beveiligingsarchitectuur en probleemoplossing:
 - [Sandboxing](/gateway/sandboxing) — agent-sandboxconfiguratie
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — isolatie per agent
 
+

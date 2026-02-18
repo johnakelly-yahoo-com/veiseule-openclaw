@@ -187,3 +187,4 @@ openclaw status
 - 43. [Gateway nosozliklarini bartaraf etish](/gateway/troubleshooting)
 - 44. [OpenClaw ma’lumotlarini qayerda saqlaydi?](/help/faq#where-does-openclaw-store-its-data)
 
+

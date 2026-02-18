@@ -133,3 +133,4 @@ Mattermost obsługuje wiele kont w ramach `channels.mattermost.accounts`:
 - Błędy uwierzytelniania: sprawdź token bota, bazowy URL oraz czy konto jest włączone.
 - Problemy z wieloma kontami: zmienne środowiskowe mają zastosowanie tylko do konta `default`.
 
+

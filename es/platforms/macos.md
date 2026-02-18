@@ -195,3 +195,4 @@ Para los pasos de configuración, consulte [acceso remoto en macOS](/platforms/m
 - [Permisos de macOS](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
 
+

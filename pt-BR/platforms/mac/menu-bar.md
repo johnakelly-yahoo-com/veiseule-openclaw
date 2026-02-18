@@ -77,3 +77,4 @@ title: "Barra de Menu"
 - Rajadas rápidas de ferramentas: garantir que o badge não pisque (TTL de tolerância nos resultados de ferramentas).
 - A linha de saúde reaparece quando todas as sessões ficam ociosas.
 
+

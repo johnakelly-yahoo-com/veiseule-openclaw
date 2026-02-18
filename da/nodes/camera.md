@@ -151,3 +151,4 @@ Noter:
 
 - Kræver macOS **Skærmoptagelse**-tilladelse (TCC).
 
+

@@ -196,3 +196,4 @@ components can talk to a remote Gateway as if it were on localhost.
 - 6. [macOS permissions](/platforms/mac/permissions)
 - 7. [Canvas](/platforms/mac/canvas)
 
+

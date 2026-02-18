@@ -42,3 +42,4 @@ Foretrækker localhost, Tailscale Serve, eller en SSH-tunnel.
 - Hent tokenet fra gateway-værten: `openclaw config get gateway.auth.token` (eller generér et: `openclaw doctor --generate-gateway-token`).
 - I dashboard-indstillingerne indsætter du tokenet i auth-feltet og forbinder derefter.
 
+

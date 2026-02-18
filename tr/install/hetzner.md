@@ -324,3 +324,4 @@ Tüm uzun ömürlü durum; yeniden başlatmalar, yeniden oluşturma ve yeniden b
 | OS paketleri                                | Container dosya sistemi           | Docker imajı               | Yalnızca kaynaktan derliyorsanız `pnpm` |
 | Docker container                            | Geçicidir                         | Yeniden başlatılabilir     | Yok edilmesi güvenlidir                 |
 
+

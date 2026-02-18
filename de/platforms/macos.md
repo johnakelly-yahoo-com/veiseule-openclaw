@@ -195,3 +195,4 @@ Für Einrichtungsschritte siehe [macOS‑Remotezugriff](/platforms/mac/remote). 
 - [macOS‑Berechtigungen](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
 
+

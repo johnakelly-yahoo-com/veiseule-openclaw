@@ -45,3 +45,4 @@ title: "WebChat"
 - `gateway.remote.url`、`gateway.remote.token`、`gateway.remote.password`：リモートゲートウェイのターゲット。
 - `session.*`：セッションストレージおよびメインキーの既定値。
 
+

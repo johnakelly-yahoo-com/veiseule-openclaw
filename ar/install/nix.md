@@ -92,3 +92,4 @@ apps/macos/Sources/OpenClaw/Resources/Info.plist
 - [Wizard](/start/wizard) — إعداد CLI غير قائم على Nix
 - [Docker](/install/docker) — إعداد مُحَوْسَب بالحاويات
 
+

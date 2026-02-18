@@ -92,3 +92,4 @@ apps/macos/Sources/OpenClaw/Resources/Info.plist
 - [Wizard](/start/wizard) — Nix 가 아닌 CLI 설정
 - [Docker](/install/docker) — 컨테이너화된 설정
 
+

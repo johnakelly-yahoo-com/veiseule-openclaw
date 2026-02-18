@@ -60,3 +60,4 @@ title: "موفّرو النماذج"
 راجع [موفّري النماذج](/concepts/model-providers). للاطلاع على كتالوج الموفّرين الكامل (xAI وGroq وMistral وغيرها) والإعدادات المتقدمة،
 انظر [موفّرو النماذج](/concepts/model-providers).
 
+

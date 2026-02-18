@@ -41,3 +41,4 @@ Clawd’ın havası var. Benim yığın izlerim var. Birbirimizi tamamlıyoruz.
 
 “Altı milyondan fazla hata mesajında akıcıyım!”
 
+

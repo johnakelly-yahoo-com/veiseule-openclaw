@@ -88,3 +88,4 @@ Example with Deepgram options:
 - Override endpoints or headers with `tools.media.audio.baseUrl` and `tools.media.audio.headers` when using a proxy.
 - Output follows the same audio rules as other providers (size caps, timeouts, transcript injection).
 
+

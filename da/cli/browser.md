@@ -101,3 +101,4 @@ Brug `gateway.nodes.browser.mode` til at styre automatisk routing og `gateway.no
 
 Sikkerhed + fjernopsætning: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
 
+

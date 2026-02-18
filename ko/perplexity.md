@@ -72,3 +72,4 @@ OpenClaw 는 `web_search` 도구에 Perplexity Sonar 를 사용할 수 있습니
 
 전체 web_search 구성은 [Web tools](/tools/web) 를 참고하십시오.
 
+

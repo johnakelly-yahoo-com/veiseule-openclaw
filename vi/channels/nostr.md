@@ -228,3 +228,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Không hỗ trợ tệp media đính kèm.
 - Chỉ NIP-04 (NIP-17 gói quà dự kiến).
 
+

@@ -64,3 +64,4 @@ Hinweis: Discord hat keinen Modus „genau N auswählen“; `pollMulti` wird auf
 Teams-Umfragen werden als Adaptive Cards gerendert und erfordern, dass das Gateway online bleibt,
 um Stimmen in `~/.openclaw/msteams-polls.json` zu erfassen.
 
+

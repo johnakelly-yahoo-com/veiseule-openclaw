@@ -24,3 +24,4 @@ Om de wizard via setup te starten:
 openclaw setup --wizard
 ```
 
+

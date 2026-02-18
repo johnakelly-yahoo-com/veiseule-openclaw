@@ -40,3 +40,4 @@ openclaw memory index --agent main --verbose
 - `memory index --verbose` သည် အဆင့်လိုက် အသေးစိတ်အချက်အလက်များ (provider, model, sources, batch activity) ကို ထုတ်ပြသည်။
 - `memory status` သည် `memorySearch.extraPaths` မှတဆင့် ဖွဲ့စည်းပြင်ဆင်ထားသော အပိုလမ်းကြောင်းများကိုလည်း ထည့်သွင်းပါဝင်စေသည်။
 
+

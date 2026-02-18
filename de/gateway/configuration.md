@@ -409,3 +409,4 @@ Für die komplette Feld‑für‑Feld‑Dokumentation siehe **[Configuration Ref
 ---
 
 _Verwandt: [Configuration Examples](/gateway/configuration-examples) · [Configuration Reference](/gateway/configuration-reference) · [Doctor](/gateway/doctor)_
+

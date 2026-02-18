@@ -68,3 +68,4 @@ El canal de WhatsApp funciona mediante **Baileys Web**. Este documento captura l
 - Validar la recompresión de imágenes (límite de tamaño) y la marca de nota de voz para audio.
 - Asegurar que las respuestas con múltiples medios se distribuyan como envíos secuenciales.
 
+

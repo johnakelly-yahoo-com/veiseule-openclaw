@@ -145,3 +145,4 @@ Tailnet (اختیاری): اگر دونوں ڈیوائسز Tailscale پر ہیں
 
 پیرامیٹرز اور CLI ہیلپرز کے لیے [Camera node](/nodes/camera) دیکھیں۔
 
+

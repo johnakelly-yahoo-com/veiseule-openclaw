@@ -248,3 +248,4 @@ openclaw pairing list matrix
 - `channels.matrix.autoJoinAllowlist`: 자동 참가를 허용하는 방 ID/별칭.
 - `channels.matrix.actions`: 작업별 도구 게이팅(반응/메시지/핀/memberInfo/channelInfo).
 
+

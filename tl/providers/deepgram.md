@@ -88,3 +88,4 @@ Halimbawa na may mga opsyon ng Deepgram:
 - I-override ang endpoints o headers gamit ang `tools.media.audio.baseUrl` at `tools.media.audio.headers` kapag gumagamit ng proxy.
 - Ang output ay sumusunod sa parehong audio rules gaya ng ibang provider (mga limit sa laki, timeouts, transcript injection).
 
+

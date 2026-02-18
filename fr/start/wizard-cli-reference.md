@@ -253,3 +253,4 @@ Comportement de configuration Signal :
 - Hub de prise en main : [Assistant de prise en main (CLI)](/start/wizard)
 - Automatisation et scripts : [Automatisation CLI](/start/wizard-cli-automation)
 - Reference des commandes : [`openclaw onboard`](/cli/onboard)
+

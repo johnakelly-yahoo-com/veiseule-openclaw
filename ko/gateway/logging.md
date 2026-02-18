@@ -108,3 +108,4 @@ openclaw gateway --verbose --ws-log full
 
 이를 통해 기존 파일 로그는 안정적으로 유지하면서, 상호작용형 출력은 훑어보기 쉽게 만듭니다.
 
+

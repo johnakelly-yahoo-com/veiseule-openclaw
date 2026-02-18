@@ -159,3 +159,4 @@ openclaw models list
 - Reasoning qo‘llab‑quvvatlashi modelga bog‘liq; joriy imkoniyatlar uchun Bedrock model kartasini tekshiring.
 - Agar boshqariladigan kalit oqimini afzal ko‘rsangiz, Bedrock oldiga OpenAI‑mos proksini qo‘yib, uni OpenAI provayderi sifatida sozlashingiz ham mumkin.
 
+

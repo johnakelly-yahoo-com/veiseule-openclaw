@@ -81,3 +81,4 @@ Commit the updated `appcast.xml` alongside the release assets (zip + dSYM) when 
 
 完成定義：已發佈已簽署的 app 與 appcast、可從較舊的已安裝版本完成更新流程，且發行資產已附加至 GitHub 發行頁。
 
+

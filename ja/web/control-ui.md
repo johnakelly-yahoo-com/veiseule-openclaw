@@ -210,3 +210,4 @@ http://localhost:5173/?gatewayUrl=wss://<gateway-host>:18789&token=<gateway-toke
 
 リモートアクセスの設定詳細: [Remote access](/gateway/remote)。
 
+

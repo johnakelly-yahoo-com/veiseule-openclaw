@@ -99,3 +99,4 @@ Tugun xosti o‘zining tugun identifikatori, tokeni, ko‘rinadigan nomi va gate
 - `~/.openclaw/exec-approvals.json`
 - [Exec tasdiqlari](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (Gateway’dan tahrirlash)
+

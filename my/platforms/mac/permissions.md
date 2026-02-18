@@ -40,3 +40,4 @@ sudo tccutil reset AppleEvents
 
 45. Permission များကို စမ်းသပ်နေပါက အမြဲတမ်း certificate အစစ်ဖြင့် sign လုပ်ပါ။ 46. Ad-hoc builds များကို permission မအရေးကြီးသော quick local run များအတွက်သာ လက်ခံနိုင်ပါသည်။
 
+

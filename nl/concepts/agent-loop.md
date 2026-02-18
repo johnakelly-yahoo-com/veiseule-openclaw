@@ -142,3 +142,4 @@ Zie [Plugins](/tools/plugin#plugin-hooks) voor de hook-API en registratiedetails
 - Gateway-ontkoppeling of RPC-time-out
 - `agent.wait`-time-out (alleen wachten; stopt de agent niet)
 
+

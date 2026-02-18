@@ -80,3 +80,4 @@ Commit the updated `appcast.xml` alongside the release assets (zip + dSYM) when 
 
 Kahulugan ng tapos: nai-publish ang signed app + appcast, gumagana ang update flow mula sa mas lumang naka-install na bersyon, at naka-attach ang mga release asset sa GitHub release.
 
+

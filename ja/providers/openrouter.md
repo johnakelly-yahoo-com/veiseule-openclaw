@@ -31,3 +31,4 @@ openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPEN
 - さらに多くのモデル／プロバイダーの選択肢については、[/concepts/model-providers](/concepts/model-providers) を参照してください。
 - OpenRouter は内部的に、API キーを含む Bearer トークンを使用します。
 
+

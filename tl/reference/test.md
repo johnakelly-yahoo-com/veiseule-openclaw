@@ -49,3 +49,4 @@ Tinitiyak na naglo-load ang `qrcode-terminal` sa ilalim ng Node 22+ sa Docker:
 pnpm test:docker:qr
 ```
 
+

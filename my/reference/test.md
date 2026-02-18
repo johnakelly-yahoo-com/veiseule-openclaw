@@ -49,3 +49,4 @@ Docker အတွင်း Node 22+ ဖြင့် `qrcode-terminal` ကို l
 pnpm test:docker:qr
 ```
 
+

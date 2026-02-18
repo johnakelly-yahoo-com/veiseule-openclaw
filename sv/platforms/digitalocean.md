@@ -257,3 +257,4 @@ free -h
 - [Tailscale](/gateway/tailscale) — säker fjärråtkomst
 - [Konfiguration](/gateway/configuration) — fullständig konfigreferens
 
+

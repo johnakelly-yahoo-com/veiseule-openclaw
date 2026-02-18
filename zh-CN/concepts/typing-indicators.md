@@ -70,3 +70,4 @@ x-i18n:
 - `typingIntervalSeconds` 控制的是**刷新频率**，而非开始时间。
   默认值为 6 秒。
 
+

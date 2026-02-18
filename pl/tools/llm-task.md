@@ -110,3 +110,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Traktuj wyjście jako niezaufane, dopóki nie zostanie zwalidowane za pomocą `schema`.
 - Umieszczaj zatwierdzenia przed każdym krokiem wywołującym skutki uboczne (send, post, exec).
 
+

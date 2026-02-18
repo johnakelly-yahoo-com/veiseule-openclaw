@@ -31,3 +31,4 @@ openclaw onboard --zai-api-key "$ZAI_API_KEY"
 - Veja [/providers/glm](/providers/glm) para uma visão geral da família de modelos.
 - A Z.AI usa autenticação Bearer com sua chave de API.
 
+

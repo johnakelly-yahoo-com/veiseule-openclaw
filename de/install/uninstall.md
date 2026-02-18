@@ -123,3 +123,4 @@ Wenn Sie aus einem Repo-Checkout heraus arbeiten (`git clone` + `openclaw ...` /
 2. Löschen Sie das Repo-Verzeichnis.
 3. Entfernen Sie Zustand + Workspace wie oben gezeigt.
 
+

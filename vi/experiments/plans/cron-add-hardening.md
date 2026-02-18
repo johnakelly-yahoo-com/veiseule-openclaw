@@ -61,3 +61,4 @@ Xem [Cron jobs](/automation/cron-jobs) để biết dạng chuẩn hóa và ví 
 - `cron.add` có nên chấp nhận `state` tường minh từ client không (hiện bị schema không cho phép)?
 - Có nên cho phép `webchat` như một nhà cung cấp phân phối tường minh không (hiện bị lọc trong quá trình phân giải phân phối)?
 
+

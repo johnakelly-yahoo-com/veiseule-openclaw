@@ -80,3 +80,4 @@ Only the owner number (from `channels.whatsapp.allowFrom`, or the bot’s own E.
 - Session store entries will appear as `agent:<agentId>:whatsapp:group:<jid>` in the session store (`~/.openclaw/agents/<agentId>/sessions/sessions.json` by default); a missing entry just means the group hasn’t triggered a run yet.
 - Typing indicators in groups follow `agents.defaults.typingMode` (default: `message` when unmentioned).
 
+

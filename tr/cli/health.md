@@ -17,3 +17,4 @@ Notlar:
 - `--verbose` canlı yoklamalar çalıştırır ve birden fazla hesap yapılandırıldığında hesap başına zamanlamaları yazdırır.
 - Çıktı, birden fazla ajan yapılandırıldığında ajan başına oturum depolarını içerir.
 
+

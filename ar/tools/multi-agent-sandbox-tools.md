@@ -393,3 +393,4 @@ agents.list[].sandbox.prune.* > agents.defaults.sandbox.prune.*
 - [تهيئة Sandbox](/gateway/configuration#agentsdefaults-sandbox)
 - [إدارة الجلسات](/concepts/session)
 
+

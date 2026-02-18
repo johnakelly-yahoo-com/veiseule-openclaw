@@ -144,3 +144,4 @@ Behalten Sie `models.mode: "merge"` bei, damit gehostete Modelle als Fallbacks v
 - Kontextfehler? Senken Sie `contextWindow` oder erhöhen Sie das Server‑Limit.
 - Sicherheit: Lokale Modelle umgehen providerseitige Filter; halten Sie Agents eng gefasst und lassen Sie die Kompaktierung aktiviert, um die Auswirkungsreichweite von Prompt Injection zu begrenzen.
 
+

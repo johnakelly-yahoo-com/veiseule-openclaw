@@ -85,3 +85,4 @@ Standardwerte:
 - `latency_tier` wird bei Setzung auf `0..4` validiert.
 - Android unterstützt die Ausgabeformate `pcm_16000`, `pcm_22050`, `pcm_24000` und `pcm_44100` für AudioTrack-Streaming mit niedriger Latenz.
 
+

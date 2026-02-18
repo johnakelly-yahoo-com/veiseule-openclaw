@@ -304,3 +304,4 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 - [DigitalOcean 指南](/platforms/digitalocean) — 如果你想要付费 + 更容易注册
 - [Hetzner 指南](/install/hetzner) — 基于 Docker 的替代方案
 
+

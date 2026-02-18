@@ -244,3 +244,4 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_WORKDIR`: Varsayılan workdir’i geçersiz kılar.
 - `CLAWHUB_DISABLE_TELEMETRY=1`: `sync` üzerinde telemetriyi devre dışı bırakır.
 
+

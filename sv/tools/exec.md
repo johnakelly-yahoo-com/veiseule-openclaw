@@ -174,3 +174,4 @@ Noteringar:
 - Verktygspolicy gäller fortfarande; `allow: ["exec"]` tillåter implicit `apply_patch`.
 - Konfig finns under `tools.exec.applyPatch`.
 
+

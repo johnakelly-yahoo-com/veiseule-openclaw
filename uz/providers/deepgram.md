@@ -97,3 +97,4 @@ models: [{ provider: "deepgram", model: "nova-3", language: "en" }],
 - 5. Proksi ishlatilganda `tools.media.audio.baseUrl` va `tools.media.audio.headers` orqali endpointlar yoki sarlavhalarni almashtiring.
 - Chiqish boshqa provayderlardagi audio qoidalariga (hajm cheklovlari, vaqt tugashlari, transkript qo‘shilishi) muvofiq amalga oshiriladi.
 
+

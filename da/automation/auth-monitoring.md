@@ -39,3 +39,4 @@ gateway vært og er indstillet til systemd + Termux.
 
 Hvis du ikke har brug for telefonaautomatisering eller systemd-timere, kan du springe disse scripts over.
 
+

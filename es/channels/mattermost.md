@@ -133,3 +133,4 @@ Mattermost admite múltiples cuentas bajo `channels.mattermost.accounts`:
 - Errores de autenticación: verifique el token del bot, la URL base y si la cuenta está habilitada.
 - Problemas de multicuenta: las variables de entorno solo se aplican a la cuenta `default`.
 
+

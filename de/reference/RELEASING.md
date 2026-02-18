@@ -112,3 +112,4 @@ Aktuelle npm-Plugin-Liste (bei Bedarf aktualisieren):
 
 Release Notes müssen außerdem **neue optionale gebündelte Plugins** hervorheben, die **nicht standardmäßig aktiviert** sind (Beispiel: `tlon`).
 
+

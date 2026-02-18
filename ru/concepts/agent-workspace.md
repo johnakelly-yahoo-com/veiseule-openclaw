@@ -238,3 +238,4 @@ git push
 - Если включён `agents.defaults.sandbox`, неосновные сеансы могут использовать sandbox‑рабочие
   пространства для каждого сеанса под `agents.defaults.sandbox.workspaceRoot`.
 
+

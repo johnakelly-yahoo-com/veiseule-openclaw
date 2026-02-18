@@ -228,3 +228,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Ingen medievedhæftninger.
 - Kun NIP-04 (NIP-17 gift-wrap planlagt).
 
+

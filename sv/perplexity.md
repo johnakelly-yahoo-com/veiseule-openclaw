@@ -75,3 +75,4 @@ Om ingen bas-URL är satt väljer OpenClaw ett standardvärde baserat på API-ny
 
 Se [Web tools](/tools/web) för fullständig konfiguration av web_search.
 
+

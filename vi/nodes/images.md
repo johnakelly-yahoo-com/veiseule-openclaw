@@ -68,3 +68,4 @@ Kênh WhatsApp hoạt động thông qua **Baileys Web**. Tài liệu này ghi l
 - Xác thực việc nén lại hình ảnh (giới hạn kích thước) và cờ voice-note cho âm thanh.
 - Đảm bảo phản hồi nhiều media được tách ra thành các lần gửi tuần tự.
 
+

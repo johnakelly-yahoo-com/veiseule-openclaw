@@ -181,3 +181,4 @@ LINE 外掛程式也提供一個用於 Flex 訊息預設的 `/card` 指令：
   相符，且 Gateway 閘道器 可從 LINE 存取。
 - **媒體下載錯誤：** 若媒體超過預設限制，請提高 `channels.line.mediaMaxMb`。
 
+

@@ -150,3 +150,4 @@ Remarques :
 
 - Nécessite l’autorisation macOS **Enregistrement de l’écran** (TCC).
 
+

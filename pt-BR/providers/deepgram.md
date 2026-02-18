@@ -88,3 +88,4 @@ Exemplo com opções do Deepgram:
 - Substitua endpoints ou cabeçalhos com `tools.media.audio.baseUrl` e `tools.media.audio.headers` ao usar um proxy.
 - A saída segue as mesmas regras de áudio que outros provedores (limites de tamanho, timeouts, injeção da transcrição).
 
+

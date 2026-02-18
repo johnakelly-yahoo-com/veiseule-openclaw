@@ -496,3 +496,4 @@ IAM rollari haqida batafsil:
 - Xabar almashish kanallarini sozlang: [Channels](/channels)
 - Lokal qurilmalarni node sifatida ulang: [Nodes](/nodes)
 - Gateway’ni sozlang: [Gateway configuration](/gateway/configuration)
+

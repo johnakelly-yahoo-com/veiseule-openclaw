@@ -132,3 +132,4 @@ APIs externas, ela pode incorrer em custos de acordo com o provedor da skill.
 
 Veja [Skills](/tools/skills).
 
+

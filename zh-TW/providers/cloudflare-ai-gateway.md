@@ -65,3 +65,4 @@ openclaw onboard --non-interactive \
 
 如果 Gateway 以常駐服務（launchd/systemd）方式執行，請確保 `CLOUDFLARE_AI_GATEWAY_API_KEY` 對該程序可用（例如，於 `~/.openclaw/.env` 中或透過 `env.shellEnv`）。
 
+

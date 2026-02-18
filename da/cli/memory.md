@@ -40,3 +40,4 @@ Noter:
 - `memory index --verbose` udskriver detaljer pr. fase (udbyder, model, kilder, batchaktivitet).
 - `memory status` inkluderer eventuelle ekstra stier konfigureret via `memorySearch.extraPaths`.
 
+

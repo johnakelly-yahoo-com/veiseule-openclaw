@@ -135,3 +135,4 @@ curl -s http://127.0.0.1:18791/tabs
 - `chrome` profile သည် ဖြစ်နိုင်ပါက သင်၏ **system default Chromium browser** ကို အသုံးပြုပါသည်။
 - Local `openclaw` profiles များသည် `cdpPort`/`cdpUrl` ကို အလိုအလျောက် သတ်မှတ်ပေးပါသည်။ remote CDP အတွက်သာ ၎င်းတို့ကို ကိုယ်တိုင် သတ်မှတ်ပါ။
 
+

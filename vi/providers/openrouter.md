@@ -32,3 +32,4 @@ openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPEN
 - Để biết thêm tùy chọn mô hình/nhà cung cấp, xem [/concepts/model-providers](/concepts/model-providers).
 - OpenRouter sử dụng Bearer token với khóa API của bạn ở phía dưới.
 
+

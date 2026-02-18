@@ -21,3 +21,4 @@ Notlar:
 - Genel bakış, güncelleme kanalını + git SHA’yı (kaynak kurulumları için) içerir.
 - Güncelleme bilgileri Genel bakışta görünür; bir güncelleme mevcutsa durum, `openclaw update` çalıştırılması için bir ipucu yazdırır (bkz. [Güncelleme](/install/updating)).
 
+

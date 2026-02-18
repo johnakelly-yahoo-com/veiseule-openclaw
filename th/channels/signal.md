@@ -223,3 +223,4 @@ openclaw pairing list signal
 - `messages.groupChat.mentionPatterns` (ตัวสำรองส่วนกลาง)
 - `messages.responsePrefix`
 
+

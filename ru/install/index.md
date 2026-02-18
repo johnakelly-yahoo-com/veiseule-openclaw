@@ -207,3 +207,4 @@ export PATH="$(npm prefix -g)/bin:$PATH"
     Полностью удалить OpenClaw.
   </Card>
 </CardGroup>
+

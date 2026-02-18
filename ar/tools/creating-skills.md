@@ -53,3 +53,4 @@ When the user asks for a greeting, use the `echo` tool to say "Hello from your c
 
 يمكنك أيضًا استعراض Skills والمساهمة بها عبر [ClawHub](https://clawhub.com).
 
+

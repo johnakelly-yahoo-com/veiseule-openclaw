@@ -110,3 +110,4 @@ O gateway é a fonte de verdade para admissão de nós/clientes.
 - **App macOS**: ajuda você a escolher um gateway, mostra prompts de pareamento e usa SSH apenas como fallback.
 - **Nós iOS/Android**: navegam pelo Bonjour como conveniência e se conectam ao Gateway WS pareado.
 
+

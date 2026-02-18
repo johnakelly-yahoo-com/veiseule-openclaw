@@ -110,3 +110,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Behandl output som utroværdigt, medmindre du validerer med `schema`.
 - Placer godkendelser før ethvert trin med bivirkninger (send, post, exec).
 
+

@@ -57,3 +57,4 @@ Agent -> Gateway -> Node Service (WS)
 - Os prompts do TCC se originam apenas do bundle do app GUI; mantenha o bundle ID assinado estável entre recompilações.
 - Endurecimento de IPC: modo do socket `0600`, token, verificações de UID do par, desafio/resposta HMAC, TTL curto.
 
+

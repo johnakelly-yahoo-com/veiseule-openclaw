@@ -59,3 +59,4 @@ openclaw onboard --auth-choice xiaomi-api-key --xiaomi-api-key "$XIAOMI_API_KEY"
 - जब `XIAOMI_API_KEY` सेट होता है (या कोई auth प्रोफ़ाइल मौजूद हो) तो प्रदाता स्वतः इंजेक्ट हो जाता है।
 - प्रदाता नियमों के लिए [/concepts/model-providers](/concepts/model-providers) देखें।
 
+

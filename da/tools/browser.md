@@ -571,3 +571,4 @@ Sådan kortlægges det:
 
 Dette holder agenten deterministisk og undgår skrøbelige selektorer.
 
+

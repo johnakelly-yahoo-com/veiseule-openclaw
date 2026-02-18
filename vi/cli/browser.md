@@ -101,3 +101,4 @@ Dùng `gateway.nodes.browser.mode` để kiểm soát định tuyến tự độ
 
 Bảo mật + thiết lập từ xa: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
 
+

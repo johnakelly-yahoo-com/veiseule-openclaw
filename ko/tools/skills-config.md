@@ -71,3 +71,4 @@ Skill 별 필드:
 
 전역 `env` 및 `skills.entries.<skill>.env/apiKey`는 **호스트** 실행에만 적용됩니다.
 
+

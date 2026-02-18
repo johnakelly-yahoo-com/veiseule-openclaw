@@ -87,3 +87,4 @@ Mọi thứ khác phải hard-fail với: “Config invalid.” Hãy giữ nó l
 - Cấu hình không hợp lệ → chặn khởi động gateway ngoại trừ các lệnh chẩn đoán.
 - Doctor dry-run tự động; `doctor --fix` ghi cấu hình đã được sửa.
 
+

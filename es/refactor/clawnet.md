@@ -412,3 +412,4 @@ Elija uno antes de implementar para evitar deriva.
 - Propuesta: un protocolo WS con roles + alcances explícitos, emparejamiento unificado + pinning de TLS, aprobaciones alojadas en el Gateway, IDs de dispositivo estables + slugs simpáticos.
 - Resultado: UX más simple, seguridad más fuerte, menos duplicación, mejor enrutamiento móvil.
 
+

@@ -207,3 +207,4 @@ So‘ng yangi terminal oching (yoki zsh’da `rehash` / bash’da `hash -r`).
     OpenClaw’ni to‘liq olib tashlash.
   </Card>
 </CardGroup>
+

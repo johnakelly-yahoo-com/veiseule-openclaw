@@ -28,3 +28,4 @@ Die macOS-App stellt OpenClaw Skills über das Gateway bereit; sie wertet Skills
 
 - Installation und Konfigurationsaktualisierungen erfolgen auf dem Gateway-Host (nicht auf dem lokalen Mac).
 
+

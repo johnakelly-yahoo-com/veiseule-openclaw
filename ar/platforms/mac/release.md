@@ -80,3 +80,4 @@ ditto -c -k --keepParent apps/macos/.build/release/OpenClaw.app.dSYM dist/OpenCl
 
 تعريف الاكتمال: تم نشر التطبيق الموقّع وappcast، ويعمل تدفق التحديث من إصدار أقدم مُثبّت، وتم إرفاق أصول الإصدار بإصدار GitHub.
 
+

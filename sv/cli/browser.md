@@ -101,3 +101,4 @@ Använd `gateway.nodes.browser.mode` för att styra automatisk routning och `gat
 
 Säkerhet + fjärrkonfiguration: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
 
+

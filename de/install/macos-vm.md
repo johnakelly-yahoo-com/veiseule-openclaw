@@ -274,3 +274,4 @@ Für echten Dauerbetrieb erwägen Sie einen dedizierten Mac mini oder einen klei
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (fortgeschritten)
 - [Docker Sandboxing](/install/docker) (alternative Isolationsmethode)
 
+

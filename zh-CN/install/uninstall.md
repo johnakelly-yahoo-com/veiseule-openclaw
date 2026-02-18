@@ -130,3 +130,4 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 2. 删除仓库目录。
 3. 按上述方式移除状态 + 工作区。
 
+

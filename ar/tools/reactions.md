@@ -18,3 +18,4 @@ title: "التفاعلات"
 - **WhatsApp**: قيمة `emoji` الفارغة تزيل تفاعل البوت؛ و `remove: true` تُطابِق إيموجي فارغًا (ولا يزال يتطلب `emoji`).
 - **Signal**: إشعارات التفاعل الواردة تُصدر أحداث نظام عند تمكين `channels.signal.reactionNotifications`.
 
+

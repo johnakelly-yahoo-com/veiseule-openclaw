@@ -412,3 +412,4 @@ Vor der Implementierung eine Option wählen, um Drift zu vermeiden.
 - Vorschlag: ein WS-Protokoll mit expliziten Rollen + Scopes, vereinheitlichtes Pairing + TLS-Pinning, Gateway-gehostete Genehmigungen, stabile Geräte-IDs + hübsche Slugs.
 - Ergebnis: einfachere UX, stärkere Sicherheit, weniger Duplikation, besseres Mobile-Routing.
 
+

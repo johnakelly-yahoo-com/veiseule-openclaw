@@ -253,3 +253,4 @@ Signal sozlash xatti-harakati:
 - Onboarding hub: [Onboarding Wizard (CLI)](/start/wizard)
 - Avtomatlashtirish va skriptlar: [CLI Automation](/start/wizard-cli-automation)
 - Buyruqlar ma’lumotnomasi: [`openclaw onboard`](/cli/onboard)
+

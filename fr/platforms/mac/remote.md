@@ -79,3 +79,4 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 
 Il n’y a plus de bascule « son par defaut » globale dans l’application ; les appelants choisissent un son (ou aucun) par requete.
 
+

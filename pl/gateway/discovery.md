@@ -110,3 +110,4 @@ Gateway jest źródłem prawdy w zakresie dopuszczania węzłów/klientów.
 - **Aplikacja macOS**: pomaga wybrać Gateway, pokazuje monity parowania i używa SSH wyłącznie jako rozwiązania awaryjnego.
 - **Węzły iOS/Android**: przeglądają Bonjour jako udogodnienie i łączą się z sparowanym Gateway WS.
 
+

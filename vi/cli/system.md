@@ -55,3 +55,4 @@ Các cờ:
 - Yêu cầu Gateway đang chạy và có thể truy cập được bằng cấu hình hiện tại của bạn (cục bộ hoặc từ xa).
 - Các sự kiện hệ thống là tạm thời và không được lưu lại qua các lần khởi động lại.
 
+

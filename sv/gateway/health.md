@@ -31,3 +31,4 @@ Kort guide för att verifiera kanalanslutning utan gissningar.
 
 `openclaw hälsa --json` frågar den körande Gateway för dess hälsa ögonblicksbild (inga direkta kanaluttag från CLI). Den rapporterar länkade krediter/auth ålder när tillgänglig, per kanal sond sammanfattningar, session-store sammanfattning och en sond varaktighet. Den avslutas utan noll om Gateway inte kan nås eller sonden misslyckas/timeouts. Använd `--timeout <ms>` för att åsidosätta 10s standard.
 
+

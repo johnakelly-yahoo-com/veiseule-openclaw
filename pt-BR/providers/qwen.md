@@ -48,3 +48,4 @@ entrada `models.providers.qwen-portal` (use o comando de login acima para criar 
   `models.providers.qwen-portal.baseUrl` se o Qwen fornecer um endpoint diferente).
 - Veja [Model providers](/concepts/model-providers) para regras aplicáveis a todos os provedores.
 
+

@@ -78,3 +78,4 @@ Yük alanı alanları (belirtilmedikçe tümü isteğe bağlıdır):
 
 Köprü şu anda **örtük v1**'dir (min/maks müzakere yok). Geriye dönük uyumluluk beklenir; herhangi bir kırıcı değişiklikten önce bir köprü protokolü sürüm alanı ekleyin.
 
+

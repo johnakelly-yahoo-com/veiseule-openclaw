@@ -600,3 +600,4 @@ Hvis mere end én person kan DM’e din bot (flere poster i `allowFrom`, parring
 - Valgfrie sektioner, der kan tilføjes senere: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Se [Providers](/channels/whatsapp) og [Fejlfinding](/gateway/troubleshooting) for mere detaljerede opsætningsnoter.
 
+

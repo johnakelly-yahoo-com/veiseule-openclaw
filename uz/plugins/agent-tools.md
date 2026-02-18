@@ -91,3 +91,4 @@ Vositalar mavjudligiga ta’sir qiluvchi boshqa konfiguratsiya sozlamalari:
 - Vosita nomlari core vosita nomlari bilan **to‘qnash kelmasligi** kerak; zid kelgan vositalar o‘tkazib yuboriladi.
 - Allowlistlarda ishlatiladigan plugin id’lar core vosita nomlari bilan to‘qnashmasligi kerak.
 - Yon ta’sirlarni ishga tushiradigan yoki qo‘shimcha binary/fayllar yoki credential talab qiladigan vositalar uchun `optional: true` dan foydalanish tavsiya etiladi.
+

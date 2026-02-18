@@ -52,3 +52,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - 필요하다면 `sudo log config --reload` 를 실행하여 logd 가 즉시 오버라이드를 해제하도록 할 수 있습니다.
 - 이 표면에는 전화번호와 메시지 본문이 포함될 수 있음을 기억하십시오. 추가 세부 정보가 실제로 필요한 동안에만 plist 를 유지하십시오.
 
+

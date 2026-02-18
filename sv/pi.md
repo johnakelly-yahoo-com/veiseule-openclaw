@@ -611,3 +611,4 @@ Alla befintliga tester som täcker pi-integrationen och dess tillägg:
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
 
+

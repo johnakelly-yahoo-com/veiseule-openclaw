@@ -65,3 +65,4 @@ Not: `--url` ayarlandığında, CLI yapılandırma veya ortam kimlik bilgilerine
 - Belirteç döndürme yeni bir belirteç döndürür (hassas). Bir sır gibi ele alın.
 - Bu komutlar `operator.pairing` (veya `operator.admin`) kapsamını gerektirir.
 
+

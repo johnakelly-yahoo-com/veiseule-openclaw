@@ -92,3 +92,4 @@ empaquetado con SwiftPM y las compilaciones con Nix (que no dependen de un toolc
 - [Wizard](/start/wizard) — configuración de la CLI sin Nix
 - [Docker](/install/docker) — configuración en contenedores
 
+

@@ -103,3 +103,4 @@ RPC API ve sihirbazın yazdığı yapılandırma alanlarının tam listesi için
 - macOS uygulaması katılımı: [Onboarding](/start/onboarding)
 - Ajan ilk çalıştırma ritüeli: [Agent Bootstrapping](/start/bootstrapping)
 
+

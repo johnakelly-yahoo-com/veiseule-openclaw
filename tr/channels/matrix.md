@@ -260,3 +260,4 @@ Sağlayıcı seçenekleri:
 - `channels.matrix.autoJoinAllowlist`: otomatik katılım için izin verilen oda kimlikleri/takma adları.
 - `channels.matrix.actions`: per-action tool gating (reactions/messages/pins/memberInfo/channelInfo).
 
+

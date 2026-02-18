@@ -364,3 +364,4 @@ När du fixar ett leverantörs-/modellproblem som upptäckts i live:
   - bug i leverantörsrequest‑konvertering/återspelning → direkt‑modell‑test
   - bug i gateway‑session/historik/verktygs‑pipeline → gateway‑live‑smoke eller CI‑säker gateway‑mocktest
 
+

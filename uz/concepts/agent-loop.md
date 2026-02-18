@@ -138,3 +138,4 @@ See [Plugins](/tools/plugin#plugin-hooks) for the hook API and registration deta
 - Gateway disconnect or RPC timeout
 - `agent.wait` timeout (wait-only, does not stop agent)
 
+

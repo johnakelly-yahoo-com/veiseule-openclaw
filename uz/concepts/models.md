@@ -201,3 +201,4 @@ rejimda standart qiymatlarni qabul qilish uchun `--yes` ni bering.
 yoziladi (standart: `~/.openclaw/agents/<agentId>/models.json`). Agar `models.mode`
 `replace` ga o‘rnatilmagan bo‘lsa, bu fayl odatiy holatda merge qilinadi.
 
+

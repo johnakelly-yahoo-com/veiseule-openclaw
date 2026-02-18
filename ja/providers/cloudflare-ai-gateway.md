@@ -65,3 +65,4 @@ Cloudflare でゲートウェイ認証を有効にしている場合は、`cf-ai
 
 ゲートウェイがデーモン（launchd/systemd）として実行されている場合は、`CLOUDFLARE_AI_GATEWAY_API_KEY` がそのプロセスから利用可能であることを確認してください（例えば、`~/.openclaw/.env` に設定するか、`env.shellEnv` を使用します）。
 
+

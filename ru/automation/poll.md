@@ -64,3 +64,4 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 Опросы в Teams отображаются как Adaptive Cards и требуют, чтобы Gateway (шлюз) оставался онлайн
 для записи голосов в `~/.openclaw/msteams-polls.json`.
 
+

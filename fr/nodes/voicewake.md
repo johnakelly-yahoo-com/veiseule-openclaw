@@ -60,3 +60,4 @@ Qui le recoit :
 - Expose un éditeur Wake Words dans les paramètres.
 - Appelle `voicewake.set` via le WS de la Gateway afin que les modifications se synchronisent partout.
 
+

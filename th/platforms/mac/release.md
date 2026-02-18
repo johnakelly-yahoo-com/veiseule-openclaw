@@ -81,3 +81,4 @@ SPARKLE_PRIVATE_KEY_FILE=/path/to/ed25519-private-key scripts/make_appcast.sh di
 
 นิยามของความเสร็จสิ้น: แอปที่เซ็นชื่อและ appcast ถูกเผยแพร่แล้ว กระบวนการอัปเดตทำงานได้จากเวอร์ชันที่ติดตั้งไว้ก่อนหน้า และแอสเซ็ตของรีลีสถูกแนบใน GitHub release แล้ว
 
+

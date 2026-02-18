@@ -62,3 +62,4 @@ openclaw browser open https://x.com --browser-profile openclaw --target host
 
 أو عطّل sandboxing للوكيل الذي ينشر التحديثات.
 
+

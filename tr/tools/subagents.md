@@ -212,3 +212,4 @@ Alt ajanlar ayrılmış bir süreç içi kuyruk hattı kullanır:
 - [Çok Ajanlı Sandbox ve Araçlar](/tools/multi-agent-sandbox-tools) — ajan başına araç kısıtlamaları ve sandboxing
 - [Yapılandırma](/gateway/configuration) — `agents.defaults.subagents` referansı
 - [Kuyruk](/concepts/queue) — `subagent` hattının nasıl çalıştığı
+

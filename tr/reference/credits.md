@@ -23,3 +23,4 @@ MIT - Okyanustaki bir ıstakoz kadar özgür.
 
 > "Hepimiz sadece kendi istemlerimizle oynuyoruz." (Muhtemelen token'lara fazla yüklenmiş bir yapay zekâ)
 
+

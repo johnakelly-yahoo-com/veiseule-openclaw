@@ -60,3 +60,4 @@ title: "20. Hujjatlar katalogi"
 - [Xavfsizlik](/gateway/security)
 - [Nosozliklarni bartaraf etish](/gateway/troubleshooting)
 
+

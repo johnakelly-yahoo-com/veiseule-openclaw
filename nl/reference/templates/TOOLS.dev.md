@@ -18,3 +18,4 @@ Het definieert niet welke tools bestaan; OpenClaw levert intern ingebouwde tools
 
 Voeg toe wat je maar wilt dat de assistent moet weten over je lokale toolchain.
 
+

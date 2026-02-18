@@ -123,3 +123,4 @@ rangos de estilo SPOILER. Otros canales los tratan como texto plano.
 - Preserve las nuevas líneas finales para los bloques de código cercados para que los marcadores de cierre
   queden en su propia línea.
 
+

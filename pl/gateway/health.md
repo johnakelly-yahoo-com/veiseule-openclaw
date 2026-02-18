@@ -31,3 +31,4 @@ Krótki przewodnik do weryfikacji łączności kanałów bez zgadywania.
 
 `openclaw health --json` pyta działającą Gateway o jej zrzut stanu zdrowia (bez bezpośrednich gniazd kanałów z CLI). Raportuje połączone poświadczenia/wiek uwierzytelnienia (jeśli dostępne), podsumowania sond per kanał, podsumowanie magazynu sesji oraz czas trwania sondy. Zwraca kod wyjścia różny od zera, jeśli Gateway jest nieosiągalna lub sonda zakończy się niepowodzeniem/przekroczeniem czasu. Użyj `--timeout <ms>`, aby nadpisać domyślne 10 s.
 
+

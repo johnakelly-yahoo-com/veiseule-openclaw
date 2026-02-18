@@ -41,3 +41,4 @@ localhost, Tailscale Serve yoki SSH tunnelidan foydalanish tavsiya etiladi.
 - Gateway mavjudligini tekshiring (mahalliy: `openclaw status`; masofaviy: SSH tunnel `ssh -N -L 18789:127.0.0.1:18789 user@host` va so‘ng `http://127.0.0.1:18789/` ni oching).
 - Gateway joylashgan hostdan tokenni oling: `openclaw config get gateway.auth.token` (yoki yangisini yarating: `openclaw doctor --generate-gateway-token`).
 - Boshqaruv paneli sozlamalarida tokenni autentifikatsiya maydoniga joylashtiring va ulang.
+

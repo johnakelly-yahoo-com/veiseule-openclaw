@@ -68,3 +68,4 @@ Invoke फ़्लैग्स:
 - `--agent <id>`: एजेंट-स्कोप्ड अनुमोदन/allowlists (कॉन्फ़िगर किए गए एजेंट पर डिफ़ॉल्ट)।
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: ओवरराइड्स।
 
+

@@ -222,3 +222,4 @@ Om du vill ha en minimal, ändå användbar version:
 - Hindsight Technical Report: ”retain / recall / reflect”, fyrnätverksminne, extraktion av narrativa fakta, utveckling av åsikters tillförlitlighet.
 - SuCo: arXiv 2411.14754 (2024): ”Subspace Collision” approximativ närmaste-granne-återhämtning.
 
+

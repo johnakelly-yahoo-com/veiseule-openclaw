@@ -28,3 +28,4 @@ La app de macOS expone las Skills de OpenClaw a través del Gateway; no analiza 
 
 - La instalación y las actualizaciones de configuración ocurren en el host del Gateway (no en el Mac local).
 
+

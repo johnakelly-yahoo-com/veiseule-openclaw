@@ -571,3 +571,4 @@ Para sa triage flow: [/channels/troubleshooting](/channels/troubleshooting).
 - Para sa Slack tool, ang semantics ng reaction removal ay nasa [/tools/reactions](/tools/reactions).
 - Ang mga attachment ay dina-download sa media store kapag pinahihintulutan at nasa ilalim ng size limit.
 
+

@@ -42,3 +42,4 @@ Prefer localhost, Tailscale Serve, or an SSH tunnel.
 - Gateway होस्ट से टोकन प्राप्त करें: `openclaw config get gateway.auth.token` (या एक नया बनाएँ: `openclaw doctor --generate-gateway-token`)।
 - डैशबोर्ड सेटिंग्स में, auth फ़ील्ड में टोकन पेस्ट करें, फिर कनेक्ट करें।
 
+

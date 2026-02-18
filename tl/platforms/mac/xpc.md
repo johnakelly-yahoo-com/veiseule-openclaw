@@ -57,3 +57,4 @@ Agent -> Gateway -> Node Service (WS)
 - Ang mga TCC prompt ay nagmumula lamang sa GUI app bundle; panatilihing stable ang signed bundle ID sa mga rebuild.
 - IPC hardening: socket mode `0600`, token, peer-UID checks, HMAC challenge/response, maikling TTL.
 
+

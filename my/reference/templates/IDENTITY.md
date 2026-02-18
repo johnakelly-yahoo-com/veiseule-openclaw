@@ -22,3 +22,4 @@ Notes:
 - ဒီဖိုင်ကို workspace အမြစ် (root) မှာ `IDENTITY.md` အဖြစ် သိမ်းဆည်းပါ။
 - Avatar များအတွက် `avatars/openclaw.png` ကဲ့သို့ workspace နှင့် ဆက်စပ်သော လမ်းကြောင်းကို အသုံးပြုပါ။
 
+

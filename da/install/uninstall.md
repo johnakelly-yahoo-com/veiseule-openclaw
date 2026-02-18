@@ -123,3 +123,4 @@ Hvis du kører fra et repo-checkout (`git clone` + `openclaw ...` / `bun run ope
 2. Slet repo-mappen.
 3. Fjern tilstand + arbejdsområde som vist ovenfor.
 
+

@@ -149,3 +149,4 @@ Giden mesaj biçimlendirmesi `messages` içinde merkezileştirilmiştir:
 
 Ayrıntılar: [Yapılandırma](/gateway/configuration#messages) ve kanal belgeleri.
 
+

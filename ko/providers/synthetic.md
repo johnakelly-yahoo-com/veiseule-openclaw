@@ -94,3 +94,4 @@ synthetic/hf:MiniMaxAI/MiniMax-M2.1
   사용하려는 모든 모델을 추가하십시오.
 - 프로바이더 규칙은 [Model providers](/concepts/model-providers) 를 참고하십시오.
 
+

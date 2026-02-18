@@ -95,3 +95,4 @@ plist の決定論性が維持されます。 これにより、SwiftPM
 - [ウィザード](/start/wizard) — 非 Nix の CLI セットアップ
 - [Docker](/install/docker) — コンテナ化されたセットアップ
 
+

@@ -68,3 +68,4 @@ Flagi:
 - `--agent <id>`: zatwierdzenia/listy dozwolonych w zakresie agenta (domyślnie skonfigurowany agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: nadpisania.
 
+

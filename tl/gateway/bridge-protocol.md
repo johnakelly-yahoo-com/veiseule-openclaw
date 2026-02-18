@@ -80,3 +80,4 @@ Mga field ng payload (lahat ay opsyonal maliban kung nakasaad):
 
 Ang Bridge ay kasalukuyang **implicit v1** (walang min/max negotiation). Inaasahan ang backward‑compat; magdagdag ng bridge protocol version field bago ang anumang breaking change.
 
+

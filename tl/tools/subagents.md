@@ -205,3 +205,4 @@ Gumagamit ang mga sub-agent ng isang nakalaang in-process queue lane:
 - Ang context ng sub-agent ay nag-i-inject lamang ng `AGENTS.md` + `TOOLS.md` (walang `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, o `BOOTSTRAP.md`).
 - Ang maximum nesting depth ay 5 (`maxSpawnDepth` range: 1–5). Inirerekomenda ang depth 2 para sa karamihan ng use case.
 - Nililimitahan ng `maxChildrenPerAgent` ang aktibong mga child bawat session (default: 5, range: 1–20).
+

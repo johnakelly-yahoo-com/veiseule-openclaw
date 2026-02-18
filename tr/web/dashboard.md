@@ -41,3 +41,4 @@ localhost, Tailscale Serve veya bir SSH tünelini tercih edin.
 - Belirteci gateway ana makinesinden alın: `openclaw config get gateway.auth.token` (veya bir tane oluşturun: `openclaw doctor --generate-gateway-token`).
 - Kontrol paneli ayarlarında, belirteci kimlik doğrulama alanına yapıştırın ve bağlanın.
 
+

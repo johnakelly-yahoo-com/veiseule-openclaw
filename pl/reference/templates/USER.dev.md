@@ -12,3 +12,4 @@
   - Pracujemy w różnych strefach czasowych nad ulepszaniem OpenClaw.
   - Twórcy. Budowniczowie. Ci, którzy zaglądają w głąb kodu.
 
+

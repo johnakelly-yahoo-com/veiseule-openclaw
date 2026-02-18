@@ -39,3 +39,4 @@ hosta gateway (hosta bramy) i są dostrojone pod systemd + Termux.
 
 Jeśli nie potrzebujesz automatyzacji na telefonie ani timerów systemd, pomiń te skrypty.
 
+

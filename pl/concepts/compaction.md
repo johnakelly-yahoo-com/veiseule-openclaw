@@ -55,3 +55,4 @@ Szczegóły przycinania znajdziesz w [/concepts/session-pruning](/concepts/sessi
 - Duże wyjścia narzędzi są już obcinane; przycinanie może dodatkowo zmniejszyć narastanie wyników narzędzi.
 - Jeśli potrzebujesz czystej karty, `/new` lub `/reset` rozpoczyna nowy identyfikator sesji.
 
+

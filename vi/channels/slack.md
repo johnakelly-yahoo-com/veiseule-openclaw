@@ -566,3 +566,4 @@ Luồng xử lý triage: [/channels/troubleshooting](/channels/troubleshooting).
 - Với công cụ Slack, ngữ nghĩa xóa phản ứng nằm tại [/tools/reactions](/tools/reactions).
 - Tệp đính kèm được tải xuống kho media khi được phép và dưới giới hạn kích thước.
 
+

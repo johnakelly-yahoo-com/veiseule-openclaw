@@ -158,3 +158,4 @@ curl -X POST http://127.0.0.1:18789/hooks/gmail \
   إذا اضطررت لتعطيل ذلك لـ hook معيّن، فاضبط `allowUnsafeExternalContent: true`
   في تعيين ذلك الـ hook (خطر).
 
+

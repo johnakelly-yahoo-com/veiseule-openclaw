@@ -106,3 +106,4 @@ Odpowiedzi przychodzące zawierają:
 
 Jest to spójne we wszystkich kanałach.
 
+

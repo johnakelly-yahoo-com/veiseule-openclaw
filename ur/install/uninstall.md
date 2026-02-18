@@ -123,3 +123,4 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 2. ریپو ڈائریکٹری حذف کریں۔
 3. اوپر دکھائے گئے مطابق اسٹیٹ + ورک اسپیس حذف کریں۔
 
+

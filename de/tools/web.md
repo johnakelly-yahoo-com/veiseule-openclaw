@@ -255,3 +255,4 @@ Hinweise:
 - Wenn Sie Werkzeugprofile/Allowlists verwenden, fügen Sie `web_search`/`web_fetch` oder `group:web` hinzu.
 - Wenn der Brave-Schlüssel fehlt, gibt `web_search` einen kurzen Einrichtungshinweis mit einem Dokumentationslink zurück.
 
+

@@ -498,3 +498,4 @@ Vea [https://cloud.google.com/iam/docs/understanding-roles](https://cloud.google
 - Empareje dispositivos locales como nodos: [Nodes](/nodes)
 - Configure el Gateway: [Gateway configuration](/gateway/configuration)
 
+

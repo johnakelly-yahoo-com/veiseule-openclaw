@@ -155,3 +155,4 @@ Docs: [Sessão](/concepts/session), [Compactação](/concepts/compaction), [Poda
 
 De qualquer forma, ele reporta tamanhos e principais contribuintes; **não** despeja o prompt do sistema completo nem os esquemas de ferramentas.
 
+

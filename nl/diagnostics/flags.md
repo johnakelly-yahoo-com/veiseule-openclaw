@@ -86,3 +86,4 @@ Voor externe Gateways kun je ook `openclaw logs --follow` gebruiken (zie [/cli/l
 - Vlaggen zijn veilig om ingeschakeld te laten; ze beïnvloeden alleen het logvolume voor het specifieke subsysteem.
 - Gebruik [/logging](/logging) om logbestemmingen, niveaus en redactie te wijzigen.
 
+

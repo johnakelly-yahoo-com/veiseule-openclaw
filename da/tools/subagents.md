@@ -206,3 +206,4 @@ Sub-agenter bruger en dedikeret in-process queue lane:
 - Sub-agent-kontekst injicerer kun `AGENTS.md` + `TOOLS.md` (ingen `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` eller `BOOTSTRAP.md`).
 - Maksimal indlejringsdybde er 5 (`maxSpawnDepth` interval: 1–5). Depth 2 anbefales til de fleste use cases.
 - `maxChildrenPerAgent` begrænser aktive børn pr. session (standard: 5, interval: 1–20).
+

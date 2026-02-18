@@ -46,3 +46,4 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 
 Herstart de Gateway na wijzigingen.
 
+

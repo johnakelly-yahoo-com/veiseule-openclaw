@@ -389,3 +389,4 @@ OpenClaw 會讀取父行程的環境變數，另外還會讀取：
 ---
 
 _相關： [Configuration Examples](/gateway/configuration-examples) · [Configuration Reference](/gateway/configuration-reference) · [Doctor](/gateway/doctor)_
+

@@ -110,3 +110,4 @@ openclaw nodes approve <requestId>
 - [执行批准](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>`（从 Gateway 网关编辑）
 
+

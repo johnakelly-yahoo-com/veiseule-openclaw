@@ -164,3 +164,4 @@ Ushbu tahdidlar modeli uchun hech narsa aniq ravishda qamrovdan tashqari deb bel
 | **Tavsiyalar**         | Javob vaqtini tasodifiylashtirishni ko‘rib chiqish                 |
 
 ---
+

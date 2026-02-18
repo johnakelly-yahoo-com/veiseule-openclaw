@@ -154,3 +154,4 @@ Dla serwerów „always‑on” lub wieloużytkownikowych rozważ usługę **sys
 - [Konfiguracja asystenta OpenClaw](/start/openclaw)
 - [Aplikacja na macOS](/platforms/macos) (cykl życia gateway)
 
+

@@ -261,3 +261,4 @@ Einige Kanäle werden als Plugins ausgeliefert. Wenn Sie während des Onboarding
 - Konfigurationsreferenz: [Gateway configuration](/gateway/configuration)
 - Anbieter: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (Legacy)
 - Skills: [Skills](/tools/skills), [Skills config](/tools/skills-config)
+

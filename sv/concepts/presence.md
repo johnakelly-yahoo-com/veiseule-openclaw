@@ -96,3 +96,4 @@ statusindikator (Active/Idle/Stale) baserat på åldern på den senaste uppdater
   - bekräfta att periodiska beacons använder samma `instanceId`
   - kontrollera om den anslutningshärledda posten saknar `instanceId` (dubbletter är förväntade)
 
+

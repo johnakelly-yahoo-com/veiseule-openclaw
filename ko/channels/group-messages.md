@@ -80,3 +80,4 @@ WhatsApp 이 텍스트 본문에서 시각적 `@` 를 제거하더라도 표시 
 - 세션 저장소 항목은 세션 저장소에 `agent:<agentId>:whatsapp:group:<jid>` 형태로 나타납니다(기본값: `~/.openclaw/agents/<agentId>/sessions/sessions.json`). 항목이 없다는 것은 해당 그룹이 아직 실행을 트리거하지 않았음을 의미합니다.
 - 그룹의 타이핑 표시기는 `agents.defaults.typingMode` 를 따릅니다(기본값: 멘션되지 않았을 때 `message`).
 
+

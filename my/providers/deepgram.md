@@ -85,3 +85,4 @@ Deepgram options များနှင့် ဥပမာ—
 - proxy ကို အသုံးပြုသည့်အခါ `tools.media.audio.baseUrl` နှင့် `tools.media.audio.headers` ဖြင့် endpoint သို့မဟုတ် header များကို override လုပ်နိုင်သည်။
 - Output သည် အခြား provider များကဲ့သို့ အသံဆိုင်ရာ စည်းမျဉ်းများ (အရွယ်အစား ကန့်သတ်ချက်များ၊ timeout များ၊ transcript ထည့်သွင်းမှု) ကို လိုက်နာသည်။
 
+

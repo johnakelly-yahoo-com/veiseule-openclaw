@@ -84,3 +84,4 @@ Los envíos salientes se espejaban en la sesión _actual_ del agente (clave de s
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
 
+

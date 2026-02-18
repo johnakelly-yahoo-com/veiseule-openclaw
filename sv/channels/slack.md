@@ -571,3 +571,4 @@ För triage-flöde: [/channels/troubleshooting](/channels/troubleshooting).
 - För Slack-verktyget finns semantiken för borttagning av reaktioner i [/tools/reactions](/tools/reactions).
 - Bilagor laddas ned till medielagret när det är tillåtet och under storleksgränsen.
 
+

@@ -58,3 +58,4 @@ Agar uzoqroq saqlash kerak bo‘lsa, client’dan qayta suratga oling.
 - Agar hech qanday host topilmasa, host ilovalardan birini (Peekaboo.app yoki OpenClaw.app)
   oching va ruxsatlar berilganini tasdiqlang.
 
+

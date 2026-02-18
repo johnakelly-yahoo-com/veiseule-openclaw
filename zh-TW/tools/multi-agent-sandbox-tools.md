@@ -396,3 +396,4 @@ sandbox, set `agents.list[].sandbox.mode: "off"`.
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Session Management](/concepts/session)
 
+

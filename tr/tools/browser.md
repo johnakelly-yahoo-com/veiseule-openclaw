@@ -571,3 +571,4 @@ Ajan, tarayıcı otomasyonu için **tek bir araç** alır:
 
 Bu, ajanı deterministik tutar ve kırılgan seçicilerden kaçınır.
 
+

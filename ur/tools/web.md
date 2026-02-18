@@ -250,3 +250,4 @@ await web_search({
 - اگر آپ tool profiles/allowlists استعمال کرتے ہیں تو `web_search`/`web_fetch` یا `group:web` شامل کریں۔
 - اگر Brave کلید موجود نہ ہو تو `web_search` دستاویزات کے لنک کے ساتھ مختصر سیٹ اپ اشارہ واپس کرتا ہے۔
 
+

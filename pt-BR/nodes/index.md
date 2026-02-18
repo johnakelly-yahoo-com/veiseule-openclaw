@@ -334,3 +334,4 @@ Notas:
 - O app da barra de menus do macOS conecta-se ao servidor WS do Gateway como um nó (assim `openclaw nodes …` funciona neste Mac).
 - Em modo remoto, o app abre um túnel SSH para a porta do Gateway e conecta-se a `localhost`.
 
+

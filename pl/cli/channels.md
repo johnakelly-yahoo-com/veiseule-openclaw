@@ -74,3 +74,4 @@ Uwagi:
 - Użyj `--kind user|group|auto`, aby wymusić typ celu.
 - Rozwiązywanie preferuje aktywne dopasowania, gdy wiele wpisów ma tę samą nazwę.
 
+

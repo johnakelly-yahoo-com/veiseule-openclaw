@@ -43,3 +43,4 @@ Hakkında sekmesi, sürüm, derleme tarihi, git commit’i ve bunun bir debug de
 
 TCC izinleri paket tanımlayıcısına _ve_ kod imzasına bağlıdır. UUID’leri değişen imzasız debug derlemeleri, macOS’in her yeniden derlemeden sonra verilen izinleri unutmasına neden oluyordu. İkili dosyaları imzalamak (varsayılan olarak ad‑hoc) ve sabit bir paket kimliği/yolu (`dist/OpenClaw.app`) korumak, derlemeler arasında izinleri muhafaza eder; VibeTunnel yaklaşımıyla uyumludur.
 
+

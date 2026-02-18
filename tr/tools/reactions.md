@@ -18,3 +18,4 @@ Kanal notları:
 - **WhatsApp**: boş `emoji`, bot tepkisini kaldırır; `remove: true` boş emojiye eşlenir (yine de `emoji` gerektirir).
 - **Signal**: gelen tepki bildirimleri, `channels.signal.reactionNotifications` etkinleştirildiğinde sistem olayları üretir.
 
+

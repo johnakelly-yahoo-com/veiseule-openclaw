@@ -260,3 +260,4 @@ WhatsApp 凭证位于 `~/.openclaw/credentials/whatsapp/<accountId>/`。
 - 配置参考：[Gateway configuration](/gateway/configuration)
 - 渠道提供方：[WhatsApp](/channels/whatsapp)、[Telegram](/channels/telegram)、[Discord](/channels/discord)、[Google Chat](/channels/googlechat)、[Signal](/channels/signal)、[BlueBubbles](/channels/bluebubbles)（iMessage）、[iMessage](/channels/imessage)（传统）
 - 技能：[Skills](/tools/skills)、[Skills config](/tools/skills-config)
+

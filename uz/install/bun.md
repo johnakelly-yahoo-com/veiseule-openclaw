@@ -54,3 +54,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 
 - Ba’zi scriptlar hali ham pnpm’ni qat’iy belgilagan (masalan, `docs:build`, `ui:*`, `protocol:check`). Hozircha ularni pnpm orqali ishga tushiring.
 
+

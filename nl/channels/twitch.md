@@ -375,3 +375,4 @@ Voorbeeld:
 - Markdown wordt verwijderd vóór het opknippen
 - Geen rate limiting (maakt gebruik van de ingebouwde rate limits van Twitch)
 
+

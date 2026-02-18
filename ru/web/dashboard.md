@@ -42,3 +42,4 @@ title: "Панель"
 - Получите токен на хосте шлюза Gateway: `openclaw config get gateway.auth.token` (или сгенерируйте новый: `openclaw doctor --generate-gateway-token`).
 - В настройках панели вставьте токен в поле аутентификации и подключитесь.
 
+

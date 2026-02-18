@@ -92,3 +92,4 @@ empacotamento com SwiftPM e builds do Nix (que nao dependem de uma toolchain com
 - [Wizard](/start/wizard) — configuracao da CLI sem Nix
 - [Docker](/install/docker) — configuracao em contêiner
 
+

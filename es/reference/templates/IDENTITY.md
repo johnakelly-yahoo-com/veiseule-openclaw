@@ -24,3 +24,4 @@ Notas:
 - Guarde este archivo en la raíz del espacio de trabajo como `IDENTITY.md`.
 - Para avatares, use una ruta relativa al espacio de trabajo como `avatars/openclaw.png`.
 
+

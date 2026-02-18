@@ -180,3 +180,4 @@ Plugin LINE cũng đi kèm lệnh `/card` cho các preset Flex message:
 - **Lỗi tải media:** tăng `channels.line.mediaMaxMb` nếu media vượt quá
   giới hạn mặc định.
 
+

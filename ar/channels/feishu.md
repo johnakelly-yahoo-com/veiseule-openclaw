@@ -575,3 +575,4 @@ openclaw pairing list feishu
 - ✅ صوت
 - ⚠️ نص منسّق (دعم جزئي)
 
+

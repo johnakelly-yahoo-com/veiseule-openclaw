@@ -60,3 +60,4 @@ Klucze opcjonalne:
 - Jeśli Twoja wtyczka zależy od modułów natywnych, udokumentuj kroki budowania oraz wszelkie wymagania listy dozwolonych menedżera pakietów (na przykład pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
 
+

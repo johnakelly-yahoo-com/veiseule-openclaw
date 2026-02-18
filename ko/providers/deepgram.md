@@ -85,3 +85,4 @@ Deepgram 옵션을 사용한 예시:
 - 프록시를 사용하는 경우 `tools.media.audio.baseUrl` 및 `tools.media.audio.headers` 로 엔드포인트 또는 헤더를 재정의할 수 있습니다.
 - 출력은 다른 프로바이더와 동일한 오디오 규칙(크기 제한, 타임아웃, 전사 주입)을 따릅니다.
 
+

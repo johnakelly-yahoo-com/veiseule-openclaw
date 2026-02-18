@@ -43,3 +43,4 @@ About टैब इन कुंजियों को पढ़कर संस
 
 TCC अनुमतियाँ bundle identifier _और_ code signature से जुड़ी होती हैं। बदलते हुए UUID के साथ unsigned debug builds के कारण macOS हर रीबिल्ड के बाद अनुमतियाँ भूल रहा था। बाइनरी पर हस्ताक्षर करना (डिफ़ॉल्ट रूप से ad‑hoc) और एक स्थिर bundle id/path (`dist/OpenClaw.app`) बनाए रखना, बिल्ड्स के बीच अनुमतियाँ संरक्षित रखता है, जो VibeTunnel दृष्टिकोण से मेल खाता है.
 
+

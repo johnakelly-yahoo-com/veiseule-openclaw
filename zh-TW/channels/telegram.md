@@ -800,3 +800,4 @@ Telegram 的反應會以 **獨立的 `message_reaction` 事件** 到達，而非
   可使用 `channels.telegram.commands.native` 覆寫。
 - `messages.responsePrefix`、`messages.ackReaction`、`messages.ackReactionScope`、`messages.removeAckAfterReply`。
 
+

@@ -40,3 +40,4 @@ Notas:
 - `memory index --verbose` imprime detalles por fase (proveedor, modelo, fuentes, actividad por lotes).
 - `memory status` incluye cualquier ruta adicional configurada mediante `memorySearch.extraPaths`.
 
+

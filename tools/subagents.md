@@ -208,3 +208,4 @@ Sub-agents use a dedicated in-process queue lane:
 - Maximum nesting depth is 5 (`maxSpawnDepth` range: 1–5). Depth 2 is recommended for most use cases.
 - `maxChildrenPerAgent` caps active children per session (default: 5, range: 1–20).
 
+

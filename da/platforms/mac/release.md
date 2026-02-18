@@ -80,3 +80,4 @@ Indsend den opdaterede `appcast.xml` ved siden af udgivelsesaktiverne (zip + dSY
 
 Definition of done: signeret app + appcast er udgivet, opdateringsflowet virker fra en ældre installeret version, og release-aktiver er vedhæftet GitHub-udgivelsen.
 
+

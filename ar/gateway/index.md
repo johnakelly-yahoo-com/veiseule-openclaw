@@ -326,3 +326,4 @@ sudo systemctl enable --now openclaw-gateway[-<profile>].service
 - أوقف استخدام `openclaw gateway` ومنفذ التحكم TCP القديم.
 - حدّث العملاء للتحدث ببروتوكول WS مع اتصال إلزامي وحضور مُنظَّم.
 
+

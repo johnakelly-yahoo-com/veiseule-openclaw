@@ -228,3 +228,4 @@ Foreslået `.gitignore`-starter:
 - Hvis `agents.defaults.sandbox` er aktiveret, kan ikke-hovedsessioner bruge
   sandbox-workspaces pr. session under `agents.defaults.sandbox.workspaceRoot`.
 
+

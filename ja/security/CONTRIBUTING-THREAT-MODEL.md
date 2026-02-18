@@ -89,3 +89,4 @@ If you're unsure about the risk level, just describe the impact and we'll assess
 
 脅威モデルへの貢献者は、重要な貢献について脅威モデルの謝辞、リリースノート、および OpenClaw セキュリティ殿堂で認識されます。
 
+

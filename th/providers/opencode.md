@@ -33,3 +33,4 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - คุณต้องลงชื่อเข้าใช้ Zen เพิ่มรายละเอียดการเรียกเก็บเงิน และคัดลอกคีย์API ของคุณ
 - OpenCode Zen คิดค่าบริการต่อคำขอ โปรดตรวจสอบรายละเอียดในแดชบอร์ด OpenCode
 
+

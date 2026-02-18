@@ -48,3 +48,4 @@ title: "ပလက်ဖောင်းများ"
 - 49. macOS: LaunchAgent (`bot.molt.gateway` သို့မဟုတ် `bot.molt.<profile>`50. `; legacy `com.openclaw.\*\`)
 - Linux/WSL2: systemd user service (`openclaw-gateway[-<profile>].service`)
 
+

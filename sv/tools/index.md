@@ -507,3 +507,4 @@ Verktyg exponeras i två parallella kanaler:
 Det betyder att agenten ser både ”vilka verktyg som finns” och ”hur man kallar dem”. Om ett verktyg
 inte visas i systemprompten eller schemat, kan modellen inte kalla det.
 
+

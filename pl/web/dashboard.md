@@ -42,3 +42,4 @@ Preferuj localhost, Tailscale Serve lub tunel SSH.
 - Pobierz token z hosta Gateway: `openclaw config get gateway.auth.token` (lub wygeneruj nowy: `openclaw doctor --generate-gateway-token`).
 - W ustawieniach pulpitu wklej token w pole uwierzytelniania, a następnie połącz się.
 
+

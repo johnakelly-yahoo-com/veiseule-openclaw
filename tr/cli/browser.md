@@ -101,3 +101,4 @@ Otomatik yönlendirmeyi kontrol etmek için `gateway.nodes.browser.mode`’yi ve
 
 Güvenlik + uzaktan kurulum: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
 
+

@@ -393,3 +393,4 @@ ele alınır ve sandbox içine alınır. Bir ajanın asla sandbox’a girmemesin
 - [Sandbox Yapılandırması](/gateway/configuration#agentsdefaults-sandbox)
 - [Oturum Yönetimi](/concepts/session)
 
+

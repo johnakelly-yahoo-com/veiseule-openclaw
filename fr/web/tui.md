@@ -157,3 +157,4 @@ Aucune sortie après l’envoi d’un message :
 - Aucun agent dans le sélecteur : vérifiez `openclaw agents list` et votre configuration de routage.
 - Sélecteur de session vide : vous êtes peut‑être en portée globale ou vous n’avez pas encore de sessions.
 
+

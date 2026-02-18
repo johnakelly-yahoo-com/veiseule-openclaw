@@ -70,3 +70,4 @@ title: "Mga Antas ng Pag-iisip"
 - Ang pagpili ng ibang antas ay nalalapat lang sa susunod na mensahe (`thinkingOnce`); pagkatapos magpadala, babalik ang selector sa nakaimbak na antas ng session.
 - Para baguhin ang session default, magpadala ng `/think:<level>` na directive (gaya ng dati); ipapakita ito ng selector pagkatapos ng susunod na reload.
 
+

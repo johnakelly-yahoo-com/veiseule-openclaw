@@ -18,3 +18,4 @@ No define qué herramientas existen; OpenClaw proporciona herramientas integrada
 
 Agregue cualquier otra cosa que quiera que el asistente conozca sobre su cadena de herramientas local.
 
+

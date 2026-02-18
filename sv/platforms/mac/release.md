@@ -80,3 +80,4 @@ Commit the updated `appcast.xml` alongside the release assets (zip + dSYM) when 
 
 Definition av klart: signerad app + appcast är publicerade, uppdateringsflödet fungerar från en äldre installerad version och releaseartefakter är bifogade till GitHub-releasen.
 
+

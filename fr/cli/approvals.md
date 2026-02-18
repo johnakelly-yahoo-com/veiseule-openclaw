@@ -45,3 +45,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - L’hôte de nœud doit annoncer `system.execApprovals.get/set` (application macOS ou hôte de nœud sans interface).
 - Les fichiers d’approbations sont stockés par hôte à l’emplacement `~/.openclaw/exec-approvals.json`.
 
+

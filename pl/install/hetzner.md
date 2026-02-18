@@ -324,3 +324,4 @@ Cały długotrwały stan musi przetrwać restarty, przebudowy i rebooty.
 | Pakiety systemowe               | System plików kontenera           | Obraz Dockera         | Nie instalować w czasie działania  |
 | Kontener Dockera                | Efemeryczny                       | Restartowalny         | Bezpieczny do zniszczenia          |
 
+

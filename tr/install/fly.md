@@ -485,3 +485,4 @@ ngrok tüneli konteyner içinde çalışır ve Fly uygulamasını açığa çık
 
 Ayrıntılar için [Fly.io fiyatlandırması](https://fly.io/docs/about/pricing/) sayfasına bakın.
 
+

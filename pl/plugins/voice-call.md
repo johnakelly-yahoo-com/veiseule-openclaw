@@ -279,3 +279,4 @@ To repozytorium zawiera pasujący dokument umiejętności pod adresem `skills/vo
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
 
+

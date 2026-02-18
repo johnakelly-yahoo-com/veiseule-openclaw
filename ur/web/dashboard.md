@@ -41,3 +41,4 @@ localhost، Tailscale Serve، یا SSH ٹنل کو ترجیح دیں۔
 - gateway ہوسٹ سے ٹوکن حاصل کریں: `openclaw config get gateway.auth.token` (یا ایک نیا بنائیں: `openclaw doctor --generate-gateway-token`)۔
 - ڈیش بورڈ سیٹنگز میں، ٹوکن کو auth فیلڈ میں پیسٹ کریں، پھر کنیکٹ کریں۔
 
+

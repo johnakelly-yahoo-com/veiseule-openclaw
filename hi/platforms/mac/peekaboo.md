@@ -55,3 +55,4 @@ export PEEKABOO_BRIDGE_SOCKET=/path/to/bridge.sock
 - यदि कोई होस्ट नहीं मिलता है, तो होस्ट ऐप्स में से किसी एक (Peekaboo.app या OpenClaw.app)
   को खोलें और पुष्टि करें कि अनुमतियाँ प्रदान की गई हैं।
 
+

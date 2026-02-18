@@ -80,3 +80,4 @@ title: "ข้อความกลุ่ม"
 - รายการในที่เก็บเซสชันจะปรากฏเป็น `agent:<agentId>:whatsapp:group:<jid>` ในที่เก็บเซสชัน (ค่าเริ่มต้นคือ `~/.openclaw/agents/<agentId>/sessions/sessions.json`) หากไม่พบรายการ แปลว่ากลุ่มนั้นยังไม่เคยกระตุ้นการรัน
 - ตัวบ่งชี้การพิมพ์ในกลุ่มเป็นไปตาม `agents.defaults.typingMode` (ค่าเริ่มต้น: `message` เมื่อไม่มีการกล่าวถึง)
 
+

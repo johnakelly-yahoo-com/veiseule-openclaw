@@ -151,3 +151,4 @@ Notities:
 
 - Vereist macOS-recht **Schermopname** (TCC).
 
+

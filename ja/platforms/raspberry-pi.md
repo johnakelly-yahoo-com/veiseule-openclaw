@@ -352,3 +352,4 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Tailscale](/gateway/tailscale) — リモートアクセス
 - [Nodes](/nodes) — ノート PC / スマートフォンを Pi ゲートウェイと連携
 
+

@@ -53,3 +53,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 
 - 일부 스크립트는 여전히 pnpm 을 하드코딩합니다(예: `docs:build`, `ui:*`, `protocol:check`). 현재로서는 해당 스크립트는 pnpm 으로 실행하십시오.
 
+

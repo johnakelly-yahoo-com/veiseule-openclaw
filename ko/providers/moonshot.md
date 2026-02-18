@@ -135,3 +135,4 @@ openclaw onboard --auth-choice kimi-code-api-key
   `contextWindow` 을(를) 그에 맞게 조정하십시오.
 - 국제 엔드포인트에는 `https://api.moonshot.ai/v1` 을(를) 사용하고, 중국 엔드포인트에는 `https://api.moonshot.cn/v1` 을(를) 사용하십시오.
 
+

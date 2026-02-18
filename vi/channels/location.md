@@ -51,3 +51,4 @@ Khi có vị trí, các trường sau được thêm vào `ctx`:
 - **WhatsApp**: `locationMessage.comment` và `liveLocationMessage.caption` được nối như dòng chú thích.
 - **Matrix**: `geo_uri` được phân tích như vị trí ghim; độ cao bị bỏ qua và `LocationIsLive` luôn là false.
 
+

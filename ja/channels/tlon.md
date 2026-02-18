@@ -127,3 +127,4 @@ openclaw plugins install ./extensions/tlon
 - スレッド返信: 受信メッセージがスレッド内の場合、OpenClaw はスレッド内で返信します。
 - メディア: `sendMedia` はテキスト + URL にフォールバックします（ネイティブアップロードはありません）。
 
+

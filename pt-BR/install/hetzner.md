@@ -324,3 +324,4 @@ Todo estado de longa duração deve sobreviver a reinícios, reconstruções e r
 | Pacotes do SO                    | Sistema de arquivos do contêiner  | Imagem Docker              | Não instale em tempo de execução       |
 | Contêiner Docker                 | Efêmero                           | Reiniciável                | Seguro para destruir                   |
 
+

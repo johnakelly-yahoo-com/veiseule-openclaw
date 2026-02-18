@@ -66,3 +66,4 @@ openclaw models set github-copilot/gpt-4o
 - يخزّن تسجيل الدخول رمز GitHub في مخزن ملفات تعريف المصادقة ويستبدله برمز واجهة
   برمجة تطبيقات Copilot عند تشغيل OpenClaw.
 
+

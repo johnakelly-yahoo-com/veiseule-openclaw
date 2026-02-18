@@ -45,3 +45,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - نوڈ ہوسٹ کو `system.execApprovals.get/set` کا اشتہار دینا لازمی ہے (macOS ایپ یا headless نوڈ ہوسٹ)۔
 - منظوریات کی فائلیں ہر ہوسٹ کے لیے `~/.openclaw/exec-approvals.json` پر محفوظ کی جاتی ہیں۔
 
+

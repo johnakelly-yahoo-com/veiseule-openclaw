@@ -117,3 +117,4 @@ Tarayıcı kontrolü için Funnel’dan kaçının; node eşleştirmeyi operatö
 - Tailscale Funnel genel bakış: [https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
 - `tailscale funnel` komutu: [https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
 
+

@@ -327,3 +327,4 @@ Windows oâ€˜rnatmalari **WSL2** dan foydalanishi va yuqoridagi Linux systemd boâ
 - Retire uses of `openclaw gateway` and the legacy TCP control port.
 - Update clients to speak the WS protocol with mandatory connect and structured presence.
 
+

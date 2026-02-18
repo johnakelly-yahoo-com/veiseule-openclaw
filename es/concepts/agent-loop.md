@@ -142,3 +142,4 @@ Vea [Plugins](/tools/plugin#plugin-hooks) para la API de hooks y los detalles de
 - Desconexión del Gateway o timeout del RPC
 - Timeout de `agent.wait` (solo espera, no detiene al agente)
 
+

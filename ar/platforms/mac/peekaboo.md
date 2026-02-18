@@ -52,3 +52,4 @@ export PEEKABOO_BRIDGE_SOCKET=/path/to/bridge.sock
 - إذا لم يُعثر على أي مضيفين، فافتح أحد تطبيقات المضيف (Peekaboo.app أو OpenClaw.app)
   وتأكد من منح الأذونات.
 
+

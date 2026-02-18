@@ -328,3 +328,4 @@ openclaw node run --host <gateway-host> --port 18789
 - يتصل تطبيق شريط القوائم في macOS بخادم WS الخاص بـ Gateway كعُقدة (بحيث يعمل `openclaw nodes …` على هذا الـ Mac).
 - في الوضع البعيد، يفتح التطبيق نفق SSH لمنفذ Gateway ويتصل بـ `localhost`.
 
+

@@ -149,3 +149,4 @@ _Ochiq joyda maxfiy ma’lumotlar yoki eksploit tafsilotlarini keltirmang. Nozik
 ### Tuzatish uchun PR yuborish
 
 PR’dan oldin muammo ochish majburiy emas. Agar o‘tkazib yuborsangiz, PR ichida batafsil ma’lumot bering. PR’ni aniq bir vazifaga yo‘naltiring, muammo raqamini ko‘rsating, testlar qo‘shing yoki nima uchun yo‘qligini tushuntiring, xulq-atvor o‘zgarishlari/xavflarni hujjatlashtiring, dalil sifatida maxfiy ma’lumotlari olib tashlangan loglar/skrinshotlarni qo‘shing va yuborishdan oldin tegishli tekshiruvlarni ishga tushiring.
+

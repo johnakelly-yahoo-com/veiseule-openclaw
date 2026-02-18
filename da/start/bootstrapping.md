@@ -35,3 +35,4 @@ Når Gateway kører på en anden maskine, redigér arbejdsområdefiler på gatew
 - macOS‑app introduktion: [Onboarding](/start/onboarding)
 - Arbejdsområdelayout: [Agent workspace](/concepts/agent-workspace)
 
+

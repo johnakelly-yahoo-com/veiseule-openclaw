@@ -59,3 +59,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - 可选择运行 `sudo log config --reload` 强制 logd 立即丢弃覆盖配置。
 - 请注意此数据可能包含电话号码和消息正文；仅在确实需要额外详细信息时才保留该 plist 文件。
 
+

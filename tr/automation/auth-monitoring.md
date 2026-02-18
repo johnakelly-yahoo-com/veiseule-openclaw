@@ -39,3 +39,4 @@ systemd + Termux için ayarlanmıştır.
 
 Telefon otomasyonu veya systemd zamanlayıcılarına ihtiyacınız yoksa bu betikleri atlayın.
 
+

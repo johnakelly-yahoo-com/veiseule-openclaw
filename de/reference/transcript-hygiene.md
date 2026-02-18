@@ -123,3 +123,4 @@ Diese Komplexität verursachte providerübergreifende Regressionen (insbesondere
 `call_id|fc_id`). Die Bereinigung 2026.1.22 entfernte die Extension, zentralisierte die Logik
 im Runner und machte OpenAI über die Bildbereinigung hinaus **no-touch**.
 
+

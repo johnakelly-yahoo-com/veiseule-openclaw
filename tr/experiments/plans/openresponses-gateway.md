@@ -121,3 +121,4 @@ Kaynaklar: OpenResponses OpenAPI, OpenResponses spesifikasyon sitesi ve Hugging 
 - `/v1/responses` kullanımı ve örnekleri için yeni bir doküman sayfası eklemek.
 - `/gateway/openai-http-api`’yi eski (legacy) notuyla ve `/v1/responses`’e yönlendirme ile güncellemek.
 
+

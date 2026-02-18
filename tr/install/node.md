@@ -131,3 +131,4 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
 Kalıcı olması için `export PATH=...` satırını `~/.bashrc` veya `~/.zshrc` dosyanıza ekleyin.
+

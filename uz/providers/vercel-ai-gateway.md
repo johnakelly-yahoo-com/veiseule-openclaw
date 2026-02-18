@@ -44,3 +44,4 @@ Agar Gateway daemon sifatida ishlasa (launchd/systemd), `AI_GATEWAY_API_KEY`
 o‘sha jarayon uchun mavjud ekanligiga ishonch hosil qiling (masalan, `~/.openclaw/.env` ichida yoki
 `env.shellEnv` orqali).
 
+

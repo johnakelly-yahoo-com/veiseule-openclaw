@@ -223,3 +223,4 @@ Relaterade globala alternativ:
 - `messages.groupChat.mentionPatterns` (global fallback).
 - `messages.responsePrefix`.
 
+

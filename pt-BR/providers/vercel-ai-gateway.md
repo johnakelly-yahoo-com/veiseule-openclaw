@@ -44,3 +44,4 @@ Se o Gateway for executado como um daemon (launchd/systemd), verifique se `AI_GA
 está disponível para esse processo (por exemplo, em `~/.openclaw/.env` ou via
 `env.shellEnv`).
 
+

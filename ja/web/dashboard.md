@@ -42,3 +42,4 @@ localhost、Tailscale Serve、またはSSHトンネルを好みます。
 - ゲートウェイ ホストからトークンを取得してください: `openclaw config get gateway.auth.token`（または生成: `openclaw doctor --generate-gateway-token`）。
 - ダッシュボードの設定で、認証フィールドにトークンを貼り付けてから接続してください。
 
+

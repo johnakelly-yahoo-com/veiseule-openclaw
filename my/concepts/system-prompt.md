@@ -95,3 +95,4 @@ Agent ကို လက်ရှိအချိန် လိုအပ်သည့
 
 ရရှိနိုင်ပါက system prompt တွင် **Documentation** အပိုင်းပါဝင်ပြီး ဒေသတွင်း OpenClaw docs directory (repo workspace ထဲရှိ `docs/` သို့မဟုတ် bundled npm package docs) ကို ညွှန်ပြသည့်အပြင် public mirror၊ source repo၊ community Discord နှင့် skills ရှာဖွေရန် ClawHub ([https://clawhub.com](https://clawhub.com)) ကိုလည်း မှတ်သားဖော်ပြပါသည်။ prompt သည် OpenClaw ၏ behavior, commands, configuration, သို့မဟုတ် architecture အတွက် local docs ကို ပထမဆုံး ကြည့်ရှုရန်နှင့် ဖြစ်နိုင်ပါက `openclaw status` ကို ကိုယ်တိုင် chạy ရန် ညွှန်ကြားပါသည် (access မရှိသောအခါသာ အသုံးပြုသူကို မေးမြန်းပါသည်)။
 
+

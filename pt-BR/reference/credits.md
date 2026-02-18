@@ -23,3 +23,4 @@ MIT - Livre como uma lagosta no oceano.
 
 > "Estamos todos apenas brincando com nossos próprios prompts." (Uma IA, provavelmente chapada de tokens)
 
+

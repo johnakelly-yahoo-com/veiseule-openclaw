@@ -151,3 +151,4 @@ Uwagi:
 
 - Wymaga uprawnienia macOS **Screen Recording** (TCC).
 
+

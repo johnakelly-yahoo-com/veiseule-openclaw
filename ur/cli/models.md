@@ -70,3 +70,4 @@ openclaw models auth paste-token
 - `setup-token` سیٹ اپ ٹوکن کی قدر کے لیے پرامپٹ کرتا ہے (کسی بھی مشین پر `claude setup-token` کے ذریعے اسے جنریٹ کریں)۔
 - `paste-token` کہیں اور یا آٹومیشن سے تیار کردہ ٹوکن اسٹرنگ قبول کرتا ہے۔
 
+

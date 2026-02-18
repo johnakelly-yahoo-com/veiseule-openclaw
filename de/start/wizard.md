@@ -105,3 +105,4 @@ RPC-API und eine vollständige Liste der Konfigurationsfelder, die der Assistent
 - macOS-App-Onboarding: [Onboarding](/start/onboarding)
 - Agent-Erststart‑Ritual: [Agent Bootstrapping](/start/bootstrapping)
 
+

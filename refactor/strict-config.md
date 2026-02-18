@@ -87,3 +87,4 @@ Everything else must hard-fail with: “Config invalid. Run `openclaw doctor --f
 - Invalid config → gateway startup blocked except diagnostic commands.
 - Doctor dry-run auto; `doctor --fix` writes corrected config.
 
+

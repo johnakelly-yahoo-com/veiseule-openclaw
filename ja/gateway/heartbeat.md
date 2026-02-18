@@ -337,3 +337,4 @@ openclaw system event --text "Check for urgent follow-ups" --mode now
 
 ハートビートはフルエージェントターンを実行します。 短い間隔では、より多くのトークンを燃焼させます。 `HEARTBEAT.md` は小さく保ち、内部状態の更新だけが目的であれば、より安価な `model` や `target: "none"` を検討してください。
 
+

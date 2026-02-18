@@ -91,3 +91,4 @@ synthetic/hf:MiniMaxAI/MiniMax-M2.1
   جسے آپ استعمال کرنے کا ارادہ رکھتے ہیں۔
 - فراہم کنندہ کے قواعد کے لیے [Model providers](/concepts/model-providers) دیکھیں۔
 
+

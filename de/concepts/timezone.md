@@ -86,3 +86,4 @@ Sie können das Prompt-Format mit `agents.defaults.timeFormat` steuern (`auto` |
 
 Siehe [Date & Time](/date-time) für das vollständige Verhalten und Beispiele.
 
+

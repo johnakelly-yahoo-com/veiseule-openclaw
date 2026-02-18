@@ -17,3 +17,4 @@ Notas:
 - `--verbose` executa sondagens em tempo real e imprime tempos por conta quando várias contas estão configuradas.
 - A saída inclui armazenamentos de sessão por agente quando vários agentes estão configurados.
 
+

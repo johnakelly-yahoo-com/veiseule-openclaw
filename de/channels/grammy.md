@@ -27,3 +27,4 @@ Offene Fragen
 - Weitere strukturierte Media-Tests hinzufügen (Sticker, Sprachnotizen).
 - Webhook-Listen-Port konfigurierbar machen (derzeit fest auf 8787, sofern nicht über das Gateway verdrahtet).
 
+

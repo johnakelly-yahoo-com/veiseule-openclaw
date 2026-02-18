@@ -86,3 +86,4 @@ Para gateways remotos, você também pode usar `openclaw logs --follow` (veja [/
 - É seguro deixar as flags habilitadas; elas afetam apenas o volume de logs do subsistema específico.
 - Use [/logging](/logging) para alterar destinos de log, níveis e redação.
 
+

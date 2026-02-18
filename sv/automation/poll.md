@@ -64,3 +64,4 @@ Obs: Discord har inget ”pick exactly N”-läge; `pollMulti`-kartor för multi
 Lag omröstningar renderas som Adaptive Cards och kräver att porten stannar online
 för att spela in röster i `~/.openclaw/msteams-polls.json`.
 
+

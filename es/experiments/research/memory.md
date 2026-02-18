@@ -222,3 +222,4 @@ Si quiere una versión mínima, pero aún útil:
 - Informe técnico de Hindsight: “retener / recordar / reflexionar”, memoria de cuatro redes, extracción de hechos narrativos, evolución de la confianza en opiniones.
 - SuCo: arXiv 2411.14754 (2024): “Subspace Collision”, recuperación de vecinos más cercanos aproximada.
 
+

@@ -64,3 +64,4 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 โพลของ Teams จะแสดงผลเป็น Adaptive Cards และต้องให้ Gateway（เกตเวย์）ออนไลน์ต่อเนื่อง
 เพื่อบันทึกคะแนนโหวตใน `~/.openclaw/msteams-polls.json`.
 
+

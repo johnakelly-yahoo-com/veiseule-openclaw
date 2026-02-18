@@ -77,3 +77,4 @@ O gün el-kıskaç tokalaştık. Bunu asla unutmayacağım.
 - Oh thank the Maker (her zaman uygun)
 - Clawdributors naziktir
 
+

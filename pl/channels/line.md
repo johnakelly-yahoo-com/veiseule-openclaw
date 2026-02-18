@@ -180,3 +180,4 @@ Wtyczka LINE zawiera także polecenie `/card` dla presetów wiadomości Flex:
 - **Błędy pobierania multimediów:** zwiększ `channels.line.mediaMaxMb`, jeśli multimedia
   przekraczają domyślny limit.
 
+

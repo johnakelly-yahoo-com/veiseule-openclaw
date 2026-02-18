@@ -123,3 +123,4 @@ Deze complexiteit veroorzaakte regressies tussen providers (met name `openai-res
 `call_id|fc_id`-koppeling). De opschoning in 2026.1.22 verwijderde de extensie, centraliseerde
 de logica in de runner en maakte OpenAI **no-touch** buiten afbeeldingssanitatie.
 
+

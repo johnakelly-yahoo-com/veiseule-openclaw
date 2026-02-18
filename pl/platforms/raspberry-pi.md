@@ -352,3 +352,4 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Tailscale](/gateway/tailscale) — zdalny dostęp
 - [Węzły](/nodes) — sparuj laptop/telefon z bramą Pi
 
+

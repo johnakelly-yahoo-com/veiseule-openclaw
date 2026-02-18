@@ -257,3 +257,4 @@ free -h
 - [Tailscale](/gateway/tailscale) — sikker fjernadgang
 - [Konfiguration](/gateway/configuration) — fuld konfigurationsreference
 
+

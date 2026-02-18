@@ -92,3 +92,4 @@ und Nix-Builds (die nicht auf eine vollständige Xcode-Toolchain angewiesen sind
 - [Wizard](/start/wizard) — CLI-Einrichtung ohne Nix
 - [Docker](/install/docker) — containerisierte Einrichtung
 
+

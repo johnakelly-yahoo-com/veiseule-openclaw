@@ -162,3 +162,4 @@ openclaw acp --session agent:qa:bug-123
 - `--server-verbose`: تمكين التسجيل المُفصّل على خادم ACP.
 - `--verbose, -v`: تسجيل مُفصّل للعميل.
 
+

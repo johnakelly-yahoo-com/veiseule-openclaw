@@ -64,3 +64,4 @@ Gerekli anahtarlar:
   paket yöneticisi izin listesi gereksinimlerini belgelendirin (örneğin, pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
 
+

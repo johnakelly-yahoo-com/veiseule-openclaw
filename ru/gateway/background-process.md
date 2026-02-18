@@ -88,3 +88,4 @@ OpenClaw выполняет shell‑команды через инструмен
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
 
+

@@ -133,3 +133,4 @@ Sinusuportahan ng Mattermost ang maraming account sa ilalim ng `channels.matterm
 - Mga error sa auth: suriin ang bot token, base URL, at kung naka-enable ang account.
 - Mga isyu sa multi-account: nalalapat lamang ang env vars sa `default` na account.
 
+

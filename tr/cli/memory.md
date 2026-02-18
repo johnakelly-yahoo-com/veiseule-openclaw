@@ -40,3 +40,4 @@ Notlar:
 - `memory index --verbose` aşama başına ayrıntıları yazdırır (sağlayıcı, model, kaynaklar, toplu etkinlik).
 - `memory status` `memorySearch.extraPaths` üzerinden yapılandırılmış tüm ek yolları içerir.
 
+

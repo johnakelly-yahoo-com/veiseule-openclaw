@@ -226,3 +226,4 @@ git pull
 - Sprawdź: [Rozwiązywanie problemów](/gateway/troubleshooting)
 - Zapytaj na Discordzie: [https://discord.gg/clawd](https://discord.gg/clawd)
 
+

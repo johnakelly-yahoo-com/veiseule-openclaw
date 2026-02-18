@@ -66,3 +66,4 @@ Valgfrie nøgler:
   krav til allowlist i pakkehåndteringen (for eksempel pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
 
+

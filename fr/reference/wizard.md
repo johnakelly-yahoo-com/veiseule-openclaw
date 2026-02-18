@@ -261,3 +261,4 @@ vous proposera de l’installer (npm ou un chemin local) avant qu’il puisse ê
 - Référence de configuration : [Gateway configuration](/gateway/configuration)
 - Fournisseurs : [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (hérité)
 - Skills : [Skills](/tools/skills), [Skills config](/tools/skills-config)
+

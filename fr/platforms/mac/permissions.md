@@ -44,3 +44,4 @@ Solution de contournement : déplacez les fichiers dans l'espace de travail Open
 Si vous testez des autorisations, signez toujours avec un veritable certificat. Les builds ad-hoc
 ne sont acceptables que pour des executions locales rapides ou les autorisations n'ont pas d'importance.
 
+

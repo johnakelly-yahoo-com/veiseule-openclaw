@@ -64,3 +64,4 @@ Nota: Discord no tiene un modo de “elegir exactamente N”; `pollMulti` se asi
 Las encuestas de Teams se representan como Adaptive Cards y requieren que el Gateway permanezca en línea
 para registrar votos en `~/.openclaw/msteams-polls.json`.
 
+

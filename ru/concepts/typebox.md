@@ -281,3 +281,4 @@ pnpm protocol:check
 2. Запустите `pnpm protocol:check`.
 3. Закоммитьте перегенерированную схему и Swift‑модели.
 
+

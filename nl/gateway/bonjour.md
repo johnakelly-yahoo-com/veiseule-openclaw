@@ -166,3 +166,4 @@ reeksen (bijv. spaties worden `\032`).
 - Discovery‑beleid en transportselectie: [Discovery](/gateway/discovery)
 - Node‑koppeling + goedkeuringen: [Gateway pairing](/gateway/pairing)
 
+

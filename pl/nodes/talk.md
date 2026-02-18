@@ -85,3 +85,4 @@ Ustawienia domyślne:
 - `latency_tier` jest weryfikowane do `0..4` po ustawieniu.
 - Android obsługuje formaty wyjścia `pcm_16000`, `pcm_22050`, `pcm_24000` oraz `pcm_44100` dla niskolatencyjnego strumieniowania AudioTrack.
 
+

@@ -68,3 +68,4 @@ openclaw models set github-copilot/gpt-4o
 - De aanmelding slaat een GitHub-token op in de opslag voor authenticatieprofielen
   en wisselt dit om voor een Copilot API-token wanneer OpenClaw wordt uitgevoerd.
 
+

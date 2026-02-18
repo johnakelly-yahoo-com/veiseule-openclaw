@@ -145,3 +145,4 @@ Polecenia kamery (tylko na pierwszym planie; z kontrolą uprawnień):
 
 Zobacz [Węzeł kamery](/nodes/camera) w celu zapoznania się z parametrami i pomocnikami CLI.
 
+

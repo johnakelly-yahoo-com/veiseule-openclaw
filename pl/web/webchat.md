@@ -45,3 +45,4 @@ Powiązane opcje globalne:
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: docelowy gateway zdalny.
 - `session.*`: magazyn sesji oraz domyślne klucze główne.
 
+

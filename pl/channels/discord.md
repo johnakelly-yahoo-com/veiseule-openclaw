@@ -472,3 +472,4 @@ Emoji mogą być unicode (np. `✅`) lub niestandardową składnią emoji, jak `
 - Przyznawaj botowi tylko potrzebne uprawnienia (zwykle Read/Send Messages).
 - Jeśli bot utknął lub jest limitowany, zrestartuj gateway (`openclaw gateway --force`) po potwierdzeniu, że żadne inne procesy nie posiadają sesji Discord.
 
+

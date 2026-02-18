@@ -110,3 +110,4 @@ Nota: A detecção de binários é best-effort em macOS/Linux/Windows; garanta q
 - Garanta que sua CLI finalize com código 0 e imprima texto simples; JSON precisa ser ajustado via `jq -r .text`.
 - Mantenha timeouts razoáveis (`timeoutSeconds`, padrão 60s) para evitar bloquear a fila de respostas.
 
+

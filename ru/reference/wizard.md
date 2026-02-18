@@ -262,3 +262,4 @@ Gateway предоставляет поток мастера через RPC (`wi
 - Справочник конфига: [Конфигурация Gateway](/gateway/configuration)
 - Провайдеры: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (устаревший)
 - Skills: [Skills](/tools/skills), [Конфиг Skills](/tools/skills-config)
+

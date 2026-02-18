@@ -77,3 +77,4 @@ title: "Menyrad"
 - Snabba verktygsburstar: säkerställ att märket inte flimrar (TTL‑marginal på verktygsresultat).
 - Hälsoraden visas igen när alla sessioner är inaktiva.
 
+

@@ -404,3 +404,4 @@ WhatsApp sesi **sesli not** (PTT balonu) olarak gönderir.
 - Bun **önerilmez**. WhatsApp (Baileys) ve Telegram Bun üzerinde güvenilir değildir.
   Gateway’i **Node** ile çalıştırın. (Başlarken çalışma zamanı notuna bakın.)
 
+

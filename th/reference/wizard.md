@@ -260,3 +260,4 @@ Gateway เปิดเผยโฟลว์ของวิซาร์ดผ่
 - เอกสารอ้างอิงคอนฟิก: [Gateway configuration](/gateway/configuration)
 - ผู้ให้บริการ: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (แบบเดิม)
 - ทักษะ: [Skills](/tools/skills), [Skills config](/tools/skills-config)
+

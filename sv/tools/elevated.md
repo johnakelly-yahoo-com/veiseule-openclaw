@@ -53,3 +53,4 @@ title: "Elevated-läge"
 - Elevated exec-anrop loggas på info-nivå.
 - Sessionsstatus inkluderar förhöjt läge (t.ex. `elevated=ask`, `elevated=full`).
 
+

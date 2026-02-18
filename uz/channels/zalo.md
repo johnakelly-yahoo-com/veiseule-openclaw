@@ -185,3 +185,4 @@ Ko‘p akkauntli sozlamalar:
 - `channels.zalo.accounts.<id>.webhookPath`: har bir akkaunt uchun webhook yo‘li.
 - `channels.zalo.accounts.<id>.proxy`: har bir akkaunt uchun proxy URL.
 
+

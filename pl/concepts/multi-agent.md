@@ -382,3 +382,4 @@ Do targetowania grup użyj `agents.list[].groupChat.mentionPatterns`, aby wzmian
 
 Zobacz [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools), aby zapoznać się ze szczegółowymi przykładami.
 
+

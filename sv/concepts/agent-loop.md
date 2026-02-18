@@ -142,3 +142,4 @@ Se [Plugins](/tools/plugin#plugin-hooks) för hook-API:t och registreringsdetalj
 - Gateway-frånkoppling eller RPC-timeout
 - `agent.wait`-timeout (endast väntan, stoppar inte agenten)
 
+

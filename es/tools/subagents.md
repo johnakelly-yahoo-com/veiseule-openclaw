@@ -205,3 +205,4 @@ Los sub-agentes usan un carril de cola dedicado en proceso:
 - El contexto del sub-agente solo inyecta `AGENTS.md` + `TOOLS.md` (no `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` ni `BOOTSTRAP.md`).
 - La profundidad máxima de anidamiento es 5 (`maxSpawnDepth` rango: 1–5). Se recomienda profundidad 2 para la mayoría de los casos de uso.
 - `maxChildrenPerAgent` limita los hijos activos por sesión (predeterminado: 5, rango: 1–20).
+

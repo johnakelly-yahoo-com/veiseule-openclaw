@@ -63,3 +63,4 @@ Ixtiyoriy kalitlar:
 - Agar plaginingiz native modullarga bog‘liq bo‘lsa, build bosqichlarini va
   paket menejeri allowlist talablari (masalan, pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`) haqida hujjatlashtiring.
+

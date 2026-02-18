@@ -88,3 +88,4 @@ openclaw nodes rename --node <id|name|ip> --name "Living Room iPad"
 - إذا كانت Gateway غير متصلة أو كان الإقران معطّلًا، فلن تتمكن العُقد من الإقران.
 - إذا كانت Gateway في وضع بعيد، فسيظل الإقران يحدث مقابل مخزن Gateway البعيد.
 
+

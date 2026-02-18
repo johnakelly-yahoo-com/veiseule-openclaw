@@ -64,3 +64,4 @@ Lưu ý: Discord không có chế độ “chọn chính xác N”; `pollMulti` 
 Các poll trên Teams được hiển thị dưới dạng Adaptive Cards và yêu cầu gateway phải luôn trực tuyến
 để ghi nhận phiếu bầu vào `~/.openclaw/msteams-polls.json`.
 
+

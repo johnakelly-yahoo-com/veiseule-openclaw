@@ -129,3 +129,4 @@ Legenda:
 - `sendMessageDraft`: dymek wersji roboczej Telegrama (nie jest prawdziwą wiadomością).
 - `final reply`: zwykła wysyłka wiadomości w Telegramie.
 
+

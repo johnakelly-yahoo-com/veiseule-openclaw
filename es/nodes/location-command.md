@@ -108,3 +108,4 @@ Notas:
 - Siempre: “Permitir ubicación en segundo plano. Requiere permiso del sistema.”
 - Precisa: “Usar ubicación GPS precisa. Desactive para compartir ubicación aproximada.”
 
+

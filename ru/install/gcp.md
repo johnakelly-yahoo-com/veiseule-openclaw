@@ -498,3 +498,4 @@ gcloud compute instances start openclaw-gateway --zone=us-central1-a
 - Подключите локальные устройства как узлы: [Nodes](/nodes)
 - Настройте Gateway (шлюз): [Gateway configuration](/gateway/configuration)
 
+

@@ -143,3 +143,4 @@ El formato de los mensajes salientes se centraliza en `messages`:
 
 Detalles: [Configuration](/gateway/configuration#messages) y la documentación de los canales.
 
+

@@ -115,3 +115,4 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - Local Canvas content သည် custom scheme ကို အသုံးပြုထားပြီး (loopback server မလိုအပ်ပါ)။
 - External `http(s)` URLs များကို တိတိကျကျ navigate လုပ်ထားသည့်အခါတွင်သာ ခွင့်ပြုသည်။
 
+

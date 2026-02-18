@@ -164,3 +164,4 @@ openclaw acp --session agent:qa:bug-123
 - `--server-verbose`: เปิดใช้การล็อกแบบละเอียดบนเซิร์ฟเวอร์ACP
 - `--verbose, -v`: การล็อกฝั่งไคลเอนต์แบบละเอียด
 
+

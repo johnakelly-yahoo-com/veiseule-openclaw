@@ -202,3 +202,4 @@ Für detaillierte Sicherheitsarchitektur und Fehlerbehebung:
 - [Sandboxing](/gateway/sandboxing) — Agent-Sandbox-Konfiguration
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — Isolation pro Agent
 
+

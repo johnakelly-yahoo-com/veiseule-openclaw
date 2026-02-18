@@ -147,3 +147,4 @@ Mga detalye: [Gateway protocol](/gateway/protocol), [Pairing](/channels/pairing)
 - Sapilitan ang handshake; anumang non‑JSON o non‑connect na unang frame ay agarang isasara.
 - Ang mga event ay hindi nire-replay; dapat mag-refresh ang mga client kapag may gap.
 
+

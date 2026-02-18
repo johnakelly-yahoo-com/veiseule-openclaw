@@ -70,3 +70,4 @@ title: "Denkstufen"
 - Die Auswahl einer anderen Stufe gilt nur für die nächste Nachricht (`thinkingOnce`); nach dem Senden springt der Selektor wieder auf die gespeicherte Sitzungsstufe zurück.
 - Um den Sitzungsstandard zu ändern, senden Sie wie zuvor eine `/think:<level>`-Direktive; der Selektor spiegelt dies nach dem nächsten Neuladen wider.
 
+

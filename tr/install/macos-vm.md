@@ -274,3 +274,4 @@ Gerçek anlamda her zaman açık kullanım için özel bir Mac mini veya küçü
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (ileri düzey)
 - [Docker Sandboxing](/install/docker) (alternatif yalıtım yaklaşımı)
 
+

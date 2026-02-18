@@ -86,3 +86,4 @@ Masofaviy shlyuzlar uchun `openclaw logs --follow` dan ham foydalanishingiz mumk
 - Bayroqlarni yoqilgan holda qoldirish xavfsiz; ular faqat aniq quyi tizim uchun log hajmiga ta’sir qiladi.
 - Log manzillari, darajalari va redaksiyalashni o‘zgartirish uchun [/logging](/logging) dan foydalaning.
 
+

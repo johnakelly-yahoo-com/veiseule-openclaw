@@ -38,3 +38,4 @@ legacy 設定與位址指定請參閱 [iMessage](/channels/imessage)（偏好 `c
 - 保持 RPC 用戶端具備韌性：設定逾時，於退出時重新啟動。
 - 優先使用穩定的 ID（例如 `chat_id`），避免使用顯示字串。
 
+

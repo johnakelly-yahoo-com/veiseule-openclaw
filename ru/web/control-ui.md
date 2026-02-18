@@ -217,3 +217,4 @@ http://localhost:5173/?gatewayUrl=wss://<gateway-host>:18789&token=<gateway-toke
 
 Подробности настройки удалённого доступа: [Remote access](/gateway/remote).
 
+

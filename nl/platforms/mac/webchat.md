@@ -40,3 +40,4 @@ geselecteerde agent (met een sessiewisselaar voor andere sessies).
 
 - De UI is geoptimaliseerd voor chatsessies (geen volledige browser‑sandbox).
 
+

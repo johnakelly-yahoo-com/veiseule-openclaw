@@ -28,3 +28,4 @@ openclaw onboard --auth-choice zai-api-key
 - Ví dụ ID mô hình bao gồm `glm-4.7` và `glm-4.6`.
 - Để biết chi tiết về nhà cung cấp, xem [/providers/zai](/providers/zai).
 
+

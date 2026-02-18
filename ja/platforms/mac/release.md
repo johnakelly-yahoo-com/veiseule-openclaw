@@ -81,3 +81,4 @@ SPARKLE_PRIVATE_KEY_FILE=/path/to/ed25519-private-key scripts/make_appcast.sh di
 
 完了の定義: 署名済みアプリと appcast が公開され、古いインストール済みバージョンからのアップデートフローが正常に動作し、リリースアセットが GitHub リリースに添付されていること。
 
+

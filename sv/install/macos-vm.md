@@ -274,3 +274,4 @@ För sant alltid-på, överväga en dedikerad Mac mini eller en liten VPS. Se [V
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (avancerat)
 - [Docker Sandboxing](/install/docker) (alternativ isoleringsmetod)
 
+

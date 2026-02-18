@@ -60,3 +60,4 @@ Om du behöver längre retention, återfånga från klienten.
 - Om inga värdar hittas, öppna en av värdapparna (Peekaboo.app eller OpenClaw.app)
   och bekräfta att behörigheter är beviljade.
 
+

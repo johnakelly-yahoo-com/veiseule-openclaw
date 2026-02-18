@@ -506,3 +506,4 @@ gcloud compute instances start openclaw-gateway --zone=us-central1-a
 - จับคู่อุปกรณ์ภายในเครื่องเป็นโหนด: [Nodes](/nodes)
 - กำหนดค่าGateway: [Gateway configuration](/gateway/configuration)
 
+

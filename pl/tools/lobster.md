@@ -336,3 +336,4 @@ Jeden publiczny przykład: CLI „drugiego mózgu” + potoki Lobster, które za
 - Wątek: [https://x.com/plattenschieber/status/2014508656335770033](https://x.com/plattenschieber/status/2014508656335770033)
 - Repo: [https://github.com/bloomedai/brain-cli](https://github.com/bloomedai/brain-cli)
 
+

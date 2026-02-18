@@ -275,3 +275,4 @@ Yaratilgan JSON Schema repoda `dist/protocol.schema.json` da joylashgan. E’lon
 2. `pnpm protocol:check` ni ishga tushiring.
 3. Qayta yaratilgan schema va Swift modellari bilan commit qiling.
 
+

@@ -18,3 +18,4 @@ _(Na czym im zależy? Nad jakimi projektami pracują? Co ich irytuje? Co ich baw
 
 Im więcej wiesz, tym lepiej możesz pomóc. Pamiętaj jednak — uczysz się o osobie, a nie tworzysz dossier. Uszanuj tę różnicę.
 
+

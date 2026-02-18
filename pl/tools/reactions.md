@@ -18,3 +18,4 @@ Uwagi dotyczące kanałów:
 - **WhatsApp**: puste `emoji` usuwa reakcję bota; `remove: true` mapuje na pusty emoji (nadal wymaga `emoji`).
 - **Signal**: przychodzące powiadomienia o reakcjach emitują zdarzenia systemowe, gdy włączone jest `channels.signal.reactionNotifications`.
 
+

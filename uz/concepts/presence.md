@@ -86,3 +86,4 @@ Har bir WS klient `connect` so‘rovi bilan boshlaydi. Handshake muvaffaqiyatli 
   - 30. davriy mayoqchalar xuddi shu `instanceId` dan foydalanayotganini tasdiqlang
   - 31. ulanishdan kelib chiqqan yozuvda `instanceId` yo‘qligini tekshiring (bunday holatda dublikatlar kutiladi)
 
+

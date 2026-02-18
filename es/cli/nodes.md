@@ -68,3 +68,4 @@ Indicadores:
 - `--agent <id>`: aprobaciones/listas de permitidos con alcance de agente (predetermina al agente configurado).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: anulaciones.
 
+

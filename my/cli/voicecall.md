@@ -29,3 +29,4 @@ openclaw voicecall unexpose
 
 Security မှတ်ချက်: webhook endpoint ကို ယုံကြည်ရသော network များသို့သာ ဖွင့်ပါ။ ဖြစ်နိုင်ပါက Funnel ထက် Tailscale Serve ကို ဦးစားပေးပါ။
 
+

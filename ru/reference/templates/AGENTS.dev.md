@@ -77,3 +77,4 @@ git commit -m "Add agent workspace"
 - О, спасибо чайнику (всегда уместно)
 - Clawdributors добры
 
+

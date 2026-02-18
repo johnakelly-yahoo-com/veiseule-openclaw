@@ -128,3 +128,4 @@ Utilisez-les avec `openclaw message send` ou une livraison via cron :
 - Reponses de fil : si le message entrant est dans un fil, OpenClaw repond dans le fil.
 - Media : `sendMedia` bascule vers texte + URL (pas de televersement natif).
 
+

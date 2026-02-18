@@ -162,3 +162,4 @@ openclaw models list
 - La prise en charge du raisonnement dépend du modèle ; consultez la fiche du modèle Bedrock pour connaître les capacités actuelles.
 - Si vous préférez un flux de clés géré, vous pouvez également placer un proxy compatible OpenAI devant Bedrock et le configurer comme fournisseur OpenAI à la place.
 
+

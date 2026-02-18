@@ -130,3 +130,4 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
 اسے مستقل بنانے کے لیے `export PATH=...` والی لائن کو اپنے `~/.bashrc` یا `~/.zshrc` میں شامل کریں۔
+

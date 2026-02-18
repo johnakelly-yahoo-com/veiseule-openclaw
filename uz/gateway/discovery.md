@@ -117,3 +117,4 @@ Gateway — tugun/mijoz qabul qilish bo‘yicha yagona haqiqat manbai.
 - **macOS ilovasi**: gateway tanlashda yordam beradi, juftlash so‘rovlarini ko‘rsatadi va faqat fallback sifatida SSH’dan foydalanadi.
 - **iOS/Android tugunlari**: qulaylik uchun Bonjour orqali ko‘rib chiqadi va juftlangan Gateway WS’ga ulanadi.
 
+

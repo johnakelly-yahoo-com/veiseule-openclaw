@@ -337,3 +337,4 @@ Prefiera `chat_guid` para un enrutamiento estable:
 
 Para una referencia general del flujo de trabajo de canales, consulte [Channels](/channels) y la guía de [Plugins](/tools/plugin).
 
+

@@ -85,3 +85,4 @@ Beispiel mit Deepgram-Optionen:
 - Überschreiben Sie Endpunkte oder Header mit `tools.media.audio.baseUrl` und `tools.media.audio.headers`, wenn Sie einen Proxy verwenden.
 - Die Ausgabe folgt denselben Audioregeln wie bei anderen Anbietern (Größenbeschränkungen, Timeouts, Einspeisung des Transkripts).
 
+

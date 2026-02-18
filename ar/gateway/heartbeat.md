@@ -352,3 +352,4 @@ openclaw system event --text "Check for urgent follow-ups" --mode now
 تشغّل نبضات القلب دورات وكيل كاملة. الفواصل الأقصر تستهلك رموزًا أكثر. أبقِ `HEARTBEAT.md` صغيرًا وفكّر في `model` أو `target: "none"` الأرخص
 إذا كنت تريد فقط تحديثات حالة داخلية.
 
+

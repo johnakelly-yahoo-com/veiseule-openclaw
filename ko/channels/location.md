@@ -51,3 +51,4 @@ Meet here
 - **WhatsApp**: `locationMessage.comment` 과(와) `liveLocationMessage.caption` 이 캡션 라인으로 추가됩니다.
 - **Matrix**: `geo_uri` 는 핀 위치로 파싱되며, 고도는 무시되고 `LocationIsLive` 은 항상 false 입니다.
 
+

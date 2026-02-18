@@ -43,3 +43,4 @@ Fanebladet Om læser disse nøgler til at vise version, bygge dato, git commit, 
 
 TCC tilladelser er bundet til bundle identifier _and_ kode signatur. Usigneret fejlfinding bygger med skiftende UUID'er fik macOS til at glemme tilskud efter hver genopbygning. Underskrift af binære filer (ad hoc som standard) og opretholdelse af et fast bundt id/path (`dist/OpenClaw.app`) bevarer tilskuddene mellem bygninger, der stemmer overens med VibeTunnel tilgang.
 
+

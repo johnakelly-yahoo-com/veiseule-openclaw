@@ -503,3 +503,4 @@ Vositalar ikki parallel kanalda ochiladi:
 
 Bu shuni anglatadiki, agent ham “qaysi vositalar mavjud”ligini, ham “ularni qanday chaqirish”ni ko‘radi. Agar biror vosita
 
+

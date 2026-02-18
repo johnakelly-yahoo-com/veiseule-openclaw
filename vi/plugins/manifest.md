@@ -66,3 +66,4 @@ Phải tham chiếu đến các **discoverable** plugin id. Các id không xác 
   yêu cầu allowlist của trình quản lý gói (ví dụ: pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
 
+

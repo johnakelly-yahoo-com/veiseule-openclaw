@@ -174,3 +174,4 @@ Notes :
 - La politique d’outil s’applique toujours ; `allow: ["exec"]` autorise implicitement `apply_patch`.
 - La configuration se trouve sous `tools.exec.applyPatch`.
 
+

@@ -180,3 +180,4 @@ The LINE plugin also ships a `/card` command for Flex message presets:
 - **Media download errors:** raise `channels.line.mediaMaxMb` if media exceeds the
   default limit.
 
+

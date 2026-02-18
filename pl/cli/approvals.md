@@ -45,3 +45,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - Host węzła musi reklamować `system.execApprovals.get/set` (aplikacja na macOS lub bezgłowy host węzła).
 - Pliki zatwierdzeń są przechowywane per host w `~/.openclaw/exec-approvals.json`.
 
+

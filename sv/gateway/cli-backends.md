@@ -219,3 +219,4 @@ OpenClaw levereras också med ett standardval för `codex-cli`:
   `none` (Codex CLI kan för närvarande inte återuppta med JSON-utdata).
 - **Bilder ignoreras**: sätt `imageArg` (och verifiera att CLI:t stöder filsökvägar).
 
+

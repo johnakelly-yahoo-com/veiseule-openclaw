@@ -85,3 +85,4 @@ Standard: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 - Om kommandon verkar fastna, aktivera utförliga loggar och leta efter rader som ”queued for …ms” för att bekräfta att kön töms.
 - Om du behöver ködjup, aktivera utförliga loggar och bevaka rader med kötidsinformation.
 
+

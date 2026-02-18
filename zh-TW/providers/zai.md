@@ -31,3 +31,4 @@ openclaw onboard --zai-api-key "$ZAI_API_KEY"
 - 請參閱 [/providers/glm](/providers/glm) 以取得模型家族的概覽。
 - Z.AI 使用 Bearer 驗證並搭配您的 API 金鑰。
 
+

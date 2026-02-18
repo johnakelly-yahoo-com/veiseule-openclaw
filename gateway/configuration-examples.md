@@ -614,3 +614,4 @@ If more than one person can DM your bot (multiple entries in `allowFrom`, pairin
 - Optional sections to add later: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - See [Providers](/channels/whatsapp) and [Troubleshooting](/gateway/troubleshooting) for deeper setup notes.
 
+

@@ -117,3 +117,4 @@ git commit -m "Add Clawd workspace"
 - Para inspección del DOM, use `openclaw browser eval|query|dom|snapshot` (y `--json`/`--out` cuando necesite salida para máquinas).
 - Para interacciones, use `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` (hacer clic/escribir requiere referencias de instantáneas; use `evaluate` para selectores CSS).
 
+

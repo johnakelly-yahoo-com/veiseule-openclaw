@@ -87,3 +87,4 @@ Alt andet skal fejle hårdnakket med: “Config ugyldig. Kør `openclaw læge --
 - Ugyldig konfiguration → gateway-opstart blokeres undtagen diagnostiske kommandoer.
 - Doctor dry-run automatisk; `doctor --fix` skriver korrigeret konfiguration.
 
+

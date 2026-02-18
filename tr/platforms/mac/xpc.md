@@ -57,3 +57,4 @@ Agent -> Gateway -> Node Service (WS)
 - TCC istemleri yalnızca GUI uygulaması paketinden kaynaklanır; yeniden derlemeler arasında imzalı bundle ID’yi sabit tutun.
 - IPC sertleştirmesi: soket modu `0600`, belirteç, eş UID denetimleri, HMAC challenge/response, kısa TTL.
 
+

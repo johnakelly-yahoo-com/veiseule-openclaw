@@ -40,3 +40,4 @@ Notities:
 - `memory index --verbose` toont details per fase (provider, model, bronnen, batchactiviteit).
 - `memory status` neemt alle extra paden mee die zijn geconfigureerd via `memorySearch.extraPaths`.
 
+

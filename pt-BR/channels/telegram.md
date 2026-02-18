@@ -796,3 +796,4 @@ Opções globais relacionadas:
 - `commands.native` (padrão para `"auto"` → ligado para Telegram/Discord, desligado para Slack), `commands.text`, `commands.useAccessGroups` (comportamento de comandos). Substitua com `channels.telegram.commands.native`.
 - `messages.responsePrefix`, `messages.ackReaction`, `messages.ackReactionScope`, `messages.removeAckAfterReply`.
 
+

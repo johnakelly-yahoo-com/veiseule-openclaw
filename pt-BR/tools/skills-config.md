@@ -71,3 +71,4 @@ Use uma das opções:
 
 `env` e `skills.entries.<skill>.env/apiKey` globais se aplicam apenas a execuções no **host**.
 
+

@@ -45,3 +45,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - नोड होस्ट को `system.execApprovals.get/set` का विज्ञापन करना आवश्यक है (macOS ऐप या हेडलेस नोड होस्ट)।
 - अनुमोदन फ़ाइलें प्रत्येक होस्ट के लिए `~/.openclaw/exec-approvals.json` पर संग्रहीत होती हैं।
 
+

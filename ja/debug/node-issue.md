@@ -83,3 +83,4 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - 既知のリグレッションがある場合は、`tsx` の nightly をテストするか、以前のバージョンに固定します。
 - Node LTS でも再現する場合は、`__name` のスタックトレースを添えて、上流に最小再現を報告します。
 
+

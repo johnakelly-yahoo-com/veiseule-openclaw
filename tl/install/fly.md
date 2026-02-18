@@ -485,3 +485,4 @@ Sa inirerekomendang config (`shared-cpu-2x`, 2GB RAM):
 
 Tingnan ang [Fly.io pricing](https://fly.io/docs/about/pricing/) para sa mga detalye.
 
+

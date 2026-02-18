@@ -237,3 +237,4 @@ Sugerowany plik startowy `.gitignore`:
 - Jeśli `agents.defaults.sandbox` jest włączone, sesje inne niż główne mogą używać
   sandboxowych przestrzeni roboczych per sesja pod `agents.defaults.sandbox.workspaceRoot`.
 
+

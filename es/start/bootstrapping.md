@@ -35,3 +35,4 @@ Cuando el Gateway se ejecuta en otra máquina, edite los archivos del espacio de
 - Incorporación de la app de macOS: [Onboarding](/start/onboarding)
 - Diseño del espacio de trabajo: [Agent workspace](/concepts/agent-workspace)
 
+

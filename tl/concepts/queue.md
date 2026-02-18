@@ -85,3 +85,4 @@ Defaults: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 - Kung tila na-stuck ang mga command, i-enable ang verbose log at hanapin ang mga linyang “queued for …ms” upang makumpirma na nagda-drain ang queue.
 - Kung kailangan mo ang queue depth, i-enable ang verbose log at bantayan ang mga linya ng queue timing.
 
+

@@ -18,3 +18,4 @@ Notas por canal:
 - **WhatsApp**: un `emoji` vacío elimina la reacción del bot; `remove: true` se asigna a un emoji vacío (aún requiere `emoji`).
 - **Signal**: las notificaciones de reacciones entrantes emiten eventos del sistema cuando `channels.signal.reactionNotifications` está habilitado.
 
+

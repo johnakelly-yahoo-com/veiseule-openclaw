@@ -580,3 +580,4 @@ Beispiel:
   (Login-Shell) aus, die `/etc/profile` sourced und dabei PATH zurücksetzen kann. Setzen Sie
   `docker.env.PATH`, um Ihre benutzerdefinierten Werkzeugpfade voranzustellen (z. B. `/custom/bin:/usr/local/share/npm-global/bin`), oder fügen Sie ein Skript unter `/etc/profile.d/` in Ihrem Dockerfile hinzu.
 
+

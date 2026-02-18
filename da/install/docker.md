@@ -562,3 +562,4 @@ Eksempel:
   brugerdefinerede værktøjsstier (f.eks. `/custom/bin:/usr/local/share/npm-global/bin`), eller tilføj
   et script under `/etc/profile.d/` i din Dockerfile.
 
+

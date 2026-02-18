@@ -211,3 +211,4 @@ http://localhost:5173/?gatewayUrl=wss://<gateway-host>:18789&token=<gateway-toke
 
 원격 접근 설정 세부 정보: [Remote access](/gateway/remote).
 
+

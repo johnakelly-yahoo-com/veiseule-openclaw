@@ -798,3 +798,4 @@ title: "Telegram"
 - `commands.native` (الافتراضي `"auto"` → مفعّل لـ Telegram/Discord، معطّل لـ Slack)، `commands.text`، `commands.useAccessGroups` (سلوك الأوامر). تجاوز باستخدام `channels.telegram.commands.native`.
 - `messages.responsePrefix`، `messages.ackReaction`، `messages.ackReactionScope`، `messages.removeAckAfterReply`.
 
+

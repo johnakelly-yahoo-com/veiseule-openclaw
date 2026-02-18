@@ -30,3 +30,4 @@ Jak sprawdzić, czy połączony kanał jest w dobrej kondycji z poziomu aplikacj
 
 - Nadal możesz użyć przepływu CLI w [Gateway health](/gateway/health) (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) oraz śledzić `/tmp/openclaw/openclaw-*.log` pod kątem `web-heartbeat` / `web-reconnect`.
 
+

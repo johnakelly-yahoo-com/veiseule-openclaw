@@ -64,3 +64,4 @@ Legen Sie die Wiederholungsrichtlinie pro Anbieter in `~/.openclaw/openclaw.json
 - Wiederholungen gelten pro Anfrage (Nachrichtenversand, Medien-Upload, Reaktion, Umfrage, Sticker).
 - Zusammengesetzte Abläufe wiederholen keine bereits abgeschlossenen Schritte.
 
+

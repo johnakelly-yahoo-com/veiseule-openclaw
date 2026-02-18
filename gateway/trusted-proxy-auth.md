@@ -260,3 +260,4 @@ If you're moving from token auth to trusted-proxy:
 - [Remote Access](/gateway/remote) — other remote access patterns
 - [Tailscale](/gateway/tailscale) — simpler alternative for tailnet-only access
 
+

@@ -218,3 +218,4 @@ Bu protokol **tam gateway API'sini** (durum, kanallar, modeller, sohbet,
 ajan, oturumlar, düğümler, onaylar vb.) açığa çıkarır. Kesin yüzey,
 `src/gateway/protocol/schema.ts` içindeki TypeBox şemaları tarafından tanımlanır.
 
+

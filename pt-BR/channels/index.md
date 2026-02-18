@@ -41,3 +41,4 @@ Texto é suportado em todos; mídia e reações variam conforme o canal.
 - Solução de problemas: [Solução de problemas de canais](/channels/troubleshooting).
 - Provedores de modelos são documentados separadamente; veja [Model Providers](/providers/models).
 
+

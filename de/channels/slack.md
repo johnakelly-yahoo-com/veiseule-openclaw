@@ -570,3 +570,4 @@ Für den Triage-Ablauf: [/channels/troubleshooting](/channels/troubleshooting).
 - Für das Slack-Werkzeug sind die Semantiken zum Entfernen von Reaktionen unter [/tools/reactions](/tools/reactions) beschrieben.
 - Anhänge werden bei Erlaubnis und unterhalb des Größenlimits in den Medienspeicher heruntergeladen.
 
+

@@ -89,3 +89,4 @@ openclaw update status --timeout 10
 - [Yangilash](/install/updating)
 - [CLI ma’lumotnomasi](/cli)
 
+

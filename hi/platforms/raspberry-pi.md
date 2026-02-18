@@ -352,3 +352,4 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Tailscale](/gateway/tailscale) — दूरस्थ पहुँच
 - [Nodes](/nodes) — अपने लैपटॉप/फ़ोन को Pi Gateway के साथ जोड़ें
 
+

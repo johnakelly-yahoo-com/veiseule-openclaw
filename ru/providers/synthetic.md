@@ -94,3 +94,4 @@ synthetic/hf:MiniMaxAI/MiniMax-M2.1
   которую планируете использовать.
 - См. [Model providers](/concepts/model-providers) для правил провайдеров.
 
+

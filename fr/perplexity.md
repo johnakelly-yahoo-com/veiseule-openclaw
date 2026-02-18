@@ -75,3 +75,4 @@ Si aucune URL de base n’est définie, OpenClaw choisit une valeur par défaut 
 
 Voir [Outils Web](/tools/web) pour la configuration complète de web_search.
 
+

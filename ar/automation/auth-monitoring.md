@@ -39,3 +39,4 @@ openclaw models status --check
 
 إذا لم تكن بحاجة إلى أتمتة الهاتف أو مؤقّتات systemd، فتجاوز هذه السكربتات.
 
+

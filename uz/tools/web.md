@@ -248,3 +248,4 @@ Eslatmalar:
 - Agar vosita profillari/allowlistlardan foydalansangiz, `web_search`/`web_fetch` yoki `group:web` ni qo‘shing.
 - Agar Brave kaliti yo‘q bo‘lsa, `web_search` hujjatlar havolasi bilan qisqa sozlash bo‘yicha ko‘rsatma qaytaradi.
 
+

@@ -129,3 +129,4 @@ Forklaring:
 - `sendMessageDraft`: Telegram-udkast-boble (ikke en rigtig besked).
 - `final reply`: normal afsendelse af Telegram-besked.
 
+

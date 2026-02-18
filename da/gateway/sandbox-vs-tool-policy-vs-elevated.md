@@ -125,3 +125,4 @@ Fix-it-nøgler (vælg én):
 
 I `"ikke-main"` tilstand, gruppe / kanal nøgler er _not_ main. Brug hovedsessionsnøglen (vist ved `sandbox explain`) eller skift tilstand til `"off"`.
 
+

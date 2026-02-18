@@ -28,3 +28,4 @@ macOS 앱은 Gateway(게이트웨이)를 통해 OpenClaw Skills 를 노출하며
 
 - 설치 및 설정 업데이트는 로컬 Mac 이 아닌 Gateway(게이트웨이) 호스트에서 이루어집니다.
 
+

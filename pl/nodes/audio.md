@@ -110,3 +110,4 @@ Uwaga: Wykrywanie binariów jest „best‑effort” na macOS/Linux/Windows; upe
 - Upewnij się, że Twoje CLI kończy działanie kodem 0 i wypisuje zwykły tekst; JSON wymaga obróbki przez `jq -r .text`.
 - Utrzymuj rozsądne timeouty (`timeoutSeconds`, domyślnie 60 s), aby nie blokować kolejki odpowiedzi.
 
+

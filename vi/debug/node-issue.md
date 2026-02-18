@@ -83,3 +83,4 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Thử `tsx` nightly hoặc ghim về phiên bản sớm hơn nếu có hồi quy đã biết.
 - Nếu tái hiện trên Node LTS, tạo một repro tối giản upstream kèm theo stack trace `__name`.
 
+

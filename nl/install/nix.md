@@ -92,3 +92,4 @@ packaging en Nix-builds (die niet afhankelijk zijn van een volledige Xcode-toolc
 - [Wizard](/start/wizard) — niet-Nix CLI-installatie
 - [Docker](/install/docker) — containerized installatie
 
+

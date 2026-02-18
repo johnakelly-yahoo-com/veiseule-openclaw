@@ -195,3 +195,4 @@ JSONL 履歴は **書き換えられません** 。 [/concepts/session-pruning](
 - `threadId`: チャンネルがサポートする場合のスレッド／トピック ID
   起点フィールドは、ダイレクトメッセージ、チャンネル、グループに対して設定されます。コネクターが配信ルーティングのみを更新する場合（例: DM のメインセッションを新鮮に保つため）でも、セッションが説明用メタデータを保持できるよう、インバウンドコンテキストを提供する必要があります。拡張機能は、インバウンドコンテキストに `ConversationLabel`、`GroupSubject`、`GroupChannel`、`GroupSpace`、および `SenderName` を送信し、`recordSessionMetaFromInbound` を呼び出す（または同じコンテキストを `updateLastRoute` に渡す）ことでこれを実現できます。 19. コネクタが配信ルーティングのみを更新する場合（たとえば DM のメインセッションを新鮮に保つためなど）でも、セッションが説明用メタデータを保持できるよう、インバウンドコンテキストを提供する必要があります。 20. 拡張機能は、インバウンドコンテキストで `ConversationLabel`、`GroupSubject`、`GroupChannel`、`GroupSpace`、`SenderName` を送信し、`recordSessionMetaFromInbound` を呼び出す（または同じコンテキストを `updateLastRoute` に渡す）ことでこれを実現できます。
 
+

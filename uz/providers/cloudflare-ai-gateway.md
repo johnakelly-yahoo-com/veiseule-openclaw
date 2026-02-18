@@ -56,3 +56,4 @@ Muhit bo‘yicha eslatma
 
 Kiruvchi ovozli eslatmalar uchun Deepgram transkripsiyasi
 
+

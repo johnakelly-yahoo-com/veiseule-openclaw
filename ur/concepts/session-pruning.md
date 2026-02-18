@@ -116,3 +116,4 @@ TTL‑aware پروننگ فعال کریں:
 
 کنفیگ حوالہ دیکھیں: [Gateway Configuration](/gateway/configuration)
 
+

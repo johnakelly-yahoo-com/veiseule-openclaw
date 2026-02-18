@@ -57,3 +57,4 @@ Audience: macOS app contributors. Goal: wake‑word နှင့် push‑to‑
 4. `VoiceWakeOverlayController` ကို publisher နှင့် ချိတ်ဆက်ပြီး runtime/PTT မှ တိုက်ရိုက်ခေါ်မှုများကို ဖယ်ရှားပါ။
 5. session adoption, cooldown, နှင့် empty-text dismissal အတွက် integration tests များ ထည့်သွင်းပါ။
 
+

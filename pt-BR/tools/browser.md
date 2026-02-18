@@ -571,3 +571,4 @@ Como mapeia:
 
 Isso mantém o agente determinístico e evita seletores frágeis.
 
+

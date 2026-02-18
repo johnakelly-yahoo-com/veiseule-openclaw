@@ -660,3 +660,4 @@ Plugins repo में एक skill ship कर सकते हैं (`skills/
 
 - इन‑रिपॉज़िटरी प्लगइन्स Vitest परीक्षणों को `src/**` के अंतर्गत रख सकते हैं (उदाहरण: `src/plugins/voice-call.plugin.test.ts`)।
 - अलग से प्रकाशित प्लगइन्स को अपना CI (lint/build/test) चलाना चाहिए और यह सत्यापित करना चाहिए कि `openclaw.extensions` बिल्ट एंट्रीपॉइंट (`dist/index.js`) की ओर इशारा करता है।
+

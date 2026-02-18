@@ -40,3 +40,4 @@ Uwagi:
 - `memory index --verbose` wypisuje szczegóły dla poszczególnych faz (dostawca, model, źródła, aktywność wsadów).
 - `memory status` uwzględnia wszelkie dodatkowe ścieżki skonfigurowane przez `memorySearch.extraPaths`.
 
+

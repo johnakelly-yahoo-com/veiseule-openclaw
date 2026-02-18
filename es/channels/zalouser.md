@@ -135,3 +135,4 @@ Las cuentas se asignan a perfiles de zca. Ejemplo:
 - `openclaw channels status --probe`
 - Vuelva a iniciar sesión: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
 
+

@@ -575,3 +575,4 @@ Kluczowe opcje:
 - ✅ Audio
 - ⚠️ Tekst sformatowany (częściowe wsparcie)
 
+

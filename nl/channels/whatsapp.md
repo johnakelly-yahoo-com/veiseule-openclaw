@@ -404,3 +404,4 @@ WhatsApp verzendt audio als **spraaknotities** (PTT-bubbel).
 - Bun wordt **niet aanbevolen**. WhatsApp (Baileys) en Telegram zijn onbetrouwbaar op Bun.
   Draai de gateway met **Node**. (Zie runtime-opmerking bij Aan de slag.)
 
+

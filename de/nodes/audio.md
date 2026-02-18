@@ -110,3 +110,4 @@ Hinweis: Die Erkennung von Binärdateien ist bestmöglich über macOS/Linux/Wind
 - Stellen Sie sicher, dass Ihre CLI mit Exit‑Code 0 beendet wird und reinen Text ausgibt; JSON muss über `jq -r .text` aufbereitet werden.
 - Halten Sie Timeouts angemessen (`timeoutSeconds`, Standard 60 s), um das Blockieren der Antwort‑Warteschlange zu vermeiden.
 
+

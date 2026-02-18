@@ -112,3 +112,4 @@ Mevcut npm eklenti listesi (gerektikçe güncelleyin):
 
 Sürüm notları ayrıca **varsayılan olarak açık olmayan** **yeni isteğe bağlı paketli eklentileri** de belirtmelidir (örnek: `tlon`).
 
+

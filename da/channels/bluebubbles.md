@@ -337,3 +337,4 @@ Foretræk `chat_guid` for stabil routing:
 
 For generel reference til kanalworkflow, se [Kanaler](/channels) og guiden [Plugins](/tools/plugin).
 
+

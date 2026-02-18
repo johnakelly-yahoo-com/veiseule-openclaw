@@ -571,3 +571,4 @@ Schemat triage: [/channels/troubleshooting](/channels/troubleshooting).
 - Dla narzędzia Slack semantyka usuwania reakcji jest opisana w [/tools/reactions](/tools/reactions).
 - Załączniki są pobierane do magazynu multimediów, gdy jest to dozwolone i mieszczą się w limicie rozmiaru.
 
+

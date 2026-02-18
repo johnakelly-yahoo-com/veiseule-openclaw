@@ -94,3 +94,4 @@ Outros ajustes de configuração que afetam a disponibilidade de ferramentas:
 - Prefira `optional: true` para ferramentas que disparam efeitos colaterais ou exigem
   binários/credenciais extras.
 
+

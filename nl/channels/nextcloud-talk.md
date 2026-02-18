@@ -137,3 +137,4 @@ Provider-opties:
 - `channels.nextcloud-talk.blockStreamingCoalesce`: afstemming voor het samenvoegen van blokstreaming.
 - `channels.nextcloud-talk.mediaMaxMb`: limiet voor inkomende media (MB).
 
+

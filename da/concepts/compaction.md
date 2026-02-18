@@ -56,3 +56,4 @@ Se [/concepts/session-pruning](/concepts/session-pruning) for detaljer om beskæ
 - Store værktøjsoutput er allerede trunkeret; beskæring kan yderligere reducere ophobning af værktøjsresultater.
 - Hvis du har brug for en helt frisk start, starter `/new` eller `/reset` et nyt sessions-id.
 
+

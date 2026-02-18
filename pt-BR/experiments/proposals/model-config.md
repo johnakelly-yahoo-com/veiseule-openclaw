@@ -32,3 +32,4 @@ Operadores querem:
 - Como a UI deve apresentar a seleção de perfis para uma sessão?
 - Qual é o caminho de migração mais seguro a partir de chaves de configuração legadas?
 
+

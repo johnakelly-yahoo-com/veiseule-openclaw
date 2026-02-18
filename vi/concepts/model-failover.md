@@ -140,3 +140,4 @@ Xem [Gateway configuration](/gateway/configuration) để biết:
 
 Xem [Models](/concepts/models) để có cái nhìn tổng quan rộng hơn về việc chọn mô hình và dự phòng.
 
+

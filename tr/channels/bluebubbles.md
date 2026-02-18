@@ -337,3 +337,4 @@ Kararlı yönlendirme için `chat_guid` tercih edin:
 
 Genel kanal iş akışı başvurusu için [Channels](/channels) ve [Plugins](/tools/plugin) kılavuzlarına bakın.
 
+

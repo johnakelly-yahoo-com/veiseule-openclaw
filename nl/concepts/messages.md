@@ -149,3 +149,4 @@ Uitgaande berichtopmaak is gecentraliseerd in `messages`:
 
 Details: [Configuratie](/gateway/configuration#messages) en kanaaldocumentatie.
 
+

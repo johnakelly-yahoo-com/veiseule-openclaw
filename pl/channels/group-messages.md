@@ -80,3 +80,4 @@ Tylko numer właściciela (z `channels.whatsapp.allowFrom` lub E.164 bota, gdy n
 - Wpisy w magazynie sesji będą widoczne jako `agent:<agentId>:whatsapp:group:<jid>` w magazynie sesji (domyślnie `~/.openclaw/agents/<agentId>/sessions/sessions.json`); brak wpisu oznacza jedynie, że grupa nie wyzwoliła jeszcze wykonania.
 - Wskaźniki pisania w grupach stosują się do `agents.defaults.typingMode` (domyślnie: `message` bez wzmianki).
 
+

@@ -337,3 +337,4 @@ Mas piliin ang `chat_guid` para sa matatag na routing:
 
 Para sa pangkalahatang sanggunian sa workflow ng channel, tingnan ang [Channels](/channels) at ang gabay na [Plugins](/tools/plugin).
 
+

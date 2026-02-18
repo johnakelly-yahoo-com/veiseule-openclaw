@@ -223,3 +223,4 @@ openclaw pairing list signal
 - `messages.groupChat.mentionPatterns` (전역 폴백).
 - `messages.responsePrefix`.
 
+

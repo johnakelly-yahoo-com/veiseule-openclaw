@@ -125,3 +125,4 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 2. リポジトリ ディレクトリを削除します。
 3. 上記の手順に従って、状態 + ワークスペースを削除します。
 
+

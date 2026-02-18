@@ -63,3 +63,4 @@ x-i18n:
 - 运行时仍然会单独加载插件模块；清单仅用于发现和验证。
 - 如果你的插件依赖原生模块，请记录构建步骤以及所有包管理器允许列表要求（例如 pnpm 的 `allow-build-scripts` - `pnpm rebuild <package>`）。
 
+

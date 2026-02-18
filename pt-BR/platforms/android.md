@@ -145,3 +145,4 @@ Comandos da câmera (somente em primeiro plano; com permissão):
 
 Veja [Nó de câmera](/nodes/camera) para parametros e helpers da CLI.
 
+

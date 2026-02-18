@@ -85,3 +85,4 @@ Valeurs par défaut :
 - `latency_tier` est validé sur `0..4` lorsqu’il est défini.
 - Android prend en charge les formats de sortie `pcm_16000`, `pcm_22050`, `pcm_24000` et `pcm_44100` pour le streaming AudioTrack à faible latence.
 
+

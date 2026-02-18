@@ -119,3 +119,4 @@ L’application demande une confirmation sauf si une clé valide est fournie.
 - Le contenu Canvas local utilise un schéma personnalisé (aucun serveur de loopback requis).
 - Les URL `http(s)` externes ne sont autorisées que lorsqu’elles sont explicitement visitées.
 
+

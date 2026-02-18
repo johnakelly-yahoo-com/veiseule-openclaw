@@ -281,3 +281,4 @@ Bilinmeyen çerçeve türleri, ileriye dönük uyumluluk için ham payload’lar
 2. `pnpm protocol:check` çalıştırın.
 3. Yeniden üretilmiş şemayı + Swift modellerini commit edin.
 
+

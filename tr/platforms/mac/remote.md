@@ -79,3 +79,4 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 
 Uygulamada artık genel bir “varsayılan ses” anahtarı yoktur; çağıranlar her istek için bir ses (ya da hiçbiri) seçer.
 
+

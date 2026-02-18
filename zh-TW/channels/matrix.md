@@ -260,3 +260,4 @@ openclaw pairing list matrix
 - `channels.matrix.autoJoinAllowlist`：允許自動加入的房間 ID／別名。
 - `channels.matrix.actions`：依動作的工具門檻（reactions/messages/pins/memberInfo/channelInfo）。
 
+

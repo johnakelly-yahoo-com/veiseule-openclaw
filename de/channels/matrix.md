@@ -260,3 +260,4 @@ Anbieteroptionen:
 - `channels.matrix.autoJoinAllowlist`: Zulässige Raum-IDs/Aliase für Auto-Join.
 - `channels.matrix.actions`: Werkzeug-Gating pro Aktion (Reaktionen/Nachrichten/Pins/memberInfo/channelInfo).
 
+

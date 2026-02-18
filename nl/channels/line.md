@@ -181,3 +181,4 @@ De LINE-plugin levert ook een `/card`-opdracht voor Flex-berichtpresets:
 - **Fouten bij media downloaden:** verhoog `channels.line.mediaMaxMb` als media de
   standaardlimiet overschrijdt.
 
+

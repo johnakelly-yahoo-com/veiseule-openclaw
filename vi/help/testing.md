@@ -364,3 +364,4 @@ Khi bạn sửa một vấn đề nhà cung cấp/mô hình được phát hiệ
   - lỗi chuyển đổi/replay request của nhà cung cấp → test mô hình trực tiếp
   - lỗi pipeline phiên/lịch sử/công cụ của gateway → gateway live smoke hoặc test mock gateway an toàn cho CI
 
+

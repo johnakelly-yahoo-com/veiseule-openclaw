@@ -227,3 +227,4 @@ Inicio sugerido de `.gitignore`:
 - Si `agents.defaults.sandbox` está habilitado, las sesiones que no son principales pueden usar espacios de trabajo
   en sandbox por sesión bajo `agents.defaults.sandbox.workspaceRoot`.
 
+

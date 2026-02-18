@@ -38,3 +38,4 @@ openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPEN
 - 更多模型/提供商选项，请参阅[模型提供商](/concepts/model-providers)。
 - OpenRouter 底层使用 Bearer 令牌和你的 API 密钥进行认证。
 
+

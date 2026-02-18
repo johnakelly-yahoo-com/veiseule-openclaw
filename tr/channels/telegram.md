@@ -792,3 +792,4 @@ Sağlayıcı seçenekleri:
 - `commands.native` (varsayılan `"auto"` → Telegram/Discord için açık, Slack için kapalı), `commands.text`, `commands.useAccessGroups` (komut davranışı). `channels.telegram.commands.native` ile geçersiz kılın.
 - `messages.responsePrefix`, `messages.ackReaction`, `messages.ackReactionScope`, `messages.removeAckAfterReply`.
 
+

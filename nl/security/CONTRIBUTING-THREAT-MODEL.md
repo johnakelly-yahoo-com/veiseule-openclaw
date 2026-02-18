@@ -89,3 +89,4 @@ Als je twijfelt over het risiconiveau, beschrijf dan gewoon de impact en wij beo
 
 Bijdragers aan het dreigingsmodel worden erkend in de dankbetuigingen van het dreigingsmodel, de releaseopmerkingen en de OpenClaw security hall of fame voor belangrijke bijdragen.
 
+

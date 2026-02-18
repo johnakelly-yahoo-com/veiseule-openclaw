@@ -88,3 +88,4 @@ Exempel med Deepgram-alternativ:
 - Åsidosätt slutpunkter eller headers med `tools.media.audio.baseUrl` och `tools.media.audio.headers` när du använder en proxy.
 - Utdata följer samma ljudregler som andra leverantörer (storleksgränser, tidsgränser, injicering av transkript).
 
+

@@ -42,3 +42,4 @@ title: "แดชบอร์ด"
 - ดึงโทเคนจากโฮสต์Gateway: `openclaw config get gateway.auth.token` (หรือสร้างใหม่: `openclaw doctor --generate-gateway-token`)
 - ในการตั้งค่าแดชบอร์ด ให้วางโทเคนลงในช่องการยืนยันตัวตน แล้วเชื่อมต่อ
 
+

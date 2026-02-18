@@ -12,3 +12,4 @@ title: "ネットワークモデル"
 - キャンバスホストは、`canvasHost.port`（既定 `18793`）上の HTTP ファイルサーバーで、ノードの WebView 向けに `/__openclaw__/canvas/` を提供します。詳細は [Gateway configuration](/gateway/configuration)（`canvasHost`）を参照してください。 [Gateway configuration](/gateway/configuration) (`canvasHost` ) を参照してください。
 - リモート利用は、通常、SSH トンネルまたは tailnet VPN を使用します。[Remote access](/gateway/remote) と [Discovery](/gateway/discovery) を参照してください。 [リモート アクセス](/gateway/remote) と [Discovery](/gateway/discovery) を参照してください。
 
+

@@ -85,3 +85,4 @@ Standardvärden:
 - `latency_tier` valideras till `0..4` när den är satt.
 - Android stöder utdataformaten `pcm_16000`, `pcm_22050`, `pcm_24000` och `pcm_44100` för låg-latens AudioTrack-strömning.
 
+

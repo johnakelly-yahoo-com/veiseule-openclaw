@@ -108,3 +108,4 @@ Comportamento:
 
 Isso mantém os logs em arquivo existentes estáveis enquanto torna a saída interativa fácil de examinar.
 
+

@@ -92,3 +92,4 @@ apps/macos/Sources/OpenClaw/Resources/Info.plist
 - [Wizard](/start/wizard) — نان-Nix CLI سیٹ اپ
 - [Docker](/install/docker) — کنٹینرائزڈ سیٹ اپ
 
+

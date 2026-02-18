@@ -80,3 +80,4 @@ Zacommituj zaktualizowany `appcast.xml` razem z artefaktami wydania (ZIP + dSYM)
 
 Definicja ukończenia: podpisana aplikacja i appcast są opublikowane, proces aktualizacji działa z wcześniejszej zainstalowanej wersji, a artefakty wydania są dołączone do wydania GitHub.
 
+

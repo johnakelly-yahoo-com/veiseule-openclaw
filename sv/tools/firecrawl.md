@@ -55,3 +55,4 @@ Om proxy utelämnas, är Firecrawl standard `auto`. `auto` försöker med stealt
 
 Se [Web tools](/tools/web) för den fullständiga konfigurationen av webbverktyg.
 
+

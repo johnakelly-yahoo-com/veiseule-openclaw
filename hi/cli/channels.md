@@ -74,3 +74,4 @@ openclaw channels resolve --channel matrix "Project Room"
 - लक्ष्य प्रकार को बाध्य करने के लिए `--kind user|group|auto` का उपयोग करें।
 - जब एक ही नाम साझा करने वाली कई प्रविष्टियाँ हों, तो समाधान सक्रिय मिलानों को प्राथमिकता देता है।
 
+

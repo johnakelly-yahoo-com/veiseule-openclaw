@@ -101,3 +101,4 @@ Gateway がブラウザーとは別のマシンで実行されている場合、
 
 セキュリティ + リモート セットアップ: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
 
+

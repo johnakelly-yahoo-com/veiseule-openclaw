@@ -125,3 +125,4 @@ Düzeltme anahtarları (birini seçin):
 
 `"non-main"` modunda, grup/kanal anahtarları _main_ değildir. Ana oturum anahtarını ( `sandbox explain` tarafından gösterilir) kullanın veya modu `"off"` olarak değiştirin.
 
+

@@ -137,3 +137,4 @@ openclaw plugins install ./extensions/nextcloud-talk
 - `channels.nextcloud-talk.blockStreamingCoalesce`: ब्लॉक स्ट्रीमिंग कोएलैस ट्यूनिंग।
 - `channels.nextcloud-talk.mediaMaxMb`: इनबाउंड मीडिया सीमा (MB)।
 
+

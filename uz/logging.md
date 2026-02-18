@@ -340,3 +340,4 @@ Flags are case-insensitive and support wildcards (e.g. `telegram.*` or `*`).
 - **Loglar bo‘shmi?** Gateway ishlayotganini va `logging.file` da ko‘rsatilgan fayl yo‘liga yozayotganini tekshiring.
 - **Ko‘proq tafsilot kerakmi?** `logging.level` ni `debug` yoki `trace` ga o‘rnating va qayta urinib ko‘ring.
 
+

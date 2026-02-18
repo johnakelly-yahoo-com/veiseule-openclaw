@@ -38,3 +38,4 @@ Se [iMessage](/channels/imessage) for legacy-opsætning og adressering (`chat_id
 - Hold RPC-klienter robuste: timeouts, genstart ved exit.
 - Foretræk stabile id'er (f.eks.`chat_id`) over visningsstrenge.
 
+

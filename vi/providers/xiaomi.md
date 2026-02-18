@@ -57,3 +57,4 @@ openclaw onboard --auth-choice xiaomi-api-key --xiaomi-api-key "$XIAOMI_API_KEY"
 - Nhà cung cấp được tự động chèn khi `XIAOMI_API_KEY` được thiết lập (hoặc khi tồn tại hồ sơ xác thực).
 - Xem [/concepts/model-providers](/concepts/model-providers) để biết các quy tắc về nhà cung cấp.
 
+

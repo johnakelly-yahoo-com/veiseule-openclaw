@@ -374,3 +374,4 @@ Bu, yetenek başına sonuçları ve uygulanabilirse seçilen sağlayıcı/modeli
 - [Yapılandırma](/gateway/configuration)
 - [Görüntü ve Medya Desteği](/nodes/images)
 
+

@@ -31,3 +31,4 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - आप Zen में साइन इन करते हैं, बिलिंग विवरण जोड़ते हैं, और अपनी एपीआई कुंजी कॉपी करते हैं।
 - OpenCode Zen प्रति अनुरोध बिल करता है; विवरण के लिए OpenCode डैशबोर्ड देखें।
 
+

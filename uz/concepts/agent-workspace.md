@@ -220,3 +220,4 @@ Suggested `.gitignore` starter:
 - 3. Ko‘p agentli marshrutlash har bir agent uchun turli ish maydonlaridan foydalanishi mumkin. OpenClaw **pi-mono** dan olingan bitta ichki agent runtime’ni ishga tushiradi.
 - 5. Agar `agents.defaults.sandbox` yoqilgan bo‘lsa, asosiy bo‘lmagan sessiyalar `agents.defaults.sandbox.workspaceRoot` ostida sessiya-bo‘yicha sandbox ish maydonlaridan foydalanishi mumkin.
 
+

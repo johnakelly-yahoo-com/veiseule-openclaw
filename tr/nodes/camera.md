@@ -151,3 +151,4 @@ Notlar:
 
 - macOS **Screen Recording** izni (TCC) gerektirir.
 
+

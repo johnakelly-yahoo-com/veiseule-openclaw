@@ -38,3 +38,4 @@ Legacy kurulum ve adresleme için [iMessage](/channels/imessage) sayfasına bak�
 - RPC istemcilerini dayanıklı tutun: zaman aşımları, çıkışta yeniden başlatma.
 - Görünen dizgeler yerine kararlı kimlikleri tercih edin (örn. `chat_id`).
 
+

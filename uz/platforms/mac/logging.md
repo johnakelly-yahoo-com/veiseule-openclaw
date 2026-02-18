@@ -52,3 +52,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - Ixtiyoriy ravishda `sudo log config --reload` ni ishga tushirib, logd override-ni darhol bekor qilishga majburlashingiz mumkin.
 - Yodda tuting, bu sirt telefon raqamlari va xabar matnlarini o‘z ichiga olishi mumkin; plistni faqat qo‘shimcha tafsilotlar faol kerak bo‘lgan paytda qoldiring.
 
+

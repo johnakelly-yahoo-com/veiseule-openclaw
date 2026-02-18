@@ -80,3 +80,4 @@ Nur die Eigentümernummer (aus `channels.whatsapp.allowFrom` oder die E.164-Numm
 - Sitzungsspeichereinträge erscheinen als `agent:<agentId>:whatsapp:group:<jid>` im Sitzungsspeicher (`~/.openclaw/agents/<agentId>/sessions/sessions.json` standardmäßig); ein fehlender Eintrag bedeutet lediglich, dass die Gruppe noch keinen Lauf ausgelöst hat.
 - Tippindikatoren in Gruppen folgen `agents.defaults.typingMode` (Standard: `message` bei fehlender Erwähnung).
 
+

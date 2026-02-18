@@ -77,3 +77,4 @@ title: "Menü Çubuğu"
 - Hızlı araç patlamaları: rozetin titremediğinden emin olun (araç sonuçlarında TTL toleransı).
 - Tüm oturumlar boşta olduğunda sağlık satırı yeniden görünür.
 
+

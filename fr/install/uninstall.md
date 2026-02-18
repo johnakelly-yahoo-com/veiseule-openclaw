@@ -123,3 +123,4 @@ Si vous exécutez depuis un dépôt cloné (`git clone` + `openclaw ...` / `bun 
 2. Supprimez le répertoire du dépôt.
 3. Supprimez l’état + l’espace de travail comme indiqué ci-dessus.
 
+

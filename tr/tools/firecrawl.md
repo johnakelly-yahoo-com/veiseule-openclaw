@@ -52,3 +52,4 @@ Proxy belirtilmezse, Firecrawl varsayılan olarak `auto`’a geçer. `auto`, tem
 
 Web araçlarının tam kurulumu için [Web tools](/tools/web) bölümüne bakın.
 
+

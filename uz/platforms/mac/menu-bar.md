@@ -77,3 +77,4 @@ title: "Menyu paneli"
 - Rapid tool bursts: ensure badge does not flicker (TTL grace on tool results).
 - Health row reappears once all sessions idle.
 
+

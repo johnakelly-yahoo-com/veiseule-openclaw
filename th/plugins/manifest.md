@@ -61,3 +61,4 @@ manifestที่หายไปหรือไม่ถูกต้องจะ
 - หากปลั๊กอินของคุณพึ่งพาnative modulesให้จัดทำเอกสารขั้นตอนการ buildและข้อกำหนดของallowlistจากpackage-manager(เช่น pnpm `allow-build-scripts` - `pnpm rebuild <package>`)
   - 14. `pnpm rebuild <package>`).
 
+

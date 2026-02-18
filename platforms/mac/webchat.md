@@ -39,3 +39,4 @@ agent (with a session switcher for other sessions).
 
 - The UI is optimized for chat sessions (not a full browser sandbox).
 
+

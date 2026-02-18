@@ -218,3 +218,4 @@ Yalnızca gerektiğinde geçersiz kılın (yaygın: mutlak `command` yolu).
   `none` olmadığından emin olun (Codex CLI şu anda JSON çıktısıyla devam edemez).
 - **Görüntüler yok sayılıyor**: `imageArg`’i ayarlayın (ve CLI’nin dosya yollarını desteklediğini doğrulayın).
 
+

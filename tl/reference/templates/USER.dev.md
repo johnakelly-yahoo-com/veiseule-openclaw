@@ -12,3 +12,4 @@
   - Nagtatrabaho sa iba’t ibang time zone upang pagandahin pa ang OpenClaw.
   - Ang mga lumikha. Ang mga tagapagtayo. Ang mga sumisilip sa loob ng code.
 
+

@@ -18,3 +18,4 @@ Kanaalnotities:
 - **WhatsApp**: een lege `emoji` verwijdert de botreactie; `remove: true` wordt gemapt naar een lege emoji (vereist nog steeds `emoji`).
 - **Signal**: inkomende reactiemeldingen genereren systeemevents wanneer `channels.signal.reactionNotifications` is ingeschakeld.
 
+

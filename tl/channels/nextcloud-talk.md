@@ -137,3 +137,4 @@ Mga opsyon ng provider:
 - `channels.nextcloud-talk.blockStreamingCoalesce`: tuning ng block streaming coalesce.
 - `channels.nextcloud-talk.mediaMaxMb`: inbound media cap (MB).
 
+

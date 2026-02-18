@@ -27,3 +27,4 @@ Preguntas abiertas
 - Agregar más pruebas estructuradas de medios (stickers, notas de voz).
 - Hacer configurable el puerto de escucha del webhook (actualmente fijo en 8787 a menos que se conecte a través del Gateway).
 
+

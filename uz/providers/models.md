@@ -46,3 +46,4 @@ Venice — maxfiylikka yo‘naltirilgan inferens uchun tavsiya etiladigan Venice
 To‘liq provayderlar katalogi uchun (xAI, Groq, Mistral va boshqalar) va kengaytirilgan sozlashlar uchun,
 [Model provayderlari](/concepts/model-providers) sahifasiga qarang.
 
+

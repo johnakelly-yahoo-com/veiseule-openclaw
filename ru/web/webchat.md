@@ -45,3 +45,4 @@ title: "WebChat"
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: цель удалённого Gateway (шлюз).
 - `session.*`: хранилище сеансов и значения по умолчанию для основного ключа.
 
+

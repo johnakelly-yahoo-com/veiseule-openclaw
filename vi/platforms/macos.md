@@ -198,3 +198,4 @@ details, see [Gateway protocol](/gateway/protocol).
 - [Quyền macOS](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
 
+

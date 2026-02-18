@@ -73,3 +73,4 @@ openclaw models auth paste-token
 - `setup-token` จะถามค่าของ setup-token (สร้างได้ด้วย `claude setup-token` บนเครื่องใดก็ได้)
 - `paste-token` รับสตริงโทเคนที่สร้างจากที่อื่นหรือจากระบบอัตโนมัติ
 
+

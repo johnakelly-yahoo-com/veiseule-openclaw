@@ -147,3 +147,4 @@ Detalles: [Protocolo del Gateway](/gateway/protocol), [Emparejamiento](/channels
 - El handshake es obligatorio; cualquier primera trama no JSON o no connect es un cierre inmediato.
 - Los eventos no se reproducen; los clientes deben refrescar ante lagunas.
 
+

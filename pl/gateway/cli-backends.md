@@ -219,3 +219,4 @@ Nadpisuj tylko w razie potrzeby (częste: bezwzględna ścieżka `command`).
   `none` (Codex CLI obecnie nie może wznawiać z wyjściem JSON).
 - **Obrazy ignorowane**: ustaw `imageArg` (i sprawdź, czy CLI obsługuje ścieżki plików).
 
+

@@ -472,3 +472,4 @@ Les emojis peuvent etre unicode (par ex., `✅`) ou utiliser la syntaxe d’emoj
 - N’accordez au bot que les permissions necessaires (generalement Lire/Envoyer des messages).
 - Si le bot est bloque ou limite par le debit, redemarrez la Gateway (passerelle) (`openclaw gateway --force`) apres avoir confirme qu’aucun autre processus ne detient la session Discord.
 
+

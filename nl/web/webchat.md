@@ -45,3 +45,4 @@ Gerelateerde globale opties:
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: doel van de Gateway op afstand.
 - `session.*`: sessieopslag en standaardwaarden voor de hoofdsleutel.
 
+

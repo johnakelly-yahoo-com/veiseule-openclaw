@@ -94,3 +94,4 @@ apps/macos/Sources/OpenClaw/Resources/Info.plist
 - [Wizard](/start/wizard) — การตั้งค่า CLI แบบไม่ใช้ Nix
 - [Docker](/install/docker) — การตั้งค่าแบบคอนเทนเนอร์
 
+

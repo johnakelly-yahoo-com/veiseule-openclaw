@@ -404,3 +404,4 @@ WhatsApp envía audio como **notas de voz** (burbuja PTT).
 - Bun **no es recomendado**. WhatsApp (Baileys) y Telegram no son confiables en Bun.
   Ejecute el gateway con **Node**. (Consulte la nota de runtime en Primeros pasos.)
 
+

@@ -110,3 +110,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Trate a saída como não confiável, a menos que você valide com `schema`.
 - Coloque aprovações antes de qualquer etapa com efeitos colaterais (enviar, postar, executar).
 
+

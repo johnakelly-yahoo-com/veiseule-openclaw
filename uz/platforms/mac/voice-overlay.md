@@ -57,3 +57,4 @@ Voice Overlay Lifecycle (macOS) 1. Maqsad: uyg‘otuvchi so‘z va push-to-talk 
 4. 40. `VoiceWakeOverlayController`ni publisher’ga ulang; runtime/PTT’dan to‘g‘ridan-to‘g‘ri chaqiriqlarni olib tashlang.
 5. 41. Sessiyani o‘zlashtirish, cooldown va bo‘sh-matn dismiss uchun integratsion testlar qo‘shing.
 
+

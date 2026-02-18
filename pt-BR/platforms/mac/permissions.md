@@ -45,3 +45,4 @@ Solução alternativa: mova os arquivos para o workspace do OpenClaw (`~/.opencl
 Se você estiver testando permissões, sempre assine com um certificado real. Builds ad-hoc
 são aceitáveis apenas para execuções locais rápidas em que permissões não importam.
 
+

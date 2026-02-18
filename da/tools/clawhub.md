@@ -251,3 +251,4 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_WORKDIR`: Tilsidesæt standard workdir.
 - `CLAWHUB_DISABLE_TELEMETRY=1`: Deaktivér telemetri på `sync`.
 
+

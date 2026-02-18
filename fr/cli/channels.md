@@ -74,3 +74,4 @@ Notes :
 - Utilisez `--kind user|group|auto` pour forcer le type de cible.
 - La resolution privilegie les correspondances actives lorsque plusieurs entrees partagent le meme nom.
 
+

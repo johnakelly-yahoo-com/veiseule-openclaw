@@ -88,3 +88,4 @@ stdin بھیجیں:
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
 
+

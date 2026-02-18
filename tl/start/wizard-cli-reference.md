@@ -249,3 +249,4 @@ Behavior ng Signal setup:
 - Onboarding hub: [Onboarding Wizard (CLI)](/start/wizard)
 - Automation at mga script: [CLI Automation](/start/wizard-cli-automation)
 - Sanggunian ng command: [`openclaw onboard`](/cli/onboard)
+

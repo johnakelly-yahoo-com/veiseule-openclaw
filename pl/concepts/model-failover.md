@@ -152,3 +152,4 @@ Zobacz [Konfiguracja Gateway](/gateway/configuration) w zakresie:
 
 Zobacz [Modele](/concepts/models), aby poznać szerszy przegląd wyboru modeli i przełączania awaryjnego.
 
+

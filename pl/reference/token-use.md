@@ -108,3 +108,4 @@ agents:
 
 Zobacz [Skills](/tools/skills), aby poznać dokładną formułę narzutu listy skills.
 
+

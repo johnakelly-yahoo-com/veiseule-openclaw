@@ -514,3 +514,4 @@ Canvas render:
 That means the agent sees both “what tools exist” and “how to call them.” นั่นหมายความว่าเอเจนต์จะเห็นทั้ง“มีเครื่องมืออะไรบ้าง”และ“เรียกใช้อย่างไร” หากเครื่องมือ
 ไม่ปรากฏใน system prompt หรือในสคีมา โมเดลจะไม่สามารถเรียกใช้ได้
 
+

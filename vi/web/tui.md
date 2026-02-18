@@ -157,3 +157,4 @@ Không có đầu ra sau khi gửi tin nhắn:
 - Không có tác tử trong bộ chọn: kiểm tra `openclaw agents list` và cấu hình định tuyến của bạn.
 - Bộ chọn phiên trống: có thể bạn đang ở phạm vi global hoặc chưa có phiên nào.
 
+

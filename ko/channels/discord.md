@@ -472,3 +472,4 @@ Discord 메시지 id 는 주입된 컨텍스트 (`[discord message id: …]` 및
 - 봇에 필요한 권한만 부여하십시오 (일반적으로 메시지 읽기/전송).
 - 봇이 멈추었거나 레이트 리밋에 걸린 경우, 다른 프로세스가 Discord 세션을 소유하지 않는지 확인한 후 Gateway(게이트웨이) (`openclaw gateway --force`) 를 재시작하십시오.
 
+

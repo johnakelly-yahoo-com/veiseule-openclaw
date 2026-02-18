@@ -189,3 +189,4 @@ Misol:
     Loyiha kelib chiqishi, hissa qo‘shuvchilar va litsenziya.
   </Card>
 </Columns>
+

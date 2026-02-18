@@ -507,3 +507,4 @@ Công cụ được hiển thị qua hai kênh song song:
 That means the agent sees both “what tools exist” and “how to call them.” If a tool
 doesn’t appear in the system prompt or the schema, the model cannot call it.
 
+

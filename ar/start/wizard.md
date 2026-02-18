@@ -103,3 +103,4 @@ openclaw agents add <name>
 - التهيئة الأولية لتطبيق macOS: [التهيئة الأولية](/start/onboarding)
 - طقس التشغيل الأول للوكيل: [تهيئة الوكيل الأولية](/start/bootstrapping)
 
+

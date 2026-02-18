@@ -567,3 +567,4 @@ Comment elle mappe:
 
 Cela maintient l’agent déterministe et évite les sélecteurs fragiles.
 
+

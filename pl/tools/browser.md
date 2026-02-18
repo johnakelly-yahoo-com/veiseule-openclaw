@@ -570,3 +570,4 @@ Mapowanie:
 
 Zapewnia to deterministykę agenta i unika kruchych selektorów.
 
+

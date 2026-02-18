@@ -634,3 +634,4 @@ export default function (api) {
 
 - リポジトリ内プラグインは、`src/**` 配下に Vitest テストを配置できます（例: `src/plugins/voice-call.plugin.test.ts`）。
 - 別途公開するプラグインは、独自の CI（lint/build/test）を実行し、`openclaw.extensions` がビルド済みエントリーポイント（`dist/index.js`）を指していることを検証してください。
+

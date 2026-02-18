@@ -24,3 +24,4 @@ Noter:
 - Gem denne fil i workspace-roden som `IDENTITY.md`.
 - For avatarer skal du bruge en workspace-relativ sti som `avatars/openclaw.png`.
 
+

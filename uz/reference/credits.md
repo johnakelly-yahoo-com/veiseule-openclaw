@@ -23,3 +23,4 @@ MIT - Okeandagi omardek erkin.
 
 > "Biz hammamiz faqat o‘z promptlarimiz bilan o‘ynayapmiz." (Ehtimol, tokenlardan mast bo‘lgan AI)
 
+

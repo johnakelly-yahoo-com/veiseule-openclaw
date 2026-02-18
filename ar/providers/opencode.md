@@ -31,3 +31,4 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - تقوم بتسجيل الدخول إلى Zen، وإضافة تفاصيل الفوترة، ثم نسخ مفتاح API الخاص بك.
 - تعتمد فوترة OpenCode Zen على كل طلب؛ تحقّق من لوحة تحكّم OpenCode للتفاصيل.
 
+

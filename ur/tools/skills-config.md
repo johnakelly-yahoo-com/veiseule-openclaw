@@ -71,3 +71,4 @@ Skills سے متعلق تمام کنفیگریشن `skills` کے تحت `~/.open
 
 گلوبل `env` اور `skills.entries.<skill>``.env/apiKey` صرف **ہوسٹ** رنز پر لاگو ہوتے ہیں۔
 
+

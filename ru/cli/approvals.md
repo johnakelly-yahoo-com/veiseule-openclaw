@@ -45,3 +45,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - Хост узла должен объявлять `system.execApprovals.get/set` (приложение для macOS или headless хост узла).
 - Файлы подтверждений хранятся для каждого хоста по пути `~/.openclaw/exec-approvals.json`.
 
+

@@ -507,3 +507,4 @@ Werkzeuge werden in zwei parallelen Kanälen bereitgestellt:
 Das bedeutet, der Agent sieht sowohl „welche Werkzeuge existieren“ als auch „wie man sie aufruft“. Wenn ein Werkzeug
 weder im System-Prompt noch im Schema erscheint, kann das Modell es nicht aufrufen.
 
+

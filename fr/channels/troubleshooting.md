@@ -108,3 +108,4 @@ Raccourcis de depannage specifiques aux canaux (Discord/Telegram/WhatsApp)
 
 Dépannage complet : [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
 
+

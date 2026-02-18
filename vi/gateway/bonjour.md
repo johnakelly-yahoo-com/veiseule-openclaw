@@ -165,3 +165,4 @@ Bonjour/DNS‑SD thường escape các byte trong tên instance dịch vụ thà
 - Chính sách khám phá và lựa chọn truyền tải: [Discovery](/gateway/discovery)
 - Ghép cặp node + phê duyệt: [Gateway pairing](/gateway/pairing)
 
+

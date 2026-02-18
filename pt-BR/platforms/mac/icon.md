@@ -27,3 +27,4 @@ Notas de comportamento
 - Não há alternância externa via CLI/broker para orelhas/trabalho; mantenha isso interno aos próprios sinais do app para evitar batidas acidentais.
 - Mantenha TTLs curtos (&lt;10s) para que o ícone retorne rapidamente ao estado base se um trabalho travar.
 
+

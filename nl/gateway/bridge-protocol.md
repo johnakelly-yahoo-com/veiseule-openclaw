@@ -82,3 +82,4 @@ Payload-velden (alle optioneel tenzij vermeld):
 Bridge is momenteel **impliciet v1** (geen min/max-onderhandeling). Backward-compatibiliteit
 wordt verwacht; voeg een bridge-protocolversieveld toe vóór eventuele breaking changes.
 
+

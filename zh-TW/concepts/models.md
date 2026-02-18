@@ -186,3 +186,4 @@ Input
 
 `models.providers` 中的自訂提供者會寫入代理程式目錄下的 `models.json`（預設為 `~/.openclaw/agents/<agentId>/models.json`）。此檔案預設會被合併，除非將 `models.mode` 設為 `replace`。 20. 除非將 `models.mode` 設為 `replace`，否則此檔案預設會被合併。
 
+

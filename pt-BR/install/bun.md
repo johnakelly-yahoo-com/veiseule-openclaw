@@ -54,3 +54,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 
 - Alguns scripts ainda codificam pnpm (por exemplo, `docs:build`, `ui:*`, `protocol:check`). Execute esses via pnpm por enquanto.
 
+

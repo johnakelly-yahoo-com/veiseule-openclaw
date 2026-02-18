@@ -575,3 +575,4 @@ Opciones clave:
 - ✅ Audio
 - ⚠️ Texto enriquecido (soporte parcial)
 
+

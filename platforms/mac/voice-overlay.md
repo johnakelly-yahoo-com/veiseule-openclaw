@@ -56,3 +56,4 @@ Audience: macOS app contributors. Goal: keep the voice overlay predictable when 
 4. Wire `VoiceWakeOverlayController` to the publisher; remove direct calls from runtime/PTT.
 5. Add integration tests for session adoption, cooldown, and empty-text dismissal.
 
+

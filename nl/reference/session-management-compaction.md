@@ -279,3 +279,4 @@ flush-logica leeft vandaag aan de Gateway-kant.
   - tool-result-bloat: schakel sessie-pruning in of stel het af
 - Lekken stille beurten? Bevestig dat het antwoord begint met `NO_REPLY` (exact token) en dat je op een build zit die de streaming-onderdrukkingsfix bevat.
 
+

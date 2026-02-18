@@ -222,3 +222,4 @@ Minimal ama yine de kullanışlı bir sürüm istiyorsanız:
 - Hindsight Teknik Raporu: “retain / recall / reflect”, dört ağlı bellek, anlatı gerçek çıkarımı, görüş güveninin evrimi.
 - SuCo: arXiv 2411.14754 (2024): “Subspace Collision” yaklaşık en yakın komşu geri getirme.
 
+

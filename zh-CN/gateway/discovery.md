@@ -117,3 +117,4 @@ Gateway 网关是节点/客户端准入的唯一权威来源。
 - **macOS 应用**：帮助你选择 Gateway 网关，显示配对提示，仅将 SSH 作为回退方案。
 - **iOS/Android 节点**：将 Bonjour 浏览作为便利功能，连接到已配对的 Gateway 网关 WS。
 
+

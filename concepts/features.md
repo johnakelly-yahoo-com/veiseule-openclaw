@@ -49,3 +49,4 @@ Legacy Claude, Codex, Gemini, and Opencode paths have been removed. Pi is the on
 coding agent path.
 </Note>
 
+

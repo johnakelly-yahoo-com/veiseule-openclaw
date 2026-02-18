@@ -29,3 +29,4 @@ title: "Gateway လော့ခ်"
 - port ကို _အခြား_ process တစ်ခုက အသုံးပြုနေပါက အမှားသည် တူညီနေမည်ဖြစ်သည်; port ကို လွှတ်ပေးရန် သို့မဟုတ် `openclaw gateway --port <port>` ဖြင့် အခြား port ကို ရွေးချယ်ပါ။
 - macOS app သည် Gateway ကို စတင်ဖွင့်မီ ကိုယ်ပိုင် လွယ်ကူသော PID guard ကို ထိန်းသိမ်းထားသော်လည်း runtime lock ကို WebSocket bind ဖြင့်သာ အတည်ပြုအကောင်အထည်ဖော်ထားသည်။
 
+

@@ -30,3 +30,4 @@ title: "ヘルスチェック"
 
 - [Gateway health](/gateway/health) の CLI フロー（`openclaw status`、`openclaw status --deep`、`openclaw health --json`）を引き続き利用でき、`web-heartbeat` / `web-reconnect` のために `/tmp/openclaw/openclaw-*.log` を tail することも可能です。
 
+

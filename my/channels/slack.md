@@ -561,3 +561,4 @@ Triage လုပ်ငန်းစဉ်အတွက်: [/channels/troubleshoot
 - Slack tool အတွက် reaction ဖယ်ရှားမှု အပြုအမူများကို [/tools/reactions](/tools/reactions) တွင် ဖော်ပြထားပါသည်။
 - Attachment များကို ခွင့်ပြုထားပြီး အရွယ်အစားကန့်သတ်ချက်အောက်တွင် ရှိပါက media store သို့ ဒေါင်းလုဒ် ပြုလုပ်ပါသည်။
 
+

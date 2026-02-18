@@ -83,3 +83,4 @@ Các trường payload (tất cả đều tùy chọn trừ khi có ghi chú):
 Bridge hiện tại là **implicit v1** (không có cơ chế thương lượng phiên bản tối thiểu/tối đa). Tương thích ngược
 is expected; add a bridge protocol version field before any breaking changes.
 
+

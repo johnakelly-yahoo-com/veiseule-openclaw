@@ -38,3 +38,4 @@ Veja [iMessage](/channels/imessage) para configuração legada e endereçamento 
 - Mantenha os clientes RPC resilientes: timeouts, reinício ao encerrar.
 - Prefira IDs estáveis (por exemplo, `chat_id`) em vez de strings de exibição.
 
+

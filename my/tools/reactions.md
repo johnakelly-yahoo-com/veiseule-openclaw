@@ -18,3 +18,4 @@ title: "တုံ့ပြန်မှုများ"
 - **WhatsApp**: ဗလာဖြစ်သော `emoji` သည် bot Reaction ကို ဖယ်ရှားသည်; `remove: true` သည် ဗလာ emoji သို့ မാപ്പ်ချိတ်ဆက်သည် (`emoji` ကို မဖြစ်မနေ လိုအပ်သည်)။
 - **Signal**: `channels.signal.reactionNotifications` ကို ဖွင့်ထားသောအခါ ဝင်ရောက်လာသော Reaction အသိပေးချက်များသည် စနစ်ဖြစ်ရပ်များကို ထုတ်လွှင့်ပေးသည်။
 
+

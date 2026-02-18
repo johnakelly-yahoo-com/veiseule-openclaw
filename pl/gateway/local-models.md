@@ -144,3 +144,4 @@ Zachowaj `models.mode: "merge"`, aby modele hostowane pozostały dostępne jako 
 - Błędy kontekstu? Obniż `contextWindow` lub zwiększ limit po stronie serwera.
 - Bezpieczeństwo: modele lokalne pomijają filtry po stronie dostawcy; utrzymuj wąski zakres agentów i włączoną kompakcję, aby ograniczyć promień rażenia prompt injection.
 
+

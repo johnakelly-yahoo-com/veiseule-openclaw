@@ -44,3 +44,4 @@ openclaw onboard --non-interactive \
 доступна этому процессу (например, в `~/.openclaw/.env` или через
 `env.shellEnv`).
 
+

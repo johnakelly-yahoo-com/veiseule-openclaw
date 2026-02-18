@@ -18,3 +18,4 @@ Kanalnoteringar:
 - **WhatsApp**: tom `emoji` tar bort botens reaktion; `remove: true` mappas till tom emoji (kräver fortfarande `emoji`).
 - **Signal**: inkommande reaktionsaviseringar genererar systemhändelser när `channels.signal.reactionNotifications` är aktiverat.
 
+

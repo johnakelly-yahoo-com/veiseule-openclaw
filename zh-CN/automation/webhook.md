@@ -158,3 +158,4 @@ curl -X POST http://127.0.0.1:18789/hooks/gmail \
 - 避免在 webhook 日志中包含敏感的原始请求体。
 - Hook 请求体默认被视为不受信任并使用安全边界包装。如果你必须为特定 hook 禁用此功能，请在该 hook 的映射中设置 `allowUnsafeExternalContent: true`（危险）。
 
+

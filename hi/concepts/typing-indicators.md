@@ -57,3 +57,4 @@ title: "टाइपिंग संकेतक"
 - 2. `typingIntervalSeconds` **refresh cadence** को नियंत्रित करता है, start time को नहीं।
   3. डिफ़ॉल्ट 6 सेकंड है।
 
+

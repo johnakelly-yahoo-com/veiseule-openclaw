@@ -23,3 +23,4 @@ Skripte zur Authentifizierungsüberwachung sind hier dokumentiert:
 - Halten Sie Skripte fokussiert und dokumentiert.
 - Fügen Sie einen kurzen Eintrag in der relevanten Dokumentation hinzu (oder erstellen Sie eine, falls sie fehlt).
 
+

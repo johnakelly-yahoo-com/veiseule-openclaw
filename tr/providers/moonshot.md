@@ -136,3 +136,4 @@ Not: Moonshot ve Kimi Coding ayrı sağlayıcılardır. Anahtarlar birbirinin ye
   `contextWindow` değerini buna göre ayarlayın.
 - Uluslararası uç nokta için `https://api.moonshot.ai/v1`, Çin uç noktası için `https://api.moonshot.cn/v1` kullanın.
 
+

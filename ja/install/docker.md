@@ -577,3 +577,4 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
   カスタム ツールのパス（例：`/custom/bin:/usr/local/share/npm-global/bin`）を先頭に追加するか、
   Dockerfile 内で `/etc/profile.d/` 配下にスクリプトを追加してください。
 
+

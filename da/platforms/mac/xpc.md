@@ -57,3 +57,4 @@ Agent -> Gateway -> Node Service (WS)
 - TCC-prompter stammer kun fra GUI-appens bundle; hold det signerede bundle ID stabilt på tværs af genopbygninger.
 - IPC-hærdning: socket-tilstand `0600`, token, peer-UID-tjek, HMAC challenge/response, kort TTL.
 
+

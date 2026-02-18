@@ -18,3 +18,4 @@ Hangi araçların var olduğunu tanımlamaz; OpenClaw, yerleşik araçları dahi
 
 Asistanın yerel araç zinciriniz hakkında bilmesini istediğiniz başka her şeyi ekleyin.
 
+

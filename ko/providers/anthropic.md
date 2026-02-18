@@ -146,3 +146,4 @@ openclaw onboard --auth-choice setup-token
 
 추가 정보: [/gateway/troubleshooting](/gateway/troubleshooting) 및 [/help/faq](/help/faq).
 
+

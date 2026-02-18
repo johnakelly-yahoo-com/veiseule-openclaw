@@ -207,3 +207,4 @@ På Windows skal du tilføje outputtet af `npm prefix -g` til din PATH.
     Fjern OpenClaw helt.
   </Card>
 </CardGroup>
+

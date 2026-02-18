@@ -49,3 +49,4 @@ Garantiza que `qrcode-terminal` cargue en Node 22+ dentro de Docker:
 pnpm test:docker:qr
 ```
 
+

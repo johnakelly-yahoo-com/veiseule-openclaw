@@ -75,3 +75,4 @@ does **not** inherit the host `process.env`.
 
 全域的 `env` 與 `skills.entries.<skill>.env/apiKey` 僅適用於 **主機** 執行。
 
+

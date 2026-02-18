@@ -30,3 +30,4 @@ title: "การตรวจสุขภาพ"
 
 - คุณยังสามารถใช้โฟลว์CLIใน [Gateway health](/gateway/health) (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) และไล่ดู `/tmp/openclaw/openclaw-*.log` สำหรับ `web-heartbeat` / `web-reconnect`
 
+

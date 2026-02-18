@@ -371,3 +371,4 @@ otherwise -> reply
 
 ดู[Group messages](/channels/group-messages)สำหรับพฤติกรรมเฉพาะของWhatsApp(การฉีดประวัติ รายละเอียดการจัดการการกล่าวถึง)
 
+

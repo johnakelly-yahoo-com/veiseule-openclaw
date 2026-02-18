@@ -56,3 +56,4 @@ Se [/concepts/session-pruning](/concepts/session-pruning) för detaljer om besk�
 - Stora verktygsutdata trunkeras redan; beskärning kan ytterligare minska ansamling av verktygsresultat.
 - Om du behöver ett helt nytt blad, `/new` eller `/reset` startar ett nytt sessions-ID.
 
+

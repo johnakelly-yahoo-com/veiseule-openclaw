@@ -46,3 +46,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - ノード ホストは `system.execApprovals.get/set`（macOS アプリまたはヘッドレス ノード ホスト）をアドバタイズする必要があります。
 - 承認ファイルは、ホストごとに `~/.openclaw/exec-approvals.json` に保存されます。
 
+

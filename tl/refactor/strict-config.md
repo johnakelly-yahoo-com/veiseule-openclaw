@@ -87,3 +87,4 @@ Ang lahat ng iba pa ay dapat mag-hard-fail na may mensaheng: “Hindi wasto ang 
 - Hindi wastong config → na-block ang startup ng Gateway maliban sa mga diagnostic na command.
 - Doctor dry-run auto; isinusulat ng `doctor --fix` ang naitama na config.
 
+

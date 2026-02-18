@@ -471,3 +471,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Si vous voyez des préfixes `telegram:...` dans les journaux ou dans les cibles « dernière route » stockées, c’est normal ;
   la livraison cron les accepte et analyse toujours correctement les ID de sujet.
 
+

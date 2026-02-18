@@ -262,3 +262,4 @@ bede om at installere den (npm eller en lokal sti), før den kan konfigureres.
 - Konfigurationsreference: [Gateway configuration](/gateway/configuration)
 - Udbydere: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (legacy)
 - Skills: [Skills](/tools/skills), [Skills config](/tools/skills-config)
+

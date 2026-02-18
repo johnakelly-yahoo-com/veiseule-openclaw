@@ -156,3 +156,4 @@ sudo loginctl enable-linger $USER
 - [Настройка ассистента OpenClaw](/start/openclaw)
 - [Приложение для macOS](/platforms/macos) (жизненный цикл gateway)
 
+

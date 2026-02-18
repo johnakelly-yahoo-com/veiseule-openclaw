@@ -86,3 +86,4 @@ Você pode controlar o formato do prompt com `agents.defaults.timeFormat` (`auto
 
 Veja [Date & Time](/date-time) para o comportamento completo e exemplos.
 
+

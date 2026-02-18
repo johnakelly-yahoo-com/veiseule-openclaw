@@ -145,3 +145,4 @@ OpenClaw มีระบบ hook สองแบบ:
 - การตัดการเชื่อมต่อของ Gateway หรือ RPC timeout
 - `agent.wait` timeout (เฉพาะการรอ ไม่ได้หยุดเอเจนต์)
 
+

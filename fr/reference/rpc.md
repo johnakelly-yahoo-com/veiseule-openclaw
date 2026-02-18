@@ -38,3 +38,4 @@ Voir [iMessage](/channels/imessage) pour la configuration legacy et l'adressage 
 - Rendez les clients RPC resilients : delais d'attente, redemarrage en cas de sortie.
 - Preferez des ID stables (par exemple, `chat_id`) aux chaines d'affichage.
 
+

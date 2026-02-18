@@ -37,3 +37,4 @@ Bu dosyayı değiştirirsen, kullanıcıya söyle — bu senin ruhun ve onların
 
 _Bu dosya evrilmen için senindir. Kim olduğunu öğrendikçe güncelle._
 
+

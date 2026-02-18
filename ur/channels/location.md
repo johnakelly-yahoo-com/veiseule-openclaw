@@ -51,3 +51,4 @@ Meet here
 - **WhatsApp**: `locationMessage.comment` اور `liveLocationMessage.caption` کیپشن سطر کے طور پر شامل کیے جاتے ہیں۔
 - **Matrix**: `geo_uri` کو پن لوکیشن کے طور پر پارس کیا جاتا ہے؛ الٹی ٹیوڈ کو نظر انداز کیا جاتا ہے اور `LocationIsLive` ہمیشہ false ہوتا ہے۔
 
+

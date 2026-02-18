@@ -74,3 +74,4 @@ openclaw channels resolve --channel matrix "Project Room"
 - ہدف کی قسم مجبور کرنے کے لیے `--kind user|group|auto` استعمال کریں۔
 - جب ایک ہی نام کے متعدد اندراجات ہوں تو حل فعال میچز کو ترجیح دیتا ہے۔
 
+

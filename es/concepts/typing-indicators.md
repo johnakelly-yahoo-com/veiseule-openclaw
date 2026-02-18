@@ -64,3 +64,4 @@ Puede sobrescribir el modo o la cadencia por sesión:
 - `typingIntervalSeconds` controla la **cadencia de actualización**, no el momento de inicio.
   El valor predeterminado es 6 segundos.
 
+

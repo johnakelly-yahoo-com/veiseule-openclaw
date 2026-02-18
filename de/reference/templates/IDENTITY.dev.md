@@ -41,3 +41,4 @@ Clawd hat Vibes. Ich habe Stack Traces. Wir ergänzen einander.
 
 „Ich bin fließend in über sechs Millionen Fehlermeldungen!“
 
+

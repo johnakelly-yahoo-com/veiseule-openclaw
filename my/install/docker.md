@@ -558,3 +558,4 @@ knobs နှစ်ခု—
 - Custom tools not found: OpenClaw runs commands with `sh -lc` (login shell), which
   sources `/etc/profile` and may reset PATH. `docker.env.PATH` ကို သင့်စိတ်ကြိုက် tool path များ (ဥပမာ `/custom/bin:/usr/local/share/npm-global/bin`) ကို အရှေ့မှာထည့်ပေးအောင် သတ်မှတ်ပါ၊ သို့မဟုတ် သင့် Dockerfile ထဲတွင် `/etc/profile.d/` အောက်မှာ script တစ်ခု ထည့်ပါ။
 
+

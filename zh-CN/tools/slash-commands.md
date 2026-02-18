@@ -200,3 +200,4 @@ x-i18n:
 - **`/stop`** 定向到活动聊天会话，因此可以中止当前运行。
 - **Slack：** `channels.slack.slashCommand` 仍然支持单个 `/openclaw` 风格的命令。如果你启用 `commands.native`，你必须为每个内置命令创建一个 Slack 斜杠命令（与 `/help` 相同的名称）。Slack 的命令参数菜单以临时 Block Kit 按钮形式发送。
 
+

@@ -116,3 +116,4 @@ Restreindre l’élagage à des outils spécifiques :
 
 Voir la référence de configuration : [Configuration de la Gateway (passerelle)](/gateway/configuration)
 
+

@@ -395,3 +395,4 @@ Provider tool keys accept either `provider` (e.g. `google-antigravity`) or `prov
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Session Management](/concepts/session)
 
+

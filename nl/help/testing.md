@@ -364,3 +364,4 @@ Wanneer je een provider/model-issue oplost dat in live is ontdekt:
   - provider request-conversie/replay-bug → direct models-test
   - Gateway sessie/geschiedenis/tool-pijplijn-bug → Gateway live-smoke of CI-veilige Gateway mock-test
 
+

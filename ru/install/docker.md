@@ -592,3 +592,4 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
   PATH. Установите `docker.env.PATH`, чтобы добавить ваши пути к инструментам (например,
   `/custom/bin:/usr/local/share/npm-global/bin`), или добавьте скрипт в `/etc/profile.d/` в вашем Dockerfile.
 
+

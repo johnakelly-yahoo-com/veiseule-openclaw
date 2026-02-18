@@ -51,3 +51,4 @@ Meet here
 - **WhatsApp**: `locationMessage.comment` और `liveLocationMessage.caption` को कैप्शन पंक्ति के रूप में जोड़ा जाता है।
 - **Matrix**: `geo_uri` को पिन लोकेशन के रूप में पार्स किया जाता है; ऊँचाई (altitude) को अनदेखा किया जाता है और `LocationIsLive` हमेशा false रहता है।
 
+

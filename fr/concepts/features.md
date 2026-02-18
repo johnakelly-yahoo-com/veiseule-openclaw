@@ -49,3 +49,4 @@ Les chemins herites Claude, Codex, Gemini et Opencode ont ete supprimes. Pi est 
 chemin d’agent de codage.
 </Note>
 
+

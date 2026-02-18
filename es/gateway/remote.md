@@ -125,3 +125,4 @@ Versión corta: **mantenga el Gateway solo en loopback** a menos que esté segur
 
 Análisis en profundidad: [Seguridad](/gateway/security).
 
+

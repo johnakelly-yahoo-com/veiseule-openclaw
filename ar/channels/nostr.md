@@ -228,3 +228,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - لا توجد مرفقات وسائط.
 - NIP-04 فقط (مخطّط لدعم NIP-17 للتغليف).
 
+

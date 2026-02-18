@@ -32,3 +32,4 @@ openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPEN
 - 35. Ko‘proq model/provayder variantlari uchun [/concepts/model-providers](/concepts/model-providers) sahifasiga qarang.
 - 36. OpenRouter ichki tomondan API kalitingiz bilan Bearer tokenidan foydalanadi.
 
+

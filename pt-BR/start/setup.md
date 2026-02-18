@@ -154,3 +154,4 @@ Para servidores sempre ativos ou multiusuário, considere um serviço de **siste
 - [Configuração do assistente OpenClaw](/start/openclaw)
 - [App do macOS](/platforms/macos) (ciclo de vida do gateway)
 
+

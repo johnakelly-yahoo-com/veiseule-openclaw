@@ -161,3 +161,4 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 - 选择器中没有智能体：检查 `openclaw agents list` 和你的路由配置。
 - 会话选择器为空：你可能处于全局范围或还没有会话。
 
+

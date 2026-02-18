@@ -32,3 +32,4 @@ Operatorlar xohlaydi:
 - UI sessiya uchun profil tanlashni qanday ko‘rsatishi kerak?
 - Meros konfiguratsiya kalitlaridan eng xavfsiz migratsiya yo‘li qanday?
 
+

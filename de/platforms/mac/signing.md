@@ -43,3 +43,4 @@ Der „Über“-Tab liest diese Schlüssel, um Version, Build-Datum, Git-Commit 
 
 TCC-Berechtigungen sind an die Bundle-ID _und_ die Code-Signatur gebunden. Unsigned Debug-Builds mit wechselnden UUIDs führten dazu, dass macOS die Freigaben nach jedem Neuaufbau vergaß. Das Signieren der Binaries (standardmäßig Ad-hoc) und das Beibehalten einer festen Bundle-ID/-Pfads (`dist/OpenClaw.app`) bewahrt die Freigaben zwischen Builds und entspricht dem VibeTunnel-Ansatz.
 
+

@@ -468,3 +468,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - ログや保存された「最後のルート」ターゲットに `telegram:...` プレフィックスが表示される場合がありますが、これは正常です。
   cron 配信はそれらを受け付け、トピック ID も正しく解析します。
 
+

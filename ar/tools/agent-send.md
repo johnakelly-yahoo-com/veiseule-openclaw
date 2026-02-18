@@ -49,3 +49,4 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--timeout <seconds>`: تجاوز مهلة الوكيل
 - `--json`: إخراج JSON مُهيكل
 
+

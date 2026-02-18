@@ -39,3 +39,4 @@ gateway-värden och är inställda för systemd + Termux.
 
 Om du inte behöver telefonautomatisering eller systemd‑timers kan du hoppa över dessa skript.
 
+

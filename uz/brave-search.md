@@ -35,3 +35,4 @@ OpenClaw `web_search` uchun standart provayder sifatida Brave Search’dan foyda
 - Brave bepul tarif va pullik rejalarni taklif etadi; amaldagi cheklovlar uchun Brave API portalini tekshiring.
 
 `web_search` to‘liq sozlamalari uchun [Web tools](/tools/web) bo‘limiga qarang.
+

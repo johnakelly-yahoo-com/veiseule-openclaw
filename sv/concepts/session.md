@@ -200,3 +200,4 @@ Varje sessionspost registrerar var den kom ifrån (bästa möjliga) i `origin`:
   sammanhanget och ringer `recordSessionMetaFromInbound` (eller skickar samma kontext
   till `updateLastRoute`).
 
+

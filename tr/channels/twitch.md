@@ -375,3 +375,4 @@ Ajan, şu eylemle `twitch` çağrısı yapabilir:
 - Markdown, parçalamadan önce kaldırılır
 - Hız sınırlaması yoktur (Twitch’in yerleşik hız sınırları kullanılır)
 
+

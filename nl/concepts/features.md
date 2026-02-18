@@ -49,3 +49,4 @@ Verouderde paden voor Claude, Codex, Gemini en Opencode zijn verwijderd. Pi is h
 pad voor codeeragents.
 </Note>
 
+

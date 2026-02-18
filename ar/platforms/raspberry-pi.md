@@ -352,3 +352,4 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Tailscale](/gateway/tailscale) — وصول عن بُعد
 - [Nodes](/nodes) — إقران الحاسوب المحمول/الهاتف مع Gateway الخاص بـ Pi
 
+

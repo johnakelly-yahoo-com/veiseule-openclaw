@@ -331,3 +331,4 @@ openclaw node run --host <gateway-host> --port 18789
 - แอปเมนูบาร์macOSเชื่อมต่อกับเซิร์ฟเวอร์Gateway WSในฐานะโหนด(ดังนั้น `openclaw nodes …` จึงทำงานกับMacเครื่องนี้ได้)
 - ในโหมดรีโมต แอปจะเปิดอุโมงค์SSHสำหรับพอร์ตGatewayและเชื่อมต่อไปยัง `localhost`
 
+

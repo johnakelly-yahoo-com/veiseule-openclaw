@@ -155,3 +155,4 @@ Dokumentacja: [Sesja](/concepts/session), [Kompakcja](/concepts/compaction), [Pr
 
 W obu przypadkach raportuje rozmiary i główne czynniki; **nie** zrzuca pełnego promptu systemowego ani schematów narzędzi.
 
+

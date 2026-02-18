@@ -68,3 +68,4 @@ openclaw nodes run --agent main --node <id|name|ip> --raw "git status"
 - `--agent <id>`: подтверждения/списки разрешённых на уровне агента (по умолчанию используется настроенный агент).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: переопределения.
 
+

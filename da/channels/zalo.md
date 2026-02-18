@@ -185,3 +185,4 @@ Indstillinger for flere konti:
 - `channels.zalo.accounts.<id>.webhookPath`: stien pr. konto webhook.
 - `channels.zalo.accounts.<id>.proxy`: proxy URL pr. konto.
 
+

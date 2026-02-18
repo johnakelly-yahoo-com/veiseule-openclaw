@@ -600,3 +600,4 @@ Examples below are aligned with the current config schema. ตัวอย่า
 - ส่วนที่เป็นตัวเลือกซึ่งสามารถเพิ่มภายหลังได้: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`
 - ดู [Providers](/channels/whatsapp) และ [Troubleshooting](/gateway/troubleshooting) สำหรับหมายเหตุการตั้งค่าเชิงลึกเพิ่มเติม
 
+

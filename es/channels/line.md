@@ -176,3 +176,4 @@ El plugin de LINE también incluye un comando `/card` para preajustes de mensaje
 - **Errores de descarga de medios:** aumente `channels.line.mediaMaxMb` si los medios superan el
   límite predeterminado.
 
+

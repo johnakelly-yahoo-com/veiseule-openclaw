@@ -158,3 +158,4 @@ curl -X POST http://127.0.0.1:18789/hooks/gmail \
   Om du måste inaktivera detta för en specifik krok, sätt `allowUnsafeExternalContent: true`
   i den kroken mappning (farlig).
 
+

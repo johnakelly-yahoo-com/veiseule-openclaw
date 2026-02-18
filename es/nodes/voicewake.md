@@ -60,3 +60,4 @@ Quién lo recibe:
 - Expone un editor de Palabras de activación en Ajustes.
 - Llama a `voicewake.set` sobre el WS del Gateway para que las ediciones se sincronicen en todas partes.
 
+

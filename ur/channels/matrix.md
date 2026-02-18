@@ -256,3 +256,4 @@ Provider options:
 - `channels.matrix.autoJoinAllowlist`: خودکار جوائن کے لیے مجاز کمرہ IDs/aliases۔
 - `channels.matrix.actions`: فی ایکشن ٹول gating (reactions/messages/pins/memberInfo/channelInfo)۔
 
+

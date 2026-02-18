@@ -210,3 +210,4 @@ Loglar `/tmp/openclaw/` ostida joylashadi (sukut bo‘yicha: `openclaw-YYYY-MM-D
 - Linux holati: [Linux app](/platforms/linux)
 - Xavfsizlik: [Security](/gateway/security)
 
+

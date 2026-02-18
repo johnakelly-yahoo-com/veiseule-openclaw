@@ -206,3 +206,4 @@ Les sous-agents utilisent une voie de file d’attente dédiée en mémoire :
 - Le contexte du sous-agent injecte uniquement `AGENTS.md` + `TOOLS.md` (pas de `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` ou `BOOTSTRAP.md`).
 - La profondeur maximale d’imbrication est 5 (`maxSpawnDepth` plage : 1–5). La profondeur 2 est recommandée pour la plupart des cas d’usage.
 - `maxChildrenPerAgent` limite le nombre d’enfants actifs par session (par défaut : 5, plage : 1–20).
+

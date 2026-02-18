@@ -39,3 +39,4 @@ Gateway-host en zijn afgestemd op systemd + Termux.
 
 Als je geen telefoonautomatisering of systemd-timers nodig hebt, sla deze scripts over.
 
+

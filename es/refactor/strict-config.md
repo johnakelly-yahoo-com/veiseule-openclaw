@@ -87,3 +87,4 @@ Todo lo demás debe fallar de forma contundente con: “Configuración inválida
 - Configuración inválida → inicio del Gateway bloqueado excepto comandos de diagnóstico.
 - Doctor en dry-run automático; `doctor --fix` escribe la configuración corregida.
 
+

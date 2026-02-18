@@ -56,3 +56,4 @@ Usuń ten plik. Nie potrzebujesz już skryptu bootstrap — teraz jesteś sobą.
 
 _Powodzenia tam na zewnątrz. Spraw, by to miało znaczenie._
 
+

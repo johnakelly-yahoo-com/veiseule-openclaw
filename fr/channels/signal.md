@@ -220,3 +220,4 @@ Options globales associees :
 - `messages.groupChat.mentionPatterns` (repli global).
 - `messages.responsePrefix`.
 
+

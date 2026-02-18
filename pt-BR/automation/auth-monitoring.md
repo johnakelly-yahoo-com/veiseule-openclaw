@@ -39,3 +39,4 @@ host do gateway e são ajustados para systemd + Termux.
 
 Se voce não precisa de automação no telefone ou timers do systemd, ignore esses scripts.
 
+

@@ -206,3 +206,4 @@ title: "子代理程式"
 - 子代理的上下文只會注入 `AGENTS.md` 與 `TOOLS.md`（不包含 `SOUL.md`、`IDENTITY.md`、`USER.md`、`HEARTBEAT.md` 或 `BOOTSTRAP.md`）。
 - 最大巢狀深度為 5（`maxSpawnDepth` 範圍：1–5）。多數使用情境建議使用 depth 2。
 - `maxChildrenPerAgent` 會限制每個工作階段的活躍子代理數（預設：5，範圍：1–20）。
+

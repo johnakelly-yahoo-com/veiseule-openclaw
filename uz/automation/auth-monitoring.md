@@ -35,3 +35,4 @@ Bular `scripts/` ostida joylashgan va **ixtiyoriy**. Ular gateway xostiga SSH ki
 
 Agar telefon avtomatlashtirish yoki systemd taymerlari kerak bo‘lmasa, bu skriptlarni o‘tkazib yuboring.
 
+

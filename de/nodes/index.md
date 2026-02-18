@@ -336,3 +336,4 @@ Hinweise:
 - Die macOS-Menüleisten-App verbindet sich als Node mit dem Gateway-WS-Server (sodass `openclaw nodes …` auf diesem Mac funktioniert).
 - Im Remote-Modus öffnet die App einen SSH-Tunnel für den Gateway-Port und verbindet sich mit `localhost`.
 
+

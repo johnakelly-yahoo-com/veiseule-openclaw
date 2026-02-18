@@ -125,3 +125,4 @@ Itakda ito sa `false` kung mas gusto mong gumamit ng mga token/password sa halip
 
 Mas malalim na talakayan: [Security](/gateway/security).
 
+

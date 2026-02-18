@@ -472,3 +472,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Jeśli w logach lub zapisanych celach „ostatniej trasy” widzisz prefiksy `telegram:...`, to normalne;
   dostarczanie cron je akceptuje i nadal poprawnie parsuje identyfikatory tematów.
 
+

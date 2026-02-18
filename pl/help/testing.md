@@ -364,3 +364,4 @@ Gdy naprawiasz problem dostawcy/modelu wykryty w live:
   - błąd konwersji/odtwarzania żądania dostawcy → test modeli bezpośrednich
   - błąd pipeline’u sesji/historii/narzędzi gateway → smoke live gateway lub bezpieczny dla CI test mockowany gateway
 
+

@@ -214,3 +214,4 @@ Este protocolo expone la **API completa del gateway** (estado, canales, modelos,
 agente, sesiones, nodos, aprobaciones, etc.). La superficie exacta está definida por los
 esquemas TypeBox en `src/gateway/protocol/schema.ts`.
 
+

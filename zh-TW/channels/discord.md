@@ -472,3 +472,4 @@ ack 反應。 11. 使用 `messages.removeAckAfterReply` 在機器人回覆後清
 - 31. 僅授予機器人所需的權限（通常為讀取/傳送訊息）。
 - 若機器人卡住或遭到速率限制，請在確認沒有其他程序佔用 Discord 工作階段後，重新啟動 Gateway 閘道器（`openclaw gateway --force`）。
 
+

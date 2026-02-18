@@ -286,3 +286,4 @@ Ushbu repo’da mos skill hujjati mavjud: `skills/voice-call/SKILL.md`.
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
+

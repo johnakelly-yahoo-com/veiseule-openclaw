@@ -126,3 +126,4 @@ openclaw sandbox explain --json
 
 `"non-main"` モードでは、グループ／チャンネルのキーはメインではありません。`sandbox explain` で表示されるメインセッションのキーを使用するか、モードを `"off"` に切り替えてください。 メインセッションキー（`sandbox explan` で表示）を使用するか、モードを`"off"`に切り替えます。
 
+

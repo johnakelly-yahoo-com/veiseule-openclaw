@@ -93,3 +93,4 @@ openclaw nodes rename --node <id|name|ip> --name "Living Room iPad"
 - 如果 Gateway 网关离线或配对被禁用，节点无法配对。
 - 如果 Gateway 网关处于远程模式，配对仍然针对远程 Gateway 网关的存储进行。
 
+

@@ -412,3 +412,4 @@ Sürüklenmeyi önlemek için uygulamadan önce birini seçin.
 - Öneri: açık roller + kapsamlarla tek WS protokolü, birleşik eşleştirme + TLS pinleme, gateway barındırmalı onaylar, kalıcı cihaz ID’leri + sevimli slug’lar.
 - Sonuç: daha basit UX, daha güçlü güvenlik, daha az tekrar, daha iyi mobil yönlendirme.
 
+

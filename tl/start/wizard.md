@@ -102,3 +102,4 @@ RPC API, at kumpletong listahan ng mga field ng config na isinusulat ng wizard, 
 - macOS app pag-setup: [Pag-setup](/start/onboarding)
 - Agent first-run ritual: [Agent Bootstrapping](/start/bootstrapping)
 
+

@@ -133,3 +133,4 @@ Mattermost understøtter flere konti under `channels.mattermost.accounts`:
 - Autentificeringsfejl: tjek bot-token, base-URL og om kontoen er aktiveret.
 - Problemer med flere konti: miljøvariabler gælder kun for `default`-kontoen.
 
+

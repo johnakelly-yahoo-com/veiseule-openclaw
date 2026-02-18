@@ -600,3 +600,4 @@ Jeśli więcej niż jedna osoba może wysyłać DM-y do bota (wiele wpisów w `a
 - Sekcje opcjonalne do dodania później: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Zobacz [Providers](/channels/whatsapp) oraz [Rozwiązywanie problemów](/gateway/troubleshooting), aby uzyskać bardziej szczegółowe informacje dotyczące konfiguracji.
 
+

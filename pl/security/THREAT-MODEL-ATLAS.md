@@ -164,3 +164,4 @@ W tym modelu zagrożeń nic nie zostało jednoznacznie wyłączone z zakresu.
 | **Rekomendacje**        | Rozważyć losowe opóźnienia odpowiedzi                               |
 
 ---
+

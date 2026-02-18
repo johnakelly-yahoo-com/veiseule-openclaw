@@ -144,3 +144,4 @@ Mantenha `models.mode: "merge"` para que modelos hospedados permaneçam disponí
 - Erros de contexto? Reduza `contextWindow` ou aumente o limite do seu servidor.
 - Segurança: modelos locais pulam filtros do lado do provedor; mantenha agentes estreitos e a compactação ativada para limitar o raio de impacto de injeção de prompt.
 
+

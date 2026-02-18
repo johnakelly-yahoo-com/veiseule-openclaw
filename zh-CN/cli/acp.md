@@ -168,3 +168,4 @@ openclaw acp --session agent:qa:bug-123
 - `--server-verbose`：启用 ACP 服务器的详细日志。
 - `--verbose, -v`：详细客户端日志。
 
+

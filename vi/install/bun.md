@@ -54,3 +54,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 
 - Một số script vẫn hardcode pnpm (ví dụ: `docs:build`, `ui:*`, `protocol:check`). Run those via pnpm for now.
 
+

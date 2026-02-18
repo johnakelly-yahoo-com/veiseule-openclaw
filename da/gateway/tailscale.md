@@ -122,3 +122,4 @@ Undgå Funnel til browserkontrol; behandl node-parring som operatøradgang.
 - Overblik over Tailscale Funnel: [https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
 - `tailscale funnel`-kommando: [https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
 
+

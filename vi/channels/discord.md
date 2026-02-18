@@ -470,3 +470,4 @@ Emoji có thể là unicode (ví dụ: `✅`) hoặc cú pháp emoji tùy chỉn
 - Chỉ cấp cho bot các quyền cần thiết (thường là Read/Send Messages).
 - Nếu bot bị kẹt hoặc bị giới hạn tốc độ, hãy khởi động lại gateway (`openclaw gateway --force`) sau khi xác nhận không có tiến trình nào khác đang sở hữu phiên Discord.
 
+

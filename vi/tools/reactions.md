@@ -18,3 +18,4 @@ Ghi chú theo kênh:
 - **WhatsApp**: `emoji` trống sẽ gỡ reaction của bot; `remove: true` ánh xạ thành emoji trống (vẫn yêu cầu `emoji`).
 - **Signal**: thông báo reaction đến sẽ phát ra sự kiện hệ thống khi `channels.signal.reactionNotifications` được bật.
 
+

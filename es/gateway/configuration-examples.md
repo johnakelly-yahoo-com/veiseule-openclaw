@@ -600,3 +600,4 @@ Si más de una persona puede enviar mensajes directos a su bot (múltiples entra
 - Secciones opcionales para agregar más adelante: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Consulte [Proveedores](/channels/whatsapp) y [Solución de problemas](/gateway/troubleshooting) para obtener notas de configuración más detalladas.
 
+

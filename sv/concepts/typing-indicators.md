@@ -64,3 +64,4 @@ Du kan åsidosätta läge eller kadens per session:
 - `typingIntervalSeconds` kontrollerar **uppdatera kadens**, inte starttiden.
   Standard är 6 sekunder.
 
+

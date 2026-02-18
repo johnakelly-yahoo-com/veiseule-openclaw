@@ -145,3 +145,4 @@ Lệnh camera (chỉ foreground; yêu cầu quyền):
 
 Xem [Camera node](/nodes/camera) để biết tham số và công cụ CLI hỗ trợ.
 
+

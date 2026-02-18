@@ -123,3 +123,4 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 2. रिपॉज़िटरी डायरेक्टरी हटाएँ।
 3. ऊपर बताए अनुसार स्टेट + वर्कस्पेस हटाएँ।
 
+

@@ -123,3 +123,4 @@ Se você executa a partir de um checkout do repositório (`git clone` + `opencla
 2. Exclua o diretório do repositório.
 3. Remova estado + workspace conforme mostrado acima.
 
+

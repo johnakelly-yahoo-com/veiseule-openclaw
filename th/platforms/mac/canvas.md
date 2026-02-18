@@ -115,3 +115,4 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - เนื้อหาCanvasในเครื่องใช้สคีมแบบกำหนดเอง (ไม่จำเป็นต้องมีเซิร์ฟเวอร์ loopback)
 - URL `http(s)` ภายนอก อนุญาตเฉพาะเมื่อมีการนำทางอย่างชัดเจนเท่านั้น
 
+

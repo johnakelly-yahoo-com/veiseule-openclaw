@@ -45,3 +45,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - နိုဒ် ဟို့စ်သည် `system.execApprovals.get/set` ကို ကြေညာပေးရမည် (macOS app သို့မဟုတ် headless node host)။
 - Approvals ဖိုင်များကို ဟို့စ်အလိုက် `~/.openclaw/exec-approvals.json` တွင် သိမ်းဆည်းထားသည်။
 
+

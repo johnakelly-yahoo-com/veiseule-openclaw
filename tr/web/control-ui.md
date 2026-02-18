@@ -215,3 +215,4 @@ Notlar:
 
 Uzak erişim kurulum ayrıntıları: [Uzak erişim](/gateway/remote).
 
+

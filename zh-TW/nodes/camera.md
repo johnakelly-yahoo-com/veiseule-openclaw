@@ -151,3 +151,4 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 
 - 需要 macOS **Screen Recording** 權限（TCC）。
 
+

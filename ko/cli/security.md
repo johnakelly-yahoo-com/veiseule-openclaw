@@ -21,3 +21,4 @@ openclaw security audit --fix
 감사는 여러 다이렉트 메시지 발신자가 메인 세션을 공유하는 경우 경고하며, 공유된 수신함에 대해 **보안 다이렉트 메시지 모드**: `session.dmScope="per-channel-peer"` (또는 다중 계정 채널의 경우 `per-account-channel-peer`)를 권장합니다.
 또한 작은 모델(`<=300B`)이 샌드박스화 없이 웹/브라우저 도구가 활성화된 상태로 사용되는 경우에도 경고합니다.
 
+

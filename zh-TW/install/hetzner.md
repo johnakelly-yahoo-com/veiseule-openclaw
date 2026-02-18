@@ -327,3 +327,4 @@ OpenClaw 在 Docker 中執行，但 Docker 不是事實來源。
 | OS 套件         | 容器檔案系統                            | Docker 映像檔     | 請勿在執行期安裝                  |
 | Docker 容器     | 短暫                                | 可重新啟動          | 可安全銷毀                     |
 
+

@@ -329,3 +329,4 @@ Yoqilganda, heartbeat alohida `Reasoning:` prefiksli xabarni ham yuboradi (`/rea
 Heartbeat to‘liq agent yurishlarini bajaradi. Qisqaroq interval ko‘proq token sarflaydi.  
 `HEARTBEAT.md` ni kichik saqlang va agar faqat ichki holat yangilanishi kerak bo‘lsa, arzonroq `model` yoki `target: "none"` dan foydalanishni ko‘rib chiqing.
 
+

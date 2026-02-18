@@ -357,3 +357,4 @@ fra i gruppechats.
 Hjertebanken kører fuld agent drejer. Kortere intervaller brænder flere tokens. Hold `HEARTBEAT.md` lille og overvej en billigere `model` eller `target: "none"`, hvis du
 kun ønsker interne tilstandsopdateringer.
 
+

@@ -105,3 +105,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - `schema` 로 검증하지 않는 한 출력을 신뢰할 수 없는 것으로 취급하십시오.
 - 부작용이 있는 단계(send, post, exec) 이전에 승인 단계를 배치하십시오.
 
+

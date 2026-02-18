@@ -128,3 +128,4 @@ Bunları `openclaw message send` veya cron teslimi ile kullanın:
 - Konu (thread) yanıtları: gelen mesaj bir konu içindeyse, OpenClaw konu içinde yanıtlar.
 - Medya: `sendMedia` metin + URL’ye geri döner (yerel yükleme yok).
 
+

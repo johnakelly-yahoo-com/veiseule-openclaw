@@ -58,3 +58,4 @@ openclaw models set github-copilot/gpt-4o
 - ความพร้อมใช้งานของโมเดล Copilot ขึ้นกับแพ็กเกจของคุณ หากโมเดลถูกปฏิเสธ ให้ลองใช้ ID อื่น (เช่น `github-copilot/gpt-4.1`)
 - การล็อกอินจะจัดเก็บโทเคน GitHub ในที่เก็บโปรไฟล์การยืนยันตัวตน และแลกเป็นโทเคน Copilot API เมื่อ OpenClaw ทำงาน
 
+

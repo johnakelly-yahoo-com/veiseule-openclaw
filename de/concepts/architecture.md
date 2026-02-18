@@ -147,3 +147,4 @@ Details: [Gateway-Protokoll](/gateway/protocol), [Pairing](/channels/pairing),
 - Der Handshake ist verpflichtend; jeder nicht-JSON- oder nicht-Connect-Erstframe führt zu einem harten Close.
 - Events werden nicht erneut abgespielt; Clients müssen bei Lücken aktualisieren.
 
+

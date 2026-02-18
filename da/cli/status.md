@@ -21,3 +21,4 @@ Noter:
 - Overblikket inkluderer opdateringskanal + git SHA (for kildecheckouts).
 - Opdateringsinfo vises i Overblikket; hvis en opdatering er tilgængelig, udskriver status et hint om at køre `openclaw update` (se [Opdatering](/install/updating)).
 
+

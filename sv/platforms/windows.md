@@ -154,3 +154,4 @@ Fullständig guide: [Kom igång](/start/getting-started)
 Vi har inte en Windows följeslagare app än. Bidrag är välkomna om du vill att
 bidrag ska få det att hända.
 
+

@@ -147,3 +147,4 @@ Szczegóły: [Gateway protocol](/gateway/protocol), [Pairing](/channels/pairing)
 - Uzgodnienie jest obowiązkowe; każda pierwsza ramka nie‑JSON lub inna niż connect skutkuje natychmiastowym zamknięciem.
 - Zdarzenia nie są odtwarzane; klienci muszą odświeżać stan po wystąpieniu luk.
 
+

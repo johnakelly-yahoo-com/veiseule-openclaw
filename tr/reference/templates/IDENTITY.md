@@ -24,3 +24,4 @@ Notlar:
 - Bu dosyayı çalışma alanı kök dizinine `IDENTITY.md` olarak kaydedin.
 - Avatarlar için `avatars/openclaw.png` gibi çalışma alanına göreli bir yol kullanın.
 
+

@@ -472,3 +472,4 @@ Emoji kunnen unicode zijn (bijv. `✅`) of aangepaste emoji-syntaxis zoals `<:pa
 - Geef de bot alleen de rechten die hij nodig heeft (meestal Berichten lezen/verzenden).
 - Als de bot vastloopt of rate limited is, herstart de Gateway (`openclaw gateway --force`) nadat je hebt bevestigd dat geen andere processen de Discord-sessie bezitten.
 
+

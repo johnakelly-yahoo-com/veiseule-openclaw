@@ -558,3 +558,4 @@ openclaw pairing list slack
 - Slack ツールにおけるリアクション削除の仕様については [/tools/reactions](/tools/reactions) を参照してください。
 - 添付ファイルは、許可されておりサイズ制限内の場合、メディアストアにダウンロードされます。
 
+

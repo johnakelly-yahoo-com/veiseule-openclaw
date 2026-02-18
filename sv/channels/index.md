@@ -41,3 +41,4 @@ Texten stöds överallt; media och reaktioner varierar beroende på kanal.
 - Felsökning: [Felsökning av kanaler](/channels/troubleshooting).
 - Modellleverantörer dokumenteras separat; se [Modellleverantörer](/providers/models).
 
+

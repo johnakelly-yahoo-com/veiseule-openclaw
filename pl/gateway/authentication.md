@@ -143,3 +143,4 @@ brakuje, uruchom ponownie `claude setup-token` i wklej token jeszcze raz.
 - Subskrypcja Claude Max lub Pro (dla `claude setup-token`)
 - Zainstalowany Claude Code CLI (dostępne polecenie `claude`)
 
+

@@ -165,3 +165,4 @@ openclaw acp --session agent:qa:bug-123
 - `--server-verbose`: включить подробное логирование на сервере ACP.
 - `--verbose, -v`: подробное логирование клиента.
 
+

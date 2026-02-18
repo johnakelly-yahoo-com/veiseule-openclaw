@@ -498,3 +498,4 @@ Szczegóły ról IAM znajdziesz na stronie [https://cloud.google.com/iam/docs/un
 - Sparuj lokalne urządzenia jako węzły: [Nodes](/nodes)
 - Skonfiguruj Gateway: [Gateway configuration](/gateway/configuration)
 
+

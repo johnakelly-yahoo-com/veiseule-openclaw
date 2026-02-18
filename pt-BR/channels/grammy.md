@@ -27,3 +27,4 @@ Perguntas em aberto
 - Adicionar mais testes estruturados de mídia (figurinhas, mensagens de voz).
 - Tornar a porta de escuta do webhook configurável (atualmente fixa em 8787, a menos que seja conectada via gateway).
 
+

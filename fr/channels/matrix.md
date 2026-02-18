@@ -257,3 +257,4 @@ Options du fournisseur :
 - `channels.matrix.autoJoinAllowlist` : ID/alias de salons autorises pour l’adhesion automatique.
 - `channels.matrix.actions` : controle d’outils par action (reactions/messages/epingles/memberInfo/channelInfo).
 
+

@@ -198,3 +198,4 @@ For opsætningstrin, se [macOS fjernadgang](/platforms/mac/remote). For detaljer
 - [macOS-tilladelser](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
 
+

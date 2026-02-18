@@ -89,3 +89,4 @@ openclaw nodes rename --node <id|name|ip> --name "Living Room iPad"
 - หากGatewayออฟไลน์หรือปิดการจับคู่ โหนดจะไม่สามารถจับคู่ได้
 - หากGatewayอยู่ในโหมดระยะไกล การจับคู่ายังคงทำกับที่เก็บของGatewayระยะไกลนั้น
 
+

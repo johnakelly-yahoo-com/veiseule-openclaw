@@ -58,3 +58,4 @@ If you need longer retention, re‑capture from the client.
 - 若找不到任何 Host，請開啟其中一個 Host 應用程式（Peekaboo.app 或 OpenClaw.app）
   並確認已授予權限。
 
+

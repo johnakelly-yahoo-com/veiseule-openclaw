@@ -47,3 +47,4 @@ Xizmat manzili OT’ga bog‘liq:
 
 - macOS: LaunchAgent (`bot.molt.gateway` yoki `bot.molt.<profile>`; eski `com.openclaw.*`)
 - Linux/WSL2: systemd foydalanuvchi xizmati (`openclaw-gateway[-<profile>].service`)
+

@@ -389,3 +389,4 @@ Heartbeats voeren volledige agent-beurten uit. Kortere intervallen verbruiken me
 tokens. Houd `HEARTBEAT.md` klein en overweeg een goedkoper `model` of
 `target: "none"` als je alleen interne statusupdates wilt.
 
+

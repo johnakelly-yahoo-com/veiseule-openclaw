@@ -101,3 +101,4 @@ openclaw browser extension path
 
 Безопасность и удалённая настройка: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
 
+

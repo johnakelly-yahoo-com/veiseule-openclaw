@@ -77,3 +77,4 @@ title: "Barre de menus"
 - Rafales rapides d’outils : s’assurer que le badge ne scintille pas (délai de grâce TTL sur les résultats d’outils).
 - La ligne de santé réapparaît une fois toutes les sessions inactives.
 
+

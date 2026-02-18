@@ -18,3 +18,4 @@ Ele não define quais ferramentas existem; o OpenClaw fornece ferramentas integr
 
 Adicione qualquer outra coisa que você queira que o assistente saiba sobre sua toolchain local.
 
+

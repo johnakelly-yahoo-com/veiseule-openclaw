@@ -193,3 +193,4 @@ title: "슬래시 명령어"
 - **`/stop`** 는 현재 실행을 중단할 수 있도록 활성 채팅 세션을 대상으로 합니다.
 - **Slack:** `channels.slack.slashCommand` 는 단일 `/openclaw` 스타일 명령어에 대해 여전히 지원됩니다. `commands.native` 를 활성화하면 기본 제공 명령어마다 하나의 Slack 슬래시 명령어를 생성해야 합니다(`/help` 와 동일한 이름). Slack 의 명령어 인자 메뉴는 일시적 Block Kit 버튼으로 제공됩니다.
 
+

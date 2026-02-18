@@ -68,3 +68,4 @@ Audio standarti: 20 MB (`tools.media.audio.maxBytes`).
 - Tugunlar: pairing, imkoniyatlar, ruxsatlar va canvas/camera/screen/system uchun CLI yordamchilari
 - Ko‘p media javoblar ketma-ket yuborishlar sifatida tarqatilishini ta’minlang.
 
+

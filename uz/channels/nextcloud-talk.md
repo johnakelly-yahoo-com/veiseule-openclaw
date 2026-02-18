@@ -137,3 +137,4 @@ Provayder parametrlari:
 - `channels.nextcloud-talk.blockStreamingCoalesce`: blokli strimingni birlashtirishni sozlash.
 - `channels.nextcloud-talk.mediaMaxMb`: kiruvchi media uchun maksimal hajm (MB).
 
+

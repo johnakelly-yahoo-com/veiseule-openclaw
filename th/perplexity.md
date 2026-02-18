@@ -75,3 +75,4 @@ title: "Perplexity Sonar"
 
 ดู [Web tools](/tools/web) สำหรับการกำหนดค่า web_search แบบเต็ม
 
+

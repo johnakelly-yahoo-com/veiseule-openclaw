@@ -333,3 +333,4 @@ Notlar:
 - macOS menü çubuğu uygulaması, Gateway WS sunucusuna bir düğüm olarak bağlanır (böylece `openclaw nodes …` bu Mac’e karşı çalışır).
 - Uzak modda, uygulama Gateway portu için bir SSH tüneli açar ve `localhost`’ya bağlanır.
 
+

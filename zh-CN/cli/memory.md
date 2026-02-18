@@ -47,3 +47,4 @@ openclaw memory index --agent main --verbose
 - `memory index --verbose` 打印每个阶段的详细信息（提供商、模型、数据源、批处理活动）。
 - `memory status` 包含通过 `memorySearch.extraPaths` 配置的所有额外路径。
 
+

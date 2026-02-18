@@ -180,3 +180,4 @@ Kasama rin sa LINE plugin ang isang `/card` command para sa mga preset ng Flex m
 - **Mga error sa pag-download ng media:** itaas ang `channels.line.mediaMaxMb` kung lumalagpas ang media sa
   default na limit.
 
+

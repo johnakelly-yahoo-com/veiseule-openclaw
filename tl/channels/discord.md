@@ -469,3 +469,4 @@ Emoji can be unicode (e.g., `✅`) or custom emoji syntax like `<:party_blob:123
 - Ibigay lamang sa bot ang mga pahintulot na kailangan nito (karaniwan Read/Send Messages).
 - Kung ang bot ay na-stuck o na-rate limit, i-restart ang gateway (`openclaw gateway --force`) matapos tiyaking walang ibang prosesong may-ari ng Discord session.
 
+

@@ -552,3 +552,4 @@ Notities:
 - `remote.*` heeft voorrang op `models.providers.openai.*`.
 - `remote.headers` voegt samen met OpenAI-headers; extern wint bij sleutelconflicten. Laat `remote.headers` weg om de OpenAI-standaard te gebruiken.
 
+

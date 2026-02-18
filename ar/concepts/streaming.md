@@ -128,3 +128,4 @@ Telegram (private + topics)
 - `sendMessageDraft`: فقاعة مسودة Telegram (ليست رسالة حقيقية).
 - `final reply`: إرسال رسالة Telegram عادية.
 
+

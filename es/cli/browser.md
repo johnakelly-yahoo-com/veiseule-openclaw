@@ -101,3 +101,4 @@ Use `gateway.nodes.browser.mode` para controlar el enrutamiento automático y `g
 
 Seguridad + configuración remota: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
 
+

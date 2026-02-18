@@ -21,3 +21,4 @@ Hinweise:
 - Der Überblick enthält Update-Kanal + git-SHA (für Source-Checkouts).
 - Update-Informationen werden im Überblick angezeigt; wenn ein Update verfügbar ist, gibt der Status einen Hinweis aus, `openclaw update` auszuführen (siehe [Updating](/install/updating)).
 
+

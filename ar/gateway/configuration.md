@@ -407,3 +407,4 @@ title: "التهيئة"
 ---
 
 _روابط ذات صلة: [أمثلة التهيئة](/gateway/configuration-examples) · [Configuration Reference](/gateway/configuration-reference) · [Doctor](/gateway/doctor)_
+

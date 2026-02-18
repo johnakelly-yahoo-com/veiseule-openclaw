@@ -31,3 +31,4 @@ openclaw onboard --zai-api-key "$ZAI_API_KEY"
 - Model ailesine genel bakış için [/providers/glm](/providers/glm) sayfasına bakın.
 - Z.AI, API anahtarınızla Bearer kimlik doğrulaması kullanır.
 
+

@@ -228,3 +228,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - ไม่รองรับไฟล์สื่อแนบ
 - รองรับเฉพาะNIP-04(วางแผนNIP-17แบบgift-wrap)
 
+

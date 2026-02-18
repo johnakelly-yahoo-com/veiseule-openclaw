@@ -324,3 +324,4 @@ Tumatakbo ang OpenClaw sa Docker, ngunit ang Docker ay hindi ang source of truth
 | OS packages         | Container filesystem              | Docker image             | Huwag mag-install sa runtime              |
 | Docker container    | Ephemeral                         | Restartable              | Ligtas na sirain                          |
 
+

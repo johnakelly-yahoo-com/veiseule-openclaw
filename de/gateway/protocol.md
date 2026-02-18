@@ -215,3 +215,4 @@ Dieses Protokoll stellt die **vollständige Gateway‑API** bereit (Status, Kan�
 Agent, Sitzungen, Nodes, Freigaben usw.). Der exakte Umfang wird durch die TypeBox‑Schemas in
 `src/gateway/protocol/schema.ts` definiert.
 
+

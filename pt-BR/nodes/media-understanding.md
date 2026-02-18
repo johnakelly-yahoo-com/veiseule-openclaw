@@ -374,3 +374,4 @@ Isso mostra os resultados por capacidade e o provedor/modelo escolhido quando ap
 - [Configuração](/gateway/configuration)
 - [Suporte a Imagens e Mídia](/nodes/images)
 
+

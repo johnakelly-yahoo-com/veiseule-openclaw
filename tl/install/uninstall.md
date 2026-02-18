@@ -123,3 +123,4 @@ Kung tumatakbo ka mula sa repo checkout (`git clone` + `openclaw ...` / `bun run
 2. Burahin ang repo directory.
 3. Alisin ang state + workspace gaya ng ipinakita sa itaas.
 
+

@@ -30,3 +30,4 @@ title: "Проверки здоровья"
 
 - Вы по‑прежнему можете использовать поток CLI в [Gateway health](/gateway/health) (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) и просматривать `/tmp/openclaw/openclaw-*.log` для `web-heartbeat` / `web-reconnect`.
 
+

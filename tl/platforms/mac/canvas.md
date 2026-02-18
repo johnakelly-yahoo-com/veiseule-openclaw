@@ -115,3 +115,4 @@ Humihingi ang app ng kumpirmasyon maliban kung may ibinigay na valid key.
 - Ang lokal na Canvas content ay gumagamit ng custom scheme (hindi kailangan ng loopback server).
 - Ang mga external na `http(s)` URL ay pinapayagan lamang kapag tahasang ini-navigate.
 
+

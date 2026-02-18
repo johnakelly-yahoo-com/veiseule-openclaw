@@ -137,3 +137,4 @@ Tùy chọn nhà cung cấp:
 - `channels.nextcloud-talk.blockStreamingCoalesce`: tinh chỉnh gộp block streaming.
 - `channels.nextcloud-talk.mediaMaxMb`: giới hạn media đầu vào (MB).
 
+

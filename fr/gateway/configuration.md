@@ -397,3 +397,4 @@ Pour la référence détaillée champ par champ, voir **[Configuration Reference
 ---
 
 _Related: [Configuration Examples](/gateway/configuration-examples) · [Configuration Reference](/gateway/configuration-reference) · [Doctor](/gateway/doctor)_
+

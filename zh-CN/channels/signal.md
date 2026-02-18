@@ -204,3 +204,4 @@ message action=react channel=signal target=signal:group:<groupId> targetAuthor=u
 - `messages.groupChat.mentionPatterns`（全局回退）。
 - `messages.responsePrefix`。
 
+

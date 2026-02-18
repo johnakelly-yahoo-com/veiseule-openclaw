@@ -41,3 +41,4 @@ Text wird überall unterstützt; Medien und Reaktionen variieren je nach Kanal.
 - Fehlerbehebung: [Kanal-Fehlerbehebung](/channels/troubleshooting).
 - Modellanbieter sind separat dokumentiert; siehe [Model Providers](/providers/models).
 
+

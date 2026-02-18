@@ -282,3 +282,4 @@ surowy plik jest zazwyczaj dostępny pod:
 2. Uruchom `pnpm protocol:check`.
 3. Zatwierdź zregenerowany schemat oraz modele Swift.
 
+

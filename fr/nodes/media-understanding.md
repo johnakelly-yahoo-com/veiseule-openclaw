@@ -373,3 +373,4 @@ Cela affiche les résultats par capacité et le fournisseur/modèle choisi le ca
 - [Configuration](/gateway/configuration)
 - [Prise en charge des images et des médias](/nodes/images)
 
+

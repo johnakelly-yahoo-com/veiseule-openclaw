@@ -68,3 +68,4 @@ Vlaggen:
 - `--agent <id>`: agent-gebonden goedkeuringen/toegestane lijsten (standaard de geconfigureerde agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: overschrijvingen.
 
+

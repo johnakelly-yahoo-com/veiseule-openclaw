@@ -150,3 +150,4 @@ Die Formatierung ausgehender Nachrichten ist zentralisiert in `messages`:
 
 Details: [Konfiguration](/gateway/configuration#messages) und die Kanaldokumentation.
 
+

@@ -223,3 +223,4 @@ Sağlayıcı seçenekleri:
 - `messages.groupChat.mentionPatterns` (küresel geri dönüş).
 - `messages.responsePrefix`.
 
+

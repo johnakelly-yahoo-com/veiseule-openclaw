@@ -18,3 +18,4 @@ Kanalspezifische Hinweise:
 - **WhatsApp**: Ein leeres `emoji` entfernt die Reaktion des Bots; `remove: true` wird auf ein leeres Emoji abgebildet (erfordert weiterhin `emoji`).
 - **Signal**: Eingehende Reaktionsbenachrichtigungen erzeugen Systemereignisse, wenn `channels.signal.reactionNotifications` aktiviert ist.
 
+

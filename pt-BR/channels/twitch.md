@@ -375,3 +375,4 @@ Exemplo:
 - Markdown é removido antes da divisão
 - Sem limitação de taxa (usa os limites nativos do Twitch)
 
+

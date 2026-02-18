@@ -336,3 +336,4 @@ Un exemple public : une CLI de « second cerveau » + des pipelines Lobster
 - Fil : https://x.com/plattenschieber/status/2014508656335770033
 - Repo : https://github.com/bloomedai/brain-cli
 
+

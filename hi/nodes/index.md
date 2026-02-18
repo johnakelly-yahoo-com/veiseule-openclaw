@@ -327,3 +327,4 @@ openclaw node run --host <gateway-host> --port 18789
 - macOS मेन्यूबार ऐप Gateway WS सर्वर से एक नोड के रूप में कनेक्ट होता है (ताकि `openclaw nodes …` इस Mac के विरुद्ध काम करे)।
 - रिमोट मोड में, ऐप Gateway पोर्ट के लिए एक SSH टनल खोलता है और `localhost` से कनेक्ट होता है।
 
+

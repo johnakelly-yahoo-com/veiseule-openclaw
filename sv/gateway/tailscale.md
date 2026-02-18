@@ -122,3 +122,4 @@ Undvik Funnel för webbläsarkontroll; behandla nodparning som operatörsåtkoms
 - Översikt över Tailscale Funnel: [https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
 - Kommandot `tailscale funnel`: [https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
 
+

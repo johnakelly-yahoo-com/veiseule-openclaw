@@ -506,3 +506,4 @@ Araçlar iki paralel kanalda sunulur:
 
 Bu, ajanın hem “hangi araçlar var”ı hem de “nasıl çağrılacaklarını” görmesi anlamına gelir. Bir araç sistem isteminde veya şemada görünmüyorsa, model onu çağıramaz.
 
+

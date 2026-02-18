@@ -223,3 +223,4 @@ Relaterede globale indstillinger:
 - `messages.groupChat.mentionPatterns` (global fallback).
 - `messages.responsePrefix`.
 
+

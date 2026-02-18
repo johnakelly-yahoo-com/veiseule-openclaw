@@ -108,3 +108,4 @@ Zachowanie:
 
 Pozwala to zachować stabilność istniejących logów plikowych, jednocześnie czyniąc interaktywne wyjście czytelnym.
 
+

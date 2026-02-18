@@ -92,3 +92,4 @@ pakowania SwiftPM oraz buildów Nix (które nie polegają na pełnym łańcuchu 
 - [Wizard](/start/wizard) — konfiguracja CLI bez Nix
 - [Docker](/install/docker) — konfiguracja konteneryzowana
 
+

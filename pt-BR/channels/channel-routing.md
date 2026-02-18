@@ -108,3 +108,4 @@ As respostas de entrada incluem:
 
 Isso é consistente entre os canais.
 
+

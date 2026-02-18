@@ -171,3 +171,4 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 
 ဒီ guide က ဘယ်လို setup လုပ်ရမလဲဆိုတာကို ပြသပေးပါတယ်။ OpenClaw.app က သင့် client machine ပေါ်မှာ `ws://127.0.0.1:18789` ကို ချိတ်ဆက်ပါတယ်။
 
+

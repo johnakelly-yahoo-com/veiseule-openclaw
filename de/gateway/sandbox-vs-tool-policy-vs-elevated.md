@@ -125,3 +125,4 @@ Fix‑it‑Schlüssel (wählen Sie einen):
 
 Im Modus `"non-main"` sind Gruppen-/Kanal‑Schlüssel _nicht_ „main“. Verwenden Sie den Hauptsitzungs‑Schlüssel (angezeigt durch `sandbox explain`) oder wechseln Sie den Modus zu `"off"`.
 
+

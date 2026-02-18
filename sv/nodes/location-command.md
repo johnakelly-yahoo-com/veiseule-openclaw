@@ -108,3 +108,4 @@ Noteringar:
 - Alltid: “Tillåt bakgrundsplats. Kräver systembehörighet.”
 - Precise: ”Använd exakt GPS-position. Växla av för att dela ungefärlig plats. "
 
+

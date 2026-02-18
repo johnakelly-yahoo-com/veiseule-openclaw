@@ -64,3 +64,4 @@ Kung hindi naglalabas ang model ng reasoning deltas, hindi magsisimula ang pagta
 - Kinokontrol ng `typingIntervalSeconds` ang **agwat ng pag-refresh**, hindi ang oras ng pagsisimula.
 Ang default ay 6 na segundo.
 
+

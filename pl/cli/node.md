@@ -106,3 +106,4 @@ Host węzła przechowuje swój identyfikator węzła, token, nazwę wyświetlan�
 - [Zatwierdzanie wykonania](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (edytowane z Gateway)
 
+

@@ -79,3 +79,4 @@ Buni faqat egasining raqami (`channels.whatsapp.allowFrom`, yoki o‘rnatilmagan
 - Echo suppression birlashtirilgan batch satridan foydalanadi; agar mentionlarsiz bir xil matnni ikki marta yuborsangiz, faqat birinchisiga javob beriladi.
 - Sessiya saqlash yozuvlari sessiya omborida (`~/.openclaw/agents/<agentId>/sessions/sessions.json` standart bo‘yicha) `agent:<agentId>:whatsapp:group:<jid>` ko‘rinishida paydo bo‘ladi; yozuv yo‘qligi guruh hali ishga tushirmaganini anglatadi.
 - Guruhlardagi typing indikatorlari `agents.defaults.typingMode` ga amal qiladi (standart: mention qilinmaganda `message`).
+

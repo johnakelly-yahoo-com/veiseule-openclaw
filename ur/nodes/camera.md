@@ -151,3 +151,4 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 
 - macOS **Screen Recording** اجازت (TCC) درکار ہوتی ہے۔
 
+

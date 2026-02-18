@@ -70,3 +70,4 @@ Beta- och dev-versioner får **inte** innehålla en macOS-app-utgåva. Det är o
 - Git-taggen och npm dist-taggen kan fortfarande publiceras.
 - Ange “ingen macOS-version för denna beta” i release notes eller changelog.
 
+

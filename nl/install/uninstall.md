@@ -123,3 +123,4 @@ Als je vanuit een repo-checkout draait (`git clone` + `openclaw ...` / `bun run 
 2. Verwijder de repo-map.
 3. Verwijder status + werkruimte zoals hierboven getoond.
 
+

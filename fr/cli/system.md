@@ -54,3 +54,4 @@ Drapeaux :
 - Necessite une Gateway (passerelle) en cours d'execution, accessible via votre configuration actuelle (locale ou distante).
 - Les evenements systeme sont ephemeres et ne sont pas persistants entre les redemarrages.
 
+

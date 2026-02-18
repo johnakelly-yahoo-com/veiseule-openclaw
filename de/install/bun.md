@@ -54,3 +54,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 
 - Einige Skripte sind weiterhin fest auf pnpm verdrahtet (z. B. `docs:build`, `ui:*`, `protocol:check`). Führen Sie diese vorerst über pnpm aus.
 
+

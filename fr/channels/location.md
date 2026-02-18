@@ -51,3 +51,4 @@ Lorsqu’un emplacement est présent, ces champs sont ajoutés à `ctx` :
 - **WhatsApp** : `locationMessage.comment` et `liveLocationMessage.caption` sont ajoutés comme ligne de légende.
 - **Matrix** : `geo_uri` est analysé comme une épingle d’emplacement ; l’altitude est ignorée et `LocationIsLive` est toujours faux.
 
+

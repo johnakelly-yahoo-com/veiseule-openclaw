@@ -187,3 +187,4 @@ Sa bagong makina, tiyakin na:
 - [Pag-troubleshoot ng Gateway](/gateway/troubleshooting)
 - [Saan iniimbak ng OpenClaw ang data nito?](/help/faq#where-does-openclaw-store-its-data)
 
+

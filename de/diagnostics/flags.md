@@ -86,3 +86,4 @@ Für entfernte Gateways können Sie außerdem `openclaw logs --follow` verwenden
 - Flags können bedenkenlos aktiviert bleiben; sie beeinflussen lediglich das Log-Volumen des jeweiligen Subsystems.
 - Verwenden Sie [/logging](/logging), um Log-Ziele, -Level und Maskierung zu ändern.
 
+

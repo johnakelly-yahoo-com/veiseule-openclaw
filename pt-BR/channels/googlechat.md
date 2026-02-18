@@ -248,3 +248,4 @@ Documentos relacionados:
 - [Segurança](/gateway/security)
 - [Reações](/tools/reactions)
 
+

@@ -65,3 +65,4 @@ Erstellen Sie `SOUL_EVIL.md` im Stammverzeichnis des Agent-Workspace (neben `SOU
 
 - [Hooks](/automation/hooks)
 
+

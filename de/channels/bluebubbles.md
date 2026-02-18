@@ -337,3 +337,4 @@ Bevorzugen Sie `chat_guid` für stabiles Routing:
 
 Für allgemeine Referenzen zum Kanal‑Workflow siehe [Channels](/channels) und den Leitfaden [Plugins](/tools/plugin).
 
+

@@ -71,3 +71,4 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 Teams 投票以 Adaptive Cards 形式渲染，需要 Gateway 网关保持在线
 以将投票记录到 `~/.openclaw/msteams-polls.json`。
 
+

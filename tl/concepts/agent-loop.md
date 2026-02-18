@@ -142,3 +142,4 @@ Tingnan ang [Plugins](/tools/plugin#plugin-hooks) para sa hook API at mga detaly
 - Gateway disconnect o RPC timeout
 - `agent.wait` timeout (wait-only, hindi pinipigilan ang agent)
 
+

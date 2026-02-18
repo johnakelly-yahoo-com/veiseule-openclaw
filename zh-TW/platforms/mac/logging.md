@@ -52,3 +52,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - 視需要執行 `sudo log config --reload`，以強制 logd 立即移除覆寫。
 - 請記住此介面可能包含電話號碼與訊息內容；僅在你實際需要額外細節時才保留 plist。
 
+

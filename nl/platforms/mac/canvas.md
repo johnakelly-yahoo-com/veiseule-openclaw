@@ -119,3 +119,4 @@ De app vraagt om bevestiging tenzij een geldige sleutel wordt meegegeven.
 - Lokale Canvas-inhoud gebruikt een aangepast schema (geen local loopback-server vereist).
 - Externe `http(s)`-URL's zijn alleen toegestaan wanneer er expliciet naartoe wordt genavigeerd.
 
+

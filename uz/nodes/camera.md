@@ -151,3 +151,4 @@ Eslatmalar:
 
 - macOS’da **Screen Recording** ruxsati (TCC) talab qilinadi.
 
+

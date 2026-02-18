@@ -228,3 +228,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Keine Medienanhänge.
 - Nur NIP-04 (NIP-17 Gift-Wrap geplant).
 
+

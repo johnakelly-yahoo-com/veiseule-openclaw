@@ -260,3 +260,4 @@ openclaw pairing list matrix
 - `channels.matrix.autoJoinAllowlist`: معرّفات/أسماء الغرف المسموح بها للانضمام التلقائي.
 - `channels.matrix.actions`: تقييد الأدوات لكل إجراء (reactions/messages/pins/memberInfo/channelInfo).
 
+

@@ -119,3 +119,4 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - स्थानीय Canvas सामग्री एक कस्टम स्कीम का उपयोग करती है (किसी loopback सर्वर की आवश्यकता नहीं)।
 - बाहरी `http(s)` URLs केवल तब अनुमति प्राप्त करते हैं जब स्पष्ट रूप से नेविगेट किया जाए।
 
+

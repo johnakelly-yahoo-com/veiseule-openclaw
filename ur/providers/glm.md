@@ -28,3 +28,4 @@ openclaw onboard --auth-choice zai-api-key
 - مثال کے طور پر ماڈل IDs میں `glm-4.7` اور `glm-4.6` شامل ہیں۔
 - فراہم کنندہ کی تفصیلات کے لیے [/providers/zai](/providers/zai) دیکھیں۔
 
+

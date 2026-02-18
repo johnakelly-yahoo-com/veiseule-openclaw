@@ -40,3 +40,4 @@ für den ausgewählten Agenten (mit einem Sitzungsumschalter für weitere Sitzun
 
 - Die UI ist für Chat‑Sitzungen optimiert (keine vollständige Browser‑Sandbox).
 
+

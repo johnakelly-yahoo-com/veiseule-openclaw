@@ -17,3 +17,4 @@ Kanal bo‘yicha izohlar:
 - **Telegram**: bo‘sh `emoji` botning reaksiyalarini olib tashlaydi; `remove: true` ham reaksiyalarni olib tashlaydi, biroq vosita tekshiruvi uchun baribir bo‘sh bo‘lmagan `emoji` talab qilinadi.
 - **WhatsApp**: bo‘sh `emoji` bot reaksiyasini olib tashlaydi; `remove: true` bo‘sh emoji sifatida qabul qilinadi (baribir `emoji` talab qilinadi).
 - **Signal**: kiruvchi reaksiya bildirishnomalari `channels.signal.reactionNotifications` yoqilganda tizim hodisalarini chiqaradi.
+

@@ -132,3 +132,4 @@ Mattermost `channels.mattermost.accounts` ostida bir nechta akkauntni qo‘llab-
 - Kanallarda javob yo‘q: bot kanalga qo‘shilganini tekshiring va uni @mention qiling (`oncall`), trigger prefiksidan foydalaning (`onchar`) yoki `chatmode: "onmessage"` ni sozlang.
 - Autentifikatsiya xatolari: bot token, base URL va akkaunt yoqilganini tekshiring.
 - Ko‘p akkaunt bilan bog‘liq muammolar: environment o‘zgaruvchilari faqat `default` akkauntga qo‘llaniladi.
+

@@ -125,3 +125,4 @@ Clés de correction (choisissez-en une) :
 
 En mode `"non-main"`, les clés de groupe/canal ne sont _pas_ principales. Utilisez la clé de session principale (affichée par `sandbox explain`) ou passez au mode `"off"`.
 
+

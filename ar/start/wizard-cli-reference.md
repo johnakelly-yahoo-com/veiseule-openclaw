@@ -249,3 +249,4 @@ sidebarTitle: "مرجع CLI"
 - مركز التهيئة الأولية: [معالج التهيئة الأولية (CLI)](/start/wizard)
 - الأتمتة والبرامج النصية: [أتمتة CLI](/start/wizard-cli-automation)
 - مرجع الأوامر: [`openclaw onboard`](/cli/onboard)
+

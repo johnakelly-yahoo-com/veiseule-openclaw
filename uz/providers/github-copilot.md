@@ -56,3 +56,4 @@ openclaw models set github-copilot/gpt-4o
 - 39. Copilot modellari mavjudligi rejangizga bog‘liq; agar model rad etilsa, boshqa ID’ni sinab ko‘ring (masalan `github-copilot/gpt-4.1`).
 - 40. Kirish jarayoni GitHub tokenini autentifikatsiya profillari omborida saqlaydi va OpenClaw ishga tushganda uni Copilot API tokeniga almashtiradi.
 
+

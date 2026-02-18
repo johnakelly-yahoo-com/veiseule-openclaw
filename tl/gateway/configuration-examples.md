@@ -600,3 +600,4 @@ Kung higit sa isang tao ang maaaring mag-DM sa iyong bot (maramihang entry sa `a
 - Mga opsyonal na seksyon na maaaring idagdag sa ibang pagkakataon: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Tingnan ang [Providers](/channels/whatsapp) at [Troubleshooting](/gateway/troubleshooting) para sa mas malalim na mga tala sa setup.
 
+

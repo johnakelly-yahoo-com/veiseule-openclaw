@@ -45,3 +45,4 @@ Options globales associées :
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password` : cible du gateway distant.
 - `session.*` : stockage de session et valeurs par défaut de la clé principale.
 
+

@@ -106,3 +106,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - آؤٹ پٹ کو غیر معتبر سمجھیں جب تک کہ آپ `schema` کے ساتھ توثیق نہ کر لیں۔
 - کسی بھی سائیڈ ایفیکٹ والے مرحلے (send، post، exec) سے پہلے منظوریات رکھیں۔
 
+

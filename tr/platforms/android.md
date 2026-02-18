@@ -145,3 +145,4 @@ Kamera komutları (yalnızca foreground; izin kontrollü):
 
 Parametreler ve CLI yardımcıları için [Kamera node’u](/nodes/camera) bölümüne bakın.
 
+

@@ -244,3 +244,4 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_WORKDIR`: Переопределить рабочий каталог по умолчанию.
 - `CLAWHUB_DISABLE_TELEMETRY=1`: Отключить телеметрию для `sync`.
 
+

@@ -51,3 +51,4 @@ Meet here
 - **WhatsApp**: `locationMessage.comment` и `liveLocationMessage.caption` добавляются как строка подписи.
 - **Matrix**: `geo_uri` разбирается как локация-пин; высота игнорируется, а `LocationIsLive` всегда false.
 
+

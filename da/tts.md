@@ -388,3 +388,4 @@ Gateway-metoder:
 - `tts.setProvider`
 - `tts.providers`
 
+

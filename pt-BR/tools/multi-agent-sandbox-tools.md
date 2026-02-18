@@ -393,3 +393,4 @@ Após configurar sandbox e ferramentas multiagente:
 - [Configuração de Sandbox](/gateway/configuration#agentsdefaults-sandbox)
 - [Gerenciamento de Sessões](/concepts/session)
 
+

@@ -74,3 +74,4 @@ openclaw channels resolve --channel matrix "Project Room"
 - استخدم `--kind user|group|auto` لفرض نوع الهدف.
 - يفضّل التحويل التطابقات النشطة عندما تشترك عدة إدخالات في الاسم نفسه.
 
+

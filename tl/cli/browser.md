@@ -101,3 +101,4 @@ Gamitin ang `gateway.nodes.browser.mode` para kontrolin ang auto-routing at ang 
 
 Seguridad + remote na setup: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
 
+

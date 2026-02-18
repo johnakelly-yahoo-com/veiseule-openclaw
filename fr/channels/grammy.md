@@ -27,3 +27,4 @@ Questions ouvertes
 - Ajouter davantage de tests media structures (stickers, messages vocaux).
 - Rendre le port d’ecoute du webhook configurable (actuellement fixe a 8787 sauf s’il est raccorde via la gateway).
 
+

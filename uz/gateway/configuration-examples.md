@@ -600,3 +600,4 @@ If more than one person can DM your bot (multiple entries in `allowFrom`, pairin
 - Keyinroq qo‘shish mumkin bo‘lgan ixtiyoriy bo‘limlar: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Batafsil sozlash eslatmalari uchun [Providers](/channels/whatsapp) va [Troubleshooting](/gateway/troubleshooting) bo‘limlariga qarang.
 
+

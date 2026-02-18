@@ -21,3 +21,4 @@ Uwagi:
 - Przegląd obejmuje kanał aktualizacji oraz SHA gita (dla checkoutów ze źródeł).
 - Informacje o aktualizacjach są prezentowane w Przeglądzie; jeśli dostępna jest aktualizacja, status wyświetla wskazówkę, aby uruchomić `openclaw update` (zobacz [Updating](/install/updating)).
 
+

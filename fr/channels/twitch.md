@@ -375,3 +375,4 @@ Exemple :
 - Le Markdown est supprime avant la segmentation
 - Pas de limitation de debit (utilise les limites integrees de Twitch)
 
+

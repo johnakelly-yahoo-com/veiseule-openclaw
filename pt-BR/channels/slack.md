@@ -571,3 +571,4 @@ Para fluxo de triagem: [/channels/troubleshooting](/channels/troubleshooting).
 - Para a ferramenta do Slack, a semântica de remoção de reações está em [/tools/reactions](/tools/reactions).
 - Anexos são baixados para o repositório de mídia quando permitido e abaixo do limite de tamanho.
 
+

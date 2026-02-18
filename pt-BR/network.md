@@ -48,3 +48,4 @@ Confiança local:
 - [Solução de problemas](/gateway/troubleshooting)
 - [Doutor](/gateway/doctor)
 
+

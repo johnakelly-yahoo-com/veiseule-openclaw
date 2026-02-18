@@ -146,3 +146,4 @@ openclaw models status
 - Claude Max یا Pro سبسکرپشن ( `claude setup-token` کے لیے)
 - Claude Code CLI انسٹال ہونا (`claude` کمانڈ دستیاب ہو)
 
+

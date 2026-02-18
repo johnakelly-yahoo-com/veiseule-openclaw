@@ -158,3 +158,4 @@ Notes:
 - टूल policy अभी भी लागू होती है; `allow: ["exec"]` अंतर्निहित रूप से `apply_patch` की अनुमति देता है।
 - Config `tools.exec.applyPatch` के अंतर्गत रहता है।
 
+

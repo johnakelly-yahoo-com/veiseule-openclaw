@@ -93,3 +93,4 @@ Ghi chú bảo mật:
 - Nếu Gateway ngoại tuyến hoặc ghép cặp bị vô hiệu hóa, các nút không thể ghép cặp.
 - Nếu Gateway ở chế độ từ xa, việc ghép cặp vẫn diễn ra với kho lưu trữ của Gateway từ xa.
 
+

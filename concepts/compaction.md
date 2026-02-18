@@ -56,3 +56,4 @@ See [/concepts/session-pruning](/concepts/session-pruning) for pruning details.
 - Large tool outputs are already truncated; pruning can further reduce tool-result buildup.
 - If you need a fresh slate, `/new` or `/reset` starts a new session id.
 
+

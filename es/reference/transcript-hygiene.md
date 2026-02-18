@@ -122,3 +122,4 @@ Esta complejidad causó regresiones entre proveedores (en particular el empareja
 `call_id|fc_id`). La limpieza de 2026.1.22 eliminó la extensión, centralizó la
 lógica en el runner e hizo que OpenAI fuera **sin intervención** más allá del saneamiento de imágenes.
 
+

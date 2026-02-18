@@ -44,3 +44,4 @@ Gateway ကို daemon (launchd/systemd) အဖြစ် လည်ပတ်ပ
 ကို ထို process မှ ဝင်ရောက်အသုံးပြုနိုင်စေရန် သေချာစေပါ (ဥပမာအားဖြင့် `~/.openclaw/.env` တွင် သို့မဟုတ်
 `env.shellEnv` မှတဆင့်)။
 
+

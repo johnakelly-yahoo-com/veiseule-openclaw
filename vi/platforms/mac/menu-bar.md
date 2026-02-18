@@ -77,3 +77,4 @@ title: "Thanh menu"
 - Các đợt công cụ nhanh: đảm bảo huy hiệu không nhấp nháy (TTL ân hạn trên kết quả công cụ).
 - Hàng sức khỏe xuất hiện lại khi tất cả các phiên đều nhàn rỗi.
 
+

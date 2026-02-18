@@ -193,3 +193,4 @@ Remarques :
 - **`/stop`** cible la session de chat active afin d’interrompre l’execution en cours.
 - **Slack :** `channels.slack.slashCommand` est toujours pris en charge pour une seule commande de type `/openclaw`. Si vous activez `commands.native`, vous devez creer une commande slash Slack par commande integree (memes noms que `/help`). Les menus d’arguments de commandes pour Slack sont fournis sous forme de boutons Block Kit ephemeres.
 
+

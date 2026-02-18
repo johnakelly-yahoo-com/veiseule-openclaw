@@ -105,3 +105,4 @@ Davranış:
 
 Bu, mevcut dosya günlüklerini sabit tutarken etkileşimli çıktıyı taranabilir hale getirir.
 
+

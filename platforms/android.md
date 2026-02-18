@@ -145,3 +145,4 @@ Camera commands (foreground only; permission-gated):
 
 See [Camera node](/nodes/camera) for parameters and CLI helpers.
 
+

@@ -575,3 +575,4 @@ Opções principais:
 - ✅ Áudio
 - ⚠️ Texto rico (suporte parcial)
 
+

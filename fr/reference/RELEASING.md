@@ -112,3 +112,4 @@ Liste actuelle des plugins npm (mettre a jour si necessaire) :
 
 Les notes de release doivent egalement mentionner les **nouveaux plugins bundles optionnels** qui **ne sont pas actives par defaut** (exemple : `tlon`).
 
+

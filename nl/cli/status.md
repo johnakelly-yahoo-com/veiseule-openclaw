@@ -21,3 +21,4 @@ Notities:
 - Het overzicht bevat het updatekanaal + git SHA (voor broncheckouts).
 - Update-informatie verschijnt in het overzicht; als er een update beschikbaar is, toont de status een hint om `openclaw update` uit te voeren (zie [Bijwerken](/install/updating)).
 
+

@@ -101,3 +101,4 @@ Use `gateway.nodes.browser.mode` to control auto-routing and `gateway.nodes.brow
 
 Security + remote setup: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
 
+

@@ -381,3 +381,4 @@ openclaw agents list --bindings
 
 [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) для подробных примеров.
 
+

@@ -157,3 +157,4 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 - لا يوجد وكلاء في المنتقي: تحقّق من `openclaw agents list` وتهيئة التوجيه لديك.
 - منتقي الجلسات فارغ: قد تكون في النطاق العام أو لا توجد جلسات بعد.
 
+

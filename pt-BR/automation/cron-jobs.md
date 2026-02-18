@@ -472,3 +472,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Se você vir prefixos `telegram:...` nos logs ou em alvos de “última rota” armazenados, isso é normal;
   a entrega por cron os aceita e ainda analisa corretamente os IDs de tópico.
 
+

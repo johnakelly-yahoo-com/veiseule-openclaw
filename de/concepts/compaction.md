@@ -56,3 +56,4 @@ Siehe [/concepts/session-pruning](/concepts/session-pruning) für Details zum Pr
 - Große Werkzeugausgaben werden bereits gekürzt; Pruning kann den Aufbau von Werkzeugergebnissen weiter reduzieren.
 - Wenn Sie einen Neustart benötigen, startet `/new` oder `/reset` eine neue Sitzungs-ID.
 
+

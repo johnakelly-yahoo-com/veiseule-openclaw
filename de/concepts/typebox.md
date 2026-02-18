@@ -281,3 +281,4 @@ veröffentlichte Raw‑Datei ist typischerweise verfügbar unter:
 2. Führen Sie `pnpm protocol:check` aus.
 3. Committen Sie das neu generierte Schema + die Swift‑Modelle.
 
+

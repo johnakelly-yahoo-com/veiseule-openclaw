@@ -225,3 +225,4 @@ Gợi ý starter cho `.gitignore`:
 - Nếu `agents.defaults.sandbox` được bật, các phiên không phải chính có thể dùng workspace
   sandbox theo từng phiên dưới `agents.defaults.sandbox.workspaceRoot`.
 
+

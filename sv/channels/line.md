@@ -181,3 +181,4 @@ förinställningar av Flex‑meddelanden:
 - **Fel vid nedladdning av media:** höj `channels.line.mediaMaxMb` om media överskrider
   standardgränsen.
 
+

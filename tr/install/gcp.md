@@ -498,3 +498,4 @@ IAM rolleri hakkında ayrıntılar için [https://cloud.google.com/iam/docs/unde
 - Yerel cihazları düğüm olarak eşleyin: [Nodes](/nodes)
 - Gateway’i yapılandırın: [Gateway configuration](/gateway/configuration)
 
+

@@ -157,3 +157,4 @@ curl -X POST http://127.0.0.1:18789/hooks/gmail \
   Belirli bir hook için bunu devre dışı bırakmanız gerekiyorsa, o hook’un eşlemesinde `allowUnsafeExternalContent: true` ayarlayın
   (tehlikelidir).
 
+

@@ -53,3 +53,4 @@ title: "Elevated 모드"
 - Elevated exec 호출은 info 레벨로 로깅됩니다.
 - 세션 상태에는 elevated 모드가 포함됩니다(예: `elevated=ask`, `elevated=full`).
 
+

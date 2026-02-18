@@ -65,3 +65,4 @@ Se você habilitou a autenticação do Gateway no Cloudflare, adicione o cabeça
 
 Se o Gateway for executado como um daemon (launchd/systemd), certifique-se de que `CLOUDFLARE_AI_GATEWAY_API_KEY` esteja disponível para esse processo (por exemplo, em `~/.openclaw/.env` ou via `env.shellEnv`).
 
+

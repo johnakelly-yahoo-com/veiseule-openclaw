@@ -31,3 +31,4 @@ Guia curto para verificar a conectividade do canal sem adivinhações.
 
 `openclaw health --json` solicita ao Gateway em execução seu snapshot de saúde (sem sockets diretos de canal a partir da CLI). Ele relata credenciais vinculadas/idade da autenticação quando disponível, resumos de sondagem por canal, resumo do armazenamento de sessões e a duração da sondagem. Ele encerra com código diferente de zero se o Gateway estiver inacessível ou se a sondagem falhar/expirar. Use `--timeout <ms>` para sobrescrever o padrão de 10s.
 
+

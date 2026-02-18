@@ -118,3 +118,4 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - Локальный контент Canvas использует пользовательскую схему (сервер loopback не требуется).
 - Внешние URL `http(s)` разрешены только при явной навигации.
 
+

@@ -39,3 +39,4 @@ Eslatmalar:
 - `memory status --deep --index` agar saqlash joyi yangilanishni talab qilsa, qayta indekslashni ishga tushiradi.
 - `memory index --verbose` har bir bosqich bo‘yicha tafsilotlarni (provider, model, manbalar, batch faoliyati) chiqaradi.
 - `memory status` `memorySearch.extraPaths` orqali sozlangan qo‘shimcha yo‘llarni ham o‘z ichiga oladi.
+

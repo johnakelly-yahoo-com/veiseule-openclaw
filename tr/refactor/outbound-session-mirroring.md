@@ -84,3 +84,4 @@ Giden gönderimler, hedef kanal oturumu yerine _mevcut_ ajan oturumuna (araç ot
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
 
+

@@ -80,3 +80,4 @@ title: "رسائل المجموعات"
 - ستظهر إدخالات مخزن الجلسات على أنها `agent:<agentId>:whatsapp:group:<jid>` في مخزن الجلسات (`~/.openclaw/agents/<agentId>/sessions/sessions.json` افتراضيًا)؛ وعدم وجود إدخال يعني فقط أن المجموعة لم تُشغِّل تنفيذًا بعد.
 - تتبع مؤشرات الكتابة في المجموعات `agents.defaults.typingMode` (الافتراضي: `message` عند عدم الإشارة).
 
+

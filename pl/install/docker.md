@@ -562,3 +562,4 @@ Przykład:
   własne ścieżki narzędzi (np. `/custom/bin:/usr/local/share/npm-global/bin`), albo dodaj
   skrypt w `/etc/profile.d/` w swoim Dockerfile.
 
+

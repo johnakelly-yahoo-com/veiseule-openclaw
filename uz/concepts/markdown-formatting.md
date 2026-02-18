@@ -123,3 +123,4 @@ SPOILER uslub diapazonlariga moslanadi. Boshqa kanallar ularni oddiy matn sifati
 - Signal uslub diapazonlari UTF-16 ofsetlariga bog‘liq; code point ofsetlaridan foydalanmang.
 - Fenced code bloklar uchun oxirgi yangi qatorni saqlang, shunda yopuvchi belgilar
   alohida qatorda joylashadi.
+

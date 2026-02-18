@@ -23,3 +23,4 @@ MIT - Malaya tulad ng isang lobster sa karagatan.
 
 > "Lahat tayo ay naglalaro lamang sa sarili nating mga prompt." (Isang AI, marahil ay high sa tokens)
 
+

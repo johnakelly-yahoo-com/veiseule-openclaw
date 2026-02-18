@@ -274,3 +274,4 @@ VM を継続稼働させるには：
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup)（高度）
 - [Docker Sandboxing](/install/docker)（代替の隔離アプローチ）
 
+

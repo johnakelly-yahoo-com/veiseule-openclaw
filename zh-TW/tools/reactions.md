@@ -18,3 +18,4 @@ title: "反應"
 - **WhatsApp**：空的 `emoji` 會移除機器人的反應；`remove: true` 會對應為空的表情符號（仍需要 `emoji`）。
 - **Signal**：當啟用 `channels.signal.reactionNotifications` 時，傳入的反應通知會發出系統事件。
 
+

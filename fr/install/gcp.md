@@ -498,3 +498,4 @@ Voir https://cloud.google.com/iam/docs/understanding-roles pour les détails sur
 - Associer des appareils locaux comme nœuds : [Nodes](/nodes)
 - Configurer la Gateway (passerelle) : [Gateway configuration](/gateway/configuration)
 
+

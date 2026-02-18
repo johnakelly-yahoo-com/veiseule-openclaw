@@ -80,3 +80,4 @@ Confirme el `appcast.xml` actualizado junto con los activos del lanzamiento (zip
 
 Definición de terminado: la app firmada y el appcast están publicados, el flujo de actualización funciona desde una versión instalada anterior y los activos del lanzamiento están adjuntos al lanzamiento de GitHub.
 
+

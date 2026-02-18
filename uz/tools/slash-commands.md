@@ -193,3 +193,4 @@ Eslatmalar:
 - **`/stop`** joriy ishni bekor qilish uchun faol chat sessiyasini nishonga oladi.
 - **Slack:** `channels.slack.slashCommand` hali ham bitta `/openclaw`-uslubidagi buyruq uchun qo‘llab-quvvatlanadi. Agar `commands.native` ni yoqsangiz, har bir ichki buyruq uchun Slack’da bitta slash buyruq yaratishingiz kerak (nomlari `/help` dagi bilan bir xil). Slack uchun buyruq argument menyulari ephemeral Block Kit tugmalari sifatida yetkaziladi.
 
+

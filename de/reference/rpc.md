@@ -38,3 +38,4 @@ Siehe [iMessage](/channels/imessage) für das legacy Setup und die Adressierung 
 - Halten Sie RPC-Clients robust: Timeouts, Neustart beim Beenden.
 - Bevorzugen Sie stabile IDs (z. B. `chat_id`) gegenüber Anzeige-Strings.
 
+

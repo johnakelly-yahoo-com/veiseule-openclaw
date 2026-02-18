@@ -104,3 +104,4 @@ openclaw nodes approve <requestId>
 - [ایگزیکٹو منظوریات](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (Gateway سے ترمیم کریں)
 
+

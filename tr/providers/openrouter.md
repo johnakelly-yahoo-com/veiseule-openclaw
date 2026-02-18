@@ -31,3 +31,4 @@ openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPEN
 - Daha fazla model/sağlayıcı seçeneği için bkz. [/concepts/model-providers](/concepts/model-providers).
 - OpenRouter, arka planda API anahtarınızla birlikte Bearer token kullanır.
 
+

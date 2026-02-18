@@ -21,3 +21,4 @@ openclaw status --usage
 - 개요에는 업데이트 채널 + git SHA (소스 체크아웃용)가 포함됩니다.
 - 업데이트 정보는 개요에 표시됩니다. 업데이트가 उपलब्ध한 경우 상태 출력에 `openclaw update`를 실행하라는 힌트가 표시됩니다 ([업데이트](/install/updating) 참조).
 
+

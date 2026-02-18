@@ -45,3 +45,4 @@ title: "WebChat"
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: 원격 gateway 대상.
 - `session.*`: 세션 스토리지 및 기본 메인 키.
 
+

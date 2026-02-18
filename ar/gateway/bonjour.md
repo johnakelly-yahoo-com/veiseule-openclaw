@@ -165,3 +165,4 @@ dig @<TAILNET_IPV4> -p 53 _openclaw-gw._tcp.openclaw.internal PTR +short
 - سياسة الاكتشاف واختيار النقل: [Discovery](/gateway/discovery)
 - إقران العُقد + الموافقات: [Gateway pairing](/gateway/pairing)
 
+

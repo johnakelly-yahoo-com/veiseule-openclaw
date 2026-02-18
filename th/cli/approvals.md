@@ -46,3 +46,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - โฮสต์โหนดต้องโฆษณา `system.execApprovals.get/set` (แอปmacOSหรือโฮสต์โหนดแบบไม่ต้องมีหัว)
 - ไฟล์การอนุมัติจะถูกจัดเก็บแยกตามโฮสต์ที่ `~/.openclaw/exec-approvals.json`
 
+

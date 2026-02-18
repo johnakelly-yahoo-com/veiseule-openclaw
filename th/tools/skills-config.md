@@ -71,3 +71,4 @@ title: "คอนฟิกSkills"
 
 `env` และ `skills.entries.<skill>.env/apiKey` แบบส่วนกลางมีผลกับการรันบน **โฮสต์** เท่านั้น
 
+

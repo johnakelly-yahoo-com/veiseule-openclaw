@@ -108,3 +108,4 @@ Behavior:
 
 This keeps existing file logs stable while making interactive output scannable.
 
+

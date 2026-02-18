@@ -107,3 +107,4 @@ De Node-host slaat zijn Node-id, token, weergavenaam en Gateway-verbindingsinfor
 - [Uitvoeringsgoedkeuringen](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (bewerken vanuit de Gateway)
 
+

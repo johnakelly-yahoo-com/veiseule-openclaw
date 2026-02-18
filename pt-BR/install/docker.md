@@ -579,3 +579,4 @@ Exemplo:
   (por exemplo, `/custom/bin:/usr/local/share/npm-global/bin`), ou adicione
   um script em `/etc/profile.d/` no seu Dockerfile.
 
+

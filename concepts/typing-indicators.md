@@ -64,3 +64,4 @@ You can override mode or cadence per session:
 - `typingIntervalSeconds` controls the **refresh cadence**, not the start time.
   The default is 6 seconds.
 
+

@@ -129,3 +129,4 @@ Afsona:
 - 1. `sendMessageDraft`: Telegram qoralama pufagi (haqiqiy xabar emas).
 - 2. `final reply`: oddiy Telegram xabari yuborilishi.
 
+

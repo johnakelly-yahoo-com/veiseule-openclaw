@@ -143,3 +143,4 @@ Hosted modellar fallback sifatida mavjud bo‘lib qolishi uchun `models.mode: "m
 - LM Studio modeli yuklanmaganmi? Qayta yuklang; sovuq ishga tushish ko‘pincha “osilib qolish” sababi bo‘ladi.
 - Kontekst xatolari? `contextWindow` ni kamaytiring yoki server limitini oshiring.
 - Xavfsizlik: lokal modellar provayder tomondagi filtrlarsiz ishlaydi; prompt injection ta’sir doirasini cheklash uchun agentlarni tor doirada saqlang va compaction’ni yoqilgan holda qoldiring.
+

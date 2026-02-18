@@ -253,3 +253,4 @@ Signal‑konfigurationsbeteende:
 - Introduktionsnav: [Onboarding Wizard (CLI)](/start/wizard)
 - Automatisering och skript: [CLI Automation](/start/wizard-cli-automation)
 - Kommandoreferens: [`openclaw onboard`](/cli/onboard)
+

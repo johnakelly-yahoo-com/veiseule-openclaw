@@ -107,3 +107,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - `schema` による検証を行わない限り、出力は信頼できないものとして扱ってください。
 - 副作用のあるステップ（送信、投稿、実行）の前には承認を配置してください。
 
+

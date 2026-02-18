@@ -31,3 +31,4 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - آپ Zen میں سائن اِن کرتے ہیں، بلنگ کی تفصیلات شامل کرتے ہیں، اور اپنی API کلید کاپی کرتے ہیں۔
 - OpenCode Zen فی درخواست بل کرتا ہے؛ تفصیلات کے لیے OpenCode ڈیش بورڈ دیکھیں۔
 
+

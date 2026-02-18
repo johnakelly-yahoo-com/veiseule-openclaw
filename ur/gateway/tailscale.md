@@ -122,3 +122,4 @@ The Gateway will proxy browser actions to the node; no separate control server o
 - Tailscale Funnel جائزہ: [https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
 - `tailscale funnel` کمانڈ: [https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
 
+

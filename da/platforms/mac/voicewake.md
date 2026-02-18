@@ -63,3 +63,4 @@ Hærdning:
 - Slå push-to-talk til, hold Cmd+Fn, tal, slip: overlayet bør vise delvise resultater og derefter sende.
 - Mens du holder, skal menulinje-ører forblive forstørrede (bruger `triggerVoiceEars(ttl:nil)`); de falder tilbage efter slip.
 
+

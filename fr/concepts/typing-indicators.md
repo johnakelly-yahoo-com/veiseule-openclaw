@@ -64,3 +64,4 @@ Vous pouvez remplacer le mode ou la cadence par session :
 - `typingIntervalSeconds` controle la **cadence de rafraichissement**, pas l’heure de demarrage.
   La valeur par defaut est de 6 secondes.
 
+

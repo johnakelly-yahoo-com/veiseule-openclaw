@@ -27,3 +27,4 @@ Ghi chú hành vi
 - Không có công tắc CLI/broker bên ngoài cho tai/đang làm việc; giữ nó nội bộ theo các tín hiệu của chính ứng dụng để tránh vẫy lung tung ngoài ý muốn.
 - Giữ TTL ngắn (&lt;10s) để biểu tượng nhanh chóng quay về trạng thái cơ bản nếu một tác vụ bị treo.
 
+

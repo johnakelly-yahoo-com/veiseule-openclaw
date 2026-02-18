@@ -398,3 +398,4 @@ TTY が利用できず、かつインストール メソッドが設定されて
     多くの場合、PATH の問題です。[Node.js トラブルシューティング](/install/node#troubleshooting) を参照してください。
   </Accordion>
 </AccordionGroup>
+

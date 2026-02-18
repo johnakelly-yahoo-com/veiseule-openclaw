@@ -68,3 +68,4 @@ Het WhatsApp-kanaal draait via **Baileys Web**. Dit document beschrijft de huidi
 - Valideer hercompressie voor afbeeldingen (groottebegrenzing) en de spraakbericht-vlag voor audio.
 - Zorg dat antwoorden met meerdere media uitwaaieren als sequentiële verzendingen.
 
+

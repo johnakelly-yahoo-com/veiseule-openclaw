@@ -407,3 +407,4 @@ WhatsApp 會將音訊以**語音備忘**（PTT 氣泡）送出。
   請以 **Node** 執行 Gateway 閘道器。（請見 入門指南 的執行環境說明。）
   Run the gateway with **Node**. (See Getting Started runtime note.)
 
+

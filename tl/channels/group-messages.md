@@ -80,3 +80,4 @@ Gamitin ang group chat command:
 - Lalabas ang mga entry ng session store bilang `agent:<agentId>:whatsapp:group:<jid>` sa session store (`~/.openclaw/agents/<agentId>/sessions/sessions.json` bilang default); ang nawawalang entry ay nangangahulugang hindi pa nagti-trigger ng run ang grupo.
 - Ang mga typing indicator sa mga grupo ay sumusunod sa `agents.defaults.typingMode` (default: `message` kapag walang mention).
 
+

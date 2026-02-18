@@ -611,3 +611,4 @@ Pi entegrasyonunu ve uzantılarını kapsayan mevcut tüm testler:
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
 
+

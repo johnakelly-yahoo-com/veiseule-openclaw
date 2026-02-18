@@ -49,3 +49,4 @@ Se han eliminado las rutas heredadas de Claude, Codex, Gemini y Opencode. Pi es 
 ruta de agente de codificación.
 </Note>
 
+

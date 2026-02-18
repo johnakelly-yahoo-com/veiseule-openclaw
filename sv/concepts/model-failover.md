@@ -144,3 +144,4 @@ Se [Gateway-konfiguration](/gateway/configuration) för:
 
 Se [Modeller](/concepts/models) för en bredare översikt över modellval och fallback.
 
+

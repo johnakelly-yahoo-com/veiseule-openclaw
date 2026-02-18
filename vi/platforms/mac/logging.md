@@ -52,3 +52,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - Tùy chọn chạy `sudo log config --reload` để buộc logd bỏ ghi đè ngay lập tức.
 - Hãy nhớ bề mặt này có thể bao gồm số điện thoại và nội dung tin nhắn; chỉ giữ plist trong thời gian bạn thực sự cần thêm chi tiết.
 
+

@@ -147,3 +147,4 @@ Detaljer: [Gateway-protokoll](/gateway/protocol), [Parning](/channels/pairing),
 - Handskakning är obligatorisk; alla icke‑JSON- eller icke‑connect‑första ramar stänger hårt.
 - Händelser spelas inte upp igen; klienter måste uppdatera vid glapp.
 
+

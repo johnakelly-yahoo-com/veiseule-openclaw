@@ -253,3 +253,4 @@ Signal-installatiegedrag:
 - Onboarding-hub: [Onboarding Wizard (CLI)](/start/wizard)
 - Automatisering en scripts: [CLI Automation](/start/wizard-cli-automation)
 - Opdrachtreferentie: [`openclaw onboard`](/cli/onboard)
+

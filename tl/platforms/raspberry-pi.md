@@ -352,3 +352,4 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Tailscale](/gateway/tailscale) — remote access
 - [Nodes](/nodes) — ipares ang iyong laptop/telepono sa Pi gateway
 
+

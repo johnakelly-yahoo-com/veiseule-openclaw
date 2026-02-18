@@ -123,3 +123,4 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 2. احذف دليل المستودع.
 3. أزل الحالة + مساحة العمل كما هو موضح أعلاه.
 
+

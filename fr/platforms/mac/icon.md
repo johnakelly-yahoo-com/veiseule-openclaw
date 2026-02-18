@@ -27,3 +27,4 @@ Notes comportementales
 - Aucun basculement CLI/courtier externe pour les oreilles/le travail ; gardez cela interne aux signaux propres de l’application afin d’éviter des battements accidentels.
 - Gardez des TTL courts (&lt;10 s) afin que l’icône revienne rapidement à l’état de base si une tâche se bloque.
 
+

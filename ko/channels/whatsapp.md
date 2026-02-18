@@ -402,3 +402,4 @@ WhatsApp은 오디오를 **음성 노트**(PTT 버블)로 전송합니다.
 - Bun은 **권장되지 않습니다**. WhatsApp(Baileys)과 Telegram은 Bun에서 신뢰성이 낮습니다.
   **Node**로 Gateway를 실행하십시오. (시작하기의 런타임 참고 사항 참조.)
 
+

@@ -64,3 +64,4 @@ Je kunt de modus of cadans per sessie overschrijven:
 - `typingIntervalSeconds` bepaalt de **verversingscadans**, niet het startmoment.
   De standaard is 6 seconden.
 
+

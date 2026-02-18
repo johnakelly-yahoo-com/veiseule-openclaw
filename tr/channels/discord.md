@@ -472,3 +472,4 @@ Emoji’ler unicode (ör. `✅`) veya `<:party_blob:1234567890>` gibi özel emoj
 - Bota yalnızca ihtiyaç duyduğu izinleri verin (genellikle Mesajları Oku/Gönder).
 - Bot takılı kalırsa veya oran sınırlamasına girerse, Discord oturumuna başka süreçlerin sahip olmadığını doğruladıktan sonra gateway’i yeniden başlatın (`openclaw gateway --force`).
 
+

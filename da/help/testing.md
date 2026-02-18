@@ -364,3 +364,4 @@ Når du retter et udbyder-/modelproblem opdaget i live:
   - fejl i udbyder-request-konvertering/replay → direkte model-tests
   - fejl i gateway-session/historik/tool-pipeline → gateway live-smoke eller CI-sikker gateway-mock-test
 
+

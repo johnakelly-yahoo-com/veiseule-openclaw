@@ -561,3 +561,4 @@ Ejemplo:
   herramientas personalizadas (por ejemplo, `/custom/bin:/usr/local/share/npm-global/bin`), o agregue
   un script bajo `/etc/profile.d/` en su Dockerfile.
 
+

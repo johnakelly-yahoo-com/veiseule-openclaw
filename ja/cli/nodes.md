@@ -68,3 +68,4 @@ Invoke フラグ：
 - `--agent <id>`：エージェントスコープの承認／許可リスト（デフォルトは設定済みエージェント）。
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`：上書き設定。
 
+

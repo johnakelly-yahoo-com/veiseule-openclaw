@@ -74,3 +74,4 @@ Uwagi:
 - `setup-token` prosi o wartość setup-token (wygeneruj ją za pomocą `claude setup-token` na dowolnej maszynie).
 - `paste-token` akceptuje ciąg tokenu wygenerowany gdzie indziej lub z automatyzacji.
 
+

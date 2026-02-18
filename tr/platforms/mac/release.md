@@ -80,3 +80,4 @@ Yayımlarken güncellenmiş `appcast.xml` dosyasını sürüm varlıklarıyla (z
 
 Tamamlanma tanımı: imzalı uygulama + appcast yayımlanmıştır, güncelleme akışı daha eski yüklü bir sürümden çalışır ve sürüm varlıkları GitHub sürümüne eklenmiştir.
 
+

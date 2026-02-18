@@ -135,3 +135,4 @@ Notas:
 - O perfil `chrome` usa o **navegador Chromium padrão do sistema** quando possível.
 - Perfis locais `openclaw` atribuem automaticamente `cdpPort`/`cdpUrl`; defina-os apenas para CDP remoto.
 
+

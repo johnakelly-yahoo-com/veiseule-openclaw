@@ -154,3 +154,4 @@ PI_RAW_STREAM_PATH=~/.pi-mono/logs/raw-openai-completions.jsonl
 - لاگز کو مقامی رکھیں اور ڈیبگنگ کے بعد حذف کر دیں۔
 - اگر آپ لاگز شیئر کریں تو پہلے راز اور PII صاف کریں۔
 
+

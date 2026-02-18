@@ -600,3 +600,4 @@ title: "Примеры конфигурации"
 - Необязательные разделы, которые можно добавить позже: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - См. [Providers](/channels/whatsapp) и [Troubleshooting](/gateway/troubleshooting) для более подробных примечаний по настройке.
 
+

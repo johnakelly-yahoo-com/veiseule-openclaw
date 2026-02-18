@@ -329,3 +329,4 @@ openclaw config unset agents.list[0].tools.exec.node
 - 3. macOS menyu paneli ilovasi Gateway WS serveriga node sifatida ulanadi (shunda `openclaw nodes …` ushbu Mac’ga nisbatan ishlaydi).
 - 4. Masofaviy rejimda ilova Gateway porti uchun SSH tunnel ochadi va `localhost` ga ulanadi.
 
+

@@ -41,3 +41,4 @@ localhost, Tailscale Serve, 또는 SSH 터널 사용을 권장합니다.
 - 게이트웨이 호스트에서 토큰을 가져오십시오: `openclaw config get gateway.auth.token` (또는 새로 생성: `openclaw doctor --generate-gateway-token`).
 - 대시보드 설정에서 인증 필드에 토큰을 붙여넣은 다음 연결하십시오.
 
+

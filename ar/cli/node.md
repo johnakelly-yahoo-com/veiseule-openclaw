@@ -106,3 +106,4 @@ openclaw nodes approve <requestId>
 - [موافقات التنفيذ](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (تحرير من الـ Gateway)
 
+

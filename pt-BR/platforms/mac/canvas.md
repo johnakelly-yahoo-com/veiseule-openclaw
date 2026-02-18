@@ -119,3 +119,4 @@ O app solicita confirmação, a menos que uma chave válida seja fornecida.
 - O conteúdo local do Canvas usa um esquema personalizado (nenhum servidor loopback é necessário).
 - URLs externas `http(s)` são permitidas apenas quando navegadas explicitamente.
 
+

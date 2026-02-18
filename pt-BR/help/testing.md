@@ -364,3 +364,4 @@ Quando você corrige um problema de provedor/modelo descoberto em live:
   - bug de conversão/replay de requisição do provedor → teste de modelos diretos
   - bug no pipeline de sessão/histórico/ferramentas do gateway → gateway live smoke ou teste mockado do gateway seguro para CI
 
+

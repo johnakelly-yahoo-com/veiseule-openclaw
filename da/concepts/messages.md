@@ -148,3 +148,4 @@ Udgående meddelelsesformatering er centraliseret i `messages`:
 
 Detaljer: [Konfiguration](/gateway/configuration#messages) og kanal‑dokumentation.
 
+

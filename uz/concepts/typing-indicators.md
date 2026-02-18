@@ -61,3 +61,4 @@ Har bir sessiya uchun rejim yoki chastotani alohida o‘zgartirishingiz mumkin:
 - `typingIntervalSeconds` boshlanish vaqtini emas, **yangilanish tezligini** boshqaradi.
   Standart qiymat — 6 soniya.
 
+

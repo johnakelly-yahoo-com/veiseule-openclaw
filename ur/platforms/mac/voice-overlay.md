@@ -57,3 +57,4 @@ Audience: macOS ایپ کے معاونین۔ Goal: keep the voice overlay predic
 4. `VoiceWakeOverlayController` کو پبلشر سے وائر کریں؛ رن ٹائم/PTT سے براہِ راست کالز ہٹا دیں۔
 5. سیشن اپنانے، کول ڈاؤن، اور خالی متن کی برخاستگی کے لیے انضمامی ٹیسٹس شامل کریں۔
 
+

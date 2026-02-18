@@ -327,3 +327,4 @@ Instalações no Windows devem usar **WSL2** e seguir a seção de systemd do Li
 - Descontinue usos de `openclaw gateway` e da porta de controle TCP legada.
 - Atualize os clientes para falar o protocolo WS com connect obrigatório e presença estruturada.
 
+

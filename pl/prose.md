@@ -128,3 +128,4 @@ Traktuj pliki `.prose` jak kod. Przeglądaj je przed uruchomieniem. Używaj list
 
 Dla deterministycznych przepływów pracy z bramkami zatwierdzeń porównaj z [Lobster](/tools/lobster).
 
+

@@ -137,3 +137,4 @@ Udbyderindstillinger:
 - `channels.nextcloud-talk.blockStreamingCoalesce`: justering af sammensmeltning for blokstreaming.
 - `channels.nextcloud-talk.mediaMaxMb`: grænse for indgående medier (MB).
 
+

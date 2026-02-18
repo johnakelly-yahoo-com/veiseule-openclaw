@@ -28,3 +28,4 @@ openclaw status --usage
 - 概览包含更新渠道 + git SHA（用于源代码检出）。
 - 更新信息显示在概览中；如果有可用更新，status 会打印提示运行 `openclaw update`（参见[更新](/install/updating)）。
 
+

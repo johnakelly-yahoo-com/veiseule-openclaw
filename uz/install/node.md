@@ -130,3 +130,4 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
 `export PATH=...` qatorini doimiy qilish uchun uni `~/.bashrc` yoki `~/.zshrc` faylingizga qo‘shing.
+

@@ -116,3 +116,4 @@ TTL を考慮したプルーニングを有効化：
 ```
 
 設定リファレンスを参照： [Gateway Configuration](/gateway/configuration)
+

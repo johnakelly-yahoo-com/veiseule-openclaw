@@ -64,3 +64,4 @@ Oturum bazında modu veya aralığı geçersiz kılabilirsiniz:
 - `typingIntervalSeconds`, **yenileme aralığını** kontrol eder, başlangıç zamanını değil.
   Varsayılan 6 saniyedir.
 
+

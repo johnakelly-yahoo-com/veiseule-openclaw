@@ -155,3 +155,4 @@ Dokumentation: [Session](/concepts/session), [Kompaktering](/concepts/compaction
 
 Oavsett vilket rapporteras storlekar och största bidragsgivare; den dumpar **inte** hela systemprompten eller verktygsschemana.
 
+

@@ -119,3 +119,4 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - Nội dung Canvas cục bộ dùng cơ chế tùy chỉnh (không cần máy chủ loopback).
 - Các URL `http(s)` bên ngoài chỉ được cho phép khi được điều hướng một cách rõ ràng.
 
+

@@ -101,3 +101,4 @@ Use `gateway.nodes.browser.mode` para controlar o roteamento automático e `gate
 
 Segurança + configuração remota: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
 
+

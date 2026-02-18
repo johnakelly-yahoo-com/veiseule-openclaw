@@ -226,3 +226,4 @@ Logs staan onder `/tmp/openclaw/` (standaard: `openclaw-YYYY-MM-DD.log`).
 - Linux-status: [Linux app](/platforms/linux)
 - Beveiliging: [Security](/gateway/security)
 
+

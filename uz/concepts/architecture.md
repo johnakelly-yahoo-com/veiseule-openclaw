@@ -108,3 +108,4 @@ Xuddi shu handshake + auth token tunnel orqali ham qo‘llaniladi.
 - Qo‘l siqish majburiy; JSON bo‘lmagan yoki birinchi freymi `connect` bo‘lmagan har qanday holat darhol yopiladi.
 - Hodisalar qayta ijro etilmaydi; bo‘shliqlar bo‘lsa, mijozlar yangilashi kerak.
 
+

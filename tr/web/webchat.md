@@ -45,3 +45,4 @@ Kanal seçenekleri:
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: uzak gateway hedefi.
 - `session.*`: oturum depolama ve ana anahtar varsayılanları.
 
+

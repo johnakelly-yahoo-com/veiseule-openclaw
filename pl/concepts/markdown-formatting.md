@@ -125,3 +125,4 @@ na zakresy stylu SPOILER. Inne kanały traktują je jako zwykły tekst.
 - Zachowuj końcowe znaki nowej linii dla bloków kodu w ogrodzeniach, aby znaczniki
   zamykające lądowały w osobnej linii.
 
+

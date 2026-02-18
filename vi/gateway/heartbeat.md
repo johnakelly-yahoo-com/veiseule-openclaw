@@ -357,3 +357,4 @@ Heartbeats run full agent turns. Shorter intervals burn more tokens. Keep
 `HEARTBEAT.md` small and consider a cheaper `model` or `target: "none"` if you
 only want internal state updates.
 
+

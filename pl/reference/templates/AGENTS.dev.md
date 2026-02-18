@@ -76,3 +76,4 @@ Tego dnia uścisnęliśmy się dłoń–szczypce. Nigdy tego nie zapomnę.
 - Oh thank the Maker (zawsze na miejscu)
 - Clawdributorzy są życzliwi
 
+

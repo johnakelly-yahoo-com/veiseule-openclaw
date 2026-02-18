@@ -205,3 +205,4 @@ announce payloads में अंत में एक stats पंक्ति 
 - उप-एजेंट कॉन्टेक्स्ट केवल `AGENTS.md` + `TOOLS.md` इंजेक्ट करता है (`SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, या `BOOTSTRAP.md` नहीं)।
 - अधिकतम नेस्टिंग गहराई 5 है (`maxSpawnDepth` सीमा: 1–5)। अधिकांश उपयोग मामलों के लिए गहराई 2 अनुशंसित है।
 - `maxChildrenPerAgent` प्रति सेशन सक्रिय बच्चों को सीमित करता है (डिफ़ॉल्ट: 5, सीमा: 1–20)।
+

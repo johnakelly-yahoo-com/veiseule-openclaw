@@ -133,3 +133,4 @@ Mattermost supports multiple accounts under `channels.mattermost.accounts`:
 - Auth errors: check the bot token, base URL, and whether the account is enabled.
 - Multi-account issues: env vars only apply to the `default` account.
 
+

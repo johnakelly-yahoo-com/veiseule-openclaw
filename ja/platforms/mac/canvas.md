@@ -117,3 +117,4 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - ローカルの Canvas コンテンツはカスタムスキームを使用します（ループバックサーバーは不要です）。
 - 外部の `http(s)` URL は、明示的にナビゲートされた場合にのみ許可されます。
 
+

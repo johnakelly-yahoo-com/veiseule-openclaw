@@ -375,3 +375,4 @@ Access token refreshed for user 123456 (expires in 14400s)
 - تتم إزالة Markdown قبل التجزئة
 - لا يوجد تحديد لمعدل الإرسال (يستخدم حدود Twitch المدمجة)
 
+

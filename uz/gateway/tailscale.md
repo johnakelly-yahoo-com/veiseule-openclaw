@@ -126,3 +126,4 @@ Brauzer boshqaruvi uchun Funnel’dan qoching; tugun juftlashuvini operator kiri
 - Tailscale Funnel sharhi: [https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
 - `tailscale funnel` buyrug‘i: [https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
 
+

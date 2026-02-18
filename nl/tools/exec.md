@@ -174,3 +174,4 @@ Notities:
 - Toolbeleid blijft van toepassing; `allow: ["exec"]` staat impliciet `apply_patch` toe.
 - Configuratie bevindt zich onder `tools.exec.applyPatch`.
 
+

@@ -376,3 +376,4 @@ Lưu ý: `tools.elevated` là **toàn cục** và dựa trên người gửi; kh
 
 Xem [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) để có ví dụ chi tiết.
 
+

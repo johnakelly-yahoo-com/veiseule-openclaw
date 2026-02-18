@@ -86,3 +86,4 @@ tail -f /tmp/openclaw/openclaw-$(date +%F).log | rg "telegram http error"
 - من الآمن ترك الأعلام مفعّلة؛ فهي تؤثر فقط في حجم السجلات للنظام الفرعي المحدد.
 - استخدم [/logging](/logging) لتغيير وجهات السجلات، والمستويات، والتنقيح.
 
+

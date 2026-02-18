@@ -80,3 +80,4 @@ Committen Sie die aktualisierte `appcast.xml` zusammen mit den Release‑Assets 
 
 Definition of done: Signierte App und Appcast sind veröffentlicht, der Update‑Flow funktioniert ausgehend von einer älteren installierten Version, und die Release‑Assets sind dem GitHub‑Release beigefügt.
 
+

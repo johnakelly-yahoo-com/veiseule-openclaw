@@ -195,3 +195,4 @@ Voor installatiestappen, zie [macOS remote access](/platforms/mac/remote). Voor 
 - [macOS-rechten](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
 
+

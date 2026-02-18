@@ -45,3 +45,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - 노드 호스트는 `system.execApprovals.get/set` 을 광고해야 합니다 (macOS 앱 또는 헤드리스 노드 호스트).
 - 승인 파일은 호스트별로 `~/.openclaw/exec-approvals.json` 에 저장됩니다.
 
+

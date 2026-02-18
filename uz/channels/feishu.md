@@ -574,3 +574,4 @@ Asosiy sozlamalar:
 - ✅ Audio
 - ⚠️ Boy matn (qisman qo‘llab-quvvatlanadi)
 
+

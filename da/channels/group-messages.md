@@ -80,3 +80,4 @@ Kun ejeren nummer (fra `channels.whatsapp.allowFrom`, eller bot’s egen E.164 n
 - Session store-poster vil fremstå som `agent:<agentId>:whatsapp:group:<jid>` i session store (`~/.openclaw/agents/<agentId>/sessions/sessions.json` som standard); en manglende post betyder blot, at gruppen endnu ikke har udløst et run.
 - Skriveindikatorer i grupper følger `agents.defaults.typingMode` (standard: `message` når der ikke er omtalt).
 
+

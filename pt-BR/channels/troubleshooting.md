@@ -111,3 +111,4 @@ Solução completa: [/channels/signal#troubleshooting](/channels/signal#troubles
 
 Solução completa: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
 
+

@@ -80,3 +80,4 @@ WhatsApp がテキスト本文から視覚的な `@` を削除する場合でも
 - セッションストアのエントリは、セッションストア（デフォルトでは `~/.openclaw/agents/<agentId>/sessions/sessions.json`）内で `agent:<agentId>:whatsapp:group:<jid>` として表示されます。エントリが存在しない場合は、そのグループがまだ実行をトリガーしていないことを意味します。
 - グループでの入力中インジケーターは `agents.defaults.typingMode` に従います（デフォルト：メンションされていない場合は `message`）。
 
+

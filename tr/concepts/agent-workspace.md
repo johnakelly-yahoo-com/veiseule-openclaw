@@ -231,3 +231,4 @@ sırrı başka bir yerde tutun (parola yöneticisi, ortam değişkenleri veya
 - `agents.defaults.sandbox` etkinse, ana olmayan oturumlar `agents.defaults.sandbox.workspaceRoot` altında
   oturum başına sandbox çalışma alanlarını kullanabilir.
 
+

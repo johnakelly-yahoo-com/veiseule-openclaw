@@ -127,3 +127,4 @@ Legend:
 - `sendMessageDraft`: bong bóng bản nháp Telegram (không phải tin nhắn thật).
 - `final reply`: gửi tin nhắn Telegram bình thường.
 
+

@@ -228,3 +228,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Medya ekleri yok.
 - Yalnızca NIP-04 (NIP-17 hediye sarmalı planlanıyor).
 
+

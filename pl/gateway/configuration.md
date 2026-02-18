@@ -3420,3 +3420,4 @@ Cron jest programistą Bateway dla wybudzeń i zaplanowanych prac. Zobacz [Cron 
 
 _Następne: [Agent Runtime](/concepts/agent)_ 🦞
 
+

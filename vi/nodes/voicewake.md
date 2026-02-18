@@ -60,3 +60,4 @@ Ai nhận được:
 - Cung cấp trình chỉnh sửa Wake Words trong Settings.
 - Gọi `voicewake.set` qua Gateway WS để các chỉnh sửa được đồng bộ ở mọi nơi.
 
+

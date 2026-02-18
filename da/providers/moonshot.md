@@ -136,3 +136,4 @@ Bemærk: Moonshot og Kimi Coding er separate udbydere. Nøgler er ikke indbyrdes
   `contextWindow` tilsvarende.
 - Brug `https://api.moonshot.ai/v1` til det internationale endpoint og `https://api.moonshot.cn/v1` til China-endpointet.
 
+

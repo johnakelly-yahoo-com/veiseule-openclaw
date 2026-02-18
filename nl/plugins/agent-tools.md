@@ -94,3 +94,4 @@ Andere config-opties die de beschikbaarheid van tools beïnvloeden:
 - Geef de voorkeur aan `optional: true` voor tools die neveneffecten veroorzaken of extra
   binaries/referenties vereisen.
 
+

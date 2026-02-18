@@ -88,3 +88,4 @@ Eksempel med Deepgram-indstillinger:
 - Tilsidesæt endpoints eller headers med `tools.media.audio.baseUrl` og `tools.media.audio.headers`, når du bruger en proxy.
 - Output følger de samme lydregler som andre udbydere (størrelsesgrænser, timeouts, indsættelse af transskription).
 
+

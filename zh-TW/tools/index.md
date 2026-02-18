@@ -512,3 +512,4 @@ Canvas 繪製：
 這表示代理同時能看到「有哪些工具可用」以及「如何呼叫它們」。如果某個工具
 doesn’t appear in the system prompt or the schema, the model cannot call it.
 
+

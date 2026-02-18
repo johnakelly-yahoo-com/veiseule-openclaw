@@ -107,3 +107,4 @@ ClawHub ([https://clawhub.com](https://clawhub.com)) para el descubrimiento de s
 para el comportamiento, comandos, configuración o arquitectura de OpenClaw, y a ejecutar
 `openclaw status` por sí mismo cuando sea posible (preguntando al usuario solo cuando carece de acceso).
 
+

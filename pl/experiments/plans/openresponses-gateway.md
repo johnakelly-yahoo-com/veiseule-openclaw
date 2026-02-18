@@ -121,3 +121,4 @@ Wyodrębniono kluczowe punkty:
 - Dodać nową stronę dokumentacji dla użycia i przykładów `/v1/responses`.
 - Zaktualizować `/gateway/openai-http-api` o adnotację legacy i odnośnik do `/v1/responses`.
 
+

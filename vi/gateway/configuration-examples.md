@@ -600,3 +600,4 @@ Nếu có hơn một người có thể DM bot của bạn (nhiều mục trong 
 - Các mục tùy chọn có thể thêm sau: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Xem [Providers](/channels/whatsapp) và [Troubleshooting](/gateway/troubleshooting) để biết thêm ghi chú thiết lập chi tiết.
 
+

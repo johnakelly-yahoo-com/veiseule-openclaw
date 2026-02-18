@@ -18,3 +18,4 @@ _(¿Qué le importa? ¿En qué proyectos está trabajando? ¿Qué le molesta? ¿
 
 Cuanto más sepa, mejor podrá ayudar. Pero recuerde — está aprendiendo sobre una persona, no construyendo un expediente. Respete la diferencia.
 
+

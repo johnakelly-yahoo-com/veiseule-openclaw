@@ -32,3 +32,4 @@ openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPEN
 - Voor meer model-/provideropties, zie [/concepts/model-providers](/concepts/model-providers).
 - OpenRouter gebruikt onder de motorkap een Bearer-token met je API-sleutel.
 
+

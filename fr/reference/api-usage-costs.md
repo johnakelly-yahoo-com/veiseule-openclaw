@@ -128,3 +128,4 @@ Les Skills peuvent stocker `apiKey` dans `skills.entries.<name>.apiKey`. Si un s
 
 Voir [Skills](/tools/skills).
 
+

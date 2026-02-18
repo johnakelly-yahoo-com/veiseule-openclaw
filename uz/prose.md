@@ -128,3 +128,4 @@ Agar vositalar allowlist’i ushbu vositalarni bloklasa, OpenProse dasturlari is
 
 Deterministik va tasdiqlash bosqichlari bilan boshqariladigan ish jarayonlari uchun [Lobster](/tools/lobster) bilan taqqoslang.
 
+

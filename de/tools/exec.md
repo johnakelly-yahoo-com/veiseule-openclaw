@@ -174,3 +174,4 @@ Hinweise:
 - Tool-Richtlinien gelten weiterhin; `allow: ["exec"]` erlaubt implizit `apply_patch`.
 - Die Konfiguration befindet sich unter `tools.exec.applyPatch`.
 
+

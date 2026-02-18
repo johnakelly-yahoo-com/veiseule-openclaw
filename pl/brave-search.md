@@ -36,3 +36,4 @@ OpenClaw używa Brave Search jako domyślnego dostawcy dla `web_search`.
 
 Zobacz [Web tools](/tools/web), aby uzyskać pełną konfigurację web_search.
 
+

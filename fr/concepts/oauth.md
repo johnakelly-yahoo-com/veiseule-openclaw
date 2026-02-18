@@ -137,3 +137,4 @@ Documentation connexe :
 - [/concepts/model-failover](/concepts/model-failover) (règles de rotation + temporisation)
 - [/tools/slash-commands](/tools/slash-commands) (surface des commandes)
 
+

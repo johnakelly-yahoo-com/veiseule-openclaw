@@ -568,3 +568,4 @@ Cómo se mapea:
 
 Esto mantiene al agente determinista y evita selectores frágiles.
 
+

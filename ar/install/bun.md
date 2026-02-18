@@ -54,3 +54,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 
 - لا تزال بعض النصوص تُضمّن pnpm بشكل ثابت (مثل `docs:build`، `ui:*`، `protocol:check`). شغّل هذه عبر pnpm في الوقت الحالي.
 
+

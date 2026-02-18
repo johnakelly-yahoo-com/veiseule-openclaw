@@ -42,3 +42,4 @@ title: "لوحة التحكم"
 - استرجِع الرمز من مضيف Gateway: `openclaw config get gateway.auth.token` (أو أنشئ واحدًا: `openclaw doctor --generate-gateway-token`).
 - في إعدادات لوحة التحكم، الصق الرمز في حقل المصادقة، ثم اتصل.
 
+

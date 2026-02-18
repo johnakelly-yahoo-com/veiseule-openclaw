@@ -76,3 +76,4 @@ Pangalan ng tool: `zalouser`
 
 Mga aksyon: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
 
+

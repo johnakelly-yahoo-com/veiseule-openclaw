@@ -151,3 +151,4 @@ Mga tala:
 
 - Nangangailangan ng pahintulot na macOS **Screen Recording** (TCC).
 
+

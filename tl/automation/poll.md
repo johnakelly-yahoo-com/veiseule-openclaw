@@ -64,3 +64,4 @@ Tandaan: Walang “pick exactly N” mode ang Discord; ang `pollMulti` ay tumutu
 Ang mga Teams poll ay nirender bilang Adaptive Cards at nangangailangan na manatiling online ang gateway
 upang maitala ang mga boto sa `~/.openclaw/msteams-polls.json`.
 
+

@@ -283,3 +283,4 @@ publicerade rå filen är vanligtvis tillgänglig på:
 2. Kör `pnpm protocol:check`.
 3. Committa det regenererade schemat + Swift‑modellerna.
 
+

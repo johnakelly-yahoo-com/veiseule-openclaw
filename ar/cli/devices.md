@@ -65,3 +65,4 @@ openclaw devices revoke --device <deviceId> --role node
 - يعيد تدوير الرمز رمزًا جديدًا (حسّاسًا). معاملته كسرا.
 - تتطلب هذه الأوامر نطاق `operator.pairing` (أو `operator.admin`).
 
+

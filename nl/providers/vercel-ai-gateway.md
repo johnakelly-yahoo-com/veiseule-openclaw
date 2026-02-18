@@ -44,3 +44,4 @@ Als de Gateway als daemon draait (launchd/systemd), zorg er dan voor dat `AI_GAT
 beschikbaar is voor dat proces (bijvoorbeeld in `~/.openclaw/.env` of via
 `env.shellEnv`).
 
+

@@ -467,3 +467,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - 若你在日誌或儲存的「最後路由」目標中看到 `telegram:...` 前綴，這是正常的；
   Cron 傳遞接受它們，並仍會正確解析主題 ID。
 
+

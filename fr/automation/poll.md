@@ -64,3 +64,4 @@ Remarque : Discord n’a pas de mode « choisir exactement N » ; `pollMulti` co
 Les sondages Teams sont rendus sous forme d’Adaptive Cards et necessitent que la passerelle reste en ligne
 pour enregistrer les votes dans `~/.openclaw/msteams-polls.json`.
 
+

@@ -56,3 +56,4 @@ Zie [/concepts/session-pruning](/concepts/session-pruning) voor details over pru
 - Grote tooluitvoer wordt al afgekapt; pruning kan de opstapeling van toolresultaten verder verminderen.
 - Als je een schone lei nodig hebt, starten `/new` of `/reset` een nieuwe sessie-id.
 
+

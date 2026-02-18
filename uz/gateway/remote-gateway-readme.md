@@ -154,3 +154,4 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 | `RunAtLoad`                          | Agent yuklanganda tunnel’ni ishga tushiradi                 |
 
 OpenClaw.app mijoz qurilmangizda `ws://127.0.0.1:18789` manziliga ulanadi. SSH tunnel esa ushbu ulanishni Gateway ishlayotgan masofaviy qurilmadagi 18789 portiga yo‘naltiradi.
+

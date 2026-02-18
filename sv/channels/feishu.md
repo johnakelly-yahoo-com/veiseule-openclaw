@@ -575,3 +575,4 @@ Viktiga alternativ:
 - ✅ Ljud
 - ⚠️ Rik text (begränsat stöd)
 
+

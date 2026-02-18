@@ -72,3 +72,4 @@ Skill ごとのフィールド:
 
 グローバルな `env` および `skills.entries.<skill>.env/apiKey` は **ホスト** 実行にのみ適用されます。
 
+

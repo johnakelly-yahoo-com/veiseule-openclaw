@@ -75,3 +75,4 @@ sidebarTitle: "Онбординг: приложение для macOS"
 </Step>
 </Steps>
 
+

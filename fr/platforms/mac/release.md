@@ -80,3 +80,4 @@ Committez le `appcast.xml` mis a jour en meme temps que les assets de version (z
 
 Definition de termine : l’application signee et l’appcast sont publies, le flux de mise a jour fonctionne depuis une version plus ancienne installee, et les assets de version sont attaches a la version GitHub.
 
+

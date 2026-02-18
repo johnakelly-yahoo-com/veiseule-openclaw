@@ -38,3 +38,4 @@ Zie [iMessage](/channels/imessage) voor legacy installatie en adressering (`chat
 - Houd RPC-clients robuust: time-outs, herstart bij beëindigen.
 - Geef de voorkeur aan stabiele ID's (bijv. `chat_id`) boven weergavestrings.
 
+

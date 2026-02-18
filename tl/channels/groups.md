@@ -370,3 +370,4 @@ Itinatakda ng mga inbound payload ng grupo ang:
 
 Tingnan ang [Group messages](/channels/group-messages) para sa behavior na WhatsApp-only (history injection, mga detalye ng paghawak ng mention).
 
+

@@ -74,3 +74,4 @@ Notlar:
 - `setup-token`, bir setup-token değeri ister (herhangi bir makinede `claude setup-token` ile oluşturun).
 - `paste-token`, başka bir yerde veya otomasyondan üretilmiş bir belirteç dizgesini kabul eder.
 
+

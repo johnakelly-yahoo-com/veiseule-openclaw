@@ -64,3 +64,4 @@ Create `SOUL_EVIL.md` in the agent workspace root (next to `SOUL.md`).
 
 - [Hooks](/automation/hooks)
 
+

@@ -46,3 +46,4 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 
 Genstart gatewayen efter ændringer.
 
+

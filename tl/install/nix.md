@@ -92,3 +92,4 @@ packaging at mga Nix build (na hindi umaasa sa isang buong Xcode toolchain).
 - [Wizard](/start/wizard) — setup ng CLI na hindi Nix
 - [Docker](/install/docker) — setup na naka-container
 
+

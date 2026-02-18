@@ -64,3 +64,4 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 تُعرَض استطلاعات Teams كبطاقات تكيّفية وتتطلب بقاء Gateway متصلًا
 لتسجيل الأصوات في `~/.openclaw/msteams-polls.json`.
 
+

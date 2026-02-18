@@ -23,3 +23,4 @@ MIT – Wolny jak homar w oceanie.
 
 > „Wszyscy tylko bawimy się własnymi promptami.” (Pewna SI, prawdopodobnie na haju tokenów)
 
+

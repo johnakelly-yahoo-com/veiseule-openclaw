@@ -32,3 +32,4 @@ Los operadores desean:
 - ¿Cómo debería la interfaz de usuario presentar la selección de perfiles para una sesión?
 - ¿Cuál es la ruta de migración más segura desde las claves de configuración heredadas?
 
+

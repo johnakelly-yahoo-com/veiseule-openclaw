@@ -272,3 +272,4 @@ Si habilitó manualmente el streaming y experimenta este problema:
 - [Selección de modelos](/concepts/models) - Cómo elegir modelos
 - [Configuración](/gateway/configuration) - Referencia completa de configuración
 
+

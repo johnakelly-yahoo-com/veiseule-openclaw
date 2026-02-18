@@ -148,3 +148,4 @@ As configurações do sandbox ficam em `~/.openclaw/openclaw.json` sob `agents.d
 - [Configuração de Agente](/concepts/agent-workspace)
 - [Comando Doctor](/gateway/doctor) - Verifique a configuração do sandbox
 
+

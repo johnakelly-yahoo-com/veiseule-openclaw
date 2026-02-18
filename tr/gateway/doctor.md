@@ -272,3 +272,4 @@ zaten git altında değilse bir yedekleme ipucu yazdırır.
 Çalışma alanı yapısı ve git yedekleme (önerilen özel GitHub veya GitLab) için
 tam kılavuz olarak [/concepts/agent-workspace](/concepts/agent-workspace)’e bakın.
 
+

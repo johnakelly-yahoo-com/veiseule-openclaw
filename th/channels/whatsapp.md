@@ -406,3 +406,4 @@ WhatsAppส่งเสียงเป็น **โน้ตเสียง**(ฟ
 - ไม่แนะนำให้ใช้ **Bun** WhatsApp (Baileys) และ Telegram ทำงานไม่เสถียรบน Bun
   รันเกตเวย์ด้วย **Node** (ดูหมายเหตุ runtime ใน Getting Started)
 
+

@@ -176,3 +176,4 @@ Notes:
 - Config lives under `tools.exec.applyPatch`.
 - `tools.exec.applyPatch.workspaceOnly` defaults to `true` (workspace-contained). Set it to `false` only if you intentionally want `apply_patch` to write/delete outside the workspace directory.
 
+

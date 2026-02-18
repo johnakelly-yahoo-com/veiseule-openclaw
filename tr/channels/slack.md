@@ -564,3 +564,4 @@ Triyaj akışı için: [/channels/troubleshooting](/channels/troubleshooting).
 - Slack aracı için tepki kaldırma semantiklerine [/tools/reactions](/tools/reactions) bölümünde bakın.
 - Ekler, izin verildiğinde ve boyut sınırı altındaysa medya deposuna indirilir.
 
+

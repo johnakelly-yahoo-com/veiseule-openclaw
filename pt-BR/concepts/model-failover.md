@@ -144,3 +144,4 @@ Veja [Configuração do Gateway](/gateway/configuration) para:
 
 Veja [Modelos](/concepts/models) para a visão geral mais ampla de seleção de modelos e fallback.
 
+

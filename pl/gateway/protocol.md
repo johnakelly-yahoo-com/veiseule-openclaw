@@ -213,3 +213,4 @@ Ten protokół udostępnia **pełne API gateway** (status, kanały, modele, czat
 agent, sesje, węzły, zatwierdzenia itd.). Dokładny zakres jest zdefiniowany przez
 schematy TypeBox w `src/gateway/protocol/schema.ts`.
 
+

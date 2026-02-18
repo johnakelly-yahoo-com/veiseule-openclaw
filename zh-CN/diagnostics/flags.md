@@ -93,3 +93,4 @@ tail -f /tmp/openclaw/openclaw-$(date +%F).log | rg "telegram http error"
 - 标志可以安全地保持启用状态；它们只影响特定子系统的日志量。
 - 使用 [/logging](/logging) 更改日志目标、级别和脱敏设置。
 
+

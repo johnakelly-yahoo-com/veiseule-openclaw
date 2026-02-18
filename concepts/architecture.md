@@ -132,3 +132,4 @@ Details: [Gateway protocol](/gateway/protocol), [Pairing](/channels/pairing),
 - Handshake is mandatory; any non‑JSON or non‑connect first frame is a hard close.
 - Events are not replayed; clients must refresh on gaps.
 
+

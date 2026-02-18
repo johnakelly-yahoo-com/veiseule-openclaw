@@ -125,3 +125,4 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 2. ลบไดเรกทอรีรีโป
 3. ลบสถานะ + เวิร์กสเปซตามที่แสดงด้านบน
 
+

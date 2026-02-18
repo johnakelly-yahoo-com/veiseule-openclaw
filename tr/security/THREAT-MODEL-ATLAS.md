@@ -164,3 +164,4 @@ Bu tehdit modeli için açıkça kapsam dışı bırakılmış herhangi bir alan
 | **Öneriler**           | Yanıt zamanlamasında rastgeleleştirme değerlendirilebilir         |
 
 ---
+

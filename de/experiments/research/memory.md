@@ -222,3 +222,4 @@ Wenn Sie eine minimale, dennoch nützliche Version möchten:
 - Hindsight Technical Report: „retain / recall / reflect“, Vier-Netzwerk-Memory, narrative Faktenextraktion, Konfidenzentwicklung von Meinungen.
 - SuCo: arXiv 2411.14754 (2024): „Subspace Collision“ Approximate-Nearest-Neighbor-Retrieval.
 
+

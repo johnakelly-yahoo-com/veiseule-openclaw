@@ -122,3 +122,4 @@ Ta złożoność powodowała regresje między dostawcami (w szczególności paro
 `openai-responses` / `call_id|fc_id`). Porządki z 2026.1.22 usunęły rozszerzenie, scentralizowały
 logikę w runnerze i uczyniły OpenAI **bez ingerencji** poza sanityzacją obrazów.
 
+

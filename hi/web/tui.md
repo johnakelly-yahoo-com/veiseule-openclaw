@@ -157,3 +157,4 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 - पिकर में कोई एजेंट नहीं: `openclaw agents list` और अपनी रूटिंग config जाँचें।
 - खाली सत्र पिकर: आप global स्कोप में हो सकते हैं या अभी तक कोई सत्र नहीं है।
 
+

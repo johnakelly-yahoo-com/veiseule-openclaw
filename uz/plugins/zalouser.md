@@ -76,3 +76,4 @@ Vosita nomi: `zalouser`
 
 Amallar: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
 
+

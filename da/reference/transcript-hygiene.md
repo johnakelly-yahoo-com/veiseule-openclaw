@@ -123,3 +123,4 @@ Denne kompleksitet forårsagede regressioner på tværs af udbydere (især `open
 `call_idřfc_id` parring). Oprydningen af 2026.1.22 fjernede udvidelsen, centraliseret
 logik i løberen, og gjorde OpenAI **no-touch** ud over billeddesinficering.
 
+

@@ -157,3 +157,4 @@ Brak wyjścia po wysłaniu wiadomości:
 - Brak agentów w selektorze: sprawdź `openclaw agents list` i konfigurację routingu.
 - Pusty selektor sesji: możesz być w zakresie globalnym lub nie mieć jeszcze żadnych sesji.
 
+

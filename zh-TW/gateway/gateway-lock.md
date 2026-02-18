@@ -29,3 +29,4 @@ title: "Gateway 鎖定"
 - 若連接埠被「另一個」程序佔用，錯誤訊息相同；請釋放該連接埠，或使用 `openclaw gateway --port <port>` 選擇另一個連接埠。
 - macOS 應用程式在啟動 Gateway 前仍會維持其自身的輕量化 PID 守護；實際的執行期鎖定則由 WebSocket 綁定機制強制執行。
 
+

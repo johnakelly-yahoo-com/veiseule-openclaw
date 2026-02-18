@@ -92,3 +92,4 @@ và các bản build Nix (không phụ thuộc vào đầy đủ toolchain Xcode
 - [Wizard](/start/wizard) — thiết lập CLI không dùng Nix
 - [Docker](/install/docker) — thiết lập dạng container
 
+

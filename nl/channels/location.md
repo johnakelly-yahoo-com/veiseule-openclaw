@@ -51,3 +51,4 @@ Wanneer een locatie aanwezig is, worden deze velden toegevoegd aan `ctx`:
 - **WhatsApp**: `locationMessage.comment` en `liveLocationMessage.caption` worden als bijschriftregel toegevoegd.
 - **Matrix**: `geo_uri` wordt geparseerd als een pinlocatie; hoogte wordt genegeerd en `LocationIsLive` is altijd false.
 
+

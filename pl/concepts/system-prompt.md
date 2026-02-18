@@ -110,3 +110,4 @@ społeczności Discord oraz ClawHub ([https://clawhub.com](https://clawhub.com))
 w kwestiach zachowania OpenClaw, poleceń, konfiguracji lub architektury, oraz aby samodzielnie uruchamiał
 `openclaw status`, gdy to możliwe (pytając użytkownika tylko wtedy, gdy nie ma dostępu).
 
+

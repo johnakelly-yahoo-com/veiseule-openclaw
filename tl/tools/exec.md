@@ -174,3 +174,4 @@ Mga tala:
 - Nalalapat pa rin ang tool policy; implicit na pinapayagan ng `allow: ["exec"]` ang `apply_patch`.
 - Ang config ay nasa ilalim ng `tools.exec.applyPatch`.
 
+

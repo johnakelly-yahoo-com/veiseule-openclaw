@@ -147,3 +147,4 @@ Le formatage des messages sortants est centralise dans `messages` :
 
 Details : [Configuration](/gateway/configuration#messages) et la documentation des canaux.
 
+

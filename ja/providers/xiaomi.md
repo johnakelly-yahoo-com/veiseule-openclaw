@@ -58,3 +58,4 @@ openclaw onboard --auth-choice xiaomi-api-key --xiaomi-api-key "$XIAOMI_API_KEY"
 - `XIAOMI_API_KEY` が設定されている場合（または認証プロファイルが存在する場合）、プロバイダーは自動的に注入されます。
 - プロバイダーのルールについては [/concepts/model-providers](/concepts/model-providers) を参照してください。
 
+

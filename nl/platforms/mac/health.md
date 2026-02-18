@@ -30,3 +30,4 @@ Hoe je vanuit de menubalk-app kunt zien of het gekoppelde kanaal gezond is.
 
 - Je kunt nog steeds de CLI-stroom gebruiken in [Gateway health](/gateway/health) (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) en `/tmp/openclaw/openclaw-*.log` volgen voor `web-heartbeat` / `web-reconnect`.
 
+

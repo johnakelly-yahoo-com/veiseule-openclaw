@@ -600,3 +600,4 @@ Birden fazla kişi botunuza DM gönderebiliyorsa (`allowFrom` içinde birden faz
 - Daha sonra eklenebilecek isteğe bağlı bölümler: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Daha ayrıntılı kurulum notları için [Sağlayıcılar](/channels/whatsapp) ve [Sorun Giderme](/gateway/troubleshooting) bölümlerine bakın.
 
+

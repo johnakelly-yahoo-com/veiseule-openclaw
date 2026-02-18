@@ -253,3 +253,4 @@ Comportamento de configuração do Signal:
 - Hub de integração: [Assistente de Integração (CLI)](/start/wizard)
 - Automação e scripts: [Automação da CLI](/start/wizard-cli-automation)
 - Referência de comandos: [`openclaw onboard`](/cli/onboard)
+

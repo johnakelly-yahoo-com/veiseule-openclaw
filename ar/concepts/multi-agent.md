@@ -385,3 +385,4 @@ openclaw agents list --bindings
 ولاستهداف المجموعات، استخدم `agents.list[].groupChat.mentionPatterns` بحيث تُطابِق @mentions الوكيل المقصود بدقة.
 
 راجع [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) لأمثلة تفصيلية.
+

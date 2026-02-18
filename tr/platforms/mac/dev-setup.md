@@ -100,3 +100,4 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 
 Manuel bir çalıştırma portu tutuyorsa, bu süreci durdurun (Ctrl+C). Son çare olarak, yukarıda bulduğunuz PID’yi sonlandırın.
 
+

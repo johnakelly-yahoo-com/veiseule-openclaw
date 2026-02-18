@@ -57,3 +57,4 @@ Public : contributeurs de l’application macOS. Objectif : maintenir une supe
 4. Connecter `VoiceWakeOverlayController` à l’éditeur ; supprimer les appels directs depuis l’exécution/PTT.
 5. Ajouter des tests d’intégration pour l’adoption de session, le cooldown et la fermeture lorsque le texte est vide.
 
+

@@ -360,3 +360,4 @@ Heartbeat’ler tam ajan dönüşleri çalıştırır. Daha kısa aralıklar dah
 harcar. `HEARTBEAT.md`’u küçük tutun ve yalnızca dahili durum güncellemeleri
 istiyorsanız daha ucuz bir `model` veya `target: "none"` düşünün.
 
+

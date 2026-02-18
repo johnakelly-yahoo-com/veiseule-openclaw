@@ -101,3 +101,4 @@ openclaw browser extension path
 
 سکیورٹی + ریموٹ سیٹ اپ: [Browser tool](/tools/browser)، [Remote access](/gateway/remote)، [Tailscale](/gateway/tailscale)، [Security](/gateway/security)
 
+

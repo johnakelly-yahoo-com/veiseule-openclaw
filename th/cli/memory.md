@@ -41,3 +41,4 @@ openclaw memory index --agent main --verbose
 - `memory index --verbose` แสดงรายละเอียดรายเฟส (ผู้ให้บริการ, โมเดล, แหล่งที่มา, กิจกรรมแบบแบตช์)
 - `memory status` รวมพาธเพิ่มเติมใดๆที่คอนฟิกไว้ผ่าน `memorySearch.extraPaths`
 
+

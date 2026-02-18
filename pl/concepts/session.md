@@ -200,3 +200,4 @@ Każdy wpis sesji rejestruje (w miarę możliwości) swoje pochodzenie w `origin
   przychodzącym oraz wywołując `recordSessionMetaFromInbound` (lub przekazując ten sam kontekst
   do `updateLastRoute`).
 
+

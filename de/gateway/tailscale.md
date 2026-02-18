@@ -121,3 +121,4 @@ Vermeiden Sie Funnel für die Browser-Steuerung; behandeln Sie das Node-Pairing 
 - Überblick zu Tailscale Funnel: [https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
 - `tailscale funnel`-Befehl: [https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
 
+

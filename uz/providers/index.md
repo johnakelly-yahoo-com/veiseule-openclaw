@@ -59,3 +59,4 @@ Venice — maxfiylikka yo‘naltirilgan inferensiya uchun tavsiya etilgan Venice
 Provayderlarning to‘liq katalogi (xAI, Groq, Mistral va boshqalar) uchun va ilg‘or sozlamalar uchun,
 [Model provayderlari](/concepts/model-providers) sahifasiga qarang.
 
+

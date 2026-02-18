@@ -245,3 +245,4 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_WORKDIR`: Standart ishchi katalogni almashtiradi.
 - `CLAWHUB_DISABLE_TELEMETRY=1`: `sync` jarayonida telemetriyani o‘chiradi.
 
+

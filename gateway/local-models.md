@@ -144,3 +144,4 @@ Keep `models.mode: "merge"` so hosted models stay available as fallbacks.
 - Context errors? Lower `contextWindow` or raise your server limit.
 - Safety: local models skip provider-side filters; keep agents narrow and compaction on to limit prompt injection blast radius.
 
+

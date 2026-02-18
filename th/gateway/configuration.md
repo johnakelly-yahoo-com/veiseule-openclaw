@@ -403,3 +403,4 @@ Env var เทียบเท่า: `OPENCLAW_LOAD_SHELL_ENV=1`
 ---
 
 _ที่เกี่ยวข้อง: [Configuration Examples](/gateway/configuration-examples) · [Configuration Reference](/gateway/configuration-reference) · [Doctor](/gateway/doctor)_
+

@@ -226,3 +226,4 @@ Logi znajdują się w `/tmp/openclaw/` (domyślnie: `openclaw-YYYY-MM-DD.log`).
 - Status Linux: [Linux app](/platforms/linux)
 - Bezpieczeństwo: [Security](/gateway/security)
 
+

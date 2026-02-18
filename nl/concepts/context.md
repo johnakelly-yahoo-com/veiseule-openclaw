@@ -155,3 +155,4 @@ Documentatie: [Sessie](/concepts/session), [Compactie](/concepts/compaction), [S
 
 In beide gevallen rapporteert het groottes en belangrijkste bijdragers; het dumpt **niet** de volledige systeemprompt of tool-schema’s.
 
+

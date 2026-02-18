@@ -108,3 +108,4 @@ Push ဖြင့် အစပြုသော လုပ်ငန်းစဉ် 
 - 31. Requires system permission.” 32. Precise: “Use precise GPS location.
 - 33. Toggle off to share approximate location.” 34. OpenClaw သည် reply pipeline မစတင်မီ **inbound media** (image/audio/video) ကို **summarize** လုပ်နိုင်သည်။
 
+

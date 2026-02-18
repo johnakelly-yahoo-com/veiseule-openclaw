@@ -69,3 +69,4 @@ Quyidagilardan birini ishlating:
 - env’ni o‘zingizning maxsus sandbox image’ingizga qo‘shib yuboring
 
 Global `env` va `skills.entries.<skill>.env/apiKey` faqat **host** ishga tushirishlari uchun amal qiladi.
+

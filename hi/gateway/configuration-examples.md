@@ -600,3 +600,4 @@ title: "विन्यास उदाहरण"
 - बाद में जोड़ने के लिए वैकल्पिक अनुभाग: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`।
 - गहन सेटअप नोट्स के लिए [Providers](/channels/whatsapp) और [Troubleshooting](/gateway/troubleshooting) देखें।
 
+

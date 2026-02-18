@@ -74,3 +74,4 @@ openclaw channels resolve --channel matrix "Project Room"
 - ပစ်မှတ်အမျိုးအစားကို အတင်းအကျပ် သတ်မှတ်ရန် `--kind user|group|auto` ကို အသုံးပြုပါ။
 - အမည်တူ အချက်အလက်များ အများအပြားရှိပါက resolution သည် လက်ရှိ အသုံးပြုနေသော match များကို ဦးစားပေးပါသည်။
 
+

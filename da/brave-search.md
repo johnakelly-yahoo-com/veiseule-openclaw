@@ -36,3 +36,4 @@ OpenClaw bruger Brave Search som standardudbyder til `web_search`.
 
 Se [Web tools](/tools/web) for den fulde web_search-konfiguration.
 
+

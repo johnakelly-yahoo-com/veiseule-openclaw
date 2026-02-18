@@ -228,3 +228,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - 不支援媒體附件。
 - 僅支援 NIP-04（規劃支援 NIP-17 禮物封裝）。
 
+

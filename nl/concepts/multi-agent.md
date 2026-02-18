@@ -382,3 +382,4 @@ Voor groepsdoelgroepering gebruik je `agents.list[].groupChat.mentionPatterns` z
 
 Zie [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) voor gedetailleerde voorbeelden.
 
+

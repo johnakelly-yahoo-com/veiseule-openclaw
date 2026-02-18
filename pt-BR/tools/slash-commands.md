@@ -193,3 +193,4 @@ Notas:
 - **`/stop`** direciona a sessão de chat ativa para que possa abortar a execução atual.
 - **Slack:** `channels.slack.slashCommand` ainda é compatível para um único comando no estilo `/openclaw`. Se você habilitar `commands.native`, deve criar um comando de barra do Slack por comando embutido (mesmos nomes que `/help`). Menus de argumentos de comando para o Slack são entregues como botões efêmeros do Block Kit.
 
+

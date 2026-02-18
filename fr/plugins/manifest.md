@@ -65,3 +65,4 @@ Clés optionnelles :
   d’autorisation de gestionnaire de paquets (par exemple, pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
 
+

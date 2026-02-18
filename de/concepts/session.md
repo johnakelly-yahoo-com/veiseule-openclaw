@@ -199,3 +199,4 @@ Jeder Sitzungseintrag erfasst bestmöglich, woher er stammt, in `origin`:
   `ConversationLabel`, `GroupSubject`, `GroupChannel`, `GroupSpace` und `SenderName` im eingehenden
   Kontext senden und `recordSessionMetaFromInbound` aufrufen (oder denselben Kontext an `updateLastRoute` übergeben).
 
+

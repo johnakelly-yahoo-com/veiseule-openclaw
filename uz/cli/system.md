@@ -52,3 +52,4 @@ Bayroqlar:
 - Tizim hodisalari vaqtinchalik va qayta ishga tushirishlar orasida saqlanmaydi.
 - update
 
+

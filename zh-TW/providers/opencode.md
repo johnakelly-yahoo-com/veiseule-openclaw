@@ -33,3 +33,4 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - 你需要登入 Zen，新增帳務資料，並複製你的 API 金鑰。
 - OpenCode Zen 以每次請求計費；詳情請查看 OpenCode 儀表板。
 
+

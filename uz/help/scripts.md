@@ -23,3 +23,4 @@ Autentifikatsiya monitoringi skriptlari bu yerda hujjatlashtirilgan:
 - Skriptlarni aniq maqsadga yo‘naltirilgan va hujjatlashtirilgan holda saqlang.
 - Tegishli hujjatga qisqa yozuv qo‘shing (yoki mavjud bo‘lmasa, yangisini yarating).
 
+

@@ -157,3 +157,4 @@ sudo loginctl enable-linger $USER
 - [إعداد مساعد OpenClaw](/start/openclaw)
 - [تطبيق macOS](/platforms/macos) (دورة حياة البوابة)
 
+

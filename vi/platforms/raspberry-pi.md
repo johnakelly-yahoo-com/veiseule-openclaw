@@ -352,3 +352,4 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Tailscale](/gateway/tailscale) — truy cập từ xa
 - [Nodes](/nodes) — ghép laptop/điện thoại của bạn với gateway Pi
 
+

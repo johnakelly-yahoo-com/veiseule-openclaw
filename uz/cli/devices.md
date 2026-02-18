@@ -65,3 +65,4 @@ Eslatma: `--url` ni o‘rnatganingizda, CLI konfiguratsiya yoki muhit o‘zgaruv
 - Tokenni aylantirish yangi tokenni qaytaradi (maxfiy). Uni sir kabi saqlang.
 - Bu buyruqlar `operator.pairing` (yoki `operator.admin`) scope’ini talab qiladi.
 
+

@@ -156,3 +156,4 @@ PI_RAW_STREAM_PATH=~/.pi-mono/logs/raw-openai-completions.jsonl
 - 로그는 로컬에 보관하고 디버깅 후 삭제하십시오.
 - 로그를 공유할 경우, 먼저 비밀 정보와 PII 를 제거하십시오.
 
+

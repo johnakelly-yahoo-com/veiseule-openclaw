@@ -45,3 +45,4 @@ title: "WebChat"
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: เป้าหมายGatewayระยะไกล
 - `session.*`: ที่เก็บเซสชันและค่าเริ่มต้นของคีย์หลัก
 
+

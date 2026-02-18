@@ -107,3 +107,4 @@ openclaw nodes approve <requestId>
 - [Подтверждения выполнения команд](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (редактирование через Gateway)
 
+

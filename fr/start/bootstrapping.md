@@ -35,3 +35,4 @@ l’espace de travail sur l’hôte de la Gateway (par exemple, `user@gateway-ho
 - Prise en main de l’application macOS : [Onboarding](/start/onboarding)
 - Organisation de l’espace de travail : [Agent workspace](/concepts/agent-workspace)
 
+

@@ -146,3 +146,4 @@ Ayrıntılar: [Gateway protokolü](/gateway/protocol), [Eşleştirme](/channels/
 - El sıkışma zorunludur; JSON olmayan veya ilk çerçevesi connect olmayan her şey sert kapatma ile sonuçlanır.
 - Olaylar tekrar oynatılmaz; boşluklarda istemciler yenileme yapmalıdır.
 
+

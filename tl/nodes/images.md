@@ -68,3 +68,4 @@ Ang WhatsApp channel ay tumatakbo sa pamamagitan ng **Baileys Web**. Kinukunan n
 - I-validate ang recompression para sa mga imahe (size bound) at ang voice-note flag para sa audio.
 - Tiyaking ang mga multi-media reply ay nagfa-fan out bilang sunud-sunod na send.
 
+

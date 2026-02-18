@@ -117,3 +117,4 @@ git commit -m "Add Clawd workspace"
 - DOM စစ်ဆေးရန် `openclaw browser eval|query|dom|snapshot` ကို အသုံးပြုပါ (machine output လိုအပ်ပါက `--json`/`--out` ကိုပါ အသုံးပြုပါ)။
 - အပြန်အလှန်လုပ်ဆောင်မှုများအတွက် `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` ကို အသုံးပြုပါ (click/type များသည် snapshot refs လိုအပ်သည်; CSS selectors အတွက် `evaluate` ကို အသုံးပြုပါ)။
 
+

@@ -163,3 +163,4 @@ dizileri olarak kaçışlar (ör. boşluklar `\032` olur).
 - Keşif politikası ve taşıma seçimi: [Discovery](/gateway/discovery)
 - Düğüm eşleştirme + onaylar: [Gateway pairing](/gateway/pairing)
 
+

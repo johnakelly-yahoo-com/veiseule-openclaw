@@ -68,3 +68,4 @@ Bayraklar:
 - `--agent <id>`: ajan kapsamlı onaylar/izin listeleri (yapılandırılmış ajanı varsayar).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: geçersiz kılmalar.
 
+

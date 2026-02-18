@@ -456,3 +456,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Logs သို့မဟုတ် သိမ်းဆည်းထားသော “last route” targets များတွင် `telegram:...` prefixes ကို မြင်တွေ့ပါက ပုံမှန်ဖြစ်ပါသည်;
   cron delivery သည် ၎င်းတို့ကို လက်ခံပြီး topic IDs များကို မှန်ကန်စွာ parse လုပ်နိုင်ပါသည်။
 
+

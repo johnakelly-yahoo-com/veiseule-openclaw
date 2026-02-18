@@ -39,3 +39,4 @@ openclaw agents add <name>
 `--json` نان اِنٹریکٹو موڈ کا مطلب نہیں ہوتا۔ 8. اسکرپٹس کے لیے `--non-interactive` استعمال کریں۔
 </Note>
 
+

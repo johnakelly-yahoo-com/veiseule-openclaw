@@ -283,3 +283,4 @@ Tệp thô đã phát hành thường có sẵn tại: Chỉ báo đang gõ đư
 2. Chạy `pnpm protocol:check`.
 3. Commit schema và các model Swift đã được sinh lại.
 
+

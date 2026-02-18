@@ -113,3 +113,4 @@ RPC API และรายการฟิลด์คอนฟิกทั้ง
 - การเริ่มต้นใช้งานแอปmacOS: [Onboarding](/start/onboarding)
 - พิธีการรันครั้งแรกของเอเจนต์: [Agent Bootstrapping](/start/bootstrapping)
 
+

@@ -460,3 +460,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - 포럼 토픽의 경우, 명시적이고 모호하지 않도록 `-100…:topic:<id>` 를 사용하십시오.
 - 로그나 저장된 “마지막 라우트” 대상에 `telegram:...` 접두사가 보이더라도 정상입니다. cron 전달은 이를 허용하며 토픽 id 를 올바르게 파싱합니다.
 
+

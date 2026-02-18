@@ -257,3 +257,4 @@ free -h
 - [Tailscale](/gateway/tailscale) — acesso remoto seguro
 - [Configuração](/gateway/configuration) — referência completa de configuração
 
+

@@ -35,3 +35,4 @@ op de Gateway-host (bijvoorbeeld `user@gateway-host:~/.openclaw/workspace`).
 - macOS-app onboarding: [Onboarding](/start/onboarding)
 - Indeling van de werkruimte: [Agent workspace](/concepts/agent-workspace)
 
+

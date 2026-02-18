@@ -108,3 +108,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - `schema` ဖြင့် စစ်ဆေးမထားပါက အထွက်ကို ယုံကြည်စိတ်ချရမှု မရှိသည့်အရာအဖြစ် ကိုင်တွယ်ပါ။
 - side-effect ဖြစ်စေသော အဆင့်များ (send, post, exec) မလုပ်မီ အတည်ပြုချက်များ ထည့်သွင်းထားပါ။
 
+

@@ -66,3 +66,4 @@ Optional keys:
   package-manager allowlist requirements (for example, pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
 
+

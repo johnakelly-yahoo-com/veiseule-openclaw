@@ -86,3 +86,4 @@ tail -f /tmp/openclaw/openclaw-$(date +%F).log | rg "telegram http error"
 - 10. 這些旗標可以安全地保持啟用；它們只會影響特定子系統的日誌量。
 - 使用 [/logging](/logging) 變更記錄目的地、等級與遮罩設定。
 
+

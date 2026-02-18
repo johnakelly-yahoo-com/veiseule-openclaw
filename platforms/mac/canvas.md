@@ -119,3 +119,4 @@ The app prompts for confirmation unless a valid key is provided.
 - Local Canvas content uses a custom scheme (no loopback server required).
 - External `http(s)` URLs are allowed only when explicitly navigated.
 
+

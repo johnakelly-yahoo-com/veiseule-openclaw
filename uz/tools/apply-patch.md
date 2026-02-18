@@ -45,3 +45,4 @@ Vosita bitta `input` satrini qabul qiladi, u bir yoki bir nechta fayl amallarini
 }
 ```
 
+

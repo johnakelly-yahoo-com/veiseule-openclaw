@@ -73,3 +73,4 @@ Eslatmalar:
 
 - Maqsad turini majburan belgilash uchun `--kind user|group|auto` dan foydalaning.
 - Bir xil nomli bir nechta yozuv bo‘lsa, tizim faol (active) moslikni ustun qo‘yadi.
+

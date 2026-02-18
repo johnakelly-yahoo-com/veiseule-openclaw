@@ -49,3 +49,4 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--timeout <seconds>`: Agent-Timeout überschreiben
 - `--json`: strukturierte JSON-Ausgabe
 
+

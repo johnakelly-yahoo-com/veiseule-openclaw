@@ -133,3 +133,4 @@ Mattermost unterstützt mehrere Konten unter `channels.mattermost.accounts`:
 - Authentifizierungsfehler: Prüfen Sie den Bot-Token, die Basis-URL und ob das Konto aktiviert ist.
 - Probleme mit mehreren Konten: Umgebungsvariablen gelten nur für das `default`-Konto.
 
+

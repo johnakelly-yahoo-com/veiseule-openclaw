@@ -144,3 +144,4 @@ Behold `models.mode: "merge"`, så hosted-modeller forbliver tilgængelige som f
 - Fejl i kontekst? Lavere `contextWindow` eller hæve din servergrænse.
 - Sikkerhed: lokale modeller springer udbyderfiltre over; hold agenter snævre og kompaktering slået til for at begrænse blast radius for prompt injection.
 
+

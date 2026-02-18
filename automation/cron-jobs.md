@@ -472,3 +472,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - If you see `telegram:...` prefixes in logs or stored “last route” targets, that’s normal;
   cron delivery accepts them and still parses topic IDs correctly.
 
+

@@ -76,3 +76,4 @@ Verktygsnamn: `zalouser`
 
 Åtgärder: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
 
+

@@ -30,3 +30,4 @@ Taxmin qilmasdan kanal ulanishini tekshirish uchun qisqa qo‘llanma.
 ## Maxsus "health" buyrug‘i
 
 `openclaw health --json` ishlayotgan Gateway’dan uning holat hisobotini so‘raydi (CLI’dan to‘g‘ridan-to‘g‘ri kanal socketlari ishlatilmaydi). Mavjud bo‘lsa, ulangan creds/auth yoshi, har bir kanal bo‘yicha tekshiruv xulosalari, sessiya ombori xulosasi va tekshiruv davomiyligini ko‘rsatadi. Agar Gateway mavjud bo‘lmasa yoki tekshiruv muvaffaqiyatsiz/taym-aut bo‘lsa, nol bo‘lmagan kod bilan yakunlanadi. 10 soniyalik standart vaqtni o‘zgartirish uchun `--timeout <ms>` dan foydalaning.
+

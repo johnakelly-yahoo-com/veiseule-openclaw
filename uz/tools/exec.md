@@ -160,3 +160,4 @@ Izohlar:
 - Tool siyosati baribir qo‘llanadi; `allow: ["exec"]` avtomatik ravishda `apply_patch` ga ham ruxsat beradi.
 - Konfiguratsiya `tools.exec.applyPatch` ostida joylashgan.
 - `tools.exec.applyPatch.workspaceOnly` standart bo‘yicha `true` (faqat workspace ichida). Agar `apply_patch` workspace katalogidan tashqariga yozishi/o‘chirishi kerak bo‘lsa, uni ataylab `false` ga o‘rnating.
+

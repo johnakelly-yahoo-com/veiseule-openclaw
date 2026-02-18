@@ -70,3 +70,4 @@ title: "Níveis de Thinking"
 - Escolher outro nível aplica-se apenas à próxima mensagem (`thinkingOnce`); após o envio, o seletor retorna ao nível da sessão armazenado.
 - Para alterar o padrão da sessão, envie uma diretiva `/think:<level>` (como antes); o seletor refletirá isso após o próximo recarregamento.
 
+

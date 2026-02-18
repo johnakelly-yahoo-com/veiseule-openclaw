@@ -100,3 +100,4 @@ RPC API, and a full list of config fields the wizard writes, see the
 - macOS app onboarding: [Onboarding](/start/onboarding)
 - Agent first-run ritual: [Agent Bootstrapping](/start/bootstrapping)
 
+

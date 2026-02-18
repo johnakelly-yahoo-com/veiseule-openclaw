@@ -324,3 +324,4 @@ Alla långlivade tillstånd måste överleva omstarter, återuppbygga och starta
 | OS‑paket                            | Containerfilsystem                | Docker‑image         | Installera inte vid runtime        |
 | Docker‑container                    | Flyktig                           | Omstartbar           | Säker att förstöra                 |
 
+

@@ -123,3 +123,4 @@ Cette complexité a provoqué des régressions inter‑fournisseurs (notamment l
 `call_id|fc_id`). Le nettoyage de 2026.1.22 a supprimé l’extension, centralisé la logique
 dans l’exécuteur et rendu OpenAI **sans intervention** au‑delà du nettoyage des images.
 
+

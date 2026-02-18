@@ -279,3 +279,4 @@ vive hoje no lado do Gateway.
   - inchaço de resultados de ferramentas: habilite/ajuste a poda de sessões
 - Turnos silenciosos vazando? Confirme que a resposta começa com `NO_REPLY` (token exato) e que você está em um build que inclui a correção de supressão de streaming.
 
+

@@ -128,3 +128,4 @@ openclaw plugins install ./extensions/tlon
 - الردود ضمن السلاسل: إذا كانت الرسالة الواردة ضمن سلسلة، يرد OpenClaw داخل السلسلة.
 - الوسائط: `sendMedia` يرتد إلى نص + عنوان URL (لا يوجد رفع أصلي).
 
+

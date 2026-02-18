@@ -86,3 +86,4 @@ Với gateway từ xa, bạn cũng có thể dùng `openclaw logs --follow` (xem
 - Có thể để cờ bật an toàn; chúng chỉ ảnh hưởng đến lượng log của phân hệ cụ thể.
 - Dùng [/logging](/logging) để thay đổi đích đến log, mức log và che dữ liệu.
 
+

@@ -125,3 +125,4 @@ Klucze naprawcze (wybierz jeden):
 
 W trybie `"non-main"` klucze grup/kanałów _nie_ są main. Użyj klucza sesji main (pokazanego przez `sandbox explain`) albo przełącz tryb na `"off"`.
 
+

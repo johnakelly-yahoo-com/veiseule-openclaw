@@ -108,3 +108,4 @@ Noter:
 - Altid: “Tillad baggrunds placering. Kræver systemtilladelse.”
 - Præcis “Brug præcis GPS-placering. Slå fra for at dele omtrentlige placering.”
 
+

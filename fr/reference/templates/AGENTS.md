@@ -213,3 +213,4 @@ L’objectif : etre utile sans etre envahissant. Verifier quelques fois par jour
 
 Ceci est un point de depart. Ajoutez vos propres conventions, style et regles au fur et a mesure que vous decouvrez ce qui fonctionne.
 
+

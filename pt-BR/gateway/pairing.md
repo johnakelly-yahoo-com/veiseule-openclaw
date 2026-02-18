@@ -93,3 +93,4 @@ Notas de segurança:
 - Se o Gateway estiver offline ou o pareamento estiver desativado, os nós não conseguem parear.
 - Se o Gateway estiver em modo remoto, o pareamento ainda ocorre contra o armazenamento do Gateway remoto.
 
+

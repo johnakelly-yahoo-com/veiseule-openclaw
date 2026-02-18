@@ -51,3 +51,4 @@ Meet here
 - **WhatsApp**: `locationMessage.comment` และ `liveLocationMessage.caption` จะถูกต่อท้ายเป็นบรรทัดคำบรรยาย.
 - **Matrix**: `geo_uri` จะถูกแยกวิเคราะห์เป็นตำแหน่งแบบหมุด; ค่าความสูงจะถูกละเว้นและ `LocationIsLive` จะเป็น false เสมอ.
 
+

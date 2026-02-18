@@ -125,3 +125,4 @@ Kısa sürüm: **Gateway’i yalnızca loopback’te tutun**, bağlama gerektiğ
 
 Derinlemesine inceleme: [Güvenlik](/gateway/security).
 
+

@@ -132,3 +132,4 @@ APIs verwendet, können entsprechend dem Anbieter des Skills Kosten entstehen.
 
 Siehe [Skills](/tools/skills).
 
+

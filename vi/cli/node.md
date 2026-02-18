@@ -105,3 +105,4 @@ Máy chủ node lưu id node, token, tên hiển thị và thông tin kết nố
 - [Phê duyệt exec](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (chỉnh sửa từ Gateway)
 
+

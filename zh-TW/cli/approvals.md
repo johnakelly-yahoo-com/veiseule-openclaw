@@ -45,3 +45,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - node host 必須宣告 `system.execApprovals.get/set`（macOS 應用程式或無頭 node host）。
 - 每個主機的核准檔案會儲存在 `~/.openclaw/exec-approvals.json`。
 
+

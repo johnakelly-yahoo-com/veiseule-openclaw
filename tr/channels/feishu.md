@@ -575,3 +575,4 @@ Temel seçenekler:
 - ✅ Ses
 - ⚠️ Zengin metin (kısmi destek)
 
+

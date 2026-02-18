@@ -48,3 +48,4 @@ Hizmet hedefi işletim sistemine bağlıdır:
 - macOS: LaunchAgent (`bot.molt.gateway` veya `bot.molt.<profile>`; eski `com.openclaw.*`)
 - Linux/WSL2: systemd kullanıcı hizmeti (`openclaw-gateway[-<profile>].service`)
 
+

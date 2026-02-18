@@ -101,3 +101,4 @@ Użyj `gateway.nodes.browser.mode` do kontrolowania automatycznego routingu oraz
 
 Bezpieczeństwo + konfiguracja zdalna: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
 
+

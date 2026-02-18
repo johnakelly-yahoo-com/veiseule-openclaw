@@ -51,3 +51,4 @@ Når en placering er til stede, tilføjes disse felter til `ctx`:
 - **WhatsApp**: `locationMessage.comment` og `liveLocationMessage.caption` tilføjes som billedtekstlinjen.
 - **Matrix**: `geo_uri` parses som en nåleplacering; højde ignoreres, og `LocationIsLive` er altid false.
 
+

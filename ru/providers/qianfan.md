@@ -33,3 +33,4 @@ openclaw onboard --auth-choice qianfan-api-key
 - [Настройка агента](/concepts/agent)
 - [Документация по API Qianfan](https://cloud.baidu.com/doc/qianfan-api/s/3m7of64lb)
 
+

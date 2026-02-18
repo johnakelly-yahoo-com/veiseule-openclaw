@@ -254,3 +254,4 @@ Signal setup behavior:
 - Automation and scripts: [CLI Automation](/start/wizard-cli-automation)
 - Command reference: [`openclaw onboard`](/cli/onboard)
 
+

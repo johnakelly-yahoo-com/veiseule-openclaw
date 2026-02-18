@@ -110,3 +110,4 @@ Gateway 是節點/用戶端准入的唯一真實來源。
 - **macOS 應用程式**：協助選擇 Gateway 閘道器、顯示配對提示，且僅在必要時使用 SSH 作為後備。
 - **iOS／Android 節點**：將 Bonjour 作為便利方式進行瀏覽，並連線至已配對的 Gateway WS。
 
+

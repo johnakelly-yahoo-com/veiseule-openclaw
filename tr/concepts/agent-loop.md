@@ -142,3 +142,4 @@ Kanca API’si ve kayıt ayrıntıları için [Plugins](/tools/plugin#plugin-hoo
 - Gateway bağlantı kesilmesi veya RPC zaman aşımı
 - `agent.wait` zaman aşımı (yalnızca bekleme, ajanı durdurmaz)
 
+

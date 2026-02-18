@@ -111,3 +111,4 @@ Gateway statik fayllarni `dist/control-ui` dan taqdim etadi. Ularni quyidagicha 
 pnpm ui:build # birinchi ishga tushirishda UI dependency’larini avtomatik o‘rnatadi
 ```
 
+

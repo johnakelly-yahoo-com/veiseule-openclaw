@@ -191,3 +191,4 @@ macOS アプリが **Remote** モードで実行される場合、ローカル U
 - [macOS permissions](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
 
+

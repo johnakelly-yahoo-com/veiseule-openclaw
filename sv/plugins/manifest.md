@@ -66,3 +66,4 @@ Valfria nycklar:
   krav på tillåtelselista för pakethanterare (till exempel pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
 
+

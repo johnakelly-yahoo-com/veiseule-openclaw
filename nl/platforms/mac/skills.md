@@ -28,3 +28,4 @@ De macOS-app ontsluit OpenClaw Skills via de Gateway; hij parseert Skills niet l
 
 - Installatie- en configuratie-updates vinden plaats op de Gateway-host (niet op de lokale Mac).
 
+

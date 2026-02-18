@@ -55,3 +55,4 @@ Veja [/concepts/session-pruning](/concepts/session-pruning) para detalhes sobre 
 - Grandes saídas de ferramentas já são truncadas; a poda pode reduzir ainda mais o acúmulo de resultados de ferramentas.
 - Se você precisa de uma página em branco, `/new` ou `/reset` inicia um novo id de sessão.
 
+

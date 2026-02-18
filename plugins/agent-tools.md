@@ -94,3 +94,4 @@ Other config knobs that affect tool availability:
 - Prefer `optional: true` for tools that trigger side effects or require extra
   binaries/credentials.
 
+

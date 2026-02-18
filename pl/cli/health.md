@@ -17,3 +17,4 @@ Uwagi:
 - `--verbose` uruchamia sondy na żywo i wyświetla czasy dla poszczególnych kont, gdy skonfigurowano wiele kont.
 - Wyjście zawiera magazyny sesji na agenta, gdy skonfigurowano wielu agentów.
 
+

@@ -382,3 +382,4 @@ Para la segmentación por grupos, use `agents.list[].groupChat.mentionPatterns` 
 
 Consulte [Sandbox y herramientas multiagente](/tools/multi-agent-sandbox-tools) para ver ejemplos detallados.
 
+

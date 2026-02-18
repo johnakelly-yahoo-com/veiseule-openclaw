@@ -54,3 +54,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 
 - **dev**: gumagalaw na head ng `main` (git). 8. Patakbuhin muna ang mga iyon gamit ang pnpm sa ngayon.
 
+

@@ -27,3 +27,4 @@ title: grammY
 - Lägg till mer strukturerade medietester (klistermärken, röstmeddelanden).
 - Gör webhookens lyssningsport konfigurerbar (för närvarande låst till 8787 om den inte kopplas via gatewayn).
 
+

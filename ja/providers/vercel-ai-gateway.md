@@ -42,3 +42,4 @@ openclaw onboard --non-interactive \
 
 Gateway（ゲートウェイ）がデーモン（launchd/systemd）として実行される場合は、`AI_GATEWAY_API_KEY` がそのプロセスで利用可能であることを確認してください（例: `~/.openclaw/.env` 内、または `env.shellEnv` 経由）。
 
+

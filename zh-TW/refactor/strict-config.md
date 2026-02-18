@@ -87,3 +87,4 @@ title: "嚴格設定驗證"
 - 設定無效 → 封鎖 Gateway 啟動，僅允許診斷指令。
 - Doctor 預設 dry-run；`doctor --fix` 會寫入修正後的設定。
 
+

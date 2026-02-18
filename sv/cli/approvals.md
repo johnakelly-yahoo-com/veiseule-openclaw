@@ -45,3 +45,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - Nodvärden måste annonsera `system.execApprovals.get/set` (macOS-app eller headless nodvärd).
 - Godkännandefiler lagras per värd på `~/.openclaw/exec-approvals.json`.
 
+

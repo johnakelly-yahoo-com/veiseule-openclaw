@@ -248,3 +248,4 @@ Signal 設定行為：
 - 入門引導樞紐：[入門引導精靈（CLI）](/start/wizard)  
 - 自動化與腳本：[CLI 自動化](/start/wizard-cli-automation)  
 - 指令參考：[`openclaw onboard`](/cli/onboard)
+

@@ -12,3 +12,4 @@ title: "نموذج الشبكة"
 - مضيف اللوحة هو خادم ملفات HTTP على `canvasHost.port` (الافتراضي `18793`) يقدّم `/__openclaw__/canvas/` لواجهات WebView الخاصة بالعُقد. راجع [تهيئة Gateway](/gateway/configuration) (`canvasHost`).
 - يكون الاستخدام عن بُعد عادة عبر نفق SSH أو VPN عبر tailnet. راجع [الوصول عن بُعد](/gateway/remote) و[الاكتشاف](/gateway/discovery).
 
+

@@ -324,3 +324,4 @@ Tout l’état de longue durée doit survivre aux redémarrages, reconstructions
 | Paquets OS                           | Système de fichiers du conteneur  | Image Docker               | Ne pas installer à l’exécution                      |
 | Conteneur Docker                     | Éphémère                          | Redémarrage                | Sûr à détruire                                      |
 
+

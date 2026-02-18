@@ -562,3 +562,4 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
   이는 `/etc/profile` 을 소스하고 PATH 를 재설정할 수 있습니다. `docker.env.PATH` 를 설정하여 커스텀 도구 경로(예: `/custom/bin:/usr/local/share/npm-global/bin`)를
   앞에 추가하거나, Dockerfile 에서 `/etc/profile.d/` 아래에 스크립트를 추가하십시오.
 
+

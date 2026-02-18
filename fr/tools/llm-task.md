@@ -110,3 +110,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Traitez la sortie comme non fiable à moins de la valider avec `schema`.
 - Placez des approbations avant toute étape ayant des effets de bord (envoyer, publier, exécuter).
 
+

@@ -145,3 +145,4 @@ Mga command ng camera (foreground lamang; may permission gate):
 
 Tingnan ang [Camera node](/nodes/camera) para sa mga parameter at CLI helpers.
 
+

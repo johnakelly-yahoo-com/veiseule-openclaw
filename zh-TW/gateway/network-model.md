@@ -13,3 +13,4 @@ title: "網路模型"
 - Canvas 主機是在 `canvasHost.port`（預設 `18793`）上的 HTTP 檔案伺服器，為節點的 WebView 提供 `/__openclaw__/canvas/`。請參閱 [Gateway 設定](/gateway/configuration)（`canvasHost`）。 See [Gateway configuration](/gateway/configuration) (`canvasHost`).
 - 遠端使用通常透過 SSH 通道或 tailnet VPN。請參閱 [Remote access](/gateway/remote) 與 [Discovery](/gateway/discovery)。 See [Remote access](/gateway/remote) and [Discovery](/gateway/discovery).
 
+

@@ -57,3 +57,4 @@ Agent -> Gateway -> Node Service (WS)
 - Los avisos de TCC se originan únicamente desde el bundle de la app GUI; mantenga estable el ID de bundle firmado entre reconstrucciones.
 - Endurecimiento de IPC: modo de socket `0600`, token, comprobaciones de UID del par, desafío/respuesta HMAC, TTL corto.
 
+

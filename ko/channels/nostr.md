@@ -228,3 +228,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - 미디어 첨부를 지원하지 않습니다.
 - NIP-04 만 지원합니다 (NIP-17 기프트 래핑은 계획됨).
 
+

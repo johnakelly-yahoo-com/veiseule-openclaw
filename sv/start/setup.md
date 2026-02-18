@@ -157,3 +157,4 @@ användartjänst (ingen kvardröjande behövs). Se [Gateway runbook](/gateway) f
 - [Installation av OpenClaw-assistenten](/start/openclaw)
 - [macOS‑app](/platforms/macos) (gatewayns livscykel)
 
+

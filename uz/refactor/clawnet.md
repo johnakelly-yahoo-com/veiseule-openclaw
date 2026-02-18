@@ -412,3 +412,4 @@ Drift bo‘lmasligi uchun implementatsiyadan oldin birini tanlang.
 - Taklif: aniq role + scope’li yagona WS protokoli, yagona juftlash + TLS pinning, gateway’da joylashgan tasdiqlashlar, barqaror device ID + yoqimli sluglar.
 - Natija: soddaroq UX, kuchliroq xavfsizlik, kamroq takrorlanish, mobil uchun yaxshiroq marshrutlash.
 
+

@@ -83,3 +83,4 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Testa `tsx` nightly eller lås till en tidigare version om en känd regression finns.
 - Om det reproduceras på Node LTS, skapa ett minimalt repro uppströms med `__name`-stackspåret.
 
+

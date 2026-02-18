@@ -68,3 +68,4 @@ Optionen:
 - `--agent <id>`: agentenbezogene Genehmigungen/Allowlists (Standard: konfigurierter Agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: Überschreibungen.
 
+

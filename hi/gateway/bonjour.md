@@ -160,3 +160,4 @@ Bonjour/DNS‑SD अक्सर सेवा इंस्टेंस नाम
 - डिस्कवरी नीति और ट्रांसपोर्ट चयन: [Discovery](/gateway/discovery)
 - नोड पेयरिंग + अनुमोदन: [Gateway pairing](/gateway/pairing)
 
+

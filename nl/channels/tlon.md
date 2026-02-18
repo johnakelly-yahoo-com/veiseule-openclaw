@@ -128,3 +128,4 @@ Gebruik deze met `openclaw message send` of cron-aflevering:
 - Thread-antwoorden: als het binnenkomende bericht in een thread staat, antwoordt OpenClaw in de thread.
 - Media: `sendMedia` valt terug op tekst + URL (geen native upload).
 
+

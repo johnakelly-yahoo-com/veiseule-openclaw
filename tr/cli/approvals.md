@@ -45,3 +45,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - Node ana makinesi `system.execApprovals.get/set`’u duyurmalıdır (macOS uygulaması veya başsız node ana makinesi).
 - Onaylar dosyaları ana makine başına `~/.openclaw/exec-approvals.json` konumunda saklanır.
 
+

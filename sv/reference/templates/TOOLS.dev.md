@@ -18,3 +18,4 @@ Det definierar inte vilka verktyg som finns; OpenClaw tillhandahåller inbyggda 
 
 Lägg till vad som helst annat som du vill att assistenten ska känna till om din lokala verktygskedja.
 
+

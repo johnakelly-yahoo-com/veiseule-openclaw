@@ -382,3 +382,4 @@ For gruppemål, brug `agents.list[].groupChat.mentionPatterns` så @nævner kort
 
 Se [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) for detaljerede eksempler.
 
+

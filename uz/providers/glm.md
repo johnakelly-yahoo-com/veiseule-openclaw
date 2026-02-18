@@ -27,3 +27,4 @@ title: "44. GLM modellari"
 - Model ID’lariga `glm-4.7` va `glm-4.6` misol bo‘la oladi.
 - Provayder tafsilotlari uchun [/providers/zai](/providers/zai) sahifasiga qarang.
 
+

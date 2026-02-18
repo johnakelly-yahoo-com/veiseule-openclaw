@@ -45,3 +45,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - Tugun xosti `system.execApprovals.get/set` ni e’lon qilishi kerak (macOS ilovasi yoki headless tugun xosti).
 - Tasdiqlar fayllari har bir xost uchun `~/.openclaw/exec-approvals.json` da saqlanadi.
 
+

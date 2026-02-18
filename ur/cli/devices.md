@@ -65,3 +65,4 @@ Pass `--token` or `--password` explicitly. Missing explicit credentials is an er
 - ٹوکن روٹیشن ایک نیا ٹوکن (حساس) واپس کرتی ہے۔ اسے راز کی طرح محفوظ رکھیں۔
 - ان کمانڈز کے لیے `operator.pairing` (یا `operator.admin`) اسکوپ درکار ہے۔
 
+

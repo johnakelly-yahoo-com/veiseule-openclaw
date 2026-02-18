@@ -199,3 +199,4 @@ swift run openclaw-mac discover --timeout 3000 --json
 - [macOS permissions](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
 
+

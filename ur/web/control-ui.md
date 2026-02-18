@@ -211,3 +211,4 @@ http://localhost:5173/?gatewayUrl=wss://<gateway-host>:18789&token=<gateway-toke
 
 ریموٹ رسائی سیٹ اپ کی تفصیلات: [Remote access](/gateway/remote)۔
 
+

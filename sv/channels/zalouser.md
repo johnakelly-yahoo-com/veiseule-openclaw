@@ -135,3 +135,4 @@ Konton karta till zca profiler. Exempel:
 - `openclaw channels status --probe`
 - Logga in igen: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
 
+

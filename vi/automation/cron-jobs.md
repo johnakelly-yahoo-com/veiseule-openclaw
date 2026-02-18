@@ -463,3 +463,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Nếu bạn thấy tiền tố `telegram:...` trong log hoặc trong đích “last route” đã lưu, đó là bình thường;
   cron delivery chấp nhận chúng và vẫn phân tích đúng topic ID.
 
+

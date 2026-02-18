@@ -282,3 +282,4 @@ archivo raw publicado suele estar disponible en:
 2. Ejecute `pnpm protocol:check`.
 3. Confirme el esquema regenerado + los modelos Swift.
 
+

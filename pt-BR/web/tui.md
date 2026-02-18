@@ -157,3 +157,4 @@ Sem saída após enviar uma mensagem:
 - Nenhum agente no seletor: verifique `openclaw agents list` e sua configuração de roteamento.
 - Seletor de sessão vazio: você pode estar no escopo global ou ainda não ter sessões.
 
+

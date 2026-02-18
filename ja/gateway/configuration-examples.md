@@ -600,3 +600,4 @@ title: "設定例"
 - 後から追加できるオプションのセクション: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`。
 - 詳細なセットアップの注記については、[Providers](/channels/whatsapp) および [Troubleshooting](/gateway/troubleshooting) を参照してください。
 
+

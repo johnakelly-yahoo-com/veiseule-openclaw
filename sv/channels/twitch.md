@@ -375,3 +375,4 @@ Exempel:
 - Markdown tas bort före uppdelning
 - Ingen hastighetsbegränsning (använder Twitchs inbyggda rate limits)
 
+

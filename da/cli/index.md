@@ -1026,3 +1026,4 @@ Indstillinger:
 - `--timeout-ms <ms>` (standard til `agents.defaults.timeoutSeconds`)
 - `--history-limit <n>`
 
+

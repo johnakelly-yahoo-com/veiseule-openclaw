@@ -236,3 +236,4 @@ Starter sugerido para `.gitignore`:
 - Se `agents.defaults.sandbox` estiver habilitado, sessões que não são a principal podem
   usar workspaces em sandbox por sessão sob `agents.defaults.sandbox.workspaceRoot`.
 
+

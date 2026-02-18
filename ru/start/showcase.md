@@ -389,3 +389,4 @@ Gateway (шлюз) OpenClaw, запущенный на Home Assistant OS, с п�
   </Step>
 </Steps>
 
+

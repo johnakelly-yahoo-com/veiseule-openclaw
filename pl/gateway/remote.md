@@ -125,3 +125,4 @@ W skrócie: **utrzymuj Gateway tylko na loopback**, chyba że masz pewność, ż
 
 Dogłębnie: [Bezpieczeństwo](/gateway/security).
 
+

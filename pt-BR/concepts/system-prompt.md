@@ -110,3 +110,4 @@ ClawHub ([https://clawhub.com](https://clawhub.com)) para descoberta de skills. 
 para comportamento, comandos, configuração ou arquitetura do OpenClaw, e a executar
 `openclaw status` por conta própria quando possível (pedindo ao usuário apenas quando não tiver acesso).
 
+

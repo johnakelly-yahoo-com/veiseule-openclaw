@@ -65,3 +65,4 @@ Geef `--token` of `--password` expliciet door. Het ontbreken van expliciete refe
 - Tokenrotatie levert een nieuw token op (gevoelig). Behandel het als een geheim.
 - Deze opdrachten vereisen de scope `operator.pairing` (of `operator.admin`).
 
+

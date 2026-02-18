@@ -248,3 +248,4 @@ Gateway wizard RPC:
 - ศูนย์รวมการเริ่มต้นใช้งาน: [Onboarding Wizard (CLI)](/start/wizard)
 - ระบบอัตโนมัติและสคริปต์: [CLI Automation](/start/wizard-cli-automation)
 - เอกสารอ้างอิงคำสั่ง: [`openclaw onboard`](/cli/onboard)
+

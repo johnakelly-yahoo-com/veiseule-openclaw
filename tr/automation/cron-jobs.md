@@ -470,3 +470,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Günlüklerde veya saklanan “son rota” hedeflerinde `telegram:...` önekleri görürseniz bu normaldir;
   cron iletimi bunları kabul eder ve konu kimliklerini yine doğru şekilde ayrıştırır.
 
+

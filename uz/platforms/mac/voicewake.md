@@ -63,3 +63,4 @@ title: "44. Voice Wake"
 - 41. Push-to-talk’ni yoqing, Cmd+Fn ni bosib turing, gapiring, qo‘yib yuboring: overlay avval qisman natijalarni ko‘rsatib, so‘ng yuborishi kerak.
 - 42. Bosib turganingizda, menyu-paneldagi quloqlar kattalashgan holda qolishi kerak (`triggerVoiceEars(ttl:nil)` ishlatiladi); qo‘yib yuborilgandan so‘ng tushadi.
 
+

@@ -28,3 +28,4 @@ L'application macOS expose les Skills OpenClaw via la Gateway (passerelle) ; ell
 
 - L'installation et les mises a jour de configuration ont lieu sur l'hote de la Gateway (et non sur le Mac local).
 
+

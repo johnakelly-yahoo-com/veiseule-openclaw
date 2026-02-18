@@ -38,3 +38,4 @@ Zobacz [iMessage](/channels/imessage) — konfiguracja legacy i adresowanie (pre
 - Utrzymuj odporność klientów RPC: limity czasu, restart po zakończeniu procesu.
 - Preferuj stabilne identyfikatory (np. `chat_id`) zamiast nazw wyświetlanych.
 
+

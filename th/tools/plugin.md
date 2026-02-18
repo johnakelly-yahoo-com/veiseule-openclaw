@@ -651,3 +651,4 @@ export default function (api) {
 - ปลั๊กอินในรีโปสามารถเก็บการทดสอบVitestไว้ภายใต้ `src/**`(ตัวอย่าง: `src/plugins/voice-call.plugin.test.ts`).
 - ปลั๊กอินที่เผยแพร่แยกควรรันCIของตนเอง(lint/build/test) และตรวจสอบว่า `openclaw.extensions` ชี้ไปยังเอ็นทรีพอยต์ที่บิลด์แล้ว(`dist/index.js`).
 
+

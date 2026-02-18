@@ -18,3 +18,4 @@ _(Ular nimaga ahamiyat beradi? What projects are they working on? What annoys th
 
 Qanchalik ko‘p bilsangiz, shunchalik yaxshiroq yordam bera olasiz. Ammo unutmang — siz inson haqida o‘rganayapsiz, dosye tuzmayapsiz. Farqni hurmat qiling.
 
+

@@ -57,3 +57,4 @@ openclaw onboard --auth-choice xiaomi-api-key --xiaomi-api-key "$XIAOMI_API_KEY"
 - Awtomatikong ini-inject ang provider kapag naka-set ang `XIAOMI_API_KEY` (o kapag may umiiral na auth profile).
 - Tingnan ang [/concepts/model-providers](/concepts/model-providers) para sa mga patakaran ng provider.
 
+

@@ -110,3 +110,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Behandel de uitvoer als niet-vertrouwd tenzij je valideert met `schema`.
 - Plaats goedkeuringen vóór elke stap met bijwerkingen (verzenden, posten, uitvoeren).
 
+

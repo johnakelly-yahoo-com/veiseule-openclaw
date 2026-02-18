@@ -18,3 +18,4 @@ _(Họ quan tâm đến điều gì? Họ đang thực hiện những dự án n
 
 Bạn càng biết nhiều, bạn càng có thể hỗ trợ tốt hơn. Nhưng hãy nhớ — bạn đang tìm hiểu về một con người, không phải xây dựng một hồ sơ theo dõi. Hãy tôn trọng sự khác biệt đó.
 
+

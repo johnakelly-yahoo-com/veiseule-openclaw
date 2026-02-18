@@ -253,3 +253,4 @@ Hành vi thiết lập Signal:
 - Trung tâm onboarding: [Onboarding Wizard (CLI)](/start/wizard)
 - Tự động hóa và script: [CLI Automation](/start/wizard-cli-automation)
 - Tham chiếu lệnh: [`openclaw onboard`](/cli/onboard)
+

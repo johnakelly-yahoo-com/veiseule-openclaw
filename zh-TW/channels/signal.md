@@ -223,3 +223,4 @@ openclaw pairing list signal
 - `messages.groupChat.mentionPatterns`（全域回退）。
 - `messages.responsePrefix`。
 
+

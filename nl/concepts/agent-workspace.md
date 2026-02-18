@@ -234,3 +234,4 @@ Voorgestelde `.gitignore`-starter:
 - Als `agents.defaults.sandbox` is ingeschakeld, kunnen niet-hoofdsessies per-sessie
   sandbox-werkruimtes gebruiken onder `agents.defaults.sandbox.workspaceRoot`.
 
+

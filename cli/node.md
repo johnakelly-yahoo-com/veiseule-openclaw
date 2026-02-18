@@ -107,3 +107,4 @@ The node host stores its node id, token, display name, and gateway connection in
 - [Exec approvals](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (edit from the Gateway)
 
+

@@ -206,3 +206,4 @@ Sub-Agenten verwenden eine dedizierte In-Process-Queue-Lane:
 - Der Sub-Agent-Kontext injiziert nur `AGENTS.md` + `TOOLS.md` (kein `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` oder `BOOTSTRAP.md`).
 - Maximale Verschachtelungstiefe ist 5 (`maxSpawnDepth` Bereich: 1–5). Tiefe 2 wird für die meisten Anwendungsfälle empfohlen.
 - `maxChildrenPerAgent` begrenzt aktive Kinder pro Sitzung (Standard: 5, Bereich: 1–20).
+

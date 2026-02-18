@@ -158,3 +158,4 @@ curl -X POST http://127.0.0.1:18789/hooks/gmail \
   Si debe deshabilitar esto para un hook específico, configure `allowUnsafeExternalContent: true`
   en el mapeo de ese hook (peligroso).
 
+

@@ -222,3 +222,4 @@ Jeśli chcesz minimalną, a nadal użyteczną wersję:
 - Raport techniczny Hindsight: „retain / recall / reflect”, pamięć czterosieciowa, ekstrakcja faktów narracyjnych, ewolucja pewności opinii.
 - SuCo: arXiv 2411.14754 (2024): „Subspace Collision” – przybliżone wyszukiwanie najbliższych sąsiadów.
 
+

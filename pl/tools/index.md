@@ -506,3 +506,4 @@ Narzędzia są udostępniane w dwóch równoległych kanałach:
 
 Oznacza to, że agent widzi zarówno „jakie narzędzia istnieją”, jak i „jak je wywoływać”. Jeśli narzędzie nie pojawia się w promptcie systemowym ani w schemacie, model nie może go wywołać.
 
+

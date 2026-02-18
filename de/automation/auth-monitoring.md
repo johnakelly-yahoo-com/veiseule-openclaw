@@ -39,3 +39,4 @@ Gateway-Host voraus und sind für systemd + Termux abgestimmt.
 
 Wenn Sie keine Telefon‑Automatisierung oder systemd‑Timer benötigen, überspringen Sie diese Skripte.
 
+

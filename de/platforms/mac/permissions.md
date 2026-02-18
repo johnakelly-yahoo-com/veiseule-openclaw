@@ -44,3 +44,4 @@ Workaround: Verschieben Sie Dateien in den OpenClaw-Arbeitsbereich (`~/.openclaw
 Wenn Sie Berechtigungen testen, signieren Sie stets mit einem echten Zertifikat. Ad-hoc-
 Builds sind nur für schnelle lokale Läufe akzeptabel, bei denen Berechtigungen keine Rolle spielen.
 
+

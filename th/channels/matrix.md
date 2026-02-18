@@ -267,3 +267,4 @@ openclaw pairing list matrix
 - `channels.matrix.autoJoinAllowlist`: room IDs/aliases ที่อนุญาตสำหรับการเข้าร่วมอัตโนมัติ
 - `channels.matrix.actions`: การควบคุมเครื่องมือตามการกระทำ (reactions/messages/pins/memberInfo/channelInfo)
 
+

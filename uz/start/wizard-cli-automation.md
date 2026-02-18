@@ -121,3 +121,4 @@ Eslatmalar:
 - To‘liq ma’lumotnoma: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - Buyruqlar ma’lumotnomasi: [`openclaw onboard`](/cli/onboard)
 
+

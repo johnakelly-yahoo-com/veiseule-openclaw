@@ -221,3 +221,4 @@ Agar minimal, lekin baribir foydali versiyani xohlasangiz:
 - Hindsight Texnik Hisoboti: “retain / recall / reflect”, to‘rtta tarmoqli xotira, narrativ faktlarni ajratib olish, fikr ishonchliligining evolyutsiyasi.
 - SuCo: arXiv 2411.14754 (2024): “Subspace Collision” taxminiy eng yaqin qo‘shnilarni topish (ANN) orqali retrieval.
 
+

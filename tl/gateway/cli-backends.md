@@ -209,3 +209,4 @@ I-override lamang kung kinakailangan (karaniwan: absolute na `command` path).
   `none` (sa kasalukuyan, hindi kayang mag-resume ng Codex CLI gamit ang JSON output).
 - **Hindi pinapansin ang images**: itakda ang `imageArg` (at tiyaking sinusuportahan ng CLI ang mga file path).
 
+

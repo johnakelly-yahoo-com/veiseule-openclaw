@@ -144,3 +144,4 @@ Houd `models.mode: "merge"` zodat gehoste modellen beschikbaar blijven als fallb
 - Contextfouten? Verlaag `contextWindow` of verhoog je serverlimiet.
 - Veiligheid: lokale modellen slaan provider-side filters over; houd agents smal en compaction ingeschakeld om de impact van prompt-injectie te beperken.
 
+

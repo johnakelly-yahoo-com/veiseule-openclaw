@@ -65,3 +65,4 @@ Optionale Schlüssel:
   sowie etwaige Allowlist-Anforderungen des Paketmanagers (zum Beispiel pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
 
+

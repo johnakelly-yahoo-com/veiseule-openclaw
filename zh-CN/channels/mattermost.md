@@ -139,3 +139,4 @@ Mattermost 支持在 `channels.mattermost.accounts` 下配置多个账户：
 - 认证错误：检查 bot token、基础 URL 以及账户是否已启用。
 - 多账户问题：环境变量仅适用于 `default` 账户。
 
+

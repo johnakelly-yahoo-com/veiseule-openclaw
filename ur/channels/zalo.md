@@ -185,3 +185,4 @@ Env آپشن: `ZALO_BOT_TOKEN=...` (صرف ڈیفالٹ اکاؤنٹ کے لیے
 - `channels.zalo.accounts.<id>.webhookPath`: فی اکاؤنٹ ویب ہُک راستہ۔
 - `channels.zalo.accounts.<id>.proxy`: فی اکاؤنٹ پراکسی URL۔
 
+

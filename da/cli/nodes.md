@@ -68,3 +68,4 @@ Flag:
 - `--agent <id>`: agent-afgrænsede godkendelser/tilladelseslister (standard er konfigureret agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: overstyringer.
 
+

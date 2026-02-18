@@ -75,3 +75,4 @@ title: "Perplexity Sonar"
 
 انظر [أدوات الويب](/tools/web) للاطلاع على التهيئة الكاملة لـ web_search.
 
+

@@ -202,3 +202,4 @@ openclaw channels login
 - [Sandboxing](/gateway/sandboxing) — конфигурация sandbox‑окружений агентов
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — изоляция для каждого агента
 
+

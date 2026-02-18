@@ -324,3 +324,4 @@ All long-lived state must survive restarts, rebuilds, and reboots.
 | Gói OS                 | Hệ thống file container           | Docker image           | Không cài ở runtime            |
 | Docker container       | Tạm thời                          | Có thể restart         | An toàn để xóa                 |
 
+

@@ -182,3 +182,4 @@ messages Flex :
 - **Erreurs de téléchargement de médias :** augmentez `channels.line.mediaMaxMb` si les médias
   dépassent la limite par défaut.
 
+

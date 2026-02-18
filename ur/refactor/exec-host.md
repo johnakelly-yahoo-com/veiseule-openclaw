@@ -310,3 +310,4 @@ Agent -> Gateway -> Bridge -> Node Service (TS)
 - [نوڈز](/nodes)
 - [بلند اختیاراتی موڈ](/tools/elevated)
 
+

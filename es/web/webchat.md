@@ -45,3 +45,4 @@ Opciones globales relacionadas:
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: destino del Gateway remoto.
 - `session.*`: almacenamiento de sesiones y valores predeterminados de la clave principal.
 
+

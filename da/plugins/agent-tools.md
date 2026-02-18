@@ -94,3 +94,4 @@ Andre konfigurationsindstillinger, der påvirker værktøjers tilgængelighed:
 - Foretræk `optional: true` for værktøjer, der udløser sideeffekter eller kræver ekstra
   binære filer/legitimationsoplysninger.
 
+

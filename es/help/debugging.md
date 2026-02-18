@@ -156,3 +156,4 @@ Archivo predeterminado:
 - Mantenga los registros locales y elimínelos después de depurar.
 - Si comparte registros, elimine secretos y PII primero.
 
+

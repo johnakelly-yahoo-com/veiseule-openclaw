@@ -71,3 +71,4 @@ title: "تهيئة Skills"
 
 تُطبَّق `env` و`skills.entries.<skill>.env/apiKey` العامة على عمليات **المضيف** فقط.
 
+

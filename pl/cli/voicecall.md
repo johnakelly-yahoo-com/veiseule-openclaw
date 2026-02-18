@@ -29,3 +29,4 @@ openclaw voicecall unexpose
 
 Uwaga dotycząca bezpieczeństwa: wystawiaj punkt końcowy webhooka wyłącznie do sieci, którym ufasz. Gdy to możliwe, preferuj Tailscale Serve zamiast Funnel.
 
+

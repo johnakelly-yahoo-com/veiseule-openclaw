@@ -74,3 +74,4 @@ Notlar:
 - Hedef türü zorlamak için `--kind user|group|auto` kullanın.
 - Birden fazla giriş aynı adı paylaştığında, çözümleme etkin eşleşmeleri tercih eder.
 
+

@@ -46,3 +46,4 @@ Araç, bir veya daha fazla dosya işlemini saran tek bir `input` dizesi kabul ed
 }
 ```
 
+

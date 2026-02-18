@@ -30,3 +30,4 @@ Sådan kan du se, om den tilknyttede kanal er sund fra menulinje-appen.
 
 - Du kan stadig bruge CLI-flowet i [Gateway health](/gateway/health) (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) og følge `/tmp/openclaw/openclaw-*.log` for `web-heartbeat` / `web-reconnect`.
 
+

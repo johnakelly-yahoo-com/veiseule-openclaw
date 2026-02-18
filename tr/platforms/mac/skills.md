@@ -28,3 +28,4 @@ macOS uygulaması OpenClaw Skills’i gateway üzerinden sunar; Skills’i yerel
 
 - Yükleme ve yapılandırma güncellemeleri yerel Mac’te değil, gateway ana makinesinde gerçekleşir.
 
+

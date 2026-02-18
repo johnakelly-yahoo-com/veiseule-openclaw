@@ -63,3 +63,4 @@ Parametreler:
 Not: Discord’da “tam olarak N seç” modu yoktur; `pollMulti` çoklu seçime eşlenir.
 Teams anketleri Adaptive Cards olarak oluşturulur ve oyların `~/.openclaw/msteams-polls.json` içinde kaydedilmesi için gateway’in çevrimiçi kalması gerekir.
 
+

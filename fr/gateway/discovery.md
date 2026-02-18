@@ -110,3 +110,4 @@ La passerelle est la source de verite pour l’admission des nœuds/clients.
 - **Application macOS** : vous aide a choisir une passerelle, affiche les invites d’appairage et n’utilise SSH qu’en secours.
 - **Nœuds iOS/Android** : parcourent Bonjour par commodite et se connectent au Gateway WS appaire.
 
+

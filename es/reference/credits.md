@@ -23,3 +23,4 @@ MIT - Libre como una langosta en el océano.
 
 > "Todos solo estamos jugando con nuestros propios prompts." (Una IA, probablemente colocada de tokens)
 
+

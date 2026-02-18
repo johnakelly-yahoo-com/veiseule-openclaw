@@ -110,3 +110,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Ituring ang output bilang hindi pinagkakatiwalaan maliban kung i-validate mo gamit ang `schema`.
 - Ilagay ang mga approval bago ang anumang step na may side effect (send, post, exec).
 
+

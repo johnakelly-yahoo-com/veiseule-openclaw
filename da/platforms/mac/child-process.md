@@ -65,3 +65,4 @@ Fjerntilstand starter aldrig en lokal Gateway. Appen bruger en SSH-tunnel til
 Hvis en ægte child-process-tilstand nogensinde bliver nødvendig igen, bør den
 dokumenteres som en separat, eksplicit dev-only-tilstand.
 
+

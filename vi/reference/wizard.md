@@ -262,3 +262,4 @@ sẽ yêu cầu cài đặt (npm hoặc đường dẫn cục bộ) trước khi
 - Tài liệu tham chiếu cấu hình: [Gateway configuration](/gateway/configuration)
 - Nhà cung cấp: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (legacy)
 - Skills: [Skills](/tools/skills), [Skills config](/tools/skills-config)
+

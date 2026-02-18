@@ -374,3 +374,4 @@ Heartbeats führen vollständige Agent-Turns aus. Kürzere Intervalle verbrauche
 Tokens. Halten Sie `HEARTBEAT.md` klein und erwägen Sie ein günstigeres
 `model` oder `target: "none"`, wenn Sie nur interne Zustandsaktualisierungen wünschen.
 
+

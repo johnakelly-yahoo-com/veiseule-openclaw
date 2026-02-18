@@ -562,3 +562,4 @@ Halimbawa:
   mga custom na path ng tool (hal., `/custom/bin:/usr/local/share/npm-global/bin`), o magdagdag
   ng script sa ilalim ng `/etc/profile.d/` sa iyong Dockerfile.
 
+

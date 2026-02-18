@@ -77,3 +77,4 @@ title: "Menubalk"
 - Snelle toolbursts: zorg dat de badge niet flikkert (TTL-speling op toolresultaten).
 - Gezondheidsregel verschijnt opnieuw zodra alle sessies inactief zijn.
 
+

@@ -186,3 +186,4 @@ Zalo เป็นแอปส่งข้อความที่เน้นต
 - `channels.zalo.accounts.<id>.webhookPath`: พาธเว็บฮุคต่อบัญชี
 - `channels.zalo.accounts.<id>.proxy`: URLพร็อกซีต่อบัญชี
 
+

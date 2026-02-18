@@ -37,3 +37,4 @@ enquanto o Gateway permanece na nuvem.
 
 Documentação: [Nós](/nodes), [CLI do Nodes](/cli/nodes)
 
+

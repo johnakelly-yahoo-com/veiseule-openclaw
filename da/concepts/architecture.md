@@ -147,3 +147,4 @@ Detaljer: [Gateway-protokol](/gateway/protocol), [Parring](/channels/pairing),
 - Handshake er obligatorisk; enhver ikke‑JSON eller ikke‑connect som første frame medfører hård lukning.
 - Events afspilles ikke igen; klienter skal opdatere ved huller.
 
+

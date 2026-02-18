@@ -18,3 +18,4 @@ Nie definiuje on, jakie narzędzia istnieją; OpenClaw udostępnia wbudowane nar
 
 Dodaj wszystko, co chcesz, aby asystent wiedział o Twoim lokalnym toolchainie.
 
+

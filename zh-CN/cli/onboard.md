@@ -32,3 +32,4 @@ openclaw onboard --mode remote --remote-url ws://gateway-host:18789
 - `manual`：完整的端口/绑定/认证提示（`advanced` 的别名）。
 - 最快开始聊天：`openclaw dashboard`（控制 UI，无需渠道设置）。
 
+

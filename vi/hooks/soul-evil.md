@@ -64,3 +64,4 @@ Tạo `SOUL_EVIL.md` trong thư mục gốc workspace của agent (bên cạnh `
 
 - [Hook](/automation/hooks)
 
+

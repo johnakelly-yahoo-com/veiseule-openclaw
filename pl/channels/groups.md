@@ -370,3 +370,4 @@ Systemowy prompt agenta zawiera wprowadzenie grupowe w pierwszej turze nowej ses
 
 Zobacz [Wiadomości grupowe](/channels/group-messages) dla zachowania specyficznego dla WhatsApp (wstrzykiwanie historii, szczegóły obsługi wzmianek).
 
+

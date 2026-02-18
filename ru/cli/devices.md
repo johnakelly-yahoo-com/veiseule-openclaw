@@ -65,3 +65,4 @@ openclaw devices revoke --device <deviceId> --role node
 - Ротация токена возвращает новый токен (чувствительные данные). Обращайтесь с ним как с секретом.
 - Эти команды требуют область доступа `operator.pairing` (или `operator.admin`).
 
+

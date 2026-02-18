@@ -18,3 +18,4 @@ _(Ano ang mahalaga sa kanila? Anong mga proyekto ang ginagawa nila? Ano ang naka
 
 Habang mas marami kang nalalaman, mas mas mahusay kang makakatulong. Ngunit tandaan — natututo ka tungkol sa isang tao, hindi gumagawa ng dossier. Igalang ang pagkakaibang iyon.
 
+

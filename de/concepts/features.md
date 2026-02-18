@@ -49,3 +49,4 @@ Legacy‑Pfade für Claude, Codex, Gemini und Opencode wurden entfernt. Pi ist d
 Coding‑Agent‑Pfad.
 </Note>
 
+

@@ -18,3 +18,4 @@ _(O que é importante para ela? Em quais projetos está trabalhando? O que a irr
 
 Quanto mais você sabe, melhor você pode ajudar. Mas lembre-se — você está aprendendo sobre uma pessoa, não montando um dossiê. Respeite a diferença.
 
+

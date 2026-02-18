@@ -21,3 +21,4 @@ Eslatmalar:
 - `openclaw system` uchun CLI ma’lumotnomasi (tizim hodisalari, heartbeat, presence)
 - Yangilanish ma’lumoti Umumiy ko‘rinishda ko‘rsatiladi; agar yangilanish mavjud bo‘lsa, holat `openclaw update` ni ishga tushirish haqida ishora chiqaradi (qarang: [Updating](/install/updating)).
 
+

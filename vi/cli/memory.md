@@ -40,3 +40,4 @@ Ghi chú:
 - `memory index --verbose` in chi tiết theo từng pha (nhà cung cấp, mô hình, nguồn, hoạt động theo lô).
 - `memory status` bao gồm mọi đường dẫn bổ sung được cấu hình thông qua `memorySearch.extraPaths`.
 
+

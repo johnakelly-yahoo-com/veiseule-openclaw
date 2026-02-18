@@ -472,3 +472,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Als je `telegram:...`-voorvoegsels ziet in logs of opgeslagen “laatste route”-doelen, is dat normaal;
   cron-levering accepteert ze en parseert topic-id’s nog steeds correct.
 
+

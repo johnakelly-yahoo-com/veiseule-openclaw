@@ -89,3 +89,4 @@ Typos, clarifications, outdated info, better examples - PRs welcome, no issue ne
 
 3. Участники, внесшие вклад в модель угроз, отмечаются в разделе благодарностей модели угроз, примечаниях к релизам и зале славы безопасности OpenClaw за значительный вклад.
 
+

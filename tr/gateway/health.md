@@ -31,3 +31,4 @@ Tahmin yürütmeden kanal bağlantısını doğrulamak için kısa kılavuz.
 
 `openclaw health --json`, çalışan Gateway’den sağlık anlık görüntüsünü ister (CLI’dan doğrudan kanal soketleri yok). Mevcut olduğunda bağlı kimlik bilgileri/kimlik doğrulama yaşı, kanal başına yoklama özetleri, oturum deposu özeti ve yoklama süresini raporlar. Gateway erişilemiyorsa veya yoklama başarısız/ zaman aşımına uğrarsa sıfır olmayan bir kodla çıkar. Varsayılan 10 saniyeyi geçersiz kılmak için `--timeout <ms>` kullanın.
 
+

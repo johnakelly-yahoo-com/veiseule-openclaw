@@ -119,3 +119,4 @@ Geçerli bir anahtar sağlanmadıkça uygulama onay ister.
 - Yerel Canvas içeriği özel bir şema kullanır (local loopback sunucusu gerekmez).
 - Harici `http(s)` URL’lerine yalnızca açıkça gezildiğinde izin verilir.
 
+

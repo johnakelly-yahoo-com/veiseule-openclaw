@@ -40,3 +40,4 @@ openclaw memory index --agent main --verbose
 - `memory index --verbose` ہر مرحلے کی تفصیلات پرنٹ کرتا ہے (فراہم کنندہ، ماڈل، ذرائع، بیچ سرگرمی)۔
 - `memory status` وہ تمام اضافی راستے شامل کرتا ہے جو `memorySearch.extraPaths` کے ذریعے کنفیگر کیے گئے ہوں۔
 
+

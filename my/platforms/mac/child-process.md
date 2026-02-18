@@ -54,3 +54,4 @@ rm ~/.openclaw/disable-launchagent
 
 အကယ်၍ တကယ့် child‑process mode ကို နောက်တစ်ကြိမ် လိုအပ်လာပါက သီးခြား၊ ထင်ရှားသော dev‑only mode အဖြစ် မှတ်တမ်းတင်ဖော်ပြသင့်ပါသည်။
 
+

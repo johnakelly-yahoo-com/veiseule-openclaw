@@ -94,3 +94,4 @@ Andra konfigurationsreglage som påverkar verktygstillgänglighet:
 - Föredra `optional: true` för verktyg som utlöser bieffekter eller kräver extra
   binärer/autentiseringsuppgifter.
 
+

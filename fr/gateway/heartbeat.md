@@ -357,3 +357,4 @@ le laisser désactivé dans les discussions de groupe.
 Les heartbeats exécutent des tours d’agent complets. Des intervalles plus courts consomment plus de tokens. Gardez `HEARTBEAT.md` modéré et envisagez un `model` ou `target: "none"` moins coûteux si vous
 ne souhaitez que des mises à jour d’état internes.
 
+

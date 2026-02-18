@@ -157,3 +157,4 @@ Sin salida después de enviar un mensaje:
 - No hay agentes en el selector: revise `openclaw agents list` y su configuración de enrutamiento.
 - Selector de sesión vacío: podría estar en alcance global o aún no tener sesiones.
 
+

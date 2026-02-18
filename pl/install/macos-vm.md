@@ -274,3 +274,4 @@ Dla prawdziwego trybu zawsze włączonego rozważ dedykowanego Maca mini lub ma�
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (zaawansowane)
 - [Docker Sandboxing](/install/docker) (alternatywne podejście do izolacji)
 
+

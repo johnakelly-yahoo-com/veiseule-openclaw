@@ -64,3 +64,4 @@ Let op: Discord heeft geen modus “exact N kiezen”; `pollMulti` komt overeen 
 Teams-polls worden weergegeven als Adaptive Cards en vereisen dat de gateway online blijft
 om stemmen vast te leggen in `~/.openclaw/msteams-polls.json`.
 
+

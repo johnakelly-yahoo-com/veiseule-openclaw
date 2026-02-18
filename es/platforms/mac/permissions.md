@@ -44,3 +44,4 @@ Solución alternativa: mueva los archivos al espacio de trabajo de OpenClaw (`~/
 Si está probando permisos, firme siempre con un certificado real. Las compilaciones ad-hoc
 solo son aceptables para ejecuciones locales rápidas en las que los permisos no importan.
 
+

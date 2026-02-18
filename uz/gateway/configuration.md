@@ -221,3 +221,4 @@ Barcha maydonlar bo‘yicha batafsil hujjat uchun **[Configuration Reference](/g
 ---
 
 _Bog‘liq: [Configuration Examples](/gateway/configuration-examples) · [Configuration Reference](/gateway/configuration-reference) · [Doctor](/gateway/doctor)_
+

@@ -38,3 +38,4 @@ Ils se trouvent sous `scripts/` et sont **optionnels**. Ils supposent un accès 
 
 Si vous n’avez pas besoin de l’automatisation sur téléphone ou des minuteurs systemd, ignorez ces scripts.
 
+

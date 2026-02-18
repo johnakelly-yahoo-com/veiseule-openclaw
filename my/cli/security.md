@@ -21,3 +21,4 @@ openclaw security audit --fix
 Audit သည် DM ပေးပို့သူများ အများအပြားက main session ကို မျှဝေနေသည့်အခါ သတိပေးပြီး **secure DM mode** ကို အကြံပြုပါသည်: `session.dmScope="per-channel-peer"` (shared inbox များအတွက် multi-account channel များတွင် `per-account-channel-peer`)။
 ထို့အပြင် sandbox မလုပ်ထားဘဲ web/browser tool များ ဖွင့်ထားသည့်အခြေအနေတွင် model သေးငယ်များ (`<=300B`) ကို အသုံးပြုပါက သတိပေးပါသည်။
 
+

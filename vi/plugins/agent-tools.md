@@ -94,3 +94,4 @@ Các nút cấu hình khác ảnh hưởng đến khả dụng của công cụ:
 - Ưu tiên `optional: true` cho các công cụ gây tác dụng phụ hoặc yêu cầu
   thêm nhị phân/thông tin xác thực.
 
+

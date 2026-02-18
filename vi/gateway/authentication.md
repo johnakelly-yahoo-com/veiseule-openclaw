@@ -147,3 +147,4 @@ bị thiếu, hãy chạy lại `claude setup-token` và dán token lần nữa.
 - Gói thuê bao Claude Max hoặc Pro (cho `claude setup-token`)
 - Đã cài Claude Code CLI (có sẵn lệnh `claude`)
 
+

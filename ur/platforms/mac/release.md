@@ -80,3 +80,4 @@ SPARKLE_PRIVATE_KEY_FILE=/path/to/ed25519-private-key scripts/make_appcast.sh di
 
 تعریفِ تکمیل: سائن شدہ ایپ اور appcast شائع ہوں، پرانی انسٹال شدہ ورژن سے اپ ڈیٹ فلو درست کام کرے، اور ریلیز اثاثے GitHub ریلیز کے ساتھ منسلک ہوں۔
 
+

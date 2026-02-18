@@ -35,3 +35,4 @@ Kapag tumatakbo ang Gateway sa ibang makina, i-edit ang mga workspace file sa ho
 - Onboarding ng macOS app: [Onboarding](/start/onboarding)
 - Layout ng workspace: [Agent workspace](/concepts/agent-workspace)
 
+

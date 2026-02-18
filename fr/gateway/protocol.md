@@ -211,3 +211,4 @@ La Gateway (passerelle) traite celles-ci comme des **revendications** et appliqu
 Ce protocole expose **l’intégralité de l’API de la gateway** (statut, canaux, modèles, chat,
 agent, sessions, nœuds, approbations, etc.). La surface exacte est définie par les schémas TypeBox dans `src/gateway/protocol/schema.ts`.
 
+

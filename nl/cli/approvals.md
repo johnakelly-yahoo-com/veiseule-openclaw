@@ -45,3 +45,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - De node-host moet `system.execApprovals.get/set` adverteren (macOS-app of headless node-host).
 - Goedkeuringsbestanden worden per host opgeslagen op `~/.openclaw/exec-approvals.json`.
 
+

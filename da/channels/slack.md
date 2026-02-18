@@ -570,3 +570,4 @@ For triage-flow: [/channels/troubleshooting](/channels/troubleshooting).
 - For Slack-værktøjet findes semantik for fjernelse af reaktioner i [/tools/reactions](/tools/reactions).
 - Vedhæftninger downloades til medielageret, når det er tilladt og under størrelsesgrænsen.
 
+

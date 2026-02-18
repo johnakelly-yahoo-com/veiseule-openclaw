@@ -73,3 +73,4 @@ through Perplexity’s direct API or via OpenRouter.
 
 مکمل web_search کنفیگریشن کے لیے [Web tools](/tools/web) دیکھیں۔
 
+

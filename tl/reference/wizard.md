@@ -262,3 +262,4 @@ na i-install ito (npm o local path) bago ito ma-configure.
 - Reference ng config: [Gateway configuration](/gateway/configuration)
 - Mga provider: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (legacy)
 - Skills: [Skills](/tools/skills), [Skills config](/tools/skills-config)
+

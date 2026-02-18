@@ -297,3 +297,4 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 - [DigitalOcean rehberi](/platforms/digitalocean) — ücretli + daha kolay kayıt
 - [Hetzner rehberi](/install/hetzner) — Docker tabanlı alternatif
 
+

@@ -77,3 +77,4 @@ Yuklama (payload) maydonlari (aks belgilanmagan bo‘lsa, barchasi ixtiyoriy):
 ## Versiyalash
 
 Bridge hozirda **implicit v1** (min/max kelishuvisiz). Orqaga moslik (backward‑compat) kutiladi; har qanday buzuvchi o‘zgarishdan oldin bridge protokoli versiya maydonini qo‘shing.
+

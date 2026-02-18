@@ -324,3 +324,4 @@ Jeglicher langlebige Zustand muss Neustarts, Rebuilds und Reboots überstehen.
 | OS‑Pakete              | Container‑Dateisystem             | Docker‑Image           | Nicht zur Laufzeit installieren          |
 | Docker‑Container       | Ephemer                           | Neustartbar            | Sicher zu zerstören                      |
 
+

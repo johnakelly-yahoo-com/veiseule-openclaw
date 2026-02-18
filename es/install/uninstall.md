@@ -123,3 +123,4 @@ Si ejecuta desde un checkout del repositorio (`git clone` + `openclaw ...` / `bu
 2. Elimine el directorio del repositorio.
 3. Elimine el estado + el espacio de trabajo como se muestra arriba.
 
+

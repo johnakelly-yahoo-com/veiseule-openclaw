@@ -600,3 +600,4 @@ title: "設定範例"
 - 可於之後新增的選用區段：`web`、`browser`、`ui`、`discovery`、`canvasHost`、`talk`、`signal`、`imessage`。
 - 更深入的設定說明，請參閱 [Providers](/channels/whatsapp) 與 [Troubleshooting](/gateway/troubleshooting)。
 
+

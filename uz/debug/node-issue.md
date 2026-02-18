@@ -83,3 +83,4 @@ node --import tsx src/entry.ts status
 - 28. Agar ma’lum regressiya mavjud bo‘lsa, `tsx` nightly’ni sinab ko‘ring yoki oldingi versiyaga pin qiling.
 - 29. Agar Node LTS’da ham takrorlansa, `__name` stack trace bilan upstream’ga minimal repro yuboring.
 
+

@@ -472,3 +472,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - إذا رأيت بادئات `telegram:...` في السجلات أو في أهداف «المسار الأخير» المخزّنة، فهذا طبيعي؛
   يقبل تسليم cron هذه الصيغ ويحلّل معرّفات الموضوعات بشكل صحيح.
 
+

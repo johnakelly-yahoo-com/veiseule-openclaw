@@ -253,3 +253,4 @@ Signal kurulum davranışı:
 - Onboarding merkezi: [Onboarding Wizard (CLI)](/start/wizard)
 - Otomasyon ve betikler: [CLI Automation](/start/wizard-cli-automation)
 - Komut referansı: [`openclaw onboard`](/cli/onboard)
+

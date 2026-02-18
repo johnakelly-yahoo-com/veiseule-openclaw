@@ -57,3 +57,4 @@ Zielgruppe: Mitwirkende an der macOS-App. Ziel: Das Voice-Overlay vorhersehbar h
 4. Verdrahten Sie `VoiceWakeOverlayController` mit dem Publisher; entfernen Sie direkte Aufrufe aus Runtime/PTT.
 5. Fügen Sie Integrationstests für Sitzungsübernahme, Cooldown und Verwerfen bei leerem Text hinzu.
 
+

@@ -217,3 +217,4 @@ Overschrijf alleen indien nodig (gebruikelijk: absoluut `command`-pad).
   `none` is (Codex CLI kan momenteel niet hervatten met JSON-uitvoer).
 - **Afbeeldingen genegeerd**: stel `imageArg` in (en verifieer dat de CLI bestandspaden ondersteunt).
 
+

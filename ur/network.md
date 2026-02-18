@@ -48,3 +48,4 @@ localhost، LAN، اور tailnet کے ذریعے ڈیوائسز کو کیسے ک
 - [Troubleshooting](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
 
+

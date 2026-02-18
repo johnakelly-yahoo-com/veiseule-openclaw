@@ -145,3 +145,4 @@ Panatilihin ang `models.mode: "merge"` para manatiling available ang hosted mode
 - May context errors? Ibaba ang `contextWindow` o taasan ang limit ng iyong server.
 - Safety: nilalaktawan ng local models ang provider-side filters; panatilihing makitid ang agents at naka-on ang compaction para limitahan ang blast radius ng prompt injection.
 
+

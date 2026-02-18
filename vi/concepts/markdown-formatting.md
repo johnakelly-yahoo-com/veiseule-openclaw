@@ -120,3 +120,4 @@ Nếu bạn cần thêm thông tin về hành vi chunking giữa các kênh, xem
 - Các dải kiểu của Signal phụ thuộc vào offset UTF-16; không dùng offset theo code point.
 - Giữ lại dấu xuống dòng ở cuối cho các khối code fence để marker đóng nằm trên dòng riêng của chúng.
 
+

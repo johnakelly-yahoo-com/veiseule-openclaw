@@ -49,3 +49,4 @@ Legacy Claude, Codex, Gemini ve Opencode yolları kaldırılmıştır. Pi, tek
 kodlama ajanı yoludur.
 </Note>
 
+

@@ -148,3 +148,4 @@ Outbound message formatting is centralized in `messages`:
 
 Details: [Configuration](/gateway/configuration#messages) and channel docs.
 
+

@@ -23,3 +23,4 @@ MIT - Libre comme un homard dans l’ocean.
 
 > « Nous ne faisons tous que jouer avec nos propres prompts. » (Une IA, probablement en overdose de tokens)
 
+

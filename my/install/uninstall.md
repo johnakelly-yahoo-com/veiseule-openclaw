@@ -123,3 +123,4 @@ repo checkout (`git clone` + `openclaw ...` / `bun run openclaw ...`) မှ လ
 2. repo directory ကို ဖျက်ပါ။
 3. အပေါ်တွင် ဖော်ပြထားသည့်အတိုင်း state + workspace ကို ဖယ်ရှားပါ။
 
+

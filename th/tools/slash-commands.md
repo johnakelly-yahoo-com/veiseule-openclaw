@@ -196,3 +196,4 @@ Notes:
 - **`/stop`** กำหนดเป้าหมายไปยังเซสชันแชตที่กำลังใช้งาน เพื่อให้สามารถยกเลิกการรันปัจจุบันได้
 - **Slack:** `channels.slack.slashCommand` ยังรองรับสำหรับคำสั่งแบบ `/openclaw` เพียงรายการเดียว หากคุณเปิด `commands.native` คุณต้องสร้าง Slack slash command หนึ่งรายการต่อคำสั่งที่มีมาให้ในตัว(ชื่อเดียวกับ `/help`) เมนูอาร์กิวเมนต์คำสั่งสำหรับ Slack จะถูกส่งเป็นปุ่ม Block Kit แบบชั่วคราว If you enable `commands.native`, you must create one Slack slash command per built-in command (same names as `/help`). Command argument menus for Slack are delivered as ephemeral Block Kit buttons.
 
+

@@ -132,3 +132,4 @@ Executez `openclaw models status` pour confirmer quel profil arrive a expiration
 - Abonnement Claude Max ou Pro (pour `claude setup-token`)
 - Claude Code CLI installee (commande `claude` disponible)
 
+

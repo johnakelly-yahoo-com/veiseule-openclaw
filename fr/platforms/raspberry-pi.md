@@ -352,3 +352,4 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Tailscale](/gateway/tailscale) — accès distant
 - [Nodes](/nodes) — associez votre ordinateur/téléphone à la Gateway du Pi
 
+

@@ -390,3 +390,4 @@ agents.list[].sandbox.prune.* > agents.defaults.sandbox.prune.*
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Session Management](/concepts/session)
 
+

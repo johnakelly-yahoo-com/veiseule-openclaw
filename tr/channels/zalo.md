@@ -185,3 +185,4 @@ Sağlayıcı seçenekleri:
 - `channels.zalo.accounts.<id>.webhookPath`: hesap başına web kancası yolu.
 - `channels.zalo.accounts.<id>.proxy`: hesap başına proxy URL’si.
 
+

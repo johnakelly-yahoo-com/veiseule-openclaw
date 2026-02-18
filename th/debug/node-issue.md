@@ -83,3 +83,4 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - ทดสอบ `tsx` รุ่น nightly หรือปักหมุดไปยังเวอร์ชันก่อนหน้า หากมีรีเกรสชันที่ทราบ
 - หากทำซ้ำได้บน Node LTS ให้ยื่นรายงาน repro ขั้นต่ำ upstream พร้อมสแตกเทรซ `__name`
 
+

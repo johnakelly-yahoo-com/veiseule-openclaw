@@ -85,3 +85,4 @@ Valores predeterminados: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 - Si los comandos parecen atascados, habilite los registros detallados y busque líneas “queued for …ms” para confirmar que la cola se está drenando.
 - Si necesita la profundidad de la cola, habilite los registros detallados y observe las líneas de temporización de la cola.
 
+

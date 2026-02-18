@@ -252,3 +252,4 @@ Notas:
 - Se você usar perfis de ferramenta/listas de permissões, adicione `web_search`/`web_fetch` ou `group:web`.
 - Se a chave da Brave estiver ausente, `web_search` retorna uma dica curta de configuração com um link para a documentação.
 
+

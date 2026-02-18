@@ -213,3 +213,4 @@ Ang layunin: Maging kapaki-pakinabang nang hindi nakakainis. Mag-check in ng ila
 
 Ito ay isang panimulang punto. Magdagdag ng sarili mong mga kombensyon, estilo, at mga patakaran habang nalalaman mo kung ano ang gumagana.
 
+

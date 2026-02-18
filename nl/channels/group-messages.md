@@ -80,3 +80,4 @@ Alleen het eigenaarsnummer (uit `channels.whatsapp.allowFrom`, of het E.164-numm
 - Sessiestore-items verschijnen als `agent:<agentId>:whatsapp:group:<jid>` in de sessiestore (`~/.openclaw/agents/<agentId>/sessions/sessions.json` standaard); een ontbrekend item betekent simpelweg dat de groep nog geen run heeft getriggerd.
 - Typindicatoren in groepen volgen `agents.defaults.typingMode` (standaard: `message` wanneer niet genoemd).
 
+

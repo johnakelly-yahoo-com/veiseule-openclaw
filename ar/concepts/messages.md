@@ -146,3 +146,4 @@ Inbound message
 
 التفاصيل: [التهيئة](/gateway/configuration#messages) ووثائق القنوات.
 
+

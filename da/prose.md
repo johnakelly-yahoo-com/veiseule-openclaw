@@ -128,3 +128,4 @@ Behandl `.prose` filer som kode. Gennemgå før kørsel. Brug OpenClaw værktøj
 
 For deterministiske workflows med godkendelsesporte kan du sammenligne med [Lobster](/tools/lobster).
 
+

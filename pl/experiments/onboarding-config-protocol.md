@@ -37,3 +37,4 @@ Odpowiedzi (kształt)
 
 - Ten dokument jest jedynym miejscem do śledzenia refaktoryzacji protokołu dla onboardingu/konfiguracji.
 
+

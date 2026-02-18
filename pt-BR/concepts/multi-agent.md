@@ -381,3 +381,4 @@ Para direcionamento de grupos, use `agents.list[].groupChat.mentionPatterns` par
 
 Veja [Sandbox & Ferramentas Multiagente](/tools/multi-agent-sandbox-tools) para exemplos detalhados.
 
+

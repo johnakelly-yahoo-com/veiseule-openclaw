@@ -255,3 +255,4 @@ Noteringar:
 - Om du använder verktygsprofiler/tillåtelselistor, lägg till `web_search`/`web_fetch` eller `group:web`.
 - Om Brave-nyckeln saknas returnerar `web_search` en kort installationshint med en dokumentationslänk.
 
+

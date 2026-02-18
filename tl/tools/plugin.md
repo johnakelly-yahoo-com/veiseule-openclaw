@@ -657,3 +657,4 @@ Maaaring (at dapat) magsama ang mga plugin ng mga test:
 
 - Ang mga in-repo plugin ay maaaring maglagay ng mga Vitest test sa ilalim ng `src/**` (halimbawa: `src/plugins/voice-call.plugin.test.ts`).
 - Ang mga hiwalay na nai-publish na plugin ay dapat magpatakbo ng sarili nilang CI (lint/build/test) at i-validate na ang `openclaw.extensions` ay tumuturo sa built entrypoint (`dist/index.js`).
+

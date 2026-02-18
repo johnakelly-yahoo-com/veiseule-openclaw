@@ -192,3 +192,4 @@ localhost 에 있는 것처럼 통신할 수 있도록 SSH 터널을 엽니다.
 - [macOS 권한](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
 
+

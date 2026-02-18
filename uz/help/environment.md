@@ -101,3 +101,4 @@ O‘rnatilganda, `OPENCLAW_HOME` barcha ichki yo‘l aniqlashlari uchun tizim uy
 - [FAQ: env o‘zgaruvchilari va .env yuklanishi](/help/faq#env-vars-and-env-loading)
 - [Modellar haqida umumiy ma’lumot](/concepts/models)
 
+

@@ -138,3 +138,4 @@ OpenClaw 将自动提供本地安装路径。
 - `channels.nextcloud-talk.blockStreamingCoalesce`：分块流式传输合并调优。
 - `channels.nextcloud-talk.mediaMaxMb`：入站媒体大小上限（MB）。
 
+

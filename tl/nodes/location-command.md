@@ -108,3 +108,4 @@ Mga tala:
 - Palagi: “Payagan ang background location.” Nangangailangan ng system permission.”
 - Eksakto: “Gumamit ng eksaktong lokasyon ng GPS. I-off upang magbahagi ng tinatayang lokasyon.”
 
+

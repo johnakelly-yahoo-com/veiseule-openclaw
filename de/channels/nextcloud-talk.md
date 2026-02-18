@@ -137,3 +137,4 @@ Anbieteroptionen:
 - `channels.nextcloud-talk.blockStreamingCoalesce`: Tuning für das Zusammenführen von Block-Streaming.
 - `channels.nextcloud-talk.mediaMaxMb`: Limit für eingehende Medien (MB).
 
+

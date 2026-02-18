@@ -165,3 +165,4 @@ sekvenser (t.ex. blir mellanslag `\032`).
 - Upptäcktspolicy och transportval: [Discovery](/gateway/discovery)
 - Nodparkoppling + godkännanden: [Gateway pairing](/gateway/pairing)
 
+

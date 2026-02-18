@@ -125,3 +125,4 @@ Phiên bản ngắn gọn: **giữ Gateway chỉ bind loopback** trừ khi bạn
 
 Phân tích chi tiết: [Security](/gateway/security).
 
+

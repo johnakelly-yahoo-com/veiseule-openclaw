@@ -257,3 +257,4 @@ free -h
 - [Tailscale](/gateway/tailscale) — güvenli uzaktan erişim
 - [Yapılandırma](/gateway/configuration) — tam yapılandırma referansı
 
+

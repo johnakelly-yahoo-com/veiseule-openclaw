@@ -472,3 +472,4 @@ Emojis können Unicode sein (z. B. `✅`) oder benutzerdefinierte Emoji-Syntax
 - Gewähren Sie dem Bot nur die Berechtigungen, die er benötigt (typischerweise Nachrichten lesen/senden).
 - Wenn der Bot festhängt oder rate-limitiert ist, starten Sie das Gateway (`openclaw gateway --force`) neu, nachdem Sie bestätigt haben, dass keine anderen Prozesse die Discord-Sitzung besitzen.
 
+

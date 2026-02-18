@@ -219,3 +219,4 @@ Ne surchargez que si nécessaire (courant : chemin `command` absolu).
   `none` (Codex CLI ne peut actuellement pas reprendre avec une sortie JSON).
 - **Images ignorées** : définissez `imageArg` (et vérifiez que la CLI prend en charge les chemins de fichiers).
 
+

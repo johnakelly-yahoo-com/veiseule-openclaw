@@ -106,3 +106,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - जब तक आप `schema` के साथ मान्य न करें, आउटपुट को अविश्वसनीय मानें।
 - किसी भी साइड-इफ़ेक्टिंग चरण (send, post, exec) से पहले अनुमोदन रखें।
 
+

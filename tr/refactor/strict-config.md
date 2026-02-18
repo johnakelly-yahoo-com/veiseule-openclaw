@@ -87,3 +87,4 @@ Diğer her şey şu hata ile kesin olarak başarısız olmalıdır: “Yapıland
 - Geçersiz yapılandırma → gateway (ağ geçidi) başlangıcı tanılama komutları dışında engellenir.
 - Doctor dry-run otomatik; `doctor --fix` düzeltilmiş yapılandırmayı yazar.
 
+

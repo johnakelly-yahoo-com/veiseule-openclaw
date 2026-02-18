@@ -147,3 +147,4 @@ Details: [Gateway protocol](/gateway/protocol), [Pairing](/channels/pairing),
 - Handshake is verplicht; elk niet-JSON- of niet-connect-eerste frame resulteert in een harde sluiting.
 - Events worden niet opnieuw afgespeeld; clients moeten bij hiaten verversen.
 
+

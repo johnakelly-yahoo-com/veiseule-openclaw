@@ -16,3 +16,4 @@ Tez boshlash endi [Getting Started](/start/getting-started) bo‘limining bir qi
     To‘liq CLI wizard ma’lumotnomasi va kengaytirilgan sozlamalar.
   </Card>
 </Columns>
+

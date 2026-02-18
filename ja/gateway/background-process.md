@@ -88,3 +88,4 @@ stdin を送信する場合:
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
 
+

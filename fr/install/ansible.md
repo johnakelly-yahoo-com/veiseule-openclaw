@@ -202,3 +202,4 @@ Pour une architecture de securite detaillee et le depannage :
 - [Sandboxing](/gateway/sandboxing) — configuration des sandboxes d'agents
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — isolation par agent
 
+

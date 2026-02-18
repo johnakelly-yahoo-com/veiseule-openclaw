@@ -412,3 +412,4 @@ Chọn một trước khi triển khai để tránh lệch hướng.
 - Đề xuất: một giao thức WS với vai trò + phạm vi rõ ràng, ghép cặp hợp nhất + ghim TLS, phê duyệt do gateway lưu trữ, ID thiết bị ổn định + slug dễ thương.
 - Kết quả: UX đơn giản hơn, bảo mật mạnh hơn, ít trùng lặp, định tuyến di động tốt hơn.
 
+

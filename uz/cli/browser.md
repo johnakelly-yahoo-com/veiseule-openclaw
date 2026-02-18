@@ -101,3 +101,4 @@ Avtomatik yo‘naltirishni boshqarish uchun `gateway.nodes.browser.mode`dan va b
 
 Xavfsizlik + masofaviy sozlash: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
 
+

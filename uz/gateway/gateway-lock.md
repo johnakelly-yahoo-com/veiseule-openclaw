@@ -28,3 +28,4 @@ Oxirgi yangilanish: 2025-12-11
 
 - Agar portni _boshqa_ jarayon egallagan bo‘lsa, xato bir xil bo‘ladi; portni bo‘shating yoki `openclaw gateway --port <port>` orqali boshqasini tanlang.
 - macOS ilovasi gateway’ni ishga tushirishdan oldin hali ham o‘zining yengil PID himoyasini saqlab qoladi; ammo ish vaqtidagi qulf WebSocket bind orqali ta’minlanadi.
+

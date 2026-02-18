@@ -54,3 +54,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 
 - 一部のスクリプトは依然として pnpm をハードコードしています（例：`docs:build`, `ui:*`, `protocol:check`）。現時点では、これらは pnpm 経由で実行してください。 今のところpnpm経由でこれらを実行します。
 
+

@@ -202,3 +202,4 @@ Szczegółowa architektura bezpieczeństwa i rozwiązywanie problemów:
 - [Sandboxing](/gateway/sandboxing) — konfiguracja sandboxów agentów
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — izolacja per‑agent
 
+

@@ -175,3 +175,4 @@ Notlar:
 - Araç politikası hâlâ geçerlidir; `allow: ["exec"]`, `apply_patch`'a örtük olarak izin verir.
 - Yapılandırma `tools.exec.applyPatch` altında bulunur.
 
+

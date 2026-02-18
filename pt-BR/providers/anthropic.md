@@ -146,3 +146,4 @@ openclaw onboard --auth-choice setup-token
 
 Mais: [/gateway/troubleshooting](/gateway/troubleshooting) e [/help/faq](/help/faq).
 
+

@@ -124,3 +124,4 @@ Nếu bạn chạy từ một bản checkout của repo (`git clone` + `openclaw
 2. Xóa thư mục repo.
 3. Xóa trạng thái + workspace như đã nêu ở trên.
 
+

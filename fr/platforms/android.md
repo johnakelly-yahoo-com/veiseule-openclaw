@@ -145,3 +145,4 @@ Commandes caméra (premier plan uniquement ; permissions requises) :
 
 Voir [Nœud caméra](/nodes/camera) pour les paramètres et les aides CLI.
 
+

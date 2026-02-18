@@ -57,3 +57,4 @@ Odbiorcy: współtwórcy aplikacji na macOS. Cel: utrzymać przewidywalne zachow
 4. Podłącz `VoiceWakeOverlayController` do publishera; usuń bezpośrednie wywołania z runtime/PTT.
 5. Dodaj testy integracyjne dla przejmowania sesji, cooldown oraz zamykania przy pustym tekście.
 
+

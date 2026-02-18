@@ -55,3 +55,4 @@ Consulte [/concepts/session-pruning](/concepts/session-pruning) para obtener det
 - Las salidas grandes de herramientas ya se truncan; la poda puede reducir aún más la acumulación de resultados de herramientas.
 - Si necesita empezar desde cero, `/new` o `/reset` inicia un nuevo id de sesión.
 
+

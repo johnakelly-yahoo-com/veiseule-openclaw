@@ -44,3 +44,4 @@ Jeśli Gateway działa jako demon (launchd/systemd), upewnij się, że `AI_GATEW
 jest dostępne dla tego procesu (na przykład w `~/.openclaw/.env` lub poprzez
 `env.shellEnv`).
 
+

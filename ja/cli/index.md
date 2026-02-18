@@ -1028,3 +1028,4 @@ Gateway に接続されたターミナル UI を開きます。
 - `--timeout-ms <ms>`（デフォルト: `agents.defaults.timeoutSeconds`）
 - `--history-limit <n>`
 
+

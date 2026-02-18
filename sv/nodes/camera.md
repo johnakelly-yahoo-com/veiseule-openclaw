@@ -151,3 +151,4 @@ Noteringar:
 
 - Kräver macOS-behörigheten **Skärminspelning** (TCC).
 
+

@@ -57,3 +57,4 @@ Agent -> Gateway -> Node Service (WS)
 - TCC 프롬프트는 GUI 앱 번들에서만 발생합니다. 재빌드 전반에 걸쳐 서명된 번들 ID를 안정적으로 유지하십시오.
 - IPC 강화: 소켓 모드 `0600`, 토큰, 피어 UID 검사, HMAC 챌린지/응답, 짧은 TTL.
 
+

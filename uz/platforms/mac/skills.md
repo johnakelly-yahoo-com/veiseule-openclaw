@@ -29,3 +29,4 @@ Bir nechta variant berilganda, gateway faqat bitta afzal installer-ni ko‘rsata
 
 - Masofaviy rejim
 
+

@@ -65,3 +65,4 @@ Chaves opcionais:
   requisitos de lista de permissões do gerenciador de pacotes (por exemplo, pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
 
+

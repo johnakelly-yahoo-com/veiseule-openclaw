@@ -124,3 +124,4 @@ intervalos de estilo SPOILER. Outros canais os tratam como texto simples.
 - Preserve novas linhas finais para blocos de código cercados para que os marcadores de fechamento
   caiam em sua própria linha.
 
+

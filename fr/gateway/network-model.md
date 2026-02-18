@@ -13,3 +13,4 @@ processus unique et persistant qui detient les connexions de canaux et le plan d
 - L’hote du canvas est un serveur de fichiers HTTP sur `canvasHost.port` (par defaut `18793`) servant `/__openclaw__/canvas/` pour les WebViews des nœuds. Voir [Gateway configuration](/gateway/configuration) (`canvasHost`).
 - L’utilisation a distance se fait generalement via un tunnel SSH ou un VPN tailnet. Voir [Remote access](/gateway/remote) et [Discovery](/gateway/discovery).
 
+

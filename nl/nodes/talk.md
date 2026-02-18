@@ -85,3 +85,4 @@ Standaardwaarden:
 - `latency_tier` wordt bij instellen gevalideerd naar `0..4`.
 - Android ondersteunt de uitvoerformaten `pcm_16000`, `pcm_22050`, `pcm_24000` en `pcm_44100` voor AudioTrack-streaming met lage latentie.
 
+

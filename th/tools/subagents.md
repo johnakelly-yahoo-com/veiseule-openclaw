@@ -205,3 +205,4 @@ Override ผ่านการตั้งค่า:
 - บริบทของซับเอเจนต์จะ inject เฉพาะ `AGENTS.md` + `TOOLS.md` (ไม่มี `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, หรือ `BOOTSTRAP.md`)
 - ความลึกการซ้อนสูงสุดคือ 5 (`maxSpawnDepth` ช่วง: 1–5) แนะนำ depth 2 สำหรับกรณีใช้งานส่วนใหญ่
 - `maxChildrenPerAgent` จำกัดจำนวนลูกที่ active ต่อเซสชัน (ค่าเริ่มต้น: 5, ช่วง: 1–20)
+

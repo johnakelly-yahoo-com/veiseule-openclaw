@@ -42,3 +42,4 @@ Xác thực được thực thi tại bước bắt tay WebSocket thông qua `co
 - Lấy token từ máy chủ gateway: `openclaw config get gateway.auth.token` (hoặc tạo mới: `openclaw doctor --generate-gateway-token`).
 - Trong cài đặt dashboard, dán token vào trường xác thực, sau đó kết nối.
 
+

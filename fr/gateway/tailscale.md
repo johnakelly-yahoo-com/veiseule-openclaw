@@ -121,3 +121,4 @@ La Gateway transmettra les actions du navigateur au nœud ; aucun serveur de con
 - Présentation de Tailscale Funnel : https://tailscale.com/kb/1223/tailscale-funnel
 - Commande `tailscale funnel` : https://tailscale.com/kb/1311/tailscale-funnel
 
+

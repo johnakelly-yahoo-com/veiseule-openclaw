@@ -128,3 +128,4 @@ Använd dessa med `openclaw message send` eller cron-leverans:
 - Trådsvar: om inkommande meddelande är i en tråd svarar OpenClaw i tråden.
 - Media: `sendMedia` faller tillbaka till text + URL (ingen inbyggd uppladdning).
 
+

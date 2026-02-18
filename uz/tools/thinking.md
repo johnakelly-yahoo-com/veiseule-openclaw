@@ -70,3 +70,4 @@ title: "Fikrlash darajalari"
 - Boshqa darajani tanlash faqat keyingi xabarga qo‘llanadi (`thinkingOnce`); yuborilgandan so‘ng tanlagich saqlangan sessiya darajasiga qaytadi.
 - Sessiya standartini o‘zgartirish uchun avvalgidek `/think:<level>` direktivasini yuboring; keyingi yuklashdan so‘ng tanlagich buni aks ettiradi.
 
+

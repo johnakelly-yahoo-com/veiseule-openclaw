@@ -65,3 +65,4 @@ openclaw devices revoke --device <deviceId> --role node
 - 8. Ang token rotation ay nagbabalik ng bagong token (sensitibo). 9. Ituring ito bilang isang lihim.
 - Kinakailangan ng mga command na ito ang `operator.pairing` (o `operator.admin`) scope.
 
+

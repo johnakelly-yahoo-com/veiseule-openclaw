@@ -228,3 +228,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - میڈیا اٹیچمنٹس نہیں۔
 - صرف NIP-04 (NIP-17 گفٹ-ریپ منصوبہ بند ہے)۔
 
+

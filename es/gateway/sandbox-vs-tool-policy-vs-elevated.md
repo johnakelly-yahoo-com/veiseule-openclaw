@@ -125,3 +125,4 @@ Claves para corregir (elija una):
 
 En el modo `"non-main"`, las claves de grupo/canal _no_ son principales. Use la clave de sesión principal (mostrada por `sandbox explain`) o cambie el modo a `"off"`.
 
+

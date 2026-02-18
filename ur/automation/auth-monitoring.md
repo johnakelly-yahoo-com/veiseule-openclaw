@@ -37,3 +37,4 @@ These live under `scripts/` and are **optional**. یہ گیٹ وے ہوسٹ تک
 
 اگر آپ کو فون خودکاری یا systemd ٹائمرز کی ضرورت نہیں، تو ان اسکرپٹس کو چھوڑ دیں۔
 
+

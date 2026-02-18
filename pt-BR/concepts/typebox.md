@@ -282,3 +282,4 @@ arquivo bruto publicado normalmente está disponível em:
 2. Execute `pnpm protocol:check`.
 3. Faça commit do esquema regenerado + modelos Swift.
 
+

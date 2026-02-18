@@ -254,3 +254,4 @@ Notes:
 - Tool profiles/allowlists ကို အသုံးပြုပါက `web_search`/`web_fetch` သို့မဟုတ် `group:web` ကို ထည့်ပါ။
 - Brave key မရှိပါက `web_search` သည် docs link ပါဝင်သော setup hint အတိုချုံးကို ပြန်ပို့ပါသည်။
 
+

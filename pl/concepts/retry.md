@@ -64,3 +64,4 @@ Ustaw politykę ponawiania per dostawca w `~/.openclaw/openclaw.json`:
 - Ponawianie dotyczy pojedynczego żądania (wysyłanie wiadomości, przesyłanie multimediów, reakcja, ankieta, naklejka).
 - Złożone przepływy nie ponawiają już ukończonych kroków.
 
+

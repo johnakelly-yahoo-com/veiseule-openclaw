@@ -70,3 +70,4 @@ title: "Thinking-niveaus"
 - Een ander niveau kiezen geldt alleen voor het volgende bericht (`thinkingOnce`); na verzenden springt de selector terug naar het opgeslagen sessieniveau.
 - Om de sessiestandaard te wijzigen, stuur een `/think:<level>`-richtlijn (zoals hiervoor); de selector zal dit na de volgende herlaadbeurt weergeven.
 
+

@@ -57,3 +57,4 @@ Tingnan ang [/concepts/session-pruning](/concepts/session-pruning) para sa mga d
 - Ang malalaking output ng tool ay na-truncate na; makakatulong pa ang pruning para mabawasan ang naiipong tool-result.
 - Kung kailangan mo ng panibagong simula, ang `/new` o `/reset` ay nagsisimula ng bagong session id.
 
+

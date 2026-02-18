@@ -336,3 +336,4 @@ Uwagi:
 - Aplikacja macOS w pasku menu łączy się z serwerem WS Gateway jako węzeł (dzięki czemu `openclaw nodes …` działa na tym Macu).
 - W trybie zdalnym aplikacja otwiera tunel SSH dla portu Gateway i łączy się z `localhost`.
 
+

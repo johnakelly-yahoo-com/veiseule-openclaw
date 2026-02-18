@@ -125,3 +125,4 @@ Se [Elevated Mode](/tools/elevated).
 
 I `"non-main"` läge, grupp/kanal nycklar är _inte_ huvud. Använd huvudsessionsnyckeln (visas av `sandbox förklaring`) eller växla läge till `"off"`.
 
+

@@ -53,3 +53,4 @@ title: "„Erhöhter Modus“"
 - Erhöhte exec Anrufe werden auf Info-Ebene protokolliert.
 - Der Sitzungsstatus enthält den erhöhten Modus (z. B. `elevated=ask`, `elevated=full`).
 
+

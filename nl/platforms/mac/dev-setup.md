@@ -100,3 +100,4 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 
 Als een handmatige run de poort bezet houdt, stop dat proces (Ctrl+C). Als laatste redmiddel kun je de hierboven gevonden PID beëindigen.
 
+

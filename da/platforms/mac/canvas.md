@@ -119,3 +119,4 @@ Appen beder om bekræftelse, medmindre der er angivet en gyldig nøgle.
 - Lokalt Canvas-indhold bruger et brugerdefineret skema (ingen loopback-server påkrævet).
 - Eksterne `http(s)`-URL’er er kun tilladt, når der navigeres eksplicit.
 
+

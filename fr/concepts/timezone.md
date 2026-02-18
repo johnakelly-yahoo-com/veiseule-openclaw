@@ -86,3 +86,4 @@ Vous pouvez controler le format de l'invite avec `agents.defaults.timeFormat` (`
 
 Voir [Date & Time](/date-time) pour le comportement complet et des exemples.
 
+

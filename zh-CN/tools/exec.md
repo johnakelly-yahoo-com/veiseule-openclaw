@@ -164,3 +164,4 @@ openclaw config set agents.list[0].tools.exec.node "node-id-or-name"
 - 工具策略仍然适用；`allow: ["exec"]` 隐式允许 `apply_patch`。
 - 配置位于 `tools.exec.applyPatch` 下。
 
+

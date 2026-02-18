@@ -13,3 +13,4 @@ processo de longa duração que possui as conexões de canal e o plano de contro
 - O host do canvas é um servidor de arquivos HTTP em `canvasHost.port` (padrão `18793`) servindo `/__openclaw__/canvas/` para WebViews dos nós. Veja [Configuração do Gateway](/gateway/configuration) (`canvasHost`).
 - O uso remoto normalmente é via túnel SSH ou VPN tailnet. Veja [Acesso remoto](/gateway/remote) e [Descoberta](/gateway/discovery).
 
+

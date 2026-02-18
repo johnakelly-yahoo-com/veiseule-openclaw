@@ -80,3 +80,4 @@ title: "گروپ پیغامات"
 - سیشن اسٹور میں اندراجات `agent:<agentId>:whatsapp:group:<jid>` کے طور پر ظاہر ہوں گی (بطورِ طے شدہ `~/.openclaw/agents/<agentId>/sessions/sessions.json`)؛ اندراج کا نہ ہونا صرف یہ معنی رکھتا ہے کہ گروپ نے ابھی تک رن ٹرگر نہیں کیا۔
 - گروپس میں ٹائپنگ اشارے `agents.defaults.typingMode` کی پیروی کرتے ہیں (ڈیفالٹ: بغیر مینشن `message`)۔
 
+

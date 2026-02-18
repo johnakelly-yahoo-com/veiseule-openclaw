@@ -36,3 +36,4 @@ macOS menü çubuğu uygulaması, WebChat kullanıcı arayüzünü yerel bir Swi
 
 - Kullanıcı arayüzü sohbet oturumları için optimize edilmiştir (tam bir tarayıcı sandbox’ı değildir).
 
+

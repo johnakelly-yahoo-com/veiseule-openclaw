@@ -571,3 +571,4 @@ Voor triageflow: [/channels/troubleshooting](/channels/troubleshooting).
 - Voor de Slack-tool staan de semantiek voor het verwijderen van reacties in [/tools/reactions](/tools/reactions).
 - Bijlagen worden, wanneer toegestaan en onder de groottelimiet, gedownload naar de mediaopslag.
 
+

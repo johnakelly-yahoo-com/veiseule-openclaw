@@ -64,3 +64,4 @@ Możesz nadpisać tryb lub częstotliwość odświeżania dla danej sesji:
 - `typingIntervalSeconds` kontroluje **częstotliwość odświeżania**, a nie moment rozpoczęcia.
   Wartość domyślna to 6 sekund.
 
+

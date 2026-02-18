@@ -96,3 +96,4 @@ küçük bir durum göstergesi (Active/Idle/Stale) uygular.
   - periyodik beacon’ların aynı `instanceId`’yı kullandığını doğrulayın
   - bağlantıdan türetilen girdide `instanceId`’nin eksik olup olmadığını kontrol edin (bu durumda yinelenenler beklenir)
 
+

@@ -147,3 +147,4 @@ Standart fayl:
 - Loglarni lokal saqlang va debuggingdan keyin o‘chiring.
 - Agar loglarni ulashsangiz, avval maxfiy kalitlar va PII ma’lumotlarini tozalang.
 
+

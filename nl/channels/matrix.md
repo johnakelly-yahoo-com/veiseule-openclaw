@@ -260,3 +260,4 @@ Provider-opties:
 - `channels.matrix.autoJoinAllowlist`: toegestane kamer-ID’s/aliassen voor auto-join.
 - `channels.matrix.actions`: per-actie tool-gating (reactions/messages/pins/memberInfo/channelInfo).
 
+

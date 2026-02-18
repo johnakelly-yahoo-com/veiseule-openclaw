@@ -18,3 +18,4 @@ Mga tala ayon sa channel:
 - **WhatsApp**: ang walang laman na `emoji` ay nag-aalis ng reaksyon ng bot; ang `remove: true` ay tumutugma sa walang lamang emoji (nangangailangan pa rin ng `emoji`).
 - **Signal**: ang mga papasok na notification ng reaksyon ay naglalabas ng mga system event kapag naka-enable ang `channels.signal.reactionNotifications`.
 
+

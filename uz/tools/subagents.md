@@ -205,3 +205,4 @@ Sub-agentlar alohida in-process queue lane’dan foydalanadi:
 - Sub-agent konteksti faqat `AGENTS.md` + `TOOLS.md` ni inject qiladi (`SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, yoki `BOOTSTRAP.md` yo‘q).
 - Maksimal nesting chuqurligi 5 (`maxSpawnDepth` oralig‘i: 1–5). Ko‘pchilik holatlar uchun depth 2 tavsiya etiladi.
 - `maxChildrenPerAgent` har bir sessiya uchun faol farzandlar sonini cheklaydi (standart: 5, oralig‘i: 1–20).
+

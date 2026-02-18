@@ -485,3 +485,4 @@ Med den anbefalede konfiguration (`shared-cpu-2x`, 2GB RAM):
 
 Se [Fly.io-priser](https://fly.io/docs/about/pricing/) for detaljer.
 
+

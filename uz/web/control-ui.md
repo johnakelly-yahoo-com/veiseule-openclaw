@@ -207,3 +207,4 @@ Misol:
 ```
 
 Masofaviy kirish sozlamalari tafsilotlari: [Remote access](/gateway/remote).
+

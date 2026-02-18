@@ -659,3 +659,4 @@ export default function (api) {
 - Плагины, публикуемые отдельно, должны запускать собственный CI (lint/build/test) и проверять,
   что `openclaw.extensions` указывает на собранную точку входа (`dist/index.js`).
 
+

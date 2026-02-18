@@ -190,3 +190,4 @@ setup လုပ်ရန် အဆင့်များအတွက် [macOS re
 - [macOS permissions](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
 
+

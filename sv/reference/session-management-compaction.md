@@ -279,3 +279,4 @@ flushlogik ligger i dag på Gateway-sidan.
   - uppblåst tool-result: aktivera/justera session pruning
 - Tysta svängar läckande? Bekräfta svaret börjar med `NO_REPLY` (exakt token) och du är på en byggnad som inkluderar strömmande dämpning fix.
 
+

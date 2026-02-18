@@ -67,3 +67,4 @@ Invoke အလံများ—
 - `--agent <id>`: agent အလိုက် သတ်မှတ်ထားသော approvals/allowlists (စနစ်သတ်မှတ်ထားသော agent ကို မူလအဖြစ် အသုံးပြုသည်)။
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: အစားထိုးသတ်မှတ်ချက်များ။
 
+

@@ -255,3 +255,4 @@ Noter:
 - Hvis du bruger værktøjsprofiler/tilladelseslister, skal du tilføje `web_search`/`web_fetch` eller `group:web`.
 - Hvis Brave-nøglen mangler, returnerer `web_search` et kort opsætningstip med et link til dokumentationen.
 
+

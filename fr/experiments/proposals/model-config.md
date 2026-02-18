@@ -31,3 +31,4 @@ Les operateurs souhaitent :
 - Comment l'interface utilisateur doit-elle exposer la selection de profil pour une session ?
 - Quel est le chemin de migration le plus sûr à partir des clés de configuration héritées?
 
+

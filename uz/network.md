@@ -46,3 +46,4 @@ Lokal ishonch:
 - [Nosozliklarni bartaraf etish](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
 
+

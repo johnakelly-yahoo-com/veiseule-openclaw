@@ -92,3 +92,4 @@ export default function (api) {
 - 允許清單中使用的外掛 ID 不得與核心工具名稱衝突。
 - 對於會觸發副作用或需要額外二進位檔／認證的工具，優先使用 `optional: true`。
 
+

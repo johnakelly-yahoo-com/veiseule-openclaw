@@ -65,3 +65,4 @@ openclaw onboard --non-interactive \
 
 Если Gateway запускается как демон (launchd/systemd), убедитесь, что `CLOUDFLARE_AI_GATEWAY_API_KEY` доступна этому процессу (например, в `~/.openclaw/.env` или через `env.shellEnv`).
 
+

@@ -185,3 +185,4 @@ Alternativ för flera konton:
 - `channels.zalo.accounts.<id>.webhookPath`: sökväg per konto
 - `channels.zalo.accounts.<id>.proxy`: proxy per konto
 
+

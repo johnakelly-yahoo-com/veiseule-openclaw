@@ -102,3 +102,4 @@ Skills 섹션은 생략됩니다.
 (repo 워크스페이스의 `docs/` 또는 번들된 npm 패키지 문서). 또한 공개 미러, 소스 repo, 커뮤니티 Discord, 그리고
 Skills 탐색을 위한 ClawHub ([https://clawhub.com](https://clawhub.com)) 도 함께 안내합니다. 프롬프트는 모델에게 OpenClaw 동작, 명령, 구성, 아키텍처에 대해서는 먼저 로컬 문서를 참고하도록 지시하며, 가능할 경우 `openclaw status` 를 직접 실행하도록 안내합니다 (접근 권한이 없을 때만 사용자에게 요청).
 
+

@@ -364,3 +364,4 @@ Canlıda keşfedilen bir sağlayıcı/model sorununu düzelttiğinizde:
   - sağlayıcı istek dönüştürme/yeniden oynatma hatası → doğrudan modeller testi
   - gateway oturum/geçmiş/araç hattı hatası → gateway canlı duman testi veya CI-güvenli gateway mock testi
 
+

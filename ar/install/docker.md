@@ -560,3 +560,4 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
   مسارات أدواتك المخصّصة (مثل `/custom/bin:/usr/local/share/npm-global/bin`)، أو أضِف
   سكربتًا تحت `/etc/profile.d/` في Dockerfile الخاص بك.
 
+

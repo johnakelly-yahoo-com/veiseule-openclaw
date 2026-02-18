@@ -45,3 +45,4 @@ Workaround: verplaats bestanden naar de OpenClaw-werkruimte (`~/.openclaw/worksp
 Als je machtigingen test, onderteken altijd met een echt certificaat. Ad-hoc
 builds zijn alleen acceptabel voor snelle lokale runs waarbij machtigingen niet van belang zijn.
 
+

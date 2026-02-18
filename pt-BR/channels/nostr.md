@@ -228,3 +228,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Sem anexos de mídia.
 - Apenas NIP-04 (gift-wrap do NIP-17 planejado).
 
+

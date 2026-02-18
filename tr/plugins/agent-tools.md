@@ -95,3 +95,4 @@ Araç kullanılabilirliğini etkileyen diğer yapılandırma ayarları:
 - Yan etkileri tetikleyen veya ek ikili dosyalar/kimlik bilgileri gerektiren araçlar için
   `optional: true` tercih edilmelidir.
 
+

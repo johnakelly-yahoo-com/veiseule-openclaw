@@ -375,3 +375,4 @@ Access token refreshed for user 123456 (expires in 14400s)
 - Markdown จะถูกลบออกก่อนการแบ่งข้อความ
 - ไม่มีการจำกัดอัตรา (ใช้การจำกัดอัตราที่มีอยู่ใน Twitch)
 
+

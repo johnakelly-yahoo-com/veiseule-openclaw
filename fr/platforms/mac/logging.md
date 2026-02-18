@@ -52,3 +52,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - Exécutez éventuellement `sudo log config --reload` pour forcer logd à abandonner immédiatement la surcharge.
 - N’oubliez pas que cette surface peut inclure des numéros de téléphone et des corps de messages ; conservez le plist en place uniquement tant que vous avez activement besoin du niveau de détail supplémentaire.
 
+

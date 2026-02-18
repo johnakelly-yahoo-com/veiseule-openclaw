@@ -70,3 +70,4 @@ title: "Poziomy myślenia"
 - Wybranie innego poziomu dotyczy tylko następnej wiadomości (`thinkingOnce`); po wysłaniu selektor wraca do zapisanego poziomu sesji.
 - Aby zmienić domyślny poziom sesji, wyślij dyrektywę `/think:<level>` (jak wcześniej); selektor odzwierciedli ją po kolejnym przeładowaniu.
 
+

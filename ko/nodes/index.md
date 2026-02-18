@@ -327,3 +327,4 @@ openclaw node run --host <gateway-host> --port 18789
 - macOS 메뉴바 앱은 Gateway WS 서버에 노드로 연결됩니다(따라서 `openclaw nodes …` 가 이 Mac에 대해 동작).
 - 원격 모드에서 앱은 Gateway 포트를 위한 SSH 터널을 열고 `localhost` 에 연결합니다.
 
+

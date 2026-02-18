@@ -248,3 +248,4 @@ Signal 설정 동작:
 - 온보딩 허브: [온보딩 마법사 (CLI)](/start/wizard)
 - 자동화 및 스크립트: [CLI 자동화](/start/wizard-cli-automation)
 - 명령 참조: [`openclaw onboard`](/cli/onboard)
+

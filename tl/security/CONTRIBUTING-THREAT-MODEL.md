@@ -89,3 +89,4 @@ Kung hindi ka sigurado sa antas ng panganib, ilarawan lamang ang epekto at kami 
 
 Ang mga nag-ambag sa threat model ay kinikilala sa acknowledgments ng threat model, mga release notes, at sa OpenClaw security hall of fame para sa mahahalagang kontribusyon.
 
+

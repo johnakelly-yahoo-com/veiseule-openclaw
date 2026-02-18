@@ -39,3 +39,4 @@ host del Gateway y están ajustados para systemd + Termux.
 
 Si no necesita automatización en el teléfono ni temporizadores de systemd, omita estos scripts.
 
+

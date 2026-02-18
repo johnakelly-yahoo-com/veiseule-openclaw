@@ -600,3 +600,4 @@ Si plus d’une personne peut envoyer un Message prive a votre bot (plusieurs en
 - Sections optionnelles a ajouter plus tard : `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Voir [Providers](/channels/whatsapp) et [Troubleshooting](/gateway/troubleshooting) pour des notes de configuration plus approfondies.
 
+

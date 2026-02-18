@@ -101,3 +101,4 @@ Gebruik `gateway.nodes.browser.mode` om auto-routering te regelen en `gateway.no
 
 Beveiliging + externe installatie: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
 
+

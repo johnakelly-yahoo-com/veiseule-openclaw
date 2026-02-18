@@ -164,3 +164,4 @@ Bonjour/DNS‑SD échappe souvent des octets dans les noms d’instance de servi
 - Politique de découverte et sélection du transport : [Discovery](/gateway/discovery)
 - Appairage des nœuds + approbations : [Gateway pairing](/gateway/pairing)
 
+

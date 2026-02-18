@@ -209,3 +209,4 @@ export type PluginRuntime = {
 
 Связанная документация: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
 
+

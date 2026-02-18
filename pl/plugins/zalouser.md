@@ -76,3 +76,4 @@ Nazwa narzędzia: `zalouser`
 
 Akcje: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
 
+

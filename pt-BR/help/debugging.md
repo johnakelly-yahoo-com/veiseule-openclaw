@@ -156,3 +156,4 @@ Arquivo padrão:
 - Mantenha os logs locais e exclua-os após a depuração.
 - Se compartilhar logs, remova segredos e PII primeiro.
 
+

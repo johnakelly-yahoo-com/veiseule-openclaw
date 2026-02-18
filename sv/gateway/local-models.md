@@ -144,3 +144,4 @@ Behåll `models.mode: "merge"` så att hostade modeller finns kvar som fallback.
 - Kontextfel? Lägre `contextWindow` eller höja din servergräns.
 - Säkerhet: lokala modeller hoppar över leverantörsfilter; håll agenter smala och komprimering påslagen för att begränsa sprängradien för prompt‑injektion.
 
+

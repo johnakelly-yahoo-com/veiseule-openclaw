@@ -226,3 +226,4 @@ Loggar finns under `/tmp/openclaw/` (standard: `openclaw-YYYY-MM-DD.log`).
 - Linux‑status: [Linux app](/platforms/linux)
 - Säkerhet: [Security](/gateway/security)
 
+

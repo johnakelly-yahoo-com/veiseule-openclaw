@@ -87,3 +87,4 @@ title: "Qat’iy konfiguratsiya tekshiruvi"
 - 50. Noto‘g‘ri konfiguratsiya → diagnostika buyruqlaridan tashqari gateway ishga tushishi bloklanadi.
 - Doctor dry-run avtomatik; `doctor --fix` tuzatilgan konfiguratsiyani yozadi.
 
+

@@ -44,3 +44,4 @@ Workaround: flyt filer ind i OpenClaw-arbejdsområdet (`~/.openclaw/workspace`),
 Hvis du tester tilladelser, skal du altid underskrive med et rigtigt certifikat. Ad-hoc
 builds er kun acceptable for hurtige lokale kørsler, hvor tilladelser ikke betyder noget.
 
+

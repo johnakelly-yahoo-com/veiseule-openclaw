@@ -118,3 +118,4 @@ SPOILER style ranges. Tinatrato ng ibang channel ang mga ito bilang plain text.
 - Ang mga Signal style range ay umaasa sa UTF-16 offset; huwag gumamit ng code point offset.
 - Panatilihin ang mga trailing newline para sa mga fenced code block para mapunta ang mga closing marker sa sarili nilang linya.
 
+

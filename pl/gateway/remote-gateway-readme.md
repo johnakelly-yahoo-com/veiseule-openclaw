@@ -171,3 +171,4 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 
 OpenClaw.app łączy się z `ws://127.0.0.1:18789` na Twojej maszynie klienckiej. Tunel SSH przekazuje to połączenie do portu 18789 na zdalnej maszynie, na której działa Gateway.
 
+

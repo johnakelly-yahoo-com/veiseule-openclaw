@@ -40,3 +40,4 @@ selectionne (avec un selecteur de session pour les autres sessions).
 
 - L’interface est optimisee pour les sessions de chat (pas un sandbox de navigateur complet).
 
+

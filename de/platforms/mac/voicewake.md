@@ -63,3 +63,4 @@ Härtung:
 - Push-to-Talk aktivieren, Cmd+Fn gedrückt halten, sprechen, loslassen: Das Overlay sollte Teiltranskripte anzeigen und dann senden.
 - Während des Haltens sollten die Menüleisten-Ohren vergrößert bleiben (verwendet `triggerVoiceEars(ttl:nil)`); nach dem Loslassen werden sie wieder kleiner.
 
+

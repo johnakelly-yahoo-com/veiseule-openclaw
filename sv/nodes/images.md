@@ -68,3 +68,4 @@ WhatsApp-kanalen körs via **Baileys Web**. Detta dokument fångar aktuella regl
 - Validera återkomprimering för bilder (storleksgräns) och röstmeddelandeflagga för ljud.
 - Säkerställ att svar med flera medier fläktas ut som sekventiella sändningar.
 
+

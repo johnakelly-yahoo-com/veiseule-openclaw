@@ -38,3 +38,4 @@ About uchun build metamaʼlumotlari
 
 TCC permissions are tied to the bundle identifier _and_ code signature. TCC ruxsatlari bundle identifikatori _va_ kod imzosiga bog‘langan. UUID lari o‘zgarib turadigan imzolanmagan debug buildlar macOS ning har bir qayta builddan keyin ruxsatlarni unutishiga sabab bo‘layotgan edi.
 
+

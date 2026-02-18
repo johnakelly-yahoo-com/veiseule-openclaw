@@ -40,3 +40,4 @@ Aylanma yechim: agar alohida papka ruxsatlaridan qochmoqchi bo‘lsangiz, faylla
 
 Agar ruxsatlarni sinovdan o‘tkazayotgan bo‘lsangiz, har doim haqiqiy sertifikat bilan imzolang. Ad-hoc build’lar faqat ruxsatlar muhim bo‘lmagan tezkor lokal ishga tushirishlar uchun maqbul.
 
+

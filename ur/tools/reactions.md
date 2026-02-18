@@ -18,3 +18,4 @@ title: "ری ایکشنز"
 - **WhatsApp**: خالی `emoji` بوٹ ری ایکشن ہٹا دیتا ہے؛ `remove: true` خالی ایموجی سے میپ ہوتا ہے (اب بھی `emoji` درکار ہے)۔
 - **Signal**: جب `channels.signal.reactionNotifications` فعال ہو تو آنے والی ری ایکشن اطلاعات سسٹم ایونٹس خارج کرتی ہیں۔
 
+

@@ -335,3 +335,4 @@ Powiązane opcje globalne:
 - `agents.list[].groupChat.mentionPatterns` (lub `messages.groupChat.mentionPatterns`).
 - `messages.responsePrefix`.
 
+

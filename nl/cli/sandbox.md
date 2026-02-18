@@ -148,3 +148,4 @@ Sandboxinstellingen staan in `~/.openclaw/openclaw.json` onder `agents.defaults.
 - [Agentconfiguratie](/concepts/agent-workspace)
 - [Doctor-opdracht](/gateway/doctor) - Controleer sandboxinstallatie
 
+

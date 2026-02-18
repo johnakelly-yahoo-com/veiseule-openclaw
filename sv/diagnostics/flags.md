@@ -86,3 +86,4 @@ För fjärr-gateways kan du även använda `openclaw logs --follow` (se [/cli/lo
 - Flaggor är säkra att lämna aktiverade; de påverkar endast loggvolymen för det specifika undersystemet.
 - Använd [/logging](/logging) för att ändra loggdestinationer, nivåer och maskning.
 
+

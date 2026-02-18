@@ -257,3 +257,4 @@ free -h
 - [Tailscale](/gateway/tailscale) — محفوظ ریموٹ رسائی
 - [Configuration](/gateway/configuration) — مکمل کنفیگ حوالہ
 
+

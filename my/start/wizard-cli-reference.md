@@ -252,3 +252,4 @@ Signal setup အပြုအမူ–
 - Onboarding hub: [Onboarding Wizard (CLI)](/start/wizard)
 - Automation နှင့် script များ: [CLI Automation](/start/wizard-cli-automation)
 - Command reference: [`openclaw onboard`](/cli/onboard)
+

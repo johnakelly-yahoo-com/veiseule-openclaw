@@ -140,3 +140,4 @@ is missing, rerun `claude setup-token` and paste the token again.
 - Claude Max 或 Pro 訂閱（用於 `claude setup-token`）
 - 已安裝 Claude Code CLI（可使用 `claude` 指令）
 
+

@@ -766,3 +766,4 @@ Boty mają ograniczone wsparcie w kanałach prywatnych:
 - [Obsługa plików botów Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4) (kanały/grupy wymagają Graph)
 - [Wiadomości proaktywne](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages)
 
+

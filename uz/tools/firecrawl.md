@@ -54,3 +54,4 @@ faqat basic scrapingga qaraganda ko‘proq kredit sarflanishiga olib kelishi mum
 3. Oddiy HTML tozalash (oxirgi zaxira variant)
 
 To‘liq web tool sozlamalari uchun [Web tools](/tools/web) ga qarang.
+

@@ -262,3 +262,4 @@ le pedirá instalarlo (npm o una ruta local) antes de poder configurarlo.
 - Referencia de configuración: [Configuración del Gateway](/gateway/configuration)
 - Proveedores: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (heredado)
 - Skills: [Skills](/tools/skills), [Configuración de Skills](/tools/skills-config)
+

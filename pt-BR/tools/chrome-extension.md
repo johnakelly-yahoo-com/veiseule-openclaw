@@ -172,3 +172,4 @@ Relacionado:
 - Auditoria de segurança: [Security](/gateway/security)
 - Configuração do Tailscale: [Tailscale](/gateway/tailscale)
 
+

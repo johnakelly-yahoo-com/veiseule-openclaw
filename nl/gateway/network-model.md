@@ -13,3 +13,4 @@ proces dat kanaalverbindingen en het WebSocket-besturingsvlak beheert.
 - De canvas-host is een HTTP-bestandsserver op `canvasHost.port` (standaard `18793`) die `/__openclaw__/canvas/` serveert voor node-WebViews. Zie [Gateway configuration](/gateway/configuration) (`canvasHost`).
 - Gebruik op afstand is doorgaans via een SSH-tunnel of tailnet-VPN. Zie [Remote access](/gateway/remote) en [Discovery](/gateway/discovery).
 
+

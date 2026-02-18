@@ -352,3 +352,4 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Tailscale](/gateway/tailscale) — ریموٹ رسائی
 - [Nodes](/nodes) — اپنے لیپ ٹاپ/فون کو Pi گیٹ وے کے ساتھ جوڑیں
 
+

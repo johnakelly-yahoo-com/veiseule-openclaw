@@ -85,3 +85,4 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - 测试 `tsx` nightly 版本，或在存在已知回归时固定到早期版本。
 - 如果在 Node LTS 上也能复现，则向上游提交包含 `__name` 堆栈跟踪的最小复现。
 
+

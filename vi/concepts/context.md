@@ -155,3 +155,4 @@ Tài liệu: [Session](/concepts/session), [Compaction](/concepts/compaction), [
 
 Dù theo cách nào, nó báo cáo kích thước và các yếu tố đóng góp lớn nhất; nó **không** đổ toàn bộ system prompt hay các schema công cụ.
 
+

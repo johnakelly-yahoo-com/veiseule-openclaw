@@ -65,3 +65,4 @@ Cloudflare’da Gateway kimlik doğrulamasını etkinleştirdiyseniz, `cf-aig-au
 
 Gateway bir daemon (launchd/systemd) olarak çalışıyorsa, `CLOUDFLARE_AI_GATEWAY_API_KEY`’un bu süreç tarafından erişilebilir olduğundan emin olun (örneğin, `~/.openclaw/.env` içinde veya `env.shellEnv` aracılığıyla).
 
+

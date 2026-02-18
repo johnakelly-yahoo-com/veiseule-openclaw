@@ -124,3 +124,4 @@ Legend:
 - `sendMessageDraft`: Telegram taslak baloncuğu (gerçek bir mesaj değildir).
 - `final reply`: normal Telegram mesaj gönderimi.
 
+

@@ -29,3 +29,4 @@ openclaw voicecall unexpose
 
 セキュリティ注記: Webhook エンドポイントは、信頼できるネットワークにのみ公開してください。可能な場合は、Funnel よりも Tailscale Serve を優先してください。 可能な場合は、テールスケールは、ファンネルよりもサーブを好む。
 
+

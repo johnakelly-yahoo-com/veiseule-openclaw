@@ -110,3 +110,4 @@ Gatewayen er sandhedskilden for node-/klientadgang.
 - **macOS-app**: hjælper dig med at vælge en gateway, viser parringsprompter og bruger kun SSH som fallback.
 - **iOS/Android-noder**: gennemser Bonjour som en bekvemmelighed og forbinder til den parrede Gateway WS.
 
+

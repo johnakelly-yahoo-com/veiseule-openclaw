@@ -63,3 +63,4 @@ OpenClaw သည် plugin code ကို **မ run ဘဲ** configuration ကိ
   package-manager allowlist လိုအပ်ချက်များကို မှတ်တမ်းတင်ဖော်ပြပါ (ဥပမာ: pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`)။
 
+

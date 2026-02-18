@@ -66,3 +66,4 @@ openclaw models set github-copilot/gpt-4o
 - Logowanie zapisuje token GitHub w magazynie profili uwierzytelniania i wymienia go
   na token API Copilot podczas działania OpenClaw.
 
+

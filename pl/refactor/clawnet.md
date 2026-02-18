@@ -412,3 +412,4 @@ Wybrać jedną opcję przed implementacją, aby uniknąć dryfu.
 - Propozycja: jeden protokół WS z jawnymi rolami + zakresami, ujednolicone parowanie + pinning TLS, zatwierdzenia hostowane w gateway, stabilne identyfikatory urządzeń + „urocze” slugy.
 - Rezultat: prostszy UX, silniejsze bezpieczeństwo, mniej duplikacji, lepsze routowanie mobilne.
 
+

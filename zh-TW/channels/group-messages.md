@@ -80,3 +80,4 @@ title: "群組訊息"
 - 工作階段儲存項目會以 `agent:<agentId>:whatsapp:group:<jid>` 的形式出現在工作階段儲存區中（預設為 `~/.openclaw/agents/<agentId>/sessions/sessions.json`）；若缺少項目，僅表示該群組尚未觸發任何執行。
 - 群組中的輸入中指示器遵循 `agents.defaults.typingMode`（預設：未被提及時為 `message`）。
 
+

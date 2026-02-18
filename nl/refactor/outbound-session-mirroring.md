@@ -84,3 +84,4 @@ Uitgaande verzendingen werden gespiegeld naar de _huidige_ agent-sessie (tool se
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
 
+

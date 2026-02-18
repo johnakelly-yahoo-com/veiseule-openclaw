@@ -41,3 +41,4 @@ Tekst jest obsługiwany wszędzie; obsługa multimediów i reakcji różni się 
 - Rozwiązywanie problemów: [Rozwiązywanie problemów z kanałami](/channels/troubleshooting).
 - Dostawcy modeli są udokumentowani osobno; zobacz [Dostawcy modeli](/providers/models).
 
+

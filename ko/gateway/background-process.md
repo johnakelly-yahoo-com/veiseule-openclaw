@@ -88,3 +88,4 @@ stdin 전송:
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
 
+

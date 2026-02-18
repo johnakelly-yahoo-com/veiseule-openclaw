@@ -72,3 +72,4 @@ Mga tala:
 - Hinihingi ng `setup-token` ang isang setup-token na value (i-generate ito gamit ang `claude setup-token` sa anumang machine).
 - Tumatanggap ang `paste-token` ng token string na na-generate sa ibang lugar o mula sa automation.
 
+

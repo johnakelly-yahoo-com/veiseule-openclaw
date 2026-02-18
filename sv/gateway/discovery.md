@@ -110,3 +110,4 @@ Gatewayn är sanningskällan för nod-/klientantagning.
 - **macOS-app**: hjälper dig att välja en gateway, visar parningsuppmaningar och använder SSH endast som fallback.
 - **iOS/Android-noder**: bläddrar i Bonjour som en bekvämlighet och ansluter till den parade Gateway WS.
 
+

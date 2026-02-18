@@ -43,3 +43,4 @@ DISABLE_LIBRARY_VALIDATION=1 scripts/package-mac-app.sh   # dev-only Sparkle Tea
 
 สิทธิ์ TCC ผูกกับ bundle identifier _และ_ ลายเซ็นโค้ด บิลด์ดีบักที่ไม่เซ็นและมี UUID เปลี่ยนทุกครั้ง ทำให้ macOS ลืมการอนุญาตหลังการรีบิลด์แต่ละครั้ง สิทธิ์TCCผูกกับ bundle identifier _และ_ ลายเซ็นโค้ด บิลด์ดีบักที่ไม่ลงนามและมี UUID เปลี่ยนไปเรื่อยๆทำให้macOSลืมการอนุญาตหลังการรีบิลด์แต่ละครั้ง การลงนามไบนารี(ค่าเริ่มต้นเป็น ad-hoc)และคง bundle id/พาธให้คงที่(`dist/OpenClaw.app`)จะช่วยรักษาการอนุญาตระหว่างบิลด์ให้คงอยู่ สอดคล้องกับแนวทางของ VibeTunnel
 
+

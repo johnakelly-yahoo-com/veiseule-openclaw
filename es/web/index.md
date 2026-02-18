@@ -110,3 +110,4 @@ El Gateway sirve archivos estáticos desde `dist/control-ui`. Compílelos con:
 pnpm ui:build # auto-installs UI deps on first run
 ```
 
+

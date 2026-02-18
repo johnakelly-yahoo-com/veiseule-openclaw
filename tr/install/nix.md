@@ -92,3 +92,4 @@ paketleme ve Nix derlemeleri için (tam bir Xcode araç zincirine dayanmadıklar
 - [Wizard](/start/wizard) — Nix olmayan CLI kurulumu
 - [Docker](/install/docker) — konteyner tabanlı kurulum
 
+

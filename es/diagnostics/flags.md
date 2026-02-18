@@ -86,3 +86,4 @@ Para Gateways remotos, también puede usar `openclaw logs --follow` (consulte [/
 - Es seguro dejar los indicadores habilitados; solo afectan el volumen de registros del subsistema específico.
 - Use [/logging](/logging) para cambiar los destinos de los registros, los niveles y la redacción.
 
+

@@ -213,3 +213,4 @@ Målet: Vær hjælpsom uden at være irriterende. Check ind på et par gange om 
 
 Det er et udgangspunkt. Tilføj dine egne konventioner, stil og regler, som du finde ud af, hvad der virker.
 
+

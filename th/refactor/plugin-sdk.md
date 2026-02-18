@@ -211,3 +211,4 @@ export type PluginRuntime = {
 
 เอกสารที่เกี่ยวข้อง: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
 
+

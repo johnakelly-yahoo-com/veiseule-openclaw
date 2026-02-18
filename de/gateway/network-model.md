@@ -13,3 +13,4 @@ Prozess, der Kanalverbindungen und die WebSocket-Kontroll­ebene besitzt.
 - Der Canvas-Host ist ein HTTP-Dateiserver auf `canvasHost.port` (Standard `18793`), der `/__openclaw__/canvas/` für Node-WebViews bereitstellt. Siehe [Gateway configuration](/gateway/configuration) (`canvasHost`).
 - Remote-Nutzung erfolgt typischerweise über SSH-Tunnel oder Tailnet-VPN. Siehe [Remote access](/gateway/remote) und [Discovery](/gateway/discovery).
 
+

@@ -286,3 +286,4 @@ gepubliceerde ruwe bestand is doorgaans beschikbaar op:
 2. Voer `pnpm protocol:check` uit.
 3. Commit het geregenereerde schema + de Swift-modellen.
 
+

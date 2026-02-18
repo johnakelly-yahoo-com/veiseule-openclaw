@@ -274,3 +274,4 @@ Haqiqiy doimiy ishlash uchun maxsus Mac mini yoki kichik VPS’ni ko‘rib chiqi
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (ilg‘or)
 - [Docker Sandboxing](/install/docker) (muqobil izolyatsiya yondashuvi)
 
+

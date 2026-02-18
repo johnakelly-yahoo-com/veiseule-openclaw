@@ -197,3 +197,4 @@ macOS ایپ کی ڈسکوری پائپ لائن (NWBrowser + tailnet DNS‑SD f
 - [macOS اجازتیں](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
 
+

@@ -507,3 +507,4 @@ Værktøjer eksponeres i to parallelle kanaler:
 Det betyder, at agenten ser både ”hvilke redskaber der findes” og ”hvordan man kalder dem”. Hvis et værktøj
 ikke vises i systemprompten eller skemaet, kan modellen ikke kalde det.
 
+

@@ -57,3 +57,4 @@ Publikum: macOS app-bidragsydere. Målsætning: Hold stemmen overlejret forudsig
 4. Kobl `VoiceWakeOverlayController` til publisheren; fjern direkte kald fra runtime/PTT.
 5. Tilføj integrationstests for session-overtagelse, cooldown og lukning ved tom tekst.
 
+

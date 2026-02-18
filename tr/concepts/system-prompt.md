@@ -104,3 +104,4 @@ ayna, kaynak repo, topluluk Discord’u ve skill keşfi için ClawHub’ı
 yapılandırma veya mimari için modelin önce yerel dokümanlara başvurmasını ve mümkün olduğunda
 `openclaw status`’u kendisinin çalıştırmasını (erişimi yoksa yalnızca kullanıcıya sormasını) talimatlandırır.
 
+

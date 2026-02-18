@@ -158,3 +158,4 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 - ไม่มีเอเจนต์ในตัวเลือก: ตรวจสอบ `openclaw agents list` และคอนฟิกรูตติ้งของคุณ
 - ตัวเลือกเซสชันว่าง: คุณอาจอยู่ในขอบเขต global หรือยังไม่มีเซสชัน
 
+

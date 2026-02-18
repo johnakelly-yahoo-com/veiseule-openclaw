@@ -17,3 +17,4 @@ Hurtig start er nu en del af [Kom godt i gang](/start/getting-started).
   </Card>
 </Columns>
 
+

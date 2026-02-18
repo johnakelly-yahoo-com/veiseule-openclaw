@@ -382,3 +382,4 @@ Für Gruppenzielsteuerung verwenden Sie `agents.list[].groupChat.mentionPatterns
 
 Siehe [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) für detaillierte Beispiele.
 
+

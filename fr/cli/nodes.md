@@ -68,3 +68,4 @@ Drapeaux :
 - `--agent <id>` : approbations/listes d’autorisations portees a l’agent (par defaut l’agent configure).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>` : remplacements.
 
+

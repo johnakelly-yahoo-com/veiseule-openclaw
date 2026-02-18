@@ -38,3 +38,4 @@ Se [iMessage](/channels/imessage) för legacy-konfigurering och adressering (`ch
 - Håll RPC-klienter robusta: tidsgränser, starta om vid avslut.
 - Föredrar stabila ID (t.ex., `chat_id`) över visningssträngar.
 
+

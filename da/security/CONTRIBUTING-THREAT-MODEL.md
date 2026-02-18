@@ -89,3 +89,4 @@ Hvis du er usikker på risikoniveauet, så beskriv blot påvirkningen, og vi vur
 
 Contributors to the threat model are recognized in the threat model acknowledgments, release notes, and the OpenClaw security hall of fame for significant contributions.
 
+

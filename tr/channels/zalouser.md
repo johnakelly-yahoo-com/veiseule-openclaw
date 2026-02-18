@@ -135,3 +135,4 @@ Hesaplar zca profilleriyle eşleştirilir. Örnek:
 - `openclaw channels status --probe`
 - Yeniden oturum açın: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
 
+

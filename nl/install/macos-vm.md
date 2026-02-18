@@ -274,3 +274,4 @@ Voor echt altijd-aan, overweeg een dedicated Mac mini of een kleine VPS. Zie [VP
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (geavanceerd)
 - [Docker Sandboxing](/install/docker) (alternatieve isolatie-aanpak)
 
+

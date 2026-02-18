@@ -21,3 +21,4 @@ Notas:
 - La vista general incluye el canal de actualización + el SHA de git (para checkouts desde el código fuente).
 - La información de actualización aparece en la vista general; si hay una actualización disponible, el estado muestra una sugerencia para ejecutar `openclaw update` (ver [Updating](/install/updating)).
 
+

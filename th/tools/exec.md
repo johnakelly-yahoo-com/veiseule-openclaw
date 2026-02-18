@@ -173,3 +173,4 @@ Gateway จะปล่อยอีเวนต์ระบบ (`Exec finished` 
 - นโยบายเครื่องมือยังคงมีผล; `allow: ["exec"]` อนุญาต `apply_patch` โดยปริยาย.
 - คอนฟิกอยู่ภายใต้ `tools.exec.applyPatch`.
 
+

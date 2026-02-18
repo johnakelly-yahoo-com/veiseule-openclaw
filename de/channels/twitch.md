@@ -375,3 +375,4 @@ Beispiel:
 - Markdown wird vor dem Aufteilen entfernt
 - Keine eigene Ratenbegrenzung (verwendet die integrierten Twitch-Ratenlimits)
 
+

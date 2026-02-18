@@ -137,3 +137,4 @@ OpenClaw 는 로컬 설치 경로를 자동으로 제안합니다.
 - `channels.nextcloud-talk.blockStreamingCoalesce`: 블록 스트리밍 병합 튜닝.
 - `channels.nextcloud-talk.mediaMaxMb`: 수신 미디어 상한 (MB).
 
+

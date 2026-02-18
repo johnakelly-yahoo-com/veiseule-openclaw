@@ -36,3 +36,4 @@ OpenClaw ใช้ Brave Search เป็นผู้ให้บริการ
 
 ดู [Web tools](/tools/web) สำหรับการกำหนดค่า web_search แบบครบถ้วน
 
+

@@ -67,3 +67,4 @@ openclaw models set github-copilot/gpt-4o
 - Der Login speichert ein GitHub-Token im Authentifizierungsprofil-Speicher und
   tauscht es beim Ausführen von OpenClaw gegen ein Copilot-API-Token aus.
 
+

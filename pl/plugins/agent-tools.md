@@ -94,3 +94,4 @@ Inne elementy konfiguracji wpływające na dostępność narzędzi:
 - Preferuj `optional: true` dla narzędzi, które wywołują efekty uboczne lub wymagają dodatkowych
   binariów/poświadczeń.
 
+

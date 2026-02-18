@@ -173,3 +173,4 @@ CLI ตั้งใจ **ไม่**แสดงพาธ `node_modules`. ให
 - การตรวจสอบความปลอดภัย: [Security](/gateway/security)
 - การตั้งค่า Tailscale: [Tailscale](/gateway/tailscale)
 
+

@@ -274,3 +274,4 @@ Giữ VM chạy bằng cách:
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (nâng cao)
 - [Docker Sandboxing](/install/docker) (cách cách ly thay thế)
 
+

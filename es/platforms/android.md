@@ -145,3 +145,4 @@ Comandos de cámara (solo en primer plano; con control de permisos):
 
 Consulte [Nodo de cámara](/nodes/camera) para parámetros y ayudantes de la CLI.
 
+

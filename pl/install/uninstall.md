@@ -123,3 +123,4 @@ Jeśli uruchamiasz z checkoutu repozytorium (`git clone` + `openclaw ...` / `bun
 2. Usuń katalog repozytorium.
 3. Usuń stan + obszar roboczy, jak pokazano powyżej.
 
+

@@ -71,3 +71,4 @@ title: "Конфиг Skills"
 
 Глобальные `env` и `skills.entries.<skill>.env/apiKey` применяются только к запускам на **хосте**.
 
+

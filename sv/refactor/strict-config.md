@@ -87,3 +87,4 @@ Allt annat måste vara svårt att misslyckas med: ”Konfigurera ogiltigt. Kör 
 - Ogiltig konfig → gateway-start blockeras förutom diagnostiska kommandon.
 - Doctor dry-run automatiskt; `doctor --fix` skriver korrigerad konfig.
 
+

@@ -92,3 +92,4 @@ emballage og Nix bygger (som ikke er afhængig af en fuld Xcode værktøjskæde)
 - [Wizard](/start/wizard) — CLI-opsætning uden Nix
 - [Docker](/install/docker) — containeriseret opsætning
 
+

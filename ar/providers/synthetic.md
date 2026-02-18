@@ -94,3 +94,4 @@ synthetic/hf:MiniMaxAI/MiniMax-M2.1
   تخطط لاستخدامه.
 - راجع [مزوّدو النماذج](/concepts/model-providers) لمعرفة قواعد المزوّد.
 
+

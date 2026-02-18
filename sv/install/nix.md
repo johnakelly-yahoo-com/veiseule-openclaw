@@ -92,3 +92,4 @@ förpackningar och Nix bygger (som inte förlitar sig på en fullständig Xcode 
 - [Guide](/start/wizard) — icke-Nix CLI-konfigurering
 - [Docker](/install/docker) — containeriserad konfigurering
 
+

@@ -77,3 +77,4 @@ title: "„Menüleiste“"
 - Schnelle Werkzeug-Bursts: sicherstellen, dass das Badge nicht flackert (TTL‑Schonfrist bei Werkzeugergebnissen).
 - Die Gesundheitszeile erscheint wieder, sobald alle Sitzungen inaktiv sind.
 
+

@@ -600,3 +600,4 @@ title: "أمثلة التهيئة"
 - أقسام اختيارية لإضافتها لاحقًا: `web`، `browser`، `ui`، `discovery`، `canvasHost`، `talk`، `signal`، `imessage`.
 - راجع [الموفّرون](/channels/whatsapp) و[استكشاف الأخطاء وإصلاحها](/gateway/troubleshooting) لملاحظات إعداد أعمق.
 
+

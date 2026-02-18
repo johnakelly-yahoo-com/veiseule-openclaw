@@ -404,3 +404,4 @@ WhatsApp wysyła audio jako **notatki głosowe** (dymek PTT).
 - Bun **nie jest zalecany**. WhatsApp (Baileys) i Telegram są niestabilne na Bun.
   Uruchamiaj gateway na **Node**. (Zob. uwaga o runtime w Pierwsze kroki.)
 
+

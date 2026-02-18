@@ -133,3 +133,4 @@ Mattermost hỗ trợ nhiều tài khoản dưới `channels.mattermost.accounts
 - Lỗi xác thực: kiểm tra bot token, base URL và việc tài khoản có được bật hay không.
 - Vấn đề đa tài khoản: biến môi trường chỉ áp dụng cho tài khoản `default`.
 
+

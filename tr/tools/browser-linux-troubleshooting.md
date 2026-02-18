@@ -136,3 +136,4 @@ Notlar:
 - `chrome` profili, mümkün olduğunda **sistem varsayılan Chromium tarayıcınızı** kullanır.
 - Yerel `openclaw` profilleri `cdpPort`/`cdpUrl`’i otomatik atar; bunları yalnızca uzak CDP için ayarlayın.
 
+

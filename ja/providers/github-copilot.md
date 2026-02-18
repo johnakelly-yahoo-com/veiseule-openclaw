@@ -61,3 +61,4 @@ openclaw models set github-copilot/gpt-4o
 - Copilot モデルの利用可否はプランによって異なります。モデルが拒否された場合は、別の ID（例: `github-copilot/gpt-4.1`）を試してください。
 - ログインにより、GitHub トークンが認証プロファイルストアに保存され、OpenClaw の実行時に Copilot API トークンへ交換されます。
 
+

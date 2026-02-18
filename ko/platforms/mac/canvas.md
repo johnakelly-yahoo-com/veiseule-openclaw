@@ -115,3 +115,4 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - 로컬 Canvas 콘텐츠는 사용자 정의 스킴을 사용합니다(local loopback 서버 불필요).
 - 외부 `http(s)` URL 은 명시적으로 탐색한 경우에만 허용됩니다.
 
+

@@ -792,3 +792,4 @@ Telegram 반응은 메시지 페이로드의 속성이 아니라 **별도의 `me
 - `commands.native` (기본값: `"auto"` → Telegram/Discord 에서는 켜짐, Slack 에서는 꺼짐), `commands.text`, `commands.useAccessGroups` (명령 동작). `channels.telegram.commands.native` 로 재정의할 수 있습니다.
 - `messages.responsePrefix`, `messages.ackReaction`, `messages.ackReactionScope`, `messages.removeAckAfterReply`.
 
+

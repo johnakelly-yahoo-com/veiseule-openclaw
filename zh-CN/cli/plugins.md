@@ -61,3 +61,4 @@ openclaw plugins update <id> --dry-run
 
 更新仅适用于从 npm 安装的插件（在 `plugins.installs` 中跟踪）。
 
+

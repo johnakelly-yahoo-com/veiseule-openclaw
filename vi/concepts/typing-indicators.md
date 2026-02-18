@@ -64,3 +64,4 @@ Bạn có thể ghi đè chế độ hoặc nhịp làm mới theo từng phiên
 - Mặc định là 6 giây.
   `/status` trong chat: thẻ trạng thái giàu emoji với token phiên + chi phí ước tính (chỉ API key).
 
+

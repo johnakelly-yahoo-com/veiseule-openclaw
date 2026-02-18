@@ -57,3 +57,4 @@ Agent -> Gateway -> Node Service (WS)
 - Các prompt TCC chỉ xuất phát từ bundle GUI; giữ bundle ID đã ký ổn định giữa các lần rebuild.
 - Gia cố IPC: chế độ socket `0600`, token, kiểm tra peer-UID, thử thách/đáp ứng HMAC, TTL ngắn.
 
+

@@ -259,3 +259,4 @@ Bazı kanallar eklenti olarak sunulur. Onboarding sırasında birini seçtiğini
 - Yapılandırma başvurusu: [Gateway yapılandırması](/gateway/configuration)
 - Sağlayıcılar: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (eski)
 - Skills: [Skills](/tools/skills), [Skills yapılandırması](/tools/skills-config)
+

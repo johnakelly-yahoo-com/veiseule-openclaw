@@ -40,3 +40,4 @@ Noteringar:
 - `memory index --verbose` skriver ut detaljer per fas (leverantör, modell, källor, batchaktivitet).
 - `memory status` inkluderar eventuella extra sökvägar som konfigurerats via `memorySearch.extraPaths`.
 
+

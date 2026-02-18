@@ -239,3 +239,4 @@ Signal セットアップの挙動:
 - オンボーディング ハブ: [Onboarding Wizard (CLI)](/start/wizard)  
 - 自動化とスクリプト: [CLI Automation](/start/wizard-cli-automation)  
 - コマンド リファレンス: [`openclaw onboard`](/cli/onboard)
+

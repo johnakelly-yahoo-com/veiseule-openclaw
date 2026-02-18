@@ -41,3 +41,4 @@ Skills są współdzielone. Twoja konfiguracja należy do Ciebie. Rozdzielenie i
 
 Dodaj wszystko, co pomaga Ci wykonywać pracę. To Twoja ściąga.
 
+

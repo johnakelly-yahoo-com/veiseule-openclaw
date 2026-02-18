@@ -68,3 +68,4 @@ Mga flag:
 - `--agent <id>`: mga approval/allowlist na saklaw ng agent (default sa naka-configure na agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: mga override.
 
+

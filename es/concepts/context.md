@@ -155,3 +155,4 @@ Documentación: [Session](/concepts/session), [Compaction](/concepts/compaction)
 
 En cualquier caso, informa tamaños y los principales contribuyentes; **no** vuelca el system prompt completo ni los esquemas de herramientas.
 
+

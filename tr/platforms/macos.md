@@ -199,3 +199,4 @@ ayrıntıları için [Gateway protocol](/gateway/protocol) bölümüne bakın.
 - [macOS permissions](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
 
+

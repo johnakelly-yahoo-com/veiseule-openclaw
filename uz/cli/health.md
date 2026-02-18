@@ -17,3 +17,4 @@ openclaw health --verbose
 - 41. `--verbose` jonli tekshiruvlarni ishga tushiradi va bir nechta akkaunt sozlanganida har bir akkaunt bo‘yicha vaqtlarni chiqaradi.
 - 42. Bir nechta agent sozlanganida chiqish har bir agent uchun sessiya saqlovlarini o‘z ichiga oladi.
 
+

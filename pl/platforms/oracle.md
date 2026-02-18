@@ -297,3 +297,4 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 - [Poradnik DigitalOcean](/platforms/digitalocean) — jeśli chcesz płatną opcję z łatwiejszą rejestracją
 - [Poradnik Hetzner](/install/hetzner) — alternatywa oparta na Dockerze
 
+

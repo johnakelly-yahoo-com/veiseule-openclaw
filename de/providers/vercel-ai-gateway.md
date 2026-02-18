@@ -44,3 +44,4 @@ Wenn das Gateway als Daemon (launchd/systemd) ausgeführt wird, stellen Sie sich
 diesem Prozess zur Verfügung steht (zum Beispiel in `~/.openclaw/.env` oder über
 `env.shellEnv`).
 
+

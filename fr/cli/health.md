@@ -17,3 +17,4 @@ Notes :
 - `--verbose` execute des sondes en temps reel et affiche des temps par compte lorsque plusieurs comptes sont configures.
 - La sortie inclut des magasins de sessions par agent lorsque plusieurs agents sont configures.
 
+

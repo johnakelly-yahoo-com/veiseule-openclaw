@@ -65,3 +65,4 @@ config validation.
   پیکج-منیجر اجازت فہرست کی ضروریات کی دستاویز کریں (مثال کے طور پر، pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`)۔
 
+

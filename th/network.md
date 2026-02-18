@@ -47,3 +47,4 @@ title: "เครือข่าย"
 - [การแก้ไขปัญหา](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
 
+

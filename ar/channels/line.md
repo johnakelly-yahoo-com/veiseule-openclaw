@@ -176,3 +176,4 @@ openclaw pairing approve line <CODE>
 - **أخطاء تنزيل الوسائط:** ارفع قيمة `channels.line.mediaMaxMb` إذا تجاوزت الوسائط
   الحد الافتراضي.
 
+

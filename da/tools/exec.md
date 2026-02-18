@@ -174,3 +174,4 @@ Noter:
 - Værktøjspolitik gælder stadig; `allow: ["exec"]` tillader implicit `apply_patch`.
 - Konfigurationen ligger under `tools.exec.applyPatch`.
 
+

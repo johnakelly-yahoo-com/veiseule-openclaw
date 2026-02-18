@@ -123,3 +123,4 @@ Om du kör från en repo-utcheckning (`git clone` + `openclaw ...` / `bun run op
 2. Ta bort repokatalogen.
 3. Ta bort tillstånd + arbetsyta enligt ovan.
 
+

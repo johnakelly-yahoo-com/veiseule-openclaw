@@ -394,3 +394,4 @@ TTY 가 없고 설치 방법이 설정되지 않은 경우, 기본값으로 `npm
     보통 PATH 문제입니다. [Node.js 문제 해결](/install/node#troubleshooting)을 참고하십시오.
   </Accordion>
 </AccordionGroup>
+

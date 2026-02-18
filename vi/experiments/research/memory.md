@@ -222,3 +222,4 @@ Nếu bạn muốn một phiên bản tối thiểu nhưng vẫn hữu ích:
 - Báo cáo kỹ thuật Hindsight: “retain / recall / reflect”, bộ nhớ bốn mạng, trích xuất fact tường thuật, tiến hóa độ tin cậy ý kiến.
 - SuCo: arXiv 2411.14754 (2024): “Subspace Collision” cho truy xuất láng giềng gần đúng.
 
+

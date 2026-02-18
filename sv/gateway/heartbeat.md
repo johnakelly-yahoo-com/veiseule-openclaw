@@ -365,3 +365,4 @@ Heartbeats kör full agent varv. Kortare intervaller brinner fler tokens. Behål
 `HEARTBEAT.md` liten och överväg en billigare `modell` eller `target: "none"` om du
 bara vill ha interna statusuppdateringar.
 
+

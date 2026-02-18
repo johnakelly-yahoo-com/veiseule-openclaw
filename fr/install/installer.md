@@ -395,3 +395,4 @@ Utilisez des flags/variables d’environnement non interactifs pour des exécuti
     Généralement un problème de PATH. Consultez le [dépannage Node.js](/install/node#troubleshooting).
   </Accordion>
 </AccordionGroup>
+

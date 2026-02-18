@@ -234,3 +234,4 @@ Vorgeschlagener `.gitignore`-Starter:
 - Wenn `agents.defaults.sandbox` aktiviert ist, können Nicht-Hauptsitzungen
   sitzungsbezogene Sandbox-Workspaces unter `agents.defaults.sandbox.workspaceRoot` verwenden.
 
+

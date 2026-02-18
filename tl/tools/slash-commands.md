@@ -193,3 +193,4 @@ Mga tala:
 - Ang **`/stop`** ay tumutumbok sa aktibong chat session upang ma-abort nito ang kasalukuyang run.
 - **Slack:** `channels.slack.slashCommand` is still supported for a single `/openclaw`-style command. If you enable `commands.native`, you must create one Slack slash command per built-in command (same names as `/help`). Ang mga sub-agent ay mga background agent run na nililikha mula sa isang umiiral na agent run.
 
+

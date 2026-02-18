@@ -127,3 +127,4 @@ Telegram (private + topics)
 - `sendMessageDraft`: Telegram ڈرافٹ ببل (حقیقی پیغام نہیں)۔
 - `final reply`: عام Telegram پیغام بھیجنا۔
 
+

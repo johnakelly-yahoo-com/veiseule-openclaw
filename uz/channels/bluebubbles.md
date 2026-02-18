@@ -337,3 +337,4 @@ Barqaror marshrutlash uchun `chat_guid` ni afzal ko‘ring:
 
 Kanal ish jarayoni bo‘yicha umumiy ma’lumot uchun [Channels](/channels) va [Plugins](/tools/plugin) qo‘llanmasiga qarang.
 
+

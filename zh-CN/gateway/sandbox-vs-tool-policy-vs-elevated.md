@@ -132,3 +132,4 @@ openclaw sandbox explain --json
 
 在 `"non-main"` 模式下，群组/渠道键*不是*主会话。使用主会话键（由 `sandbox explain` 显示）或将模式切换为 `"off"`。
 
+

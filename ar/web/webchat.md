@@ -45,3 +45,4 @@ title: "WebChat"
 - `gateway.remote.url` و`gateway.remote.token` و`gateway.remote.password`: هدف Gateway البعيد.
 - `session.*`: تخزين الجلسات والإعدادات الافتراضية للمفتاح الرئيسي.
 
+

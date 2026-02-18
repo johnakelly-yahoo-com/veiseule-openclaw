@@ -77,3 +77,4 @@ title: "Menulinje"
 - Hurtige værktøjsudbrud: sikr, at badgen ikke flimrer (TTL‑henstand på værktøjsresultater).
 - Sundhedsrækken dukker op igen, når alle sessioner er inaktive.
 
+

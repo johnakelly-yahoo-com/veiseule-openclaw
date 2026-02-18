@@ -41,3 +41,4 @@ openclaw memory index --agent main --verbose
 - `memory index --verbose` は、フェーズごとの詳細（プロバイダー、モデル、ソース、バッチの活動）を出力します。
 - `memory status` には、`memorySearch.extraPaths` を介して設定された追加のパスが含まれます。
 
+

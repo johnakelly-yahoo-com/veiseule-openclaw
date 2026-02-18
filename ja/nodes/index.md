@@ -331,3 +331,4 @@ openclaw node run --host <gateway-host> --port 18789
 - macOS メニューバーアプリは、ノードとして Gateway WS サーバーに接続します（そのため `openclaw nodes …` はこの Mac に対して動作します）。
 - リモートモードでは、アプリが Gateway ポート用の SSH トンネルを開き、`localhost` に接続します。
 
+

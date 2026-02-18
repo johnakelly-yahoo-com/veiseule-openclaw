@@ -57,3 +57,4 @@ Audiencia: colaboradores de la app para macOS. Objetivo: mantener la superposici
 4. Conecte `VoiceWakeOverlayController` al publicador; elimine las llamadas directas desde el runtime/PTT.
 5. Agregue pruebas de integración para adopción de sesiones, enfriamiento y descarte con texto vacío.
 
+

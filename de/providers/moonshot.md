@@ -136,3 +136,4 @@ Hinweis: Moonshot und Kimi Coding sind separate Anbieter. Schlüssel sind nicht 
   `contextWindow` entsprechend an.
 - Verwenden Sie `https://api.moonshot.ai/v1` für den internationalen Endpunkt und `https://api.moonshot.cn/v1` für den China‑Endpunkt.
 
+

@@ -96,3 +96,4 @@ indicator (Active/Idle/Stale) batay sa edad ng huling update.
   - kumpirmahin na ang mga periodic beacon ay gumagamit ng parehong `instanceId`
   - tingnan kung nawawala ang `instanceId` sa entry na galing sa koneksyon (inaasahan ang mga duplicate)
 
+

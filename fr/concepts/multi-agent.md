@@ -382,3 +382,4 @@ Pour le ciblage de groupe, utilisez `agents.list[].groupChat.mentionPatterns` af
 
 Voir [Sandbox et outils multi-agent](/tools/multi-agent-sandbox-tools) pour des exemples détaillés.
 
+

@@ -375,3 +375,4 @@ Przykład:
 - Markdown jest usuwany przed dzieleniem
 - Brak limitowania po stronie aplikacji (wykorzystywane są wbudowane limity Twitch)
 
+

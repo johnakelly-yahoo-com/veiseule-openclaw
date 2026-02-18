@@ -344,3 +344,4 @@ OPENCLAW_DIAGNOSTICS=telegram.http,telegram.payload
   في `logging.file`.
 - **تحتاج إلى مزيد من التفاصيل؟** اضبط `logging.level` على `debug` أو `trace` ثم أعد المحاولة.
 
+

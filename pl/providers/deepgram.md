@@ -88,3 +88,4 @@ Przykład z opcjami Deepgram:
 - Nadpisuj punkty końcowe lub nagłówki za pomocą `tools.media.audio.baseUrl` i `tools.media.audio.headers` podczas korzystania z proxy.
 - Wyjście podlega tym samym zasadom audio co u innych dostawców (limity rozmiaru, limity czasu, wstrzykiwanie transkryptu).
 
+

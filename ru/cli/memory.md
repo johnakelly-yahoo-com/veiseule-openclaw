@@ -40,3 +40,4 @@ openclaw memory index --agent main --verbose
 - `memory index --verbose` выводит детали по каждому этапу (провайдер, модель, источники, активность батчей).
 - `memory status` включает любые дополнительные пути, настроенные через `memorySearch.extraPaths`.
 
+

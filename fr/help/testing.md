@@ -364,3 +364,4 @@ Lorsque vous corrigez un problème de fournisseur/modèle découvert en live :
   - bug de conversion/relecture de requête fournisseur → test des modèles directs
   - bug du pipeline de session/historique/outils de la gateway → smoke live de la gateway ou test mock de la gateway compatible CI
 
+

@@ -49,3 +49,4 @@ Caminhos legados de Claude, Codex, Gemini e Opencode foram removidos. Pi é o ú
 caminho de agente de codificação.
 </Note>
 
+

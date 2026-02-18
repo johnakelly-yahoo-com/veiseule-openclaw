@@ -45,3 +45,4 @@ title: "WebChat"
 - `gateway.remote.url`، `gateway.remote.token`، `gateway.remote.password`: ریموٹ gateway ہدف۔
 - `session.*`: سیشن اسٹوریج اور مرکزی کلید کے طے شدہ اقدار۔
 
+

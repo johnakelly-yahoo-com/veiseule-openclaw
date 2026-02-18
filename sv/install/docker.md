@@ -563,3 +563,4 @@ Exempel:
   anpassade verktygssökvägar (t.ex. `/custom/bin:/usr/local/share/npm-global/bin`), eller lägg till
   ett skript under `/etc/profile.d/` i din Dockerfile.
 
+

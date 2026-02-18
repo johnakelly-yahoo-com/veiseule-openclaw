@@ -129,3 +129,4 @@ Legend:
 - `sendMessageDraft`: Telegram draft bubble (hindi isang tunay na mensahe).
 - `final reply`: normal na pagpapadala ng mensahe sa Telegram.
 
+

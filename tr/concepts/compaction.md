@@ -55,3 +55,4 @@ Budama ayrıntıları için [/concepts/session-pruning](/concepts/session-prunin
 - Büyük araç çıktıları zaten kısaltılır; budama, araç sonucu birikimini daha da azaltabilir.
 - Temiz bir başlangıç gerekiyorsa, `/new` veya `/reset` yeni bir oturum kimliği başlatır.
 
+

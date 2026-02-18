@@ -64,3 +64,4 @@ Du kan tilsidesætte tilstand eller kadence pr. session:
 - `typingIntervalSeconds` styrer **refresh cadence**, ikke starttidspunktet.
   Standard er 6 sekunder.
 
+

@@ -279,3 +279,4 @@ Dieses Repository liefert eine passende Skill-Dokumentation unter `skills/voice-
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
 
+

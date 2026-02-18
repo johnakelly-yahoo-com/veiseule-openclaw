@@ -157,3 +157,4 @@ servicio de usuario (no requiere lingering). Consulte [Gateway runbook](/gateway
 - [Configuración del asistente de OpenClaw](/start/openclaw)
 - [macOS app](/platforms/macos) (ciclo de vida del gateway)
 
+

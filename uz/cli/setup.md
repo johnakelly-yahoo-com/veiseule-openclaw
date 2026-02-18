@@ -23,3 +23,4 @@ Ustani setup orqali ishga tushirish uchun:
 ```bash
 openclaw setup --wizard
 ```
+

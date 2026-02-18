@@ -216,3 +216,4 @@ tailscale funnel 3978
 7. Teams में: **Apps** → **Manage your apps** → **Upload a custom app** → ZIP चुनें  
 
 यह अक्सर JSON manifests को हाथ से एडिट करने से आसान होता है।
+

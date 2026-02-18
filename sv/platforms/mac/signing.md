@@ -43,3 +43,4 @@ Fliken Om läser dessa nycklar för att visa versionen, byggdatum, git commit, o
 
 TCC-behörigheter är knutna till paketidentifieraren _och_ kodsignatur. Osignerade debug kompileringar med ändrade UUID:er fick macOS att glömma bidrag efter varje rebuild. Undertecknandet av binärerna (ad‐hoc som standard) och behållandet av en fast bunt-id/sökväg (`dist/OpenClaw.app`) bevarar bidragen mellan byggen och matchar VibeTunnel tillvägagångssättet.
 
+

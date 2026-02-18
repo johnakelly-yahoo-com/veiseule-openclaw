@@ -336,3 +336,4 @@ OPENCLAW_DIAGNOSTICS=telegram.http,telegram.payload
 - **로그가 비어 있습니까?** Gateway(게이트웨이)가 실행 중이며 `logging.file` 의 파일 경로에 기록하고 있는지 확인하십시오.
 - **더 많은 정보가 필요합니까?** `logging.level` 를 `debug` 또는 `trace` 로 설정한 후 다시 시도하십시오.
 
+

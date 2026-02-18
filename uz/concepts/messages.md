@@ -131,3 +131,4 @@ Outbound message formatting is centralized in `messages`:
 
 Batafsil: [Konfiguratsiya](/gateway/configuration#messages) va kanal hujjatlari.
 
+

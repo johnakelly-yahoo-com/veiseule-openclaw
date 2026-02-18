@@ -257,3 +257,4 @@ free -h
 - [Tailscale](/gateway/tailscale) — безопасный удалённый доступ
 - [Конфигурация](/gateway/configuration) — полный справочник по конфигу
 
+

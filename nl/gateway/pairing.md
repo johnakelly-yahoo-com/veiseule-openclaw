@@ -93,3 +93,4 @@ Beveiligingsnotities:
 - Als de Gateway offline is of koppeling is uitgeschakeld, kunnen nodes niet koppelen.
 - Als de Gateway in externe modus staat, vindt koppeling nog steeds plaats tegen de opslag van de externe Gateway.
 
+

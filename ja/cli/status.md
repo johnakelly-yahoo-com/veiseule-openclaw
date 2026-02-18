@@ -21,3 +21,4 @@ openclaw status --usage
 - 概要には更新チャンネルと git SHA（ソースチェックアウトの場合）が含まれます。
 - 更新情報は概要に表示されます。更新が利用可能な場合、ステータスは `openclaw update` を実行するためのヒントを表示します（[Updating](/install/updating) を参照）。
 
+

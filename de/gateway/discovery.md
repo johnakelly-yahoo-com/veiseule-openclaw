@@ -110,3 +110,4 @@ Das Gateway ist die maßgebliche Quelle für die Zulassung von Nodes/Clients.
 - **macOS-App**: hilft Ihnen bei der Auswahl eines Gateways, zeigt Pairing-Aufforderungen an und verwendet SSH nur als Fallback.
 - **iOS/Android-Nodes**: durchsuchen Bonjour als Komfortfunktion und verbinden sich mit dem gekoppelten Gateway WS.
 
+

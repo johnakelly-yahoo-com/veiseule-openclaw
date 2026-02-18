@@ -37,3 +37,4 @@ x-i18n:
 
 - 你仍然可以使用 [Gateway 网关健康](/gateway/health) 中的 CLI 流程（`openclaw status`、`openclaw status --deep`、`openclaw health --json`），并在 `/tmp/openclaw/openclaw-*.log` 中跟踪 `web-heartbeat` / `web-reconnect`。
 
+

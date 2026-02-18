@@ -206,3 +206,4 @@ Sub-agent sử dụng một lane hàng đợi chuyên dụng trong cùng tiến 
 - Ngữ cảnh sub-agent chỉ inject `AGENTS.md` + `TOOLS.md` (không có `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, hoặc `BOOTSTRAP.md`).
 - Độ sâu lồng tối đa là 5 (`maxSpawnDepth` phạm vi: 1–5). Depth 2 được khuyến nghị cho hầu hết các trường hợp sử dụng.
 - `maxChildrenPerAgent` giới hạn số agent con đang hoạt động mỗi phiên (mặc định: 5, phạm vi: 1–20).
+

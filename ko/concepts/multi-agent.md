@@ -388,3 +388,4 @@ v2026.1.6 부터 각 에이전트는 자체 샌드박스와 도구 제한을 가
 
 자세한 예시는 [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)를 참고하십시오.
 
+

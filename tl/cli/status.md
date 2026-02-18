@@ -21,3 +21,4 @@ Mga tala:
 - Kasama sa Overview ang update channel + git SHA (para sa mga source checkout).
 - Lumalabas ang impormasyon ng update sa Overview; kung may available na update, magpi-print ang status ng pahiwatig para patakbuhin ang `openclaw update` (tingnan ang [Updating](/install/updating)).
 
+

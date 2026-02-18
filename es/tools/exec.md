@@ -174,3 +174,4 @@ Notas:
 - La política de herramientas sigue aplicando; `allow: ["exec"]` permite implícitamente `apply_patch`.
 - La configuración vive bajo `tools.exec.applyPatch`.
 
+

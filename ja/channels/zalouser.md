@@ -136,3 +136,4 @@ openclaw directory groups list --channel zalouser --query "work"
 - `openclaw channels status --probe`
 - 再ログイン: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
 
+

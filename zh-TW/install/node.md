@@ -131,3 +131,4 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
 將 `export PATH=...` 這一行加入你的 `~/.bashrc` 或 `~/.zshrc`，以使設定永久生效。
+

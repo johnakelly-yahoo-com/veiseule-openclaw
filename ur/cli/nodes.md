@@ -67,3 +67,4 @@ Invoke فلیگز:
 - `--agent <id>`: ایجنٹ-اسکوپڈ منظوریات/allowlists (کنفیگر شدہ ایجنٹ بطورِ طے شدہ)۔
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: اووررائیڈز۔
 
+

@@ -485,3 +485,4 @@ fly ssh console -a my-openclaw
 
 Подробности см. в [ценах Fly.io](https://fly.io/docs/about/pricing/).
 
+

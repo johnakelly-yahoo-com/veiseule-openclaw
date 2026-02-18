@@ -69,3 +69,4 @@ Se você quiser apenas resetar as sessões, exclua `agents/<agentId>/sessions/` 
 - [https://docs.openclaw.ai/testing](https://docs.openclaw.ai/testing)
 - [https://docs.openclaw.ai/start/getting-started](https://docs.openclaw.ai/start/getting-started)
 
+

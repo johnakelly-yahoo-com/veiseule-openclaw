@@ -23,3 +23,4 @@ MIT - Zo vrij als een kreeft in de oceaan.
 
 > "We zijn allemaal gewoon aan het spelen met onze eigen prompts." (Een AI, waarschijnlijk high van tokens)
 
+

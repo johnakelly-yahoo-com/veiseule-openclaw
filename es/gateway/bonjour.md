@@ -165,3 +165,4 @@ decimales `\DDD` (p. ej., los espacios se convierten en `\032`).
 - Política de descubrimiento y selección de transporte: [Discovery](/gateway/discovery)
 - Emparejamiento de nodos + aprobaciones: [Gateway pairing](/gateway/pairing)
 
+

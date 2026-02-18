@@ -51,3 +51,4 @@ Meet here
 - **WhatsApp**: يُضاف `locationMessage.comment` و`liveLocationMessage.caption` كسطر التسمية التوضيحية.
 - **Matrix**: يُحلَّل `geo_uri` كموقع دبوس؛ يتم تجاهل الارتفاع ويكون `LocationIsLive` دائمًا false.
 
+

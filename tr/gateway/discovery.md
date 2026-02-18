@@ -110,3 +110,4 @@ Gateway, düğüm/istemci kabulü için tek doğruluk kaynağıdır.
 - **macOS uygulaması**: bir gateway seçmenize yardımcı olur, eşleştirme istemlerini gösterir ve yalnızca yedek olarak SSH kullanır.
 - **iOS/Android düğümleri**: kolaylık olarak Bonjour’u tarar ve eşleştirilmiş Gateway WS’ye bağlanır.
 
+

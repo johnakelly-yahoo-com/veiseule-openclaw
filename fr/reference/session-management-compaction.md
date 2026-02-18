@@ -275,3 +275,4 @@ Pi expose egalement un hook `session_before_compact` dans l’API d’extension,
   - l’encombrement des resultats d’outils : activez/ajustez l’elimination de sessions
 - Tours silencieux qui fuient ? Confirmez que la reponse commence par `NO_REPLY` (jeton exact) et que vous utilisez une version incluant le correctif de suppression du streaming.
 
+

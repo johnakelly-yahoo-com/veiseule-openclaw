@@ -45,3 +45,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - Node-værten skal annoncere `system.execApprovals.get/set` (macOS-app eller headless node-vært).
 - Godkendelsesfiler gemmes pr. vært på `~/.openclaw/exec-approvals.json`.
 
+

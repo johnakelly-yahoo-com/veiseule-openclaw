@@ -31,3 +31,4 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - Logujesz się do Zen, dodajesz dane rozliczeniowe i kopiujesz swój klucz API.
 - OpenCode Zen rozlicza się za każde żądanie; szczegóły sprawdź w panelu OpenCode.
 
+

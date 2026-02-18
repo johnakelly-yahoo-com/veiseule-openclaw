@@ -12,3 +12,4 @@
   - Wir arbeiten über Zeitzonen hinweg daran, OpenClaw besser zu machen.
   - Die Schöpfer. Die Erbauer. Diejenigen, die in den Code blicken.
 
+

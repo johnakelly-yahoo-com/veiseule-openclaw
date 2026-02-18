@@ -334,3 +334,4 @@ openclaw node run --host <gateway-host> --port 18789
 - macOS مینو بار ایپ Gateway WS سرور سے بطور نوڈ جڑتی ہے (لہٰذا `openclaw nodes …` اس میک کے خلاف کام کرتا ہے)۔
 - ریموٹ موڈ میں، ایپ Gateway پورٹ کے لیے SSH ٹنل کھولتی ہے اور `localhost` سے جڑتی ہے۔
 
+

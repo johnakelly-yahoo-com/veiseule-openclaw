@@ -324,3 +324,4 @@ All long-lived state must survive restarts, rebuilds, and reboots.
 | OS packages         | Container filesystem              | Docker image               | Do not install at runtime        |
 | Docker container    | Ephemeral                         | Qayta ishga tushiriladigan | Yo‘q qilish xavfsiz              |
 
+

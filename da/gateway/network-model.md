@@ -13,3 +13,4 @@ proces, der ejer kanalforbindelser og WebSocket-kontrolplanet.
 - Canvas host er en HTTP filserver på `canvasHost.port` (standard `18793`) der serverer `/__openclaw__/canvas/` for node WebViews. Se [Gateway configuration](/gateway/configuration) (`canvasHost`).
 - Fjernbrug er typisk SSH tunnel eller tailnet VPN. Se [Fjernadgang] (/gateway/remote) og [Discovery](/gateway/discovery).
 
+

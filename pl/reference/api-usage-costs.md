@@ -132,3 +132,4 @@ API, może generować koszty zgodnie z zasadami dostawcy danego skill.
 
 Zobacz [Skills](/tools/skills).
 
+

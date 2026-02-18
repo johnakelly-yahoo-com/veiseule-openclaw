@@ -404,3 +404,4 @@ WhatsApp sender lyd som **stemmenoter** (PTT-boble).
 - Bun er **anbefales ikke**. WhatsApp (Baileys) og Telegram er upålidelige på Bun.
   Kør porten med **Node**. (Se Kom i gang runtime note.)
 
+

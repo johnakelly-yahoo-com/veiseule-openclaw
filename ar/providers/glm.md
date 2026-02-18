@@ -27,3 +27,4 @@ openclaw onboard --auth-choice zai-api-key
 - تتضمن أمثلة معرّفات النماذج `glm-4.7` و `glm-4.6`.
 - لتفاصيل الموفّر، راجع [/providers/zai](/providers/zai).
 
+

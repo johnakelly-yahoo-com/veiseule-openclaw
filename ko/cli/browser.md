@@ -101,3 +101,4 @@ Gateway 가 브라우저와 다른 머신에서 실행되는 경우, Chrome/Brav
 
 보안 + 원격 설정: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
 
+

@@ -43,3 +43,4 @@ L’onglet « À propos » lit ces clés pour afficher la version, la date de 
 
 Les autorisations TCC sont liées à l’identifiant de bundle _et_ à la signature du code. Les builds de débogage non signés avec des UUID changeants faisaient que macOS oubliait les autorisations après chaque reconstruction. Signer les binaires (ad‑hoc par défaut) et conserver un identifiant/chemin de bundle fixe (`dist/OpenClaw.app`) préserve les autorisations entre les builds, conformément à l’approche VibeTunnel.
 
+

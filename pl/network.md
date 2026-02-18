@@ -48,3 +48,4 @@ Zaufanie lokalne:
 - [Rozwiązywanie problemów](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
 
+

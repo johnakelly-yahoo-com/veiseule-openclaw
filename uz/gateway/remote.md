@@ -125,3 +125,4 @@ Qisqa versiya: **Gateway’ni loopback-only holatda saqlang**, agar bind kerakli
 
 Chuqur tahlil: [Security](/gateway/security).
 
+

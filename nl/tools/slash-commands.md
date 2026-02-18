@@ -193,3 +193,4 @@ Notities:
 - **`/stop`** richt zich op de actieve chatsessie zodat het de huidige run kan afbreken.
 - **Slack:** `channels.slack.slashCommand` wordt nog steeds ondersteund voor één enkel `/openclaw`-achtig commando. Als je `commands.native` inschakelt, moet je één Slack slash-commando per ingebouwd commando aanmaken (dezelfde namen als `/help`). Command-argumentmenu’s voor Slack worden geleverd als ephemeral Block Kit-knoppen.
 
+

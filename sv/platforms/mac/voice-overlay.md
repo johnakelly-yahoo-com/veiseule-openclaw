@@ -57,3 +57,4 @@ Målgrupp: macOS app bidragsgivare. Mål: hålla rösten överlappande förutsä
 4. Koppla `VoiceWakeOverlayController` till publiceraren; ta bort direkta anrop från runtime/PTT.
 5. Lägg till integrationstester för session-övertagande, cooldown och avstängning vid tom text.
 
+

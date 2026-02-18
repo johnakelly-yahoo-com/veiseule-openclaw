@@ -24,3 +24,4 @@ Ghi chú:
 - Lưu tệp này tại thư mục gốc của workspace với tên `IDENTITY.md`.
 - Với ảnh đại diện, dùng đường dẫn tương đối theo workspace như `avatars/openclaw.png`.
 
+

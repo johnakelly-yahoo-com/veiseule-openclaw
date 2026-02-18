@@ -404,3 +404,4 @@ WhatsApp gửi âm thanh dưới dạng **voice notes** (bong bóng PTT).
 - Bun is **not recommended**. WhatsApp (Baileys) and Telegram are unreliable on Bun.
   Chạy gateway bằng **Node**. (See Getting Started runtime note.)
 
+

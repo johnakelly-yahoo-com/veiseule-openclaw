@@ -247,3 +247,4 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_WORKDIR`: โอเวอร์ไรด์ workdir ค่าเริ่มต้น
 - `CLAWHUB_DISABLE_TELEMETRY=1`: ปิดเทเลเมทรีบน `sync`
 
+

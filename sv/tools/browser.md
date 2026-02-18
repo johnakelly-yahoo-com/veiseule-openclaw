@@ -570,3 +570,4 @@ Hur det mappas:
 
 Detta håller agenten deterministisk och undviker sköra selektorer.
 
+

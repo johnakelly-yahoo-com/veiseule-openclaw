@@ -43,3 +43,4 @@ When signing with `SIGN_IDENTITY="-"` (ad-hoc), the script automatically disable
 
 TCC 權限同時綁定於套件識別碼 _以及_ 程式碼簽章。 Unsigned debug builds with changing UUIDs were causing macOS to forget grants after each rebuild. Signing the binaries (ad‑hoc by default) and keeping a fixed bundle id/path (`dist/OpenClaw.app`) preserves the grants between builds, matching the VibeTunnel approach.
 
+

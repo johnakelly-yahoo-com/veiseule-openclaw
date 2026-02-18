@@ -165,3 +165,4 @@ Saiba mais sobre chaves de sessão em [/concepts/session](/concepts/session).
 - `--server-verbose`: habilitar logs detalhados no servidor ACP.
 - `--verbose, -v`: logs detalhados do cliente.
 
+

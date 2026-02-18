@@ -252,3 +252,4 @@ Notlar:
 - Araç profilleri/izin listeleri kullanıyorsanız, `web_search`/`web_fetch` veya `group:web` ekleyin.
 - Brave anahtarı eksikse, `web_search` belgeler bağlantısı içeren kısa bir kurulum ipucu döndürür.
 
+

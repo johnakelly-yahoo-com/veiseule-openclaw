@@ -31,3 +31,4 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - Du logger ind på Zen, tilføjer betalingsoplysninger og kopierer din API-nøgle.
 - OpenCode Zen fakturerer pr. anmodning; se OpenCode-dashboardet for detaljer.
 
+

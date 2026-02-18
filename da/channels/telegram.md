@@ -796,3 +796,4 @@ Relaterede globale indstillinger:
 - `commands.native` (standard til `"auto"` → on for Telegram/Discord, off for Slack), `commands.text`, `commands.useAccessGroups` (kommando adfærd). Tilsidesæt med `channels.telegram.commands.native`.
 - `messages.responsePrefix`, `messages.ackReaction`, `messages.ackReactionScope`, `messages.removeAckAfterReply`.
 
+

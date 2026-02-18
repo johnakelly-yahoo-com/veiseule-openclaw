@@ -565,3 +565,4 @@ channels/signal.md
 - Pour l’outil Slack, la semantique de suppression de reactions est decrite dans [/tools/reactions](/tools/reactions).
 - Les pieces jointes sont telechargees vers le stockage media lorsque cela est autorise et en dessous de la limite de taille.
 
+

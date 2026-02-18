@@ -611,3 +611,4 @@ Alle bestehenden Tests, die die pi-Integration und ihre Erweiterungen abdecken:
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
 
+

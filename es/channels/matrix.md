@@ -260,3 +260,4 @@ Opciones del proveedor:
 - `channels.matrix.autoJoinAllowlist`: IDs/alias de salas permitidas para unión automática.
 - `channels.matrix.actions`: control de herramientas por acción (reacciones/mensajes/pines/memberInfo/channelInfo).
 
+

@@ -187,3 +187,4 @@ Na nowej maszynie potwierdź, że:
 - [Rozwiązywanie problemów z Gateway](/gateway/troubleshooting)
 - [Gdzie OpenClaw przechowuje swoje dane?](/help/faq#where-does-openclaw-store-its-data)
 
+

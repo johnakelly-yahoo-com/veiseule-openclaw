@@ -92,3 +92,4 @@ apps/macos/Sources/OpenClaw/Resources/Info.plist
 - [Мастер](/start/wizard) — настройка CLI без Nix
 - [Docker](/install/docker) — контейнерная настройка
 
+

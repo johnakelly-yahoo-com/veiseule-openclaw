@@ -84,3 +84,4 @@ description: "아웃바운드 세션 미러링 리팩터링과 관련된 노트,
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
 
+

@@ -83,3 +83,4 @@ openclaw directory peers list --channel zalouser --query "name"
 
 操作：`send`、`image`、`link`、`friends`、`groups`、`me`、`status`
 
+

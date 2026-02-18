@@ -43,3 +43,4 @@ Tab About đọc các khóa này để hiển thị phiên bản, ngày build, g
 
 Quyền TCC được gắn với bundle identifier _và_ chữ ký mã. Các bản debug chưa ký với UUID thay đổi liên tục khiến macOS quên các quyền đã cấp sau mỗi lần build lại. Việc ký các tệp nhị phân (mặc định là ad‑hoc) và giữ cố định bundle id/đường dẫn (`dist/OpenClaw.app`) sẽ сохраня các quyền giữa các lần build, tương tự cách tiếp cận của VibeTunnel.
 
+

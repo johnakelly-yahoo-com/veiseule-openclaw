@@ -352,3 +352,4 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Tailscale](/gateway/tailscale) — fjärråtkomst
 - [Nodes](/nodes) — para ihop din laptop/telefon med Pi-gatewayen
 
+

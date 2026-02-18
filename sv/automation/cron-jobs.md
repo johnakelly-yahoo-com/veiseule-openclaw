@@ -471,3 +471,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Om du ser `telegram:...`-prefix i loggar eller lagrade ”senaste rutt”-mål är det normalt;
   cron-leverans accepterar dem och tolkar fortfarande ämnes-id korrekt.
 
+

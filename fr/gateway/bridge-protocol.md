@@ -83,3 +83,4 @@ Champs de charge utile (tous optionnels sauf indication contraire) :
 Le pont est actuellement en **v1 implicite** (pas de négociation min/max). La rétro‑compatibilité
 est attendue ; ajoutez un champ de version du protocole de pont avant toute modification incompatible.
 
+

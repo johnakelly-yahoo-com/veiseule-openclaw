@@ -152,3 +152,4 @@ Buong gabay: [Pagsisimula](/start/getting-started)
 
 Wala pa kaming Windows companion app sa ngayon. Malugod naming tinatanggap ang mga kontribusyon kung gusto mong tumulong para mangyari ito.
 
+

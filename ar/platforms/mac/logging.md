@@ -52,3 +52,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - اختياريًا، شغّل `sudo log config --reload` لإجبار logd على إسقاط التجاوز فورًا.
 - تذكّر أن هذه الواجهة قد تتضمن أرقام هواتف ونصوص رسائل؛ احتفِظ بملف plist في مكانه فقط طالما كنت بحاجة فعلية إلى هذا المستوى الإضافي من التفاصيل.
 
+

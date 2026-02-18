@@ -262,3 +262,4 @@ uni sozlashdan oldin o‘rnatishni (npm yoki lokal yo‘l orqali) so‘raydi.
 - Konfiguratsiya ma’lumotnomasi: [Gateway configuration](/gateway/configuration)
 - Provayderlar: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (eski)
 - Skills: [Skills](/tools/skills), [Skills config](/tools/skills-config)
+
